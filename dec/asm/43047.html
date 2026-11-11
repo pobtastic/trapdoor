@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at 43047</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at 43047. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at 43047" />
+<meta property="og:description" content="The Trap Door: Data at 43047. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/43047.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/43047.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at 43047",
+"name": "The Trap Door: Data at 43047",
+"description": "The Trap Door: Data at 43047. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/43047.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at 43047"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/43047.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="43032.html">43032</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#43047">Map</a></td>
+<td class="next">
+Next: <a href="43065.html">43065</a>
+</td>
+</tr>
+</table>
+<div class="description">43047: Graphic Layout: Lever Closed Facing Left</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Lever closed, facing left. Used by <a href="45020.html">ScriptRoutine_AnimateTrapDoorBerk</a> / <a href="45086.html">Reset_Trap_Door_Animation_State</a> while the lever animates. Also referenced from <a href="44449.html#44514">44514</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="43047"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-a827" src="../../images/scr/layout-a827.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GraphicLayout_LeverClosedLeft</td>
+<td class="address-1"><span id="43047"></span>43047</td>
+<td class="instruction">DEFB 244,2</td>
+<td class="comment-1" rowspan="1">Set the graphic set to <a href="33257.html">2</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43049"></span>43049</td>
+<td class="instruction">DEFB 250,0,1</td>
+<td class="comment-1" rowspan="1">Move the cursor by 1 horizontally and 0 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43052"></span>43052</td>
+<td class="instruction">DEFB 242,134</td>
+<td class="comment-1" rowspan="1">Set the current attribute to INK: YELLOW,
+PAPER: BLACK&#44; MIRRORED (134).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43054"></span>43054</td>
+<td class="instruction">DEFB 47,31</td>
+<td class="comment-1" rowspan="1">Draw tile 47 and move left by 1 and down by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43056"></span>43056</td>
+<td class="instruction">DEFB 135,33</td>
+<td class="comment-1" rowspan="1">Draw tile 135 and move right by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43058"></span>43058</td>
+<td class="instruction">DEFB 48,31</td>
+<td class="comment-1" rowspan="1">Draw tile 48 and move left by 1 and down by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43060"></span>43060</td>
+<td class="instruction">DEFB 134,33</td>
+<td class="comment-1" rowspan="1">Draw tile 134 and move right by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43062"></span>43062</td>
+<td class="instruction">DEFB 49,33</td>
+<td class="comment-1" rowspan="1">Draw tile 49 and move right by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43064"></span>43064</td>
+<td class="instruction">DEFB 255</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="43032.html">43032</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#43047">Map</a></td>
+<td class="next">
+Next: <a href="43065.html">43065</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/A827.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

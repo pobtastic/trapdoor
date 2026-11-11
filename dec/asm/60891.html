@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 60891</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 60891. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 60891" />
+<meta property="og:description" content="The Trap Door: Routine at 60891. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/60891.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/60891.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 60891",
+"name": "The Trap Door: Routine at 60891",
+"description": "The Trap Door: Routine at 60891. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/60891.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 60891"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/60891.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60885.html">60885</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60891">Map</a></td>
+<td class="next">
+Next: <a href="60920.html">60920</a>
+</td>
+</tr>
+</table>
+<div class="description">60891: Close Trap Door</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="47091.html">Berk_Interact_With_Entity</a> and <a href="60879.html">ScriptRoutine_CloseTrapDoor</a>.
+</div>
+<div class="paragraph">
+Close the trap door: queue a sound, switch the lever graphic layout to closed facing right, and update the related scenery entity types.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Close_TrapDoor</td>
+<td class="address-2"><span id="60891"></span>60891</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="3">Stash <span class="register">IX</span>, <span class="register">HL</span> and <span class="register">DE</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60893"></span>60893</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60894"></span>60894</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60895"></span>60895</td>
+<td class="instruction">LD HL,29363</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the game event flags (<a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60898"></span>60898</td>
+<td class="instruction">BIT 4,(HL)</td>
+<td class="comment-1" rowspan="2">Is "task-two / upstairs event latch" (bit 4 of <a href="29363.html">GameEventFlags</a>) set? If so, jump to <a href="60920.html#60971">TrapDoor_RestoreAndReturn</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60900"></span>60900</td>
+<td class="instruction">JR NZ,<a href="60920.html#60971">TrapDoor_RestoreAndReturn</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60902"></span>60902</td>
+<td class="instruction">RES 1,(HL)</td>
+<td class="comment-1" rowspan="1">Clear "trap door is open / trap door event armed" (bit 1 of <a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60904"></span>
+<div class="comments">
+<div class="paragraph">
+<audio controls="" src="../../audio/trap-door-close.wav">
+<p>Your browser doesn't support HTML5 audio. Here is a <a href="../../audio/trap-door-close.wav">link to the audio</a> instead.</p>
+</audio>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60904"></span>60904</td>
+<td class="instruction">LD A,6</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with sound index 6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60906"></span>60906</td>
+<td class="instruction">CALL <a href="63737.html">Queue_Sound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="63737.html">Queue_Sound</a> to queue sound.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60909"></span>60909</td>
+<td class="instruction">LD HL,43017</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the lever closed, facing right (<a href="43017.html">GraphicLayout_LeverClosedRight</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60912"></span>60912</td>
+<td class="instruction">LD (37239),HL</td>
+<td class="comment-1" rowspan="1">Store <span class="register">HL</span> in the lever layout pointer (<a href="37047.html#37239">Pointer_TrapDoorLayout</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60915"></span>60915</td>
+<td class="instruction">LD HL,60873</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the closed-trap type list (<a href="60867.html#60873">Data_TrapDoorClosedTypes</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60918"></span>60918</td>
+<td class="instruction">JR <a href="60920.html#60953">UpdateTrapDoorEntityTypes</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60920.html#60953">UpdateTrapDoorEntityTypes</a> to handle the trap door.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60885.html">60885</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60891">Map</a></td>
+<td class="next">
+Next: <a href="60920.html">60920</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/EDDB.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

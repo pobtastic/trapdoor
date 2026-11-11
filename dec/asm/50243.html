@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 50243</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 50243. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 50243" />
+<meta property="og:description" content="The Trap Door: Routine at 50243. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/50243.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/50243.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 50243",
+"name": "The Trap Door: Routine at 50243",
+"description": "The Trap Door: Routine at 50243. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/50243.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 50243"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/50243.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="50143.html">50143</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#50243">Map</a></td>
+<td class="next">
+Next: <a href="50518.html">50518</a>
+</td>
+</tr>
+</table>
+<div class="description">50243: Script Routine: (45) Task-three entity action</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Clear the upstairs event bit, then resume the task-three script.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Address of complex state data for an entity</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_TaskThreeClearUpstairs</td>
+<td class="address-2"><span id="50243"></span>50243</td>
+<td class="instruction">LD A,(29363)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the game event flags (<a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50246"></span>50246</td>
+<td class="instruction">RES 4,A</td>
+<td class="comment-1" rowspan="1">Clear bit 4 of the flag byte in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50248"></span>50248</td>
+<td class="instruction">LD (29363),A</td>
+<td class="comment-1" rowspan="1">Set the game event flags (<a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50251"></span>50251</td>
+<td class="instruction">JR <a href="50143.html#50220">ScriptRoutine_TaskThreeSeekBerk_IncRoomAndHeater</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="50143.html#50220">ScriptRoutine_TaskThreeSeekBerk_IncRoomAndHeater</a> to continue this routine.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50253"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="50143.html">ScriptRoutine_TaskThreeSeekBerk</a>.
+</div>
+<div class="paragraph">
+Descend toward Berk: at room 2 arm Slimy (<a href="50243.html#50498">ScriptRoutine_TaskThreeSeekBerk_ArmSlimyRange10</a>); else fall when bit 3 is set, or run the descend script.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_TaskThreeSeekBerk_MoveRoomDown</td>
+<td class="address-2"><span id="50253"></span>50253</td>
+<td class="instruction">LD A,(IX+4)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's room index.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50256"></span>50256</td>
+<td class="instruction">CP 2</td>
+<td class="comment-1" rowspan="2">Is the current entity's room index equal to 2? If so, jump to <a href="50243.html#50498">ScriptRoutine_TaskThreeSeekBerk_ArmSlimyRange10</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50258"></span>50258</td>
+<td class="instruction">JP Z,<a href="50243.html#50498">ScriptRoutine_TaskThreeSeekBerk_ArmSlimyRange10</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50261"></span>50261</td>
+<td class="instruction">LD A,(IX+9)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's direction / state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50264"></span>50264</td>
+<td class="instruction">BIT 3,A</td>
+<td class="comment-1" rowspan="2">Is bit 3 of the current entity's direction / state set? If so, jump to <a href="50243.html#50274">ScriptRoutine_TaskThreeSeekBerk_TestCameraThenFall</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50266"></span>50266</td>
+<td class="instruction">JR NZ,<a href="50243.html#50274">ScriptRoutine_TaskThreeSeekBerk_TestCameraThenFall</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50268"></span>50268</td>
+<td class="instruction">LD HL,49978</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at task-three table entry <a href="49897.html">49978</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50271"></span>50271</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50274"></span>
+<div class="comments">
+<div class="paragraph">
+Probe with <a href="62034.html">Clamp_CameraPosition</a>, then fall one room toward Berk and refresh the heater.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_TaskThreeSeekBerk_TestCameraThenFall</td>
+<td class="address-2"><span id="50274"></span>50274</td>
+<td class="instruction">CALL <a href="62034.html">Clamp_CameraPosition</a></td>
+<td class="comment-1" rowspan="1">Call <a href="62034.html">Clamp_CameraPosition</a> to clamp the camera position.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50277"></span>50277</td>
+<td class="instruction">JR NC,<a href="50243.html#50294">ScriptRoutine_TaskThreeSeekBerk_MaybeArmSlimyFromFall</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="50243.html#50294">ScriptRoutine_TaskThreeSeekBerk_MaybeArmSlimyFromFall</a> if the result did not underflow.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50279"></span>50279</td>
+<td class="instruction">DEC (IX+5)</td>
+<td class="comment-1" rowspan="2">Move this entity one character up.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50282"></span>50282</td>
+<td class="instruction">DEC (IX+6)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50285"></span>50285</td>
+<td class="instruction">DEC (IX+4)</td>
+<td class="comment-1" rowspan="1">Move this entity back one room.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50288"></span>50288</td>
+<td class="instruction">CALL <a href="50741.html">Update_Heater</a></td>
+<td class="comment-1" rowspan="1">Call <a href="50741.html">Update_Heater</a> to update Heater.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50291"></span>50291</td>
+<td class="instruction">JP <a href="60462.html">AdvanceScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html">AdvanceScriptInstruction</a> to run the next script instruction.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50294"></span>
+<div class="comments">
+<div class="paragraph">
+Blocked fall: treat direction 31 as a door hit (<a href="50562.html#50586">TaskThree_DoorHitThenNextScript</a>), otherwise arm Slimy at <a href="50243.html#50498">ScriptRoutine_TaskThreeSeekBerk_ArmSlimyRange10</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_TaskThreeSeekBerk_MaybeArmSlimyFromFall</td>
+<td class="address-2"><span id="50294"></span>50294</td>
+<td class="instruction">CP 31</td>
+<td class="comment-1" rowspan="2">Is the current entity's direction / state equal to 31? If so, jump to <a href="50562.html#50586">TaskThree_DoorHitThenNextScript</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50296"></span>50296</td>
+<td class="instruction">JP Z,<a href="50562.html#50586">TaskThree_DoorHitThenNextScript</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50299"></span>50299</td>
+<td class="instruction">JP <a href="50243.html#50498">ScriptRoutine_TaskThreeSeekBerk_ArmSlimyRange10</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="50243.html#50498">ScriptRoutine_TaskThreeSeekBerk_ArmSlimyRange10</a> to continue this routine.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50302"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="50143.html">ScriptRoutine_TaskThreeSeekBerk</a>.
+</div>
+<div class="paragraph">
+Same-room chase: compare Berk's X band (<a href="29443.html">BerkXCoordinateCopy</a>/<a href="29444.html">BerkXExtentCopy</a>) and walk right, left, or stop.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_TaskThreeSeekBerk_CompareBerkXEdges</td>
+<td class="address-2"><span id="50302"></span>50302</td>
+<td class="instruction">LD A,(29443)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with Berk's X-coordinate copy (<a href="29443.html">BerkXCoordinateCopy</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50305"></span>50305</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Keep Berk's X coordinate in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50306"></span>50306</td>
+<td class="instruction">LD A,(IX+8)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50309"></span>50309</td>
+<td class="instruction">CP C</td>
+<td class="comment-1" rowspan="2">Is this entity's x-extent left of Berk's X-coordinate copy (<a href="29443.html">BerkXCoordinateCopy</a>)? If so, jump to <a href="50243.html#50323">ScriptRoutine_TaskThreeSeekBerk_BuildRightWindow</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50310"></span>50310</td>
+<td class="instruction">JR C,<a href="50243.html#50323">ScriptRoutine_TaskThreeSeekBerk_BuildRightWindow</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50312"></span>50312</td>
+<td class="instruction">LD A,(29444)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with Berk's X-extent copy (<a href="29444.html">BerkXExtentCopy</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50315"></span>50315</td>
+<td class="instruction">CP (IX+7)</td>
+<td class="comment-1" rowspan="2">Is Berk's X-extent copy left of this entity's x (<span class="register">IX</span>+7)? If so, jump to <a href="50243.html#50398">ScriptRoutine_TaskThreeSeekBerk_BuildLeftWindow</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50318"></span>50318</td>
+<td class="instruction">JR C,<a href="50243.html#50398">ScriptRoutine_TaskThreeSeekBerk_BuildLeftWindow</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50320"></span>50320</td>
+<td class="instruction">JP <a href="50562.html#50586">TaskThree_DoorHitThenNextScript</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="50562.html#50586">TaskThree_DoorHitThenNextScript</a> to finish this handler.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50323"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="50143.html">ScriptRoutine_TaskThreeSeekBerk</a>.
+</div>
+<div class="paragraph">
+Build the right-side Berk window into <a href="49892.html#49894">49894</a> and run the peek script when he sits in that band.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_TaskThreeSeekBerk_BuildRightWindow</td>
+<td class="address-2"><span id="50323"></span>50323</td>
+<td class="instruction">LD A,(29445)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with Berk's room-index copy (<a href="29445.html">BerkRoomIndexCopy</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50326"></span>50326</td>
+<td class="instruction">CP (IX+4)</td>
+<td class="comment-1" rowspan="2">Is Berk in the same room as this entity (<span class="register">IX</span>+4)? If not, jump to <a href="50243.html#50362">ScriptRoutine_TaskThreeSeekBerk_WalkRight</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50329"></span>50329</td>
+<td class="instruction">JR NZ,<a href="50243.html#50362">ScriptRoutine_TaskThreeSeekBerk_WalkRight</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50331"></span>50331</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> zero? If so, jump to <a href="50243.html#50362">ScriptRoutine_TaskThreeSeekBerk_WalkRight</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50332"></span>50332</td>
+<td class="instruction">JR Z,<a href="50243.html#50362">ScriptRoutine_TaskThreeSeekBerk_WalkRight</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50334"></span>50334</td>
+<td class="instruction">LD A,(IX+8)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50337"></span>50337</td>
+<td class="instruction">ADD A,3</td>
+<td class="comment-1" rowspan="1">Add 3 to <span class="register">A</span> (adjust a task phase/index).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50339"></span>50339</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Keep the index in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50340"></span>50340</td>
+<td class="instruction">ADD A,4</td>
+<td class="comment-1" rowspan="1">Add 4 to <span class="register">A</span> (step a coordinate/index).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50342"></span>50342</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1">Keep a copy of <span class="register">A</span> in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50343"></span>50343</td>
+<td class="instruction">LD (49894),BC</td>
+<td class="comment-1" rowspan="1">Store <span class="register">BC</span> in the task-three word (<a href="49892.html#49894">49894</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50347"></span>50347</td>
+<td class="instruction">LD A,(29443)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with Berk's X-coordinate copy (<a href="29443.html">BerkXCoordinateCopy</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50350"></span>50350</td>
+<td class="instruction">CP B</td>
+<td class="comment-1" rowspan="2">Is Berk's X-coordinate copy (<a href="29443.html">BerkXCoordinateCopy</a>) at or beyond this entity's x-extent? If so, jump to <a href="50243.html#50362">ScriptRoutine_TaskThreeSeekBerk_WalkRight</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50351"></span>50351</td>
+<td class="instruction">JR NC,<a href="50243.html#50362">ScriptRoutine_TaskThreeSeekBerk_WalkRight</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50353"></span>50353</td>
+<td class="instruction">CP C</td>
+<td class="comment-1" rowspan="2">Is Berk's X-coordinate copy (<a href="29443.html">BerkXCoordinateCopy</a>) left of this entity's x-extent? If so, jump to <a href="50243.html#50362">ScriptRoutine_TaskThreeSeekBerk_WalkRight</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50354"></span>50354</td>
+<td class="instruction">JR C,<a href="50243.html#50362">ScriptRoutine_TaskThreeSeekBerk_WalkRight</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50356"></span>50356</td>
+<td class="instruction">LD HL,50014</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at task-three table entry <a href="49897.html">50014</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50359"></span>50359</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50362"></span>
+<div class="comments">
+<div class="paragraph">
+Walk right toward Berk until the right edge (182), then arm Slimy or keep stepping.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_TaskThreeSeekBerk_WalkRight</td>
+<td class="address-2"><span id="50362"></span>50362</td>
+<td class="instruction">LD A,(IX+8)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50365"></span>50365</td>
+<td class="instruction">CP 182</td>
+<td class="comment-1" rowspan="2">Is the current entity's x-extent less than 182? If not, jump to <a href="50243.html#50473">ScriptRoutine_TaskThreeSeekBerk_ArmSlimyRange06</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50367"></span>50367</td>
+<td class="instruction">JR NC,<a href="50243.html#50473">ScriptRoutine_TaskThreeSeekBerk_ArmSlimyRange06</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50369"></span>50369</td>
+<td class="instruction">BIT 0,(IX+9)</td>
+<td class="comment-1" rowspan="2">Is bit 0 of the current entity's direction / state set? If so, jump to <a href="50243.html#50381">ScriptRoutine_TaskThreeSeekBerk_TestBelowThenIncX</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50373"></span>50373</td>
+<td class="instruction">JR NZ,<a href="50243.html#50381">ScriptRoutine_TaskThreeSeekBerk_TestBelowThenIncX</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50375"></span>50375</td>
+<td class="instruction">LD HL,49948</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at task-three table entry <a href="49897.html">49948</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50378"></span>50378</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50381"></span>
+<div class="comments">
+<div class="paragraph">
+If the way below is clear (<a href="62353.html">Test_EntityBelow</a>), step right and refresh the heater.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_TaskThreeSeekBerk_TestBelowThenIncX</td>
+<td class="address-2"><span id="50381"></span>50381</td>
+<td class="instruction">CALL <a href="62353.html">Test_EntityBelow</a></td>
+<td class="comment-1" rowspan="1">Call <a href="62353.html">Test_EntityBelow</a> to test whether an entity is below.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50384"></span>50384</td>
+<td class="instruction">JR NC,<a href="50243.html#50473">ScriptRoutine_TaskThreeSeekBerk_ArmSlimyRange06</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="50243.html#50473">ScriptRoutine_TaskThreeSeekBerk_ArmSlimyRange06</a> if the result did not underflow.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50386"></span>50386</td>
+<td class="instruction">INC (IX+7)</td>
+<td class="comment-1" rowspan="2">Move this entity one character right.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50389"></span>50389</td>
+<td class="instruction">INC (IX+8)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50392"></span>50392</td>
+<td class="instruction">CALL <a href="50741.html">Update_Heater</a></td>
+<td class="comment-1" rowspan="1">Call <a href="50741.html">Update_Heater</a> to update Heater.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50395"></span>50395</td>
+<td class="instruction">JP <a href="60462.html">AdvanceScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html">AdvanceScriptInstruction</a> to run the next script instruction.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50398"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="50143.html">ScriptRoutine_TaskThreeSeekBerk</a>.
+</div>
+<div class="paragraph">
+Build the left-side Berk window into <a href="49892.html#49894">49894</a> and run the peek script when he sits in that band.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_TaskThreeSeekBerk_BuildLeftWindow</td>
+<td class="address-2"><span id="50398"></span>50398</td>
+<td class="instruction">LD A,(29445)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with Berk's room-index copy (<a href="29445.html">BerkRoomIndexCopy</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50401"></span>50401</td>
+<td class="instruction">CP (IX+4)</td>
+<td class="comment-1" rowspan="2">Is Berk in the same room as this entity (<span class="register">IX</span>+4)? If not, jump to <a href="50243.html#50437">ScriptRoutine_TaskThreeSeekBerk_WalkLeft</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50404"></span>50404</td>
+<td class="instruction">JR NZ,<a href="50243.html#50437">ScriptRoutine_TaskThreeSeekBerk_WalkLeft</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50406"></span>50406</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> zero? If so, jump to <a href="50243.html#50437">ScriptRoutine_TaskThreeSeekBerk_WalkLeft</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50407"></span>50407</td>
+<td class="instruction">JR Z,<a href="50243.html#50437">ScriptRoutine_TaskThreeSeekBerk_WalkLeft</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50409"></span>50409</td>
+<td class="instruction">LD A,(IX+7)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50412"></span>50412</td>
+<td class="instruction">SUB 3</td>
+<td class="comment-1" rowspan="1">Subtract 3 from <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50414"></span>50414</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Keep the delta in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50415"></span>50415</td>
+<td class="instruction">SUB 3</td>
+<td class="comment-1" rowspan="1">Subtract 3 from <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50417"></span>50417</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1">Keep a copy of <span class="register">A</span> in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50418"></span>50418</td>
+<td class="instruction">LD (49894),BC</td>
+<td class="comment-1" rowspan="1">Store <span class="register">BC</span> in the task-three word (<a href="49892.html#49894">49894</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50422"></span>50422</td>
+<td class="instruction">LD A,(29444)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with Berk's X-extent copy (<a href="29444.html">BerkXExtentCopy</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50425"></span>50425</td>
+<td class="instruction">CP B</td>
+<td class="comment-1" rowspan="2">Is Berk's X-extent copy (<a href="29444.html">BerkXExtentCopy</a>) left of the entity's x (<span class="register">IX</span>+7)? If so, jump to <a href="50243.html#50437">ScriptRoutine_TaskThreeSeekBerk_WalkLeft</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50426"></span>50426</td>
+<td class="instruction">JR C,<a href="50243.html#50437">ScriptRoutine_TaskThreeSeekBerk_WalkLeft</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50428"></span>50428</td>
+<td class="instruction">CP C</td>
+<td class="comment-1" rowspan="2">Is Berk's X-extent copy (<a href="29444.html">BerkXExtentCopy</a>) at or beyond the entity's x (<span class="register">IX</span>+7)? If so, jump to <a href="50243.html#50437">ScriptRoutine_TaskThreeSeekBerk_WalkLeft</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50429"></span>50429</td>
+<td class="instruction">JR NC,<a href="50243.html#50437">ScriptRoutine_TaskThreeSeekBerk_WalkLeft</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50431"></span>50431</td>
+<td class="instruction">LD HL,49988</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at task-three table entry <a href="49897.html">49988</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50434"></span>50434</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50437"></span>
+<div class="comments">
+<div class="paragraph">
+Walk left toward Berk until the left edge (73), then arm Slimy or keep stepping.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_TaskThreeSeekBerk_WalkLeft</td>
+<td class="address-2"><span id="50437"></span>50437</td>
+<td class="instruction">LD A,(IX+7)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50440"></span>50440</td>
+<td class="instruction">CP 73</td>
+<td class="comment-1" rowspan="2">Is the current entity's x-coordinate less than 73? If so, jump to <a href="50243.html#50473">ScriptRoutine_TaskThreeSeekBerk_ArmSlimyRange06</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50442"></span>50442</td>
+<td class="instruction">JR C,<a href="50243.html#50473">ScriptRoutine_TaskThreeSeekBerk_ArmSlimyRange06</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50444"></span>50444</td>
+<td class="instruction">BIT 1,(IX+9)</td>
+<td class="comment-1" rowspan="2">Is bit 1 of the current entity's direction / state set? If so, jump to <a href="50243.html#50456">ScriptRoutine_TaskThreeSeekBerk_TestRightThenDecX</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50448"></span>50448</td>
+<td class="instruction">JR NZ,<a href="50243.html#50456">ScriptRoutine_TaskThreeSeekBerk_TestRightThenDecX</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50450"></span>50450</td>
+<td class="instruction">LD HL,49958</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at task-three table entry <a href="49897.html">49958</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50453"></span>50453</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50456"></span>
+<div class="comments">
+<div class="paragraph">
+If the way on the right is clear (<a href="62254.html">Test_EntityOnRight</a>), step left and refresh the heater.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_TaskThreeSeekBerk_TestRightThenDecX</td>
+<td class="address-2"><span id="50456"></span>50456</td>
+<td class="instruction">CALL <a href="62254.html">Test_EntityOnRight</a></td>
+<td class="comment-1" rowspan="1">Call <a href="62254.html">Test_EntityOnRight</a> to test whether an entity is on the right.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50459"></span>50459</td>
+<td class="instruction">JR NC,<a href="50243.html#50473">ScriptRoutine_TaskThreeSeekBerk_ArmSlimyRange06</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="50243.html#50473">ScriptRoutine_TaskThreeSeekBerk_ArmSlimyRange06</a> if the result did not underflow.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50461"></span>50461</td>
+<td class="instruction">DEC (IX+7)</td>
+<td class="comment-1" rowspan="2">Move this entity one character left.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50464"></span>50464</td>
+<td class="instruction">DEC (IX+8)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50467"></span>50467</td>
+<td class="instruction">CALL <a href="50741.html">Update_Heater</a></td>
+<td class="comment-1" rowspan="1">Call <a href="50741.html">Update_Heater</a> to update Heater.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50470"></span>50470</td>
+<td class="instruction">JP <a href="60462.html">AdvanceScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html">AdvanceScriptInstruction</a> to run the next script instruction.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50473"></span>
+<div class="comments">
+<div class="paragraph">
+Edge / stuck path: arm Slimy with range 6 via <a href="50518.html">Update_Slimy_Creature</a>, then pick a seek or descend script.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_TaskThreeSeekBerk_ArmSlimyRange06</td>
+<td class="address-2"><span id="50473"></span>50473</td>
+<td class="instruction">CP 31</td>
+<td class="comment-1" rowspan="2">Is the current entity's x-coordinate equal to 31? If so, jump to <a href="50562.html#50586">TaskThree_DoorHitThenNextScript</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50475"></span>50475</td>
+<td class="instruction">JP Z,<a href="50562.html#50586">TaskThree_DoorHitThenNextScript</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50478"></span>50478</td>
+<td class="instruction">LD A,6</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50480"></span>50480</td>
+<td class="instruction">CALL <a href="50518.html">Update_Slimy_Creature</a></td>
+<td class="comment-1" rowspan="1">Call <a href="50518.html">Update_Slimy_Creature</a> to update Slimy Creature.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50483"></span>50483</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> zero? If so, jump to <a href="50243.html#50492">ScriptRoutine_TaskThreeSeekBerk_RunSeekScript</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50484"></span>50484</td>
+<td class="instruction">JR Z,<a href="50243.html#50492">ScriptRoutine_TaskThreeSeekBerk_RunSeekScript</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50486"></span>50486</td>
+<td class="instruction">LD HL,49978</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at task-three table entry <a href="49897.html">49978</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50489"></span>50489</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50492"></span>
+<div class="comments">
+<div class="paragraph">
+Run the climb/seek script at table entry <a href="49897.html">49968</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_TaskThreeSeekBerk_RunSeekScript</td>
+<td class="address-2"><span id="50492"></span>50492</td>
+<td class="instruction">LD HL,49968</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at task-three table entry <a href="49897.html">49968</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50495"></span>50495</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50498"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="50143.html">ScriptRoutine_TaskThreeSeekBerk</a>.
+</div>
+<div class="paragraph">
+Arm Slimy with range 16 via <a href="50518.html">Update_Slimy_Creature</a>, then pick an approach or walk-left script.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_TaskThreeSeekBerk_ArmSlimyRange10</td>
+<td class="address-2"><span id="50498"></span>50498</td>
+<td class="instruction">LD A,16</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 16.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50500"></span>50500</td>
+<td class="instruction">CALL <a href="50518.html">Update_Slimy_Creature</a></td>
+<td class="comment-1" rowspan="1">Call <a href="50518.html">Update_Slimy_Creature</a> to update the slimy creature.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50503"></span>50503</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the random result in <span class="register">A</span> zero? If so, jump to <a href="50243.html#50512">ScriptRoutine_TaskThreeSeekBerk_RunApproachScript</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50504"></span>50504</td>
+<td class="instruction">JR Z,<a href="50243.html#50512">ScriptRoutine_TaskThreeSeekBerk_RunApproachScript</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50506"></span>50506</td>
+<td class="instruction">LD HL,49958</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at task-three table entry <a href="49897.html">49958</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50509"></span>50509</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50512"></span>
+<div class="comments">
+<div class="paragraph">
+Run the walk-right approach script at table entry <a href="49897.html">49948</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_TaskThreeSeekBerk_RunApproachScript</td>
+<td class="address-2"><span id="50512"></span>50512</td>
+<td class="instruction">LD HL,49948</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at task-three table entry <a href="49897.html">49948</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50515"></span>50515</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="50143.html">50143</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#50243">Map</a></td>
+<td class="next">
+Next: <a href="50518.html">50518</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/C443.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

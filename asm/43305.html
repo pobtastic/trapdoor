@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at A929</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at A929. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at A929" />
+<meta property="og:description" content="The Trap Door: Data at A929. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/43305.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/43305.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at A929",
+"name": "The Trap Door: Data at A929",
+"description": "The Trap Door: Data at A929. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/43305.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at A929"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/43305.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="43254.html">A8F6</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#a929">Map</a></td>
+<td class="next">
+Next: <a href="43560.html">AA28</a>
+</td>
+</tr>
+</table>
+<div class="description">A929: Data: Entity Templates</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Wide scenery layout (type 32).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Data_EntityTemplates_WideScenery</td>
+<td class="address-1"><span id="a929"></span>A929</td>
+<td class="instruction">DEFB $F4,$05,$FB,$C2,$A9,$FA,$01,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a931"></span>A931</td>
+<td class="instruction">DEFB $FB,$C2,$A9,$FA,$02,$00,$FB,$C2</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a939"></span>A939</td>
+<td class="instruction">DEFB $A9,$FE,$03,$F6,$FA,$00,$0A,$FB</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a941"></span>A941</td>
+<td class="instruction">DEFB $12,$AA,$FA,$00,$0B,$FB,$DF,$A9</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a949"></span>A949</td>
+<td class="instruction">DEFB $FA,$00,$0C,$FB,$FF,$A9,$FA,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a951"></span>A951</td>
+<td class="instruction">DEFB $0D,$FB,$CE,$A9,$FA,$00,$0E,$FB</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a959"></span>A959</td>
+<td class="instruction">DEFB $DF,$A9,$FA,$00,$0F,$FB,$CE,$A9</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a961"></span>A961</td>
+<td class="instruction">DEFB $FA,$00,$10,$FB,$D5,$A9,$FA,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a969"></span>A969</td>
+<td class="instruction">DEFB $11,$FB,$CE,$A9,$FA,$00,$12,$FB</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a971"></span>A971</td>
+<td class="instruction">DEFB $CA,$A9,$FA,$00,$13,$FB,$D5,$A9</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a979"></span>A979</td>
+<td class="instruction">DEFB $FA,$00,$14,$FB,$DF,$A9,$FA,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a981"></span>A981</td>
+<td class="instruction">DEFB $15,$FB,$CE,$A9,$FA,$00,$16,$FB</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a989"></span>A989</td>
+<td class="instruction">DEFB $EF,$A9,$FA,$00,$17,$FB,$12,$AA</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a991"></span>A991</td>
+<td class="instruction">DEFB $FA,$00,$18,$FB,$FF,$A9,$FA,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a999"></span>A999</td>
+<td class="instruction">DEFB $19,$FB,$DF,$A9,$FA,$00,$1A,$FB</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9a1"></span>A9A1</td>
+<td class="instruction">DEFB $EF,$A9,$FA,$00,$1B,$FB,$CE,$A9</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9a9"></span>A9A9</td>
+<td class="instruction">DEFB $FA,$00,$1C,$FB,$D5,$A9,$FA,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9b1"></span>A9B1</td>
+<td class="instruction">DEFB $1D,$FB,$D5,$A9,$FA,$00,$1E,$FB</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9b9"></span>A9B9</td>
+<td class="instruction">DEFB $CE,$A9,$FA,$00,$1F,$FB,$FF,$A9</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9c1"></span>A9C1</td>
+<td class="instruction">DEFB $FF,$F2,$09,$EE,$16,$00,$21,$EF</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9c9"></span>A9C9</td>
+<td class="instruction">DEFB $FF,$2B,$01,$21,$FF,$2C,$01,$20</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9d1"></span>A9D1</td>
+<td class="instruction">DEFB $2D,$01,$21,$FF,$12,$01,$20,$13</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9d9"></span>A9D9</td>
+<td class="instruction">DEFB $01,$20,$14,$01,$21,$FF,$15,$01</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9e1"></span>A9E1</td>
+<td class="instruction">DEFB $20,$16,$01,$20,$17,$01,$20,$18</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9e9"></span>A9E9</td>
+<td class="instruction">DEFB $01,$20,$19,$01,$21,$FF,$26,$01</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9f1"></span>A9F1</td>
+<td class="instruction">DEFB $20,$27,$01,$20,$28,$01,$20,$29</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9f9"></span>A9F9</td>
+<td class="instruction">DEFB $01,$20,$2A,$01,$21,$FF,$20,$01</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa01"></span>AA01</td>
+<td class="instruction">DEFB $20,$21,$01,$20,$22,$01,$20,$23</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa09"></span>AA09</td>
+<td class="instruction">DEFB $01,$20,$24,$01,$20,$25,$01,$21</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa11"></span>AA11</td>
+<td class="instruction">DEFB $FF,$00,$09,$20,$1A,$01,$20,$1B</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa19"></span>AA19</td>
+<td class="instruction">DEFB $01,$20,$1C,$01,$20,$1D,$01,$20</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa21"></span>AA21</td>
+<td class="instruction">DEFB $1E,$01,$20,$1F,$01,$21,$FF</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="43254.html">A8F6</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#a929">Map</a></td>
+<td class="next">
+Next: <a href="43560.html">AA28</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/275205.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

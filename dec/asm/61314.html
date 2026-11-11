@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 61314</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 61314. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 61314" />
+<meta property="og:description" content="The Trap Door: Routine at 61314. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/61314.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/61314.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 61314",
+"name": "The Trap Door: Routine at 61314",
+"description": "The Trap Door: Routine at 61314. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/61314.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 61314"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/61314.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61303.html">61303</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#61314">Map</a></td>
+<td class="next">
+Next: <a href="61324.html">61324</a>
+</td>
+</tr>
+</table>
+<div class="description">61314: Script: Load Script Pointer</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Replace the entity's script cursor with the absolute address that follows, so it continues from that fragment.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_JumpToAddress</td>
+<td class="address-2"><span id="61314"></span>61314</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="2">Advance <span class="register">HL</span> past the current script instruction.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61315"></span>61315</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61316"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="61303.html">ScriptRoutine_JumpIfCarrying</a>.
+</div>
+<div class="paragraph">
+Redirect the script pointer to the operand address and execute it at <a href="60462.html#60464">ScriptInstruction</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_JumpToAddress_FetchAddress</td>
+<td class="address-2"><span id="61316"></span>61316</td>
+<td class="instruction">LD C,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the low byte of the new script address.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61317"></span>61317</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance the script pointer by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61318"></span>61318</td>
+<td class="instruction">LD B,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the high byte of the new script address.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61319"></span>61319</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="2">Load <span class="register">HL</span> with the new script address (using the stack).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61320"></span>61320</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61321"></span>61321</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="comments">
+<div class="paragraph">
+View the equivalent code in; <ul class="">
+<li><a href="/flunky/dec/asm/40529.html">Flunky</a></li>
+</ul>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61303.html">61303</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#61314">Map</a></td>
+<td class="next">
+Next: <a href="61324.html">61324</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/EF82.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

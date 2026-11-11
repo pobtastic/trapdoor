@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at BEE6</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at BEE6. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at BEE6" />
+<meta property="og:description" content="The Trap Door: Routine at BEE6. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/BEE6.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/BEE6.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at BEE6",
+"name": "The Trap Door: Routine at BEE6",
+"description": "The Trap Door: Routine at BEE6. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/BEE6.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at BEE6"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/BEE6.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="BECD.html">BECD</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#bee6">Map</a></td>
+<td class="next">
+Next: <a href="BF77.html">BF77</a>
+</td>
+</tr>
+</table>
+<div class="description">BEE6: Update Task Two Entity State</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="BECD.html">Update_Task_Two_Entities</a>.
+</div>
+<div class="paragraph">
+Restore the upstairs helper if needed, then either start/stop its script from the game event flags or pick the next wandering script.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_TaskTwoEntityState</td>
+<td class="address-2"><span id="bee6"></span>BEE6</td>
+<td class="instruction">LD HL,$72B5</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the task-two flags (<a href="72B5.html">TaskTwoFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bee9"></span>BEE9</td>
+<td class="instruction">LD A,($72AE)</td>
+<td class="comment-1" rowspan="1">Fetch the current task index (<a href="72AE.html">CurrentTaskIndex</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="beec"></span>BEEC</td>
+<td class="instruction">CP $02</td>
+<td class="comment-1" rowspan="2">Is task two itself active (index 02)? If so, skip the spawn latch at <a href="BEE6.html#bef6">Update_TaskTwo_CheckHelperRestore</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="beee"></span>BEEE</td>
+<td class="instruction">JR Z,<a href="BEE6.html#bef6">Update_TaskTwo_CheckHelperRestore</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bef0"></span>BEF0</td>
+<td class="instruction">BIT 1,(HL)</td>
+<td class="comment-1" rowspan="2">Is the task-two "advance script" bit already set (bit 01)? If so, skip the spawn latch.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bef2"></span>BEF2</td>
+<td class="instruction">JR Z,<a href="BEE6.html#bef6">Update_TaskTwo_CheckHelperRestore</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bef4"></span>BEF4</td>
+<td class="instruction">SET 2,(HL)</td>
+<td class="comment-1" rowspan="1">Otherwise arm the spawn / random-walk latch (set bit 02).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bef6"></span>
+<div class="comments">
+<div class="paragraph">
+Handle helper restore: rewrite the upstairs helper layout when bit 03 is set.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_TaskTwo_CheckHelperRestore</td>
+<td class="address-2"><span id="bef6"></span>BEF6</td>
+<td class="instruction">BIT 3,(HL)</td>
+<td class="comment-1" rowspan="2">Does the helper need its layout restoring (bit 03)? If not, select the entity at <a href="BEE6.html#bf07">Update_TaskTwo_SelectEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bef8"></span>BEF8</td>
+<td class="instruction">JR Z,<a href="BEE6.html#bf07">Update_TaskTwo_SelectEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="befa"></span>BEFA</td>
+<td class="instruction">RES 3,(HL)</td>
+<td class="comment-1" rowspan="1">Clear the restore latch.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="befc"></span>BEFC</td>
+<td class="instruction">LD HL,$9DB3</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at spawned-helper layout <a href="9DB3.html">GraphicLayout_WhiteOrb</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="beff"></span>BEFF</td>
+<td class="instruction">LD ($8FE1),HL</td>
+<td class="comment-1" rowspan="1">Write that layout into the helper's record (<a href="8EF3.html">8FE1</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf02"></span>BF02</td>
+<td class="instruction">LD HL,$8FD7</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the spawned-helper entity (<a href="8EF3.html#8fd7">StateData_Complex_17</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf05"></span>BF05</td>
+<td class="instruction">SET 7,(HL)</td>
+<td class="comment-1" rowspan="1">Mark that helper active (set bit 07 of its type/flags byte).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bf07"></span>
+<div class="comments">
+<div class="paragraph">
+Handle start/stop: use game event flags to run or halt the upstairs helper script.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_TaskTwo_SelectEntity</td>
+<td class="address-2"><span id="bf07"></span>BF07</td>
+<td class="instruction">LD IX,$8FE5</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the upstairs helper entity (<a href="8EF3.html#8fe5">StateData_Complex_18</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf0b"></span>BF0B</td>
+<td class="instruction">LD HL,($72CF)</td>
+<td class="comment-1" rowspan="1">Keep the temporary script pointer in <span class="register">HL</span> (<a href="72CF.html">Pointer_ActiveScriptCursor</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf0e"></span>BF0E</td>
+<td class="instruction">LD A,($72B3)</td>
+<td class="comment-1" rowspan="1">Fetch the game event flags (<a href="72B3.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf11"></span>BF11</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-1" rowspan="2">Is a task entity script marked active (bit 07)? If not, take the wander branch at <a href="BEE6.html#bf50">Update_TaskTwo_ScriptBranch</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf13"></span>BF13</td>
+<td class="instruction">JR NZ,<a href="BEE6.html#bf50">Update_TaskTwo_ScriptBranch</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf15"></span>BF15</td>
+<td class="instruction">BIT 7,(IX+$00)</td>
+<td class="comment-1" rowspan="2">Is this helper already running (bit 07 of its type)? If not, decide whether to stop it at <a href="BEE6.html#bf21">Update_TaskTwo_StopEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf19"></span>BF19</td>
+<td class="instruction">JR NZ,<a href="BEE6.html#bf21">Update_TaskTwo_StopEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf1b"></span>BF1B</td>
+<td class="instruction">BIT 1,A</td>
+<td class="comment-1" rowspan="2">Is the trap door open (game event bit 01)? If so, (re)start the helper at <a href="BEE6.html#bf2b">Update_TaskTwo_StartEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf1d"></span>BF1D</td>
+<td class="instruction">JR Z,<a href="BEE6.html#bf2b">Update_TaskTwo_StartEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf1f"></span>BF1F</td>
+<td class="instruction">JR <a href="BEE6.html#bf50">Update_TaskTwo_ScriptBranch</a></td>
+<td class="comment-1" rowspan="1">Otherwise wander at <a href="BEE6.html#bf50">Update_TaskTwo_ScriptBranch</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bf21"></span>
+<div class="comments">
+<div class="paragraph">
+Stop the upstairs helper when the trap is open but the helper was not running.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_TaskTwo_StopEntity</td>
+<td class="address-2"><span id="bf21"></span>BF21</td>
+<td class="instruction">BIT 1,A</td>
+<td class="comment-1" rowspan="2">Is the trap door open? If not, leave the helper alone and return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf23"></span>BF23</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf24"></span>BF24</td>
+<td class="instruction">RES 7,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Clear the helper's "running" type bit.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf28"></span>BF28</td>
+<td class="instruction">JP <a href="EC2E.html">AdvanceScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Advance its current script at <a href="EC2E.html">AdvanceScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bf2b"></span>
+<div class="comments">
+<div class="paragraph">
+Start the upstairs helper: clear the task latch and publish script <a href="BE6D.html">Data_BirdScripts</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_TaskTwo_StartEntity</td>
+<td class="address-2"><span id="bf2b"></span>BF2B</td>
+<td class="instruction">SET 7,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Mark the helper running (set bit 07 of its type).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf2f"></span>BF2F</td>
+<td class="instruction">LD HL,$72B3</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the game event flags (<a href="72B3.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf32"></span>BF32</td>
+<td class="instruction">RES 7,(HL)</td>
+<td class="comment-1" rowspan="1">Clear "task entity script active" (bit 07).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf34"></span>BF34</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">A</span> so the task phase can reset.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf35"></span>BF35</td>
+<td class="instruction">LD ($72AF),A</td>
+<td class="comment-1" rowspan="1">Clear the current task phase (<a href="72AF.html">CurrentTaskPhase</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf38"></span>BF38</td>
+<td class="instruction">LD HL,$BE6D</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the bird scripts (<a href="BE6D.html">Data_BirdScripts</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf3b"></span>BF3B</td>
+<td class="instruction">LD ($72CF),HL</td>
+<td class="comment-1" rowspan="1">Publish it through the active script cursor (<a href="72CF.html">Pointer_ActiveScriptCursor</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf3e"></span>BF3E</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bf3f"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="BFBF.html">ScriptRoutine_TaskTwoRiseOnEvent</a>.
+</div>
+<div class="paragraph">
+Shared entry used by script routine <a href="BFBF.html">ScriptRoutine_TaskTwoRiseOnEvent</a> when the helper reaches column 27: clear the upstairs event latch and restart.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_TaskTwo_ClearTrapFlags</td>
+<td class="address-2"><span id="bf3f"></span>BF3F</td>
+<td class="instruction">LD HL,$72B3</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the game event flags (<a href="72B3.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf42"></span>BF42</td>
+<td class="instruction">RES 4,(HL)</td>
+<td class="comment-1" rowspan="1">Clear the task-two / upstairs event latch (bit 04).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf44"></span>BF44</td>
+<td class="instruction">LD A,$28</td>
+<td class="comment-1" rowspan="1">Load a fresh game-tick delay of 28 frames.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf46"></span>BF46</td>
+<td class="instruction">LD ($72F2),A</td>
+<td class="comment-1" rowspan="1">Store it in the game tick counter (<a href="72F2.html">GameTickCounter</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf49"></span>BF49</td>
+<td class="instruction">LD HL,$72B5</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the task-two flags (<a href="72B5.html">TaskTwoFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf4c"></span>BF4C</td>
+<td class="instruction">RES 2,(HL)</td>
+<td class="comment-1" rowspan="1">Clear the spawn / random-walk latch (bit 02).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf4e"></span>BF4E</td>
+<td class="instruction">JR <a href="BEE6.html#bf2b">Update_TaskTwo_StartEntity</a></td>
+<td class="comment-1" rowspan="1">Restart the helper at <a href="BEE6.html#bf2b">Update_TaskTwo_StartEntity</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bf50"></span>
+<div class="comments">
+<div class="paragraph">
+Handle wander: pick the next bird script when no start/stop event is pending.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_TaskTwo_ScriptBranch</td>
+<td class="address-2"><span id="bf50"></span>BF50</td>
+<td class="instruction">LD A,($72B5)</td>
+<td class="comment-1" rowspan="1">Fetch the task-two flags (<a href="72B5.html">TaskTwoFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf53"></span>BF53</td>
+<td class="instruction">BIT 1,A</td>
+<td class="comment-1" rowspan="2">Is "advance script" still set (bit 01)? If so, just step the current script at <a href="EC2E.html">AdvanceScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf55"></span>BF55</td>
+<td class="instruction">JP Z,<a href="EC2E.html">AdvanceScriptInstruction</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf58"></span>BF58</td>
+<td class="instruction">RES 1,A</td>
+<td class="comment-1" rowspan="1">Clear that advance bit.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf5a"></span>BF5A</td>
+<td class="instruction">LD ($72B5),A</td>
+<td class="comment-1" rowspan="1">Write the updated task-two flags back.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf5d"></span>BF5D</td>
+<td class="instruction">BIT 2,A</td>
+<td class="comment-1" rowspan="2">Is the spawn / random-walk latch set (bit 02)? If not, use the alternate script at <a href="BEE6.html#bf71">Update_TaskTwo_AltScript</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf5f"></span>BF5F</td>
+<td class="instruction">JR NZ,<a href="BEE6.html#bf71">Update_TaskTwo_AltScript</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf61"></span>BF61</td>
+<td class="instruction">LD A,$18</td>
+<td class="comment-1" rowspan="1">Load random range base 18 for a wander destination.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf63"></span>BF63</td>
+<td class="instruction">CALL <a href="EAE5.html">PseudoRandom</a></td>
+<td class="comment-1" rowspan="1">Call <a href="EAE5.html">PseudoRandom</a> to pick a pseudo-random value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf66"></span>BF66</td>
+<td class="instruction">ADD A,$16</td>
+<td class="comment-1" rowspan="1">Bias it into the bird script table (16+<span class="register">A</span>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf68"></span>BF68</td>
+<td class="instruction">LD ($BE9B),A</td>
+<td class="comment-1" rowspan="1">Poke that index into task-two storage at <a href="BE6D.html#be9b">BE9B</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf6b"></span>BF6B</td>
+<td class="instruction">LD HL,$BE91</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the wander script (<a href="BE6D.html#be91">BirdScript_Wander</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf6e"></span>BF6E</td>
+<td class="instruction">JP <a href="EC2E.html#ec30">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Run it via <a href="EC2E.html#ec30">ScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bf71"></span>
+<div class="comments">
+<div class="paragraph">
+Wander without the spawn latch: run the alternate bird script (<a href="BE6D.html#bec1">BirdScript_AltWander</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_TaskTwo_AltScript</td>
+<td class="address-2"><span id="bf71"></span>BF71</td>
+<td class="instruction">LD HL,$BEC1</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the alternate bird script (<a href="BE6D.html#bec1">BirdScript_AltWander</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bf74"></span>BF74</td>
+<td class="instruction">JP <a href="EC2E.html#ec30">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Run it via <a href="EC2E.html#ec30">ScriptInstruction</a>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="BECD.html">BECD</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#bee6">Map</a></td>
+<td class="next">
+Next: <a href="BF77.html">BF77</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/48870.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

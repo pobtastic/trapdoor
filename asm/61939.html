@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at F1F3</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at F1F3. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at F1F3" />
+<meta property="og:description" content="The Trap Door: Routine at F1F3. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/61939.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/61939.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at F1F3",
+"name": "The Trap Door: Routine at F1F3",
+"description": "The Trap Door: Routine at F1F3. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/61939.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at F1F3"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/61939.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61919.html">F1DF</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#f1f3">Map</a></td>
+<td class="next">
+Next: <a href="62031.html">F24F</a>
+</td>
+</tr>
+</table>
+<div class="description">F1F3: Update Camera Follow</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="43699.html">GameStart</a>.
+</div>
+<div class="paragraph">
+Adjust the camera window at <a href="29435.html">Pointer_CameraRoomOrigin</a> to follow the target entity.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_CameraFollow</td>
+<td class="address-2"><span id="f1f3"></span>F1F3</td>
+<td class="instruction">LD A,($730A)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the camera-follow delay (<a href="29450.html">CameraFollowDelay</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f1f6"></span>F1F6</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the camera-follow delay (<a href="29450.html">CameraFollowDelay</a>) zero? If so, jump to <a href="61939.html#f1fe">Update_CameraFollow_Active</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f1f7"></span>F1F7</td>
+<td class="instruction">JR Z,<a href="61939.html#f1fe">Update_CameraFollow_Active</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f1f9"></span>F1F9</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1">Decrease <span class="register">A</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f1fa"></span>F1FA</td>
+<td class="instruction">LD ($730A),A</td>
+<td class="comment-1" rowspan="1">Set the camera-follow delay (<a href="29450.html">CameraFollowDelay</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f1fd"></span>F1FD</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_CameraFollow_Active</td>
+<td class="address-2"><span id="f1fe"></span>F1FE</td>
+<td class="instruction">LD IX,$909B</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the camera-follow entity (<a href="36595.html#909b">StateData_Complex_31</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f202"></span>F202</td>
+<td class="instruction">LD DE,($72FB)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">DE</span> with the camera room-origin pointer (<a href="29435.html">Pointer_CameraRoomOrigin</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f206"></span>F206</td>
+<td class="instruction">LD B,$20</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with loop count 20.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_CameraFollow_ProbeX</td>
+<td class="address-2"><span id="f208"></span>F208</td>
+<td class="instruction">LD A,(IX+$07)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f20b"></span>F20B</td>
+<td class="instruction">ADD A,$02</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>+=02.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f20d"></span>F20D</td>
+<td class="instruction">CP E</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> less than <span class="register">E</span>? If so, jump to <a href="61939.html#f230">Update_CameraFollow_ScrollLeft</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f20e"></span>F20E</td>
+<td class="instruction">JR C,<a href="61939.html#f230">Update_CameraFollow_ScrollLeft</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f210"></span>F210</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Keep <span class="register">A</span> in <span class="register">C</span> for the next calculation.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f211"></span>F211</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-1" rowspan="1">Copy <span class="register">D</span> into <span class="register">A</span> for later use.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f212"></span>F212</td>
+<td class="instruction">CP C</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> less than <span class="register">C</span>? If so, jump to <a href="61939.html#f216">Update_CameraFollow_ScrollRight</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f213"></span>F213</td>
+<td class="instruction">JR C,<a href="61939.html#f216">Update_CameraFollow_ScrollRight</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f215"></span>F215</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_CameraFollow_ScrollRight</td>
+<td class="address-2"><span id="f216"></span>F216</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-1" rowspan="1">Copy the saved low byte from <span class="register">E</span> into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f217"></span>F217</td>
+<td class="instruction">CP $A0</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> equal to A0? If so, jump to <a href="61939.html#f226">Update_CameraFollow_WrapLeft</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f219"></span>F219</td>
+<td class="instruction">JR Z,<a href="61939.html#f226">Update_CameraFollow_WrapLeft</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f21b"></span>F21B</td>
+<td class="instruction">ADD A,B</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>+=<span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f21c"></span>F21C</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1">Copy <span class="register">A</span> into <span class="register">E</span> as a saved coordinate / value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f21d"></span>F21D</td>
+<td class="instruction">LD D,A</td>
+<td class="comment-1" rowspan="1">Copy <span class="register">A</span> into <span class="register">D</span> as a saved coordinate / value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f21e"></span>F21E</td>
+<td class="instruction">ADD A,B</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>+=<span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f21f"></span>F21F</td>
+<td class="instruction">LD D,A</td>
+<td class="comment-1" rowspan="1">Copy <span class="register">A</span> into <span class="register">D</span> as a saved coordinate / value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f220"></span>F220</td>
+<td class="instruction">LD ($72FB),DE</td>
+<td class="comment-1" rowspan="1">Store <span class="register">DE</span> in Pointer: Camera Room Origin (<a href="29435.html">Pointer_CameraRoomOrigin</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f224"></span>F224</td>
+<td class="instruction">JR <a href="61939.html#f208">Update_CameraFollow_ProbeX</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="61939.html#f208">Update_CameraFollow_ProbeX</a> to continue the loop.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_CameraFollow_WrapLeft</td>
+<td class="address-2"><span id="f226"></span>F226</td>
+<td class="instruction">LD A,(IX+$07)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f229"></span>F229</td>
+<td class="instruction">SUB $A0</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>-=A0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f22b"></span>F22B</td>
+<td class="instruction">LD (IX+$07),A</td>
+<td class="comment-1" rowspan="1">Set the current entity's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f22e"></span>F22E</td>
+<td class="instruction">JR <a href="61939.html#f248">Update_CameraFollow_AdjustXExtent</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="61939.html#f248">Update_CameraFollow_AdjustXExtent</a> to refresh the follow entity's x-extent.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_CameraFollow_ScrollLeft</td>
+<td class="address-2"><span id="f230"></span>F230</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-1" rowspan="1">Copy the saved low byte from <span class="register">E</span> into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f231"></span>F231</td>
+<td class="instruction">CP $20</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> equal to 20? If so, jump to <a href="61939.html#f240">Update_CameraFollow_WrapRight</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f233"></span>F233</td>
+<td class="instruction">JR Z,<a href="61939.html#f240">Update_CameraFollow_WrapRight</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f235"></span>F235</td>
+<td class="instruction">SUB B</td>
+<td class="comment-1" rowspan="1">Subtract <span class="register">B</span> from <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f236"></span>F236</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1">Copy <span class="register">A</span> into <span class="register">E</span> as a saved coordinate / value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f237"></span>F237</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-1" rowspan="1">Copy <span class="register">D</span> into <span class="register">A</span> for later use.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f238"></span>F238</td>
+<td class="instruction">SUB B</td>
+<td class="comment-1" rowspan="1">Subtract <span class="register">B</span> from <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f239"></span>F239</td>
+<td class="instruction">LD D,A</td>
+<td class="comment-1" rowspan="1">Copy <span class="register">A</span> into <span class="register">D</span> as a saved coordinate / value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f23a"></span>F23A</td>
+<td class="instruction">LD ($72FB),DE</td>
+<td class="comment-1" rowspan="1">Store <span class="register">DE</span> in Pointer: Camera Room Origin (<a href="29435.html">Pointer_CameraRoomOrigin</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f23e"></span>F23E</td>
+<td class="instruction">JR <a href="61939.html#f208">Update_CameraFollow_ProbeX</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="61939.html#f208">Update_CameraFollow_ProbeX</a> to continue the loop.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_CameraFollow_WrapRight</td>
+<td class="address-2"><span id="f240"></span>F240</td>
+<td class="instruction">LD A,(IX+$07)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f243"></span>F243</td>
+<td class="instruction">ADD A,$A0</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>+=A0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f245"></span>F245</td>
+<td class="instruction">LD (IX+$07),A</td>
+<td class="comment-1" rowspan="1">Set the current entity's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_CameraFollow_AdjustXExtent</td>
+<td class="address-2"><span id="f248"></span>F248</td>
+<td class="instruction">ADD A,$05</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>+=05.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f24a"></span>F24A</td>
+<td class="instruction">LD (IX+$08),A</td>
+<td class="comment-1" rowspan="1">Set the current entity's x-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f24d"></span>F24D</td>
+<td class="instruction">JR <a href="61939.html#f208">Update_CameraFollow_ProbeX</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="61939.html#f208">Update_CameraFollow_ProbeX</a> to continue the loop.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61919.html">F1DF</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#f1f3">Map</a></td>
+<td class="next">
+Next: <a href="62031.html">F24F</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/399673.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

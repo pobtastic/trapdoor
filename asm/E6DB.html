@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at E6DB</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at E6DB. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at E6DB" />
+<meta property="og:description" content="The Trap Door: Routine at E6DB. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/E6DB.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/E6DB.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at E6DB",
+"name": "The Trap Door: Routine at E6DB",
+"description": "The Trap Door: Routine at E6DB. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/E6DB.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at E6DB"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/E6DB.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="E42A.html">E42A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#e6db">Map</a></td>
+<td class="next">
+Next: <a href="E71D.html">E71D</a>
+</td>
+</tr>
+</table>
+<div class="description">E6DB: Populate Display Buffer For Visible Entities</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="AAB3.html">GameStart</a>.
+</div>
+<div class="paragraph">
+Walk the simple entity table at <a href="8B69.html">StateData_SimpleEntities</a> and process graphic layout data for each visible entity into the current display buffer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="e6db"></span>
+<div class="comments">
+<div class="paragraph">
+Walk rooms 00–05 and draw every on-camera entity into the current display buffer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">PopulateDisplayBuffer_VisibleEntities</td>
+<td class="address-2"><span id="e6db"></span>E6DB</td>
+<td class="instruction">LD C,$00</td>
+<td class="comment-1" rowspan="1">Clear the room-pass index in <span class="register">C</span> to 00.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="e6dd"></span>
+<div class="comments">
+<div class="paragraph">
+Start a room-pass over the simple entity table at <a href="8B69.html">StateData_SimpleEntities</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">PopulateVisible_StartRoomPass</td>
+<td class="address-2"><span id="e6dd"></span>E6DD</td>
+<td class="instruction">LD IX,$8B69</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the simple entity table (<a href="8B69.html">StateData_SimpleEntities</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e6e1"></span>E6E1</td>
+<td class="instruction">LD DE,$000E</td>
+<td class="comment-1" rowspan="1">Load <span class="register">DE</span> with 000E.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="e6e4"></span>
+<div class="comments">
+<div class="paragraph">
+Draw each visible entity whose room and camera-window x-band match this pass.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">PopulateDisplayBuffer_VisibleEntitiesContinue</td>
+<td class="address-2"><span id="e6e4"></span>E6E4</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Fetch the current entity's type for the type test.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e6e7"></span>E6E7</td>
+<td class="instruction">CP $FF</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> equal to FF? If so, jump to <a href="E6DB.html#e716">PopulateDisplayBuffer_VisibleEntitiesContinueB2</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e6e9"></span>E6E9</td>
+<td class="instruction">JR Z,<a href="E6DB.html#e716">PopulateDisplayBuffer_VisibleEntitiesContinueB2</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e6eb"></span>E6EB</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> zero? If so, jump to <a href="E6DB.html#e712">PopulateDisplayBuffer_VisibleEntitiesContinueB</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e6ec"></span>E6EC</td>
+<td class="instruction">JR Z,<a href="E6DB.html#e712">PopulateDisplayBuffer_VisibleEntitiesContinueB</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e6ee"></span>E6EE</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-1" rowspan="2">Is bit 07 of <span class="register">A</span> set? If so, jump to <a href="E6DB.html#e712">PopulateDisplayBuffer_VisibleEntitiesContinueB</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e6f0"></span>E6F0</td>
+<td class="instruction">JR NZ,<a href="E6DB.html#e712">PopulateDisplayBuffer_VisibleEntitiesContinueB</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e6f2"></span>E6F2</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-1" rowspan="1">Copy the saved count/flag from <span class="register">C</span> into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e6f3"></span>E6F3</td>
+<td class="instruction">CP (IX+$04)</td>
+<td class="comment-1" rowspan="2">Does the candidate share this entity's room? If not, jump to <a href="E6DB.html#e712">PopulateDisplayBuffer_VisibleEntitiesContinueB</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e6f6"></span>E6F6</td>
+<td class="instruction">JR NZ,<a href="E6DB.html#e712">PopulateDisplayBuffer_VisibleEntitiesContinueB</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e6f8"></span>E6F8</td>
+<td class="instruction">LD HL,($72FB)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">HL</span> with the camera room-origin pointer (<a href="72FB.html">Pointer_CameraRoomOrigin</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e6fb"></span>E6FB</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-1" rowspan="1">Copy <span class="register">H</span> into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e6fc"></span>E6FC</td>
+<td class="instruction">CP (IX+$07)</td>
+<td class="comment-1" rowspan="2">Is the camera origin's high byte left of this entity's x? If so, jump to <a href="E6DB.html#e712">PopulateDisplayBuffer_VisibleEntitiesContinueB</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e6ff"></span>E6FF</td>
+<td class="instruction">JR C,<a href="E6DB.html#e712">PopulateDisplayBuffer_VisibleEntitiesContinueB</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e701"></span>E701</td>
+<td class="instruction">LD A,(IX+$08)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e704"></span>E704</td>
+<td class="instruction">CP L</td>
+<td class="comment-1" rowspan="2">Is this entity's x-extent left of the camera origin's low byte in <span class="register">L</span>? If so, jump to <a href="E6DB.html#e712">PopulateDisplayBuffer_VisibleEntitiesContinueB</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e705"></span>E705</td>
+<td class="instruction">JR C,<a href="E6DB.html#e712">PopulateDisplayBuffer_VisibleEntitiesContinueB</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e707"></span>E707</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="3">Stash <span class="register">DE</span>, <span class="register">BC</span> and <span class="register">IX</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e708"></span>E708</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e709"></span>E709</td>
+<td class="instruction">PUSH IX</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e70b"></span>E70B</td>
+<td class="instruction">CALL <a href="E71D.html">Process_GraphicLayoutData_Entity</a></td>
+<td class="comment-1" rowspan="1">Call <a href="E71D.html">Process_GraphicLayoutData_Entity</a> to draw the entity's graphic layout.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e70e"></span>E70E</td>
+<td class="instruction">POP IX</td>
+<td class="comment-1" rowspan="3">Restore <span class="register">IX</span>, <span class="register">BC</span> and <span class="register">DE</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e710"></span>E710</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e711"></span>E711</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="e712"></span>
+<div class="comments">
+<div class="paragraph">
+Advance to the next simple-entity record and keep scanning this room pass.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">PopulateDisplayBuffer_VisibleEntitiesContinueB</td>
+<td class="address-2"><span id="e712"></span>E712</td>
+<td class="instruction">ADD IX,DE</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>+=<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e714"></span>E714</td>
+<td class="instruction">JR <a href="E6DB.html#e6e4">PopulateDisplayBuffer_VisibleEntitiesContinue</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="E6DB.html#e6e4">PopulateDisplayBuffer_VisibleEntitiesContinue</a> to continue this routine.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="e716"></span>
+<div class="comments">
+<div class="paragraph">
+Bump the room-pass index; return when it passes 05, otherwise restart at <a href="E6DB.html#e6dd">PopulateVisible_StartRoomPass</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">PopulateDisplayBuffer_VisibleEntitiesContinueB2</td>
+<td class="address-2"><span id="e716"></span>E716</td>
+<td class="instruction">LD A,$05</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 05 (last room index).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e718"></span>E718</td>
+<td class="instruction">INC C</td>
+<td class="comment-1" rowspan="1">Advance the room-pass index in <span class="register">C</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e719"></span>E719</td>
+<td class="instruction">CP C</td>
+<td class="comment-1" rowspan="2">Return if the room-pass index is now greater than 05.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e71a"></span>E71A</td>
+<td class="instruction">RET C</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e71b"></span>E71B</td>
+<td class="instruction">JR <a href="E6DB.html#e6dd">PopulateVisible_StartRoomPass</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="E6DB.html#e6dd">PopulateVisible_StartRoomPass</a> to continue the loop.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="E42A.html">E42A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#e6db">Map</a></td>
+<td class="next">
+Next: <a href="E71D.html">E71D</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/59099.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

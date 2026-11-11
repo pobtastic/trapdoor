@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at B7A1</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at B7A1. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at B7A1" />
+<meta property="og:description" content="The Trap Door: Routine at B7A1. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/B7A1.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/B7A1.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at B7A1",
+"name": "The Trap Door: Routine at B7A1",
+"description": "The Trap Door: Routine at B7A1. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/B7A1.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at B7A1"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/B7A1.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="B79C.html">B79C</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#b7a1">Map</a></td>
+<td class="next">
+Next: <a href="B7F3.html">B7F3</a>
+</td>
+</tr>
+</table>
+<div class="description">B7A1: Berk Read Controls: Down Branches</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="B440.html">Update_Berk_ReadControls</a>.
+</div>
+<div class="paragraph">
+Continue the down-control handler: bit tests, interact calls and put-down script launches.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="b7a1"></span>
+<div class="comments">
+<div class="paragraph">
+Skip ahead to <a href="B7A1.html#b7b4">Berk_ReadControls_DownPartT</a> when the carry flag is clear.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_DownBranch</td>
+<td class="address-2"><span id="b7a1"></span>B7A1</td>
+<td class="instruction">JR NC,<a href="B7A1.html#b7b4">Berk_ReadControls_DownPartT</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="B7A1.html#b7b4">Berk_ReadControls_DownPartT</a> if the previous compare did not take carry.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="b7a3"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="B440.html">Update_Berk_ReadControls</a>.
+</div>
+<div class="paragraph">
+Test direction/state bit 01; otherwise continue the active script.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_DownBitTest</td>
+<td class="address-2"><span id="b7a3"></span>B7A3</td>
+<td class="instruction">BIT 1,(IX+$09)</td>
+<td class="comment-1" rowspan="1">Is bit 01 of the current entity's direction / state set?.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b7a7"></span>B7A7</td>
+<td class="instruction">JP NZ,<a href="EC2E.html">AdvanceScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">If not, jump to <a href="EC2E.html">AdvanceScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="b7aa"></span>
+<div class="comments">
+<div class="paragraph">
+Face-left put-down when the bit test passed.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b7aa"></span>B7AA</td>
+<td class="instruction">SET 2,(IX+$03)</td>
+<td class="comment-1" rowspan="1">Set bit 02 of the current entity's flags byte 3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b7ae"></span>B7AE</td>
+<td class="instruction">LD HL,$BA83</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at <a href="B9A5.html#ba83">BerkPutDownScript_WalkLeftFace</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b7b1"></span>B7B1</td>
+<td class="instruction">JP <a href="EC2E.html#ec30">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="EC2E.html#ec30">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="b7b4"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="B440.html">Update_Berk_ReadControls</a>.
+</div>
+<div class="paragraph">
+Shared down-branch: test direction bit 01 again, else run walk-right put-down.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_DownPartT</td>
+<td class="address-2"><span id="b7b4"></span>B7B4</td>
+<td class="instruction">BIT 0,(IX+$09)</td>
+<td class="comment-1" rowspan="1">Is bit 01 of the current entity's direction / state set?.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b7b8"></span>B7B8</td>
+<td class="instruction">JP NZ,<a href="EC2E.html">AdvanceScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">If not, jump to <a href="EC2E.html">AdvanceScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b7bb"></span>B7BB</td>
+<td class="instruction">SET 2,(IX+$03)</td>
+<td class="comment-1" rowspan="1">Set bit 02 of the current entity's flags byte 3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b7bf"></span>B7BF</td>
+<td class="instruction">LD HL,$BA77</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at <a href="B9A5.html#ba77">BerkPutDownScript_WalkRightFace</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b7c2"></span>B7C2</td>
+<td class="instruction">JP <a href="EC2E.html#ec30">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="EC2E.html#ec30">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="b7c5"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="B440.html">Update_Berk_ReadControls</a>.
+</div>
+<div class="paragraph">
+Choose interact vs continue from the referenced entity's y-extent.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_DownPartU</td>
+<td class="address-2"><span id="b7c5"></span>B7C5</td>
+<td class="instruction">LD A,(IX+$06)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b7c8"></span>B7C8</td>
+<td class="instruction">CP $1B</td>
+<td class="comment-1" rowspan="1">Is the y-extent equal to 1B?.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b7ca"></span>B7CA</td>
+<td class="instruction">JR Z,<a href="B7A1.html#b7d1">Berk_ReadControls_DownPartV</a></td>
+<td class="comment-1" rowspan="1">If so, jump to <a href="B7A1.html#b7d1">Berk_ReadControls_DownPartV</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b7cc"></span>B7CC</td>
+<td class="instruction">CP $23</td>
+<td class="comment-1" rowspan="1">Is the y-extent less than 23?.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b7ce"></span>B7CE</td>
+<td class="instruction">JP C,<a href="EC2E.html">AdvanceScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">If so, jump to <a href="EC2E.html">AdvanceScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="b7d1"></span>
+<div class="comments">
+<div class="paragraph">
+Interact, then either abort or copy the collided entity and run a put-down.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_DownPartV</td>
+<td class="address-2"><span id="b7d1"></span>B7D1</td>
+<td class="instruction">CALL <a href="B7F3.html">Berk_Interact_With_Entity</a></td>
+<td class="comment-1" rowspan="1">Call <a href="B7F3.html">Berk_Interact_With_Entity</a> to let Berk interact with an entity.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b7d4"></span>B7D4</td>
+<td class="instruction">JR C,<a href="B7A1.html#b7a3">Berk_ReadControls_DownBitTest</a></td>
+<td class="comment-1" rowspan="1">If carry is set, jump to <a href="B7A1.html#b7a3">Berk_ReadControls_DownBitTest</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b7d6"></span>B7D6</td>
+<td class="instruction">JR NZ,<a href="B7A1.html#b7b4">Berk_ReadControls_DownPartT</a></td>
+<td class="comment-1" rowspan="1">If not zero, jump to <a href="B7A1.html#b7b4">Berk_ReadControls_DownPartT</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b7d8"></span>B7D8</td>
+<td class="instruction">LD BC,($72AA)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">BC</span> with the last-collided entity pointer (<a href="72AA.html">Pointer_LastCollidedEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b7dc"></span>B7DC</td>
+<td class="instruction">LD ($72AC),BC</td>
+<td class="comment-1" rowspan="1">Store <span class="register">BC</span> in the current-entity pointer (<a href="72AC.html">Pointer_CurrentEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b7e0"></span>B7E0</td>
+<td class="instruction">LD HL,$BA1F</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at <a href="B9A5.html#ba1f">BerkPutDownScript_DownInteract</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b7e3"></span>B7E3</td>
+<td class="instruction">JP <a href="EC2E.html#ec30">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="EC2E.html#ec30">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="b7e6"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="B440.html">Update_Berk_ReadControls</a>.
+</div>
+<div class="paragraph">
+High y-extent interact path leading to the <a href="B9A5.html#bb5d">BerkPutDownScript_DownHighY</a> put-down.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_DownPartW</td>
+<td class="address-2"><span id="b7e6"></span>B7E6</td>
+<td class="instruction">CALL <a href="B7F3.html">Berk_Interact_With_Entity</a></td>
+<td class="comment-1" rowspan="1">Call <a href="B7F3.html">Berk_Interact_With_Entity</a> to let Berk interact with an entity.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b7e9"></span>B7E9</td>
+<td class="instruction">JR C,<a href="B7A1.html#b7a3">Berk_ReadControls_DownBitTest</a></td>
+<td class="comment-1" rowspan="1">If carry is set, jump to <a href="B7A1.html#b7a3">Berk_ReadControls_DownBitTest</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b7eb"></span>B7EB</td>
+<td class="instruction">JR NZ,<a href="B7A1.html#b7b4">Berk_ReadControls_DownPartT</a></td>
+<td class="comment-1" rowspan="1">If not zero, jump to <a href="B7A1.html#b7b4">Berk_ReadControls_DownPartT</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b7ed"></span>B7ED</td>
+<td class="instruction">LD HL,$BB5D</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at <a href="B9A5.html#bb5d">BerkPutDownScript_DownHighY</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b7f0"></span>B7F0</td>
+<td class="instruction">JP <a href="EC2E.html#ec30">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="EC2E.html#ec30">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="B79C.html">B79C</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#b7a1">Map</a></td>
+<td class="next">
+Next: <a href="B7F3.html">B7F3</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/47009.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

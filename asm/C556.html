@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at C556</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at C556. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at C556" />
+<meta property="og:description" content="The Trap Door: Routine at C556. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/C556.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/C556.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at C556",
+"name": "The Trap Door: Routine at C556",
+"description": "The Trap Door: Routine at C556. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/C556.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at C556"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/C556.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="C443.html">C443</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#c556">Map</a></td>
+<td class="next">
+Next: <a href="C568.html">C568</a>
+</td>
+</tr>
+</table>
+<div class="description">C556: Update Slimy Creature</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="C443.html">ScriptRoutine_TaskThreeClearUpstairs</a>.
+</div>
+<div class="paragraph">
+Arm the slimy-creature timer at <a href="C2E4.html">TaskThree_Workspace</a>, set bit 00 of the entity flags, and return a fresh random byte in <span class="register">A</span>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Address of complex state data for an entity</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Slimy_Creature</td>
+<td class="address-2"><span id="c556"></span>C556</td>
+<td class="instruction">CALL <a href="EAE5.html">PseudoRandom</a></td>
+<td class="comment-1" rowspan="1">Call <a href="EAE5.html">PseudoRandom</a> to pick a pseudo-random value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c559"></span>C559</td>
+<td class="instruction">ADD A,$02</td>
+<td class="comment-1" rowspan="1">Add 02 to <span class="register">A</span> (step a word index).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c55b"></span>C55B</td>
+<td class="instruction">LD ($C2E4),A</td>
+<td class="comment-1" rowspan="1">Set the task-three byte (<a href="C2E4.html">TaskThree_Workspace</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c55e"></span>C55E</td>
+<td class="instruction">SET 0,(IX+$03)</td>
+<td class="comment-1" rowspan="1">Set bit 00 of the current entity's flags byte 3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c562"></span>C562</td>
+<td class="instruction">LD A,$02</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 02.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c564"></span>C564</td>
+<td class="instruction">CALL <a href="EAE5.html">PseudoRandom</a></td>
+<td class="comment-1" rowspan="1">Call <a href="EAE5.html">PseudoRandom</a> to pick a pseudo-random value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c567"></span>C567</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="C443.html">C443</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#c556">Map</a></td>
+<td class="next">
+Next: <a href="C568.html">C568</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/50518.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

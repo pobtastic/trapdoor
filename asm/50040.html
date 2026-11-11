@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at C378</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at C378. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at C378" />
+<meta property="og:description" content="The Trap Door: Routine at C378. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/50040.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/50040.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at C378",
+"name": "The Trap Door: Routine at C378",
+"description": "The Trap Door: Routine at C378. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/50040.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at C378"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/50040.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="49897.html">C2E9</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#c378">Map</a></td>
+<td class="next">
+Next: <a href="50098.html">C3B2</a>
+</td>
+</tr>
+</table>
+<div class="description">C378: Update Task Three Entities</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="43699.html">GameStart</a>.
+</div>
+<div class="paragraph">
+Once per frame while task three is active: tick the task-three timers, refresh the task-creature layout when the frame divider hits zero, and run the task-three entity state machine at <a href="50098.html">Update_Task_Three_Entity_State</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="c378"></span>
+<div class="comments">
+<div class="paragraph">
+Tick the task-three frame divider and timer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Three_Entities</td>
+<td class="address-2"><span id="c378"></span>C378</td>
+<td class="instruction">CALL <a href="50780.html">Update_Task_Three_Helpers</a></td>
+<td class="comment-1" rowspan="1">Call <a href="50780.html">Update_Task_Three_Helpers</a> to update the task-three helpers.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c37b"></span>C37B</td>
+<td class="instruction">LD A,($72C3)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the task-three timer (<a href="29379.html">TaskThreeTimer</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c37e"></span>C37E</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the task-three timer zero? If so, skip the divider at <a href="50040.html#c39c">Update_Task_Three_Entities_RunStateMachine</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c37f"></span>C37F</td>
+<td class="instruction">JR Z,<a href="50040.html#c39c">Update_Task_Three_Entities_RunStateMachine</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c381"></span>C381</td>
+<td class="instruction">LD HL,$C2E5</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the task-three frame divider (<a href="49892.html#c2e5">C2E5</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c384"></span>C384</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-1" rowspan="2">Decrease the frame divider; if it is still non-zero, skip to <a href="50040.html#c39c">Update_Task_Three_Entities_RunStateMachine</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c385"></span>C385</td>
+<td class="instruction">JR NZ,<a href="50040.html#c39c">Update_Task_Three_Entities_RunStateMachine</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c387"></span>C387</td>
+<td class="instruction">LD (HL),$04</td>
+<td class="comment-1" rowspan="1">Reload the frame divider with 04.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c389"></span>C389</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="2">Step the task-three timer (<a href="29379.html">TaskThreeTimer</a>) back by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c38a"></span>C38A</td>
+<td class="instruction">LD ($72C3),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c38d"></span>C38D</td>
+<td class="instruction">CP $0A</td>
+<td class="comment-1" rowspan="2">Is the task-three timer less than 0A? If not, skip to <a href="50040.html#c39c">Update_Task_Three_Entities_RunStateMachine</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c38f"></span>C38F</td>
+<td class="instruction">JR NC,<a href="50040.html#c39c">Update_Task_Three_Entities_RunStateMachine</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="c391"></span>
+<div class="comments">
+<div class="paragraph">
+When the timer is in the low band, point the task creature at layout <a href="40861.html">GraphicLayout_EntityType14</a> and clear bit 05 of the task-three flags.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c391"></span>C391</td>
+<td class="instruction">LD HL,$9F9D</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at task-creature layout <a href="40861.html">GraphicLayout_EntityType14</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c394"></span>C394</td>
+<td class="instruction">LD ($906D),HL</td>
+<td class="comment-1" rowspan="1">Write that layout into the graphic-layout field of <a href="36595.html#9063">StateData_Complex_27</a> (906D).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c397"></span>C397</td>
+<td class="instruction">LD HL,$72B6</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the task-three flags (<a href="29366.html">TaskThreeFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c39a"></span>C39A</td>
+<td class="instruction">RES 5,(HL)</td>
+<td class="comment-1" rowspan="1">Clear bit 05 of the task-three flags.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="c39c"></span>
+<div class="comments">
+<div class="paragraph">
+Run the task-three entity state machine while the phase is 03.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Three_Entities_RunStateMachine</td>
+<td class="address-2"><span id="c39c"></span>C39C</td>
+<td class="instruction">LD A,($72AF)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current task phase (<a href="29359.html">CurrentTaskPhase</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c39f"></span>C39F</td>
+<td class="instruction">CP $03</td>
+<td class="comment-1" rowspan="2">Is the current task phase equal to 03? If not, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c3a1"></span>C3A1</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c3a2"></span>C3A2</td>
+<td class="instruction">LD HL,($72D1)</td>
+<td class="comment-1" rowspan="2">Copy the task-three script position (<a href="29393.html">Pointer_TaskThreeScriptPosition</a>) into the temporary script-position pointer (<a href="29391.html">Pointer_ActiveScriptCursor</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c3a5"></span>C3A5</td>
+<td class="instruction">LD ($72CF),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c3a8"></span>C3A8</td>
+<td class="instruction">CALL <a href="50098.html">Update_Task_Three_Entity_State</a></td>
+<td class="comment-1" rowspan="1">Call <a href="50098.html">Update_Task_Three_Entity_State</a> to update the task-three entity state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c3ab"></span>C3AB</td>
+<td class="instruction">LD HL,($72CF)</td>
+<td class="comment-1" rowspan="2">Write the active script cursor (<a href="29391.html">Pointer_ActiveScriptCursor</a>) back to <a href="29393.html">Pointer_TaskThreeScriptPosition</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c3ae"></span>C3AE</td>
+<td class="instruction">LD ($72D1),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c3b1"></span>C3B1</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="49897.html">C2E9</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#c378">Map</a></td>
+<td class="next">
+Next: <a href="50098.html">C3B2</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/327744.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

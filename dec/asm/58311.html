@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 58311</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 58311. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 58311" />
+<meta property="og:description" content="The Trap Door: Routine at 58311. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/58311.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/58311.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 58311",
+"name": "The Trap Door: Routine at 58311",
+"description": "The Trap Door: Routine at 58311. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/58311.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 58311"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/58311.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="58230.html">58230</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#58311">Map</a></td>
+<td class="next">
+Next: <a href="58410.html">58410</a>
+</td>
+</tr>
+</table>
+<div class="description">58311: Plot Message Glyph Half</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="58230.html">Draw_MessageCharacter</a>.
+</div>
+<div class="paragraph">
+Write one 0008-byte half-glyph from the message font into the screen bitmap under attribute address <span class="register">HL</span>. Applies the roll/shift mode in <a href="56724.html#56735">56735</a> and the inverse shift count in <a href="56724.html">56736</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Attribute-file address for this character</td>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">Glyph half-index (×0008 into <a href="29433.html">Pointer_CurrentCharacterSet</a>)</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="58311"></span>
+<div class="comments">
+<div class="paragraph">
+Paint the attribute and resolve the screen and font addresses.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Plot_MessageGlyphHalf</td>
+<td class="address-2"><span id="58311"></span>58311</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="3">Stash <span class="register">DE</span>, <span class="register">HL</span> and <span class="register">BC</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58312"></span>58312</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58313"></span>58313</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58314"></span>58314</td>
+<td class="instruction">LD A,(29447)</td>
+<td class="comment-1" rowspan="1">Fetch the current text attribute (<a href="29447.html">CurrentTextAttribute</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58317"></span>58317</td>
+<td class="instruction">OR %01000000</td>
+<td class="comment-1" rowspan="1">Force bright (OR 64).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58319"></span>58319</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1">Write it at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58320"></span>58320</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-1" rowspan="4">Multiply the attribute high byte by 8.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58321"></span>58321</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58322"></span>58322</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58323"></span>58323</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58324"></span>58324</td>
+<td class="instruction">AND %01011011</td>
+<td class="comment-1" rowspan="1">Keep only the screen-bitmap high bits (mask 91).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58326"></span>58326</td>
+<td class="instruction">LD H,A</td>
+<td class="comment-1" rowspan="1">Write the result back to <span class="register">H</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58327"></span>58327</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">HL</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58328"></span>58328</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="6">Swap so <span class="register">HL</span> holds the glyph index, multiply it by 8, and add the character-set base at <a href="29433.html">Pointer_CurrentCharacterSet</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58329"></span>58329</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58330"></span>58330</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58331"></span>58331</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58332"></span>58332</td>
+<td class="instruction">LD DE,(29433)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58336"></span>58336</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58337"></span>58337</td>
+<td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">DE</span> from the stack.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="58338"></span>
+<div class="comments">
+<div class="paragraph">
+Nudge the font pointer for roll modes 2 / 3.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58338"></span>58338</td>
+<td class="instruction">LD A,(56735)</td>
+<td class="comment-1" rowspan="3">Fetch the roll mode (<a href="56724.html#56735">56735</a>). Is it mode 2? If not, try mode 3 at <a href="58311.html#58348">Plot_MessageGlyphHalf_CheckMode3</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58341"></span>58341</td>
+<td class="instruction">CP 2</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58343"></span>58343</td>
+<td class="instruction">JR NZ,<a href="58311.html#58348">Plot_MessageGlyphHalf_CheckMode3</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58345"></span>58345</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance the font pointer by one (roll left source).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58346"></span>58346</td>
+<td class="instruction">JR <a href="58311.html#58353">Plot_MessageGlyphHalf_Rows</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="58311.html#58353">Plot_MessageGlyphHalf_Rows</a> to plot.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="58348"></span>
+<div class="comments">
+<div class="paragraph">
+For roll mode 3, step the font pointer back one before plotting the half-glyph.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Plot_MessageGlyphHalf_CheckMode3</td>
+<td class="address-2"><span id="58348"></span>58348</td>
+<td class="instruction">CP 3</td>
+<td class="comment-1" rowspan="3">Is it mode 3? If not, plot as-is at <a href="58311.html#58353">Plot_MessageGlyphHalf_Rows</a>. Otherwise step the font pointer back by one (roll right source).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58350"></span>58350</td>
+<td class="instruction">JR NZ,<a href="58311.html#58353">Plot_MessageGlyphHalf_Rows</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58352"></span>58352</td>
+<td class="instruction">DEC HL</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="58353"></span>
+<div class="comments">
+<div class="paragraph">
+Plot all 8 pixel rows of this half-glyph into the screen bitmap.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Plot_MessageGlyphHalf_Rows</td>
+<td class="address-2"><span id="58353"></span>58353</td>
+<td class="instruction">LD B,8</td>
+<td class="comment-1" rowspan="1">There are 8 pixel rows in a character.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="58355"></span>
+<div class="comments">
+<div class="paragraph">
+Build or roll one glyph row using the inverse shift in <a href="56724.html">56736</a> and the mode in <a href="56724.html#56735">56735</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Plot_MessageGlyphHalf_RowLoop</td>
+<td class="address-2"><span id="58355"></span>58355</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">BC</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58356"></span>58356</td>
+<td class="instruction">LD A,(56736)</td>
+<td class="comment-1" rowspan="3">Fetch the inverse shift count (<a href="56724.html">56736</a>). Is it zero (no thicken/shift)? If so, take the plain bitmap byte at <a href="58311.html#58365">Plot_MessageGlyphHalf_ShiftBuild</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58359"></span>58359</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58360"></span>58360</td>
+<td class="instruction">JR NZ,<a href="58311.html#58365">Plot_MessageGlyphHalf_ShiftBuild</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58362"></span>58362</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the plain glyph row into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58363"></span>58363</td>
+<td class="instruction">JR <a href="58311.html#58382">Plot_MessageGlyphHalf_Roll</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="58311.html#58382">Plot_MessageGlyphHalf_Roll</a> to apply left/right roll.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="58365"></span>
+<div class="comments">
+<div class="paragraph">
+Thicken the glyph row by OR-shifting left and right by the count in <a href="56724.html">56736</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Plot_MessageGlyphHalf_ShiftBuild</td>
+<td class="address-2"><span id="58365"></span>58365</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1">Keep the shift count in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58366"></span>58366</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">HL</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58367"></span>58367</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="3">Fetch the glyph row. Copy it into <span class="register">L</span>. Mirror it into <span class="register">H</span> for right-shift thickening.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58368"></span>58368</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58369"></span>58369</td>
+<td class="instruction">LD H,A</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="58370"></span>
+<div class="comments">
+<div class="paragraph">
+OR left- and right-shifted copies into the thickened glyph bitmap.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Plot_MessageGlyphHalf_ShiftLoop</td>
+<td class="address-2"><span id="58370"></span>58370</td>
+<td class="instruction">SLA L</td>
+<td class="comment-1" rowspan="1">Shift left into <span class="register">L</span> and OR.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58372"></span>58372</td>
+<td class="instruction">OR L</td>
+<td class="comment-1" rowspan="1">OR in the left-shifted copy.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58373"></span>58373</td>
+<td class="instruction">DEC B</td>
+<td class="comment-1" rowspan="1">Decrease the shift count.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58374"></span>58374</td>
+<td class="instruction">JR Z,<a href="58311.html#58381">Plot_MessageGlyphHalf_ShiftDone</a></td>
+<td class="comment-1" rowspan="1">If done, finish at <a href="58311.html#58381">Plot_MessageGlyphHalf_ShiftDone</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58376"></span>58376</td>
+<td class="instruction">SRL H</td>
+<td class="comment-1" rowspan="1">Also shift right into <span class="register">H</span> and OR (thicken both ways).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58378"></span>58378</td>
+<td class="instruction">OR H</td>
+<td class="comment-1" rowspan="1">OR in the right-shifted copy.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58379"></span>58379</td>
+<td class="instruction">DJNZ <a href="58311.html#58370">Plot_MessageGlyphHalf_ShiftLoop</a></td>
+<td class="comment-1" rowspan="1">Loop at <a href="58311.html#58370">Plot_MessageGlyphHalf_ShiftLoop</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="58381"></span>
+<div class="comments">
+<div class="paragraph">
+Finish the thicken pass and continue into the roll/write path.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Plot_MessageGlyphHalf_ShiftDone</td>
+<td class="address-2"><span id="58381"></span>58381</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="58382"></span>
+<div class="comments">
+<div class="paragraph">
+Apply roll mode 0 (left) or 1 (right) before writing the glyph row.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Plot_MessageGlyphHalf_Roll</td>
+<td class="address-2"><span id="58382"></span>58382</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Keep the built bitmap in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58383"></span>58383</td>
+<td class="instruction">LD A,(56735)</td>
+<td class="comment-1" rowspan="3">Fetch the roll mode (<a href="56724.html#56735">56735</a>). Is it mode 0? If not, try mode 1 at <a href="58311.html#58393">Plot_MessageGlyphHalf_RollRight</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58386"></span>58386</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58387"></span>58387</td>
+<td class="instruction">JR NZ,<a href="58311.html#58393">Plot_MessageGlyphHalf_RollRight</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58389"></span>58389</td>
+<td class="instruction">SLA C</td>
+<td class="comment-1" rowspan="1">Shift the bitmap left one (roll mode 0).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58391"></span>58391</td>
+<td class="instruction">JR <a href="58311.html#58399">Plot_MessageGlyphHalf_WriteRow</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="58311.html#58399">Plot_MessageGlyphHalf_WriteRow</a> to store.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="58393"></span>
+<div class="comments">
+<div class="paragraph">
+Roll the glyph bitmap one bit right for mode 1.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Plot_MessageGlyphHalf_RollRight</td>
+<td class="address-2"><span id="58393"></span>58393</td>
+<td class="instruction">CP 1</td>
+<td class="comment-1" rowspan="3">Is it mode 1? If not, store as-is at <a href="58311.html#58399">Plot_MessageGlyphHalf_WriteRow</a>. Shift the bitmap right one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58395"></span>58395</td>
+<td class="instruction">JR NZ,<a href="58311.html#58399">Plot_MessageGlyphHalf_WriteRow</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58397"></span>58397</td>
+<td class="instruction">SRL C</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="58399"></span>
+<div class="comments">
+<div class="paragraph">
+Write the finished glyph row to the screen and advance to the next pixel row.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Plot_MessageGlyphHalf_WriteRow</td>
+<td class="address-2"><span id="58399"></span>58399</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-1" rowspan="1">Write the bitmap row to the screen.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58400"></span>58400</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-1" rowspan="1">Write the thickened glyph row to the screen.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58401"></span>58401</td>
+<td class="instruction">INC D</td>
+<td class="comment-1" rowspan="1">Move one pixel-row down.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58402"></span>58402</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance the font pointer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58403"></span>58403</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58404"></span>58404</td>
+<td class="instruction">DJNZ <a href="58311.html#58355">Plot_MessageGlyphHalf_RowLoop</a></td>
+<td class="comment-1" rowspan="1">Loop until all 8 rows are plotted.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58406"></span>58406</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="3">Restore <span class="register">BC</span>, <span class="register">HL</span> and <span class="register">DE</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58407"></span>58407</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58408"></span>58408</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58409"></span>58409</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="58230.html">58230</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#58311">Map</a></td>
+<td class="next">
+Next: <a href="58410.html">58410</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/E3C7.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

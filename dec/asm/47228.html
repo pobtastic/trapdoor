@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 47228</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 47228. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 47228" />
+<meta property="og:description" content="The Trap Door: Routine at 47228. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/47228.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/47228.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 47228",
+"name": "The Trap Door: Routine at 47228",
+"description": "The Trap Door: Routine at 47228. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/47228.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 47228"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/47228.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="47091.html">47091</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#47228">Map</a></td>
+<td class="next">
+Next: <a href="47404.html">47404</a>
+</td>
+</tr>
+</table>
+<div class="description">47228: Berk Pick Up Entity</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="47091.html">Berk_Interact_With_Entity</a>.
+</div>
+<div class="paragraph">
+Berk Pick Up Entity for the player character using complex state at <a href="36585.html">StateData_Boney</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Address of complex state data for an entity</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_Pick_Up_Entity</td>
+<td class="address-2"><span id="47228"></span>47228</td>
+<td class="instruction">LD BC,(29354)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">BC</span> with the last-collided entity pointer (<a href="29354.html">Pointer_LastCollidedEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47232"></span>47232</td>
+<td class="instruction">INC BC</td>
+<td class="comment-1" rowspan="1">Advance the counter/pointer in <span class="register">BC</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47233"></span>47233</td>
+<td class="instruction">LD A,(BC)</td>
+<td class="comment-1" rowspan="1">Fetch a byte through the pointer in <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47234"></span>47234</td>
+<td class="instruction">AND %00001000</td>
+<td class="comment-1" rowspan="1">Keep only bit 3 of the flag byte in <span class="register">A</span> (mask 8).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47236"></span>47236</td>
+<td class="instruction">JR NZ,<a href="47228.html#47240">Berk_Pick_Up_Entity_FromCollision</a></td>
+<td class="comment-1" rowspan="1">If the result was non-zero, jump to <a href="47228.html#47240">Berk_Pick_Up_Entity_FromCollision</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47238"></span>47238</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">A</span> as a false / no-match result.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47239"></span>47239</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47240"></span>
+<div class="comments">
+<div class="paragraph">
+Pick-up from the last collision: reject if X is too far left, else test on-left.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_Pick_Up_Entity_FromCollision</td>
+<td class="address-2"><span id="47240"></span>47240</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">IX</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47242"></span>47242</td>
+<td class="instruction">LD IX,(29354)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">IX</span> with the last-collided entity pointer (<a href="29354.html">Pointer_LastCollidedEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47246"></span>47246</td>
+<td class="instruction">LD A,(IX+7)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47249"></span>47249</td>
+<td class="instruction">CP 73</td>
+<td class="comment-1" rowspan="2">Is the current entity's x-coordinate less than 73? If not, jump to <a href="47228.html#47256">Berk_Pick_Up_Entity_TestOnLeft</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47251"></span>47251</td>
+<td class="instruction">JR NC,<a href="47228.html#47256">Berk_Pick_Up_Entity_TestOnLeft</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47253"></span>47253</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">A</span> as a no-entity-found result.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47254"></span>47254</td>
+<td class="instruction">JR <a href="47228.html#47265">Berk_Pick_Up_Entity_RestoreReturn</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="47228.html#47265">Berk_Pick_Up_Entity_RestoreReturn</a> to restore <span class="register">IX</span> and return with no pick-up.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47256"></span>
+<div class="comments">
+<div class="paragraph">
+Confirm the collidee sits on Berk's left before marking the pick-up.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_Pick_Up_Entity_TestOnLeft</td>
+<td class="address-2"><span id="47256"></span>47256</td>
+<td class="instruction">CALL <a href="62250.html">Test_EntityOnLeft</a></td>
+<td class="comment-1" rowspan="2">Call <a href="62250.html">Test_EntityOnLeft</a> to test Entity On Left? If not, jump to <a href="47228.html#47268">Berk_Pick_Up_Entity_RetryCollision</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47259"></span>47259</td>
+<td class="instruction">JR NC,<a href="47228.html#47268">Berk_Pick_Up_Entity_RetryCollision</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47261"></span>
+<div class="comments">
+<div class="paragraph">
+Mark the picked-up entity's direction/state as held (130).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_Pick_Up_Entity_MarkDirection</td>
+<td class="address-2"><span id="47261"></span>47261</td>
+<td class="instruction">LD (IX+9),130</td>
+<td class="comment-1" rowspan="1">Write 130 to the current entity's direction / state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47265"></span>
+<div class="comments">
+<div class="paragraph">
+Exit the pick-up attempt, restoring Berk's entity pointer in <span class="register">IX</span>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_Pick_Up_Entity_RestoreReturn</td>
+<td class="address-2"><span id="47265"></span>47265</td>
+<td class="instruction">POP IX</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">IX</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47267"></span>47267</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47268"></span>
+<div class="comments">
+<div class="paragraph">
+Retry pick-up via <a href="47228.html">Berk_Pick_Up_Entity</a> after the on-left test failed.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_Pick_Up_Entity_RetryCollision</td>
+<td class="address-2"><span id="47268"></span>47268</td>
+<td class="instruction">CALL <a href="47228.html#47228">Berk_Pick_Up_Entity</a></td>
+<td class="comment-1" rowspan="2">Call <a href="47228.html">Berk_Pick_Up_Entity</a> to let Berk pick up an entity? If so, jump to <a href="47228.html#47261">Berk_Pick_Up_Entity_MarkDirection</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47271"></span>47271</td>
+<td class="instruction">JR C,<a href="47228.html#47261">Berk_Pick_Up_Entity_MarkDirection</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47273"></span>47273</td>
+<td class="instruction">POP IX</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">IX</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47275"></span>47275</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47276"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="47091.html">Berk_Interact_With_Entity</a>.
+</div>
+<div class="paragraph">
+Trap door height on left: choose open vs closed trap scripts from bit 1 of <a href="29363.html">GameEventFlags</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_Pick_Up_Entity_TrapDoorScripts</td>
+<td class="address-2"><span id="47276"></span>47276</td>
+<td class="instruction">BIT 4,(IX+3)</td>
+<td class="comment-1" rowspan="2">Is bit 4 of flags byte 3 (<span class="register">IX</span>+3) set? If so, jump to <a href="46144.html#46206">Berk_ReadControls_Idle</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47280"></span>47280</td>
+<td class="instruction">JP NZ,<a href="46144.html#46206">Berk_ReadControls_Idle</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47283"></span>47283</td>
+<td class="instruction">LD HL,29363</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the game event flags (<a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47286"></span>47286</td>
+<td class="instruction">BIT 1,(HL)</td>
+<td class="comment-1" rowspan="2">Is "trap door is open / trap door event armed" (bit 1 of <a href="29363.html">GameEventFlags</a>) set? If so, jump to <a href="47228.html#47296">Berk_Pick_Up_Entity_TrapOpenScript</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47288"></span>47288</td>
+<td class="instruction">JR NZ,<a href="47228.html#47296">Berk_Pick_Up_Entity_TrapOpenScript</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47290"></span>47290</td>
+<td class="instruction">LD HL,47923</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk control/put-down script data (<a href="47525.html">47923</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47293"></span>47293</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47296"></span>
+<div class="comments">
+<div class="paragraph">
+Trap already open: run the open-trap interaction script (<a href="47525.html#47937">47937</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_Pick_Up_Entity_TrapOpenScript</td>
+<td class="address-2"><span id="47296"></span>47296</td>
+<td class="instruction">LD HL,47937</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk control/put-down script data (<a href="47525.html#47937">47937</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47299"></span>47299</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47302"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="46144.html">Update_Berk_ReadControls</a>.
+</div>
+<div class="paragraph">
+Handle right: clear facing-left, then walk or turn Berk right.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_WalkRight</td>
+<td class="address-2"><span id="47302"></span>47302</td>
+<td class="instruction">RES 1,(IX+3)</td>
+<td class="comment-1" rowspan="1">Clear Berk's facing-left flag (bit 1 of <span class="register">IX</span>+3).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47306"></span>47306</td>
+<td class="instruction">LD A,(IX+4)</td>
+<td class="comment-1" rowspan="1">Fetch Berk's room index.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47309"></span>47309</td>
+<td class="instruction">CP 0</td>
+<td class="comment-1" rowspan="2">Is Berk in room 0? If not, continue the right-walk at <a href="47228.html#47321">Berk_WalkRight_TestBelow</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47311"></span>47311</td>
+<td class="instruction">JR NZ,<a href="47228.html#47321">Berk_WalkRight_TestBelow</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47313"></span>47313</td>
+<td class="instruction">LD A,(IX+6)</td>
+<td class="comment-1" rowspan="1">Fetch Berk's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47316"></span>47316</td>
+<td class="instruction">CP 27</td>
+<td class="comment-1" rowspan="2">Is he still on the trap door row (y-extent 27)? If not, continue the current script at <a href="60462.html">AdvanceScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47318"></span>47318</td>
+<td class="instruction">JP NZ,<a href="60462.html">AdvanceScriptInstruction</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47321"></span>
+<div class="comments">
+<div class="paragraph">
+Right walk outside room 0: test an entity below before turning or interacting.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_WalkRight_TestBelow</td>
+<td class="address-2"><span id="47321"></span>47321</td>
+<td class="instruction">CALL <a href="62353.html">Test_EntityBelow</a></td>
+<td class="comment-1" rowspan="2">Call <a href="62353.html">Test_EntityBelow</a> to test Entity Below? If not, jump to <a href="47228.html#47339">Berk_WalkRight_ByYExtent</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47324"></span>47324</td>
+<td class="instruction">JR NC,<a href="47228.html#47339">Berk_WalkRight_ByYExtent</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47326"></span>
+<div class="comments">
+<div class="paragraph">
+Already facing the walk-right way: continue the script or run face-right put-down <a href="47525.html#47735">BerkPutDownScript_WalkRightFace</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_WalkRight_FaceCheck</td>
+<td class="address-2"><span id="47326"></span>47326</td>
+<td class="instruction">BIT 0,(IX+9)</td>
+<td class="comment-1" rowspan="2">Is bit 0 of the current entity's direction / state set? If so, jump to <a href="60462.html">AdvanceScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47330"></span>47330</td>
+<td class="instruction">JP NZ,<a href="60462.html">AdvanceScriptInstruction</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47333"></span>47333</td>
+<td class="instruction">LD HL,47735</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk control/put-down script data (<a href="47525.html#47735">BerkPutDownScript_WalkRightFace</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47336"></span>47336</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47339"></span>
+<div class="comments">
+<div class="paragraph">
+Right walk by y-extent: high rows put down, mid rows idle, else try a put-down.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_WalkRight_ByYExtent</td>
+<td class="address-2"><span id="47339"></span>47339</td>
+<td class="instruction">CP 65</td>
+<td class="comment-1" rowspan="2">Is the current entity's y-extent equal to 65? If so, jump to <a href="47404.html#47488">Berk_Put_Down_Entity_AtYExtent41</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47341"></span>47341</td>
+<td class="instruction">JP Z,<a href="47404.html#47488">Berk_Put_Down_Entity_AtYExtent41</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47344"></span>47344</td>
+<td class="instruction">CP 56</td>
+<td class="comment-1" rowspan="2">Is the current entity's y-extent equal to 56? If so, jump to <a href="47404.html#47468">Berk_Put_Down_Entity_AtYExtent38</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47346"></span>47346</td>
+<td class="instruction">JR Z,<a href="47404.html#47468">Berk_Put_Down_Entity_AtYExtent38</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47348"></span>47348</td>
+<td class="instruction">CP 59</td>
+<td class="comment-1" rowspan="2">Is the current entity's y-extent equal to 59? If so, jump to <a href="47404.html#47504">Berk_Put_Down_Entity_TrapDoor</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47350"></span>47350</td>
+<td class="instruction">JP Z,<a href="47404.html#47504">Berk_Put_Down_Entity_TrapDoor</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47353"></span>47353</td>
+<td class="instruction">CP 50</td>
+<td class="comment-1" rowspan="2">Is the current entity's y-extent less than 50? If not, jump to <a href="46144.html#46206">Berk_ReadControls_Idle</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47355"></span>47355</td>
+<td class="instruction">JP NC,<a href="46144.html#46206">Berk_ReadControls_Idle</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47358"></span>47358</td>
+<td class="instruction">BIT 4,(IX+3)</td>
+<td class="comment-1" rowspan="2">Is bit 4 of flags byte 3 (<span class="register">IX</span>+3) set? If so, jump to <a href="47228.html#47326">Berk_WalkRight_FaceCheck</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47362"></span>47362</td>
+<td class="instruction">JP NZ,<a href="47228.html#47326">Berk_WalkRight_FaceCheck</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47365"></span>47365</td>
+<td class="instruction">LD BC,(29354)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">BC</span> with the last-collided entity pointer (<a href="29354.html">Pointer_LastCollidedEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47369"></span>47369</td>
+<td class="instruction">INC BC</td>
+<td class="comment-1" rowspan="1">Advance the counter/pointer in <span class="register">BC</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47370"></span>47370</td>
+<td class="instruction">LD A,(BC)</td>
+<td class="comment-1" rowspan="1">Fetch a byte through the pointer in <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47371"></span>47371</td>
+<td class="instruction">AND %00010000</td>
+<td class="comment-1" rowspan="1">Keep only bit 4 of the flag byte in <span class="register">A</span> (mask 16).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47373"></span>47373</td>
+<td class="instruction">JR NZ,<a href="47228.html#47326">Berk_WalkRight_FaceCheck</a></td>
+<td class="comment-1" rowspan="1">If the result was non-zero, jump to <a href="47228.html#47326">Berk_WalkRight_FaceCheck</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47375"></span>47375</td>
+<td class="instruction">BIT 3,(IX+3)</td>
+<td class="comment-1" rowspan="2">Is bit 3 of flags byte 3 (<span class="register">IX</span>+3) set? If so, jump to <a href="47228.html#47388">Berk_WalkRight_TryPutDown</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47379"></span>47379</td>
+<td class="instruction">JR NZ,<a href="47228.html#47388">Berk_WalkRight_TryPutDown</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47381"></span>47381</td>
+<td class="instruction">BIT 0,(IX+9)</td>
+<td class="comment-1" rowspan="2">Is bit 0 of the current entity's direction / state set? If so, jump to <a href="60462.html">AdvanceScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47385"></span>47385</td>
+<td class="instruction">JP NZ,<a href="60462.html">AdvanceScriptInstruction</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47388"></span>
+<div class="comments">
+<div class="paragraph">
+Try <a href="47404.html">Berk_Put_Down_Entity</a> to put down; on success lock held-state and run script <a href="47525.html#47857">47857</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_WalkRight_TryPutDown</td>
+<td class="address-2"><span id="47388"></span>47388</td>
+<td class="instruction">CALL <a href="47404.html">Berk_Put_Down_Entity</a></td>
+<td class="comment-1" rowspan="2">Call <a href="47404.html">Berk_Put_Down_Entity</a> to let Berk put down an entity? If not, jump to <a href="46144.html#46206">Berk_ReadControls_Idle</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47391"></span>47391</td>
+<td class="instruction">JP NC,<a href="46144.html#46206">Berk_ReadControls_Idle</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47394"></span>47394</td>
+<td class="instruction">SET 3,(IX+3)</td>
+<td class="comment-1" rowspan="1">Set bit 3 of the current entity's flags byte 3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47398"></span>47398</td>
+<td class="instruction">LD HL,47857</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk control/put-down script data (<a href="47525.html#47857">47857</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47401"></span>47401</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="47091.html">47091</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#47228">Map</a></td>
+<td class="next">
+Next: <a href="47404.html">47404</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/B87C.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

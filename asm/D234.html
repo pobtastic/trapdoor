@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at D234</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at D234. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at D234" />
+<meta property="og:description" content="The Trap Door: Data at D234. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/D234.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/D234.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at D234",
+"name": "The Trap Door: Data at D234",
+"description": "The Trap Door: Data at D234. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/D234.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at D234"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/D234.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="D1FE.html">D1FE</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#d234">Map</a></td>
+<td class="next">
+Next: <a href="D446.html">D446</a>
+</td>
+</tr>
+</table>
+<div class="description">D234: Data: Drutt Script / Animation</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Drutt's script and animation data. Referenced from Drutt's script animation table and the code that drives those frames.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d234"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="script-d234" src="../images/script-d234.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Data_DruttScriptAnim</td>
+<td class="address-1"><span id="d234"></span>D234</td>
+<td class="instruction">DEFB $F0,$0D</td>
+<td class="comment-1" rowspan="1">Queue sound 0D.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d236"></span>D236</td>
+<td class="instruction">DEFB $FB,$45,$D3</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="D234.html#d345">D345</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d239"></span>D239</td>
+<td class="instruction">DEFB $FA,$00,$FF</td>
+<td class="comment-1" rowspan="1">Move the cursor by -01 horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d23c"></span>D23C</td>
+<td class="instruction">DEFB $2D,$06,$22</td>
+<td class="comment-1" rowspan="1">Draw tile 2D with INK: YELLOW,
+PAPER: BLACK (06) and move right by 02&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d23f"></span>D23F</td>
+<td class="instruction">DEFB $2D,$86,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 2D with INK: YELLOW,
+PAPER: BLACK&#44; MIRRORED (86) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d242"></span>D242</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d243"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-d243" src="../images/scr/layout-d243.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d243"></span>D243</td>
+<td class="instruction">DEFB $FE,$FF,$00</td>
+<td class="comment-1" rowspan="1">Move the cursor by 00 horizontally and -01 vertically, and store as the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d246"></span>D246</td>
+<td class="instruction">DEFB $FB,$45,$D3</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="D234.html#d345">D345</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d249"></span>D249</td>
+<td class="instruction">DEFB $FA,$00,$FF</td>
+<td class="comment-1" rowspan="1">Move the cursor by -01 horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d24c"></span>D24C</td>
+<td class="instruction">DEFB $26,$06,$22</td>
+<td class="comment-1" rowspan="1">Draw tile 26 with INK: YELLOW,
+PAPER: BLACK (06) and move right by 02&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d24f"></span>D24F</td>
+<td class="instruction">DEFB $26,$86,$1E</td>
+<td class="comment-1" rowspan="1">Draw tile 26 with INK: YELLOW,
+PAPER: BLACK&#44; MIRRORED (86) and move left by 02 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d252"></span>D252</td>
+<td class="instruction">DEFB $2E,$06,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 2E with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d255"></span>D255</td>
+<td class="instruction">DEFB $2F,$06,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 2F with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d258"></span>D258</td>
+<td class="instruction">DEFB $2E,$86,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 2E with INK: YELLOW,
+PAPER: BLACK&#44; MIRRORED (86) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d25b"></span>D25B</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d25c"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-d25c" src="../images/scr/layout-d25c.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d25c"></span>D25C</td>
+<td class="instruction">DEFB $FB,$45,$D3</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="D234.html#d345">D345</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d25f"></span>D25F</td>
+<td class="instruction">DEFB $FA,$00,$FF</td>
+<td class="comment-1" rowspan="1">Move the cursor by -01 horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d262"></span>D262</td>
+<td class="instruction">DEFB $26,$06,$22</td>
+<td class="comment-1" rowspan="1">Draw tile 26 with INK: YELLOW,
+PAPER: BLACK (06) and move right by 02&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d265"></span>D265</td>
+<td class="instruction">DEFB $26,$86,$1E</td>
+<td class="comment-1" rowspan="1">Draw tile 26 with INK: YELLOW,
+PAPER: BLACK&#44; MIRRORED (86) and move left by 02 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d268"></span>D268</td>
+<td class="instruction">DEFB $3A,$06,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 3A with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d26b"></span>D26B</td>
+<td class="instruction">DEFB $38,$06,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 38 with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d26e"></span>D26E</td>
+<td class="instruction">DEFB $3A,$86,$1F</td>
+<td class="comment-1" rowspan="1">Draw tile 3A with INK: YELLOW,
+PAPER: BLACK&#44; MIRRORED (86) and move left by 01 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d271"></span>D271</td>
+<td class="instruction">DEFB $39,$06,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 39 with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d274"></span>D274</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d275"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-d275" src="../images/scr/layout-d275.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d275"></span>D275</td>
+<td class="instruction">DEFB $F4,$06</td>
+<td class="comment-1" rowspan="1">Set the graphic set to <a href="8989.html">06</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d277"></span>D277</td>
+<td class="instruction">DEFB $FA,$FF,$FF</td>
+<td class="comment-1" rowspan="1">Move the cursor by -01 horizontally and -01 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d27a"></span>D27A</td>
+<td class="instruction">DEFB $25,$06,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 25 with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d27d"></span>D27D</td>
+<td class="instruction">DEFB $24,$06,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 24 with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d280"></span>D280</td>
+<td class="instruction">DEFB $25,$86,$1E</td>
+<td class="comment-1" rowspan="1">Draw tile 25 with INK: YELLOW,
+PAPER: BLACK&#44; MIRRORED (86) and move left by 02 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d283"></span>D283</td>
+<td class="instruction">DEFB $2D,$06,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 2D with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d286"></span>D286</td>
+<td class="instruction">DEFB $00,$36,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 00 with INK: YELLOW,
+PAPER: YELLOW (36) and move right by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d289"></span>D289</td>
+<td class="instruction">DEFB $2D,$86,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 2D with INK: YELLOW,
+PAPER: BLACK&#44; MIRRORED (86) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d28c"></span>D28C</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d28d"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-d28d" src="../images/scr/layout-d28d.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d28d"></span>D28D</td>
+<td class="instruction">DEFB $F4,$06</td>
+<td class="comment-1" rowspan="1">Set the graphic set to <a href="8989.html">06</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d28f"></span>D28F</td>
+<td class="instruction">DEFB $FA,$FF,$FF</td>
+<td class="comment-1" rowspan="1">Move the cursor by -01 horizontally and -01 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d292"></span>D292</td>
+<td class="instruction">DEFB $25,$06,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 25 with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d295"></span>D295</td>
+<td class="instruction">DEFB $24,$06,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 24 with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d298"></span>D298</td>
+<td class="instruction">DEFB $25,$86,$1E</td>
+<td class="comment-1" rowspan="1">Draw tile 25 with INK: YELLOW,
+PAPER: BLACK&#44; MIRRORED (86) and move left by 02 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d29b"></span>D29B</td>
+<td class="instruction">DEFB $26,$06,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 26 with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d29e"></span>D29E</td>
+<td class="instruction">DEFB $00,$36,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 00 with INK: YELLOW,
+PAPER: YELLOW (36) and move right by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2a1"></span>D2A1</td>
+<td class="instruction">DEFB $26,$86,$1E</td>
+<td class="comment-1" rowspan="1">Draw tile 26 with INK: YELLOW,
+PAPER: BLACK&#44; MIRRORED (86) and move left by 02 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2a4"></span>D2A4</td>
+<td class="instruction">DEFB $3A,$06,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 3A with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2a7"></span>D2A7</td>
+<td class="instruction">DEFB $38,$06,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 38 with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2aa"></span>D2AA</td>
+<td class="instruction">DEFB $3A,$86,$1F</td>
+<td class="comment-1" rowspan="1">Draw tile 3A with INK: YELLOW,
+PAPER: BLACK&#44; MIRRORED (86) and move left by 01 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2ad"></span>D2AD</td>
+<td class="instruction">DEFB $39,$06,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 39 with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2b0"></span>D2B0</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d2b1"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-d2b1" src="../images/scr/layout-d2b1.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2b1"></span>D2B1</td>
+<td class="instruction">DEFB $F0,$0D</td>
+<td class="comment-1" rowspan="1">Queue sound 0D.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2b3"></span>D2B3</td>
+<td class="instruction">DEFB $F4,$06</td>
+<td class="comment-1" rowspan="1">Set the graphic set to <a href="8989.html">06</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2b5"></span>D2B5</td>
+<td class="instruction">DEFB $FA,$FF,$00</td>
+<td class="comment-1" rowspan="1">Move the cursor by 00 horizontally and -01 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2b8"></span>D2B8</td>
+<td class="instruction">DEFB $30,$07,$1F</td>
+<td class="comment-1" rowspan="1">Draw tile 30 with INK: WHITE,
+PAPER: BLACK (07) and move left by 01 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2bb"></span>D2BB</td>
+<td class="instruction">DEFB $26,$06,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 26 with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2be"></span>D2BE</td>
+<td class="instruction">DEFB $31,$06,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 31 with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2c1"></span>D2C1</td>
+<td class="instruction">DEFB $32,$06,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 32 with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2c4"></span>D2C4</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d2c5"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-d2c5" src="../images/scr/layout-d2c5.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2c5"></span>D2C5</td>
+<td class="instruction">DEFB $FB,$E9,$D2</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="D234.html#d2e9">D2E9</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2c8"></span>D2C8</td>
+<td class="instruction">DEFB $FA,$01,$FF</td>
+<td class="comment-1" rowspan="1">Move the cursor by -01 horizontally and 01 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2cb"></span>D2CB</td>
+<td class="instruction">DEFB $33,$06,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 33 with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2ce"></span>D2CE</td>
+<td class="instruction">DEFB $34,$06,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 34 with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2d1"></span>D2D1</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d2d2"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-d2d2" src="../images/scr/layout-d2d2.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2d2"></span>D2D2</td>
+<td class="instruction">DEFB $FB,$E9,$D2</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="D234.html#d2e9">D2E9</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2d5"></span>D2D5</td>
+<td class="instruction">DEFB $FA,$01,$00</td>
+<td class="comment-1" rowspan="1">Move the cursor by 00 horizontally and 01 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2d8"></span>D2D8</td>
+<td class="instruction">DEFB $35,$06,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 35 with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2db"></span>D2DB</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d2dc"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-d2dc" src="../images/scr/layout-d2dc.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2dc"></span>D2DC</td>
+<td class="instruction">DEFB $FB,$E9,$D2</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="D234.html#d2e9">D2E9</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2df"></span>D2DF</td>
+<td class="instruction">DEFB $FA,$01,$00</td>
+<td class="comment-1" rowspan="1">Move the cursor by 00 horizontally and 01 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2e2"></span>D2E2</td>
+<td class="instruction">DEFB $36,$06,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 36 with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2e5"></span>D2E5</td>
+<td class="instruction">DEFB $37,$06,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 37 with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2e8"></span>D2E8</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d2e9"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-d2e9" src="../images/scr/layout-d2e9.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2e9"></span>D2E9</td>
+<td class="instruction">DEFB $F4,$06</td>
+<td class="comment-1" rowspan="1">Set the graphic set to <a href="8989.html">06</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2eb"></span>D2EB</td>
+<td class="instruction">DEFB $FA,$FF,$00</td>
+<td class="comment-1" rowspan="1">Move the cursor by 00 horizontally and -01 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2ee"></span>D2EE</td>
+<td class="instruction">DEFB $30,$07,$1F</td>
+<td class="comment-1" rowspan="1">Draw tile 30 with INK: WHITE,
+PAPER: BLACK (07) and move left by 01 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2f1"></span>D2F1</td>
+<td class="instruction">DEFB $26,$06,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 26 with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2f4"></span>D2F4</td>
+<td class="instruction">DEFB $00,$36,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 00 with INK: YELLOW,
+PAPER: YELLOW (36) and move right by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2f7"></span>D2F7</td>
+<td class="instruction">DEFB $26,$86,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 26 with INK: YELLOW,
+PAPER: BLACK&#44; MIRRORED (86) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2fa"></span>D2FA</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d2fb"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-d2fb" src="../images/scr/layout-d2fb.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2fb"></span>D2FB</td>
+<td class="instruction">DEFB $F0,$0D</td>
+<td class="comment-1" rowspan="1">Queue sound 0D.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2fd"></span>D2FD</td>
+<td class="instruction">DEFB $F4,$06</td>
+<td class="comment-1" rowspan="1">Set the graphic set to <a href="8989.html">06</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2ff"></span>D2FF</td>
+<td class="instruction">DEFB $FA,$FF,$00</td>
+<td class="comment-1" rowspan="1">Move the cursor by 00 horizontally and -01 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d302"></span>D302</td>
+<td class="instruction">DEFB $30,$87,$1F</td>
+<td class="comment-1" rowspan="1">Draw tile 30 with INK: WHITE,
+PAPER: BLACK&#44; MIRRORED (87) and move left by 01 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d305"></span>D305</td>
+<td class="instruction">DEFB $32,$86,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 32 with INK: YELLOW,
+PAPER: BLACK&#44; MIRRORED (86) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d308"></span>D308</td>
+<td class="instruction">DEFB $31,$86,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 31 with INK: YELLOW,
+PAPER: BLACK&#44; MIRRORED (86) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d30b"></span>D30B</td>
+<td class="instruction">DEFB $26,$86,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 26 with INK: YELLOW,
+PAPER: BLACK&#44; MIRRORED (86) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d30e"></span>D30E</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d30f"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-d30f" src="../images/scr/layout-d30f.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d30f"></span>D30F</td>
+<td class="instruction">DEFB $FB,$33,$D3</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="D234.html#d333">D333</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d312"></span>D312</td>
+<td class="instruction">DEFB $FA,$01,$00</td>
+<td class="comment-1" rowspan="1">Move the cursor by 00 horizontally and 01 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d315"></span>D315</td>
+<td class="instruction">DEFB $34,$86,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 34 with INK: YELLOW,
+PAPER: BLACK&#44; MIRRORED (86) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d318"></span>D318</td>
+<td class="instruction">DEFB $33,$86,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 33 with INK: YELLOW,
+PAPER: BLACK&#44; MIRRORED (86) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d31b"></span>D31B</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d31c"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-d31c" src="../images/scr/layout-d31c.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d31c"></span>D31C</td>
+<td class="instruction">DEFB $FB,$33,$D3</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="D234.html#d333">D333</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d31f"></span>D31F</td>
+<td class="instruction">DEFB $FA,$01,$00</td>
+<td class="comment-1" rowspan="1">Move the cursor by 00 horizontally and 01 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d322"></span>D322</td>
+<td class="instruction">DEFB $35,$86,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 35 with INK: YELLOW,
+PAPER: BLACK&#44; MIRRORED (86) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d325"></span>D325</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d326"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-d326" src="../images/scr/layout-d326.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d326"></span>D326</td>
+<td class="instruction">DEFB $FB,$33,$D3</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="D234.html#d333">D333</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d329"></span>D329</td>
+<td class="instruction">DEFB $FA,$01,$FF</td>
+<td class="comment-1" rowspan="1">Move the cursor by -01 horizontally and 01 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d32c"></span>D32C</td>
+<td class="instruction">DEFB $37,$86,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 37 with INK: YELLOW,
+PAPER: BLACK&#44; MIRRORED (86) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d32f"></span>D32F</td>
+<td class="instruction">DEFB $36,$86,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 36 with INK: YELLOW,
+PAPER: BLACK&#44; MIRRORED (86) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d332"></span>D332</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d333"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-d333" src="../images/scr/layout-d333.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d333"></span>D333</td>
+<td class="instruction">DEFB $F4,$06</td>
+<td class="comment-1" rowspan="1">Set the graphic set to <a href="8989.html">06</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d335"></span>D335</td>
+<td class="instruction">DEFB $FA,$FF,$00</td>
+<td class="comment-1" rowspan="1">Move the cursor by 00 horizontally and -01 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d338"></span>D338</td>
+<td class="instruction">DEFB $30,$87,$1F</td>
+<td class="comment-1" rowspan="1">Draw tile 30 with INK: WHITE,
+PAPER: BLACK&#44; MIRRORED (87) and move left by 01 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d33b"></span>D33B</td>
+<td class="instruction">DEFB $26,$06,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 26 with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d33e"></span>D33E</td>
+<td class="instruction">DEFB $00,$36,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 00 with INK: YELLOW,
+PAPER: YELLOW (36) and move right by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d341"></span>D341</td>
+<td class="instruction">DEFB $26,$86,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 26 with INK: YELLOW,
+PAPER: BLACK&#44; MIRRORED (86) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d344"></span>D344</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d345"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-d345" src="../images/scr/layout-d345.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d345"></span>D345</td>
+<td class="instruction">DEFB $F4,$06</td>
+<td class="comment-1" rowspan="1">Set the graphic set to <a href="8989.html">06</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d347"></span>D347</td>
+<td class="instruction">DEFB $F5,$03,$27,$28,$29</td>
+<td class="comment-1" rowspan="1">Set the next graphic index from a random list.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d34c"></span>D34C</td>
+<td class="instruction">DEFB $00,$33,$21</td>
+<td class="comment-1" rowspan="1">Draw a random tile from the list at <a href="D234.html#d347">D347</a> with INK: MAGENTA,
+PAPER: YELLOW (33) and move right by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d34f"></span>D34F</td>
+<td class="instruction">DEFB $FA,$FF,$FE</td>
+<td class="comment-1" rowspan="1">Move the cursor by -02 horizontally and -01 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d352"></span>D352</td>
+<td class="instruction">DEFB $F9,$02,$00,$02,$04,$5D,$D3,$01,$02,$67,$D3</td>
+<td class="comment-1" rowspan="1">Jump to a time-weighted random layout address (<a href="D234.html#d35d">D35D</a>, <a href="D234.html#d367">D367</a>).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d35d"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-d35d" src="../images/scr/layout-d35d.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d35d"></span>D35D</td>
+<td class="instruction">DEFB $25,$07,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 25 with INK: WHITE,
+PAPER: BLACK (07) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d360"></span>D360</td>
+<td class="instruction">DEFB $23,$07,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 23 with INK: WHITE,
+PAPER: BLACK (07) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d363"></span>D363</td>
+<td class="instruction">DEFB $25,$87,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 25 with INK: WHITE,
+PAPER: BLACK&#44; MIRRORED (87) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d366"></span>D366</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d367"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-d367" src="../images/scr/layout-d367.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d367"></span>D367</td>
+<td class="instruction">DEFB $25,$06,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 25 with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d36a"></span>D36A</td>
+<td class="instruction">DEFB $24,$06,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 24 with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d36d"></span>D36D</td>
+<td class="instruction">DEFB $25,$86,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 25 with INK: YELLOW,
+PAPER: BLACK&#44; MIRRORED (86) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d370"></span>D370</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d371"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-d371" src="../images/scr/layout-d371.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d371"></span>D371</td>
+<td class="instruction">DEFB $F4,$06</td>
+<td class="comment-1" rowspan="1">Set the graphic set to <a href="8989.html">06</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d373"></span>D373</td>
+<td class="instruction">DEFB $FA,$00,$FF</td>
+<td class="comment-1" rowspan="1">Move the cursor by -01 horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d376"></span>D376</td>
+<td class="instruction">DEFB $2D,$06,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 2D with INK: YELLOW,
+PAPER: BLACK (06) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d379"></span>D379</td>
+<td class="instruction">DEFB $2A,$33,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 2A with INK: MAGENTA,
+PAPER: YELLOW (33) and move right by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d37c"></span>D37C</td>
+<td class="instruction">DEFB $2D,$86,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 2D with INK: YELLOW,
+PAPER: BLACK&#44; MIRRORED (86) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d37f"></span>D37F</td>
+<td class="instruction">DEFB $FA,$FF,$FD</td>
+<td class="comment-1" rowspan="1">Move the cursor by -03 horizontally and -01 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d382"></span>D382</td>
+<td class="instruction">DEFB $F3,$00,$02,$5D,$D3,$67,$D3</td>
+<td class="comment-1" rowspan="1">Increment the index and jump to one of <a href="D234.html#d35d">D35D</a>, <a href="D234.html#d367">D367</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d389"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-d389" src="../images/scr/layout-d389.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d389"></span>D389</td>
+<td class="instruction">DEFB $F4,$06</td>
+<td class="comment-1" rowspan="1">Set the graphic set to <a href="8989.html">06</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d38b"></span>D38B</td>
+<td class="instruction">DEFB $FA,$FF,$FF</td>
+<td class="comment-1" rowspan="1">Move the cursor by -01 horizontally and -01 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d38e"></span>D38E</td>
+<td class="instruction">DEFB $25,$07,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 25 with INK: WHITE,
+PAPER: BLACK (07) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d391"></span>D391</td>
+<td class="instruction">DEFB $23,$07,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 23 with INK: WHITE,
+PAPER: BLACK (07) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d394"></span>D394</td>
+<td class="instruction">DEFB $25,$87,$1E</td>
+<td class="comment-1" rowspan="1">Draw tile 25 with INK: WHITE,
+PAPER: BLACK&#44; MIRRORED (87) and move left by 02 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d397"></span>D397</td>
+<td class="instruction">DEFB $2D,$06,$22</td>
+<td class="comment-1" rowspan="1">Draw tile 2D with INK: YELLOW,
+PAPER: BLACK (06) and move right by 02&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d39a"></span>D39A</td>
+<td class="instruction">DEFB $2D,$86,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 2D with INK: YELLOW,
+PAPER: BLACK&#44; MIRRORED (86) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d39d"></span>D39D</td>
+<td class="instruction">DEFB $FA,$00,$FE</td>
+<td class="comment-1" rowspan="1">Move the cursor by -02 horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3a0"></span>D3A0</td>
+<td class="instruction">DEFB $F5,$02,$2B,$2C</td>
+<td class="comment-1" rowspan="1">Set the next graphic index from a random list.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3a4"></span>D3A4</td>
+<td class="instruction">DEFB $00,$33,$20</td>
+<td class="comment-1" rowspan="1">Draw a random tile from the list at <a href="D234.html#d3a0">D3A0</a> with INK: MAGENTA,
+PAPER: YELLOW (33) and move down by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3a7"></span>D3A7</td>
+<td class="instruction">DEFB $F3,$00,$03,$B0,$D3,$BA,$D3,$C1,$D3</td>
+<td class="comment-1" rowspan="1">Increment the index and jump to one of <a href="D234.html#d3b0">D3B0</a>, <a href="D234.html#d3ba">D3BA</a>, <a href="D234.html#d3c1">D3C1</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d3b0"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-d3b0" src="../images/scr/layout-d3b0.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3b0"></span>D3B0</td>
+<td class="instruction">DEFB $FA,$00,$FF</td>
+<td class="comment-1" rowspan="1">Move the cursor by -01 horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3b3"></span>D3B3</td>
+<td class="instruction">DEFB $11,$07,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 11 with INK: WHITE,
+PAPER: BLACK (07) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3b6"></span>D3B6</td>
+<td class="instruction">DEFB $3B,$03,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 3B with INK: MAGENTA,
+PAPER: BLACK (03) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3b9"></span>D3B9</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d3ba"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-d3ba" src="../images/scr/layout-d3ba.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3ba"></span>D3BA</td>
+<td class="instruction">DEFB $02,$03,$20</td>
+<td class="comment-1" rowspan="1">Draw tile 02 with INK: MAGENTA,
+PAPER: BLACK (03) and move down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3bd"></span>D3BD</td>
+<td class="instruction">DEFB $03,$07,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 03 with INK: WHITE,
+PAPER: BLACK (07) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3c0"></span>D3C0</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d3c1"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-d3c1" src="../images/scr/layout-d3c1.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3c1"></span>D3C1</td>
+<td class="instruction">DEFB $3B,$83,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 3B with INK: MAGENTA,
+PAPER: BLACK&#44; MIRRORED (83) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3c4"></span>D3C4</td>
+<td class="instruction">DEFB $11,$87,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 11 with INK: WHITE,
+PAPER: BLACK&#44; MIRRORED (87) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3c7"></span>D3C7</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3c8"></span>D3C8</td>
+<td class="instruction">DEFB $92,$D7,$01,$00</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes 92, D7, 01, 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3cc"></span>D3CC</td>
+<td class="instruction">DEFB $C8,$D3,$7D,$D6,$36,$00,$01,$00</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes C8, D3, 7D, D6, 36, 00, 01, 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3d4"></span>D3D4</td>
+<td class="instruction">DEFB $CE,$D3,$92,$D7,$37,$00,$01,$00</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes CE, D3, 92, D7, 37, 00, 01, 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3dc"></span>D3DC</td>
+<td class="instruction">DEFB $D6,$D3,$B5,$D6,$38,$00,$C4,$D6</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes D6, D3, B5, D6, 38, 00, C4, D6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3e4"></span>D3E4</td>
+<td class="instruction">DEFB $01,$00,$DE,$D3,$D6,$D6,$39,$00</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes 01, 00, DE, D3, D6, D6, 39, 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3ec"></span>D3EC</td>
+<td class="instruction">DEFB $E5,$D6,$01,$00,$E8,$D3</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes E5, D6, 01, 00, E8, D3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3f2"></span>D3F2</td>
+<td class="instruction">DEFB $F7</td>
+<td class="comment-1" rowspan="1">Layout F7 (timer-based random graphic index).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3f3"></span>D3F3</td>
+<td class="instruction">DEFB $D6</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes D6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3f4"></span>D3F4</td>
+<td class="instruction">DEFB $3A,$00,$03,$D7,$01,$00</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes 3A, 00, 03, D7, 01, 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3fa"></span>D3FA</td>
+<td class="instruction">DEFB $F2,$D3</td>
+<td class="comment-1" rowspan="1">Set the current attribute to INK: MAGENTA,
+PAPER: RED&#44; MIRRORED (D3).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3fc"></span>D3FC</td>
+<td class="instruction">DEFB $12,$D7,$3B,$00,$1B,$D7,$01,$00</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes 12, D7, 3B, 00, 1B, D7, 01, 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d404"></span>D404</td>
+<td class="instruction">DEFB $FC</td>
+<td class="comment-1" rowspan="1">Layout FC (conditional jump or skip).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d405"></span>D405</td>
+<td class="instruction">DEFB $D3,$2A,$D7,$2A,$D7,$01,$00</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes D3, 2A, D7, 2A, D7, 01, 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d40c"></span>D40C</td>
+<td class="instruction">DEFB $DE,$D3,$39,$D7,$39,$D7,$01,$00</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes DE, D3, 39, D7, 39, D7, 01, 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d414"></span>D414</td>
+<td class="instruction">DEFB $E8,$D3,$48,$D7,$01,$00,$16,$D4</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes E8, D3, 48, D7, 01, 00, 16, D4.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d41c"></span>D41C</td>
+<td class="instruction">DEFB $03,$D7,$7D,$D6,$3C,$00,$3D,$00</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes 03, D7, 7D, D6, 3C, 00, 3D, 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d424"></span>D424</td>
+<td class="instruction">DEFB $12,$D7,$01,$00,$D6,$D3</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes 12, D7, 01, 00, D6, D3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d42a"></span>D42A</td>
+<td class="instruction">DEFB $FA</td>
+<td class="comment-1" rowspan="1">Layout FA (adjust coordinates without storing).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d42b"></span>D42B</td>
+<td class="instruction">DEFB $D6</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes D6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d42c"></span>D42C</td>
+<td class="instruction">DEFB $FA</td>
+<td class="comment-1" rowspan="1">Layout FA (adjust coordinates without storing).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d42d"></span>D42D</td>
+<td class="instruction">DEFB $D6,$3D,$00,$03,$D7</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes D6, 3D, 00, 03, D7.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d432"></span>D432</td>
+<td class="instruction">DEFB $F7</td>
+<td class="comment-1" rowspan="1">Layout F7 (timer-based random graphic index).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d433"></span>D433</td>
+<td class="instruction">DEFB $D6</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes D6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d434"></span>D434</td>
+<td class="instruction">DEFB $01,$00,$D6,$D3,$80,$D7,$80,$D7</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes 01, 00, D6, D3, 80, D7, 80, D7.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d43c"></span>D43C</td>
+<td class="instruction">DEFB $3D,$00,$E5,$D6,$D6,$D6,$01,$00</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes 3D, 00, E5, D6, D6, D6, 01, 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d444"></span>D444</td>
+<td class="instruction">DEFB $D6,$D3</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes D6, D3.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="D1FE.html">D1FE</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#d234">Map</a></td>
+<td class="next">
+Next: <a href="D446.html">D446</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/53812.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

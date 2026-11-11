@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at CF44</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at CF44. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at CF44" />
+<meta property="og:description" content="The Trap Door: Data at CF44. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/CF44.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/CF44.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at CF44",
+"name": "The Trap Door: Data at CF44",
+"description": "The Trap Door: Data at CF44. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/CF44.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at CF44"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/CF44.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="CF37.html">CF37</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#cf44">Map</a></td>
+<td class="next">
+Next: <a href="D012.html">D012</a>
+</td>
+</tr>
+</table>
+<div class="description">CF44: Data: Drutt Scripts</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Drutt animation scripts. The type-0C entity in the crusher slot at <a href="8EF3.html#8fc9">StateData_Complex_16</a> uses Drutt's layout <a href="D234.html">Data_DruttScriptAnim</a>. <a href="D012.html#d030">Update_Drutt_RunScript</a> runs <a href="CF44.html">Data_DruttScripts</a> when that entity is active. <a href="D040.html#d057">D057</a> enters <a href="CF44.html#cf88">DruttScript_Copy</a>, <a href="D074.html#d0e0">D0E0</a> enters <a href="CF44.html#cffe">CFFE</a>, and <a href="D1FE.html#d22e">D22E</a> enters <a href="CF44.html#cff4">CFF4</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="cf44"></span>
+<div class="comments">
+<div class="paragraph">
+Idle and bubble script entered from <a href="D012.html#d030">Update_Drutt_RunScript</a>.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="script-cf44" src="../images/script-cf44.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Data_DruttScripts</td>
+<td class="address-1"><span id="cf44"></span>CF44</td>
+<td class="instruction">DEFB $5C,$D2,$34,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d25c">D25C</a>; Graphic-layout pointer <a href="D234.html">Data_DruttScriptAnim</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf48"></span>CF48</td>
+<td class="instruction">DEFB $43,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d243">D243</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf4a"></span>CF4A</td>
+<td class="instruction">DEFB $43,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d243">D243</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf4c"></span>CF4C</td>
+<td class="instruction">DEFB $34,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html">Data_DruttScriptAnim</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf4e"></span>CF4E</td>
+<td class="instruction">DEFB $43,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d243">D243</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf50"></span>CF50</td>
+<td class="instruction">DEFB $43,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d243">D243</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf52"></span>CF52</td>
+<td class="instruction">DEFW $003E</td>
+<td class="comment-1" rowspan="1">Script opcode 3E (Drutt action).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="cf54"></span>
+<div class="comments">
+<div class="paragraph">
+Near-range Drutt script.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">DruttScript_Near</td>
+<td class="address-1"><span id="cf54"></span>CF54</td>
+<td class="instruction">DEFB $B1,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d2b1">D2B1</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf56"></span>CF56</td>
+<td class="instruction">DEFW $0040</td>
+<td class="comment-1" rowspan="1">Script opcode 40 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf58"></span>CF58</td>
+<td class="instruction">DEFB $C5,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d2c5">D2C5</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf5a"></span>CF5A</td>
+<td class="instruction">DEFW $0040</td>
+<td class="comment-1" rowspan="1">Script opcode 40 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf5c"></span>CF5C</td>
+<td class="instruction">DEFB $D2,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d2d2">D2D2</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf5e"></span>CF5E</td>
+<td class="instruction">DEFW $0043</td>
+<td class="comment-1" rowspan="1">Script opcode 43 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf60"></span>CF60</td>
+<td class="instruction">DEFW $0042</td>
+<td class="comment-1" rowspan="1">Script opcode 42 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf62"></span>CF62</td>
+<td class="instruction">DEFB $DC,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d2dc">D2DC</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf64"></span>CF64</td>
+<td class="instruction">DEFW $0042</td>
+<td class="comment-1" rowspan="1">Script opcode 42 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf66"></span>CF66</td>
+<td class="instruction">DEFW $003E</td>
+<td class="comment-1" rowspan="1">Script opcode 3E (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf68"></span>CF68</td>
+<td class="instruction">DEFW $0042</td>
+<td class="comment-1" rowspan="1">Script opcode 42 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf6a"></span>CF6A</td>
+<td class="instruction">DEFB $DC,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d2dc">D2DC</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf6c"></span>CF6C</td>
+<td class="instruction">DEFW $0042</td>
+<td class="comment-1" rowspan="1">Script opcode 42 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf6e"></span>CF6E</td>
+<td class="instruction">DEFB $DC,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d2dc">D2DC</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf70"></span>CF70</td>
+<td class="instruction">DEFW $0044</td>
+<td class="comment-1" rowspan="1">Script opcode 44 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf72"></span>CF72</td>
+<td class="instruction">DEFB $B1,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d2b1">D2B1</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf74"></span>CF74</td>
+<td class="instruction">DEFW $003E</td>
+<td class="comment-1" rowspan="1">Script opcode 3E (Drutt action).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="cf76"></span>
+<div class="comments">
+<div class="paragraph">
+Alternate Drutt script.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">DruttScript_Alt</td>
+<td class="address-1"><span id="cf76"></span>CF76</td>
+<td class="instruction">DEFB $B1,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d2b1">D2B1</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf78"></span>CF78</td>
+<td class="instruction">DEFW $0040</td>
+<td class="comment-1" rowspan="1">Script opcode 40 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf7a"></span>CF7A</td>
+<td class="instruction">DEFB $C5,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d2c5">D2C5</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf7c"></span>CF7C</td>
+<td class="instruction">DEFW $0040</td>
+<td class="comment-1" rowspan="1">Script opcode 40 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf7e"></span>CF7E</td>
+<td class="instruction">DEFB $D2,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d2d2">D2D2</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf80"></span>CF80</td>
+<td class="instruction">DEFW $0042</td>
+<td class="comment-1" rowspan="1">Script opcode 42 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf82"></span>CF82</td>
+<td class="instruction">DEFB $DC,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d2dc">D2DC</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf84"></span>CF84</td>
+<td class="instruction">DEFW $0044</td>
+<td class="comment-1" rowspan="1">Script opcode 44 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf86"></span>CF86</td>
+<td class="instruction">DEFW $003E</td>
+<td class="comment-1" rowspan="1">Script opcode 3E (Drutt action).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="cf88"></span>
+<div class="comments">
+<div class="paragraph">
+Drutt script launched after copying the template.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">DruttScript_Copy</td>
+<td class="address-1"><span id="cf88"></span>CF88</td>
+<td class="instruction">DEFB $FB,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d2fb">D2FB</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf8a"></span>CF8A</td>
+<td class="instruction">DEFW $003F</td>
+<td class="comment-1" rowspan="1">Script opcode 3F (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf8c"></span>CF8C</td>
+<td class="instruction">DEFB $0F,$D3</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d30f">D30F</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf8e"></span>CF8E</td>
+<td class="instruction">DEFW $003F</td>
+<td class="comment-1" rowspan="1">Script opcode 3F (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf90"></span>CF90</td>
+<td class="instruction">DEFB $1C,$D3</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d31c">D31C</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf92"></span>CF92</td>
+<td class="instruction">DEFW $0043</td>
+<td class="comment-1" rowspan="1">Script opcode 43 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf94"></span>CF94</td>
+<td class="instruction">DEFW $0041</td>
+<td class="comment-1" rowspan="1">Script opcode 41 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf96"></span>CF96</td>
+<td class="instruction">DEFB $26,$D3</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d326">D326</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf98"></span>CF98</td>
+<td class="instruction">DEFW $0041</td>
+<td class="comment-1" rowspan="1">Script opcode 41 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf9a"></span>CF9A</td>
+<td class="instruction">DEFW $003E</td>
+<td class="comment-1" rowspan="1">Script opcode 3E (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf9c"></span>CF9C</td>
+<td class="instruction">DEFW $0041</td>
+<td class="comment-1" rowspan="1">Script opcode 41 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf9e"></span>CF9E</td>
+<td class="instruction">DEFB $26,$D3</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d326">D326</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfa0"></span>CFA0</td>
+<td class="instruction">DEFW $0041</td>
+<td class="comment-1" rowspan="1">Script opcode 41 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfa2"></span>CFA2</td>
+<td class="instruction">DEFB $26,$D3</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d326">D326</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfa4"></span>CFA4</td>
+<td class="instruction">DEFW $0044</td>
+<td class="comment-1" rowspan="1">Script opcode 44 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfa6"></span>CFA6</td>
+<td class="instruction">DEFB $FB,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d2fb">D2FB</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfa8"></span>CFA8</td>
+<td class="instruction">DEFW $003E</td>
+<td class="comment-1" rowspan="1">Script opcode 3E (Drutt action).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="cfaa"></span>
+<div class="comments">
+<div class="paragraph">
+Drutt script used when the scan picks a candidate.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">DruttScript_Scan</td>
+<td class="address-1"><span id="cfaa"></span>CFAA</td>
+<td class="instruction">DEFB $FB,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d2fb">D2FB</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfac"></span>CFAC</td>
+<td class="instruction">DEFW $003F</td>
+<td class="comment-1" rowspan="1">Script opcode 3F (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfae"></span>CFAE</td>
+<td class="instruction">DEFB $0F,$D3</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d30f">D30F</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfb0"></span>CFB0</td>
+<td class="instruction">DEFW $003F</td>
+<td class="comment-1" rowspan="1">Script opcode 3F (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfb2"></span>CFB2</td>
+<td class="instruction">DEFB $1C,$D3</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d31c">D31C</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfb4"></span>CFB4</td>
+<td class="instruction">DEFW $0041</td>
+<td class="comment-1" rowspan="1">Script opcode 41 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfb6"></span>CFB6</td>
+<td class="instruction">DEFB $26,$D3</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d326">D326</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfb8"></span>CFB8</td>
+<td class="instruction">DEFW $0044</td>
+<td class="comment-1" rowspan="1">Script opcode 44 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfba"></span>CFBA</td>
+<td class="instruction">DEFW $003E</td>
+<td class="comment-1" rowspan="1">Script opcode 3E (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfbc"></span>CFBC</td>
+<td class="instruction">DEFB $75,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d275">D275</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfbe"></span>CFBE</td>
+<td class="instruction">DEFW $0045</td>
+<td class="comment-1" rowspan="1">Script opcode 45 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfc0"></span>CFC0</td>
+<td class="instruction">DEFW $0045</td>
+<td class="comment-1" rowspan="1">Script opcode 45 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfc2"></span>CFC2</td>
+<td class="instruction">DEFB $8D,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d28d">D28D</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfc4"></span>CFC4</td>
+<td class="instruction">DEFW $0045</td>
+<td class="comment-1" rowspan="1">Script opcode 45 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfc6"></span>CFC6</td>
+<td class="instruction">DEFW $0045</td>
+<td class="comment-1" rowspan="1">Script opcode 45 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfc8"></span>CFC8</td>
+<td class="instruction">DEFB $8D,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d28d">D28D</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfca"></span>CFCA</td>
+<td class="instruction">DEFW $0046</td>
+<td class="comment-1" rowspan="1">Script opcode 46 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfcc"></span>CFCC</td>
+<td class="instruction">DEFB $8D,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d28d">D28D</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfce"></span>CFCE</td>
+<td class="instruction">DEFW $0044</td>
+<td class="comment-1" rowspan="1">Script opcode 44 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfd0"></span>CFD0</td>
+<td class="instruction">DEFW $0044</td>
+<td class="comment-1" rowspan="1">Script opcode 44 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfd2"></span>CFD2</td>
+<td class="instruction">DEFB $8D,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d28d">D28D</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfd4"></span>CFD4</td>
+<td class="instruction">DEFW $0044</td>
+<td class="comment-1" rowspan="1">Script opcode 44 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfd6"></span>CFD6</td>
+<td class="instruction">DEFW $0044</td>
+<td class="comment-1" rowspan="1">Script opcode 44 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfd8"></span>CFD8</td>
+<td class="instruction">DEFW $003E</td>
+<td class="comment-1" rowspan="1">Script opcode 3E (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfda"></span>CFDA</td>
+<td class="instruction">DEFB $34,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html">Data_DruttScriptAnim</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfdc"></span>CFDC</td>
+<td class="instruction">DEFW $0045</td>
+<td class="comment-1" rowspan="1">Script opcode 45 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfde"></span>CFDE</td>
+<td class="instruction">DEFW $0045</td>
+<td class="comment-1" rowspan="1">Script opcode 45 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfe0"></span>CFE0</td>
+<td class="instruction">DEFB $5C,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d25c">D25C</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfe2"></span>CFE2</td>
+<td class="instruction">DEFW $0045</td>
+<td class="comment-1" rowspan="1">Script opcode 45 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfe4"></span>CFE4</td>
+<td class="instruction">DEFW $0045</td>
+<td class="comment-1" rowspan="1">Script opcode 45 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfe6"></span>CFE6</td>
+<td class="instruction">DEFB $5C,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d25c">D25C</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfe8"></span>CFE8</td>
+<td class="instruction">DEFW $0044</td>
+<td class="comment-1" rowspan="1">Script opcode 44 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfea"></span>CFEA</td>
+<td class="instruction">DEFW $0044</td>
+<td class="comment-1" rowspan="1">Script opcode 44 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfec"></span>CFEC</td>
+<td class="instruction">DEFB $5C,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d25c">D25C</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfee"></span>CFEE</td>
+<td class="instruction">DEFW $0044</td>
+<td class="comment-1" rowspan="1">Script opcode 44 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cff0"></span>CFF0</td>
+<td class="instruction">DEFW $0044</td>
+<td class="comment-1" rowspan="1">Script opcode 44 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cff2"></span>CFF2</td>
+<td class="instruction">DEFW $003E</td>
+<td class="comment-1" rowspan="1">Script opcode 3E (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cff4"></span>CFF4</td>
+<td class="instruction">DEFW $0044</td>
+<td class="comment-1" rowspan="1">Script opcode 44 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cff6"></span>CFF6</td>
+<td class="instruction">DEFW $0044</td>
+<td class="comment-1" rowspan="1">Script opcode 44 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cff8"></span>CFF8</td>
+<td class="instruction">DEFB $8D,$D2</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d28d">D28D</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cffa"></span>CFFA</td>
+<td class="instruction">DEFW $0044</td>
+<td class="comment-1" rowspan="1">Script opcode 44 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cffc"></span>CFFC</td>
+<td class="instruction">DEFW $0044</td>
+<td class="comment-1" rowspan="1">Script opcode 44 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cffe"></span>CFFE</td>
+<td class="instruction">DEFB $89,$D3</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d389">D389</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d000"></span>D000</td>
+<td class="instruction">DEFW $0047</td>
+<td class="comment-1" rowspan="1">Script opcode 47 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d002"></span>D002</td>
+<td class="instruction">DEFB $89,$D3</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d389">D389</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d004"></span>D004</td>
+<td class="instruction">DEFB $89,$D3</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d389">D389</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d006"></span>D006</td>
+<td class="instruction">DEFB $89,$D3</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d389">D389</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d008"></span>D008</td>
+<td class="instruction">DEFB $71,$D3</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d371">D371</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d00a"></span>D00A</td>
+<td class="instruction">DEFB $71,$D3</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d371">D371</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d00c"></span>D00C</td>
+<td class="instruction">DEFB $71,$D3</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d371">D371</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d00e"></span>D00E</td>
+<td class="instruction">DEFB $71,$D3</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="D234.html#d371">D371</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d010"></span>D010</td>
+<td class="instruction">DEFW $003E</td>
+<td class="comment-1" rowspan="1">Script opcode 3E (Drutt action).</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="CF37.html">CF37</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#cf44">Map</a></td>
+<td class="next">
+Next: <a href="D012.html">D012</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/53060.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at CA23</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at CA23. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at CA23" />
+<meta property="og:description" content="The Trap Door: Data at CA23. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/CA23.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/CA23.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at CA23",
+"name": "The Trap Door: Data at CA23",
+"description": "The Trap Door: Data at CA23. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/CA23.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at CA23"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/CA23.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="C70E.html">C70E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#ca23">Map</a></td>
+<td class="next">
+Next: <a href="CAA7.html">CAA7</a>
+</td>
+</tr>
+</table>
+<div class="description">CA23: Data: Task Four Script</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Task-four script words for <a href="EC2E.html#ec30">ScriptInstruction</a>. <a href="CAC4.html#cadf">CADF</a> loads this address into <span class="register">HL</span> and <a href="CAC4.html#cae2">CAE2</a> stores it in the active script cursor (<a href="72CF.html">Pointer_ActiveScriptCursor</a>). <a href="CAA7.html#cac0">CAC0</a> later copies that cursor to <a href="72D7.html">Pointer_TaskFourScriptPosition</a>. <a href="CAFE.html">ScriptRoutine_TaskFourAlignCreature</a> enters at <a href="CA23.html#ca79">CA79</a>. <a href="CB44.html">ScriptRoutine_TaskFourStepToward</a> enters at <a href="CA23.html#ca9b">CA9B</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ca23"></span>
+<div class="comments">
+<div class="paragraph">
+Script entry loaded by <a href="CAC4.html#cadf">CADF</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Data_TaskFourScript</td>
+<td class="address-1"><span id="ca23"></span>CA23</td>
+<td class="instruction">DEFW <a href="CCB9.html#ccba">$CCBA</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="CCB9.html#ccba">CCBA</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca25"></span>CA25</td>
+<td class="instruction">DEFW $0021</td>
+<td class="comment-1" rowspan="1">Script opcode 21 (start counted script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca27"></span>CA27</td>
+<td class="instruction">DEFB $06,$00</td>
+<td class="comment-1" rowspan="1">Loop count 06 (<a href="EC53.html">ScriptRoutine_StartScriptLoop</a> reads only the low byte).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca29"></span>CA29</td>
+<td class="instruction">DEFW <a href="CCB9.html#ccba">$CCBA</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="CCB9.html#ccba">CCBA</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca2b"></span>CA2B</td>
+<td class="instruction">DEFW $0022</td>
+<td class="comment-1" rowspan="1">Script opcode 22 (end script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca2d"></span>CA2D</td>
+<td class="instruction">DEFW $004E</td>
+<td class="comment-1" rowspan="1">Script opcode 4E (arm the task-four script-active flags).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca2f"></span>CA2F</td>
+<td class="instruction">DEFW $0049</td>
+<td class="comment-1" rowspan="1">Script opcode 49 (raise the task-four creature).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca31"></span>CA31</td>
+<td class="instruction">DEFW <a href="CCB9.html#cce6">$CCE6</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="CCB9.html#cce6">CCE6</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca33"></span>CA33</td>
+<td class="instruction">DEFW $0049</td>
+<td class="comment-1" rowspan="1">Script opcode 49 (raise the task-four creature).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca35"></span>CA35</td>
+<td class="instruction">DEFW $004F</td>
+<td class="comment-1" rowspan="1">Script opcode 4F (randomise the creature's extra state).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca37"></span>CA37</td>
+<td class="instruction">DEFW $0001</td>
+<td class="comment-1" rowspan="1">Script opcode 01 (jump to script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca39"></span>CA39</td>
+<td class="instruction">DEFW <a href="CA23.html#ca43">$CA43</a></td>
+<td class="comment-1" rowspan="1">Jump to script address <a href="CA23.html#ca43">CA43</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ca3b"></span>
+<div class="comments">
+<div class="paragraph">
+Script fragment reached from <a href="CA23.html#ca77">CA77</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca3b"></span>CA3B</td>
+<td class="instruction">DEFW <a href="CCB9.html#ccc8">$CCC8</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="CCB9.html#ccc8">CCC8</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca3d"></span>CA3D</td>
+<td class="instruction">DEFW <a href="CCB9.html#ccce">$CCCE</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="CCB9.html#ccce">CCCE</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca3f"></span>CA3F</td>
+<td class="instruction">DEFW <a href="CCB9.html#ccd4">$CCD4</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="CCB9.html#ccd4">CCD4</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca41"></span>CA41</td>
+<td class="instruction">DEFW <a href="CCB9.html#ccda">$CCDA</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="CCB9.html#ccda">CCDA</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ca43"></span>
+<div class="comments">
+<div class="paragraph">
+Script fragment reached from <a href="CA23.html#ca39">CA39</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca43"></span>CA43</td>
+<td class="instruction">DEFW $0021</td>
+<td class="comment-1" rowspan="1">Script opcode 21 (start counted script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca45"></span>CA45</td>
+<td class="instruction">DEFB $04,$00</td>
+<td class="comment-1" rowspan="1">Loop count 04 (<a href="EC53.html">ScriptRoutine_StartScriptLoop</a> reads only the low byte).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca47"></span>CA47</td>
+<td class="instruction">DEFW <a href="CCB9.html#cce6">$CCE6</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="CCB9.html#cce6">CCE6</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca49"></span>CA49</td>
+<td class="instruction">DEFW $0049</td>
+<td class="comment-1" rowspan="1">Script opcode 49 (raise the task-four creature).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca4b"></span>CA4B</td>
+<td class="instruction">DEFW $0022</td>
+<td class="comment-1" rowspan="1">Script opcode 22 (end script loop).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ca4d"></span>
+<div class="comments">
+<div class="paragraph">
+Script fragment reached from <a href="CA23.html#ca99">CA99</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca4d"></span>CA4D</td>
+<td class="instruction">DEFW $0021</td>
+<td class="comment-1" rowspan="1">Script opcode 21 (start counted script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca4f"></span>CA4F</td>
+<td class="instruction">DEFB $05,$00</td>
+<td class="comment-1" rowspan="1">Loop count 05 (<a href="EC53.html">ScriptRoutine_StartScriptLoop</a> reads only the low byte).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca51"></span>CA51</td>
+<td class="instruction">DEFW <a href="CCB9.html">Data_TaskFourResidue</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="CCB9.html">Data_TaskFourResidue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca53"></span>CA53</td>
+<td class="instruction">DEFW $0022</td>
+<td class="comment-1" rowspan="1">Script opcode 22 (end script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca55"></span>CA55</td>
+<td class="instruction">DEFW $004B</td>
+<td class="comment-1" rowspan="1">Script opcode 4B (nudge the creature toward its target).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca57"></span>CA57</td>
+<td class="instruction">DEFW $0021</td>
+<td class="comment-1" rowspan="1">Script opcode 21 (start counted script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca59"></span>CA59</td>
+<td class="instruction">DEFB $02,$00</td>
+<td class="comment-1" rowspan="1">Loop count 02 (<a href="EC53.html">ScriptRoutine_StartScriptLoop</a> reads only the low byte).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca5b"></span>CA5B</td>
+<td class="instruction">DEFW <a href="CCB9.html#cce6">$CCE6</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="CCB9.html#cce6">CCE6</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca5d"></span>CA5D</td>
+<td class="instruction">DEFW $004A</td>
+<td class="comment-1" rowspan="1">Script opcode 4A (lower the task-four creature).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca5f"></span>CA5F</td>
+<td class="instruction">DEFW $0022</td>
+<td class="comment-1" rowspan="1">Script opcode 22 (end script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca61"></span>CA61</td>
+<td class="instruction">DEFW $0048</td>
+<td class="comment-1" rowspan="1">Script opcode 48 (snap the creature onto its target).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca63"></span>CA63</td>
+<td class="instruction">DEFW $0021</td>
+<td class="comment-1" rowspan="1">Script opcode 21 (start counted script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca65"></span>CA65</td>
+<td class="instruction">DEFB $02,$00</td>
+<td class="comment-1" rowspan="1">Loop count 02 (<a href="EC53.html">ScriptRoutine_StartScriptLoop</a> reads only the low byte).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca67"></span>CA67</td>
+<td class="instruction">DEFW <a href="CCB9.html#cce6">$CCE6</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="CCB9.html#cce6">CCE6</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca69"></span>CA69</td>
+<td class="instruction">DEFW $004A</td>
+<td class="comment-1" rowspan="1">Script opcode 4A (lower the task-four creature).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca6b"></span>CA6B</td>
+<td class="instruction">DEFW $0022</td>
+<td class="comment-1" rowspan="1">Script opcode 22 (end script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca6d"></span>CA6D</td>
+<td class="instruction">DEFW $004C</td>
+<td class="comment-1" rowspan="1">Script opcode 4C (test Berk overlap with the creature).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca6f"></span>CA6F</td>
+<td class="instruction">DEFW <a href="CCB9.html#cce0">$CCE0</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="CCB9.html#cce0">CCE0</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca71"></span>CA71</td>
+<td class="instruction">DEFW <a href="CCB9.html#ccd4">$CCD4</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="CCB9.html#ccd4">CCD4</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca73"></span>CA73</td>
+<td class="instruction">DEFW <a href="CCB9.html#ccce">$CCCE</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="CCB9.html#ccce">CCCE</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca75"></span>CA75</td>
+<td class="instruction">DEFW $0001</td>
+<td class="comment-1" rowspan="1">Script opcode 01 (jump to script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca77"></span>CA77</td>
+<td class="instruction">DEFW <a href="CA23.html#ca3b">$CA3B</a></td>
+<td class="comment-1" rowspan="1">Jump to script address <a href="CA23.html#ca3b">CA3B</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ca79"></span>
+<div class="comments">
+<div class="paragraph">
+Script entry loaded by <a href="CAFE.html">ScriptRoutine_TaskFourAlignCreature</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca79"></span>CA79</td>
+<td class="instruction">DEFW <a href="CCB9.html#cce6">$CCE6</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="CCB9.html#cce6">CCE6</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca7b"></span>CA7B</td>
+<td class="instruction">DEFW $004A</td>
+<td class="comment-1" rowspan="1">Script opcode 4A (lower the task-four creature).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca7d"></span>CA7D</td>
+<td class="instruction">DEFW <a href="CCB9.html#cce0">$CCE0</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="CCB9.html#cce0">CCE0</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca7f"></span>CA7F</td>
+<td class="instruction">DEFW <a href="CCB9.html#ccd4">$CCD4</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="CCB9.html#ccd4">CCD4</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca81"></span>CA81</td>
+<td class="instruction">DEFW <a href="CCB9.html#ccce">$CCCE</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="CCB9.html#ccce">CCCE</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca83"></span>CA83</td>
+<td class="instruction">DEFW <a href="CCB9.html#ccc8">$CCC8</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="CCB9.html#ccc8">CCC8</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca85"></span>CA85</td>
+<td class="instruction">DEFW $004D</td>
+<td class="comment-1" rowspan="1">Script opcode 4D (tick the offer-item timer).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca87"></span>CA87</td>
+<td class="instruction">DEFW <a href="CCB9.html#ccce">$CCCE</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="CCB9.html#ccce">CCCE</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca89"></span>CA89</td>
+<td class="instruction">DEFW <a href="CCB9.html#ccd4">$CCD4</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="CCB9.html#ccd4">CCD4</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca8b"></span>CA8B</td>
+<td class="instruction">DEFW <a href="CCB9.html#ccda">$CCDA</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="CCB9.html#ccda">CCDA</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca8d"></span>CA8D</td>
+<td class="instruction">DEFW $0021</td>
+<td class="comment-1" rowspan="1">Script opcode 21 (start counted script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca8f"></span>CA8F</td>
+<td class="instruction">DEFB $03,$00</td>
+<td class="comment-1" rowspan="1">Loop count 03 (<a href="EC53.html">ScriptRoutine_StartScriptLoop</a> reads only the low byte).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca91"></span>CA91</td>
+<td class="instruction">DEFW <a href="CCB9.html#cce6">$CCE6</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="CCB9.html#cce6">CCE6</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca93"></span>CA93</td>
+<td class="instruction">DEFW $0049</td>
+<td class="comment-1" rowspan="1">Script opcode 49 (raise the task-four creature).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca95"></span>CA95</td>
+<td class="instruction">DEFW $0022</td>
+<td class="comment-1" rowspan="1">Script opcode 22 (end script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca97"></span>CA97</td>
+<td class="instruction">DEFW $0001</td>
+<td class="comment-1" rowspan="1">Script opcode 01 (jump to script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca99"></span>CA99</td>
+<td class="instruction">DEFW <a href="CA23.html#ca4d">$CA4D</a></td>
+<td class="comment-1" rowspan="1">Jump to script address <a href="CA23.html#ca4d">CA4D</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ca9b"></span>
+<div class="comments">
+<div class="paragraph">
+Script entry loaded by <a href="CB44.html">ScriptRoutine_TaskFourStepToward</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca9b"></span>CA9B</td>
+<td class="instruction">DEFW $0021</td>
+<td class="comment-1" rowspan="1">Script opcode 21 (start counted script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca9d"></span>CA9D</td>
+<td class="instruction">DEFB $06,$00</td>
+<td class="comment-1" rowspan="1">Loop count 06 (<a href="EC53.html">ScriptRoutine_StartScriptLoop</a> reads only the low byte).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca9f"></span>CA9F</td>
+<td class="instruction">DEFW <a href="CCB9.html#cce6">$CCE6</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="CCB9.html#cce6">CCE6</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="caa1"></span>CAA1</td>
+<td class="instruction">DEFW $004A</td>
+<td class="comment-1" rowspan="1">Script opcode 4A (lower the task-four creature).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="caa3"></span>CAA3</td>
+<td class="instruction">DEFW $0022</td>
+<td class="comment-1" rowspan="1">Script opcode 22 (end script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="caa5"></span>CAA5</td>
+<td class="instruction">DEFW $0050</td>
+<td class="comment-1" rowspan="1">Script opcode 50 (clear the task-four script flags).</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="C70E.html">C70E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#ca23">Map</a></td>
+<td class="next">
+Next: <a href="CAA7.html">CAA7</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/51747.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

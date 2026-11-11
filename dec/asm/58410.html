@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at 58410</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at 58410. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at 58410" />
+<meta property="og:description" content="The Trap Door: Data at 58410. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/58410.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/58410.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at 58410",
+"name": "The Trap Door: Data at 58410",
+"description": "The Trap Door: Data at 58410. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/58410.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at 58410"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/58410.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="58311.html">58311</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#58410">Map</a></td>
+<td class="next">
+Next: <a href="59099.html">59099</a>
+</td>
+</tr>
+</table>
+<div class="description">58410: Font: Message Characters</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Double-height message font used by <a href="58112.html">Paint_MessageBuffer</a> and <a href="58230.html">Draw_MessageCharacter</a>. Each glyph is 0016 bytes: an 0008-byte top half then an 0008-byte bottom half, matching the plot order at <a href="58230.html#58296">58296</a> and <a href="58230.html#58304">58304</a>. 0043 glyphs run from <a href="58410.html">Font_MessageCharacters</a> through 59097; <a href="58410.html#59098">59098</a> is a pad 0 before <a href="59099.html">PopulateDisplayBuffer_VisibleEntities</a>. <a href="58230.html#58265">58265</a> maps ASCII codes from &#48; upward to glyph slot (ASCII code minus 48); <a href="58230.html#58271">Draw_MessageCharacter_FullStop</a> through <a href="58230.html#58283">Draw_MessageCharacter_Apostrophe</a> override full stop, comma, apostrophe and exclamation mark onto half-indices 20, 22, 24 and 26 (slots 10 through 13), and space (&#32;) keeps half-index 32 (slot 16).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Font_MessageCharacters</td>
+<td class="address-1"><span id="58410"></span>58410</td>
+<td class="instruction">DEFB 0,0,0,60,126,102,102,102</td>
+<td class="comment-1" rowspan="2">Character 0 (&#48;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-0" src="../../images/udgs/ message-font-0.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58418"></span>58418</td>
+<td class="instruction">DEFB 102,102,102,126,60,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58426"></span>58426</td>
+<td class="instruction">DEFB 0,0,0,24,56,120,24,24</td>
+<td class="comment-1" rowspan="2">Character 1 (&#49;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-1" src="../../images/udgs/ message-font-1.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58434"></span>58434</td>
+<td class="instruction">DEFB 24,24,24,126,126,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58442"></span>58442</td>
+<td class="instruction">DEFB 0,0,0,60,126,102,6,14</td>
+<td class="comment-1" rowspan="2">Character 2 (&#50;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-2" src="../../images/udgs/ message-font-2.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58450"></span>58450</td>
+<td class="instruction">DEFB 28,56,112,126,126,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58458"></span>58458</td>
+<td class="instruction">DEFB 0,0,0,60,126,102,6,28</td>
+<td class="comment-1" rowspan="2">Character 3 (&#51;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-3" src="../../images/udgs/ message-font-3.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58466"></span>58466</td>
+<td class="instruction">DEFB 28,6,102,126,60,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58474"></span>58474</td>
+<td class="instruction">DEFB 0,0,0,6,14,30,62,118</td>
+<td class="comment-1" rowspan="2">Character 4 (&#52;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-4" src="../../images/udgs/ message-font-4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58482"></span>58482</td>
+<td class="instruction">DEFB 102,126,126,6,6,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58490"></span>58490</td>
+<td class="instruction">DEFB 0,0,0,126,126,96,96,124</td>
+<td class="comment-1" rowspan="2">Character 5 (&#53;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-5" src="../../images/udgs/ message-font-5.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58498"></span>58498</td>
+<td class="instruction">DEFB 62,6,102,126,60,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58506"></span>58506</td>
+<td class="instruction">DEFB 0,0,0,60,126,102,96,124</td>
+<td class="comment-1" rowspan="2">Character 6 (&#54;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-6" src="../../images/udgs/ message-font-6.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58514"></span>58514</td>
+<td class="instruction">DEFB 126,102,102,126,60,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58522"></span>58522</td>
+<td class="instruction">DEFB 0,0,0,126,126,6,6,12</td>
+<td class="comment-1" rowspan="2">Character 7 (&#55;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-7" src="../../images/udgs/ message-font-7.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58530"></span>58530</td>
+<td class="instruction">DEFB 12,24,24,24,24,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58538"></span>58538</td>
+<td class="instruction">DEFB 0,0,0,60,126,102,102,60</td>
+<td class="comment-1" rowspan="2">Character 8 (&#56;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-8" src="../../images/udgs/ message-font-8.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58546"></span>58546</td>
+<td class="instruction">DEFB 126,102,102,126,60,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58554"></span>58554</td>
+<td class="instruction">DEFB 0,0,0,60,126,102,102,126</td>
+<td class="comment-1" rowspan="2">Character 9 (&#57;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-9" src="../../images/udgs/ message-font-9.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58562"></span>58562</td>
+<td class="instruction">DEFB 62,6,102,126,60,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58570"></span>58570</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,0,0</td>
+<td class="comment-1" rowspan="2">Character 10 (&#46;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-10" src="../../images/udgs/ message-font-10.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58578"></span>58578</td>
+<td class="instruction">DEFB 0,0,0,96,96,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58586"></span>58586</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,0,0</td>
+<td class="comment-1" rowspan="2">Character 11 (&#44;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-11" src="../../images/udgs/ message-font-11.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58594"></span>58594</td>
+<td class="instruction">DEFB 0,0,12,12,4,8,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58602"></span>58602</td>
+<td class="instruction">DEFB 0,0,12,12,4,8,0,0</td>
+<td class="comment-1" rowspan="2">Character 12 (&#39;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-12" src="../../images/udgs/ message-font-12.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58610"></span>58610</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58618"></span>58618</td>
+<td class="instruction">DEFB 0,0,24,24,24,24,24,24</td>
+<td class="comment-1" rowspan="2">Character 13 (&#33;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-13" src="../../images/udgs/ message-font-13.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58626"></span>58626</td>
+<td class="instruction">DEFB 24,24,24,0,0,24,24,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58634"></span>58634</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,0,0</td>
+<td class="comment-1" rowspan="2">Character 14 (&#62;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-14" src="../../images/udgs/ message-font-14.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58642"></span>58642</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58650"></span>58650</td>
+<td class="instruction">DEFB 0,0,0,60,126,102,14,28</td>
+<td class="comment-1" rowspan="2">Character 15 (&#63;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-15" src="../../images/udgs/ message-font-15.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58658"></span>58658</td>
+<td class="instruction">DEFB 24,24,0,24,24,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58666"></span>58666</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,0,0</td>
+<td class="comment-1" rowspan="2">Character 16 (&#32;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-16" src="../../images/udgs/ message-font-16.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58674"></span>58674</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58682"></span>58682</td>
+<td class="instruction">DEFB 0,0,0,60,126,102,102,126</td>
+<td class="comment-1" rowspan="2">Character 17 (&#65;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-17" src="../../images/udgs/ message-font-17.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58690"></span>58690</td>
+<td class="instruction">DEFB 126,102,102,102,102,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58698"></span>58698</td>
+<td class="instruction">DEFB 0,0,0,124,126,102,102,124</td>
+<td class="comment-1" rowspan="2">Character 18 (&#66;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-18" src="../../images/udgs/ message-font-18.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58706"></span>58706</td>
+<td class="instruction">DEFB 124,102,102,126,124,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58714"></span>58714</td>
+<td class="instruction">DEFB 0,0,0,60,126,102,102,96</td>
+<td class="comment-1" rowspan="2">Character 19 (&#67;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-19" src="../../images/udgs/ message-font-19.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58722"></span>58722</td>
+<td class="instruction">DEFB 96,102,102,126,60,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58730"></span>58730</td>
+<td class="instruction">DEFB 0,0,0,124,126,102,102,102</td>
+<td class="comment-1" rowspan="2">Character 20 (&#68;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-20" src="../../images/udgs/ message-font-20.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58738"></span>58738</td>
+<td class="instruction">DEFB 102,102,102,126,124,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58746"></span>58746</td>
+<td class="instruction">DEFB 0,0,0,126,126,96,96,120</td>
+<td class="comment-1" rowspan="2">Character 21 (&#69;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-21" src="../../images/udgs/ message-font-21.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58754"></span>58754</td>
+<td class="instruction">DEFB 120,96,96,126,126,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58762"></span>58762</td>
+<td class="instruction">DEFB 0,0,0,126,126,96,96,120</td>
+<td class="comment-1" rowspan="2">Character 22 (&#70;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-22" src="../../images/udgs/ message-font-22.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58770"></span>58770</td>
+<td class="instruction">DEFB 120,96,96,96,96,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58778"></span>58778</td>
+<td class="instruction">DEFB 0,0,0,60,126,102,96,110</td>
+<td class="comment-1" rowspan="2">Character 23 (&#71;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-23" src="../../images/udgs/ message-font-23.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58786"></span>58786</td>
+<td class="instruction">DEFB 110,102,102,126,60,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58794"></span>58794</td>
+<td class="instruction">DEFB 0,0,0,102,102,102,102,126</td>
+<td class="comment-1" rowspan="2">Character 24 (&#72;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-24" src="../../images/udgs/ message-font-24.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58802"></span>58802</td>
+<td class="instruction">DEFB 126,102,102,102,102,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58810"></span>58810</td>
+<td class="instruction">DEFB 0,0,0,126,126,24,24,24</td>
+<td class="comment-1" rowspan="2">Character 25 (&#73;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-25" src="../../images/udgs/ message-font-25.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58818"></span>58818</td>
+<td class="instruction">DEFB 24,24,24,126,126,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58826"></span>58826</td>
+<td class="instruction">DEFB 0,0,0,126,126,24,24,24</td>
+<td class="comment-1" rowspan="2">Character 26 (&#74;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-26" src="../../images/udgs/ message-font-26.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58834"></span>58834</td>
+<td class="instruction">DEFB 24,24,24,120,112,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58842"></span>58842</td>
+<td class="instruction">DEFB 0,0,0,102,102,110,124,120</td>
+<td class="comment-1" rowspan="2">Character 27 (&#75;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-27" src="../../images/udgs/ message-font-27.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58850"></span>58850</td>
+<td class="instruction">DEFB 120,124,110,102,102,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58858"></span>58858</td>
+<td class="instruction">DEFB 0,0,0,96,96,96,96,96</td>
+<td class="comment-1" rowspan="2">Character 28 (&#76;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-28" src="../../images/udgs/ message-font-28.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58866"></span>58866</td>
+<td class="instruction">DEFB 96,96,96,126,126,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58874"></span>58874</td>
+<td class="instruction">DEFB 0,0,0,198,238,254,254,214</td>
+<td class="comment-1" rowspan="2">Character 29 (&#77;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-29" src="../../images/udgs/ message-font-29.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58882"></span>58882</td>
+<td class="instruction">DEFB 214,214,214,214,198,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58890"></span>58890</td>
+<td class="instruction">DEFB 0,0,0,102,102,102,118,126</td>
+<td class="comment-1" rowspan="2">Character 30 (&#78;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-30" src="../../images/udgs/ message-font-30.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58898"></span>58898</td>
+<td class="instruction">DEFB 126,110,102,102,102,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58906"></span>58906</td>
+<td class="instruction">DEFB 0,0,0,60,126,102,102,102</td>
+<td class="comment-1" rowspan="2">Character 31 (&#79;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-31" src="../../images/udgs/ message-font-31.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58914"></span>58914</td>
+<td class="instruction">DEFB 102,102,102,126,60,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58922"></span>58922</td>
+<td class="instruction">DEFB 0,0,0,124,126,102,102,126</td>
+<td class="comment-1" rowspan="2">Character 32 (&#80;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-32" src="../../images/udgs/ message-font-32.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58930"></span>58930</td>
+<td class="instruction">DEFB 124,96,96,96,96,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58938"></span>58938</td>
+<td class="instruction">DEFB 0,0,0,60,126,102,102,102</td>
+<td class="comment-1" rowspan="2">Character 33 (&#81;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-33" src="../../images/udgs/ message-font-33.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58946"></span>58946</td>
+<td class="instruction">DEFB 102,102,110,110,44,8,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58954"></span>58954</td>
+<td class="instruction">DEFB 0,0,0,124,126,102,102,126</td>
+<td class="comment-1" rowspan="2">Character 34 (&#82;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-34" src="../../images/udgs/ message-font-34.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58962"></span>58962</td>
+<td class="instruction">DEFB 124,110,102,102,102,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58970"></span>58970</td>
+<td class="instruction">DEFB 0,0,0,60,126,102,96,124</td>
+<td class="comment-1" rowspan="2">Character 35 (&#83;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-35" src="../../images/udgs/ message-font-35.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58978"></span>58978</td>
+<td class="instruction">DEFB 62,6,102,126,60,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58986"></span>58986</td>
+<td class="instruction">DEFB 0,0,0,126,126,24,24,24</td>
+<td class="comment-1" rowspan="2">Character 36 (&#84;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-36" src="../../images/udgs/ message-font-36.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58994"></span>58994</td>
+<td class="instruction">DEFB 24,24,24,24,24,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59002"></span>59002</td>
+<td class="instruction">DEFB 0,0,0,102,102,102,102,102</td>
+<td class="comment-1" rowspan="2">Character 37 (&#85;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-37" src="../../images/udgs/ message-font-37.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59010"></span>59010</td>
+<td class="instruction">DEFB 102,102,102,126,60,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59018"></span>59018</td>
+<td class="instruction">DEFB 0,0,0,102,102,102,102,102</td>
+<td class="comment-1" rowspan="2">Character 38 (&#86;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-38" src="../../images/udgs/ message-font-38.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59026"></span>59026</td>
+<td class="instruction">DEFB 102,102,126,60,24,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59034"></span>59034</td>
+<td class="instruction">DEFB 0,0,0,198,214,214,214,214</td>
+<td class="comment-1" rowspan="2">Character 39 (&#87;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-39" src="../../images/udgs/ message-font-39.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59042"></span>59042</td>
+<td class="instruction">DEFB 214,254,254,238,198,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59050"></span>59050</td>
+<td class="instruction">DEFB 0,0,0,102,102,102,126,60</td>
+<td class="comment-1" rowspan="2">Character 40 (&#88;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-40" src="../../images/udgs/ message-font-40.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59058"></span>59058</td>
+<td class="instruction">DEFB 60,126,102,102,102,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59066"></span>59066</td>
+<td class="instruction">DEFB 0,0,0,102,102,102,102,126</td>
+<td class="comment-1" rowspan="2">Character 41 (&#89;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-41" src="../../images/udgs/ message-font-41.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59074"></span>59074</td>
+<td class="instruction">DEFB 126,60,24,24,24,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59082"></span>59082</td>
+<td class="instruction">DEFB 0,0,0,126,126,6,14,28</td>
+<td class="comment-1" rowspan="2">Character 42 (&#90;): <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt=" message-font-42" src="../../images/udgs/ message-font-42.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59090"></span>59090</td>
+<td class="instruction">DEFB 56,112,96,126,126,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59098"></span>59098</td>
+<td class="instruction">DEFB 0</td>
+<td class="comment-1" rowspan="1">Pad byte (0) before <a href="59099.html">PopulateDisplayBuffer_VisibleEntities</a>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="58311.html">58311</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#58410">Map</a></td>
+<td class="next">
+Next: <a href="59099.html">59099</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/E42A.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 55665</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 55665. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 55665" />
+<meta property="og:description" content="The Trap Door: Routine at 55665. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/55665.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/55665.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 55665",
+"name": "The Trap Door: Routine at 55665",
+"description": "The Trap Door: Routine at 55665. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/55665.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 55665"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/55665.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="55653.html">55653</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#55665">Map</a></td>
+<td class="next">
+Next: <a href="55843.html">55843</a>
+</td>
+</tr>
+</table>
+<div class="description">55665: Continue Bad Tempered Thing Dialogue</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="55251.html">Update_Bad_Tempered_Thing_Dialogue</a>.
+</div>
+<div class="paragraph">
+Continuation of <a href="55251.html">Update_Bad_Tempered_Thing_Dialogue</a> after the dialogue table at <a href="55653.html">Data_BadTemperedThingDialogue</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Continue_Bad_Tempered_Thing_Dialogue</td>
+<td class="address-2"><span id="55665"></span>55665</td>
+<td class="instruction">LD A,(29358)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current task index (<a href="29358.html">CurrentTaskIndex</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55668"></span>55668</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> zero? If not, jump to <a href="55665.html#55683">Update_Bad_Tempered_Thing_Dialogue_IndexTable</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55669"></span>55669</td>
+<td class="instruction">JR NZ,<a href="55665.html#55683">Update_Bad_Tempered_Thing_Dialogue_IndexTable</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55671"></span>55671</td>
+<td class="instruction">LD HL,55245</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Bad Tempered Thing dialogue bytes (<a href="54909.html#55245">55245</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55674"></span>55674</td>
+<td class="instruction">SET 0,(HL)</td>
+<td class="comment-1" rowspan="1">Mark this Bad Tempered Thing aside as already shown (bit 0 of <a href="54909.html#55245">55245</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55676"></span>55676</td>
+<td class="instruction">LD HL,55910</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Messaging: Task Menu Options (<a href="55910.html">Messaging_WhatNext</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55679"></span>55679</td>
+<td class="instruction">LD A,6</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55681"></span>55681</td>
+<td class="instruction">JR <a href="55665.html#55726">Update_Bad_Tempered_Thing_Dialogue_Hit</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="55665.html#55726">Update_Bad_Tempered_Thing_Dialogue_Hit</a> to pick a random dialogue variant.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55683"></span>
+<div class="comments">
+<div class="paragraph">
+Index the per-task dialogue table at <a href="55653.html">Data_BadTemperedThingDialogue</a> by the current task.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_IndexTable</td>
+<td class="address-2"><span id="55683"></span>55683</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-1" rowspan="1">Double <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55684"></span>55684</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1">Copy <span class="register">A</span> into <span class="register">E</span> for later use.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55685"></span>55685</td>
+<td class="instruction">LD D,0</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">D</span> (high byte of a pointer/offset).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55687"></span>55687</td>
+<td class="instruction">LD HL,55653</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the dialogue table (<a href="55653.html">Data_BadTemperedThingDialogue</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55690"></span>55690</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">Add the offset in <span class="register">DE</span> to the pointer in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55691"></span>55691</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-1" rowspan="3">Fetch the dialogue pointer into <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55692"></span>55692</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55693"></span>55693</td>
+<td class="instruction">LD D,(HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55694"></span>55694</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Swap the destination and source pointers in <span class="register">DE</span>/<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55695"></span>
+<div class="comments">
+<div class="paragraph">
+Skip join markers (&#38;) and walk <span class="register">B</span> fragments to the gated line.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_SkipJoinMarkers</td>
+<td class="address-2"><span id="55695"></span>55695</td>
+<td class="instruction">CALL <a href="55843.html">Advance_DialogueCharacter</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55843.html">Advance_DialogueCharacter</a> to advance Dialogue Character.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55698"></span>55698</td>
+<td class="instruction">CP 38</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> equal to 38? If so, jump to <a href="55665.html#55695">Update_Bad_Tempered_Thing_Dialogue_SkipJoinMarkers</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55700"></span>55700</td>
+<td class="instruction">JR Z,<a href="55665.html#55695">Update_Bad_Tempered_Thing_Dialogue_SkipJoinMarkers</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55702"></span>55702</td>
+<td class="instruction">DJNZ <a href="55665.html#55695">Update_Bad_Tempered_Thing_Dialogue_SkipJoinMarkers</a></td>
+<td class="comment-1" rowspan="1">Decrease the loop counter in <span class="register">B</span> and jump to <a href="55665.html#55695">Update_Bad_Tempered_Thing_Dialogue_SkipJoinMarkers</a> if more iterations remain.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55704"></span>
+<div class="comments">
+<div class="paragraph">
+If the gate byte is non-zero, decrement it and fall back to a random aside; else start Part A.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_GateByteOrAside</td>
+<td class="address-2"><span id="55704"></span>55704</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the byte at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55705"></span>55705</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> zero? If so, jump to <a href="55665.html#55738">Update_Bad_Tempered_Thing_Dialogue_PartA</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55706"></span>55706</td>
+<td class="instruction">JR Z,<a href="55665.html#55738">Update_Bad_Tempered_Thing_Dialogue_PartA</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55708"></span>55708</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-1" rowspan="1">Decrease the counter/flag byte at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55709"></span>55709</td>
+<td class="instruction">CALL <a href="55843.html">Advance_DialogueCharacter</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55843.html">Advance_DialogueCharacter</a> to advance Dialogue Character.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55712"></span>55712</td>
+<td class="instruction">CP 38</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> equal to 38? If so, jump to <a href="55665.html#55704">Update_Bad_Tempered_Thing_Dialogue_GateByteOrAside</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55714"></span>55714</td>
+<td class="instruction">JR Z,<a href="55665.html#55704">Update_Bad_Tempered_Thing_Dialogue_GateByteOrAside</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55716"></span>55716</td>
+<td class="instruction">LD HL,55245</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Bad Tempered Thing dialogue bytes (<a href="54909.html#55245">55245</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55719"></span>55719</td>
+<td class="instruction">SET 0,(HL)</td>
+<td class="comment-1" rowspan="1">Set bit 0 of <a href="54909.html#55245">55245</a> (aside-already-shown).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55721"></span>55721</td>
+<td class="instruction">LD HL,56604</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at <a href="56585.html#56604">56604</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55724"></span>55724</td>
+<td class="instruction">LD A,4</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 4.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55726"></span>
+<div class="comments">
+<div class="paragraph">
+Pick a random aside variant and skip that many fragments before printing.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_Hit</td>
+<td class="address-2"><span id="55726"></span>55726</td>
+<td class="instruction">CALL <a href="60133.html">PseudoRandom</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60133.html">PseudoRandom</a> to pick a pseudo-random value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55729"></span>55729</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Turn the random roll into a 1-based skip count.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55730"></span>55730</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1">Copy <span class="register">A</span> into <span class="register">B</span> for later use.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55731"></span>
+<div class="comments">
+<div class="paragraph">
+Consume the remaining skip count via <a href="55843.html">Advance_DialogueCharacter</a>, then enter the print setup at <a href="55665.html#55746">Update_Bad_Tempered_Thing_Dialogue_PartB</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_Exit</td>
+<td class="address-2"><span id="55731"></span>55731</td>
+<td class="instruction">CALL <a href="55843.html">Advance_DialogueCharacter</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55843.html">Advance_DialogueCharacter</a> to advance Dialogue Character.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55734"></span>55734</td>
+<td class="instruction">DJNZ <a href="55665.html#55731">Update_Bad_Tempered_Thing_Dialogue_Exit</a></td>
+<td class="comment-1" rowspan="1">Decrease the loop counter in <span class="register">B</span> and jump to <a href="55665.html#55731">Update_Bad_Tempered_Thing_Dialogue_Exit</a> if more iterations remain.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55736"></span>55736</td>
+<td class="instruction">JR <a href="55665.html#55746">Update_Bad_Tempered_Thing_Dialogue_PartB</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="55665.html#55746">Update_Bad_Tempered_Thing_Dialogue_PartB</a> to continue Bad Tempered Thing dialogue.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55738"></span>
+<div class="comments">
+<div class="paragraph">
+Seed a fresh random gate byte (1..3) when the previous gate hit zero.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_PartA</td>
+<td class="address-2"><span id="55738"></span>55738</td>
+<td class="instruction">LD A,3</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55740"></span>55740</td>
+<td class="instruction">CALL <a href="60133.html">PseudoRandom</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60133.html">PseudoRandom</a> to pick a pseudo-random value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55743"></span>55743</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Turn the random roll into a 1-based gate value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55744"></span>55744</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1">Set the byte at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55745"></span>55745</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance past the freshly written gate byte.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55746"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="55251.html">Update_Bad_Tempered_Thing_Dialogue</a>.
+</div>
+<div class="paragraph">
+Stash the dialogue string pointer and begin measuring the fragment length.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_PartB</td>
+<td class="address-2"><span id="55746"></span>55746</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">HL</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55747"></span>55747</td>
+<td class="instruction">LD E,0</td>
+<td class="comment-1" rowspan="1">Load <span class="register">E</span> with 0.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55749"></span>
+<div class="comments">
+<div class="paragraph">
+Count characters until a fragment (&#91;) or join (&#38;) marker.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_PartC</td>
+<td class="address-2"><span id="55749"></span>55749</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the byte at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55750"></span>55750</td>
+<td class="instruction">CP 91</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> equal to 91? If so, jump to <a href="55665.html#55762">Update_Bad_Tempered_Thing_Dialogue_PartD</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55752"></span>55752</td>
+<td class="instruction">JR Z,<a href="55665.html#55762">Update_Bad_Tempered_Thing_Dialogue_PartD</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55754"></span>55754</td>
+<td class="instruction">CP 38</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> equal to 38? If so, jump to <a href="55665.html#55762">Update_Bad_Tempered_Thing_Dialogue_PartD</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55756"></span>55756</td>
+<td class="instruction">JR Z,<a href="55665.html#55762">Update_Bad_Tempered_Thing_Dialogue_PartD</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55758"></span>55758</td>
+<td class="instruction">INC E</td>
+<td class="comment-1" rowspan="1">Advance the low byte of the pointer/offset in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55759"></span>55759</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance through the dialogue fragment.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55760"></span>55760</td>
+<td class="instruction">JR <a href="55665.html#55749">Update_Bad_Tempered_Thing_Dialogue_PartC</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="55665.html#55749">Update_Bad_Tempered_Thing_Dialogue_PartC</a> to fetch the next dialogue byte.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55762"></span>
+<div class="comments">
+<div class="paragraph">
+Compute left padding so the line centres within the 23-character dialogue strip.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_PartD</td>
+<td class="address-2"><span id="55762"></span>55762</td>
+<td class="instruction">LD A,23</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 23.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55764"></span>55764</td>
+<td class="instruction">SUB E</td>
+<td class="comment-1" rowspan="1">Subtract <span class="register">E</span> from <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55765"></span>55765</td>
+<td class="instruction">JR NC,<a href="55665.html#55768">Update_Bad_Tempered_Thing_Dialogue_PartE</a></td>
+<td class="comment-1" rowspan="1">If no borrow/miss was signaled, jump to <a href="55665.html#55768">Update_Bad_Tempered_Thing_Dialogue_PartE</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55767"></span>55767</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">A</span> to 0.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55768"></span>
+<div class="comments">
+<div class="paragraph">
+Halve that padding, restore the string pointer into <span class="register">IX</span>, and aim <span class="register">HL</span> at 23233 (attribute buffer).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_PartE</td>
+<td class="address-2"><span id="55768"></span>55768</td>
+<td class="instruction">SRL A</td>
+<td class="comment-1" rowspan="1">Shift the flag/value in <span class="register">A</span> right one bit.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55770"></span>55770</td>
+<td class="instruction">POP IX</td>
+<td class="comment-1" rowspan="1">Pop the dialogue string pointer into <span class="register">IX</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55772"></span>55772</td>
+<td class="instruction">LD HL,23233</td>
+<td class="comment-1" rowspan="1">Load <span class="register">HL</span> with 23233 (attribute buffer).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55775"></span>55775</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1">Copy <span class="register">A</span> into <span class="register">E</span> for later use.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55776"></span>55776</td>
+<td class="instruction">LD D,0</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">D</span> (high byte of a pointer/offset).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55778"></span>55778</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">Add the offset in <span class="register">DE</span> to the pointer in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55779"></span>
+<div class="comments">
+<div class="paragraph">
+Draw each dialogue character via <a href="55853.html">Draw_DialogueCharacter</a>, saving the cursor in <a href="54909.html">55246</a> / <a href="54909.html">55248</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_PartF</td>
+<td class="address-2"><span id="55779"></span>55779</td>
+<td class="instruction">LD E,(IX+0)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">E</span> with the next dialogue character code from *(<span class="register">IX</span>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55782"></span>55782</td>
+<td class="instruction">LD D,0</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">D</span> (high byte of a pointer/offset).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55784"></span>55784</td>
+<td class="instruction">CALL <a href="55853.html">Draw_DialogueCharacter</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55853.html">Draw_DialogueCharacter</a> to draw Dialogue Character.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55787"></span>55787</td>
+<td class="instruction">INC IX</td>
+<td class="comment-1" rowspan="1">Advance the dialogue source pointer by one character.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55789"></span>55789</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance the attribute-file destination by one column.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55790"></span>55790</td>
+<td class="instruction">LD (55246),IX</td>
+<td class="comment-1" rowspan="1">Store <span class="register">IX</span> in <a href="54909.html">55246</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55794"></span>55794</td>
+<td class="instruction">LD (55248),HL</td>
+<td class="comment-1" rowspan="1">Store <span class="register">HL</span> in <a href="54909.html">55248</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55797"></span>55797</td>
+<td class="instruction">LD A,(IX+0)</td>
+<td class="comment-1" rowspan="1">Fetch the next dialogue byte from *(<span class="register">IX</span>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55800"></span>55800</td>
+<td class="instruction">CP 91</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> equal to 91? If so, jump to <a href="55665.html#55807">Update_Bad_Tempered_Thing_Dialogue_PartG</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55802"></span>55802</td>
+<td class="instruction">JR Z,<a href="55665.html#55807">Update_Bad_Tempered_Thing_Dialogue_PartG</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55804"></span>55804</td>
+<td class="instruction">CP 38</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> equal to 38? If not, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55806"></span>55806</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55807"></span>
+<div class="comments">
+<div class="paragraph">
+End of line: clear the aside-shown bit, restore Berk's layout, and arm the 254 cooldown.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_PartG</td>
+<td class="address-2"><span id="55807"></span>55807</td>
+<td class="instruction">LD HL,55245</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Bad Tempered Thing dialogue bytes (<a href="54909.html#55245">55245</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55810"></span>55810</td>
+<td class="instruction">RES 0,(HL)</td>
+<td class="comment-1" rowspan="1">Clear bit 0 of <a href="54909.html#55245">55245</a> (aside-already-shown).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55812"></span>55812</td>
+<td class="instruction">LD HL,40094</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at <a href="40094.html">GraphicLayout_Boney</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55815"></span>55815</td>
+<td class="instruction">LD (36595),HL</td>
+<td class="comment-1" rowspan="1">Write that layout pointer to Boney's graphic-layout field (<a href="36595.html">Pointer_BoneyGraphicLayout</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55818"></span>55818</td>
+<td class="instruction">LD A,(29383)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the Bad Tempered Thing state (<a href="29383.html">BadTemperedThingState</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55821"></span>55821</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> zero? If so, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55822"></span>55822</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55823"></span>55823</td>
+<td class="instruction">LD A,254</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 254.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55825"></span>55825</td>
+<td class="instruction">LD (29383),A</td>
+<td class="comment-1" rowspan="1">Set the Bad Tempered Thing state (<a href="29383.html">BadTemperedThingState</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55828"></span>55828</td>
+<td class="instruction">LD A,47</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 47.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55830"></span>55830</td>
+<td class="instruction">LD (55250),A</td>
+<td class="comment-1" rowspan="1">Set the Bad Tempered Thing dialogue state (<a href="54909.html">55250</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55833"></span>55833</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55834"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="55251.html">Update_Bad_Tempered_Thing_Dialogue</a>.
+</div>
+<div class="paragraph">
+Resume a mid-line print from the saved <a href="54909.html">55246</a> / <a href="54909.html">55248</a> cursors.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_PartH</td>
+<td class="address-2"><span id="55834"></span>55834</td>
+<td class="instruction">LD IX,(55246)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">IX</span> from <a href="54909.html">55246</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55838"></span>55838</td>
+<td class="instruction">LD HL,(55248)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">HL</span> from <a href="54909.html">55248</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55841"></span>55841</td>
+<td class="instruction">JR <a href="55665.html#55779">Update_Bad_Tempered_Thing_Dialogue_PartF</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="55665.html#55779">Update_Bad_Tempered_Thing_Dialogue_PartF</a> to reload the entity type for dialogue.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="55653.html">55653</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#55665">Map</a></td>
+<td class="next">
+Next: <a href="55843.html">55843</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/D971.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

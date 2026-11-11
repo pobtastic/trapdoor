@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 61545</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 61545. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 61545" />
+<meta property="og:description" content="The Trap Door: Routine at 61545. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/61545.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/61545.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 61545",
+"name": "The Trap Door: Routine at 61545",
+"description": "The Trap Door: Routine at 61545. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/61545.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 61545"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/61545.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61460.html">61460</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#61545">Map</a></td>
+<td class="next">
+Next: <a href="61639.html">61639</a>
+</td>
+</tr>
+</table>
+<div class="description">61545: Script Routine: (5) Move entity down one character</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Shift the current entity one character down.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Address of complex state data for an entity</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_MoveDown</td>
+<td class="address-2"><span id="61545"></span>61545</td>
+<td class="instruction">LD A,(IX+4)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's room index.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61548"></span>61548</td>
+<td class="instruction">CP 4</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> equal to 4? If not, jump to <a href="61545.html#61558">ScriptRoutine_MoveDown_AfterFloorExit</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61550"></span>61550</td>
+<td class="instruction">JR NZ,<a href="61545.html#61558">ScriptRoutine_MoveDown_AfterFloorExit</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61552"></span>61552</td>
+<td class="instruction">LD HL,47533</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk's right-facing idle script (<a href="47525.html#47533">47533</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61555"></span>61555</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61558"></span>
+<div class="comments">
+<div class="paragraph">
+Past the floor band: optionally advance one room, then move down.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_MoveDown_AfterFloorExit</td>
+<td class="address-2"><span id="61558"></span>61558</td>
+<td class="instruction">LD A,(IX+6)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61561"></span>61561</td>
+<td class="instruction">CP 35</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> less than 35? If so, jump to <a href="61545.html#61568">ScriptRoutine_MoveDown_IncY</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61563"></span>61563</td>
+<td class="instruction">JR C,<a href="61545.html#61568">ScriptRoutine_MoveDown_IncY</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61565"></span>61565</td>
+<td class="instruction">INC (IX+4)</td>
+<td class="comment-1" rowspan="1">Advance this entity into the next room.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61568"></span>
+<div class="comments">
+<div class="paragraph">
+Move the entity (and any carried partner) one character down.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_MoveDown_IncY</td>
+<td class="address-2"><span id="61568"></span>61568</td>
+<td class="instruction">INC (IX+5)</td>
+<td class="comment-1" rowspan="2">Move this entity one character down.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61571"></span>61571</td>
+<td class="instruction">INC (IX+6)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61574"></span>61574</td>
+<td class="instruction">BIT 4,(IX+3)</td>
+<td class="comment-1" rowspan="2">Is bit 4 of flags byte 3 (<span class="register">IX</span>+3) set? If not, jump to <a href="61545.html#61600">ScriptRoutine_MoveDown_CheckHoldingLock</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61578"></span>61578</td>
+<td class="instruction">JR Z,<a href="61545.html#61600">ScriptRoutine_MoveDown_CheckHoldingLock</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61580"></span>61580</td>
+<td class="instruction">LD IY,(29356)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">IY</span> with the current-entity pointer (<a href="29356.html">Pointer_CurrentEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61584"></span>61584</td>
+<td class="instruction">CP 35</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> less than 35? If so, jump to <a href="61545.html#61591">ScriptRoutine_MoveDown_IncHeldY</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61586"></span>61586</td>
+<td class="instruction">JR C,<a href="61545.html#61591">ScriptRoutine_MoveDown_IncHeldY</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61588"></span>61588</td>
+<td class="instruction">INC (IY+4)</td>
+<td class="comment-1" rowspan="1">Increment the referenced entity's room index.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61591"></span>
+<div class="comments">
+<div class="paragraph">
+Move the carried entity one character down to match Berk.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_MoveDown_IncHeldY</td>
+<td class="address-2"><span id="61591"></span>61591</td>
+<td class="instruction">INC (IY+5)</td>
+<td class="comment-1" rowspan="2">Move the referenced entity one character down.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61594"></span>61594</td>
+<td class="instruction">INC (IY+6)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61597"></span>61597</td>
+<td class="instruction">JP <a href="60462.html">AdvanceScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html">AdvanceScriptInstruction</a> to run the next script instruction.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61600"></span>
+<div class="comments">
+<div class="paragraph">
+If a linked camera-follow partner is locked (bit 3), clear the lock and drop it too.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_MoveDown_CheckHoldingLock</td>
+<td class="address-2"><span id="61600"></span>61600</td>
+<td class="instruction">BIT 3,(IX+3)</td>
+<td class="comment-1" rowspan="2">Is bit 3 of flags byte 3 (<span class="register">IX</span>+3) set? If not, jump to <a href="60462.html">AdvanceScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61604"></span>61604</td>
+<td class="instruction">JP Z,<a href="60462.html">AdvanceScriptInstruction</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61607"></span>61607</td>
+<td class="instruction">RES 3,(IX+3)</td>
+<td class="comment-1" rowspan="1">Reset bit 3 of the current entity's flags byte 3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61611"></span>61611</td>
+<td class="instruction">LD IY,(37031)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">IY</span> from the camera-follow entity's extra-state pointer (<a href="36595.html">37031</a> = <a href="36595.html#37019">StateData_Berk</a>+12).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61615"></span>61615</td>
+<td class="instruction">INC (IY+5)</td>
+<td class="comment-1" rowspan="2">Move the referenced entity one character down.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61618"></span>61618</td>
+<td class="instruction">INC (IY+6)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61621"></span>61621</td>
+<td class="instruction">INC (IY+4)</td>
+<td class="comment-1" rowspan="1">Increment the referenced entity's room index.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61624"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="61460.html">ScriptRoutine_MoveUp</a>.
+</div>
+<div class="paragraph">
+Clear the linked-entity pointer at <a href="36595.html">37031</a> and queue movement sound 16.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_Move_ClearLinkedAndThud</td>
+<td class="address-2"><span id="61624"></span>61624</td>
+<td class="instruction">LD BC,0</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">BC</span> ready to wipe the linked-entity pointer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61627"></span>61627</td>
+<td class="instruction">LD (37031),BC</td>
+<td class="comment-1" rowspan="1">Clear the camera-follow entity's extra-state pointer at <a href="36595.html">37031</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61631"></span>
+<div class="comments">
+<div class="paragraph">
+<audio controls="" src="../../audio/movement.wav">
+<p>Your browser doesn't support HTML5 audio. Here is a <a href="../../audio/movement.wav">link to the audio</a> instead.</p>
+</audio>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61631"></span>61631</td>
+<td class="instruction">LD A,16</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 16.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61633"></span>61633</td>
+<td class="instruction">CALL <a href="63737.html">Queue_Sound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="63737.html">Queue_Sound</a> to queue a sound effect.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61636"></span>61636</td>
+<td class="instruction">JP <a href="60462.html">AdvanceScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html">AdvanceScriptInstruction</a> to run the next script instruction.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61460.html">61460</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#61545">Map</a></td>
+<td class="next">
+Next: <a href="61639.html">61639</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/F069.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

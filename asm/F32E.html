@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at F32E</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at F32E. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at F32E" />
+<meta property="og:description" content="The Trap Door: Routine at F32E. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/F32E.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/F32E.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at F32E",
+"name": "The Trap Door: Routine at F32E",
+"description": "The Trap Door: Routine at F32E. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/F32E.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at F32E"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/F32E.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="F32A.html">F32A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#f32e">Map</a></td>
+<td class="next">
+Next: <a href="F38D.html">F38D</a>
+</td>
+</tr>
+</table>
+<div class="description">F32E: Test Entity On Right</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="B7F3.html">Berk_Interact_With_Entity</a> and <a href="C443.html">ScriptRoutine_TaskThreeClearUpstairs</a>.
+</div>
+<div class="paragraph">
+Find a solid simple entity immediately to the right of <span class="register">IX</span> (for a rightward step). On a hit, store it at <a href="72AA.html">Pointer_LastCollidedEntity</a> and clear carry; on a miss, set carry.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Address of complex state data for the subject entity</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Test_EntityOnRight</td>
+<td class="address-2"><span id="f32e"></span>F32E</td>
+<td class="instruction">LD C,$01</td>
+<td class="comment-1" rowspan="1">Load <span class="register">C</span> with 01 (room−01 / right bias).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="f330"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="F32A.html">Test_EntityOnLeft</a>.
+</div>
+<div class="paragraph">
+Walk <a href="8B69.html">StateData_SimpleEntities</a> for a solid (bit 02) entity abutting <span class="register">IX</span> horizontally.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Test_EntityHorizontal_Scan</td>
+<td class="address-2"><span id="f330"></span>F330</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="2">Stash <span class="register">HL</span> and <span class="register">DE</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f331"></span>F331</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f332"></span>F332</td>
+<td class="instruction">LD DE,$000E</td>
+<td class="comment-1" rowspan="1">Each entity record is 000E bytes, then load that into <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f335"></span>F335</td>
+<td class="instruction">LD HL,$8B69</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the simple entity table (<a href="8B69.html">StateData_SimpleEntities</a>).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="f338"></span>
+<div class="comments">
+<div class="paragraph">
+Next simple-entity slot for the horizontal abut test (or miss on FF).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Test_EntityHorizontal_ScanSlot</td>
+<td class="address-2"><span id="f338"></span>F338</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="3">Fetch this entity's type. Is it the table terminator (FF)? If not, test the slot at <a href="F32E.html#f341">Test_EntityHorizontal_CheckSlot</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f339"></span>F339</td>
+<td class="instruction">CP $FF</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f33b"></span>F33B</td>
+<td class="instruction">JR NZ,<a href="F32E.html#f341">Test_EntityHorizontal_CheckSlot</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f33d"></span>F33D</td>
+<td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="2">Restore <span class="register">DE</span> and <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f33e"></span>F33E</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f33f"></span>F33F</td>
+<td class="instruction">SCF</td>
+<td class="comment-1" rowspan="1">Signal a miss.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f340"></span>F340</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="f341"></span>
+<div class="comments">
+<div class="paragraph">
+Require a solid (bit 02) neighbour; skip room check for type 33.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Test_EntityHorizontal_CheckSlot</td>
+<td class="address-2"><span id="f341"></span>F341</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="3">Re-fetch the type. Is the slot empty? If so, skip to <a href="F32E.html#f38a">Test_EntityHorizontal_AdvanceSlot</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f342"></span>F342</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f343"></span>F343</td>
+<td class="instruction">JR Z,<a href="F32E.html#f38a">Test_EntityHorizontal_AdvanceSlot</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f345"></span>F345</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-1" rowspan="2">Is the high bit set (inactive)? If so, skip to <a href="F32E.html#f38a">Test_EntityHorizontal_AdvanceSlot</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f347"></span>F347</td>
+<td class="instruction">JR NZ,<a href="F32E.html#f38a">Test_EntityHorizontal_AdvanceSlot</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f349"></span>F349</td>
+<td class="instruction">CP (IX+$00)</td>
+<td class="comment-1" rowspan="2">Is it the same type as the subject? If so, skip to <a href="F32E.html#f38a">Test_EntityHorizontal_AdvanceSlot</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f34c"></span>F34C</td>
+<td class="instruction">JR Z,<a href="F32E.html#f38a">Test_EntityHorizontal_AdvanceSlot</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f34e"></span>F34E</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1">Keep the type in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f34f"></span>F34F</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">HL</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f350"></span>F350</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance onto flags byte 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f351"></span>F351</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the flags.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f352"></span>F352</td>
+<td class="instruction">AND %00000100</td>
+<td class="comment-1" rowspan="1">Keep only the solid/platform bit (bit 02).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f354"></span>F354</td>
+<td class="instruction">JR Z,<a href="F32E.html#f389">Test_EntityHorizontal_Reject</a></td>
+<td class="comment-1" rowspan="1">If it was clear, reject at <a href="F32E.html#f389">Test_EntityHorizontal_Reject</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f356"></span>F356</td>
+<td class="instruction">BIT 5,(HL)</td>
+<td class="comment-1" rowspan="2">Is bit 05 set? If so, reject at <a href="F32E.html#f389">Test_EntityHorizontal_Reject</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f358"></span>F358</td>
+<td class="instruction">JR NZ,<a href="F32E.html#f389">Test_EntityHorizontal_Reject</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f35a"></span>F35A</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="3">Advance past the room/y/y-extent fields onto the room-check byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f35b"></span>F35B</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f35c"></span>F35C</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f35d"></span>F35D</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-1" rowspan="2">Keep the candidate type in <span class="register">A</span>. Is it type 33 (skip room check)?.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f35e"></span>F35E</td>
+<td class="instruction">CP $33</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f360"></span>F360</td>
+<td class="instruction">JR Z,<a href="F32E.html#f369">Test_EntityHorizontal_CheckBounds</a></td>
+<td class="comment-1" rowspan="1">If so, take the bounds check at <a href="F32E.html#f369">Test_EntityHorizontal_CheckBounds</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f362"></span>F362</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="4">Fetch the entity's room. Subtract the caller's room bias in <span class="register">C</span>. Does it match the subject's room? If not, reject at <a href="F32E.html#f389">Test_EntityHorizontal_Reject</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f363"></span>F363</td>
+<td class="instruction">SUB C</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f364"></span>F364</td>
+<td class="instruction">CP (IX+$04)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f367"></span>F367</td>
+<td class="instruction">JR NZ,<a href="F32E.html#f389">Test_EntityHorizontal_Reject</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="f369"></span>
+<div class="comments">
+<div class="paragraph">
+Confirm vertical overlap and X-extent abutment with the subject.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Test_EntityHorizontal_CheckBounds</td>
+<td class="address-2"><span id="f369"></span>F369</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance onto the entity's y-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f36a"></span>F36A</td>
+<td class="instruction">LD A,(IX+$06)</td>
+<td class="comment-1" rowspan="3">Does the subject's y-extent (<span class="register">IX</span>+06) reach this candidate y? If not, reject at <a href="F32E.html#f389">Test_EntityHorizontal_Reject</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f36d"></span>F36D</td>
+<td class="instruction">CP (HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f36e"></span>F36E</td>
+<td class="instruction">JR C,<a href="F32E.html#f389">Test_EntityHorizontal_Reject</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f370"></span>F370</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance onto the entity's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f371"></span>F371</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="3">Does this candidate y-extent reach the subject's y (<span class="register">IX</span>+05)? If not, reject at <a href="F32E.html#f389">Test_EntityHorizontal_Reject</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f372"></span>F372</td>
+<td class="instruction">CP (IX+$05)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f375"></span>F375</td>
+<td class="instruction">JR C,<a href="F32E.html#f389">Test_EntityHorizontal_Reject</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f377"></span>F377</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="2">Advance <span class="register">HL</span> past the x-coordinate onto the entity's x-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f378"></span>F378</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f379"></span>F379</td>
+<td class="instruction">LD A,(IX+$07)</td>
+<td class="comment-1" rowspan="1">Fetch the subject's x (<span class="register">IX</span>+07).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f37c"></span>F37C</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1">Step it left by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f37d"></span>F37D</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-1" rowspan="2">Does it equal this entity's x-extent (abutting on the left/right)? If not, jump to <a href="F32E.html#f389">Test_EntityHorizontal_Reject</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f37e"></span>F37E</td>
+<td class="instruction">JR NZ,<a href="F32E.html#f389">Test_EntityHorizontal_Reject</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="f380"></span>
+<div class="comments">
+<div class="paragraph">
+Horizontal neighbour hits: store the entity at <a href="72AA.html">Pointer_LastCollidedEntity</a> and return its type.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f380"></span>F380</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f381"></span>F381</td>
+<td class="instruction">LD ($72AA),HL</td>
+<td class="comment-1" rowspan="1">Store it at <a href="72AA.html">Pointer_LastCollidedEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f384"></span>F384</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear carry.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f385"></span>F385</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the entity's type into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f386"></span>F386</td>
+<td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="2">Restore <span class="register">DE</span> and <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f387"></span>F387</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f388"></span>F388</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="f389"></span>
+<div class="comments">
+<div class="paragraph">
+Reject this horizontal neighbour and continue the simple-entity walk.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Test_EntityHorizontal_Reject</td>
+<td class="address-2"><span id="f389"></span>F389</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="f38a"></span>
+<div class="comments">
+<div class="paragraph">
+Advance to the next simple-entity record in the horizontal scan.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Test_EntityHorizontal_AdvanceSlot</td>
+<td class="address-2"><span id="f38a"></span>F38A</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">Advance <span class="register">HL</span> by one entity record.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f38b"></span>F38B</td>
+<td class="instruction">JR <a href="F32E.html#f338">Test_EntityHorizontal_ScanSlot</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="F32E.html#f338">Test_EntityHorizontal_ScanSlot</a> to test the next horizontal neighbour.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="F32A.html">F32A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#f32e">Map</a></td>
+<td class="next">
+Next: <a href="F38D.html">F38D</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/62254.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at F0E3</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at F0E3. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at F0E3" />
+<meta property="og:description" content="The Trap Door: Routine at F0E3. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/61667.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/61667.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at F0E3",
+"name": "The Trap Door: Routine at F0E3",
+"description": "The Trap Door: Routine at F0E3. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/61667.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at F0E3"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/61667.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61660.html">F0DC</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#f0e3">Map</a></td>
+<td class="next">
+Next: <a href="61758.html">F13E</a>
+</td>
+</tr>
+</table>
+<div class="description">F0E3: Script Routine: (0F) Have entity put down carried entity</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="60462.html">AdvanceScriptInstruction</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Address of complex state data for an entity</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_PutDownCarried</td>
+<td class="address-2"><span id="f0e3"></span>F0E3</td>
+<td class="instruction">CALL <a href="61667.html#f0f2">Script_PutDown_SetCarryingFlag</a></td>
+<td class="comment-1" rowspan="1">Call <a href="61667.html#f0f2">Script_PutDown_SetCarryingFlag</a> to script Put Down Set Carrying Flag.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f0e6"></span>F0E6</td>
+<td class="instruction">JP <a href="60462.html">AdvanceScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html">AdvanceScriptInstruction</a> to run the next script instruction.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="f0e9"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="46144.html">Update_Berk_ReadControls</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_PutDownCarried_PlaceHeldFromBerk</td>
+<td class="address-2"><span id="f0e9"></span>F0E9</td>
+<td class="instruction">LD C,(IX+$05)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">C</span> with the current entity's y-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f0ec"></span>F0EC</td>
+<td class="instruction">LD IY,($72AC)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">IY</span> with the current-entity pointer (<a href="29356.html">Pointer_CurrentEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f0f0"></span>F0F0</td>
+<td class="instruction">JR <a href="61667.html#f11c">ScriptRoutine_PutDownCarried_SaveSizeAndPlaceY</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="61667.html#f11c">ScriptRoutine_PutDownCarried_SaveSizeAndPlaceY</a> to continue this routine.</td>
+</tr>
+<tr>
+<td class="asm-label">Script_PutDown_SetCarryingFlag</td>
+<td class="address-2"><span id="f0f2"></span>F0F2</td>
+<td class="instruction">SET 4,(IX+$03)</td>
+<td class="comment-1" rowspan="1">Set bit 04 of the current entity's entity flags.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f0f6"></span>F0F6</td>
+<td class="instruction">LD C,(IX+$05)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">C</span> with the current entity's y-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f0f9"></span>F0F9</td>
+<td class="instruction">LD IY,($72AC)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">IY</span> with the current-entity pointer (<a href="29356.html">Pointer_CurrentEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f0fd"></span>F0FD</td>
+<td class="instruction">LD A,(IY+$00)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f100"></span>F100</td>
+<td class="instruction">CP $01</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> equal to 01? If not, jump to <a href="61667.html#f108">Script_PutDown_Apply</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f102"></span>F102</td>
+<td class="instruction">JR NZ,<a href="61667.html#f108">Script_PutDown_Apply</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f104"></span>F104</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">A</span> to 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f105"></span>F105</td>
+<td class="instruction">LD ($72C7),A</td>
+<td class="comment-1" rowspan="1">Set the Bad Tempered Thing state (<a href="29383.html">BadTemperedThingState</a>).</td>
+</tr>
+<tr>
+<td class="asm-label">Script_PutDown_Apply</td>
+<td class="address-2"><span id="f108"></span>F108</td>
+<td class="instruction">RES 7,(IY+$00)</td>
+<td class="comment-1" rowspan="1">Reset bit 07 of the referenced entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f10c"></span>F10C</td>
+<td class="instruction">CP $09</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> equal to 09? If not, jump to <a href="61667.html#f118">ScriptRoutine_PutDownCarried_SetHeldBit5</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f10e"></span>F10E</td>
+<td class="instruction">JR NZ,<a href="61667.html#f118">ScriptRoutine_PutDownCarried_SetHeldBit5</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f110"></span>F110</td>
+<td class="instruction">LD A,($72B6)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the task-three flags (<a href="29366.html">TaskThreeFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f113"></span>F113</td>
+<td class="instruction">SET 1,A</td>
+<td class="comment-1" rowspan="1">Set Slimies (bit 01 of <span class="register">A</span>; put-down of type 09).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f115"></span>F115</td>
+<td class="instruction">LD ($72B6),A</td>
+<td class="comment-1" rowspan="1">Set the task-three flags (<a href="29366.html">TaskThreeFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_PutDownCarried_SetHeldBit5</td>
+<td class="address-2"><span id="f118"></span>F118</td>
+<td class="instruction">SET 5,(IY+$01)</td>
+<td class="comment-1" rowspan="1">Set bit 05 of the referenced entity's entity flags.</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_PutDownCarried_SaveSizeAndPlaceY</td>
+<td class="address-2"><span id="f11c"></span>F11C</td>
+<td class="instruction">LD A,(IY+$08)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's x-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f11f"></span>F11F</td>
+<td class="instruction">SUB (IY+$07)</td>
+<td class="comment-1" rowspan="1">Subtract the referenced entity's x-coordinate from <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f122"></span>F122</td>
+<td class="instruction">LD ($72ED),A</td>
+<td class="comment-1" rowspan="1">Store the held entity's width (x-extent − x) in <a href="29421.html">CameraYCoordinate</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f125"></span>F125</td>
+<td class="instruction">LD A,(IY+$06)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f128"></span>F128</td>
+<td class="instruction">SUB (IY+$05)</td>
+<td class="comment-1" rowspan="1">Subtract the referenced entity's y-coordinate from <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f12b"></span>F12B</td>
+<td class="instruction">LD ($72EE),A</td>
+<td class="comment-1" rowspan="1">Store the held entity's height (y-extent − y) in <a href="29422.html">CameraXCoordinate</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f12e"></span>F12E</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1">Keep a copy of <span class="register">A</span> in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f12f"></span>F12F</td>
+<td class="instruction">SRL A</td>
+<td class="comment-1" rowspan="1">Shift <span class="register">A</span> right logical.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f131"></span>F131</td>
+<td class="instruction">NEG</td>
+<td class="comment-1" rowspan="1">Negate <span class="register">A</span> (flip a delta/direction).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f133"></span>F133</td>
+<td class="instruction">ADD A,C</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>+=<span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f134"></span>F134</td>
+<td class="instruction">ADD A,$02</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>+=02.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f136"></span>F136</td>
+<td class="instruction">LD (IY+$05),A</td>
+<td class="comment-1" rowspan="1">Set the referenced entity's y-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f139"></span>F139</td>
+<td class="instruction">ADD A,B</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>+=<span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f13a"></span>F13A</td>
+<td class="instruction">LD (IY+$06),A</td>
+<td class="comment-1" rowspan="1">Set the referenced entity's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f13d"></span>F13D</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61660.html">F0DC</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#f0e3">Map</a></td>
+<td class="next">
+Next: <a href="61758.html">F13E</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/398951.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

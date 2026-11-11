@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 44927</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 44927. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 44927" />
+<meta property="og:description" content="The Trap Door: Routine at 44927. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44927.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44927.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 44927",
+"name": "The Trap Door: Routine at 44927",
+"description": "The Trap Door: Routine at 44927. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44927.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 44927"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44927.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="44860.html">44860</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#44927">Map</a></td>
+<td class="next">
+Next: <a href="44969.html">44969</a>
+</td>
+</tr>
+</table>
+<div class="description">44927: Check Task Completion</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="43699.html">GameStart</a>.
+</div>
+<div class="paragraph">
+Check Task Completion for the current Thing Upstairs task.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Check_Task_Completion</td>
+<td class="address-2"><span id="44927"></span>44927</td>
+<td class="instruction">LD A,(29358)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current task index (<a href="29358.html">CurrentTaskIndex</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44930"></span>44930</td>
+<td class="instruction">CP 5</td>
+<td class="comment-1" rowspan="2">Is current task index equal to 5? If not, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44932"></span>44932</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44933"></span>44933</td>
+<td class="instruction">LD A,(29364)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the task status flags (<a href="29364.html">TaskStatusFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44936"></span>44936</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-1" rowspan="2">Is bit 7 of task status flags set? If so, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44938"></span>44938</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44939"></span>44939</td>
+<td class="instruction">LD HL,36585</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Boney's complex entity state (<a href="36585.html">StateData_Boney</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44942"></span>44942</td>
+<td class="instruction">LD DE,14</td>
+<td class="comment-1" rowspan="1">Each entity record is 0014 bytes long, then load that length into <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44945"></span>
+<div class="comments">
+<div class="paragraph">
+Scan Boney's complex state for the 55 busy pattern that marks task completion.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Check_Task_Completion_ScanBerk</td>
+<td class="address-2"><span id="44945"></span>44945</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the next byte from Boney's complex entity state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44946"></span>44946</td>
+<td class="instruction">CP 55</td>
+<td class="comment-1" rowspan="2">Is task status flags equal to 55? If so, jump to <a href="44927.html#44963">Check_Task_Completion_SetBusyBit7</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44948"></span>44948</td>
+<td class="instruction">JR Z,<a href="44927.html#44963">Check_Task_Completion_SetBusyBit7</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44950"></span>44950</td>
+<td class="instruction">CP 1</td>
+<td class="comment-1" rowspan="2">Is task status flags equal to 1? If so, jump to <a href="44927.html#44960">Check_Task_Completion_NextBerkRecord</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44952"></span>44952</td>
+<td class="instruction">JR Z,<a href="44927.html#44960">Check_Task_Completion_NextBerkRecord</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44954"></span>44954</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-1" rowspan="2">Is bit 7 of task status flags set? If so, jump to <a href="44927.html#44960">Check_Task_Completion_NextBerkRecord</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44956"></span>44956</td>
+<td class="instruction">JR NZ,<a href="44927.html#44960">Check_Task_Completion_NextBerkRecord</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44958"></span>44958</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is task status flags zero? If not, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44959"></span>44959</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44960"></span>
+<div class="comments">
+<div class="paragraph">
+Advance to the next Berk state record and keep scanning for completion.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Check_Task_Completion_NextBerkRecord</td>
+<td class="address-2"><span id="44960"></span>44960</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">Add the offset in <span class="register">DE</span> to the pointer in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44961"></span>44961</td>
+<td class="instruction">JR <a href="44927.html#44945">Check_Task_Completion_ScanBerk</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="44927.html#44945">Check_Task_Completion_ScanBerk</a> to keep testing task-status combinations.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44963"></span>
+<div class="comments">
+<div class="paragraph">
+Mark task status bit 7 so Berk's script/dialogue is busy.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Check_Task_Completion_SetBusyBit7</td>
+<td class="address-2"><span id="44963"></span>44963</td>
+<td class="instruction">LD HL,29364</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the task status flags (<a href="29364.html">TaskStatusFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44966"></span>44966</td>
+<td class="instruction">SET 7,(HL)</td>
+<td class="comment-1" rowspan="1">Set "Berk script / dialogue busy" (bit 7 of <a href="29364.html">TaskStatusFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44968"></span>44968</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="44860.html">44860</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#44927">Map</a></td>
+<td class="next">
+Next: <a href="44969.html">44969</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/AF7F.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

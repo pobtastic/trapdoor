@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at 35209</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at 35209. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at 35209" />
+<meta property="og:description" content="The Trap Door: Data at 35209. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/35209.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/35209.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at 35209",
+"name": "The Trap Door: Data at 35209",
+"description": "The Trap Door: Data at 35209. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/35209.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at 35209"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/35209.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="34401.html">34401</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#35209">Map</a></td>
+<td class="next">
+Next: <a href="35689.html">35689</a>
+</td>
+</tr>
+</table>
+<div class="description">35209: Graphics: Set 6</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Extra graphic tiles.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Graphics_Set06</td>
+<td class="address-1"><span id="35209"></span>35209</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,0,0</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">0</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35209_56x4" src="../../images/udgs/udg35209_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35217"></span>35217</td>
+<td class="instruction">DEFB 0,0,0,0,24,24,24,24</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">1</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35217_56x4" src="../../images/udgs/udg35217_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35225"></span>35225</td>
+<td class="instruction">DEFB 60,60,60,60,126,126,126,126</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">2</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35225_56x4" src="../../images/udgs/udg35225_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35233"></span>35233</td>
+<td class="instruction">DEFB 231,231,231,0,0,0,0,0</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">3</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35233_56x4" src="../../images/udgs/udg35233_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35241"></span>35241</td>
+<td class="instruction">DEFB 60,126,126,255,255,255,126,126</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">4</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35241_56x4" src="../../images/udgs/udg35241_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35249"></span>35249</td>
+<td class="instruction">DEFB 0,0,0,0,0,231,231,231</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">5</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35249_56x4" src="../../images/udgs/udg35249_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35257"></span>35257</td>
+<td class="instruction">DEFB 126,126,126,126,60,60,60,60</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">6</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35257_56x4" src="../../images/udgs/udg35257_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35265"></span>35265</td>
+<td class="instruction">DEFB 24,24,24,24,0,0,0,0</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">7</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35265_56x4" src="../../images/udgs/udg35265_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35273"></span>35273</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,102,231</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">8</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35273_56x4" src="../../images/udgs/udg35273_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35281"></span>35281</td>
+<td class="instruction">DEFB 126,255,255,255,255,126,60,24</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">9</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35281_56x4" src="../../images/udgs/udg35281_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35289"></span>35289</td>
+<td class="instruction">DEFB 0,0,0,0,0,7,7,7</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">10</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35289_56x4" src="../../images/udgs/udg35289_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35297"></span>35297</td>
+<td class="instruction">DEFB 0,0,0,7,11,11,7,0</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">11</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35297_56x4" src="../../images/udgs/udg35297_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35305"></span>35305</td>
+<td class="instruction">DEFB 0,0,0,224,240,248,248,60</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">12</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35305_56x4" src="../../images/udgs/udg35305_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35313"></span>35313</td>
+<td class="instruction">DEFB 60,60,60,61,61,63,62,28</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">13</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35313_56x4" src="../../images/udgs/udg35313_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35321"></span>35321</td>
+<td class="instruction">DEFB 0,0,30,39,39,39,39,30</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">14</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35321_56x4" src="../../images/udgs/udg35321_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35329"></span>35329</td>
+<td class="instruction">DEFB 126,255,255,247,231,231,231,195</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">15</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35329_56x4" src="../../images/udgs/udg35329_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35337"></span>35337</td>
+<td class="instruction">DEFB 0,0,0,0,0,128,224,240</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">16</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35337_56x4" src="../../images/udgs/udg35337_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35345"></span>35345</td>
+<td class="instruction">DEFB 0,0,0,3,7,5,5,7</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">17</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35345_56x4" src="../../images/udgs/udg35345_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35353"></span>35353</td>
+<td class="instruction">DEFB 0,0,0,0,191,255,255,240</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">18</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35353_56x4" src="../../images/udgs/udg35353_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35361"></span>35361</td>
+<td class="instruction">DEFB 0,0,0,0,240,255,255,63</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">19</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35361_56x4" src="../../images/udgs/udg35361_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35369"></span>35369</td>
+<td class="instruction">DEFB 0,0,0,0,0,28,28,28</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">20</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35369_56x4" src="../../images/udgs/udg35369_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35377"></span>35377</td>
+<td class="instruction">DEFB 14,62,124,248,240,224,228,228</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">21</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35377_56x4" src="../../images/udgs/udg35377_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35385"></span>35385</td>
+<td class="instruction">DEFB 230,246,124,124,0,0,0,0</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">22</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35385_56x4" src="../../images/udgs/udg35385_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35393"></span>35393</td>
+<td class="instruction">DEFB 14,15,15,7,7,15,62,120</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">23</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35393_56x4" src="../../images/udgs/udg35393_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35401"></span>35401</td>
+<td class="instruction">DEFB 96,114,62,28,0,0,0,0</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">24</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35401_56x4" src="../../images/udgs/udg35401_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35409"></span>35409</td>
+<td class="instruction">DEFB 63,255,255,254,128,128,0,0</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">25</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35409_56x4" src="../../images/udgs/udg35409_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35417"></span>35417</td>
+<td class="instruction">DEFB 0,0,1,3,7,7,7,15</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">26</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35417_56x4" src="../../images/udgs/udg35417_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35425"></span>35425</td>
+<td class="instruction">DEFB 14,14,12,12,12,12,8,8</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">27</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35425_56x4" src="../../images/udgs/udg35425_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35433"></span>35433</td>
+<td class="instruction">DEFB 0,0,0,0,240,248,252,60</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">28</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35433_56x4" src="../../images/udgs/udg35433_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35441"></span>35441</td>
+<td class="instruction">DEFB 28,28,56,56,56,120,236,204</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">29</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35441_56x4" src="../../images/udgs/udg35441_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35449"></span>35449</td>
+<td class="instruction">DEFB 0,0,0,0,231,189,189,255</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">30</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35449_56x4" src="../../images/udgs/udg35449_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35457"></span>35457</td>
+<td class="instruction">DEFB 126,60,126,189,60,60,60,60</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">31</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35457_56x4" src="../../images/udgs/udg35457_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35465"></span>35465</td>
+<td class="instruction">DEFB 60,60,60,60,60,126,60,0</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">32</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35465_56x4" src="../../images/udgs/udg35465_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35473"></span>35473</td>
+<td class="instruction">DEFB 126,60,60,126,126,126,126,188</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">33</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35473_56x4" src="../../images/udgs/udg35473_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35481"></span>35481</td>
+<td class="instruction">DEFB 0,0,0,2,3,3,1,0</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">34</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35481_56x4" src="../../images/udgs/udg35481_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35489"></span>35489</td>
+<td class="instruction">DEFB 0,0,0,231,231,60,60,255</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">35</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35489_56x4" src="../../images/udgs/udg35489_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35497"></span>35497</td>
+<td class="instruction">DEFB 0,0,0,231,231,255,255,255</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">36</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35497_56x4" src="../../images/udgs/udg35497_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35505"></span>35505</td>
+<td class="instruction">DEFB 0,0,0,0,1,3,3,1</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">37</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35505_56x4" src="../../images/udgs/udg35505_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35513"></span>35513</td>
+<td class="instruction">DEFB 1,3,7,15,15,15,15,7</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">38</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35513_56x4" src="../../images/udgs/udg35513_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35521"></span>35521</td>
+<td class="instruction">DEFB 0,0,0,24,60,60,24,0</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">39</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35521_56x4" src="../../images/udgs/udg35521_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35529"></span>35529</td>
+<td class="instruction">DEFB 0,0,0,0,2,126,64,0</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">40</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35529_56x4" src="../../images/udgs/udg35529_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35537"></span>35537</td>
+<td class="instruction">DEFB 0,0,0,0,64,126,2,0</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">41</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35537_56x4" src="../../images/udgs/udg35537_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35545"></span>35545</td>
+<td class="instruction">DEFB 0,0,129,195,255,126,60,0</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">42</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35545_56x4" src="../../images/udgs/udg35545_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35553"></span>35553</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,126,24</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">43</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35553_56x4" src="../../images/udgs/udg35553_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35561"></span>35561</td>
+<td class="instruction">DEFB 0,0,0,0,0,126,126,24</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">44</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35561_56x4" src="../../images/udgs/udg35561_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35569"></span>35569</td>
+<td class="instruction">DEFB 11,29,23,21,23,27,11,57</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">45</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35569_56x4" src="../../images/udgs/udg35569_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35577"></span>35577</td>
+<td class="instruction">DEFB 7,3,6,12,8,14,2,14</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">46</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35577_56x4" src="../../images/udgs/udg35577_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35585"></span>35585</td>
+<td class="instruction">DEFB 255,126,0,0,0,0,0,0</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">47</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35585_56x4" src="../../images/udgs/udg35585_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35593"></span>35593</td>
+<td class="instruction">DEFB 0,0,0,60,126,114,114,126</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">48</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35593_56x4" src="../../images/udgs/udg35593_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35601"></span>35601</td>
+<td class="instruction">DEFB 255,252,251,247,237,219,250,251</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">49</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35601_56x4" src="../../images/udgs/udg35601_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35609"></span>35609</td>
+<td class="instruction">DEFB 128,192,96,96,96,96,192,0</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">50</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35609_56x4" src="../../images/udgs/udg35609_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35617"></span>35617</td>
+<td class="instruction">DEFB 0,0,0,0,0,3,2,3</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">51</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35617_56x4" src="../../images/udgs/udg35617_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35625"></span>35625</td>
+<td class="instruction">DEFB 219,24,48,96,192,128,0,0</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">52</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35625_56x4" src="../../images/udgs/udg35625_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35633"></span>35633</td>
+<td class="instruction">DEFB 219,24,15,1,3,126,64,64</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">53</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35633_56x4" src="../../images/udgs/udg35633_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35641"></span>35641</td>
+<td class="instruction">DEFB 219,24,15,0,0,0,0,0</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">54</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35641_56x4" src="../../images/udgs/udg35641_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35649"></span>35649</td>
+<td class="instruction">DEFB 0,0,128,128,128,192,0,0</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">55</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35649_56x4" src="../../images/udgs/udg35649_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35657"></span>35657</td>
+<td class="instruction">DEFB 255,189,129,0,0,0,0,129</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">56</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35657_56x4" src="../../images/udgs/udg35657_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35665"></span>35665</td>
+<td class="instruction">DEFB 129,195,66,66,195,129,0,0</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">57</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35665_56x4" src="../../images/udgs/udg35665_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35673"></span>35673</td>
+<td class="instruction">DEFB 7,1,1,3,3,3,3,1</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">58</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35673_56x4" src="../../images/udgs/udg35673_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35681"></span>35681</td>
+<td class="instruction">DEFB 24,24,56,240,240,224,192,128</td>
+<td class="comment-1" rowspan="1"><table class="default">
+<tr>
+<th colspan="1" rowspan="1">59</th>
+<td class="centre" colspan="1" rowspan="1"><img alt="udg35681_56x4" src="../../images/udgs/udg35681_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="34401.html">34401</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#35209">Map</a></td>
+<td class="next">
+Next: <a href="35689.html">35689</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/8989.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

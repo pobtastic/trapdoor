@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at E300</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at E300. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at E300" />
+<meta property="og:description" content="The Trap Door: Routine at E300. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/58112.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/58112.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at E300",
+"name": "The Trap Door: Routine at E300",
+"description": "The Trap Door: Routine at E300. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/58112.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at E300"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/58112.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="58105.html">E2F9</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#e300">Map</a></td>
+<td class="next">
+Next: <a href="58186.html">E34A</a>
+</td>
+</tr>
+</table>
+<div class="description">E300: Paint Message Buffer</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="57990.html">Print_EncodedMessage</a>.
+</div>
+<div class="paragraph">
+Paint the decoded buffer at <a href="25504.html">PrimaryDisplayBuffer</a> with the double-height font at <a href="58410.html">Font_MessageCharacters</a>, pulsing the attribute through 96 frames.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="e300"></span>
+<div class="comments">
+<div class="paragraph">
+Point the character set at the message font and paint the buffer until the flash counter hits 96.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Paint_MessageBuffer</td>
+<td class="address-2"><span id="e300"></span>E300</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Clear <span class="register">A</span>, then clear the message-frame counter (DDA2).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e301"></span>E301</td>
+<td class="instruction">LD ($DDA2),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e304"></span>E304</td>
+<td class="instruction">LD HL,$E42B</td>
+<td class="comment-1" rowspan="2">Point <span class="register">HL</span> at the message font + 01 (<a href="58410.html">Font_MessageCharacters</a> + 01), then store it as the current character set (<a href="29433.html">Pointer_CurrentCharacterSet</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e307"></span>E307</td>
+<td class="instruction">LD ($72F9),HL</td>
+</tr>
+<tr>
+<td class="asm-label">Paint_MessageBuffer_Frame</td>
+<td class="address-2"><span id="e30a"></span>E30A</td>
+<td class="instruction">LD HL,$58C0</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the message attribute row (58C0).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e30d"></span>E30D</td>
+<td class="instruction">LD IX,$63A0</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the decoded message buffer (<a href="25504.html">PrimaryDisplayBuffer</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e311"></span>E311</td>
+<td class="instruction">LD A,($DDA2)</td>
+<td class="comment-1" rowspan="3">Fetch the message-frame counter (DDA2). Has it reached 96 frames? If not, continue the pulse at <a href="58112.html#e31c">Paint_MessageBuffer_PulseAttr</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e314"></span>E314</td>
+<td class="instruction">CP $96</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e316"></span>E316</td>
+<td class="instruction">JR NZ,<a href="58112.html#e31c">Paint_MessageBuffer_PulseAttr</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e318"></span>E318</td>
+<td class="instruction">CALL <a href="59964.html">Clear_BothDisplayBuffers</a></td>
+<td class="comment-1" rowspan="1">Call <a href="59964.html">Clear_BothDisplayBuffers</a> to clear both display buffers.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e31b"></span>E31B</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label">Paint_MessageBuffer_PulseAttr</td>
+<td class="address-2"><span id="e31c"></span>E31C</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="7">Advance the frame counter. Store it back at DDA2. ÷02. ÷02. ÷02 to slow the attribute pulse. Is the pulsed value still zero? If so, force it to 01 at <a href="58112.html#e32a">Paint_MessageBuffer_ClampAttr</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e31d"></span>E31D</td>
+<td class="instruction">LD ($DDA2),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e320"></span>E320</td>
+<td class="instruction">SRL A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e322"></span>E322</td>
+<td class="instruction">SRL A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e324"></span>E324</td>
+<td class="instruction">SRL A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e326"></span>E326</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e327"></span>E327</td>
+<td class="instruction">JR NZ,<a href="58112.html#e32a">Paint_MessageBuffer_ClampAttr</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e329"></span>E329</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Force a minimum pulse of 01.</td>
+</tr>
+<tr>
+<td class="asm-label">Paint_MessageBuffer_ClampAttr</td>
+<td class="address-2"><span id="e32a"></span>E32A</td>
+<td class="instruction">CP $08</td>
+<td class="comment-1" rowspan="3">Is the pulsed attribute &lt; 08? If so, keep it at <a href="58112.html#e330">Paint_MessageBuffer_StoreAttr</a>. Otherwise clamp it to white (07).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e32c"></span>E32C</td>
+<td class="instruction">JR C,<a href="58112.html#e330">Paint_MessageBuffer_StoreAttr</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e32e"></span>E32E</td>
+<td class="instruction">LD A,$07</td>
+</tr>
+<tr>
+<td class="asm-label">Paint_MessageBuffer_StoreAttr</td>
+<td class="address-2"><span id="e330"></span>E330</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Keep the attribute in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e331"></span>E331</td>
+<td class="instruction">LD ($7307),A</td>
+<td class="comment-1" rowspan="1">Store it as the current text attribute (<a href="29447.html">CurrentTextAttribute</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e334"></span>E334</td>
+<td class="instruction">LD A,$07</td>
+<td class="comment-1" rowspan="1">Compute 07−attribute.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e336"></span>E336</td>
+<td class="instruction">SUB C</td>
+<td class="comment-1" rowspan="1">Subtract the centred column from 07 to get the left pad.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e337"></span>E337</td>
+<td class="instruction">LD ($DDA0),A</td>
+<td class="comment-1" rowspan="1">Store that inverse shift at DDA0 (used while plotting).</td>
+</tr>
+<tr>
+<td class="asm-label">Paint_MessageBuffer_RowLoop</td>
+<td class="address-2"><span id="e33a"></span>E33A</td>
+<td class="instruction">CALL <a href="58186.html">Centre_AndDrawMessageRow</a></td>
+<td class="comment-1" rowspan="1">Call <a href="58186.html">Centre_AndDrawMessageRow</a> to centre and draw one message row.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e33d"></span>E33D</td>
+<td class="instruction">LD A,($DDA1)</td>
+<td class="comment-1" rowspan="3">Fetch the row-terminator byte saved by <a href="58186.html">Centre_AndDrawMessageRow</a> (DDA1). Was it the message end (&#93;)? If so, restart a new frame at <a href="58112.html#e30a">Paint_MessageBuffer_Frame</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e340"></span>E340</td>
+<td class="instruction">CP $5D</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e342"></span>E342</td>
+<td class="instruction">JR Z,<a href="58112.html#e30a">Paint_MessageBuffer_Frame</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e344"></span>E344</td>
+<td class="instruction">LD BC,$0060</td>
+<td class="comment-1" rowspan="1">Step <span class="register">HL</span> down by 0060 attribute bytes (three rows).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e347"></span>E347</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-1" rowspan="1">Advance <span class="register">HL</span> by one message row (0060 attribute bytes).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e348"></span>E348</td>
+<td class="instruction">JR <a href="58112.html#e33a">Paint_MessageBuffer_RowLoop</a></td>
+<td class="comment-1" rowspan="1">Draw the next message row at <a href="58112.html#e33a">Paint_MessageBuffer_RowLoop</a>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="58105.html">E2F9</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#e300">Map</a></td>
+<td class="next">
+Next: <a href="58186.html">E34A</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/360722.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

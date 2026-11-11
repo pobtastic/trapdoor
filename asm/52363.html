@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at CC8B</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at CC8B. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at CC8B" />
+<meta property="og:description" content="The Trap Door: Routine at CC8B. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/52363.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/52363.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at CC8B",
+"name": "The Trap Door: Routine at CC8B",
+"description": "The Trap Door: Routine at CC8B. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/52363.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at CC8B"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/52363.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52344.html">CC78</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#cc8b">Map</a></td>
+<td class="next">
+Next: <a href="52409.html">CCB9</a>
+</td>
+</tr>
+</table>
+<div class="description">CC8B: Script Routine: (4C) Task-four entity action</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="60462.html">AdvanceScriptInstruction</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Address of complex state data for an entity</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_TaskFourBerkOverlap</td>
+<td class="address-2"><span id="cc8b"></span>CC8B</td>
+<td class="instruction">LD A,$8E</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 8E.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cc8d"></span>CC8D</td>
+<td class="instruction">CALL <a href="63737.html">Queue_Sound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="63737.html">Queue_Sound</a> to queue a sound effect.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cc90"></span>CC90</td>
+<td class="instruction">LD A,($7305)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with Berk's room-index copy (<a href="29445.html">BerkRoomIndexCopy</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cc93"></span>CC93</td>
+<td class="instruction">CP (IX+$04)</td>
+<td class="comment-1" rowspan="2">Is Berk in the same room as this entity (<span class="register">IX</span>+04)? If so, jump to <a href="52363.html#cc9f">ScriptRoutine_TaskFourBerkOverlap_TestBerkOverlap</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cc96"></span>CC96</td>
+<td class="instruction">JR Z,<a href="52363.html#cc9f">ScriptRoutine_TaskFourBerkOverlap_TestBerkOverlap</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cc98"></span>CC98</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Advance Berk's room-index copy by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cc99"></span>CC99</td>
+<td class="instruction">CP (IX+$04)</td>
+<td class="comment-1" rowspan="2">Is Berk in the same room as this entity (<span class="register">IX</span>+04)? If not, jump to <a href="60462.html">AdvanceScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cc9c"></span>CC9C</td>
+<td class="instruction">JP NZ,<a href="60462.html">AdvanceScriptInstruction</a></td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_TaskFourBerkOverlap_TestBerkOverlap</td>
+<td class="address-2"><span id="cc9f"></span>CC9F</td>
+<td class="instruction">LD A,($7304)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with Berk's X-extent copy (<a href="29444.html">BerkXExtentCopy</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cca2"></span>CCA2</td>
+<td class="instruction">CP (IX+$07)</td>
+<td class="comment-1" rowspan="2">Is Berk's X-extent copy left of this entity's x (<span class="register">IX</span>+07)? If so, no overlap, jump to <a href="60462.html">AdvanceScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cca5"></span>CCA5</td>
+<td class="instruction">JP C,<a href="60462.html">AdvanceScriptInstruction</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cca8"></span>CCA8</td>
+<td class="instruction">LD A,($7303)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with Berk's X-coordinate copy (<a href="29443.html">BerkXCoordinateCopy</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ccab"></span>CCAB</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Keep Berk's X coordinate in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ccac"></span>CCAC</td>
+<td class="instruction">LD A,(IX+$08)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ccaf"></span>CCAF</td>
+<td class="instruction">CP C</td>
+<td class="comment-1" rowspan="2">Is this entity's x-extent left of Berk's X-coordinate copy (<a href="29443.html">BerkXCoordinateCopy</a>)? If so, no overlap, jump to <a href="60462.html">AdvanceScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ccb0"></span>CCB0</td>
+<td class="instruction">JP C,<a href="60462.html">AdvanceScriptInstruction</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ccb3"></span>CCB3</td>
+<td class="instruction">CALL <a href="60019.html">Reposition_CameraFollowEntity</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60019.html">Reposition_CameraFollowEntity</a> to handle the door / interaction hit.</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_TaskFourBerkOverlap_NextScript</td>
+<td class="address-1"><span id="ccb6"></span>CCB6</td>
+<td class="instruction">JP <a href="60462.html">AdvanceScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html">AdvanceScriptInstruction</a> to run the next script instruction.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52344.html">CC78</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#cc8b">Map</a></td>
+<td class="next">
+Next: <a href="52409.html">CCB9</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/336739.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

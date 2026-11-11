@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Text at F474</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Text at F474. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Text at F474" />
+<meta property="og:description" content="The Trap Door: Text at F474. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/62580.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/62580.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Text at F474",
+"name": "The Trap Door: Text at F474",
+"description": "The Trap Door: Text at F474. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/62580.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Text at F474"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/62580.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-t">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Messages</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62571.html">F46B</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#f474">Map</a></td>
+<td class="next">
+Next: <a href="62712.html">F4F8</a>
+</td>
+</tr>
+</table>
+<div class="description">F474: Messaging: Controls Menu</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Controls / redefine-keys printer stream for <a href="44399.html">Print_Menu_Strings</a>. Starts at <a href="62580.html">Messaging_ControlsMenu</a> (not F475). Fragment headers are three bytes; &#38; starts the next fragment. Options: KEYS, JOYSTICK, REDEFINE, CONTINUE; directions RIGHT / LEFT / DOWN / UP; actions DROP / TIP / HOLD. Score stream continues at <a href="62712.html">Messaging_ScoreHiScore</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Messaging_ControlsMenu</td>
+<td class="address-1"><span id="f474"></span>F474</td>
+<td class="instruction">DEFM $0B,"XpK KEYS    &amp;KXpJ JOYSTICK&amp;",$8B,"XpR REDEFINE&amp;",$CB,"XpC CONTINUE&amp;",$0D,"Yp RIGHT"</td>
+<td class="comment-1" rowspan="3">"XpK KEYS&#160;&#160;&#160;&#160;&KXpJ JOYSTICK&XpR REDEFINE&ËXpC CONTINUE&Yp RIGHT &MYp LEFT&#160;&#160;&Yp DOWN&#160;&#160;&ÍYp&#160;&#160;UP&#160;&#160;&#160;&Zp DROP&#160;&#160;&MZp&#160;&#160;TIP&#160;&#160;&Zp HOLD&#160;&#160;".</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f4b5"></span>F4B5</td>
+<td class="instruction">DEFM " &amp;MYp LEFT  &amp;",$8D,"Yp DOWN  &amp;",$CD,"Yp  UP   &amp;",$0D,"Zp DROP  &amp;MZp  TIP  &amp;",$8D,"Zp HOLD"</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f4f6"></span>F4F6</td>
+<td class="instruction">DEFM "  "</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62571.html">F46B</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#f474">Map</a></td>
+<td class="next">
+Next: <a href="62712.html">F4F8</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/402816.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

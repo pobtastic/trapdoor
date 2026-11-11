@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at A2A8</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at A2A8. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at A2A8" />
+<meta property="og:description" content="The Trap Door: Data at A2A8. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/A2A8.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/A2A8.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at A2A8",
+"name": "The Trap Door: Data at A2A8",
+"description": "The Trap Door: Data at A2A8. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/A2A8.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at A2A8"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/A2A8.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="A28B.html">A28B</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#a2a8">Map</a></td>
+<td class="next">
+Next: <a href="A2F1.html">A2F1</a>
+</td>
+</tr>
+</table>
+<div class="description">A2A8: Graphic Layout Data: Room Scenery</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Room scenery layout referenced from simple entity state at <a href="8B69.html#8c03">8C03</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="a2a8"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-a2a8" src="../images/scr/layout-a2a8.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GraphicLayout_RoomSceneryBlockB</td>
+<td class="address-1"><span id="a2a8"></span>A2A8</td>
+<td class="instruction">DEFB $F4,$02</td>
+<td class="comment-1" rowspan="1">Set the graphic set to <a href="81E9.html">02</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2aa"></span>A2AA</td>
+<td class="instruction">DEFB $FA,$FF,$00</td>
+<td class="comment-1" rowspan="1">Move the cursor by 00 horizontally and -01 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2ad"></span>A2AD</td>
+<td class="instruction">DEFB $FB,$E6,$A2</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A2A8.html#a2e6">GraphicLayout_Sky</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2b0"></span>A2B0</td>
+<td class="instruction">DEFB $FB,$E6,$A2</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A2A8.html#a2e6">GraphicLayout_Sky</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2b3"></span>A2B3</td>
+<td class="instruction">DEFB $FB,$E6,$A2</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A2A8.html#a2e6">GraphicLayout_Sky</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2b6"></span>A2B6</td>
+<td class="instruction">DEFB $FB,$E6,$A2</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A2A8.html#a2e6">GraphicLayout_Sky</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2b9"></span>A2B9</td>
+<td class="instruction">DEFB $F2,$28</td>
+<td class="comment-1" rowspan="1">Set the current attribute to INK: BLACK,
+PAPER: CYAN (28).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2bb"></span>A2BB</td>
+<td class="instruction">DEFB $EE,$0C</td>
+<td class="comment-1" rowspan="1">Start a loop of count 0C.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2bd"></span>A2BD</td>
+<td class="instruction">DEFB $8C,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 8C and move right by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2bf"></span>A2BF</td>
+<td class="instruction">DEFB $EF</td>
+<td class="comment-1" rowspan="1">End the current loop.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2c0"></span>A2C0</td>
+<td class="instruction">DEFB $FA,$01,$F4</td>
+<td class="comment-1" rowspan="1">Move the cursor by -0C horizontally and 01 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2c3"></span>A2C3</td>
+<td class="instruction">DEFB $EE,$0C</td>
+<td class="comment-1" rowspan="1">Start a loop of count 0C.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2c5"></span>A2C5</td>
+<td class="instruction">DEFB $8D,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 8D and move right by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2c7"></span>A2C7</td>
+<td class="instruction">DEFB $EF</td>
+<td class="comment-1" rowspan="1">End the current loop.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2c8"></span>A2C8</td>
+<td class="instruction">DEFB $FA,$01,$F4</td>
+<td class="comment-1" rowspan="1">Move the cursor by -0C horizontally and 01 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2cb"></span>A2CB</td>
+<td class="instruction">DEFB $F2,$04</td>
+<td class="comment-1" rowspan="1">Set the current attribute to INK: GREEN,
+PAPER: BLACK (04).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="a2cd"></span>
+<div class="comments">
+<div class="paragraph">
+A row of twelve ground tiles drawn left to right along the bottom of the railings picture in the <a href="A2A8.html">GraphicLayout_RoomSceneryBlockB</a> layout. Each entry is a tile from graphic set 02 plus a one-column step. There is no per-tile attribute because <a href="A2A8.html#a2cb">A2CB</a> has already set one.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2cd"></span>A2CD</td>
+<td class="instruction">DEFB $19,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 19 and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2cf"></span>A2CF</td>
+<td class="instruction">DEFB $16,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 16 and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2d1"></span>A2D1</td>
+<td class="instruction">DEFB $17,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 17 and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2d3"></span>A2D3</td>
+<td class="instruction">DEFB $17,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 17 and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2d5"></span>A2D5</td>
+<td class="instruction">DEFB $1D,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 1D and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2d7"></span>A2D7</td>
+<td class="instruction">DEFB $1A,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 1A and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2d9"></span>A2D9</td>
+<td class="instruction">DEFB $1E,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 1E and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2db"></span>A2DB</td>
+<td class="instruction">DEFB $1B,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 1B and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2dd"></span>A2DD</td>
+<td class="instruction">DEFB $17,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 17 and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2df"></span>A2DF</td>
+<td class="instruction">DEFB $16,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 16 and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2e1"></span>A2E1</td>
+<td class="instruction">DEFB $16,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 16 and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2e3"></span>A2E3</td>
+<td class="instruction">DEFB $1D,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 1D and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2e5"></span>A2E5</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="a2e6"></span>
+<div class="comments">
+<div class="paragraph">
+Sky.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-a2e6" src="../images/scr/layout-a2e6.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GraphicLayout_Sky</td>
+<td class="address-1"><span id="a2e6"></span>A2E6</td>
+<td class="instruction">DEFB $F2,$2D</td>
+<td class="comment-1" rowspan="1">Set the current attribute to INK: CYAN,
+PAPER: CYAN (2D).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2e8"></span>A2E8</td>
+<td class="instruction">DEFB $FE,$01,$00</td>
+<td class="comment-1" rowspan="1">Move the cursor by 00 horizontally and 01 vertically, and store as the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2eb"></span>A2EB</td>
+<td class="instruction">DEFB $EE,$0C</td>
+<td class="comment-1" rowspan="1">Start a loop of count 0C.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2ed"></span>A2ED</td>
+<td class="instruction">DEFB $00,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 00 and move right by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2ef"></span>A2EF</td>
+<td class="instruction">DEFB $EF</td>
+<td class="comment-1" rowspan="1">End the current loop.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a2f0"></span>A2F0</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="A28B.html">A28B</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#a2a8">Map</a></td>
+<td class="next">
+Next: <a href="A2F1.html">A2F1</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/41640.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

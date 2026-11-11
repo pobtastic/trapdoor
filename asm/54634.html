@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at D56A</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at D56A. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at D56A" />
+<meta property="og:description" content="The Trap Door: Routine at D56A. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/54634.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/54634.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at D56A",
+"name": "The Trap Door: Routine at D56A",
+"description": "The Trap Door: Routine at D56A. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/54634.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at D56A"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/54634.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="54626.html">D562</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#d56a">Map</a></td>
+<td class="next">
+Next: <a href="54686.html">D59E</a>
+</td>
+</tr>
+</table>
+<div class="description">D56A: Script Routine: (37) Collectible action</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="60462.html">AdvanceScriptInstruction</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Address of complex state data for an entity</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_CollectibleRandomScript</td>
+<td class="address-2"><span id="d56a"></span>D56A</td>
+<td class="instruction">LD A,$04</td>
+<td class="comment-1" rowspan="1">..</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d56c"></span>D56C</td>
+<td class="instruction">CALL <a href="60133.html">PseudoRandom</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60133.html">PseudoRandom</a> to pick a pseudo-random value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d56f"></span>D56F</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1">Keep a copy of <span class="register">A</span> in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d570"></span>D570</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Advance the loop index in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d571"></span>D571</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-1" rowspan="1">Double <span class="register">A</span> to form a word index into the script/handler table.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d572"></span>D572</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Keep the index in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d573"></span>D573</td>
+<td class="instruction">LD A,$80</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 80.</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_CollectibleRandomScript_RotateMask</td>
+<td class="address-2"><span id="d575"></span>D575</td>
+<td class="instruction">RLC A</td>
+<td class="comment-1" rowspan="1">Rotate the collectible bitmask in <span class="register">A</span> left circular.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d577"></span>D577</td>
+<td class="instruction">DJNZ <a href="54634.html#d575">ScriptRoutine_CollectibleRandomScript_RotateMask</a></td>
+<td class="comment-1" rowspan="1">Decrease the loop counter in <span class="register">B</span> and jump to <a href="54634.html#d575">ScriptRoutine_CollectibleRandomScript_RotateMask</a> if more iterations remain.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d579"></span>D579</td>
+<td class="instruction">CP (IX+$09)</td>
+<td class="comment-1" rowspan="2">Does <span class="register">A</span> match this entity's direction/state (<span class="register">IX</span>+09)? If so, jump to <a href="54634.html">ScriptRoutine_CollectibleRandomScript</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d57c"></span>D57C</td>
+<td class="instruction">JR Z,<a href="54634.html#d56a">ScriptRoutine_CollectibleRandomScript</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d57e"></span>D57E</td>
+<td class="instruction">LD (IX+$09),A</td>
+<td class="comment-1" rowspan="1">Set the current entity's direction / state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d581"></span>D581</td>
+<td class="instruction">AND $03</td>
+<td class="comment-1" rowspan="1">Keep only the low two direction bits of <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d583"></span>D583</td>
+<td class="instruction">JR NZ,<a href="54634.html#d589">ScriptRoutine_CollectibleRandomScript_RandomMax1E</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="54634.html#d589">ScriptRoutine_CollectibleRandomScript_RandomMax1E</a> to continue if the comparison did not match.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d585"></span>D585</td>
+<td class="instruction">LD A,$02</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 02.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d587"></span>D587</td>
+<td class="instruction">JR <a href="54634.html#d58b">ScriptRoutine_CollectibleRandomScript_SetCounterAndScript</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="54634.html#d58b">ScriptRoutine_CollectibleRandomScript_SetCounterAndScript</a> to continue this routine.</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_CollectibleRandomScript_RandomMax1E</td>
+<td class="address-2"><span id="d589"></span>D589</td>
+<td class="instruction">LD A,$1E</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 1E.</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_CollectibleRandomScript_SetCounterAndScript</td>
+<td class="address-2"><span id="d58b"></span>D58B</td>
+<td class="instruction">CALL <a href="60133.html">PseudoRandom</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60133.html">PseudoRandom</a> to pick a pseudo-random value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d58e"></span>D58E</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Advance 1E by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d58f"></span>D58F</td>
+<td class="instruction">LD ($72BC),A</td>
+<td class="comment-1" rowspan="1">Set the collectible counter (<a href="29372.html">CollectibleCounter</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d592"></span>D592</td>
+<td class="instruction">LD HL,$D562</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at unused padding before the collectible script (<a href="54626.html">Unused_Padding</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d595"></span>D595</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-1" rowspan="1">Add the length/offset in <span class="register">BC</span> to the pointer in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d596"></span>D596</td>
+<td class="instruction">LD C,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the low byte of the new script address.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d597"></span>D597</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance <span class="register">HL</span> to the next script byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d598"></span>D598</td>
+<td class="instruction">LD B,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the high byte of the new script address.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d599"></span>D599</td>
+<td class="instruction">LD L,C</td>
+<td class="comment-1" rowspan="1">Copy the low byte from <span class="register">C</span> into <span class="register">L</span> (build <span class="register">HL</span>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d59a"></span>D59A</td>
+<td class="instruction">LD H,B</td>
+<td class="comment-1" rowspan="1">Copy the high byte from <span class="register">B</span> into <span class="register">H</span> (build <span class="register">HL</span>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d59b"></span>D59B</td>
+<td class="instruction">JP <a href="60462.html#ec30">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#ec30">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="54626.html">D562</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#d56a">Map</a></td>
+<td class="next">
+Next: <a href="54686.html">D59E</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/345652.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

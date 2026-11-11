@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Trivia</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Trivia. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Trivia" />
+<meta property="og:description" content="The Trap Door: Trivia. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/reference/facts.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/reference/facts.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Trivia",
+"name": "The Trap Door: Trivia",
+"description": "The Trap Door: Trivia. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/reference/facts.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Trivia"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/reference/facts.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Facts">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Trivia</td>
+</tr>
+</table>
+<ul class="contents">
+<li><a href="#musicEn">Leftover "@Music.en"</a></li>
+<li><a href="#trapdoorHeader">Tape header remnant</a></li>
+<li><a href="#yourre">YOUR'RE</a></li>
+<li><a href="#imUpstairs">'IM</a></li>
+<li><a href="#learnerSuper">Learner Berk / Super Berk</a></li>
+</ul>
+<div><span id="musicEn"></span></div>
+<div class="box box-1">
+<div class="box-title">Leftover "@Music.en"</div>
+<div class="paragraph">
+The nine bytes at <a href="../asm/29326.html">Leftover_MusicEn</a> to 29334 are the leftover filename
+<code>@Music.en</code> at the end of the menu-music source block
+(<a href="../asm/28420.html">MenuMusicSource</a>). <a href="../asm/43699.html">GameStart</a> copies those bytes to 65526 with the rest of the block.
+Nothing in the game prints or otherwise uses the string.
+</div>
+</div>
+<div><span id="trapdoorHeader"></span></div>
+<div class="box box-2">
+<div class="box-title">Tape header remnant</div>
+<div class="paragraph">
+<a href="../asm/24421.html">TapeHeaderRemnant</a> to 24430 hold the ten-character tape header name
+<code>TRAPDOOR</code> (padded with spaces) left by the loader. The bytes sit
+in otherwise unused memory between the system variables and the display
+buffers.
+</div>
+</div>
+<div><span id="yourre"></span></div>
+<div class="box box-1">
+<div class="box-title">YOUR'RE</div>
+<div class="paragraph">
+The Bad Tempered Thing aside at <a href="../asm/56585.html">Messaging_YourreOnYourOwn</a> stores
+<code>YOUR'RE ON YOUR OWN</code>. That is presumably meant to read
+<code>YOU'RE ON YOUR OWN</code>. The typo is in the original game, so the
+bytes are left exactly as they are.
+</div>
+</div>
+<div><span id="imUpstairs"></span></div>
+<div class="box box-2">
+<div class="box-title">'IM</div>
+<div class="paragraph">
+The aside at <a href="../asm/56642.html">Messaging_ImUpstairsWaits</a> stores <code>'IM UPSTAIRS WAITS</code>. That is
+presumably meant to read <code>I'M UPSTAIRS WAITS</code>. The typo is in the
+original game, so the bytes are left exactly as they are.
+</div>
+</div>
+<div><span id="learnerSuper"></span></div>
+<div class="box box-1">
+<div class="box-title">Learner Berk / Super Berk</div>
+<div class="paragraph">
+<a href="../asm/29353.html">Flag_LearnerBerkMode</a> is the Learner Berk mode flag. The main-menu chooser at <a href="../asm/62525.html">MainMenu_ChooseLearnerOrSuper</a>
+writes 0 for Super Berk (&#83;) or 1 for Learner Berk (&#76;).
+Readers include <a href="../asm/43925.html#44039">44039</a>, <a href="../asm/43925.html#44117">44117</a>, <a href="../asm/43925.html#44157">44157</a>, <a href="../asm/44449.html#44722">44722</a>, <a href="../asm/44860.html#44894">44894</a>, <a href="../asm/48146.html">Update_ThingUpstairs_Entity</a> and
+<a href="../asm/56857.html">Print_StatusMessages</a>.
+</div>
+</div>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../reference/facts.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

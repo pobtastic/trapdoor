@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at 40503</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at 40503. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at 40503" />
+<meta property="og:description" content="The Trap Door: Data at 40503. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/40503.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/40503.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at 40503",
+"name": "The Trap Door: Data at 40503",
+"description": "The Trap Door: Data at 40503. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/40503.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at 40503"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/40503.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="40455.html">40455</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#40503">Map</a></td>
+<td class="next">
+Next: <a href="40545.html">40545</a>
+</td>
+</tr>
+</table>
+<div class="description">40503: Graphic Layout: Bullet</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Bullet. Used as Drutt's live layout at <a href="36595.html#36599">StateData_Drutt</a> (script data <a href="53812.html">Data_DruttScriptAnim</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="40503"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-9e37" src="../../images/scr/layout-9e37.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GraphicLayout_Bullet</td>
+<td class="address-1"><span id="40503"></span>40503</td>
+<td class="instruction">DEFB 244,3</td>
+<td class="comment-1" rowspan="1">Set the graphic set to <a href="29721.html">3</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40505"></span>40505</td>
+<td class="instruction">DEFB 88,71,32</td>
+<td class="comment-1" rowspan="1">Draw tile 88 with INK: WHITE,
+PAPER: BLACK (71) and move down by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40508"></span>40508</td>
+<td class="instruction">DEFB 0,63,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 with INK: WHITE,
+PAPER: WHITE (63) and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40511"></span>40511</td>
+<td class="instruction">DEFB 255</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="40512"></span>
+<div class="comments">
+<div class="paragraph">
+Weight chain wrapper used when Drutt catches the weight. Nests <a href="40545.html">GraphicLayout_WeightChain</a> (the same chain) with catch-path attributes. Pointed from the Drutt catch path at <a href="45108.html#45192">45192</a>. <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-9e40" src="../../images/scr/layout-9e40.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GraphicLayout_WeightChainWrapper</td>
+<td class="address-1"><span id="40512"></span>40512</td>
+<td class="instruction">DEFB 251,97,158</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="40545.html">GraphicLayout_WeightChain</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40515"></span>40515</td>
+<td class="instruction">DEFB 242,2</td>
+<td class="comment-1" rowspan="1">Set the current attribute to INK: RED,
+PAPER: BLACK (2).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40517"></span>40517</td>
+<td class="instruction">DEFB 248,77,158</td>
+<td class="comment-1" rowspan="1">Jump to the layout at <a href="40503.html#40525">GraphicLayout_WeightChainWrapper_Body</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="40520"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-9e48" src="../../images/scr/layout-9e48.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40520"></span>40520</td>
+<td class="instruction">DEFB 251,97,158</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="40545.html">GraphicLayout_WeightChain</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40523"></span>40523</td>
+<td class="instruction">DEFB 242,7</td>
+<td class="comment-1" rowspan="1">Set the current attribute to INK: WHITE,
+PAPER: BLACK (7).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="40525"></span>
+<div class="comments">
+<div class="paragraph">
+Weight-chain body (attribute INK: RED,
+PAPER: BLACK (2)); origin lowered for the FA +17 move. <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-9e4d" src="../../images/scr/layout-9e4d.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GraphicLayout_WeightChainWrapper_Body</td>
+<td class="address-1"><span id="40525"></span>40525</td>
+<td class="instruction">DEFB 250,17,1</td>
+<td class="comment-1" rowspan="1">Move the cursor by 1 horizontally and 17 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40528"></span>40528</td>
+<td class="instruction">DEFB 80,33</td>
+<td class="comment-1" rowspan="1">Draw tile 80 and move right by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40530"></span>40530</td>
+<td class="instruction">DEFB 81,33</td>
+<td class="comment-1" rowspan="1">Draw tile 81 and move right by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40532"></span>40532</td>
+<td class="instruction">DEFB 82,33</td>
+<td class="comment-1" rowspan="1">Draw tile 82 and move right by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40534"></span>40534</td>
+<td class="instruction">DEFB 83,29</td>
+<td class="comment-1" rowspan="1">Draw tile 83 and move left by 3 and down by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40536"></span>40536</td>
+<td class="instruction">DEFB 84,33</td>
+<td class="comment-1" rowspan="1">Draw tile 84 and move right by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40538"></span>40538</td>
+<td class="instruction">DEFB 85,33</td>
+<td class="comment-1" rowspan="1">Draw tile 85 and move right by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40540"></span>40540</td>
+<td class="instruction">DEFB 86,33</td>
+<td class="comment-1" rowspan="1">Draw tile 86 and move right by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40542"></span>40542</td>
+<td class="instruction">DEFB 87,33</td>
+<td class="comment-1" rowspan="1">Draw tile 87 and move right by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40544"></span>40544</td>
+<td class="instruction">DEFB 255</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="40455.html">40455</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#40503">Map</a></td>
+<td class="next">
+Next: <a href="40545.html">40545</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/9E37.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

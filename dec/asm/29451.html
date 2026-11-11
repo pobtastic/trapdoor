@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at 29451</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at 29451. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at 29451" />
+<meta property="og:description" content="The Trap Door: Data at 29451. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/29451.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/29451.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at 29451",
+"name": "The Trap Door: Data at 29451",
+"description": "The Trap Door: Data at 29451. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/29451.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at 29451"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/29451.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-w">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29450.html">29450</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29451">Map</a></td>
+<td class="next">
+Next: <a href="29465.html">29465</a>
+</td>
+</tr>
+</table>
+<div class="description">29451: Table: Addresses of Graphic Sets</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Base addresses for graphic sets 0–6. <a href="59887.html">Blit_DisplayBufferRow</a> indexes this table with (set × 2) when blitting a display-buffer tile. Layout opcode 244 writes the set index to <a href="29446.html">CurrentGraphicSetIndex</a>. Index 0 is a never-selected placeholder so the live sets stay on 1–6 matching the 244 operands. 244 never selects set 0. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Set</th>
+<th colspan="1" rowspan="1">Base</th>
+<th colspan="1" rowspan="1">Tiles</th>
+<th colspan="1" rowspan="1">Notes</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="centre" colspan="1" rowspan="1">0000</td>
+<td class="centre" colspan="1" rowspan="1">—</td>
+<td class="centre" colspan="1" rowspan="1">Placeholder</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">1</td>
+<td class="centre" colspan="1" rowspan="1"><a href="31825.html">Graphics_Set01</a></td>
+<td class="centre" colspan="1" rowspan="1">179</td>
+<td class="centre" colspan="1" rowspan="1">Room scenery / props</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">2</td>
+<td class="centre" colspan="1" rowspan="1"><a href="33257.html">Graphics_Set02</a></td>
+<td class="centre" colspan="1" rowspan="1">143</td>
+<td class="centre" colspan="1" rowspan="1">Shared scenery tiles</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">3</td>
+<td class="centre" colspan="1" rowspan="1"><a href="29721.html">Graphics_Set03</a></td>
+<td class="centre" colspan="1" rowspan="1">168</td>
+<td class="centre" colspan="1" rowspan="1">Berk, Drutt, doors, most entities</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="centre" colspan="1" rowspan="1"><a href="31065.html">Graphics_Set04</a></td>
+<td class="centre" colspan="1" rowspan="1">95</td>
+<td class="centre" colspan="1" rowspan="1">Additional scenery</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">5</td>
+<td class="centre" colspan="1" rowspan="1"><a href="34401.html">Graphics_Set05</a></td>
+<td class="centre" colspan="1" rowspan="1">101</td>
+<td class="centre" colspan="1" rowspan="1">Trap door / scenery variants</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">6</td>
+<td class="centre" colspan="1" rowspan="1"><a href="35209.html">Graphics_Set06</a></td>
+<td class="centre" colspan="1" rowspan="1">60</td>
+<td class="centre" colspan="1" rowspan="1">Extra tiles</td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Table_GraphicSetAddresses</td>
+<td class="address-1"><span id="29451"></span>29451</td>
+<td class="instruction">DEFW 0</td>
+<td class="comment-1" rowspan="1">Graphics set 0: placeholder (never selected by 244; base 0000).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="29453"></span>29453</td>
+<td class="instruction">DEFW <a href="31825.html">Graphics_Set01</a></td>
+<td class="comment-1" rowspan="1">Graphics set 1: room scenery / props; see <a href="31825.html">Graphics_Set01</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="29455"></span>29455</td>
+<td class="instruction">DEFW <a href="33257.html">Graphics_Set02</a></td>
+<td class="comment-1" rowspan="1">Graphics set 2: shared scenery tiles; see <a href="33257.html">Graphics_Set02</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="29457"></span>29457</td>
+<td class="instruction">DEFW <a href="29721.html">Graphics_Set03</a></td>
+<td class="comment-1" rowspan="1">Graphics set 3: Berk, Drutt, doors, most entities; see <a href="29721.html">Graphics_Set03</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="29459"></span>29459</td>
+<td class="instruction">DEFW <a href="31065.html">Graphics_Set04</a></td>
+<td class="comment-1" rowspan="1">Graphics set 4: additional scenery; see <a href="31065.html">Graphics_Set04</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="29461"></span>29461</td>
+<td class="instruction">DEFW <a href="34401.html">Graphics_Set05</a></td>
+<td class="comment-1" rowspan="1">Graphics set 5: trap door / scenery variants, see <a href="34401.html">Graphics_Set05</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="29463"></span>29463</td>
+<td class="instruction">DEFW <a href="35209.html">Graphics_Set06</a></td>
+<td class="comment-1" rowspan="1">Graphics set 6: extra tiles; see <a href="35209.html">Graphics_Set06</a>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29450.html">29450</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29451">Map</a></td>
+<td class="next">
+Next: <a href="29465.html">29465</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/730B.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

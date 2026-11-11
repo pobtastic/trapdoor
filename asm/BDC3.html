@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at BDC3</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at BDC3. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at BDC3" />
+<meta property="og:description" content="The Trap Door: Data at BDC3. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/BDC3.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/BDC3.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at BDC3",
+"name": "The Trap Door: Data at BDC3",
+"description": "The Trap Door: Data at BDC3. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/BDC3.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at BDC3"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/BDC3.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="BD72.html">BD72</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#bdc3">Map</a></td>
+<td class="next">
+Next: <a href="BE6D.html">BE6D</a>
+</td>
+</tr>
+</table>
+<div class="description">BDC3: Graphic Layout: Ghost</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Ghost. Complex entity slot 20 at <a href="8EF3.html#9001">StateData_Complex_20</a> uses this layout when armed. Scripts at <a href="B9A5.html#bbe0">BBE0</a> load <a href="BDC3.html">GraphicLayout_Ghost</a>. <a href="B9A5.html#bbfc">BBFC</a> loads the BOO layout at <a href="BDC3.html#bdd0">GraphicLayout_GhostBoo</a>. The entry sets graphic set 04 then cycles <a href="BDC3.html#bde8">GraphicLayout_GhostFrame1</a> and <a href="BDC3.html#be03">GraphicLayout_GhostFrame2</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bdc3"></span>
+<div class="comments">
+<div class="paragraph">
+Ghost entry cycling <a href="BDC3.html#bde8">GraphicLayout_GhostFrame1</a> and <a href="BDC3.html#be03">GraphicLayout_GhostFrame2</a>.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-bdc3" src="../images/scr/layout-bdc3.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GraphicLayout_Ghost</td>
+<td class="address-1"><span id="bdc3"></span>BDC3</td>
+<td class="instruction">DEFB $F4,$04</td>
+<td class="comment-1" rowspan="1">Set the graphic set to <a href="7959.html">04</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bdc5"></span>BDC5</td>
+<td class="instruction">DEFB $F3,$00,$03,$E8,$BD,$03,$BE,$E8,$BD</td>
+<td class="comment-1" rowspan="1">Increment the index and jump to one of <a href="BDC3.html#bde8">GraphicLayout_GhostFrame1</a>, <a href="BDC3.html#be03">GraphicLayout_GhostFrame2</a>, <a href="BDC3.html#bde8">GraphicLayout_GhostFrame1</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bdce"></span>BDCE</td>
+<td class="instruction">DEFB $03,$BE</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bdd0"></span>
+<div class="comments">
+<div class="paragraph">
+BOO.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-bdd0" src="../images/scr/layout-bdd0.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GraphicLayout_GhostBoo</td>
+<td class="address-1"><span id="bdd0"></span>BDD0</td>
+<td class="instruction">DEFB $F4,$04</td>
+<td class="comment-1" rowspan="1">Set the graphic set to <a href="7959.html">04</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bdd2"></span>BDD2</td>
+<td class="instruction">DEFB $FA,$01,$FF</td>
+<td class="comment-1" rowspan="1">Move the cursor by -01 horizontally and 01 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bdd5"></span>BDD5</td>
+<td class="instruction">DEFB $36,$07,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 36 with INK: WHITE,
+PAPER: BLACK (07) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bdd8"></span>BDD8</td>
+<td class="instruction">DEFB $37,$07,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 37 with INK: WHITE,
+PAPER: BLACK (07) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bddb"></span>BDDB</td>
+<td class="instruction">DEFB $38,$07,$1E</td>
+<td class="comment-1" rowspan="1">Draw tile 38 with INK: WHITE,
+PAPER: BLACK (07) and move left by 02 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bdde"></span>BDDE</td>
+<td class="instruction">DEFB $39,$07,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 39 with INK: WHITE,
+PAPER: BLACK (07) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bde1"></span>BDE1</td>
+<td class="instruction">DEFB $3A,$07,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 3A with INK: WHITE,
+PAPER: BLACK (07) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bde4"></span>BDE4</td>
+<td class="instruction">DEFB $3B,$07,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 3B with INK: WHITE,
+PAPER: BLACK (07) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bde7"></span>BDE7</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bde8"></span>
+<div class="comments">
+<div class="paragraph">
+Ghost frame 01.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-bde8" src="../images/scr/layout-bde8.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GraphicLayout_GhostFrame1</td>
+<td class="address-1"><span id="bde8"></span>BDE8</td>
+<td class="instruction">DEFB $FA,$00,$FF</td>
+<td class="comment-1" rowspan="1">Move the cursor by -01 horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bdeb"></span>BDEB</td>
+<td class="instruction">DEFB $32,$05,$24</td>
+<td class="comment-1" rowspan="1">Draw tile 32 with INK: CYAN,
+PAPER: BLACK (05) and move right by 04&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bdee"></span>BDEE</td>
+<td class="instruction">DEFB $32,$85,$1C</td>
+<td class="comment-1" rowspan="1">Draw tile 32 with INK: CYAN,
+PAPER: BLACK&#44; MIRRORED (85) and move left by 04 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bdf1"></span>BDF1</td>
+<td class="instruction">DEFB $00,$2D,$24</td>
+<td class="comment-1" rowspan="1">Draw tile 00 with INK: CYAN,
+PAPER: CYAN (2D) and move right by 04.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bdf4"></span>BDF4</td>
+<td class="instruction">DEFB $00,$2D,$1C</td>
+<td class="comment-1" rowspan="1">Draw tile 00 with INK: CYAN,
+PAPER: CYAN (2D) and move left by 04 and down by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bdf7"></span>BDF7</td>
+<td class="instruction">DEFB $33,$05,$24</td>
+<td class="comment-1" rowspan="1">Draw tile 33 with INK: CYAN,
+PAPER: BLACK (05) and move right by 04&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bdfa"></span>BDFA</td>
+<td class="instruction">DEFB $33,$85,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 33 with INK: CYAN,
+PAPER: BLACK&#44; MIRRORED (85) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bdfd"></span>BDFD</td>
+<td class="instruction">DEFB $FA,$FD,$FD</td>
+<td class="comment-1" rowspan="1">Move the cursor by -03 horizontally and -03 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be00"></span>BE00</td>
+<td class="instruction">DEFB $F8,$1B,$BE</td>
+<td class="comment-1" rowspan="1">Jump to the layout at <a href="BDC3.html#be1b">GraphicLayout_GhostBody</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="be03"></span>
+<div class="comments">
+<div class="paragraph">
+Ghost frame 02.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-be03" src="../images/scr/layout-be03.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GraphicLayout_GhostFrame2</td>
+<td class="address-1"><span id="be03"></span>BE03</td>
+<td class="instruction">DEFB $FA,$01,$FF</td>
+<td class="comment-1" rowspan="1">Move the cursor by -01 horizontally and 01 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be06"></span>BE06</td>
+<td class="instruction">DEFB $34,$05,$24</td>
+<td class="comment-1" rowspan="1">Draw tile 34 with INK: CYAN,
+PAPER: BLACK (05) and move right by 04&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be09"></span>BE09</td>
+<td class="instruction">DEFB $34,$85,$1C</td>
+<td class="comment-1" rowspan="1">Draw tile 34 with INK: CYAN,
+PAPER: BLACK&#44; MIRRORED (85) and move left by 04 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be0c"></span>BE0C</td>
+<td class="instruction">DEFB $00,$2D,$24</td>
+<td class="comment-1" rowspan="1">Draw tile 00 with INK: CYAN,
+PAPER: CYAN (2D) and move right by 04.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be0f"></span>BE0F</td>
+<td class="instruction">DEFB $00,$2D,$1C</td>
+<td class="comment-1" rowspan="1">Draw tile 00 with INK: CYAN,
+PAPER: CYAN (2D) and move left by 04 and down by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be12"></span>BE12</td>
+<td class="instruction">DEFB $35,$05,$24</td>
+<td class="comment-1" rowspan="1">Draw tile 35 with INK: CYAN,
+PAPER: BLACK (05) and move right by 04&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be15"></span>BE15</td>
+<td class="instruction">DEFB $35,$85,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 35 with INK: CYAN,
+PAPER: BLACK&#44; MIRRORED (85) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be18"></span>BE18</td>
+<td class="instruction">DEFB $FA,$FC,$FD</td>
+<td class="comment-1" rowspan="1">Move the cursor by -03 horizontally and -04 vertically.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="be1b"></span>
+<div class="comments">
+<div class="paragraph">
+Ghost body.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-be1b" src="../images/scr/layout-be1b.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GraphicLayout_GhostBody</td>
+<td class="address-1"><span id="be1b"></span>BE1B</td>
+<td class="instruction">DEFB $F5,$03,$27,$28,$5E</td>
+<td class="comment-1" rowspan="1">Set the next graphic index from a random list.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be20"></span>BE20</td>
+<td class="instruction">DEFB $00,$05,$1F</td>
+<td class="comment-1" rowspan="1">Draw a random tile from the list at <a href="BDC3.html#be1b">GraphicLayout_GhostBody</a> with INK: CYAN,
+PAPER: BLACK (05) and move left by 01 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be23"></span>BE23</td>
+<td class="instruction">DEFB $29,$05,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 29 with INK: CYAN,
+PAPER: BLACK (05) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be26"></span>BE26</td>
+<td class="instruction">DEFB $00,$2D,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 00 with INK: CYAN,
+PAPER: CYAN (2D) and move right by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be29"></span>BE29</td>
+<td class="instruction">DEFB $29,$85,$1E</td>
+<td class="comment-1" rowspan="1">Draw tile 29 with INK: CYAN,
+PAPER: BLACK&#44; MIRRORED (85) and move left by 02 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be2c"></span>BE2C</td>
+<td class="instruction">DEFB $2A,$45,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 2A with INK: CYAN,
+PAPER: BLACK (45) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be2f"></span>BE2F</td>
+<td class="instruction">DEFB $2B,$45,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 2B with INK: CYAN,
+PAPER: BLACK (45) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be32"></span>BE32</td>
+<td class="instruction">DEFB $2A,$C5,$1E</td>
+<td class="comment-1" rowspan="1">Draw tile 2A with INK: CYAN,
+PAPER: BLACK&#44; MIRRORED (C5) and move left by 02 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be35"></span>BE35</td>
+<td class="instruction">DEFB $00,$2D,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 00 with INK: CYAN,
+PAPER: CYAN (2D) and move right by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be38"></span>BE38</td>
+<td class="instruction">DEFB $00,$2D,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 00 with INK: CYAN,
+PAPER: CYAN (2D) and move right by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be3b"></span>BE3B</td>
+<td class="instruction">DEFB $00,$2D,$1E</td>
+<td class="comment-1" rowspan="1">Draw tile 00 with INK: CYAN,
+PAPER: CYAN (2D) and move left by 02 and down by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be3e"></span>BE3E</td>
+<td class="instruction">DEFB $2C,$05,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 2C with INK: CYAN,
+PAPER: BLACK (05) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be41"></span>BE41</td>
+<td class="instruction">DEFB $00,$2D,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 00 with INK: CYAN,
+PAPER: CYAN (2D) and move right by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be44"></span>BE44</td>
+<td class="instruction">DEFB $2C,$85,$1F</td>
+<td class="comment-1" rowspan="1">Draw tile 2C with INK: CYAN,
+PAPER: BLACK&#44; MIRRORED (85) and move left by 01 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be47"></span>BE47</td>
+<td class="instruction">DEFB $F3,$00,$04,$52,$BE,$59,$BE,$52,$BE,$63,$BE</td>
+<td class="comment-1" rowspan="1">Increment the index and jump to one of <a href="BDC3.html#be52">GraphicLayout_GhostTailDown</a>, <a href="BDC3.html#be59">GraphicLayout_GhostTailLeft</a>, <a href="BDC3.html#be52">GraphicLayout_GhostTailDown</a>, <a href="BDC3.html#be63">GraphicLayout_GhostTailRight</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="be52"></span>
+<div class="comments">
+<div class="paragraph">
+Ghost tail pointing down.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-be52" src="../images/scr/layout-be52.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GraphicLayout_GhostTailDown</td>
+<td class="address-1"><span id="be52"></span>BE52</td>
+<td class="instruction">DEFB $2D,$05,$20</td>
+<td class="comment-1" rowspan="1">Draw tile 2D with INK: CYAN,
+PAPER: BLACK (05) and move down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be55"></span>BE55</td>
+<td class="instruction">DEFB $2E,$05,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 2E with INK: CYAN,
+PAPER: BLACK (05) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be58"></span>BE58</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="be59"></span>
+<div class="comments">
+<div class="paragraph">
+Ghost tail pointing left.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-be59" src="../images/scr/layout-be59.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GraphicLayout_GhostTailLeft</td>
+<td class="address-1"><span id="be59"></span>BE59</td>
+<td class="instruction">DEFB $2F,$05,$1F</td>
+<td class="comment-1" rowspan="1">Draw tile 2F with INK: CYAN,
+PAPER: BLACK (05) and move left by 01 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be5c"></span>BE5C</td>
+<td class="instruction">DEFB $30,$05,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 30 with INK: CYAN,
+PAPER: BLACK (05) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be5f"></span>BE5F</td>
+<td class="instruction">DEFB $31,$05,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 31 with INK: CYAN,
+PAPER: BLACK (05) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be62"></span>BE62</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="be63"></span>
+<div class="comments">
+<div class="paragraph">
+Ghost tail pointing right.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-be63" src="../images/scr/layout-be63.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GraphicLayout_GhostTailRight</td>
+<td class="address-1"><span id="be63"></span>BE63</td>
+<td class="instruction">DEFB $2F,$85,$20</td>
+<td class="comment-1" rowspan="1">Draw tile 2F with INK: CYAN,
+PAPER: BLACK&#44; MIRRORED (85) and move down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be66"></span>BE66</td>
+<td class="instruction">DEFB $31,$85,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 31 with INK: CYAN,
+PAPER: BLACK&#44; MIRRORED (85) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be69"></span>BE69</td>
+<td class="instruction">DEFB $30,$85,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 30 with INK: CYAN,
+PAPER: BLACK&#44; MIRRORED (85) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be6c"></span>BE6C</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="BD72.html">BD72</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#bdc3">Map</a></td>
+<td class="next">
+Next: <a href="BE6D.html">BE6D</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/48579.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

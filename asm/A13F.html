@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at A13F</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at A13F. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at A13F" />
+<meta property="og:description" content="The Trap Door: Data at A13F. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/A13F.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/A13F.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at A13F",
+"name": "The Trap Door: Data at A13F",
+"description": "The Trap Door: Data at A13F. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/A13F.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at A13F"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/A13F.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="A082.html">A082</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#a13f">Map</a></td>
+<td class="next">
+Next: <a href="A166.html">A166</a>
+</td>
+</tr>
+</table>
+<div class="description">A13F: Graphic Layout Data: Seed Box</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Cyan "SEED" box. Written by the type-90 entity at <a href="8EF3.html#901d">StateData_Complex_22</a> and pointed by <a href="ECB0.html#ecd6">Script_OpenDoor_TaskProp</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="a13f"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-a13f" src="../images/scr/layout-a13f.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GraphicLayout_SeedBox</td>
+<td class="address-1"><span id="a13f"></span>A13F</td>
+<td class="instruction">DEFB $F4,$03</td>
+<td class="comment-1" rowspan="1">Set the graphic set to <a href="7419.html">03</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a141"></span>A141</td>
+<td class="instruction">DEFB $62,$2F,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 62 with INK: WHITE,
+PAPER: CYAN (2F) and move right by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a144"></span>A144</td>
+<td class="instruction">DEFB $62,$AF,$1F</td>
+<td class="comment-1" rowspan="1">Draw tile 62 with INK: WHITE,
+PAPER: CYAN&#44; MIRRORED (AF) and move left by 01 and down by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a147"></span>A147</td>
+<td class="instruction">DEFB $64,$28,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 64 with INK: BLACK,
+PAPER: CYAN (28) and move right by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a14a"></span>A14A</td>
+<td class="instruction">DEFB $6A,$28,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 6A with INK: BLACK,
+PAPER: CYAN (28) and move right by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a14d"></span>A14D</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="a14e"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-a14e" src="../images/scr/layout-a14e.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a14e"></span>A14E</td>
+<td class="instruction">DEFB $00,$00,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 00 with INK: BLACK,
+PAPER: BLACK (00) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a151"></span>A151</td>
+<td class="instruction">DEFB $00,$00,$9F</td>
+<td class="comment-1" rowspan="1">Draw tile 00 with INK: BLACK,
+PAPER: BLACK (00) and move left by 01 and down by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a154"></span>A154</td>
+<td class="instruction">DEFB $00,$00,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 00 with INK: BLACK,
+PAPER: BLACK (00) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a157"></span>A157</td>
+<td class="instruction">DEFB $00,$00,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 00 with INK: BLACK,
+PAPER: BLACK (00) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a15a"></span>A15A</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="a15b"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-a15b" src="../images/scr/layout-a15b.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a15b"></span>A15B</td>
+<td class="instruction">DEFB $F2,$2D</td>
+<td class="comment-1" rowspan="1">Set the current attribute to INK: CYAN,
+PAPER: CYAN (2D).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a15d"></span>A15D</td>
+<td class="instruction">DEFB $00,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 00 and move right by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a15f"></span>A15F</td>
+<td class="instruction">DEFB $00,$1F</td>
+<td class="comment-1" rowspan="1">Draw tile 00 and move left by 01 and down by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a161"></span>A161</td>
+<td class="instruction">DEFB $00,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 00 and move right by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a163"></span>A163</td>
+<td class="instruction">DEFB $00,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 00 and move right by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a165"></span>A165</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="A082.html">A082</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#a13f">Map</a></td>
+<td class="next">
+Next: <a href="A166.html">A166</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/41279.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

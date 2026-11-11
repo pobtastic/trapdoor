@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 44969</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 44969. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 44969" />
+<meta property="og:description" content="The Trap Door: Routine at 44969. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44969.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44969.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 44969",
+"name": "The Trap Door: Routine at 44969",
+"description": "The Trap Door: Routine at 44969. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44969.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 44969"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44969.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="44927.html">44927</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#44969">Map</a></td>
+<td class="next">
+Next: <a href="45017.html">45017</a>
+</td>
+</tr>
+</table>
+<div class="description">44969: Backup Entity And Game State</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="44860.html">Initialise_New_Game</a>.
+</div>
+<div class="paragraph">
+Backup entity and game state walking the entity tables at <a href="35689.html">StateData_SimpleEntities</a> / <a href="36585.html">StateData_Boney</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44969"></span>
+<div class="comments">
+<div class="paragraph">
+Measure and copy Boney's complex entity state into the backup buffer at <a href="64014.html">Buffer_EntityStateBackup</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Backup_Entity_And_Game_State</td>
+<td class="address-2"><span id="44969"></span>44969</td>
+<td class="instruction">LD HL,37047</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at State Data: Scenery Entities (<a href="37047.html">StateData_SceneryEntities</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44972"></span>44972</td>
+<td class="instruction">LD DE,36585</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at Boney's complex entity state (<a href="36585.html">StateData_Boney</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44975"></span>44975</td>
+<td class="instruction">AND A</td>
+<td class="comment-1" rowspan="1">Clear the success marker and test whether <span class="register">A</span> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44976"></span>44976</td>
+<td class="instruction">SBC HL,DE</td>
+<td class="comment-1" rowspan="1">Subtract <span class="register">DE</span> from <span class="register">HL</span> with carry.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44978"></span>44978</td>
+<td class="instruction">LD (29347),HL</td>
+<td class="comment-1" rowspan="1">Store <span class="register">HL</span> in the entity-state copy length (<a href="29347.html">CopyLength_EntityStateData</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44981"></span>44981</td>
+<td class="instruction">LD B,H</td>
+<td class="comment-1" rowspan="1">Copy the high byte of the pointer into <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44982"></span>44982</td>
+<td class="instruction">LD C,L</td>
+<td class="comment-1" rowspan="1">Copy the low byte of the pointer into <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44983"></span>44983</td>
+<td class="instruction">LD HL,36585</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Boney's complex entity state (<a href="36585.html">StateData_Boney</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44986"></span>44986</td>
+<td class="instruction">LD DE,64014</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the entity-state backup buffer (<a href="64014.html">Buffer_EntityStateBackup</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44989"></span>44989</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="1">Copy the block at <span class="register">HL</span> to <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44991"></span>44991</td>
+<td class="instruction">INC DE</td>
+<td class="comment-1" rowspan="1">Advance the pointer in <span class="register">DE</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44992"></span>44992</td>
+<td class="instruction">LD (29351),DE</td>
+<td class="comment-1" rowspan="1">Store <span class="register">DE</span> in Pointer: Entity State Backup End (<a href="29351.html">Pointer_EntityStateBackupEnd</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44996"></span>44996</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">DE</span> on the stack.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44997"></span>
+<div class="comments">
+<div class="paragraph">
+Measure and copy the task/game-status block that follows the entity backup.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44997"></span>44997</td>
+<td class="instruction">LD HL,29416</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at saved room index (<a href="29416.html">SavedRoomIndex</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45000"></span>45000</td>
+<td class="instruction">LD DE,29358</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the current task index (<a href="29358.html">CurrentTaskIndex</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45003"></span>45003</td>
+<td class="instruction">SBC HL,DE</td>
+<td class="comment-1" rowspan="1">Subtract <span class="register">DE</span> from <span class="register">HL</span> with carry.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45005"></span>45005</td>
+<td class="instruction">LD (29349),HL</td>
+<td class="comment-1" rowspan="1">Store <span class="register">HL</span> in the game-state copy length (<a href="29349.html">CopyLength_GameState</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45008"></span>45008</td>
+<td class="instruction">LD B,H</td>
+<td class="comment-1" rowspan="1">Copy the high byte of the pointer into <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45009"></span>45009</td>
+<td class="instruction">LD C,L</td>
+<td class="comment-1" rowspan="1">Copy the low byte of the pointer into <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45010"></span>45010</td>
+<td class="instruction">LD HL,29358</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the current task index (<a href="29358.html">CurrentTaskIndex</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45013"></span>45013</td>
+<td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">DE</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45014"></span>45014</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="1">Copy the block at <span class="register">HL</span> to <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45016"></span>45016</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="44927.html">44927</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#44969">Map</a></td>
+<td class="next">
+Next: <a href="45017.html">45017</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/AFA9.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

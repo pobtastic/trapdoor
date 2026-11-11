@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at 53060</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at 53060. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at 53060" />
+<meta property="og:description" content="The Trap Door: Data at 53060. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/53060.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/53060.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at 53060",
+"name": "The Trap Door: Data at 53060",
+"description": "The Trap Door: Data at 53060. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/53060.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at 53060"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/53060.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="53047.html">53047</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#53060">Map</a></td>
+<td class="next">
+Next: <a href="53266.html">53266</a>
+</td>
+</tr>
+</table>
+<div class="description">53060: Data: Drutt Scripts</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Drutt animation scripts. The type-12 entity in the crusher slot at <a href="36595.html#36809">StateData_Complex_16</a> uses Drutt's layout <a href="53812.html">Data_DruttScriptAnim</a>. <a href="53266.html#53296">Update_Drutt_RunScript</a> runs <a href="53060.html">Data_DruttScripts</a> when that entity is active. <a href="53312.html#53335">53335</a> enters <a href="53060.html#53128">DruttScript_Copy</a>, <a href="53364.html#53472">53472</a> enters <a href="53060.html#53246">53246</a>, and <a href="53758.html#53806">53806</a> enters <a href="53060.html#53236">53236</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53060"></span>
+<div class="comments">
+<div class="paragraph">
+Idle and bubble script entered from <a href="53266.html#53296">Update_Drutt_RunScript</a>.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="script-cf44" src="../../images/script-cf44.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Data_DruttScripts</td>
+<td class="address-1"><span id="53060"></span>53060</td>
+<td class="instruction">DEFB 92,210,52,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#53852">53852</a>; Graphic-layout pointer <a href="53812.html">Data_DruttScriptAnim</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53064"></span>53064</td>
+<td class="instruction">DEFB 67,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#53827">53827</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53066"></span>53066</td>
+<td class="instruction">DEFB 67,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#53827">53827</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53068"></span>53068</td>
+<td class="instruction">DEFB 52,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html">Data_DruttScriptAnim</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53070"></span>53070</td>
+<td class="instruction">DEFB 67,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#53827">53827</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53072"></span>53072</td>
+<td class="instruction">DEFB 67,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#53827">53827</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53074"></span>53074</td>
+<td class="instruction">DEFW 62</td>
+<td class="comment-1" rowspan="1">Script opcode 62 (Drutt action).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53076"></span>
+<div class="comments">
+<div class="paragraph">
+Near-range Drutt script.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">DruttScript_Near</td>
+<td class="address-1"><span id="53076"></span>53076</td>
+<td class="instruction">DEFB 177,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#53937">53937</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53078"></span>53078</td>
+<td class="instruction">DEFW 64</td>
+<td class="comment-1" rowspan="1">Script opcode 64 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53080"></span>53080</td>
+<td class="instruction">DEFB 197,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#53957">53957</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53082"></span>53082</td>
+<td class="instruction">DEFW 64</td>
+<td class="comment-1" rowspan="1">Script opcode 64 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53084"></span>53084</td>
+<td class="instruction">DEFB 210,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#53970">53970</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53086"></span>53086</td>
+<td class="instruction">DEFW 67</td>
+<td class="comment-1" rowspan="1">Script opcode 67 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53088"></span>53088</td>
+<td class="instruction">DEFW 66</td>
+<td class="comment-1" rowspan="1">Script opcode 66 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53090"></span>53090</td>
+<td class="instruction">DEFB 220,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#53980">53980</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53092"></span>53092</td>
+<td class="instruction">DEFW 66</td>
+<td class="comment-1" rowspan="1">Script opcode 66 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53094"></span>53094</td>
+<td class="instruction">DEFW 62</td>
+<td class="comment-1" rowspan="1">Script opcode 62 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53096"></span>53096</td>
+<td class="instruction">DEFW 66</td>
+<td class="comment-1" rowspan="1">Script opcode 66 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53098"></span>53098</td>
+<td class="instruction">DEFB 220,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#53980">53980</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53100"></span>53100</td>
+<td class="instruction">DEFW 66</td>
+<td class="comment-1" rowspan="1">Script opcode 66 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53102"></span>53102</td>
+<td class="instruction">DEFB 220,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#53980">53980</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53104"></span>53104</td>
+<td class="instruction">DEFW 68</td>
+<td class="comment-1" rowspan="1">Script opcode 68 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53106"></span>53106</td>
+<td class="instruction">DEFB 177,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#53937">53937</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53108"></span>53108</td>
+<td class="instruction">DEFW 62</td>
+<td class="comment-1" rowspan="1">Script opcode 62 (Drutt action).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53110"></span>
+<div class="comments">
+<div class="paragraph">
+Alternate Drutt script.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">DruttScript_Alt</td>
+<td class="address-1"><span id="53110"></span>53110</td>
+<td class="instruction">DEFB 177,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#53937">53937</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53112"></span>53112</td>
+<td class="instruction">DEFW 64</td>
+<td class="comment-1" rowspan="1">Script opcode 64 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53114"></span>53114</td>
+<td class="instruction">DEFB 197,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#53957">53957</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53116"></span>53116</td>
+<td class="instruction">DEFW 64</td>
+<td class="comment-1" rowspan="1">Script opcode 64 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53118"></span>53118</td>
+<td class="instruction">DEFB 210,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#53970">53970</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53120"></span>53120</td>
+<td class="instruction">DEFW 66</td>
+<td class="comment-1" rowspan="1">Script opcode 66 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53122"></span>53122</td>
+<td class="instruction">DEFB 220,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#53980">53980</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53124"></span>53124</td>
+<td class="instruction">DEFW 68</td>
+<td class="comment-1" rowspan="1">Script opcode 68 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53126"></span>53126</td>
+<td class="instruction">DEFW 62</td>
+<td class="comment-1" rowspan="1">Script opcode 62 (Drutt action).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53128"></span>
+<div class="comments">
+<div class="paragraph">
+Drutt script launched after copying the template.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">DruttScript_Copy</td>
+<td class="address-1"><span id="53128"></span>53128</td>
+<td class="instruction">DEFB 251,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#54011">54011</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53130"></span>53130</td>
+<td class="instruction">DEFW 63</td>
+<td class="comment-1" rowspan="1">Script opcode 63 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53132"></span>53132</td>
+<td class="instruction">DEFB 15,211</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#54031">54031</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53134"></span>53134</td>
+<td class="instruction">DEFW 63</td>
+<td class="comment-1" rowspan="1">Script opcode 63 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53136"></span>53136</td>
+<td class="instruction">DEFB 28,211</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#54044">54044</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53138"></span>53138</td>
+<td class="instruction">DEFW 67</td>
+<td class="comment-1" rowspan="1">Script opcode 67 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53140"></span>53140</td>
+<td class="instruction">DEFW 65</td>
+<td class="comment-1" rowspan="1">Script opcode 65 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53142"></span>53142</td>
+<td class="instruction">DEFB 38,211</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#54054">54054</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53144"></span>53144</td>
+<td class="instruction">DEFW 65</td>
+<td class="comment-1" rowspan="1">Script opcode 65 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53146"></span>53146</td>
+<td class="instruction">DEFW 62</td>
+<td class="comment-1" rowspan="1">Script opcode 62 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53148"></span>53148</td>
+<td class="instruction">DEFW 65</td>
+<td class="comment-1" rowspan="1">Script opcode 65 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53150"></span>53150</td>
+<td class="instruction">DEFB 38,211</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#54054">54054</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53152"></span>53152</td>
+<td class="instruction">DEFW 65</td>
+<td class="comment-1" rowspan="1">Script opcode 65 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53154"></span>53154</td>
+<td class="instruction">DEFB 38,211</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#54054">54054</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53156"></span>53156</td>
+<td class="instruction">DEFW 68</td>
+<td class="comment-1" rowspan="1">Script opcode 68 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53158"></span>53158</td>
+<td class="instruction">DEFB 251,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#54011">54011</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53160"></span>53160</td>
+<td class="instruction">DEFW 62</td>
+<td class="comment-1" rowspan="1">Script opcode 62 (Drutt action).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53162"></span>
+<div class="comments">
+<div class="paragraph">
+Drutt script used when the scan picks a candidate.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">DruttScript_Scan</td>
+<td class="address-1"><span id="53162"></span>53162</td>
+<td class="instruction">DEFB 251,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#54011">54011</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53164"></span>53164</td>
+<td class="instruction">DEFW 63</td>
+<td class="comment-1" rowspan="1">Script opcode 63 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53166"></span>53166</td>
+<td class="instruction">DEFB 15,211</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#54031">54031</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53168"></span>53168</td>
+<td class="instruction">DEFW 63</td>
+<td class="comment-1" rowspan="1">Script opcode 63 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53170"></span>53170</td>
+<td class="instruction">DEFB 28,211</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#54044">54044</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53172"></span>53172</td>
+<td class="instruction">DEFW 65</td>
+<td class="comment-1" rowspan="1">Script opcode 65 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53174"></span>53174</td>
+<td class="instruction">DEFB 38,211</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#54054">54054</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53176"></span>53176</td>
+<td class="instruction">DEFW 68</td>
+<td class="comment-1" rowspan="1">Script opcode 68 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53178"></span>53178</td>
+<td class="instruction">DEFW 62</td>
+<td class="comment-1" rowspan="1">Script opcode 62 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53180"></span>53180</td>
+<td class="instruction">DEFB 117,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#53877">53877</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53182"></span>53182</td>
+<td class="instruction">DEFW 69</td>
+<td class="comment-1" rowspan="1">Script opcode 69 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53184"></span>53184</td>
+<td class="instruction">DEFW 69</td>
+<td class="comment-1" rowspan="1">Script opcode 69 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53186"></span>53186</td>
+<td class="instruction">DEFB 141,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#53901">53901</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53188"></span>53188</td>
+<td class="instruction">DEFW 69</td>
+<td class="comment-1" rowspan="1">Script opcode 69 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53190"></span>53190</td>
+<td class="instruction">DEFW 69</td>
+<td class="comment-1" rowspan="1">Script opcode 69 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53192"></span>53192</td>
+<td class="instruction">DEFB 141,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#53901">53901</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53194"></span>53194</td>
+<td class="instruction">DEFW 70</td>
+<td class="comment-1" rowspan="1">Script opcode 70 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53196"></span>53196</td>
+<td class="instruction">DEFB 141,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#53901">53901</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53198"></span>53198</td>
+<td class="instruction">DEFW 68</td>
+<td class="comment-1" rowspan="1">Script opcode 68 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53200"></span>53200</td>
+<td class="instruction">DEFW 68</td>
+<td class="comment-1" rowspan="1">Script opcode 68 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53202"></span>53202</td>
+<td class="instruction">DEFB 141,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#53901">53901</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53204"></span>53204</td>
+<td class="instruction">DEFW 68</td>
+<td class="comment-1" rowspan="1">Script opcode 68 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53206"></span>53206</td>
+<td class="instruction">DEFW 68</td>
+<td class="comment-1" rowspan="1">Script opcode 68 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53208"></span>53208</td>
+<td class="instruction">DEFW 62</td>
+<td class="comment-1" rowspan="1">Script opcode 62 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53210"></span>53210</td>
+<td class="instruction">DEFB 52,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html">Data_DruttScriptAnim</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53212"></span>53212</td>
+<td class="instruction">DEFW 69</td>
+<td class="comment-1" rowspan="1">Script opcode 69 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53214"></span>53214</td>
+<td class="instruction">DEFW 69</td>
+<td class="comment-1" rowspan="1">Script opcode 69 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53216"></span>53216</td>
+<td class="instruction">DEFB 92,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#53852">53852</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53218"></span>53218</td>
+<td class="instruction">DEFW 69</td>
+<td class="comment-1" rowspan="1">Script opcode 69 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53220"></span>53220</td>
+<td class="instruction">DEFW 69</td>
+<td class="comment-1" rowspan="1">Script opcode 69 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53222"></span>53222</td>
+<td class="instruction">DEFB 92,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#53852">53852</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53224"></span>53224</td>
+<td class="instruction">DEFW 68</td>
+<td class="comment-1" rowspan="1">Script opcode 68 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53226"></span>53226</td>
+<td class="instruction">DEFW 68</td>
+<td class="comment-1" rowspan="1">Script opcode 68 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53228"></span>53228</td>
+<td class="instruction">DEFB 92,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#53852">53852</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53230"></span>53230</td>
+<td class="instruction">DEFW 68</td>
+<td class="comment-1" rowspan="1">Script opcode 68 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53232"></span>53232</td>
+<td class="instruction">DEFW 68</td>
+<td class="comment-1" rowspan="1">Script opcode 68 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53234"></span>53234</td>
+<td class="instruction">DEFW 62</td>
+<td class="comment-1" rowspan="1">Script opcode 62 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53236"></span>53236</td>
+<td class="instruction">DEFW 68</td>
+<td class="comment-1" rowspan="1">Script opcode 68 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53238"></span>53238</td>
+<td class="instruction">DEFW 68</td>
+<td class="comment-1" rowspan="1">Script opcode 68 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53240"></span>53240</td>
+<td class="instruction">DEFB 141,210</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#53901">53901</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53242"></span>53242</td>
+<td class="instruction">DEFW 68</td>
+<td class="comment-1" rowspan="1">Script opcode 68 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53244"></span>53244</td>
+<td class="instruction">DEFW 68</td>
+<td class="comment-1" rowspan="1">Script opcode 68 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53246"></span>53246</td>
+<td class="instruction">DEFB 137,211</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#54153">54153</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53248"></span>53248</td>
+<td class="instruction">DEFW 71</td>
+<td class="comment-1" rowspan="1">Script opcode 71 (Drutt action).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53250"></span>53250</td>
+<td class="instruction">DEFB 137,211</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#54153">54153</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53252"></span>53252</td>
+<td class="instruction">DEFB 137,211</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#54153">54153</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53254"></span>53254</td>
+<td class="instruction">DEFB 137,211</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#54153">54153</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53256"></span>53256</td>
+<td class="instruction">DEFB 113,211</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#54129">54129</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53258"></span>53258</td>
+<td class="instruction">DEFB 113,211</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#54129">54129</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53260"></span>53260</td>
+<td class="instruction">DEFB 113,211</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#54129">54129</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53262"></span>53262</td>
+<td class="instruction">DEFB 113,211</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="53812.html#54129">54129</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53264"></span>53264</td>
+<td class="instruction">DEFW 62</td>
+<td class="comment-1" rowspan="1">Script opcode 62 (Drutt action).</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="53047.html">53047</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#53060">Map</a></td>
+<td class="next">
+Next: <a href="53266.html">53266</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/CF44.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

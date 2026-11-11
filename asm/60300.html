@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at EB8C</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at EB8C. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at EB8C" />
+<meta property="og:description" content="The Trap Door: Data at EB8C. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/60300.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/60300.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at EB8C",
+"name": "The Trap Door: Data at EB8C",
+"description": "The Trap Door: Data at EB8C. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/60300.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at EB8C"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/60300.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-w">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60263.html">EB67</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#eb8c">Map</a></td>
+<td class="next">
+Next: <a href="60462.html">EC2E</a>
+</td>
+</tr>
+</table>
+<div class="description">EB8C: Table of Addresses of Script Handling Routines</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+One word per script opcode from 00 to 50. Used by <a href="60462.html">AdvanceScriptInstruction</a>.
+</div>
+<div class="paragraph">
+<table class="default">
+<tr>
+<th colspan="1" rowspan="1">Opcode</th>
+<th colspan="1" rowspan="1">Handler</th>
+<th colspan="1" rowspan="1">Meaning</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">00</td>
+<td class="" colspan="1" rowspan="1">Unused</td>
+<td class="" colspan="1" rowspan="1">Unused</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">01</td>
+<td class="" colspan="1" rowspan="1"><a href="61314.html">ScriptRoutine_JumpToAddress</a></td>
+<td class="" colspan="1" rowspan="1">Load script address</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">02</td>
+<td class="" colspan="1" rowspan="1"><a href="61324.html">ScriptRoutine_MoveLeft</a></td>
+<td class="" colspan="1" rowspan="1">Move left one character</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">03</td>
+<td class="" colspan="1" rowspan="1"><a href="61361.html">ScriptRoutine_MoveRight</a></td>
+<td class="" colspan="1" rowspan="1">Move right one character</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">04</td>
+<td class="" colspan="1" rowspan="1"><a href="61460.html">ScriptRoutine_MoveUp</a></td>
+<td class="" colspan="1" rowspan="1">Move up one character</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">05</td>
+<td class="" colspan="1" rowspan="1"><a href="61545.html">ScriptRoutine_MoveDown</a></td>
+<td class="" colspan="1" rowspan="1">Move down one character</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">06</td>
+<td class="" colspan="1" rowspan="1"><a href="61639.html">ScriptRoutine_MoveLeftTwo</a></td>
+<td class="" colspan="1" rowspan="1">Move left two characters</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">07</td>
+<td class="" colspan="1" rowspan="1"><a href="61646.html">ScriptRoutine_MoveRightTwo</a></td>
+<td class="" colspan="1" rowspan="1">Move right two characters</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">08</td>
+<td class="" colspan="1" rowspan="1"><a href="61660.html">ScriptRoutine_MoveUpTwo</a></td>
+<td class="" colspan="1" rowspan="1">Move up two characters</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">09</td>
+<td class="" colspan="1" rowspan="1"><a href="61653.html">ScriptRoutine_MoveDownTwo</a></td>
+<td class="" colspan="1" rowspan="1">Move down two characters</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0A</td>
+<td class="" colspan="1" rowspan="1"><a href="61268.html">ScriptRoutine_ResetDirectionFlags</a></td>
+<td class="" colspan="1" rowspan="1">Reset direction flags</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0B</td>
+<td class="" colspan="1" rowspan="1"><a href="61275.html">ScriptRoutine_FaceRight</a></td>
+<td class="" colspan="1" rowspan="1">Face right</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0C</td>
+<td class="" colspan="1" rowspan="1"><a href="61282.html">ScriptRoutine_FaceLeft</a></td>
+<td class="" colspan="1" rowspan="1">Face left</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0D</td>
+<td class="" colspan="1" rowspan="1"><a href="61289.html">ScriptRoutine_FaceUp</a></td>
+<td class="" colspan="1" rowspan="1">Face up</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0E</td>
+<td class="" colspan="1" rowspan="1"><a href="61296.html">ScriptRoutine_FaceDown</a></td>
+<td class="" colspan="1" rowspan="1">Face down</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0F</td>
+<td class="" colspan="1" rowspan="1"><a href="61667.html">ScriptRoutine_PutDownCarried</a></td>
+<td class="" colspan="1" rowspan="1">Put down carried entity</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">10</td>
+<td class="" colspan="1" rowspan="1"><a href="61798.html">ScriptRoutine_FaceLeftAfterPutDown</a></td>
+<td class="" colspan="1" rowspan="1">Face left after put-down</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">11</td>
+<td class="" colspan="1" rowspan="1"><a href="61811.html">ScriptRoutine_FaceRightAfterPutDown</a></td>
+<td class="" colspan="1" rowspan="1">Face right after put-down</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">12</td>
+<td class="" colspan="1" rowspan="1"><a href="61857.html">ScriptRoutine_PlacePutDownLeft</a></td>
+<td class="" colspan="1" rowspan="1">Position put-down entity left</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">13</td>
+<td class="" colspan="1" rowspan="1"><a href="61879.html">ScriptRoutine_PlacePutDownRight</a></td>
+<td class="" colspan="1" rowspan="1">Position put-down entity right</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">14</td>
+<td class="" colspan="1" rowspan="1"><a href="61758.html">ScriptRoutine_PickUpHeld</a></td>
+<td class="" colspan="1" rowspan="1">Pick up / restore held entity</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">15</td>
+<td class="" colspan="1" rowspan="1"><a href="61303.html">ScriptRoutine_JumpIfCarrying</a></td>
+<td class="" colspan="1" rowspan="1">Jump if carrying</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">16</td>
+<td class="" colspan="1" rowspan="1"><a href="61919.html">ScriptRoutine_StartDruttScript</a></td>
+<td class="" colspan="1" rowspan="1">Start Drutt script</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">17</td>
+<td class="" colspan="1" rowspan="1"><a href="61202.html">ScriptRoutine_MoveHeldUpOneRoom</a></td>
+<td class="" colspan="1" rowspan="1">Load script parameter into A</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">18</td>
+<td class="" colspan="1" rowspan="1"><a href="61234.html">ScriptRoutine_StartLoop</a></td>
+<td class="" colspan="1" rowspan="1">Start loop</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">19</td>
+<td class="" colspan="1" rowspan="1"><a href="62031.html">ScriptRoutine_ContinueToNextInstruction</a></td>
+<td class="" colspan="1" rowspan="1">Continue to next instruction</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">1A</td>
+<td class="" colspan="1" rowspan="1"><a href="60885.html">ScriptRoutine_CloseTrapDoor</a></td>
+<td class="" colspan="1" rowspan="1">Close trap door</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">1B</td>
+<td class="" colspan="1" rowspan="1"><a href="45020.html">ScriptRoutine_AnimateTrapDoorBerk</a></td>
+<td class="" colspan="1" rowspan="1">Animate trap door</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">1C</td>
+<td class="" colspan="1" rowspan="1"><a href="60879.html">ScriptRoutine_OpenTrapDoor</a></td>
+<td class="" colspan="1" rowspan="1">Open trap door</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">1D</td>
+<td class="" colspan="1" rowspan="1"><a href="61224.html">ScriptRoutine_SetLatchRaiseEvent</a></td>
+<td class="" colspan="1" rowspan="1">Set event flags after interaction</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">1E</td>
+<td class="" colspan="1" rowspan="1"><a href="60530.html">ScriptRoutine_BerkDoorInFront</a></td>
+<td class="" colspan="1" rowspan="1">Berk interact with door ahead</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">1F</td>
+<td class="" colspan="1" rowspan="1"><a href="60635.html">ScriptRoutine_BerkDoorBehind</a></td>
+<td class="" colspan="1" rowspan="1">Berk interact with door behind</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">20</td>
+<td class="" colspan="1" rowspan="1"><a href="60592.html">ScriptRoutine_BerkOpenDoorInFront</a></td>
+<td class="" colspan="1" rowspan="1">Berk open door ahead</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">21</td>
+<td class="" colspan="1" rowspan="1"><a href="60499.html">ScriptRoutine_StartScriptLoop</a></td>
+<td class="" colspan="1" rowspan="1">Start counted script loop</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">22</td>
+<td class="" colspan="1" rowspan="1"><a href="60513.html">ScriptRoutine_EndScriptLoop</a></td>
+<td class="" colspan="1" rowspan="1">End script loop</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">23</td>
+<td class="" colspan="1" rowspan="1">Unused</td>
+<td class="" colspan="1" rowspan="1">Unused</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">24</td>
+<td class="" colspan="1" rowspan="1"><a href="49039.html">ScriptRoutine_TaskTwoWalkVertical</a></td>
+<td class="" colspan="1" rowspan="1">Task-two entity action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">25</td>
+<td class="" colspan="1" rowspan="1"><a href="49130.html">ScriptRoutine_TaskTwoWalkRight</a></td>
+<td class="" colspan="1" rowspan="1">Task-two entity action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">26</td>
+<td class="" colspan="1" rowspan="1"><a href="49152.html">ScriptRoutine_TaskTwoWalkHorizontal</a></td>
+<td class="" colspan="1" rowspan="1">Task-two entity action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">27</td>
+<td class="" colspan="1" rowspan="1"><a href="49191.html">ScriptRoutine_TaskTwoSpawnHelper</a></td>
+<td class="" colspan="1" rowspan="1">Task-two entity action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">28</td>
+<td class="" colspan="1" rowspan="1"><a href="49015.html">ScriptRoutine_TaskTwoArmScriptFlags</a></td>
+<td class="" colspan="1" rowspan="1">Task-two entity action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">29</td>
+<td class="" colspan="1" rowspan="1"><a href="49087.html">ScriptRoutine_TaskTwoRiseOnEvent</a></td>
+<td class="" colspan="1" rowspan="1">Task-two entity action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">2A</td>
+<td class="" colspan="1" rowspan="1"><a href="50690.html">ScriptRoutine_ArmCookingPotFlags</a></td>
+<td class="" colspan="1" rowspan="1">Cooking-pot / heater action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">2B</td>
+<td class="" colspan="1" rowspan="1"><a href="50143.html">ScriptRoutine_TaskThreeSeekBerk</a></td>
+<td class="" colspan="1" rowspan="1">Task-three entity action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">2C</td>
+<td class="" colspan="1" rowspan="1"><a href="50678.html">ScriptRoutine_SlimyDropAndHeat</a></td>
+<td class="" colspan="1" rowspan="1">Slimy-creature action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">2D</td>
+<td class="" colspan="1" rowspan="1"><a href="50243.html">ScriptRoutine_TaskThreeClearUpstairs</a></td>
+<td class="" colspan="1" rowspan="1">Task-three entity action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">2E</td>
+<td class="" colspan="1" rowspan="1"><a href="50562.html">ScriptRoutine_TaskThreeBerkRightWindow</a></td>
+<td class="" colspan="1" rowspan="1">Task-three entity action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">2F</td>
+<td class="" colspan="1" rowspan="1"><a href="50536.html">ScriptRoutine_TaskThreeBerkLeftWindow</a></td>
+<td class="" colspan="1" rowspan="1">Task-three entity action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">30</td>
+<td class="" colspan="1" rowspan="1"><a href="50135.html">ScriptRoutine_TaskThreeQueueSound</a></td>
+<td class="" colspan="1" rowspan="1">Task-three entity action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">31</td>
+<td class="" colspan="1" rowspan="1"><a href="48182.html">ScriptRoutine_EyeballRaise</a></td>
+<td class="" colspan="1" rowspan="1">Eyeball-creature action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">32</td>
+<td class="" colspan="1" rowspan="1"><a href="48197.html">ScriptRoutine_EyeballResetRoom</a></td>
+<td class="" colspan="1" rowspan="1">Eyeball-creature action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">33</td>
+<td class="" colspan="1" rowspan="1"><a href="48228.html">ScriptRoutine_EyeballClearScreen</a></td>
+<td class="" colspan="1" rowspan="1">Eyeball-creature action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">34</td>
+<td class="" colspan="1" rowspan="1"><a href="48257.html">ScriptRoutine_EyeballChase</a></td>
+<td class="" colspan="1" rowspan="1">Eyeball-creature action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">35</td>
+<td class="" colspan="1" rowspan="1"><a href="48212.html">ScriptRoutine_EyeballFillAttributes</a></td>
+<td class="" colspan="1" rowspan="1">Eyeball-creature action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">36</td>
+<td class="" colspan="1" rowspan="1"><a href="54686.html">ScriptRoutine_CollectibleScanCounter</a></td>
+<td class="" colspan="1" rowspan="1">Collectible action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">37</td>
+<td class="" colspan="1" rowspan="1"><a href="54634.html">ScriptRoutine_CollectibleRandomScript</a></td>
+<td class="" colspan="1" rowspan="1">Collectible action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">38</td>
+<td class="" colspan="1" rowspan="1"><a href="54785.html">ScriptRoutine_CollectibleIncXIfClearAbove</a></td>
+<td class="" colspan="1" rowspan="1">Collectible action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">39</td>
+<td class="" colspan="1" rowspan="1"><a href="54813.html">ScriptRoutine_CollectibleDecXIfClearLeft</a></td>
+<td class="" colspan="1" rowspan="1">Collectible action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">3A</td>
+<td class="" colspan="1" rowspan="1"><a href="54841.html">ScriptRoutine_CollectibleLeaveRoomDown</a></td>
+<td class="" colspan="1" rowspan="1">Collectible action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">3B</td>
+<td class="" colspan="1" rowspan="1"><a href="54875.html">ScriptRoutine_CollectibleLeaveRoomUp</a></td>
+<td class="" colspan="1" rowspan="1">Collectible action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">3C</td>
+<td class="" colspan="1" rowspan="1"><a href="54772.html">ScriptRoutine_CollectibleIncRoomTwice</a></td>
+<td class="" colspan="1" rowspan="1">Collectible action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">3D</td>
+<td class="" colspan="1" rowspan="1"><a href="54765.html">ScriptRoutine_CollectibleSetType0B</a></td>
+<td class="" colspan="1" rowspan="1">Collectible action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">3E</td>
+<td class="" colspan="1" rowspan="1"><a href="53364.html">ScriptRoutine_VatScanNearbySlots</a></td>
+<td class="" colspan="1" rowspan="1">Vat action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">3F</td>
+<td class="" colspan="1" rowspan="1"><a href="53693.html">ScriptRoutine_VatDecXIfClearLeft</a></td>
+<td class="" colspan="1" rowspan="1">Vat action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">40</td>
+<td class="" colspan="1" rowspan="1"><a href="53676.html">ScriptRoutine_VatIncXIfClearAbove</a></td>
+<td class="" colspan="1" rowspan="1">Vat action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">41</td>
+<td class="" colspan="1" rowspan="1"><a href="53734.html">ScriptRoutine_VatDecXIfClearLeftThenRise</a></td>
+<td class="" colspan="1" rowspan="1">Vat action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">42</td>
+<td class="" colspan="1" rowspan="1"><a href="53717.html">ScriptRoutine_VatIncXIfClearAboveThenRise</a></td>
+<td class="" colspan="1" rowspan="1">Vat action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">43</td>
+<td class="" colspan="1" rowspan="1"><a href="53587.html">ScriptRoutine_VatRoomTransition</a></td>
+<td class="" colspan="1" rowspan="1">Vat action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">44</td>
+<td class="" colspan="1" rowspan="1"><a href="53749.html">ScriptRoutine_VatIncY</a></td>
+<td class="" colspan="1" rowspan="1">Vat action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">45</td>
+<td class="" colspan="1" rowspan="1"><a href="53708.html">ScriptRoutine_VatDecY</a></td>
+<td class="" colspan="1" rowspan="1">Vat action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">46</td>
+<td class="" colspan="1" rowspan="1"><a href="53758.html">ScriptRoutine_VatClearBit6AndReset</a></td>
+<td class="" colspan="1" rowspan="1">Vat action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">47</td>
+<td class="" colspan="1" rowspan="1"><a href="53356.html">ScriptRoutine_VatQueueSound</a></td>
+<td class="" colspan="1" rowspan="1">Vat action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">48</td>
+<td class="" colspan="1" rowspan="1"><a href="51966.html">ScriptRoutine_TaskFourAlignCreature</a></td>
+<td class="" colspan="1" rowspan="1">Task-four entity action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">49</td>
+<td class="" colspan="1" rowspan="1"><a href="52307.html">ScriptRoutine_TaskFourRaiseY</a></td>
+<td class="" colspan="1" rowspan="1">Task-four entity action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">4A</td>
+<td class="" colspan="1" rowspan="1"><a href="52344.html">ScriptRoutine_TaskFourLowerY</a></td>
+<td class="" colspan="1" rowspan="1">Task-four entity action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">4B</td>
+<td class="" colspan="1" rowspan="1"><a href="52036.html">ScriptRoutine_TaskFourStepToward</a></td>
+<td class="" colspan="1" rowspan="1">Task-four entity action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">4C</td>
+<td class="" colspan="1" rowspan="1"><a href="52363.html">ScriptRoutine_TaskFourBerkOverlap</a></td>
+<td class="" colspan="1" rowspan="1">Task-four entity action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">4D</td>
+<td class="" colspan="1" rowspan="1"><a href="52174.html">ScriptRoutine_TaskFourTickOfferItem</a></td>
+<td class="" colspan="1" rowspan="1">Task-four entity action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">4E</td>
+<td class="" colspan="1" rowspan="1"><a href="52163.html">ScriptRoutine_TaskFourArmScriptFlags</a></td>
+<td class="" colspan="1" rowspan="1">Task-four entity action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">4F</td>
+<td class="" colspan="1" rowspan="1"><a href="51998.html">ScriptRoutine_TaskFourRandomiseExtra</a></td>
+<td class="" colspan="1" rowspan="1">Task-four entity action</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">50</td>
+<td class="" colspan="1" rowspan="1"><a href="51952.html">ScriptRoutine_TaskFourClearScriptFlags</a></td>
+<td class="" colspan="1" rowspan="1">Task-four entity action</td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">TableScriptHandlers</td>
+<td class="address-1"><span id="eb8c"></span>EB8C</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eb8e"></span>EB8E</td>
+<td class="instruction">DEFW <a href="61314.html">ScriptRoutine_JumpToAddress</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eb90"></span>EB90</td>
+<td class="instruction">DEFW <a href="61324.html">ScriptRoutine_MoveLeft</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 02.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eb92"></span>EB92</td>
+<td class="instruction">DEFW <a href="61361.html">ScriptRoutine_MoveRight</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 03.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eb94"></span>EB94</td>
+<td class="instruction">DEFW <a href="61460.html">ScriptRoutine_MoveUp</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 04.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eb96"></span>EB96</td>
+<td class="instruction">DEFW <a href="61545.html">ScriptRoutine_MoveDown</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 05.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eb98"></span>EB98</td>
+<td class="instruction">DEFW <a href="61639.html">ScriptRoutine_MoveLeftTwo</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 06.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eb9a"></span>EB9A</td>
+<td class="instruction">DEFW <a href="61646.html">ScriptRoutine_MoveRightTwo</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 07.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eb9c"></span>EB9C</td>
+<td class="instruction">DEFW <a href="61660.html">ScriptRoutine_MoveUpTwo</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 08.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eb9e"></span>EB9E</td>
+<td class="instruction">DEFW <a href="61653.html">ScriptRoutine_MoveDownTwo</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 09.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eba0"></span>EBA0</td>
+<td class="instruction">DEFW <a href="61268.html">ScriptRoutine_ResetDirectionFlags</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 0A.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eba2"></span>EBA2</td>
+<td class="instruction">DEFW <a href="61275.html">ScriptRoutine_FaceRight</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 0B.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eba4"></span>EBA4</td>
+<td class="instruction">DEFW <a href="61282.html">ScriptRoutine_FaceLeft</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 0C.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eba6"></span>EBA6</td>
+<td class="instruction">DEFW <a href="61289.html">ScriptRoutine_FaceUp</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 0D.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eba8"></span>EBA8</td>
+<td class="instruction">DEFW <a href="61296.html">ScriptRoutine_FaceDown</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 0E.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebaa"></span>EBAA</td>
+<td class="instruction">DEFW <a href="61667.html">ScriptRoutine_PutDownCarried</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 0F.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebac"></span>EBAC</td>
+<td class="instruction">DEFW <a href="61798.html">ScriptRoutine_FaceLeftAfterPutDown</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 10.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebae"></span>EBAE</td>
+<td class="instruction">DEFW <a href="61811.html">ScriptRoutine_FaceRightAfterPutDown</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 11.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebb0"></span>EBB0</td>
+<td class="instruction">DEFW <a href="61857.html">ScriptRoutine_PlacePutDownLeft</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 12.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebb2"></span>EBB2</td>
+<td class="instruction">DEFW <a href="61879.html">ScriptRoutine_PlacePutDownRight</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 13.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebb4"></span>EBB4</td>
+<td class="instruction">DEFW <a href="61758.html">ScriptRoutine_PickUpHeld</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 14.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebb6"></span>EBB6</td>
+<td class="instruction">DEFW <a href="61303.html">ScriptRoutine_JumpIfCarrying</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 15.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebb8"></span>EBB8</td>
+<td class="instruction">DEFW <a href="61919.html">ScriptRoutine_StartDruttScript</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 16.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebba"></span>EBBA</td>
+<td class="instruction">DEFW <a href="61202.html">ScriptRoutine_MoveHeldUpOneRoom</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 17.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebbc"></span>EBBC</td>
+<td class="instruction">DEFW <a href="61234.html">ScriptRoutine_StartLoop</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 18.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebbe"></span>EBBE</td>
+<td class="instruction">DEFW <a href="62031.html">ScriptRoutine_ContinueToNextInstruction</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 19.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebc0"></span>EBC0</td>
+<td class="instruction">DEFW <a href="60885.html">ScriptRoutine_CloseTrapDoor</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 1A.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebc2"></span>EBC2</td>
+<td class="instruction">DEFW <a href="45020.html">ScriptRoutine_AnimateTrapDoorBerk</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 1B.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebc4"></span>EBC4</td>
+<td class="instruction">DEFW <a href="60879.html">ScriptRoutine_OpenTrapDoor</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 1C.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebc6"></span>EBC6</td>
+<td class="instruction">DEFW <a href="61224.html">ScriptRoutine_SetLatchRaiseEvent</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 1D.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebc8"></span>EBC8</td>
+<td class="instruction">DEFW <a href="60530.html">ScriptRoutine_BerkDoorInFront</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 1E.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebca"></span>EBCA</td>
+<td class="instruction">DEFW <a href="60635.html">ScriptRoutine_BerkDoorBehind</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 1F.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebcc"></span>EBCC</td>
+<td class="instruction">DEFW <a href="60592.html">ScriptRoutine_BerkOpenDoorInFront</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 20.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebce"></span>EBCE</td>
+<td class="instruction">DEFW <a href="60499.html">ScriptRoutine_StartScriptLoop</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 21.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebd0"></span>EBD0</td>
+<td class="instruction">DEFW <a href="60513.html">ScriptRoutine_EndScriptLoop</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 22.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebd2"></span>EBD2</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 23.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebd4"></span>EBD4</td>
+<td class="instruction">DEFW <a href="49039.html">ScriptRoutine_TaskTwoWalkVertical</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 24.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebd6"></span>EBD6</td>
+<td class="instruction">DEFW <a href="49130.html">ScriptRoutine_TaskTwoWalkRight</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 25.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebd8"></span>EBD8</td>
+<td class="instruction">DEFW <a href="49152.html">ScriptRoutine_TaskTwoWalkHorizontal</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 26.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebda"></span>EBDA</td>
+<td class="instruction">DEFW <a href="49191.html">ScriptRoutine_TaskTwoSpawnHelper</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 27.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebdc"></span>EBDC</td>
+<td class="instruction">DEFW <a href="49015.html">ScriptRoutine_TaskTwoArmScriptFlags</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 28.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebde"></span>EBDE</td>
+<td class="instruction">DEFW <a href="49087.html">ScriptRoutine_TaskTwoRiseOnEvent</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 29.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebe0"></span>EBE0</td>
+<td class="instruction">DEFW <a href="50690.html">ScriptRoutine_ArmCookingPotFlags</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 2A.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebe2"></span>EBE2</td>
+<td class="instruction">DEFW <a href="50143.html">ScriptRoutine_TaskThreeSeekBerk</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 2B.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebe4"></span>EBE4</td>
+<td class="instruction">DEFW <a href="50678.html">ScriptRoutine_SlimyDropAndHeat</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 2C.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebe6"></span>EBE6</td>
+<td class="instruction">DEFW <a href="50243.html">ScriptRoutine_TaskThreeClearUpstairs</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 2D.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebe8"></span>EBE8</td>
+<td class="instruction">DEFW <a href="50562.html">ScriptRoutine_TaskThreeBerkRightWindow</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 2E.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebea"></span>EBEA</td>
+<td class="instruction">DEFW <a href="50536.html">ScriptRoutine_TaskThreeBerkLeftWindow</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 2F.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebec"></span>EBEC</td>
+<td class="instruction">DEFW <a href="50135.html">ScriptRoutine_TaskThreeQueueSound</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 30.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebee"></span>EBEE</td>
+<td class="instruction">DEFW <a href="48182.html">ScriptRoutine_EyeballRaise</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 31.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebf0"></span>EBF0</td>
+<td class="instruction">DEFW <a href="48197.html">ScriptRoutine_EyeballResetRoom</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 32.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebf2"></span>EBF2</td>
+<td class="instruction">DEFW <a href="48228.html">ScriptRoutine_EyeballClearScreen</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 33.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebf4"></span>EBF4</td>
+<td class="instruction">DEFW <a href="48257.html">ScriptRoutine_EyeballChase</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 34.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebf6"></span>EBF6</td>
+<td class="instruction">DEFW <a href="48212.html">ScriptRoutine_EyeballFillAttributes</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 35.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebf8"></span>EBF8</td>
+<td class="instruction">DEFW <a href="54686.html">ScriptRoutine_CollectibleScanCounter</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 36.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebfa"></span>EBFA</td>
+<td class="instruction">DEFW <a href="54634.html">ScriptRoutine_CollectibleRandomScript</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 37.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebfc"></span>EBFC</td>
+<td class="instruction">DEFW <a href="54785.html">ScriptRoutine_CollectibleIncXIfClearAbove</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 38.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ebfe"></span>EBFE</td>
+<td class="instruction">DEFW <a href="54813.html">ScriptRoutine_CollectibleDecXIfClearLeft</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 39.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ec00"></span>EC00</td>
+<td class="instruction">DEFW <a href="54841.html">ScriptRoutine_CollectibleLeaveRoomDown</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 3A.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ec02"></span>EC02</td>
+<td class="instruction">DEFW <a href="54875.html">ScriptRoutine_CollectibleLeaveRoomUp</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 3B.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ec04"></span>EC04</td>
+<td class="instruction">DEFW <a href="54772.html">ScriptRoutine_CollectibleIncRoomTwice</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 3C.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ec06"></span>EC06</td>
+<td class="instruction">DEFW <a href="54765.html">ScriptRoutine_CollectibleSetType0B</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 3D.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ec08"></span>EC08</td>
+<td class="instruction">DEFW <a href="53364.html">ScriptRoutine_VatScanNearbySlots</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 3E.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ec0a"></span>EC0A</td>
+<td class="instruction">DEFW <a href="53693.html">ScriptRoutine_VatDecXIfClearLeft</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 3F.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ec0c"></span>EC0C</td>
+<td class="instruction">DEFW <a href="53676.html">ScriptRoutine_VatIncXIfClearAbove</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 40.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ec0e"></span>EC0E</td>
+<td class="instruction">DEFW <a href="53734.html">ScriptRoutine_VatDecXIfClearLeftThenRise</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 41.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ec10"></span>EC10</td>
+<td class="instruction">DEFW <a href="53717.html">ScriptRoutine_VatIncXIfClearAboveThenRise</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 42.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ec12"></span>EC12</td>
+<td class="instruction">DEFW <a href="53587.html">ScriptRoutine_VatRoomTransition</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 43.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ec14"></span>EC14</td>
+<td class="instruction">DEFW <a href="53749.html">ScriptRoutine_VatIncY</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 44.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ec16"></span>EC16</td>
+<td class="instruction">DEFW <a href="53708.html">ScriptRoutine_VatDecY</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 45.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ec18"></span>EC18</td>
+<td class="instruction">DEFW <a href="53758.html">ScriptRoutine_VatClearBit6AndReset</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 46.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ec1a"></span>EC1A</td>
+<td class="instruction">DEFW <a href="53356.html">ScriptRoutine_VatQueueSound</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 47.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ec1c"></span>EC1C</td>
+<td class="instruction">DEFW <a href="51966.html">ScriptRoutine_TaskFourAlignCreature</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 48.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ec1e"></span>EC1E</td>
+<td class="instruction">DEFW <a href="52307.html">ScriptRoutine_TaskFourRaiseY</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 49.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ec20"></span>EC20</td>
+<td class="instruction">DEFW <a href="52344.html">ScriptRoutine_TaskFourLowerY</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 4A.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ec22"></span>EC22</td>
+<td class="instruction">DEFW <a href="52036.html">ScriptRoutine_TaskFourStepToward</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 4B.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ec24"></span>EC24</td>
+<td class="instruction">DEFW <a href="52363.html">ScriptRoutine_TaskFourBerkOverlap</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 4C.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ec26"></span>EC26</td>
+<td class="instruction">DEFW <a href="52174.html">ScriptRoutine_TaskFourTickOfferItem</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 4D.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ec28"></span>EC28</td>
+<td class="instruction">DEFW <a href="52163.html">ScriptRoutine_TaskFourArmScriptFlags</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 4E.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ec2a"></span>EC2A</td>
+<td class="instruction">DEFW <a href="51998.html">ScriptRoutine_TaskFourRandomiseExtra</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 4F.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ec2c"></span>EC2C</td>
+<td class="instruction">DEFW <a href="51952.html">ScriptRoutine_TaskFourClearScriptFlags</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for script opcode 50.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="comments">
+<div class="paragraph">
+View the equivalent code in; <ul class="">
+<li><a href="/flunky/asm/9C2C.html">Flunky</a></li>
+</ul>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60263.html">EB67</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#eb8c">Map</a></td>
+<td class="next">
+Next: <a href="60462.html">EC2E</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/393984.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

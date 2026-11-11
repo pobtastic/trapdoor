@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at 8EE9</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at 8EE9. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at 8EE9" />
+<meta property="og:description" content="The Trap Door: Data at 8EE9. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/36585.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/36585.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at 8EE9",
+"name": "The Trap Door: Data at 8EE9",
+"description": "The Trap Door: Data at 8EE9. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/36585.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at 8EE9"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/36585.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="35689.html">8B69</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#8ee9">Map</a></td>
+<td class="next">
+Next: <a href="36595.html">8EF3</a>
+</td>
+</tr>
+</table>
+<div class="description">8EE9: State Data: Complex Entities</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Table of complex entity state records (000E bytes each), ending at <a href="37047.html">StateData_SceneryEntities</a>. Backed up to <a href="64014.html">Buffer_EntityStateBackup</a> by <a href="44969.html">Backup_Entity_And_Game_State</a>. Field layout: 00 type; 01–03 flags; 04 room; 05/06 y and y-extent; 07/08 x and x-extent; 09 direction/state; 0A/0B graphic layout pointer; 0C/0D extra state. Entity flags at offset 03 (<span class="register">IX</span>+03) for Berk and most movers: <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Bit</th>
+<th colspan="1" rowspan="1">Meaning</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">00</td>
+<td class="" colspan="1" rowspan="1">Script-locked (ignore control input; also set while facing / moving up)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">01</td>
+<td class="" colspan="1" rowspan="1">Facing left (reset = facing right)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">02</td>
+<td class="" colspan="1" rowspan="1">Mid-interaction / push latch</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">03</td>
+<td class="" colspan="1" rowspan="1">Holding-entity lock (set when a pick-up succeeds)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">04</td>
+<td class="" colspan="1" rowspan="1">Carrying / put-down state (set by <a href="61667.html#f0f2">Script_PutDown_SetCarryingFlag</a>, reset by <a href="61758.html">ScriptRoutine_PickUpHeld</a>)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">05</td>
+<td class="" colspan="1" rowspan="1">Held-entity / special-state latch</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">06</td>
+<td class="" colspan="1" rowspan="1">Can-fall / gravity latch</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">07</td>
+<td class="" colspan="1" rowspan="1">Rising / special vertical-state latch</td>
+</tr>
+</table> Direction / state at offset 09: 01 face left, 02 face right, 04 face down, 08 face up (see script routines <a href="61275.html">ScriptRoutine_FaceRight</a>–<a href="61296.html">ScriptRoutine_FaceDown</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Berk</td>
+<td class="address-1"><span id="8ee9"></span>8EE9</td>
+<td class="instruction">DEFB $01,$1F,$00,$00,$01,$1A,$1D,$64</td>
+<td class="comment-1" rowspan="2">Berk (type 01 room 01 layout <a href="40094.html">GraphicLayout_Berk</a>); first 0A state bytes.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8ef1"></span>8EF1</td>
+<td class="instruction">DEFB $65,$00</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="35689.html">8B69</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#8ee9">Map</a></td>
+<td class="next">
+Next: <a href="36595.html">8EF3</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/222597.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

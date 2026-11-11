@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 64620</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 64620. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 64620" />
+<meta property="og:description" content="The Trap Door: Routine at 64620. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/64620.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/64620.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 64620",
+"name": "The Trap Door: Routine at 64620",
+"description": "The Trap Door: Routine at 64620. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/64620.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 64620"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/64620.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="64476.html">64476</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#64620">Map</a></td>
+<td class="next">
+Next: <a href="64632.html">64632</a>
+</td>
+</tr>
+</table>
+<div class="description">64620: Seed Menu Music And Wait For Key</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="43699.html">GameStart</a> and <a href="56857.html">Print_StatusMessages</a>.
+</div>
+<div class="paragraph">
+Live copy of the menu-music and key-wait code, relocated from <a href="28420.html">MenuMusicSource</a> by <a href="43699.html">GameStart</a> (length 0915). On game start this entry seeds the two music-stream cursors, then continues into <a href="64632.html">Wait_KeyWithMenuMusic</a>. Menu code also enters at <a href="64632.html">Wait_KeyWithMenuMusic</a> for a single wait tick. <a href="62954.html">Pulse_MenuTiming</a> briefly patches <a href="64632.html#64640">64640</a> while pulsing the menu highlight.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Seed_MenuMusicAndWaitForKey</td>
+<td class="address-2"><span id="64620"></span>64620</td>
+<td class="instruction">LD HL,65083</td>
+<td class="comment-1" rowspan="2">Point <span class="register">HL</span> at <a href="65083.html">MenuMusic_StreamOneBase</a> and seed the cursor word at <a href="64644.html#64647">64647</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="64623"></span>64623</td>
+<td class="instruction">LD (64647),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="64626"></span>64626</td>
+<td class="instruction">LD HL,65305</td>
+<td class="comment-1" rowspan="2">Point <span class="register">HL</span> at <a href="65083.html#65305">MenuMusic_StreamTwoBase</a> and seed the cursor word at <a href="64644.html#64651">64651</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="64629"></span>64629</td>
+<td class="instruction">LD (64651),HL</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="comments">
+<div class="paragraph">
+Continue on to <a href="64632.html">Wait_KeyWithMenuMusic</a>.
+</div>
+</div>
+</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="64476.html">64476</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#64620">Map</a></td>
+<td class="next">
+Next: <a href="64632.html">64632</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/FC6C.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

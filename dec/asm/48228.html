@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 48228</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 48228. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 48228" />
+<meta property="og:description" content="The Trap Door: Routine at 48228. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/48228.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/48228.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 48228",
+"name": "The Trap Door: Routine at 48228",
+"description": "The Trap Door: Routine at 48228. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/48228.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 48228"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/48228.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="48218.html">48218</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#48228">Map</a></td>
+<td class="next">
+Next: <a href="48257.html">48257</a>
+</td>
+</tr>
+</table>
+<div class="description">48228: Script Routine: (51) Thing Upstairs action</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Blank the attribute file for the Thing Upstairs scene and reset slot 32.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_ThingUpstairsClearScreen</td>
+<td class="address-2"><span id="48228"></span>48228</td>
+<td class="instruction">LD A,54</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 54.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48230"></span>48230</td>
+<td class="instruction">CALL <a href="59986.html">Clear_AttributeFile</a></td>
+<td class="comment-1" rowspan="1">Call <a href="59986.html">Clear_AttributeFile</a> to clear the attribute file.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48233"></span>48233</td>
+<td class="instruction">LD HL,48579</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at <a href="48579.html">GraphicLayout_Ghost</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48236"></span>48236</td>
+<td class="instruction">LD (48116),HL</td>
+<td class="comment-1" rowspan="1">Store <span class="register">HL</span> in Thing Upstairs storage at <a href="47525.html#48116">48116</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48239"></span>48239</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear complex entity slot 32's type (empty the slot).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48240"></span>48240</td>
+<td class="instruction">LD (36865),A</td>
+<td class="comment-1" rowspan="1">Store <span class="register">A</span> in complex entity slot 32's type (<a href="36595.html#36865">StateData_Complex_20</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48243"></span>48243</td>
+<td class="instruction">LD HL,48218</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at <a href="48218.html">Data_ThingUpstairsEntityTemplate</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48246"></span>48246</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">DE</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48247"></span>48247</td>
+<td class="instruction">LD DE,36865</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at complex entity slot 32 (<a href="36595.html#36865">StateData_Complex_20</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48250"></span>48250</td>
+<td class="instruction">LD BC,10</td>
+<td class="comment-1" rowspan="1">Load <span class="register">BC</span> with 0010 as a short table length.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48253"></span>48253</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="1">Copy the block pointed to by <span class="register">HL</span> into the destination at <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48255"></span>48255</td>
+<td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">DE</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48256"></span>48256</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="48218.html">48218</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#48228">Map</a></td>
+<td class="next">
+Next: <a href="48257.html">48257</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/BC64.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

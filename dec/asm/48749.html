@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at 48749</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at 48749. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at 48749" />
+<meta property="og:description" content="The Trap Door: Data at 48749. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/48749.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/48749.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at 48749",
+"name": "The Trap Door: Data at 48749",
+"description": "The Trap Door: Data at 48749. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/48749.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at 48749"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/48749.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="48579.html">48579</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#48749">Map</a></td>
+<td class="next">
+Next: <a href="48845.html">48845</a>
+</td>
+</tr>
+</table>
+<div class="description">48749: Data: Bird Scripts</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Bird scripts that drive the bird laying an egg. <a href="48870.html#48952">48952</a> starts here. Other readers enter at <a href="48749.html#48761">BirdScript_RiseLoop</a>, <a href="48749.html#48769">BirdScript_IdleLoop</a>, <a href="48749.html#48777">BirdScript_TurnLoop</a>, <a href="48749.html#48785">BirdScript_Wander</a>, <a href="48749.html#48825">BirdScript_BoundLoop</a> and <a href="48749.html#48833">BirdScript_AltWander</a>. <a href="48870.html#49000">49000</a> pokes the wander loop count at <a href="48749.html#48795">48795</a>. Ends immediately before <a href="48845.html">Update_Task_Two_Entities</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="48749"></span>
+<div class="comments">
+<div class="paragraph">
+Start script published by <a href="48870.html#48939">Update_TaskTwo_StartEntity</a> and <a href="48870.html#48952">48952</a>.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="script-be6d" src="../../images/script-be6d.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Data_BirdScripts</td>
+<td class="address-1"><span id="48749"></span>48749</td>
+<td class="instruction">DEFB 2,193</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="49410.html">Data_TaskHelperLayouts</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48751"></span>48751</td>
+<td class="instruction">DEFW 33</td>
+<td class="comment-1" rowspan="1">Script opcode 33 (start counted script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48753"></span>48753</td>
+<td class="instruction">DEFB 9,0</td>
+<td class="comment-1" rowspan="1">Loop count 9 (<a href="60499.html">ScriptRoutine_StartScriptLoop</a> reads only the low byte).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48755"></span>48755</td>
+<td class="instruction">DEFB 2,193</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="49410.html">Data_TaskHelperLayouts</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48757"></span>48757</td>
+<td class="instruction">DEFW 34</td>
+<td class="comment-1" rowspan="1">Script opcode 34 (end script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48759"></span>48759</td>
+<td class="instruction">DEFW 40</td>
+<td class="comment-1" rowspan="1">Script opcode 40 (arm the bird script-active flags).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="48761"></span>
+<div class="comments">
+<div class="paragraph">
+Rise and vertical-walk loop entered from <a href="49087.html#49124">ScriptRoutine_TaskTwoRiseOnEvent_RunStartScript</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BirdScript_RiseLoop</td>
+<td class="address-1"><span id="48761"></span>48761</td>
+<td class="instruction">DEFB 2,193</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="49410.html">Data_TaskHelperLayouts</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48763"></span>48763</td>
+<td class="instruction">DEFW 36</td>
+<td class="comment-1" rowspan="1">Script opcode 36 (walk the bird vertically).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48765"></span>48765</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (jump to script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48767"></span>48767</td>
+<td class="instruction">DEFW <a href="48749.html#48761">BirdScript_RiseLoop</a></td>
+<td class="comment-1" rowspan="1">Jump to script address <a href="48749.html#48761">BirdScript_RiseLoop</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="48769"></span>
+<div class="comments">
+<div class="paragraph">
+Idle and horizontal-walk loop entered from <a href="49039.html#49081">ScriptRoutine_TaskTwoWalkVertical_RunIdleScript</a> and <a href="49130.html#49146">ScriptRoutine_TaskTwoWalkRight_RunIdleScript</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BirdScript_IdleLoop</td>
+<td class="address-1"><span id="48769"></span>48769</td>
+<td class="instruction">DEFB 2,193</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="49410.html">Data_TaskHelperLayouts</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48771"></span>48771</td>
+<td class="instruction">DEFW 38</td>
+<td class="comment-1" rowspan="1">Script opcode 38 (walk the bird horizontally).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48773"></span>48773</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (jump to script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48775"></span>48775</td>
+<td class="instruction">DEFW <a href="48749.html#48769">BirdScript_IdleLoop</a></td>
+<td class="comment-1" rowspan="1">Jump to script address <a href="48749.html#48769">BirdScript_IdleLoop</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="48777"></span>
+<div class="comments">
+<div class="paragraph">
+Turn-around and walk-right loop entered from <a href="49152.html#49185">ScriptRoutine_TaskTwoWalkHorizontal_RunTurnScript</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BirdScript_TurnLoop</td>
+<td class="address-1"><span id="48777"></span>48777</td>
+<td class="instruction">DEFB 2,193</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="49410.html">Data_TaskHelperLayouts</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48779"></span>48779</td>
+<td class="instruction">DEFW 37</td>
+<td class="comment-1" rowspan="1">Script opcode 37 (walk the bird right).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48781"></span>48781</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (jump to script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48783"></span>48783</td>
+<td class="instruction">DEFW <a href="48749.html#48777">BirdScript_TurnLoop</a></td>
+<td class="comment-1" rowspan="1">Jump to script address <a href="48749.html#48777">BirdScript_TurnLoop</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="48785"></span>
+<div class="comments">
+<div class="paragraph">
+Wander script entered from <a href="48870.html#49003">49003</a>. <a href="48870.html#49000">49000</a> rewrites <a href="48749.html#48795">48795</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BirdScript_Wander</td>
+<td class="address-1"><span id="48785"></span>48785</td>
+<td class="instruction">DEFW 33</td>
+<td class="comment-1" rowspan="1">Script opcode 33 (start counted script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48787"></span>48787</td>
+<td class="instruction">DEFB 20,0</td>
+<td class="comment-1" rowspan="1">Loop count 20 (<a href="60499.html">ScriptRoutine_StartScriptLoop</a> reads only the low byte).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48789"></span>48789</td>
+<td class="instruction">DEFB 47,193</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="49410.html#49455">49455</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48791"></span>48791</td>
+<td class="instruction">DEFW 34</td>
+<td class="comment-1" rowspan="1">Script opcode 34 (end script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48793"></span>48793</td>
+<td class="instruction">DEFW 33</td>
+<td class="comment-1" rowspan="1">Script opcode 33 (start counted script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48795"></span>48795</td>
+<td class="instruction">DEFB 18,0</td>
+<td class="comment-1" rowspan="1">Loop count 18 (rewritten by <a href="48870.html#49000">49000</a>). <a href="60499.html">ScriptRoutine_StartScriptLoop</a> reads the low byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48797"></span>48797</td>
+<td class="instruction">DEFB 47,193</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="49410.html#49455">49455</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48799"></span>48799</td>
+<td class="instruction">DEFW 37</td>
+<td class="comment-1" rowspan="1">Script opcode 37 (walk the bird right).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48801"></span>48801</td>
+<td class="instruction">DEFW 34</td>
+<td class="comment-1" rowspan="1">Script opcode 34 (end script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48803"></span>48803</td>
+<td class="instruction">DEFW 33</td>
+<td class="comment-1" rowspan="1">Script opcode 33 (start counted script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48805"></span>48805</td>
+<td class="instruction">DEFB 40,0</td>
+<td class="comment-1" rowspan="1">Loop count 40 (<a href="60499.html">ScriptRoutine_StartScriptLoop</a> reads only the low byte).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48807"></span>48807</td>
+<td class="instruction">DEFB 25,193</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="49410.html#49433">49433</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48809"></span>48809</td>
+<td class="instruction">DEFW 34</td>
+<td class="comment-1" rowspan="1">Script opcode 34 (end script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48811"></span>48811</td>
+<td class="instruction">DEFW 33</td>
+<td class="comment-1" rowspan="1">Script opcode 33 (start counted script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48813"></span>48813</td>
+<td class="instruction">DEFB 10,0</td>
+<td class="comment-1" rowspan="1">Loop count 10 (<a href="60499.html">ScriptRoutine_StartScriptLoop</a> reads only the low byte).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48815"></span>48815</td>
+<td class="instruction">DEFB 36,193</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="49410.html#49444">49444</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48817"></span>48817</td>
+<td class="instruction">DEFW 34</td>
+<td class="comment-1" rowspan="1">Script opcode 34 (end script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48819"></span>48819</td>
+<td class="instruction">DEFW 39</td>
+<td class="comment-1" rowspan="1">Script opcode 39 (spawn or refresh the bird helper).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48821"></span>48821</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (jump to script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48823"></span>48823</td>
+<td class="instruction">DEFW <a href="48749.html#48769">BirdScript_IdleLoop</a></td>
+<td class="comment-1" rowspan="1">Jump to script address <a href="48749.html#48769">BirdScript_IdleLoop</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="48825"></span>
+<div class="comments">
+<div class="paragraph">
+Bound and rise-on-event loop entered from <a href="49039.html#49075">49075</a> and <a href="49152.html#49179">ScriptRoutine_TaskTwoWalkHorizontal_RunBoundScript</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BirdScript_BoundLoop</td>
+<td class="address-1"><span id="48825"></span>48825</td>
+<td class="instruction">DEFB 2,193</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="49410.html">Data_TaskHelperLayouts</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48827"></span>48827</td>
+<td class="instruction">DEFW 41</td>
+<td class="comment-1" rowspan="1">Script opcode 41 (raise the bird on its event bit).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48829"></span>48829</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (jump to script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48831"></span>48831</td>
+<td class="instruction">DEFW <a href="48749.html#48825">BirdScript_BoundLoop</a></td>
+<td class="comment-1" rowspan="1">Jump to script address <a href="48749.html#48825">BirdScript_BoundLoop</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="48833"></span>
+<div class="comments">
+<div class="paragraph">
+Alternate wander script entered from <a href="48870.html#49009">Update_TaskTwo_AltScript</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BirdScript_AltWander</td>
+<td class="address-1"><span id="48833"></span>48833</td>
+<td class="instruction">DEFW 33</td>
+<td class="comment-1" rowspan="1">Script opcode 33 (start counted script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48835"></span>48835</td>
+<td class="instruction">DEFB 16,0</td>
+<td class="comment-1" rowspan="1">Loop count 16 (<a href="60499.html">ScriptRoutine_StartScriptLoop</a> reads only the low byte).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48837"></span>48837</td>
+<td class="instruction">DEFB 47,193</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="49410.html#49455">49455</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48839"></span>48839</td>
+<td class="instruction">DEFW 34</td>
+<td class="comment-1" rowspan="1">Script opcode 34 (end script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48841"></span>48841</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (jump to script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48843"></span>48843</td>
+<td class="instruction">DEFW <a href="48749.html#48777">BirdScript_TurnLoop</a></td>
+<td class="comment-1" rowspan="1">Jump to script address <a href="48749.html#48777">BirdScript_TurnLoop</a>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="48579.html">48579</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#48749">Map</a></td>
+<td class="next">
+Next: <a href="48845.html">48845</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/BE6D.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 59793</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 59793. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 59793" />
+<meta property="og:description" content="The Trap Door: Routine at 59793. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/59793.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/59793.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 59793",
+"name": "The Trap Door: Routine at 59793",
+"description": "The Trap Door: Routine at 59793. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/59793.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 59793"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/59793.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="59751.html">59751</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#59793">Map</a></td>
+<td class="next">
+Next: <a href="59887.html">59887</a>
+</td>
+</tr>
+</table>
+<div class="description">59793: Blit Display Buffer To Screen</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="43699.html">GameStart</a>.
+</div>
+<div class="paragraph">
+Compare the primary and secondary display buffers and blit changed tiles to the Spectrum screen. Tiles with attribute bit 7 set are horizontally mirrored via <a href="29465.html">BitmapMirrorLookup</a> (see <a href="59887.html#59939">Blit_DisplayBufferRowLoop</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="59793"></span>
+<div class="comments">
+<div class="paragraph">
+Choose which display buffer is "live" versus "previous" from <a href="29418.html">DisplayBufferSelectFlag</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Blit_DisplayBuffer</td>
+<td class="address-2"><span id="59793"></span>59793</td>
+<td class="instruction">LD IX,22528</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the attribute file (22528 (attribute buffer)).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59797"></span>59797</td>
+<td class="instruction">LD HL,25504</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Primary Display Buffer (<a href="25504.html">PrimaryDisplayBuffer</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59800"></span>59800</td>
+<td class="instruction">LD DE,27424</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at Secondary Display Buffer (<a href="27424.html">SecondaryDisplayBuffer</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59803"></span>59803</td>
+<td class="instruction">LD A,(29418)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the display-buffer select flag (<a href="29418.html">DisplayBufferSelectFlag</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59806"></span>59806</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the display-buffer select flag (<a href="29418.html">DisplayBufferSelectFlag</a>) zero? If so, jump to <a href="59793.html#59810">Blit_DisplayBuffer_AfterSelect</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59807"></span>59807</td>
+<td class="instruction">JR Z,<a href="59793.html#59810">Blit_DisplayBuffer_AfterSelect</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59809"></span>59809</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Exchange <span class="register">DE</span> and <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="59810"></span>
+<div class="comments">
+<div class="paragraph">
+After selecting primary/secondary, walk 20 rows × 32 columns for dirty tiles.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Blit_DisplayBuffer_AfterSelect</td>
+<td class="address-2"><span id="59810"></span>59810</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="2">Copy <span class="register">DE</span> into <span class="register">IY</span> (using the stack).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59811"></span>59811</td>
+<td class="instruction">POP IY</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59813"></span>59813</td>
+<td class="instruction">LD B,20</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 20.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="59815"></span>
+<div class="comments">
+<div class="paragraph">
+Begin one display-buffer row of 32 tile comparisons.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Blit_DisplayBufferLoop</td>
+<td class="address-2"><span id="59815"></span>59815</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">BC</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59816"></span>59816</td>
+<td class="instruction">LD B,32</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with loop count 32.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="59818"></span>
+<div class="comments">
+<div class="paragraph">
+Compare one tile's graphic-set / type / attribute triple against the secondary buffer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Blit_DisplayBufferLoopB</td>
+<td class="address-2"><span id="59818"></span>59818</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">BC</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59819"></span>59819</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the next primary-buffer graphic-set byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59820"></span>59820</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance the display-buffer pointer in <span class="register">HL</span> by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59821"></span>59821</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> zero? If so, jump to <a href="59793.html#59878">Blit_DisplayBufferLoopB6</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59822"></span>59822</td>
+<td class="instruction">JP Z,<a href="59793.html#59878">Blit_DisplayBufferLoopB6</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59825"></span>59825</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Keep the remaining count in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59826"></span>59826</td>
+<td class="instruction">LD E,0</td>
+<td class="comment-1" rowspan="1">Load <span class="register">E</span> with 0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59828"></span>59828</td>
+<td class="instruction">CP (IY+0)</td>
+<td class="comment-1" rowspan="2">Does <span class="register">A</span> match the referenced entity's type? If not, jump to <a href="59793.html#59834">Blit_DisplayBufferLoopB2</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59831"></span>59831</td>
+<td class="instruction">JR NZ,<a href="59793.html#59834">Blit_DisplayBufferLoopB2</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59833"></span>59833</td>
+<td class="instruction">INC E</td>
+<td class="comment-1" rowspan="1">Advance the low byte of the pointer/offset in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="59834"></span>
+<div class="comments">
+<div class="paragraph">
+Match the tile's entity-type byte; count matches in <span class="register">E</span>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Blit_DisplayBufferLoopB2</td>
+<td class="address-2"><span id="59834"></span>59834</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the next script byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59835"></span>59835</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the next script byte zero? If so, jump to <a href="59793.html#59878">Blit_DisplayBufferLoopB6</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59836"></span>59836</td>
+<td class="instruction">JR Z,<a href="59793.html#59878">Blit_DisplayBufferLoopB6</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59838"></span>59838</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1">Keep a copy of <span class="register">A</span> in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59839"></span>59839</td>
+<td class="instruction">CP (IY+1)</td>
+<td class="comment-1" rowspan="2">Does <span class="register">A</span> match the referenced entity's flags byte 1? If not, jump to <a href="59793.html#59845">Blit_DisplayBufferLoopB3</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59842"></span>59842</td>
+<td class="instruction">JR NZ,<a href="59793.html#59845">Blit_DisplayBufferLoopB3</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59844"></span>59844</td>
+<td class="instruction">INC E</td>
+<td class="comment-1" rowspan="1">Advance the low byte of the pointer/offset in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="59845"></span>
+<div class="comments">
+<div class="paragraph">
+Match the tile's attribute byte; blit via <a href="59887.html">Blit_DisplayBufferRow</a> unless both prior bytes already matched.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Blit_DisplayBufferLoopB3</td>
+<td class="address-2"><span id="59845"></span>59845</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance the display-buffer pointer in <span class="register">HL</span> by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59846"></span>59846</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the next script byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59847"></span>59847</td>
+<td class="instruction">CP (IY+2)</td>
+<td class="comment-1" rowspan="2">Does <span class="register">A</span> match the referenced entity's flags byte 2? If not, jump to <a href="59793.html#59856">Blit_DisplayBufferLoopB4</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59850"></span>59850</td>
+<td class="instruction">JR NZ,<a href="59793.html#59856">Blit_DisplayBufferLoopB4</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59852"></span>59852</td>
+<td class="instruction">BIT 1,E</td>
+<td class="comment-1" rowspan="2">Is bit 1 of <span class="register">E</span> set? If so, jump to <a href="59793.html#59861">Blit_DisplayBufferLoopB5</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59854"></span>59854</td>
+<td class="instruction">JR NZ,<a href="59793.html#59861">Blit_DisplayBufferLoopB5</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="59856"></span>
+<div class="comments">
+<div class="paragraph">
+Blit this changed tile to the Spectrum screen through <a href="59887.html">Blit_DisplayBufferRow</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Blit_DisplayBufferLoopB4</td>
+<td class="address-2"><span id="59856"></span>59856</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">HL</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59857"></span>59857</td>
+<td class="instruction">CALL <a href="59887.html">Blit_DisplayBufferRow</a></td>
+<td class="comment-1" rowspan="1">Call <a href="59887.html">Blit_DisplayBufferRow</a> to blit Display Buffer Row.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59860"></span>59860</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="59861"></span>
+<div class="comments">
+<div class="paragraph">
+Advance past this tile's triple and move to the next attribute column.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Blit_DisplayBufferLoopB5</td>
+<td class="address-2"><span id="59861"></span>59861</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance the display-buffer pointer in <span class="register">HL</span> by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59862"></span>59862</td>
+<td class="instruction">INC IX</td>
+<td class="comment-1" rowspan="1">Advance <span class="register">IX</span> to the next attribute-file column.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59864"></span>59864</td>
+<td class="instruction">LD DE,3</td>
+<td class="comment-1" rowspan="1">Load <span class="register">DE</span> with 0003.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59867"></span>59867</td>
+<td class="instruction">ADD IY,DE</td>
+<td class="comment-1" rowspan="1"><span class="register">IY</span>+=<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59869"></span>59869</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59870"></span>59870</td>
+<td class="instruction">DJNZ <a href="59793.html#59818">Blit_DisplayBufferLoopB</a></td>
+<td class="comment-1" rowspan="1">Decrease the loop counter in <span class="register">B</span> and jump to <a href="59793.html#59818">Blit_DisplayBufferLoopB</a> if more iterations remain.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59872"></span>59872</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59873"></span>59873</td>
+<td class="instruction">DEC B</td>
+<td class="comment-1" rowspan="1">Decrease <span class="register">B</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59874"></span>59874</td>
+<td class="instruction">JP NZ,<a href="59793.html#59815">Blit_DisplayBufferLoop</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="59793.html#59815">Blit_DisplayBufferLoop</a> to continue if the comparison did not match.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59877"></span>59877</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="59878"></span>
+<div class="comments">
+<div class="paragraph">
+Treat a zero graphic-set as "blank": force bit 6 and skip the blit.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Blit_DisplayBufferLoopB6</td>
+<td class="address-2"><span id="59878"></span>59878</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance the display-buffer pointer in <span class="register">HL</span> by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59879"></span>59879</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the next script byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59880"></span>59880</td>
+<td class="instruction">SET 6,A</td>
+<td class="comment-1" rowspan="1">Set bit 6 of <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59882"></span>59882</td>
+<td class="instruction">LD (IX+0),A</td>
+<td class="comment-1" rowspan="1">Set the current entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59885"></span>59885</td>
+<td class="instruction">JR <a href="59793.html#59861">Blit_DisplayBufferLoopB5</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="59793.html#59861">Blit_DisplayBufferLoopB5</a> to continue the loop.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="59751.html">59751</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#59793">Map</a></td>
+<td class="next">
+Next: <a href="59887.html">59887</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/E991.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at 16384</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at 16384. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at 16384" />
+<meta property="og:description" content="The Trap Door: Data at 16384. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/16384.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/16384.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at 16384",
+"name": "The Trap Door: Data at 16384",
+"description": "The Trap Door: Data at 16384. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/16384.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at 16384"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/16384.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+</td>
+<td class="up">Up: <a href="../maps/all.html#16384">Map</a></td>
+<td class="next">
+Next: <a href="24421.html">24421</a>
+</td>
+</tr>
+</table>
+<div class="description">16384: Loading Screen</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+<table class="">
+<tr>
+<th colspan="1" rowspan="1">The Trap Door Loading Screen.</th>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="loading" src="../../images/scr/loading.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Loading</td>
+<td class="address-1"><span id="16384"></span>16384</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,48</td>
+<td class="comment-1" rowspan="192">Pixels.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="16416"></span>16416</td>
+<td class="instruction">DEFB 38,0,0,0,0,0,0,0,0,120,0,0,0,0,0,100,255,255,255,255,255,207,255,255,255,255,0,0,2,0,8,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="16448"></span>16448</td>
+<td class="instruction">DEFB 38,0,0,0,0,0,0,7,68,71,128,0,0,0,0,100,255,255,205,254,255,215,255,255,255,179,255,2,255,127,16,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="16480"></span>16480</td>
+<td class="instruction">DEFB 38,0,0,3,255,252,127,248,196,68,120,0,0,0,0,100,255,252,220,205,207,223,255,255,206,171,95,8,254,191,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="16512"></span>16512</td>
+<td class="instruction">DEFB 38,0,56,7,248,255,31,135,255,223,253,192,0,12,76,100,255,255,90,173,170,170,170,174,170,139,85,255,222,191,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="16544"></span>16544</td>
+<td class="instruction">DEFB 38,24,9,224,63,231,143,159,7,159,60,224,63,68,128,100,255,255,90,173,170,170,170,174,186,139,255,255,172,255,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="16576"></span>16576</td>
+<td class="instruction">DEFB 38,122,0,5,31,231,143,159,7,159,60,243,179,34,128,100,255,255,90,173,170,170,170,174,254,138,171,255,250,191,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="16608"></span>16608</td>
+<td class="instruction">DEFB 38,25,35,56,127,143,159,143,135,159,60,243,128,15,38,100,255,249,219,0,32,32,17,3,1,250,170,170,239,223,255,24</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="16640"></span>16640</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,48</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="16672"></span>16672</td>
+<td class="instruction">DEFB 38,0,0,0,0,0,0,0,0,140,0,0,0,0,0,100,255,255,255,255,255,51,255,255,255,255,0,0,6,0,4,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="16704"></span>16704</td>
+<td class="instruction">DEFB 38,0,0,0,0,0,0,31,136,136,192,0,0,0,0,100,255,255,179,51,127,215,255,255,255,89,255,4,255,127,16,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="16736"></span>16736</td>
+<td class="instruction">DEFB 38,0,0,7,255,254,63,240,123,136,140,0,0,0,0,100,255,253,223,53,87,87,119,119,51,85,87,16,254,191,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="16768"></span>16768</td>
+<td class="instruction">DEFB 38,0,96,3,253,255,31,135,207,223,254,32,0,24,144,100,255,255,93,93,85,85,85,85,85,13,85,255,62,191,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="16800"></span>16800</td>
+<td class="instruction">DEFB 38,48,19,32,63,224,15,159,7,159,60,239,63,137,0,100,255,255,93,93,85,85,85,85,85,13,115,127,115,63,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="16832"></span>16832</td>
+<td class="instruction">DEFB 38,115,0,9,31,199,143,159,7,159,60,243,179,17,64,100,255,255,93,93,255,255,213,85,255,13,85,85,85,127,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="16864"></span>16864</td>
+<td class="instruction">DEFB 38,24,97,48,127,31,31,143,135,159,60,243,0,0,248,100,255,243,127,19,43,3,167,3,255,15,213,85,85,127,255,24</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="16896"></span>16896</td>
+<td class="instruction">DEFB 15,255,255,255,255,255,255,255,255,255,255,255,255,255,255,248,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,96</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="16928"></span>16928</td>
+<td class="instruction">DEFB 38,0,0,0,0,0,0,0,1,20,0,0,0,0,0,100,255,255,255,255,255,255,255,255,255,255,0,48,124,0,4,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="16960"></span>16960</td>
+<td class="instruction">DEFB 38,0,0,0,0,0,0,63,17,17,64,0,0,0,0,100,255,255,207,205,127,215,255,255,254,168,255,8,254,191,16,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="16992"></span>16992</td>
+<td class="instruction">DEFB 38,0,0,15,255,254,63,224,251,241,20,0,0,0,0,100,255,252,75,221,255,255,255,250,204,171,119,16,254,63,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17024"></span>17024</td>
+<td class="instruction">DEFB 38,0,192,1,255,254,31,143,207,223,252,160,0,49,16,100,255,255,90,173,170,170,170,174,170,139,85,254,206,191,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17056"></span>17056</td>
+<td class="instruction">DEFB 38,32,18,32,31,224,15,159,7,159,60,255,179,18,0,100,255,255,90,173,170,170,170,174,170,138,172,255,191,255,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17088"></span>17088</td>
+<td class="instruction">DEFB 38,51,128,18,31,199,159,159,7,159,60,243,179,136,160,100,255,255,90,174,24,24,250,174,254,138,170,170,171,191,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17120"></span>17120</td>
+<td class="instruction">DEFB 38,56,228,32,127,31,63,15,135,159,60,242,0,0,0,100,255,218,88,56,24,25,89,25,1,24,122,170,171,239,255,28</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17152"></span>17152</td>
+<td class="instruction">DEFB 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,12,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,192</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17184"></span>17184</td>
+<td class="instruction">DEFB 38,0,0,0,0,0,0,0,14,40,0,0,0,0,0,100,255,255,240,127,255,3,255,255,255,255,5,223,128,0,4,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17216"></span>17216</td>
+<td class="instruction">DEFB 38,0,0,0,0,0,0,127,34,34,128,0,0,0,0,100,255,255,51,51,63,215,255,255,253,84,127,8,254,191,32,64</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17248"></span>17248</td>
+<td class="instruction">DEFB 38,0,0,31,248,126,63,193,255,210,40,0,0,0,0,100,255,253,29,125,85,85,85,87,51,85,117,16,255,255,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17280"></span>17280</td>
+<td class="instruction">DEFB 38,1,128,1,255,252,159,143,135,223,252,224,0,98,32,100,255,255,93,93,85,85,85,85,215,13,85,255,62,191,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17312"></span>17312</td>
+<td class="instruction">DEFB 38,64,19,32,31,231,143,159,7,159,60,255,179,252,0,100,255,255,93,93,85,85,85,85,85,13,83,63,85,127,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17344"></span>17344</td>
+<td class="instruction">DEFB 38,35,192,100,31,199,159,159,7,159,60,243,191,68,96,100,255,255,93,92,192,192,223,85,255,13,85,85,85,127,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17376"></span>17376</td>
+<td class="instruction">DEFB 38,60,230,64,255,31,63,15,135,159,60,240,0,0,0,100,247,192,192,192,232,192,208,193,255,192,207,245,117,191,255,14</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17408"></span>17408</td>
+<td class="instruction">DEFB 32,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,255,255,255,255,255,207,255,255,255,255,0,0,0,0,63,192</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17440"></span>17440</td>
+<td class="instruction">DEFB 38,0,0,0,0,0,0,0,20,78,0,0,0,0,0,100,255,255,236,255,255,127,255,255,255,255,10,1,0,128,8,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17472"></span>17472</td>
+<td class="instruction">DEFB 38,0,0,0,0,0,252,255,68,68,224,0,0,0,0,100,255,255,204,207,63,215,255,255,250,170,63,4,252,159,64,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17504"></span>17504</td>
+<td class="instruction">DEFB 38,0,0,31,224,127,63,195,255,220,78,0,0,0,0,100,255,252,74,173,170,170,170,172,204,235,117,32,254,191,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17536"></span>17536</td>
+<td class="instruction">DEFB 38,3,0,0,255,249,223,143,135,159,188,224,0,196,64,100,255,255,90,173,170,170,170,174,170,139,85,255,254,191,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17568"></span>17568</td>
+<td class="instruction">DEFB 38,32,9,192,31,231,143,159,7,159,60,255,179,34,0,100,255,255,90,173,170,170,170,174,170,138,172,207,186,191,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17600"></span>17600</td>
+<td class="instruction">DEFB 38,33,255,132,63,199,159,143,7,159,60,243,191,34,48,100,255,255,90,184,0,0,19,238,254,138,170,170,170,191,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17632"></span>17632</td>
+<td class="instruction">DEFB 38,60,247,128,254,63,63,7,207,159,60,224,0,0,0,100,240,32,72,0,139,0,0,2,0,128,0,63,174,255,255,14</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17664"></span>17664</td>
+<td class="instruction">DEFB 35,255,255,255,255,255,255,255,255,255,255,255,255,255,255,196,255,255,255,255,255,207,255,255,255,255,0,0,0,60,97,128</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17696"></span>17696</td>
+<td class="instruction">DEFB 38,0,0,0,0,0,0,0,40,137,0,0,0,0,0,100,255,255,243,127,255,51,255,255,255,255,16,1,0,132,16,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17728"></span>17728</td>
+<td class="instruction">DEFB 38,0,0,0,15,128,252,255,136,136,144,0,0,0,0,100,255,255,247,53,95,215,255,255,253,85,31,4,251,47,64,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17760"></span>17760</td>
+<td class="instruction">DEFB 38,0,0,127,192,63,63,195,255,223,137,0,0,0,31,100,255,255,253,93,85,85,85,95,255,149,85,64,254,191,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17792"></span>17792</td>
+<td class="instruction">DEFB 38,6,0,0,127,251,207,143,135,159,60,224,3,136,192,100,255,255,93,93,85,85,85,85,85,13,85,255,86,191,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17824"></span>17824</td>
+<td class="instruction">DEFB 38,112,4,192,31,231,143,159,7,159,60,255,179,17,0,100,255,255,93,93,85,85,85,85,85,13,87,127,85,127,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17856"></span>17856</td>
+<td class="instruction">DEFB 38,33,207,36,63,143,159,143,7,159,60,243,191,17,16,100,255,255,93,121,24,24,26,125,255,13,85,85,85,255,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17888"></span>17888</td>
+<td class="instruction">DEFB 38,62,247,1,254,62,63,7,207,159,60,192,0,0,0,100,216,29,24,28,24,24,26,27,255,152,24,25,117,223,255,14</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17920"></span>17920</td>
+<td class="instruction">DEFB 39,255,255,255,255,255,255,255,255,255,255,255,255,255,255,228,255,255,255,255,255,207,255,255,255,255,0,0,0,35,194,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17952"></span>17952</td>
+<td class="instruction">DEFB 38,0,0,0,0,0,0,0,209,17,0,0,0,0,0,100,255,255,204,255,255,135,255,255,255,239,0,2,0,128,16,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="17984"></span>17984</td>
+<td class="instruction">DEFB 38,0,0,0,63,240,121,255,17,17,16,0,0,0,0,100,255,252,76,205,95,215,255,255,206,171,143,8,249,207,64,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18016"></span>18016</td>
+<td class="instruction">DEFB 38,0,3,159,224,63,63,135,255,223,17,0,0,0,242,100,255,255,90,173,170,170,170,174,170,139,85,0,254,191,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18048"></span>18048</td>
+<td class="instruction">DEFB 38,12,3,128,127,243,207,143,135,159,60,224,31,17,128,100,255,255,90,173,170,170,170,174,186,139,85,255,172,191,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18080"></span>18080</td>
+<td class="instruction">DEFB 38,120,3,130,31,231,143,159,7,159,60,251,179,136,128,100,255,255,90,173,170,170,170,174,170,138,171,199,186,191,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18112"></span>18112</td>
+<td class="instruction">DEFB 38,9,143,56,63,143,159,143,7,159,60,243,159,136,136,100,255,255,90,195,7,35,195,6,254,138,170,170,174,191,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18144"></span>18144</td>
+<td class="instruction">DEFB 38,46,246,1,252,62,63,7,255,159,60,0,0,0,0,100,195,19,3,3,3,3,3,4,0,67,3,3,175,191,255,14</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18176"></span>18176</td>
+<td class="instruction">DEFB 38,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100,255,255,255,255,255,183,255,255,255,255,0,0,3,224,4,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18208"></span>18208</td>
+<td class="instruction">DEFB 38,0,0,0,0,0,0,1,34,34,0,0,0,0,0,100,255,255,243,127,255,255,255,255,255,215,0,2,0,128,32,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18240"></span>18240</td>
+<td class="instruction">DEFB 38,0,0,1,255,248,125,255,34,34,32,0,0,0,0,100,255,253,27,61,79,215,255,255,245,85,111,8,254,63,128,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18272"></span>18272</td>
+<td class="instruction">DEFB 38,0,14,15,240,127,31,135,255,223,114,0,0,3,36,100,255,255,93,93,85,85,85,85,85,13,85,0,190,191,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18304"></span>18304</td>
+<td class="instruction">DEFB 38,8,4,192,63,231,207,143,7,159,60,224,63,34,128,100,255,255,93,93,85,85,85,85,125,13,85,255,83,127,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18336"></span>18336</td>
+<td class="instruction">DEFB 38,124,0,5,31,231,143,159,7,159,60,243,179,68,128,100,255,255,93,93,85,85,85,85,125,13,86,7,85,127,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18368"></span>18368</td>
+<td class="instruction">DEFB 38,9,135,56,127,143,159,143,135,159,60,243,128,116,68,100,255,253,93,224,125,224,100,101,255,13,85,85,85,127,255,239</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18400"></span>18400</td>
+<td class="instruction">DEFB 38,39,248,3,252,126,127,3,255,159,60,0,0,0,0,100,224,96,96,96,96,96,96,103,255,224,97,255,255,255,255,14</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18432"></span>18432</td>
+<td class="instruction">DEFB 38,32,0,7,248,252,127,3,255,223,56,0,255,255,255,255,255,255,255,255,255,255,255,255,255,252,0,2,0,7,240,14</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18464"></span>18464</td>
+<td class="instruction">DEFB 38,4,48,0,0,0,0,0,162,48,0,3,15,0,0,0,0,0,0,0,0,0,0,0,0,3,0,15,129,255,199,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18496"></span>18496</td>
+<td class="instruction">DEFB 38,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100,255,255,255,255,255,255,0,0,0,0,0,7,255,255,255,252</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18528"></span>18528</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,0,0,0,126,126,0,0,0,255,255,255,255,135,143,247,191,255,255,255,195,255,255,1,239,255,240</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18560"></span>18560</td>
+<td class="instruction">DEFB 0,0,0,0,15,248,0,0,1,255,255,0,0,0,255,128,0,0,224,0,0,14,0,3,192,0,0,63,0,0,15,224</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18592"></span>18592</td>
+<td class="instruction">DEFB 0,0,7,255,255,255,224,255,255,255,255,254,0,0,255,255,0,15,0,0,0,28,60,0,224,7,192,15,0,0,1,192</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18624"></span>18624</td>
+<td class="instruction">DEFB 0,0,127,255,255,255,255,191,255,255,255,207,248,0,0,255,0,15,0,0,3,128,0,0,96,0,7,255,0,0,1,192</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18656"></span>18656</td>
+<td class="instruction">DEFB 0,0,0,255,255,255,195,255,255,255,255,249,255,224,0,231,0,15,0,63,3,192,127,0,48,3,255,255,255,0,9,120</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18688"></span>18688</td>
+<td class="instruction">DEFB 38,32,0,15,248,252,126,3,255,223,32,1,128,0,0,0,0,0,0,0,0,0,0,0,0,6,0,6,0,31,254,15</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18720"></span>18720</td>
+<td class="instruction">DEFB 38,6,96,0,0,0,0,0,81,24,0,3,0,7,56,198,113,145,3,140,145,206,93,221,29,19,0,15,231,227,131,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18752"></span>18752</td>
+<td class="instruction">DEFB 39,255,255,255,255,255,255,255,255,255,255,255,255,255,255,228,255,255,255,255,255,255,0,0,0,0,0,3,255,255,255,252</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18784"></span>18784</td>
+<td class="instruction">DEFB 0,0,0,0,15,0,0,0,0,255,255,0,0,0,255,255,224,0,247,159,246,15,254,15,252,0,31,255,0,55,255,240</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18816"></span>18816</td>
+<td class="instruction">DEFB 0,0,0,0,15,252,0,0,15,255,255,128,0,0,255,128,0,0,224,56,0,6,0,3,192,0,0,31,0,0,15,224</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18848"></span>18848</td>
+<td class="instruction">DEFB 0,0,3,255,255,255,249,255,255,255,255,255,0,0,255,255,0,15,0,0,0,24,60,0,224,7,128,31,0,0,1,192</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18880"></span>18880</td>
+<td class="instruction">DEFB 0,0,255,255,255,255,255,63,255,255,255,239,252,0,0,255,0,15,0,56,1,192,0,0,112,0,31,255,0,0,1,128</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18912"></span>18912</td>
+<td class="instruction">DEFB 0,0,1,255,255,255,3,255,255,255,255,253,255,224,0,135,255,255,255,255,15,0,255,0,48,1,255,255,255,0,11,48</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18944"></span>18944</td>
+<td class="instruction">DEFB 38,48,0,25,240,252,254,1,255,223,0,3,15,5,239,120,49,152,230,47,99,14,100,24,253,227,0,14,0,63,255,31</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="18976"></span>18976</td>
+<td class="instruction">DEFB 38,3,192,0,0,0,0,0,40,140,0,3,0,4,165,41,74,91,34,82,145,41,81,9,17,19,0,15,255,193,179,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19008"></span>19008</td>
+<td class="instruction">DEFB 35,255,255,255,255,255,255,255,255,255,255,255,255,255,255,196,255,255,240,15,254,15,0,0,0,0,0,1,255,255,255,252</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19040"></span>19040</td>
+<td class="instruction">DEFB 0,0,0,0,31,192,0,0,1,227,227,0,0,0,255,128,0,0,247,158,247,239,224,15,240,0,7,255,0,3,255,240</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19072"></span>19072</td>
+<td class="instruction">DEFB 0,0,0,0,15,252,0,0,127,255,255,192,0,0,255,128,0,0,224,60,0,6,0,3,192,7,0,15,0,0,7,224</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19104"></span>19104</td>
+<td class="instruction">DEFB 0,0,1,255,255,255,255,251,255,255,255,255,128,0,255,255,0,15,0,0,0,56,60,0,224,7,0,31,0,0,1,192</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19136"></span>19136</td>
+<td class="instruction">DEFB 0,0,255,255,255,255,255,127,255,255,255,231,252,0,0,255,0,15,0,56,0,224,0,0,48,0,255,255,0,0,1,192</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19168"></span>19168</td>
+<td class="instruction">DEFB 0,0,1,255,255,224,7,255,255,255,255,252,255,240,0,7,255,255,255,255,126,0,255,0,240,1,192,255,255,0,3,176</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19200"></span>19200</td>
+<td class="instruction">DEFB 38,16,0,48,97,248,254,1,255,223,0,3,16,141,41,64,59,181,151,102,99,25,100,24,49,147,0,14,0,127,255,159</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19232"></span>19232</td>
+<td class="instruction">DEFB 38,0,0,0,0,0,0,0,28,71,128,3,0,4,165,40,74,85,2,82,209,41,93,201,24,227,0,15,255,217,163,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19264"></span>19264</td>
+<td class="instruction">DEFB 32,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,255,255,135,224,0,239,7,7,0,0,0,0,255,255,255,252</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19296"></span>19296</td>
+<td class="instruction">DEFB 0,0,0,0,31,192,0,0,1,193,193,0,0,0,255,128,0,0,247,158,247,238,0,7,224,0,1,255,0,1,255,240</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19328"></span>19328</td>
+<td class="instruction">DEFB 0,0,1,240,31,254,0,1,255,255,255,224,0,0,255,128,0,0,224,62,0,6,0,1,192,7,128,15,0,0,7,224</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19360"></span>19360</td>
+<td class="instruction">DEFB 0,0,0,31,255,255,255,243,255,255,255,191,192,0,255,255,0,15,0,0,0,112,60,0,96,0,0,31,0,0,1,192</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19392"></span>19392</td>
+<td class="instruction">DEFB 0,0,255,255,255,255,254,127,255,255,255,247,254,0,0,255,0,15,0,60,0,112,0,0,48,3,255,255,0,0,9,224</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19424"></span>19424</td>
+<td class="instruction">DEFB 0,0,1,255,199,128,7,255,255,255,255,254,255,248,0,7,255,255,255,247,254,0,247,15,240,1,192,31,255,0,25,100</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19456"></span>19456</td>
+<td class="instruction">DEFB 38,16,0,96,1,249,254,2,255,222,0,3,38,69,47,120,53,181,134,166,99,25,116,24,49,147,0,14,0,255,255,127</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19488"></span>19488</td>
+<td class="instruction">DEFB 38,0,0,0,0,0,0,0,6,34,96,3,0,7,57,41,115,209,34,82,177,206,80,73,16,67,0,15,255,209,131,254</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19520"></span>19520</td>
+<td class="instruction">DEFB 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,255,255,191,238,247,239,15,143,128,0,0,0,127,255,255,248</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19552"></span>19552</td>
+<td class="instruction">DEFB 0,0,0,0,31,224,0,0,1,193,193,0,0,0,255,128,0,0,247,158,7,228,0,7,192,0,0,255,0,0,255,240</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19584"></span>19584</td>
+<td class="instruction">DEFB 0,0,3,255,255,255,0,7,255,255,255,240,0,0,255,128,0,15,224,62,0,6,0,1,224,7,192,15,0,0,3,224</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19616"></span>19616</td>
+<td class="instruction">DEFB 0,0,0,7,255,255,255,231,255,255,255,191,192,0,255,255,0,15,0,0,0,224,60,0,96,0,0,63,0,0,1,192</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19648"></span>19648</td>
+<td class="instruction">DEFB 0,0,127,255,255,255,254,255,255,255,255,243,255,0,0,255,0,15,0,60,0,56,0,0,48,3,255,255,0,0,3,144</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19680"></span>19680</td>
+<td class="instruction">DEFB 0,0,1,255,128,0,7,255,255,255,255,254,127,254,0,0,0,0,127,199,255,255,231,255,240,1,192,15,255,0,39,128</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19712"></span>19712</td>
+<td class="instruction">DEFB 38,24,1,192,0,113,252,3,123,216,0,3,40,69,233,72,53,189,134,38,99,31,108,24,49,147,0,14,0,255,254,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19744"></span>19744</td>
+<td class="instruction">DEFB 38,0,0,0,0,0,0,0,1,209,128,3,0,4,36,199,74,81,3,140,145,9,93,201,220,67,0,15,255,193,131,254</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19776"></span>19776</td>
+<td class="instruction">DEFB 15,255,255,255,255,255,255,255,255,255,255,255,255,255,255,240,255,255,191,238,247,239,24,216,192,0,0,0,63,191,255,248</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19808"></span>19808</td>
+<td class="instruction">DEFB 0,0,0,0,31,224,0,0,1,193,193,0,0,0,255,128,0,0,246,0,223,12,0,7,192,0,0,255,0,0,63,240</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19840"></span>19840</td>
+<td class="instruction">DEFB 0,0,7,255,255,255,128,31,255,224,31,248,0,0,255,128,0,15,224,62,0,6,24,1,224,7,192,15,0,0,3,224</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19872"></span>19872</td>
+<td class="instruction">DEFB 0,0,0,15,255,255,255,207,255,255,255,191,224,0,255,255,0,15,0,0,1,192,60,0,96,0,0,127,0,0,1,192</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19904"></span>19904</td>
+<td class="instruction">DEFB 0,0,63,3,255,255,252,255,255,255,255,251,255,0,0,255,0,15,0,60,0,24,14,0,48,3,255,255,0,0,9,192</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19936"></span>19936</td>
+<td class="instruction">DEFB 0,0,0,255,0,0,15,255,255,255,255,255,127,255,0,0,0,0,63,135,239,255,231,255,192,1,192,3,255,1,43,160</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="19968"></span>19968</td>
+<td class="instruction">DEFB 38,8,7,0,0,1,252,2,185,160,0,3,38,68,41,72,49,181,150,38,99,25,100,24,49,147,0,15,0,255,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20000"></span>20000</td>
+<td class="instruction">DEFB 38,0,0,0,0,0,0,0,0,62,0,1,128,0,0,0,0,0,0,0,0,0,0,0,0,6,0,15,255,193,199,254</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20032"></span>20032</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,255,255,191,238,246,15,24,216,192,0,0,0,31,223,255,248</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20064"></span>20064</td>
+<td class="instruction">DEFB 0,0,0,0,31,240,0,0,0,226,226,0,0,0,255,128,0,0,240,255,192,124,0,7,192,0,0,63,0,0,31,240</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20096"></span>20096</td>
+<td class="instruction">DEFB 0,0,7,255,255,255,128,63,255,248,63,252,0,0,255,255,0,15,224,60,0,6,24,1,224,7,192,15,0,0,3,192</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20128"></span>20128</td>
+<td class="instruction">DEFB 0,0,31,255,255,255,255,223,255,255,255,159,240,0,255,255,0,15,0,0,3,128,0,0,96,0,0,255,0,0,1,192</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20160"></span>20160</td>
+<td class="instruction">DEFB 0,0,0,7,255,255,253,255,255,255,255,251,255,128,0,255,0,15,0,62,0,56,127,0,48,3,255,255,0,0,27,216</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20192"></span>20192</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,15,255,255,255,255,255,127,255,192,0,0,0,63,0,15,255,199,255,255,255,192,1,255,0,3,32</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20224"></span>20224</td>
+<td class="instruction">DEFB 38,12,28,0,0,0,0,1,68,96,0,3,16,133,239,120,49,180,230,47,123,217,100,30,49,227,0,15,1,255,255,255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20256"></span>20256</td>
+<td class="instruction">DEFB 38,0,0,0,0,0,0,0,0,0,0,0,255,255,255,255,255,255,255,255,255,255,255,255,255,252,0,7,255,227,255,254</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20288"></span>20288</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,255,255,191,239,247,191,25,217,192,0,0,0,7,239,255,240</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20320"></span>20320</td>
+<td class="instruction">DEFB 0,0,0,0,31,240,0,0,0,124,124,0,0,0,255,128,0,0,255,128,127,204,0,3,192,0,0,63,0,0,31,224</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20352"></span>20352</td>
+<td class="instruction">DEFB 0,0,7,255,255,255,192,127,255,255,127,254,0,0,255,255,0,15,0,56,0,14,60,0,224,7,192,15,0,0,3,192</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20384"></span>20384</td>
+<td class="instruction">DEFB 0,0,63,255,255,255,255,159,255,255,255,223,240,0,255,255,0,15,0,0,7,0,0,0,96,0,1,255,0,0,1,192</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20416"></span>20416</td>
+<td class="instruction">DEFB 0,0,0,63,255,255,249,255,255,255,255,251,255,192,0,255,0,15,0,62,0,240,127,0,48,3,255,255,0,0,43,152</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20448"></span>20448</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,15,255,255,255,255,255,63,255,224,0,0,0,30,0,0,24,0,1,255,255,192,0,255,0,77,32</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20480"></span>20480</td>
+<td class="instruction">DEFB 0,3,255,0,0,0,31,255,255,255,255,255,191,255,240,0,0,0,30,0,0,12,0,1,255,255,192,0,127,0,4,160</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20512"></span>20512</td>
+<td class="instruction">DEFB 7,208,48,47,0,0,63,255,255,255,255,255,239,249,239,255,15,192,3,15,240,3,1,254,1,128,126,0,31,3,20,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20544"></span>20544</td>
+<td class="instruction">DEFB 7,231,7,62,0,0,63,255,255,255,255,255,248,0,30,248,0,0,3,0,0,3,0,0,1,128,0,0,127,0,0,141</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20576"></span>20576</td>
+<td class="instruction">DEFB 0,5,255,192,3,255,231,255,255,224,0,255,192,0,0,0,255,255,255,255,255,255,255,254,3,0,0,0,63,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20608"></span>20608</td>
+<td class="instruction">DEFB 0,6,251,232,31,255,255,31,128,0,0,0,253,248,0,0,171,171,251,171,171,235,171,251,48,0,126,0,63,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20640"></span>20640</td>
+<td class="instruction">DEFB 0,13,247,240,0,0,0,247,255,255,228,255,252,252,0,0,8,127,255,255,255,123,251,255,0,0,0,0,0,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20672"></span>20672</td>
+<td class="instruction">DEFB 0,15,255,160,1,126,188,0,0,0,6,0,0,0,0,0,3,247,109,174,174,207,111,176,0,0,0,0,61,126,128,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20704"></span>20704</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,0,0,13,16,43,96,6,160,0,2,0,0,162,0,144,0,0,4,20,0,0,0,0,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20736"></span>20736</td>
+<td class="instruction">DEFB 0,31,255,192,0,0,31,255,255,255,255,255,159,255,255,0,0,0,12,0,0,12,0,0,28,0,0,0,63,1,16,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20768"></span>20768</td>
+<td class="instruction">DEFB 7,160,120,7,0,0,63,255,255,255,255,255,239,240,227,255,15,192,3,15,240,3,1,254,1,128,126,0,31,2,80,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20800"></span>20800</td>
+<td class="instruction">DEFB 3,255,135,253,0,0,63,255,255,255,255,255,240,0,14,248,0,0,3,0,0,3,0,0,1,128,0,0,255,0,64,5</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20832"></span>20832</td>
+<td class="instruction">DEFB 0,10,255,224,3,255,247,255,255,192,0,63,128,0,0,0,237,109,109,109,109,109,109,108,3,0,0,0,31,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20864"></span>20864</td>
+<td class="instruction">DEFB 0,14,255,232,31,255,255,207,0,0,0,1,254,252,0,0,239,125,255,111,111,253,125,111,112,0,126,0,255,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20896"></span>20896</td>
+<td class="instruction">DEFB 0,7,255,224,0,0,0,156,31,255,222,127,253,248,0,0,5,252,255,255,255,247,191,127,0,0,0,0,60,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20928"></span>20928</td>
+<td class="instruction">DEFB 0,3,245,64,9,255,223,0,0,0,4,0,0,0,0,0,0,10,132,69,16,152,129,88,0,0,0,0,253,255,128,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20960"></span>20960</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,0,2,0,133,84,151,173,30,91,0,41,64,96,130,0,0,0,0,227,0,0,0,0,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="20992"></span>20992</td>
+<td class="instruction">DEFB 0,63,255,224,0,0,31,255,255,255,255,255,207,255,255,128,0,0,14,0,0,14,0,0,14,0,0,0,63,2,124,64</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21024"></span>21024</td>
+<td class="instruction">DEFB 7,64,176,15,0,0,63,255,255,255,255,255,239,240,232,255,15,192,3,15,240,3,1,254,1,128,126,0,31,26,128,76</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21056"></span>21056</td>
+<td class="instruction">DEFB 5,255,7,250,0,0,63,255,255,249,159,255,240,0,15,112,0,0,3,0,0,3,0,0,1,128,0,1,255,2,0,12</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21088"></span>21088</td>
+<td class="instruction">DEFB 0,5,255,192,7,255,243,255,255,128,2,7,128,0,0,0,213,213,213,234,53,213,213,212,6,0,112,0,15,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21120"></span>21120</td>
+<td class="instruction">DEFB 0,14,251,232,7,255,255,255,0,0,0,1,254,252,0,192,213,213,255,245,221,213,247,223,96,0,127,3,255,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21152"></span>21152</td>
+<td class="instruction">DEFB 0,13,247,96,0,0,60,192,3,255,190,127,248,112,0,0,2,255,240,254,31,191,119,255,0,0,0,0,78,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21184"></span>21184</td>
+<td class="instruction">DEFB 0,0,234,128,26,255,167,192,0,0,12,0,0,0,0,0,8,32,16,0,64,2,0,166,0,0,0,1,253,255,64,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21216"></span>21216</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,0,0,0,0,129,73,80,9,36,169,53,16,136,32,0,0,0,1,13,128,0,0,0,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21248"></span>21248</td>
+<td class="instruction">DEFB 0,127,255,240,0,0,31,255,255,255,255,255,247,255,255,224,0,0,6,0,0,6,0,0,6,0,0,0,31,0,214,72</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21280"></span>21280</td>
+<td class="instruction">DEFB 15,64,120,23,0,0,63,255,255,255,255,255,239,240,118,63,15,192,3,7,224,3,0,252,1,128,126,0,31,16,192,32</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21312"></span>21312</td>
+<td class="instruction">DEFB 3,255,135,245,0,0,63,255,255,240,15,255,240,0,15,128,0,0,7,0,0,3,0,0,1,128,0,3,255,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21344"></span>21344</td>
+<td class="instruction">DEFB 0,2,255,224,15,255,251,255,254,0,126,1,126,0,0,0,182,168,182,182,182,182,182,182,6,0,112,0,7,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21376"></span>21376</td>
+<td class="instruction">DEFB 0,14,255,232,3,255,255,252,0,0,0,3,254,252,0,252,118,182,247,255,246,254,190,247,224,0,127,15,255,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21408"></span>21408</td>
+<td class="instruction">DEFB 0,14,255,224,0,0,114,96,1,224,103,63,0,0,0,0,1,250,236,125,143,255,255,247,0,0,0,0,78,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21440"></span>21440</td>
+<td class="instruction">DEFB 0,0,0,0,27,215,255,224,0,0,10,0,0,0,0,0,20,0,0,16,0,0,0,1,0,0,0,3,255,235,192,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21472"></span>21472</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,0,0,4,17,192,2,0,2,8,48,136,32,130,32,0,0,0,10,4,120,19,80,22,128,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21504"></span>21504</td>
+<td class="instruction">DEFB 0,255,255,248,0,0,31,255,255,255,255,255,247,255,255,248,0,0,6,0,0,7,0,0,7,0,0,0,31,19,48,160</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21536"></span>21536</td>
+<td class="instruction">DEFB 15,0,200,46,0,0,63,255,255,255,255,255,239,240,55,134,15,128,3,3,192,3,0,120,1,128,124,0,63,2,33,6</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21568"></span>21568</td>
+<td class="instruction">DEFB 5,255,7,234,0,63,223,255,255,224,7,255,240,0,7,0,0,0,6,0,0,3,0,0,1,128,0,3,255,0,64,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21600"></span>21600</td>
+<td class="instruction">DEFB 0,5,255,192,15,255,249,255,252,0,254,0,255,128,0,0,213,213,213,213,213,213,213,212,14,0,120,0,3,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21632"></span>21632</td>
+<td class="instruction">DEFB 0,14,251,232,0,127,255,128,0,0,0,7,254,252,0,255,95,253,223,255,223,255,245,223,255,255,255,63,255,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21664"></span>21664</td>
+<td class="instruction">DEFB 0,15,119,96,0,0,114,48,0,0,3,0,0,0,0,0,0,255,222,59,199,247,255,247,0,0,0,0,94,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21696"></span>21696</td>
+<td class="instruction">DEFB 0,0,0,0,59,239,255,224,0,0,10,0,0,0,0,0,52,0,0,0,0,0,0,66,128,0,0,3,255,247,224,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21728"></span>21728</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,0,0,33,0,0,160,2,192,32,0,5,1,0,0,0,0,0,0,8,166,106,43,73,91,112,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21760"></span>21760</td>
+<td class="instruction">DEFB 1,255,255,252,0,0,63,255,255,255,255,255,231,255,255,252,0,0,6,3,192,3,0,120,3,0,112,0,31,4,20,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21792"></span>21792</td>
+<td class="instruction">DEFB 15,1,200,23,0,0,63,255,255,255,255,255,239,240,59,240,15,128,3,0,0,3,0,0,1,128,112,0,63,84,160,32</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21824"></span>21824</td>
+<td class="instruction">DEFB 2,175,175,244,0,127,223,255,255,236,103,255,240,0,0,0,0,0,6,0,0,7,0,0,1,128,0,1,255,0,0,8</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21856"></span>21856</td>
+<td class="instruction">DEFB 0,3,255,192,15,255,252,255,248,0,124,0,255,224,0,0,215,87,104,168,183,87,87,86,12,0,120,0,1,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21888"></span>21888</td>
+<td class="instruction">DEFB 0,6,255,232,0,0,0,0,176,0,0,31,254,254,0,255,151,223,255,223,119,221,215,247,255,255,255,255,255,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21920"></span>21920</td>
+<td class="instruction">DEFB 0,31,136,192,0,124,126,16,0,0,1,0,0,0,0,0,0,126,158,19,195,239,222,247,0,0,0,0,126,62,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21952"></span>21952</td>
+<td class="instruction">DEFB 0,0,0,0,55,199,255,224,0,0,13,0,0,0,0,0,15,0,11,123,0,0,0,0,128,0,0,3,255,227,254,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="21984"></span>21984</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,0,0,8,0,64,0,0,0,0,64,1,130,8,64,0,0,0,65,128,89,128,132,128,36,132,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22016"></span>22016</td>
+<td class="instruction">DEFB 3,250,242,254,0,0,63,255,255,255,255,255,239,252,127,254,15,0,7,7,224,3,0,252,3,0,124,0,31,2,20,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22048"></span>22048</td>
+<td class="instruction">DEFB 15,130,140,46,0,0,63,255,255,255,255,255,247,224,59,248,15,0,3,0,0,3,0,0,1,128,0,0,63,41,34,1</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22080"></span>22080</td>
+<td class="instruction">DEFB 1,87,255,232,0,255,207,255,255,236,103,255,224,0,0,0,0,0,14,0,0,6,0,0,1,128,0,0,255,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22112"></span>22112</td>
+<td class="instruction">DEFB 0,4,132,32,31,255,254,127,224,0,0,0,255,240,0,0,169,169,169,169,169,169,169,168,24,0,124,0,3,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22144"></span>22144</td>
+<td class="instruction">DEFB 0,9,123,128,0,0,0,0,200,0,1,63,254,254,0,255,217,125,245,255,191,187,251,127,255,255,255,255,255,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22176"></span>22176</td>
+<td class="instruction">DEFB 0,31,255,160,0,186,124,88,0,0,3,0,0,0,0,0,0,127,140,17,131,255,255,231,0,0,0,0,62,93,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22208"></span>22208</td>
+<td class="instruction">DEFB 0,0,0,0,63,195,127,192,0,0,4,0,0,0,0,0,120,106,208,161,186,27,67,125,240,0,0,3,254,195,255,128</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22240"></span>22240</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,0,1,0,32,68,0,4,2,0,128,0,2,4,76,0,0,0,8,8,20,0,3,0,0,1,64</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22272"></span>22272</td>
+<td class="instruction">DEFB 3,229,117,94,0,0,63,255,255,255,255,255,239,249,159,255,15,128,3,15,240,3,1,254,3,128,124,0,31,4,0,64</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22304"></span>22304</td>
+<td class="instruction">DEFB 15,201,132,93,0,0,63,255,255,255,255,255,243,128,29,248,14,0,3,0,0,3,0,0,1,128,0,0,127,2,0,10</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22336"></span>22336</td>
+<td class="instruction">DEFB 0,11,255,176,1,255,239,255,255,241,143,255,224,0,0,0,0,0,12,0,0,6,0,0,3,128,0,0,127,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22368"></span>22368</td>
+<td class="instruction">DEFB 0,3,113,208,31,255,255,127,192,0,0,0,255,240,0,0,255,255,222,127,152,51,126,0,24,0,124,0,15,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22400"></span>22400</td>
+<td class="instruction">DEFB 0,15,138,240,0,0,0,0,8,0,7,127,254,254,0,255,237,235,239,223,255,255,255,239,255,255,255,255,255,0,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22432"></span>22432</td>
+<td class="instruction">DEFB 0,31,255,192,0,255,56,184,0,0,2,0,0,0,0,0,1,31,128,16,3,185,114,231,0,0,0,0,28,255,0,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22464"></span>22464</td>
+<td class="instruction">DEFB 0,0,0,0,15,128,255,128,0,0,0,0,0,8,0,1,137,36,116,144,69,176,128,32,40,0,0,1,255,1,255,224</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22496"></span>22496</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,0,0,0,0,0,0,10,16,193,0,0,4,0,0,0,0,0,0,32,2,0,80,96,0,0,16</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22528"></span>22528</td>
+<td class="instruction">DEFB 70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,56,56,56,56,56,8,56,56,56,56,7,71,71,71,71,71</td>
+<td class="comment-1" rowspan="24">Attributes.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22560"></span>22560</td>
+<td class="instruction">DEFB 70,64,64,64,64,64,64,64,70,70,69,69,69,69,70,70,56,8,8,8,56,8,56,56,8,8,71,71,71,64,71,7</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22592"></span>22592</td>
+<td class="instruction">DEFB 70,5,70,69,69,69,69,69,70,70,70,70,70,6,70,70,56,8,8,8,8,8,8,8,8,8,72,71,72,72,71,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22624"></span>22624</td>
+<td class="instruction">DEFB 70,5,70,69,69,69,69,69,69,69,70,70,7,70,70,70,56,8,8,8,8,8,8,8,8,8,72,71,72,72,56,56</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22656"></span>22656</td>
+<td class="instruction">DEFB 70,6,70,69,69,69,69,69,69,69,69,69,69,70,70,70,56,8,8,8,8,8,8,8,8,8,72,72,72,72,120,56</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22688"></span>22688</td>
+<td class="instruction">DEFB 70,70,71,70,69,69,69,69,69,69,69,69,69,70,70,70,56,8,8,8,8,8,8,8,8,8,8,8,8,8,56,56</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22720"></span>22720</td>
+<td class="instruction">DEFB 70,70,70,70,5,5,5,5,5,5,5,5,5,70,70,70,56,8,8,8,8,8,8,8,8,8,8,8,8,8,56,40</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22752"></span>22752</td>
+<td class="instruction">DEFB 70,70,70,5,5,5,5,5,5,5,5,5,5,70,70,70,8,8,8,8,8,8,8,8,8,8,8,8,8,8,56,5</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22784"></span>22784</td>
+<td class="instruction">DEFB 70,69,69,69,5,5,5,5,5,5,5,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,7,5,5,5,5,5</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22816"></span>22816</td>
+<td class="instruction">DEFB 70,69,69,70,6,6,6,6,6,6,6,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,7,5,5,5,5,5</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22848"></span>22848</td>
+<td class="instruction">DEFB 70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,16,80,16,16,16,16,71,71,71,71,7,5,5,5,5,5</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22880"></span>22880</td>
+<td class="instruction">DEFB 7,7,7,7,1,1,0,0,71,71,71,1,0,0,16,16,16,16,16,16,16,16,16,16,16,16,16,16,5,5,5,5</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22912"></span>22912</td>
+<td class="instruction">DEFB 7,7,1,1,1,1,1,1,1,1,1,1,7,7,16,16,16,16,16,16,16,16,16,16,16,16,16,16,0,7,5,5</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22944"></span>22944</td>
+<td class="instruction">DEFB 7,7,1,1,1,1,1,1,1,1,1,1,1,7,16,16,16,16,16,16,16,16,16,16,16,16,16,16,0,7,5,5</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="22976"></span>22976</td>
+<td class="instruction">DEFB 7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,16,16,16,16,16,16,16,16,16,16,16,16,16,0,7,5,5</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="23008"></span>23008</td>
+<td class="instruction">DEFB 7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,16,16,16,16,16,16,16,16,16,16,16,16,16,16,5,5,5</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="23040"></span>23040</td>
+<td class="instruction">DEFB 71,71,71,71,1,1,1,1,1,1,1,1,1,1,1,17,16,16,16,16,16,16,16,16,16,16,16,16,16,5,5,5</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="23072"></span>23072</td>
+<td class="instruction">DEFB 71,71,71,7,1,1,1,1,1,1,1,1,1,1,1,17,16,16,16,16,16,16,16,16,16,16,16,16,16,5,5,5</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="23104"></span>23104</td>
+<td class="instruction">DEFB 7,71,71,7,1,1,1,1,57,57,57,57,1,1,1,17,16,16,16,16,16,16,16,16,16,16,16,16,16,5,5,5</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="23136"></span>23136</td>
+<td class="instruction">DEFB 71,71,71,7,1,1,1,1,49,49,48,49,1,1,1,16,38,38,38,38,38,38,38,38,16,16,16,16,16,4,4,4</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="23168"></span>23168</td>
+<td class="instruction">DEFB 7,71,71,71,1,1,1,1,49,49,49,49,1,1,1,16,32,32,32,32,32,32,32,32,16,16,16,16,16,4,4,4</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="23200"></span>23200</td>
+<td class="instruction">DEFB 7,7,7,7,4,4,71,6,6,6,6,1,1,1,4,4,4,32,120,120,120,32,32,32,4,4,7,6,71,4,4,4</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="23232"></span>23232</td>
+<td class="instruction">DEFB 7,71,7,7,4,4,4,4,4,7,6,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,7,4,4,4,4,4</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="23264"></span>23264</td>
+<td class="instruction">DEFB 4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+</td>
+<td class="up">Up: <a href="../maps/all.html#16384">Map</a></td>
+<td class="next">
+Next: <a href="24421.html">24421</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/4000.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

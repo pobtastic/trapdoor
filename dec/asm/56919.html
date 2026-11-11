@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 56919</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 56919. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 56919" />
+<meta property="og:description" content="The Trap Door: Routine at 56919. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/56919.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/56919.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 56919",
+"name": "The Trap Door: Routine at 56919",
+"description": "The Trap Door: Routine at 56919. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/56919.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 56919"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/56919.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="56913.html">56913</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#56919">Map</a></td>
+<td class="next">
+Next: <a href="56931.html">56931</a>
+</td>
+</tr>
+</table>
+<div class="description">56919: Print Message String</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="56857.html">Print_StatusMessages</a>.
+</div>
+<div class="paragraph">
+Skip <span class="register">A</span> encoded messages at <span class="register">HL</span> (each ends with &#93;), then print the selected one via <a href="57990.html">Print_EncodedMessage</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Print_MessageString</td>
+<td class="address-2"><span id="56919"></span>56919</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1">Keep the message index in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="56920"></span>
+<div class="comments">
+<div class="paragraph">
+Skip one encoded message at <span class="register">HL</span> (via <a href="58105.html">Skip_ToMessageMarker</a>) until the selected index remains.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Print_MessageString_SkipOneMessage</td>
+<td class="address-2"><span id="56920"></span>56920</td>
+<td class="instruction">CALL <a href="58105.html">Skip_ToMessageMarker</a></td>
+<td class="comment-1" rowspan="3">Call <a href="58105.html">Skip_ToMessageMarker</a> to advance <span class="register">HL</span> past one encoded message. Step on by one byte. Loop until <span class="register">B</span> messages have been skipped.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="56923"></span>56923</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="56924"></span>56924</td>
+<td class="instruction">DJNZ <a href="56919.html#56920">Print_MessageString_SkipOneMessage</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="56926"></span>56926</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-1" rowspan="1">Step back onto the chosen message's terminator.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="56927"></span>56927</td>
+<td class="instruction">CALL <a href="57990.html">Print_EncodedMessage</a></td>
+<td class="comment-1" rowspan="1">Call <a href="57990.html">Print_EncodedMessage</a> to print that encoded message.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="56930"></span>56930</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="56913.html">56913</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#56919">Map</a></td>
+<td class="next">
+Next: <a href="56931.html">56931</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/DE57.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

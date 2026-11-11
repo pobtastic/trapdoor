@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at B01E</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at B01E. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at B01E" />
+<meta property="og:description" content="The Trap Door: Routine at B01E. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/45086.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/45086.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at B01E",
+"name": "The Trap Door: Routine at B01E",
+"description": "The Trap Door: Routine at B01E. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/45086.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at B01E"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/45086.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="45085.html">B01D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#b01e">Map</a></td>
+<td class="next">
+Next: <a href="45108.html">B034</a>
+</td>
+</tr>
+</table>
+<div class="description">B01E: Reset Trap Door Animation State</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="45020.html">ScriptRoutine_AnimateTrapDoorBerk</a> and <a href="45108.html">Update_Drutt</a>.
+</div>
+<div class="paragraph">
+Reset Trap Door Animation State used when opening or closing the trap door.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Reset_Trap_Door_Animation_State</td>
+<td class="address-2"><span id="b01e"></span>B01E</td>
+<td class="instruction">LD A,(IX+$06)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b021"></span>B021</td>
+<td class="instruction">LD ($B01D),A</td>
+<td class="comment-1" rowspan="1">Set Drutt's saved animation state (<a href="45085.html">Drutt_SavedAnimationState</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b024"></span>B024</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear the trap-door flags.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b025"></span>B025</td>
+<td class="instruction">LD ($72BA),A</td>
+<td class="comment-1" rowspan="1">Set the trap-door flags (<a href="29370.html">TrapDoorFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b028"></span>B028</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Advance the current entity's y-extent by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b029"></span>B029</td>
+<td class="instruction">LD ($72BB),A</td>
+<td class="comment-1" rowspan="1">Set Drutt's animation counter (<a href="29371.html">DruttAnimationCounter</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b02c"></span>B02C</td>
+<td class="instruction">LD BC,$A827</td>
+<td class="comment-1" rowspan="1">Load <span class="register">BC</span> with the trap-door graphic layout address (<a href="43047.html">GraphicLayout_TrapDoorAnimB</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b02f"></span>B02F</td>
+<td class="instruction">LD ($91AF),BC</td>
+<td class="comment-1" rowspan="1">Store <span class="register">BC</span> in the trap-door animation state at <a href="37047.html#91af">Pointer_AnimatingSceneryLayout</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b033"></span>B033</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="45085.html">B01D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#b01e">Map</a></td>
+<td class="next">
+Next: <a href="45108.html">B034</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/282758.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

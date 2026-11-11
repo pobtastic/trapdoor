@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at AD47</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at AD47. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at AD47" />
+<meta property="og:description" content="The Trap Door: Routine at AD47. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44359.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44359.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at AD47",
+"name": "The Trap Door: Routine at AD47",
+"description": "The Trap Door: Routine at AD47. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44359.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at AD47"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44359.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="44311.html">AD17</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#ad47">Map</a></td>
+<td class="next">
+Next: <a href="44399.html">AD6F</a>
+</td>
+</tr>
+</table>
+<div class="description">AD47: Reset Text Position</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="43925.html">Update_Berk_State</a> and <a href="44449.html">Update_Timed_Events</a>.
+</div>
+<div class="paragraph">
+Reset the status/menu text cursor to the glyph bitmap at <a href="44311.html">Data_MenuGlyphBitmaps</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Reset_Text_Position</td>
+<td class="address-2"><span id="ad47"></span>AD47</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">A</span> ready to reset the random seed.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad48"></span>AD48</td>
+<td class="instruction">LD ($72F0),A</td>
+<td class="comment-1" rowspan="1">Set the random seed (<a href="29424.html">RandomSeed</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad4b"></span>AD4B</td>
+<td class="instruction">LD HL,$AD17</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the menu glyph bitmaps (<a href="44311.html">Data_MenuGlyphBitmaps</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad4e"></span>AD4E</td>
+<td class="instruction">LD ($72F9),HL</td>
+<td class="comment-1" rowspan="1">Write the pointer in <span class="register">HL</span> to the temporary screen pointer (<a href="29433.html">Pointer_CurrentCharacterSet</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad51"></span>AD51</td>
+<td class="instruction">CALL <a href="44399.html">Print_Menu_Strings</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44399.html">Print_Menu_Strings</a> to print Menu Strings.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad54"></span>AD54</td>
+<td class="instruction">AND C</td>
+<td class="comment-1" rowspan="1">Mask <span class="register">A</span> with <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad55"></span>AD55</td>
+<td class="instruction">LD E,D</td>
+<td class="comment-1" rowspan="1">Copy <span class="register">D</span> into <span class="register">E</span> (build a pointer/offset).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad56"></span>AD56</td>
+<td class="instruction">LD (HL),B</td>
+<td class="comment-1" rowspan="1">Write the loop counter through the pointer in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad57"></span>AD57</td>
+<td class="instruction">LD BC,$0302</td>
+<td class="comment-1" rowspan="1">Load <span class="register">BC</span> with 0302 as a room/position constant.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad5a"></span>AD5A</td>
+<td class="instruction">LD E,L</td>
+<td class="comment-1" rowspan="1">Copy <span class="register">L</span> into <span class="register">E</span> (build a pointer/offset).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad5b"></span>AD5B</td>
+<td class="instruction">LD A,$02</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 02.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad5d"></span>AD5D</td>
+<td class="instruction">LD ($7307),A</td>
+<td class="comment-1" rowspan="1">Set the temporary room/state byte (<a href="29447.html">CurrentTextAttribute</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad60"></span>AD60</td>
+<td class="instruction">LD HL,$5AA4</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at attribute-file address 5AA4.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad63"></span>AD63</td>
+<td class="instruction">LD B,$14</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 14 as a loop counter.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad65"></span>AD65</td>
+<td class="instruction">LD DE,$0000</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">DE</span> (zero offset).</td>
+</tr>
+<tr>
+<td class="asm-label">Reset_Text_Position_PrintLoop</td>
+<td class="address-2"><span id="ad68"></span>AD68</td>
+<td class="instruction">CALL <a href="60263.html">Print_Character</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60263.html">Print_Character</a> to print Character.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad6b"></span>AD6B</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance 5AA4 by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad6c"></span>AD6C</td>
+<td class="instruction">DJNZ <a href="44359.html#ad68">Reset_Text_Position_PrintLoop</a></td>
+<td class="comment-1" rowspan="1">Decrease the loop counter in <span class="register">B</span> and jump to <a href="44359.html#ad68">Reset_Text_Position_PrintLoop</a> if more iterations remain.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad6e"></span>AD6E</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="44311.html">AD17</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#ad47">Map</a></td>
+<td class="next">
+Next: <a href="44399.html">AD6F</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/279385.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

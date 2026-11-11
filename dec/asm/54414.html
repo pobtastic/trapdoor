@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 54414</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 54414. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 54414" />
+<meta property="og:description" content="The Trap Door: Routine at 54414. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/54414.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/54414.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 54414",
+"name": "The Trap Door: Routine at 54414",
+"description": "The Trap Door: Routine at 54414. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/54414.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 54414"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/54414.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="54363.html">54363</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#54414">Map</a></td>
+<td class="next">
+Next: <a href="54626.html">54626</a>
+</td>
+</tr>
+</table>
+<div class="description">54414: Collect Entity</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="54363.html">Update_Collectibles</a>.
+</div>
+<div class="paragraph">
+Collect Entity against the complex entity table at <a href="36585.html">StateData_Boney</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Address of complex state data for an entity</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="54414"></span>
+<div class="comments">
+<div class="paragraph">
+Awards score and clears a collectible when Berk touches it.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Collect_Entity</td>
+<td class="address-2"><span id="54414"></span>54414</td>
+<td class="instruction">LD DE,(29435)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">DE</span> with the camera room-origin pointer (<a href="29435.html">Pointer_CameraRoomOrigin</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54418"></span>54418</td>
+<td class="instruction">LD L,C</td>
+<td class="comment-1" rowspan="1">Copy the low byte from <span class="register">C</span> into <span class="register">L</span> (build <span class="register">HL</span>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54419"></span>54419</td>
+<td class="instruction">LD H,B</td>
+<td class="comment-1" rowspan="1">Copy the high byte from <span class="register">B</span> into <span class="register">H</span> (build <span class="register">HL</span>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54420"></span>54420</td>
+<td class="instruction">LD A,(29363)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the game event flags (<a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54423"></span>54423</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1">Keep game event flags in <span class="register">B</span> for later.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54424"></span>54424</td>
+<td class="instruction">LD A,(IX+0)</td>
+<td class="comment-1" rowspan="1">Fetch the current entity's type for the type test.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54427"></span>54427</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-1" rowspan="2">Is bit 7 of the current entity's entity type set? If so, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54429"></span>54429</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54430"></span>54430</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the current entity's entity type zero? If so, jump to <a href="54414.html#54447">Collect_Entity_TypeZeroBit5</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54431"></span>54431</td>
+<td class="instruction">JR Z,<a href="54414.html#54447">Collect_Entity_TypeZeroBit5</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54433"></span>54433</td>
+<td class="instruction">CP 11</td>
+<td class="comment-1" rowspan="2">Is the current entity's entity type equal to 11? If so, jump to <a href="54414.html#54466">Collect_Entity_AsHeld</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54435"></span>54435</td>
+<td class="instruction">JR Z,<a href="54414.html#54466">Collect_Entity_AsHeld</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54437"></span>54437</td>
+<td class="instruction">BIT 1,B</td>
+<td class="comment-1" rowspan="2">Is bit 1 of the loop/flags byte in <span class="register">B</span> set? If so, jump to <a href="60462.html">AdvanceScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54439"></span>54439</td>
+<td class="instruction">JP NZ,<a href="60462.html">AdvanceScriptInstruction</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54442"></span>54442</td>
+<td class="instruction">LD (IX+0),0</td>
+<td class="comment-1" rowspan="1">Write 0 to the current entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54446"></span>54446</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="54447"></span>
+<div class="comments">
+<div class="paragraph">
+Empty slot with bit 5 set: under the event latch, become type 10 and clear that bit.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Collect_Entity_TypeZeroBit5</td>
+<td class="address-2"><span id="54447"></span>54447</td>
+<td class="instruction">BIT 5,(IX+3)</td>
+<td class="comment-1" rowspan="2">Is bit 5 of flags byte 3 (<span class="register">IX</span>+3) set? If not, jump to <a href="54414.html#54552">Collect_Entity_MaybeSetBit5</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54451"></span>54451</td>
+<td class="instruction">JP Z,<a href="54414.html#54552">Collect_Entity_MaybeSetBit5</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54454"></span>54454</td>
+<td class="instruction">BIT 1,B</td>
+<td class="comment-1" rowspan="2">Is bit 1 of the loop/flags byte in <span class="register">B</span> set? If not, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54456"></span>54456</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54457"></span>54457</td>
+<td class="instruction">LD (IX+0),10</td>
+<td class="comment-1" rowspan="1">Write 10 to the current entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54461"></span>54461</td>
+<td class="instruction">RES 5,(IX+3)</td>
+<td class="comment-1" rowspan="1">Reset bit 5 of flags byte 3 (<span class="register">IX</span>+3).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54465"></span>54465</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="54466"></span>
+<div class="comments">
+<div class="paragraph">
+Type-11 collectible: score it, branch on flags, or tick its counter / wander script.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Collect_Entity_AsHeld</td>
+<td class="address-2"><span id="54466"></span>54466</td>
+<td class="instruction">LD A,(IX+1)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's flags byte 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54469"></span>54469</td>
+<td class="instruction">BIT 6,A</td>
+<td class="comment-1" rowspan="2">Is bit 6 of the current entity's flags byte 1 set? If so, jump to <a href="54414.html#54484">Collect_Entity_RunScoreScript</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54471"></span>54471</td>
+<td class="instruction">JR NZ,<a href="54414.html#54484">Collect_Entity_RunScoreScript</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54473"></span>54473</td>
+<td class="instruction">AND %10100000</td>
+<td class="comment-1" rowspan="1">Keep only bits 7 and 5 of that flags byte (mask 160).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54475"></span>54475</td>
+<td class="instruction">JR NZ,<a href="54414.html#54490">Collect_Entity_Branch</a></td>
+<td class="comment-1" rowspan="1">If the result was non-zero, jump to <a href="54414.html#54490">Collect_Entity_Branch</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54477"></span>54477</td>
+<td class="instruction">LD A,(IX+6)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54480"></span>54480</td>
+<td class="instruction">CP 35</td>
+<td class="comment-1" rowspan="2">Is the current entity's y-extent less than 35? If not, jump to <a href="54414.html#54500">Collect_Entity_TestCounterBit7</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54482"></span>54482</td>
+<td class="instruction">JR NC,<a href="54414.html#54500">Collect_Entity_TestCounterBit7</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="54484"></span>
+<div class="comments">
+<div class="paragraph">
+Run the collectible score script at <a href="53812.html#54216">54216</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Collect_Entity_RunScoreScript</td>
+<td class="address-2"><span id="54484"></span>54484</td>
+<td class="instruction">LD HL,54216</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at collectible/score table data (<a href="53812.html#54216">54216</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54487"></span>54487</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="54490"></span>
+<div class="comments">
+<div class="paragraph">
+Flagged type-11 path: clear the counter and run the alternate score script at <a href="53812.html">54294</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Collect_Entity_Branch</td>
+<td class="address-2"><span id="54490"></span>54490</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear the collectible counter.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54491"></span>54491</td>
+<td class="instruction">LD (29372),A</td>
+<td class="comment-1" rowspan="1">Set the collectible counter (<a href="29372.html">CollectibleCounter</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54494"></span>54494</td>
+<td class="instruction">LD HL,54294</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at collectible/score table data (<a href="53812.html">54294</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54497"></span>54497</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="54500"></span>
+<div class="comments">
+<div class="paragraph">
+High collectibles skip scripting while counter bit 7 is set.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Collect_Entity_TestCounterBit7</td>
+<td class="address-2"><span id="54500"></span>54500</td>
+<td class="instruction">LD A,(29372)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the collectible counter (<a href="29372.html">CollectibleCounter</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54503"></span>54503</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-1" rowspan="2">Is bit 7 of collectible counter set? If so, jump to <a href="60462.html">AdvanceScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54505"></span>54505</td>
+<td class="instruction">JP NZ,<a href="60462.html">AdvanceScriptInstruction</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="54508"></span>
+<div class="comments">
+<div class="paragraph">
+Tick the collectible counter down, or reseed it and launch a wander script when it hits zero.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Collect_Entity_DecCounterOrScript</td>
+<td class="address-2"><span id="54508"></span>54508</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is collectible counter zero? If so, jump to <a href="54414.html#54518">Collect_Entity_RandomiseCounterScript</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54509"></span>54509</td>
+<td class="instruction">JR Z,<a href="54414.html#54518">Collect_Entity_RandomiseCounterScript</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54511"></span>54511</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1">Step collectible counter back by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54512"></span>54512</td>
+<td class="instruction">LD (29372),A</td>
+<td class="comment-1" rowspan="1">Set the collectible counter (<a href="29372.html">CollectibleCounter</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54515"></span>54515</td>
+<td class="instruction">JP <a href="60462.html">AdvanceScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html">AdvanceScriptInstruction</a> to run the next script instruction.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="54518"></span>
+<div class="comments">
+<div class="paragraph">
+Reseed the counter to 132 plus a random and run the wander script at <a href="53812.html">54222</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Collect_Entity_RandomiseCounterScript</td>
+<td class="address-2"><span id="54518"></span>54518</td>
+<td class="instruction">LD A,6</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 6 as the <a href="60133.html">PseudoRandom</a> random maximum.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54520"></span>54520</td>
+<td class="instruction">CALL <a href="60133.html">PseudoRandom</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60133.html">PseudoRandom</a> to pick a pseudo-random value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54523"></span>54523</td>
+<td class="instruction">ADD A,132</td>
+<td class="comment-1" rowspan="1">Add 132 to <span class="register">A</span> (build a score/message digit address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54525"></span>54525</td>
+<td class="instruction">LD (29372),A</td>
+<td class="comment-1" rowspan="1">Set the collectible counter (<a href="29372.html">CollectibleCounter</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54528"></span>54528</td>
+<td class="instruction">LD HL,54222</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at collectible/score table data (<a href="53812.html">54222</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54531"></span>54531</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54534"></span>54534</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Advance the collectible-slot counter in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54535"></span>54535</td>
+<td class="instruction">LD L,L</td>
+<td class="comment-1" rowspan="1">Keep <span class="register">L</span> unchanged (alignment byte in the compiled routine).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54536"></span>54536</td>
+<td class="instruction">INC H</td>
+<td class="comment-1" rowspan="1">Advance the high byte of the pointer in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54537"></span>54537</td>
+<td class="instruction">LD (BC),A</td>
+<td class="comment-1" rowspan="1">Write the computed score/digit byte through <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54538"></span>54538</td>
+<td class="instruction">LD HL,(1492)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">HL</span> from 1492.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54541"></span>54541</td>
+<td class="instruction">LD L,L</td>
+<td class="comment-1" rowspan="1">Keep <span class="register">L</span> unchanged (alignment byte in the compiled routine).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54542"></span>54542</td>
+<td class="instruction">DAA</td>
+<td class="comment-1" rowspan="1">Decimal-adjust <span class="register">A</span> after adding to a score digit.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54543"></span>54543</td>
+<td class="instruction">INC BC</td>
+<td class="comment-1" rowspan="1">Advance the counter/pointer in <span class="register">BC</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54544"></span>54544</td>
+<td class="instruction">INC E</td>
+<td class="comment-1" rowspan="1">Advance the low byte of the pointer/offset in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54545"></span>54545</td>
+<td class="instruction">CALL NC,27392</td>
+<td class="comment-1" rowspan="1">If not below, call <a href="25504.html#27392">PrimaryDisplayBuffer_0</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54548"></span>54548</td>
+<td class="instruction">DEC H</td>
+<td class="comment-1" rowspan="1">Step the high byte of the score/table pointer back by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54549"></span>54549</td>
+<td class="instruction">INC BC</td>
+<td class="comment-1" rowspan="1">Advance the counter/pointer in <span class="register">BC</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54550"></span>54550</td>
+<td class="instruction">JR C,<a href="54414.html#54508">Collect_Entity_DecCounterOrScript</a></td>
+<td class="comment-1" rowspan="1">If a hit/borrow was signaled, jump to <a href="54414.html#54508">Collect_Entity_DecCounterOrScript</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="54552"></span>
+<div class="comments">
+<div class="paragraph">
+Idle empty slot: rarely raise bit 5 and copy spawn coordinates from table <a href="54414.html#54534">54534</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Collect_Entity_MaybeSetBit5</td>
+<td class="address-2"><span id="54552"></span>54552</td>
+<td class="instruction">BIT 1,B</td>
+<td class="comment-1" rowspan="2">Is bit 1 of the loop/flags byte in <span class="register">B</span> set? If so, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54554"></span>54554</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54555"></span>54555</td>
+<td class="instruction">LD A,10</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 10.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54557"></span>54557</td>
+<td class="instruction">CALL <a href="60133.html">PseudoRandom</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60133.html">PseudoRandom</a> to pick a pseudo-random value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54560"></span>54560</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is 10 zero? If not, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54561"></span>54561</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54562"></span>54562</td>
+<td class="instruction">SET 5,(IX+3)</td>
+<td class="comment-1" rowspan="1">Set bit 5 of flags byte 3 (<span class="register">IX</span>+3).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54566"></span>54566</td>
+<td class="instruction">LD A,3</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54568"></span>54568</td>
+<td class="instruction">CALL <a href="60133.html">PseudoRandom</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60133.html">PseudoRandom</a> to pick a pseudo-random value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54571"></span>54571</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-1" rowspan="1">Double 3 (word index).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54572"></span>54572</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Keep 3 in <span class="register">C</span> for later.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54573"></span>54573</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-1" rowspan="1">Double 3 (word index).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54574"></span>54574</td>
+<td class="instruction">ADD A,C</td>
+<td class="comment-1" rowspan="1">Add the saved count in <span class="register">C</span> to <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54575"></span>54575</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Keep 3 in <span class="register">C</span> for later.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54576"></span>54576</td>
+<td class="instruction">LD B,0</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 0 as a loop counter.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54578"></span>54578</td>
+<td class="instruction">LD IY,54534</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IY</span> at collectible storage (<a href="54414.html#54534">54534</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54582"></span>54582</td>
+<td class="instruction">ADD IY,BC</td>
+<td class="comment-1" rowspan="1">Add the offset in <span class="register">BC</span> to the entity pointer in <span class="register">IY</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54584"></span>54584</td>
+<td class="instruction">LD A,(IY+0)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54587"></span>54587</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is referenced entity's entity type zero? If so, jump to <a href="54414.html#54593">Collect_Entity_CopyIYCoordsToIX</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54588"></span>54588</td>
+<td class="instruction">JR Z,<a href="54414.html#54593">Collect_Entity_CopyIYCoordsToIX</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54590"></span>54590</td>
+<td class="instruction">CALL <a href="60133.html">PseudoRandom</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60133.html">PseudoRandom</a> to pick a pseudo-random value.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="54593"></span>
+<div class="comments">
+<div class="paragraph">
+Copy the chosen spawn coords / room from <span class="register">IY</span> into this slot and launch its script.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Collect_Entity_CopyIYCoordsToIX</td>
+<td class="address-2"><span id="54593"></span>54593</td>
+<td class="instruction">ADD A,(IY+1)</td>
+<td class="comment-1" rowspan="1">Add the referenced entity's flags byte 1 to <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54596"></span>54596</td>
+<td class="instruction">LD (IX+7),A</td>
+<td class="comment-1" rowspan="1">Set the current entity's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54599"></span>54599</td>
+<td class="instruction">LD (IX+8),A</td>
+<td class="comment-1" rowspan="1">Set the current entity's x-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54602"></span>54602</td>
+<td class="instruction">LD A,(IY+2)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's flags byte 2.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54605"></span>54605</td>
+<td class="instruction">LD (IX+5),A</td>
+<td class="comment-1" rowspan="1">Set the current entity's y-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54608"></span>54608</td>
+<td class="instruction">LD (IX+6),A</td>
+<td class="comment-1" rowspan="1">Set the current entity's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54611"></span>54611</td>
+<td class="instruction">LD A,(IY+3)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's flags byte 3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54614"></span>54614</td>
+<td class="instruction">LD (IX+4),A</td>
+<td class="comment-1" rowspan="1">Set the current entity's room index.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54617"></span>54617</td>
+<td class="instruction">LD L,(IY+4)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">L</span> with the referenced entity's room index.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54620"></span>54620</td>
+<td class="instruction">LD H,(IY+5)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">H</span> with the referenced entity's y-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="54623"></span>54623</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="54363.html">54363</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#54414">Map</a></td>
+<td class="next">
+Next: <a href="54626.html">54626</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/D48E.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

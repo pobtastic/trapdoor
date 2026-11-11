@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at EE30</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at EE30. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at EE30" />
+<meta property="og:description" content="The Trap Door: Routine at EE30. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/EE30.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/EE30.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at EE30",
+"name": "The Trap Door: Routine at EE30",
+"description": "The Trap Door: Routine at EE30. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/EE30.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at EE30"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/EE30.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="EDF8.html">EDF8</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#ee30">Map</a></td>
+<td class="next">
+Next: <a href="EF12.html">EF12</a>
+</td>
+</tr>
+</table>
+<div class="description">EE30: Check Entities Near Trap Door</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="EDF8.html">Open_TrapDoor</a>.
+</div>
+<div class="paragraph">
+Scan complex entity state starting at <a href="8EE9.html">StateData_Boney</a>. Returns with the carry flag set when the trap door should open (an entity of type 32 is present and nearby entities have been adjusted). Called by <a href="EDF8.html">Open_TrapDoor</a>.
+</div>
+</div>
+<table class="output">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<td class="register">F</td>
+<td class="register-desc">Success marker set if the trap door should open</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Check_EntitiesNearTrapDoor</td>
+<td class="address-2"><span id="ee30"></span>EE30</td>
+<td class="instruction">LD IX,$8EE9</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at Boney's complex entity state (<a href="8EE9.html">StateData_Boney</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee34"></span>EE34</td>
+<td class="instruction">LD DE,$000E</td>
+<td class="comment-1" rowspan="1">Load <span class="register">DE</span> with 000E.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee37"></span>EE37</td>
+<td class="instruction">LD HL,$72B3</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the game event flags (<a href="72B3.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ee3a"></span>
+<div class="comments">
+<div class="paragraph">
+Scan complex entities for ones standing in the trap door X band of rooms 02–04.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">CheckNearTrapDoor_Scan</td>
+<td class="address-2"><span id="ee3a"></span>EE3A</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Fetch the current entity's type for the type test.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee3d"></span>EE3D</td>
+<td class="instruction">CP $32</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> equal to 32? If so, jump to <a href="EE30.html#eebf">CheckNearTrapDoor_FoundSceneryBlock</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee3f"></span>EE3F</td>
+<td class="instruction">JP Z,<a href="EE30.html#eebf">CheckNearTrapDoor_FoundSceneryBlock</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee42"></span>EE42</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> zero? If so, jump to <a href="EE30.html#ee8e">CheckNearTrapDoor_NextEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee43"></span>EE43</td>
+<td class="instruction">JR Z,<a href="EE30.html#ee8e">CheckNearTrapDoor_NextEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee45"></span>EE45</td>
+<td class="instruction">CP $21</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> less than 21? If not, jump to <a href="EE30.html#ee8e">CheckNearTrapDoor_NextEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee47"></span>EE47</td>
+<td class="instruction">JR NC,<a href="EE30.html#ee8e">CheckNearTrapDoor_NextEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee49"></span>EE49</td>
+<td class="instruction">LD A,(IX+$04)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's room index.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee4c"></span>EE4C</td>
+<td class="instruction">CP $05</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> equal to 05? If so, jump to <a href="EE30.html#ee8e">CheckNearTrapDoor_NextEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee4e"></span>EE4E</td>
+<td class="instruction">JR Z,<a href="EE30.html#ee8e">CheckNearTrapDoor_NextEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee50"></span>EE50</td>
+<td class="instruction">CP $02</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> less than 02? If so, jump to <a href="EE30.html#ee8e">CheckNearTrapDoor_NextEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee52"></span>EE52</td>
+<td class="instruction">JR C,<a href="EE30.html#ee8e">CheckNearTrapDoor_NextEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee54"></span>EE54</td>
+<td class="instruction">BIT 7,(IX+$01)</td>
+<td class="comment-1" rowspan="2">Is bit 07 of the current entity's flags byte 1 set? If so, jump to <a href="EE30.html#ee8e">CheckNearTrapDoor_NextEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee58"></span>EE58</td>
+<td class="instruction">JR NZ,<a href="EE30.html#ee8e">CheckNearTrapDoor_NextEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee5a"></span>EE5A</td>
+<td class="instruction">LD A,(IX+$08)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee5d"></span>EE5D</td>
+<td class="instruction">CP $6C</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> less than 6C? If so, jump to <a href="EE30.html#ee8e">CheckNearTrapDoor_NextEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee5f"></span>EE5F</td>
+<td class="instruction">JR C,<a href="EE30.html#ee8e">CheckNearTrapDoor_NextEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee61"></span>EE61</td>
+<td class="instruction">LD A,(IX+$07)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee64"></span>EE64</td>
+<td class="instruction">CP $74</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> less than 74? If not, jump to <a href="EE30.html#ee8e">CheckNearTrapDoor_NextEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee66"></span>EE66</td>
+<td class="instruction">JR NC,<a href="EE30.html#ee8e">CheckNearTrapDoor_NextEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee68"></span>EE68</td>
+<td class="instruction">CP $72</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> less than 72? If so, jump to <a href="EE30.html#ee7a">CheckNearTrapDoor_CheckEntityType</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee6a"></span>EE6A</td>
+<td class="instruction">JR C,<a href="EE30.html#ee7a">CheckNearTrapDoor_CheckEntityType</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee6c"></span>EE6C</td>
+<td class="instruction">JR NZ,<a href="EE30.html#ee74">CheckNearTrapDoor_SetBit7</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="EE30.html#ee74">CheckNearTrapDoor_SetBit7</a> to continue if the comparison did not match.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee6e"></span>EE6E</td>
+<td class="instruction">SET 6,(IX+$03)</td>
+<td class="comment-1" rowspan="1">Set bit 06 of the current entity's flags byte 3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee72"></span>EE72</td>
+<td class="instruction">JR <a href="EE30.html#ee8a">CheckNearTrapDoor_MarkEntity</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="EE30.html#ee8a">CheckNearTrapDoor_MarkEntity</a> to handle the trap door.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ee74"></span>
+<div class="comments">
+<div class="paragraph">
+Flag this near-trap entity with bit 07 (right-of-band side).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">CheckNearTrapDoor_SetBit7</td>
+<td class="address-2"><span id="ee74"></span>EE74</td>
+<td class="instruction">SET 7,(IX+$03)</td>
+<td class="comment-1" rowspan="1">Set bit 07 of the current entity's flags byte 3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee78"></span>EE78</td>
+<td class="instruction">JR <a href="EE30.html#ee8a">CheckNearTrapDoor_MarkEntity</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="EE30.html#ee8a">CheckNearTrapDoor_MarkEntity</a> to handle the trap door.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ee7a"></span>
+<div class="comments">
+<div class="paragraph">
+For X in the inner band: poke Bad Tempered Thing state for Berk, else just mark the entity.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">CheckNearTrapDoor_CheckEntityType</td>
+<td class="address-2"><span id="ee7a"></span>EE7A</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Fetch the current entity's type for the type test.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee7d"></span>EE7D</td>
+<td class="instruction">CP $14</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> less than 14? If not, jump to <a href="EE30.html#ee92">CheckNearTrapDoor_ClearPass</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee7f"></span>EE7F</td>
+<td class="instruction">JR NC,<a href="EE30.html#ee92">CheckNearTrapDoor_ClearPass</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee81"></span>EE81</td>
+<td class="instruction">CP $01</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> equal to 01? If not, jump to <a href="EE30.html#ee8a">CheckNearTrapDoor_MarkEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee83"></span>EE83</td>
+<td class="instruction">JR NZ,<a href="EE30.html#ee8a">CheckNearTrapDoor_MarkEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee85"></span>EE85</td>
+<td class="instruction">LD A,$07</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 07.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee87"></span>EE87</td>
+<td class="instruction">LD ($72C7),A</td>
+<td class="comment-1" rowspan="1">Set the Bad Tempered Thing state (<a href="72C7.html">BadTemperedThingState</a>).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ee8a"></span>
+<div class="comments">
+<div class="paragraph">
+Set bit 00 on the near-trap entity, then advance.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">CheckNearTrapDoor_MarkEntity</td>
+<td class="address-2"><span id="ee8a"></span>EE8A</td>
+<td class="instruction">SET 0,(IX+$02)</td>
+<td class="comment-1" rowspan="1">Set bit 00 of the current entity's flags byte 2.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ee8e"></span>
+<div class="comments">
+<div class="paragraph">
+Advance to the next complex entity in the near-trap scan.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">CheckNearTrapDoor_NextEntity</td>
+<td class="address-2"><span id="ee8e"></span>EE8E</td>
+<td class="instruction">ADD IX,DE</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>+=<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee90"></span>EE90</td>
+<td class="instruction">JR <a href="EE30.html#ee3a">CheckNearTrapDoor_Scan</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="EE30.html#ee3a">CheckNearTrapDoor_Scan</a> to handle the trap door.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ee92"></span>
+<div class="comments">
+<div class="paragraph">
+Restart from <a href="8EE9.html">StateData_Boney</a> to clear near-trap marks when no type-32 was found.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">CheckNearTrapDoor_ClearPass</td>
+<td class="address-2"><span id="ee92"></span>EE92</td>
+<td class="instruction">LD IX,$8EE9</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at Boney's complex entity state (<a href="8EE9.html">StateData_Boney</a>).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ee96"></span>
+<div class="comments">
+<div class="paragraph">
+Clear pass: wipe bit 00/06/07 marks until type 32, then refuse the open.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">CheckNearTrapDoor_ClearScan</td>
+<td class="address-2"><span id="ee96"></span>EE96</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Fetch the current entity's type for the type test.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee99"></span>EE99</td>
+<td class="instruction">CP $32</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> equal to 32? If so, jump to <a href="EE30.html#eebc">CheckNearTrapDoor_NoOpen</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee9b"></span>EE9B</td>
+<td class="instruction">JR Z,<a href="EE30.html#eebc">CheckNearTrapDoor_NoOpen</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ee9d"></span>EE9D</td>
+<td class="instruction">BIT 0,(IX+$02)</td>
+<td class="comment-1" rowspan="2">Is bit 00 of the current entity's flags byte 2 set? If not, jump to <a href="EE30.html#eeb8">CheckNearTrapDoor_ClearNext</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eea1"></span>EEA1</td>
+<td class="instruction">JR Z,<a href="EE30.html#eeb8">CheckNearTrapDoor_ClearNext</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eea3"></span>EEA3</td>
+<td class="instruction">RES 0,(IX+$02)</td>
+<td class="comment-1" rowspan="1">Reset bit 00 of the current entity's flags byte 2.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eea7"></span>EEA7</td>
+<td class="instruction">RES 6,(IX+$03)</td>
+<td class="comment-1" rowspan="1">Reset bit 06 of the current entity's flags byte 3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eeab"></span>EEAB</td>
+<td class="instruction">RES 7,(IX+$03)</td>
+<td class="comment-1" rowspan="1">Reset bit 07 of the current entity's flags byte 3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eeaf"></span>EEAF</td>
+<td class="instruction">CP $01</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> equal to 01? If not, jump to <a href="EE30.html#eeb8">CheckNearTrapDoor_ClearNext</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eeb1"></span>EEB1</td>
+<td class="instruction">JR NZ,<a href="EE30.html#eeb8">CheckNearTrapDoor_ClearNext</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eeb3"></span>EEB3</td>
+<td class="instruction">LD A,$05</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with sound index 05.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eeb5"></span>EEB5</td>
+<td class="instruction">LD ($72C7),A</td>
+<td class="comment-1" rowspan="1">Set the Bad Tempered Thing state (<a href="72C7.html">BadTemperedThingState</a>).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="eeb8"></span>
+<div class="comments">
+<div class="paragraph">
+Advance during the clear pass.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">CheckNearTrapDoor_ClearNext</td>
+<td class="address-2"><span id="eeb8"></span>EEB8</td>
+<td class="instruction">ADD IX,DE</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>+=<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eeba"></span>EEBA</td>
+<td class="instruction">JR <a href="EE30.html#ee96">CheckNearTrapDoor_ClearScan</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="EE30.html#ee96">CheckNearTrapDoor_ClearScan</a> to handle the trap door.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="eebc"></span>
+<div class="comments">
+<div class="paragraph">
+No open: clear the falling-entity latch (bit 02 of <a href="72B3.html">GameEventFlags</a>) and return carry clear.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">CheckNearTrapDoor_NoOpen</td>
+<td class="address-2"><span id="eebc"></span>EEBC</td>
+<td class="instruction">RES 2,(HL)</td>
+<td class="comment-1" rowspan="1">Clear the falling-entity latch (bit 02 of <a href="72B3.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eebe"></span>EEBE</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="eebf"></span>
+<div class="comments">
+<div class="paragraph">
+Type 32 found: restart from <a href="8EE9.html">StateData_Boney</a> to nudge marked entities before opening.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">CheckNearTrapDoor_FoundSceneryBlock</td>
+<td class="address-2"><span id="eebf"></span>EEBF</td>
+<td class="instruction">LD IX,$8EE9</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at Boney's complex entity state (<a href="8EE9.html">StateData_Boney</a>).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="eec3"></span>
+<div class="comments">
+<div class="paragraph">
+Adjust pass: shrink or bump entities that were marked near the trap door.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">CheckNearTrapDoor_AdjustScan</td>
+<td class="address-2"><span id="eec3"></span>EEC3</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Fetch the current entity's type for the type test.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eec6"></span>EEC6</td>
+<td class="instruction">CP $32</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> equal to 32? If so, jump to <a href="EE30.html#ef0e">CheckNearTrapDoor_ShouldOpen</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eec8"></span>EEC8</td>
+<td class="instruction">JR Z,<a href="EE30.html#ef0e">CheckNearTrapDoor_ShouldOpen</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eeca"></span>EECA</td>
+<td class="instruction">BIT 0,(IX+$02)</td>
+<td class="comment-1" rowspan="2">Is bit 00 of the current entity's flags byte 2 set? If not, jump to <a href="EE30.html#ef0a">CheckNearTrapDoor_AdjustNext</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eece"></span>EECE</td>
+<td class="instruction">JR Z,<a href="EE30.html#ef0a">CheckNearTrapDoor_AdjustNext</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eed0"></span>EED0</td>
+<td class="instruction">LD A,(IX+$03)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's flags byte 3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eed3"></span>EED3</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Keep the flags byte in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eed4"></span>EED4</td>
+<td class="instruction">AND %00111111</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>&amp;=3F.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eed6"></span>EED6</td>
+<td class="instruction">LD (IX+$03),A</td>
+<td class="comment-1" rowspan="1">Set the current entity's flags byte 3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eed9"></span>EED9</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-1" rowspan="1">Copy the saved count/flag from <span class="register">C</span> into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eeda"></span>EEDA</td>
+<td class="instruction">AND %11000000</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>&amp;=C0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eedc"></span>EEDC</td>
+<td class="instruction">JR Z,<a href="EE30.html#eef4">CheckNearTrapDoor_ShrinkBounds</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="EE30.html#eef4">CheckNearTrapDoor_ShrinkBounds</a> to continue if the comparison matched.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eede"></span>EEDE</td>
+<td class="instruction">RES 0,(IX+$02)</td>
+<td class="comment-1" rowspan="1">Reset bit 00 of the current entity's flags byte 2.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eee2"></span>EEE2</td>
+<td class="instruction">BIT 6,A</td>
+<td class="comment-1" rowspan="2">Is bit 06 of <span class="register">A</span> set? If not, jump to <a href="EE30.html#eeec">CheckNearTrapDoor_BumpCoordinates</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eee4"></span>EEE4</td>
+<td class="instruction">JR Z,<a href="EE30.html#eeec">CheckNearTrapDoor_BumpCoordinates</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eee6"></span>EEE6</td>
+<td class="instruction">INC (IX+$07)</td>
+<td class="comment-1" rowspan="2">Move this entity one character right.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eee9"></span>EEE9</td>
+<td class="instruction">INC (IX+$08)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="eeec"></span>
+<div class="comments">
+<div class="paragraph">
+Bump a marked entity one character right away from the trap door band.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">CheckNearTrapDoor_BumpCoordinates</td>
+<td class="address-2"><span id="eeec"></span>EEEC</td>
+<td class="instruction">INC (IX+$07)</td>
+<td class="comment-1" rowspan="2">Bump this entity one character right.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eeef"></span>EEEF</td>
+<td class="instruction">INC (IX+$08)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eef2"></span>EEF2</td>
+<td class="instruction">JR <a href="EE30.html#ef0a">CheckNearTrapDoor_AdjustNext</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="EE30.html#ef0a">CheckNearTrapDoor_AdjustNext</a> to handle the trap door.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="eef4"></span>
+<div class="comments">
+<div class="paragraph">
+Randomly shrink a marked entity's Y/Y-extent by 04–07 characters.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">CheckNearTrapDoor_ShrinkBounds</td>
+<td class="address-2"><span id="eef4"></span>EEF4</td>
+<td class="instruction">LD A,$04</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 04.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eef6"></span>EEF6</td>
+<td class="instruction">CALL <a href="EAE5.html">PseudoRandom</a></td>
+<td class="comment-1" rowspan="1">Call <a href="EAE5.html">PseudoRandom</a> to pick a pseudo-random value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eef9"></span>EEF9</td>
+<td class="instruction">ADD A,$04</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>+=04.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eefb"></span>EEFB</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Keep <span class="register">A</span> in <span class="register">C</span> for the next calculation.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eefc"></span>EEFC</td>
+<td class="instruction">LD A,(IX+$05)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's y-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="eeff"></span>EEFF</td>
+<td class="instruction">SUB C</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>-=<span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ef00"></span>EF00</td>
+<td class="instruction">LD (IX+$05),A</td>
+<td class="comment-1" rowspan="1">Set the current entity's y-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ef03"></span>EF03</td>
+<td class="instruction">LD A,(IX+$06)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ef06"></span>EF06</td>
+<td class="instruction">SUB C</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>-=<span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ef07"></span>EF07</td>
+<td class="instruction">LD (IX+$06),A</td>
+<td class="comment-1" rowspan="1">Set the current entity's y-extent.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ef0a"></span>
+<div class="comments">
+<div class="paragraph">
+Advance to the next entity in the adjust pass.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">CheckNearTrapDoor_AdjustNext</td>
+<td class="address-2"><span id="ef0a"></span>EF0A</td>
+<td class="instruction">ADD IX,DE</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>+=<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ef0c"></span>EF0C</td>
+<td class="instruction">JR <a href="EE30.html#eec3">CheckNearTrapDoor_AdjustScan</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="EE30.html#eec3">CheckNearTrapDoor_AdjustScan</a> to handle the trap door.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ef0e"></span>
+<div class="comments">
+<div class="paragraph">
+Signal that the trap door should open (set bit 02 of <a href="72B3.html">GameEventFlags</a>, carry set).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">CheckNearTrapDoor_ShouldOpen</td>
+<td class="address-2"><span id="ef0e"></span>EF0E</td>
+<td class="instruction">SET 2,(HL)</td>
+<td class="comment-1" rowspan="1">Set the falling-entity latch (bit 02 of <a href="72B3.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ef10"></span>EF10</td>
+<td class="instruction">SCF</td>
+<td class="comment-1" rowspan="1">Signal success.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ef11"></span>EF11</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="EDF8.html">EDF8</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#ee30">Map</a></td>
+<td class="next">
+Next: <a href="EF12.html">EF12</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/60976.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

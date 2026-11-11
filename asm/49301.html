@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at C095</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at C095. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at C095" />
+<meta property="og:description" content="The Trap Door: Routine at C095. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/49301.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/49301.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at C095",
+"name": "The Trap Door: Routine at C095",
+"description": "The Trap Door: Routine at C095. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/49301.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at C095"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/49301.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="49262.html">C06E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#c095">Map</a></td>
+<td class="next">
+Next: <a href="49410.html">C102</a>
+</td>
+</tr>
+</table>
+<div class="description">C095: Update Task Helper Entities</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="48845.html">Update_Task_Two_Entities</a>.
+</div>
+<div class="paragraph">
+Update Task Helper Entities for the current Thing Upstairs task.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Helper_Entities</td>
+<td class="address-2"><span id="c095"></span>C095</td>
+<td class="instruction">LD A,($9055)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the door / interactable entity's type (<a href="36595.html#9055">StateData_Complex_26</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c098"></span>C098</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> zero? If so, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c099"></span>C099</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c09a"></span>C09A</td>
+<td class="instruction">LD A,($72BF)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the room-transition flag (<a href="29375.html">RoomTransitionFlag</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c09d"></span>C09D</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is room-transition flag zero? If so, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c09e"></span>C09E</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c09f"></span>C09F</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1">Keep room-transition flag in <span class="register">E</span> for later.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0a0"></span>C0A0</td>
+<td class="instruction">LD IX,$9055</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the door/interactable entity (<a href="36595.html#9055">StateData_Complex_26</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0a4"></span>C0A4</td>
+<td class="instruction">LD HL,$72B5</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the task-two flags (<a href="29365.html">TaskTwoFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0a7"></span>C0A7</td>
+<td class="instruction">LD A,(IX+$07)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0aa"></span>C0AA</td>
+<td class="instruction">CP $84</td>
+<td class="comment-1" rowspan="2">Is the current entity's x-coordinate equal to 84? If not, jump to <a href="49301.html#c0dd">Update_Task_Helper_Entities_Countdown</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0ac"></span>C0AC</td>
+<td class="instruction">JR NZ,<a href="49301.html#c0dd">Update_Task_Helper_Entities_Countdown</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0ae"></span>C0AE</td>
+<td class="instruction">LD A,(IX+$05)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's y-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0b1"></span>C0B1</td>
+<td class="instruction">CP $20</td>
+<td class="comment-1" rowspan="2">Is the current entity's y-coordinate equal to 20? If not, jump to <a href="49301.html#c0dd">Update_Task_Helper_Entities_Countdown</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0b3"></span>C0B3</td>
+<td class="instruction">JR NZ,<a href="49301.html#c0dd">Update_Task_Helper_Entities_Countdown</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0b5"></span>C0B5</td>
+<td class="instruction">LD A,($72C4)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the stove / heater state (<a href="29380.html">StoveHeaterState</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0b8"></span>C0B8</td>
+<td class="instruction">CP $FF</td>
+<td class="comment-1" rowspan="2">Is stove / heater state equal to FF? If so, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0ba"></span>C0BA</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0bb"></span>C0BB</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Advance stove / heater state by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0bc"></span>C0BC</td>
+<td class="instruction">LD ($72C4),A</td>
+<td class="comment-1" rowspan="1">Set the stove / heater state (<a href="29380.html">StoveHeaterState</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0bf"></span>C0BF</td>
+<td class="instruction">CP $32</td>
+<td class="comment-1" rowspan="2">Is stove / heater state equal to 32? If so, jump to <a href="49301.html#c0cf">Update_Task_Helper_Entities_SetLayoutBit</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0c1"></span>C0C1</td>
+<td class="instruction">JR Z,<a href="49301.html#c0cf">Update_Task_Helper_Entities_SetLayoutBit</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0c3"></span>C0C3</td>
+<td class="instruction">CP $C8</td>
+<td class="comment-1" rowspan="2">Is stove / heater state less than C8? If so, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0c5"></span>C0C5</td>
+<td class="instruction">RET C</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0c6"></span>C0C6</td>
+<td class="instruction">SET 3,(IX+$02)</td>
+<td class="comment-1" rowspan="1">Set bit 03 of the current entity's entity flags.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0ca"></span>C0CA</td>
+<td class="instruction">LD HL,$9DD8</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Graphic Layout Data (<a href="40408.html">GraphicLayout_Tertiary</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0cd"></span>C0CD</td>
+<td class="instruction">JR <a href="49301.html#c0d9">Update_Task_Helper_Entities_WriteDoorLayout</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="49301.html#c0d9">Update_Task_Helper_Entities_WriteDoorLayout</a> to write the door layout pointer.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Helper_Entities_SetLayoutBit</td>
+<td class="address-2"><span id="c0cf"></span>C0CF</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-1" rowspan="1">Copy the saved low byte from <span class="register">E</span> into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0d0"></span>C0D0</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the saved room-transition flag in <span class="register">A</span> zero? If so, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0d1"></span>C0D1</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0d2"></span>C0D2</td>
+<td class="instruction">SET 4,(HL)</td>
+<td class="comment-1" rowspan="1">Set bit 04 of <a href="29365.html">TaskTwoFlags</a> (cleared by <a href="49262.html#c07a">C07A</a>; no BIT reader found).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0d4"></span>C0D4</td>
+<td class="instruction">SET 5,(HL)</td>
+<td class="comment-1" rowspan="1">Set bit 05 of <a href="29365.html">TaskTwoFlags</a> (cleared by <a href="49262.html#c07c">C07C</a> / <a href="49301.html#c0f1">C0F1</a>; no BIT reader found).</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Helper_Entities_Layout_9DE3</td>
+<td class="address-2"><span id="c0d6"></span>C0D6</td>
+<td class="instruction">LD HL,$9DE3</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Graphic Layout Data (<a href="40419.html">GraphicLayout_Quaternary</a>).</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Helper_Entities_WriteDoorLayout</td>
+<td class="address-2"><span id="c0d9"></span>C0D9</td>
+<td class="instruction">LD ($905F),HL</td>
+<td class="comment-1" rowspan="1">Write the layout pointer into the door entity's layout field (905F).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0dc"></span>C0DC</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Helper_Entities_Countdown</td>
+<td class="address-2"><span id="c0dd"></span>C0DD</td>
+<td class="instruction">LD A,($72C4)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the stove / heater state (<a href="29380.html">StoveHeaterState</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0e0"></span>C0E0</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is stove / heater state zero? If so, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0e1"></span>C0E1</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0e2"></span>C0E2</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1">Step stove / heater state back by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0e3"></span>C0E3</td>
+<td class="instruction">LD ($72C4),A</td>
+<td class="comment-1" rowspan="1">Set the stove / heater state (<a href="29380.html">StoveHeaterState</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0e6"></span>C0E6</td>
+<td class="instruction">CP $C8</td>
+<td class="comment-1" rowspan="2">Is stove / heater state equal to C8? If so, jump to <a href="49301.html#c0f5">Update_Task_Helper_Entities_ClearFlagBit3</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0e8"></span>C0E8</td>
+<td class="instruction">JR Z,<a href="49301.html#c0f5">Update_Task_Helper_Entities_ClearFlagBit3</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0ea"></span>C0EA</td>
+<td class="instruction">CP $32</td>
+<td class="comment-1" rowspan="2">Is stove / heater state equal to 32? If not, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0ec"></span>C0EC</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0ed"></span>C0ED</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-1" rowspan="1">Copy the saved low byte from <span class="register">E</span> into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0ee"></span>C0EE</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the saved room-transition flag zero? If so, jump to <a href="49301.html#c0fd">Update_Task_Helper_Entities_Layout_9E07</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0ef"></span>C0EF</td>
+<td class="instruction">JR Z,<a href="49301.html#c0fd">Update_Task_Helper_Entities_Layout_9E07</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0f1"></span>C0F1</td>
+<td class="instruction">RES 5,(HL)</td>
+<td class="comment-1" rowspan="1">Clear bit 05 of <a href="29365.html">TaskTwoFlags</a> (set at <a href="49301.html#c0d4">C0D4</a>; no BIT reader found).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0f3"></span>C0F3</td>
+<td class="instruction">JR <a href="49301.html#c0fd">Update_Task_Helper_Entities_Layout_9E07</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="49301.html#c0fd">Update_Task_Helper_Entities_Layout_9E07</a> to finish the door/heater update.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Helper_Entities_ClearFlagBit3</td>
+<td class="address-2"><span id="c0f5"></span>C0F5</td>
+<td class="instruction">RES 3,(IX+$02)</td>
+<td class="comment-1" rowspan="1">Reset bit 03 of the current entity's entity flags.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0f9"></span>C0F9</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-1" rowspan="1">Copy the saved low byte from <span class="register">E</span> into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0fa"></span>C0FA</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the saved room-transition flag zero? If not, jump to <a href="49301.html#c0d6">Update_Task_Helper_Entities_Layout_9DE3</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c0fb"></span>C0FB</td>
+<td class="instruction">JR NZ,<a href="49301.html#c0d6">Update_Task_Helper_Entities_Layout_9DE3</a></td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Helper_Entities_Layout_9E07</td>
+<td class="address-2"><span id="c0fd"></span>C0FD</td>
+<td class="instruction">LD HL,$9E07</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at door graphic layout <a href="40455.html">GraphicLayout_EntityType04</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c100"></span>C100</td>
+<td class="instruction">JR <a href="49301.html#c0d9">Update_Task_Helper_Entities_WriteDoorLayout</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="49301.html#c0d9">Update_Task_Helper_Entities_WriteDoorLayout</a> to write the door layout pointer.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="49262.html">C06E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#c095">Map</a></td>
+<td class="next">
+Next: <a href="49410.html">C102</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/299777.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

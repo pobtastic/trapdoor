@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 63242</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 63242. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 63242" />
+<meta property="og:description" content="The Trap Door: Routine at 63242. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/63242.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/63242.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 63242",
+"name": "The Trap Door: Routine at 63242",
+"description": "The Trap Door: Routine at 63242. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/63242.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 63242"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/63242.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="63190.html">63190</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#63242">Map</a></td>
+<td class="next">
+Next: <a href="63296.html">63296</a>
+</td>
+</tr>
+</table>
+<div class="description">63242: Colour-Cycle Main Menu Logo</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="62447.html">MainMenu</a>, <a href="62749.html">MainMenu_SelectOptions</a> and <a href="62922.html">Print_ControlKeyLabels</a>.
+</div>
+<div class="paragraph">
+Cycle attributes across the eight logo cells at <a href="63174.html">Table_MainMenuLogoAttributes</a>. Picks a fresh paper value via <a href="60133.html">PseudoRandom</a> (avoiding a repeat of the scratch byte at <a href="63296.html">Font_MainMenuLogo</a>), then paints a 6×9 attribute block at each cell. Used after <a href="63190.html">Draw_MainMenuLogo</a> and as a menu acknowledge flash from <a href="62749.html">MainMenu_SelectOptions</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="63242"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="logo-cycle" src="../../images/udgs/logo-cycle.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+Walk all eight logo cells with a new random attribute.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ColourCycle_MainMenuLogo</td>
+<td class="address-2"><span id="63242"></span>63242</td>
+<td class="instruction">LD IX,63174</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at <a href="63174.html">Table_MainMenuLogoAttributes</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63246"></span>63246</td>
+<td class="instruction">LD D,0</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">D</span> (row-step high byte stays 0).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63248"></span>63248</td>
+<td class="instruction">LD B,8</td>
+<td class="comment-1" rowspan="1">There are 8 logo cells to recolour.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="63250"></span>
+<div class="comments">
+<div class="paragraph">
+Recolour one of the eight logo cells with a fresh random paper attribute.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ColourCycle_MainMenuLogo_CellLoop</td>
+<td class="address-2"><span id="63250"></span>63250</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">BC</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63251"></span>63251</td>
+<td class="instruction">LD HL,63296</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the logo-font scratch byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63254"></span>63254</td>
+<td class="instruction">LD A,5</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 5 (random range for the attribute pick).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="63256"></span>
+<div class="comments">
+<div class="paragraph">
+Pick a paper value that differs from the previous pick at <a href="63296.html">Font_MainMenuLogo</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ColourCycle_MainMenuLogo_PickAttr</td>
+<td class="address-2"><span id="63256"></span>63256</td>
+<td class="instruction">CALL <a href="60133.html">PseudoRandom</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60133.html">PseudoRandom</a> to pick a pseudo-random value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63259"></span>63259</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-1" rowspan="2">Does it match the previous pick at <a href="63296.html">Font_MainMenuLogo</a>? If so, jump to <a href="63242.html#63256">ColourCycle_MainMenuLogo_PickAttr</a> to pick again.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63260"></span>63260</td>
+<td class="instruction">JR Z,<a href="63242.html#63256">ColourCycle_MainMenuLogo_PickAttr</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63262"></span>63262</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1">Store the new pick at <a href="63296.html">Font_MainMenuLogo</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63263"></span>63263</td>
+<td class="instruction">ADD A,2</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>+=2.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63265"></span>63265</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-1" rowspan="3">Multiply by 8 to form a paper attribute.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63266"></span>63266</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63267"></span>63267</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63268"></span>63268</td>
+<td class="instruction">LD L,(IX+0)</td>
+<td class="comment-1" rowspan="2">Fetch this cell's attribute address into <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63271"></span>63271</td>
+<td class="instruction">LD H,(IX+1)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63274"></span>63274</td>
+<td class="instruction">LD C,6</td>
+<td class="comment-1" rowspan="1">There are 6 attribute rows to paint.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="63276"></span>
+<div class="comments">
+<div class="paragraph">
+Paint one attribute row of the 6×9 logo cell.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ColourCycle_MainMenuLogo_RowLoop</td>
+<td class="address-2"><span id="63276"></span>63276</td>
+<td class="instruction">LD B,9</td>
+<td class="comment-1" rowspan="1">There are 9 attribute cells in a logo row.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="63278"></span>
+<div class="comments">
+<div class="paragraph">
+Write one attribute cell of the colour-cycled logo row.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ColourCycle_MainMenuLogo_ColLoop</td>
+<td class="address-2"><span id="63278"></span>63278</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1">Write the attribute at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63279"></span>63279</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance along the attribute row.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63280"></span>63280</td>
+<td class="instruction">DJNZ <a href="63242.html#63278">ColourCycle_MainMenuLogo_ColLoop</a></td>
+<td class="comment-1" rowspan="1">Decrease the column counter and jump to <a href="63242.html#63278">ColourCycle_MainMenuLogo_ColLoop</a> while columns remain.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63282"></span>63282</td>
+<td class="instruction">LD E,23</td>
+<td class="comment-1" rowspan="1">Load <span class="register">E</span> with 23 (bytes from row end to the next logo row).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63284"></span>63284</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">Step <span class="register">HL</span> onto the next attribute row.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63285"></span>63285</td>
+<td class="instruction">DEC C</td>
+<td class="comment-1" rowspan="1">Decrease the row counter.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63286"></span>63286</td>
+<td class="instruction">JR NZ,<a href="63242.html#63276">ColourCycle_MainMenuLogo_RowLoop</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="63242.html#63276">ColourCycle_MainMenuLogo_RowLoop</a> while rows remain.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63288"></span>63288</td>
+<td class="instruction">INC IX</td>
+<td class="comment-1" rowspan="2">Move <span class="register">IX</span> to the next attribute address in the table.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63290"></span>63290</td>
+<td class="instruction">INC IX</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63292"></span>63292</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63293"></span>63293</td>
+<td class="instruction">DJNZ <a href="63242.html#63250">ColourCycle_MainMenuLogo_CellLoop</a></td>
+<td class="comment-1" rowspan="1">Decrease the cell counter and jump to <a href="63242.html#63250">ColourCycle_MainMenuLogo_CellLoop</a> while cells remain.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63295"></span>63295</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="63190.html">63190</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#63242">Map</a></td>
+<td class="next">
+Next: <a href="63296.html">63296</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/F70A.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at F9AF</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at F9AF. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at F9AF" />
+<meta property="og:description" content="The Trap Door: Routine at F9AF. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/F9AF.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/F9AF.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at F9AF",
+"name": "The Trap Door: Routine at F9AF",
+"description": "The Trap Door: Routine at F9AF. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/F9AF.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at F9AF"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/F9AF.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="F90F.html">F90F</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#f9af">Map</a></td>
+<td class="next">
+Next: <a href="FA0E.html">FA0E</a>
+</td>
+</tr>
+</table>
+<div class="description">F9AF: Play Queued Sound</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="AAB3.html">GameStart</a>, <a href="AB95.html">Update_Berk_State</a>, <a href="AECC.html">Handle_Berk_Action</a>, <a href="E286.html">Print_EncodedMessage</a> and <a href="EA52.html">Clear_AttributeFile</a>.
+</div>
+<div class="paragraph">
+Play the sound queued at <a href="7309.html">PendingSoundIndex</a> using the parameter block selected from base <a href="F8F9.html">F907</a> (sound 01 starts at <a href="F90F.html">Table_SoundParameters</a>), then clear the queue. The base <a href="F8F9.html">F907</a> is the operand byte of <a href="F8F9.html#f906">JR NZ</a> in <a href="F8F9.html">Queue_Sound</a>; it is never read as a parameter because indexes start at 01.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="f9af"></span>
+<div class="comments">
+<div class="paragraph">
+Fetch the pending sound and return if the queue is empty.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Play_QueuedSound</td>
+<td class="address-2"><span id="f9af"></span>F9AF</td>
+<td class="instruction">LD A,($7309)</td>
+<td class="comment-1" rowspan="1">Fetch the pending sound index from <a href="7309.html">PendingSoundIndex</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9b2"></span>F9B2</td>
+<td class="instruction">AND %01111111</td>
+<td class="comment-1" rowspan="1">Keep only bits 00–06 (mask 7F).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9b4"></span>F9B4</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">Return if the queue was empty.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9b5"></span>F9B5</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">IX</span> on the stack.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="f9b7"></span>
+<div class="comments">
+<div class="paragraph">
+Point <span class="register">IX</span> at this sound's parameter block and clear the queue.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9b7"></span>F9B7</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-1" rowspan="3">Multiply the index by 08.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9b8"></span>F9B8</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9b9"></span>F9B9</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9ba"></span>F9BA</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Keep the table offset in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9bb"></span>F9BB</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Clear <a href="7309.html">PendingSoundIndex</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9bc"></span>F9BC</td>
+<td class="instruction">LD ($7309),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9bf"></span>F9BF</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">B</span> (high byte of the offset).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9c0"></span>F9C0</td>
+<td class="instruction">LD IX,$F907</td>
+<td class="comment-1" rowspan="2">Point <span class="register">IX</span> at <a href="F8F9.html">F907</a> (operand of <a href="F8F9.html#f906">F906</a>) plus the offset.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9c4"></span>F9C4</td>
+<td class="instruction">ADD IX,BC</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="f9c6"></span>
+<div class="comments">
+<div class="paragraph">
+Load the tone parameters and play.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9c6"></span>F9C6</td>
+<td class="instruction">LD C,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Load the outer repeat count from <span class="register">IX</span>+00 into <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="f9c9"></span>
+<div class="comments">
+<div class="paragraph">
+Outer repeat: reload pulse count and on/off delays from the parameter block.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Play_QueuedSound_RepeatLoop</td>
+<td class="address-2"><span id="f9c9"></span>F9C9</td>
+<td class="instruction">LD B,(IX+$01)</td>
+<td class="comment-1" rowspan="1">Load the pulse count from <span class="register">IX</span>+01 into <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9cc"></span>F9CC</td>
+<td class="instruction">LD E,(IX+$02)</td>
+<td class="comment-1" rowspan="1">Load the speaker-off delay from <span class="register">IX</span>+02 into <span class="register">E</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9cf"></span>F9CF</td>
+<td class="instruction">LD D,(IX+$03)</td>
+<td class="comment-1" rowspan="1">Load the speaker-on delay from <span class="register">IX</span>+03 into <span class="register">D</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9d2"></span>F9D2</td>
+<td class="instruction">LD H,(IX+$06)</td>
+<td class="comment-1" rowspan="1">Load the flags / waveform high byte from <span class="register">IX</span>+06 into <span class="register">H</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="f9d5"></span>
+<div class="comments">
+<div class="paragraph">
+One speaker pulse: turn EAR on, delay, optional waveform, then EAR off.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Play_QueuedSound_PulseLoop</td>
+<td class="address-2"><span id="f9d5"></span>F9D5</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">BC</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9d6"></span>F9D6</td>
+<td class="instruction">LD A,($EA6C)</td>
+<td class="comment-1" rowspan="1">Fetch the border / speaker state from <a href="EA6C.html">BorderSpeakerState</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9d9"></span>F9D9</td>
+<td class="instruction">SET 4,A</td>
+<td class="comment-1" rowspan="1">Set bit 04 (speaker on).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9db"></span>F9DB</td>
+<td class="instruction">OUT ($FE),A</td>
+<td class="comment-1" rowspan="1">Send it to the speaker (port FE).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9dd"></span>F9DD</td>
+<td class="instruction">LD B,D</td>
+<td class="comment-1" rowspan="1">Keep the on-delay in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="f9de"></span>
+<div class="comments">
+<div class="paragraph">
+Hold the speaker on for the on-delay in <span class="register">D</span>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Play_QueuedSound_OnDelay</td>
+<td class="address-2"><span id="f9de"></span>F9DE</td>
+<td class="instruction">NOP</td>
+<td class="comment-1" rowspan="2">Hold for the on-delay. jump to <a href="F9AF.html#f9de">Play_QueuedSound_OnDelay</a> while it remains.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9df"></span>F9DF</td>
+<td class="instruction">DJNZ <a href="F9AF.html#f9de">Play_QueuedSound_OnDelay</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9e1"></span>F9E1</td>
+<td class="instruction">BIT 7,H</td>
+<td class="comment-1" rowspan="2">Is the square-wave-only flag set? If so, jump to <a href="F9AF.html#f9f3">Play_QueuedSound_SpeakerOff</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9e3"></span>F9E3</td>
+<td class="instruction">JR NZ,<a href="F9AF.html#f9f3">Play_QueuedSound_SpeakerOff</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9e5"></span>F9E5</td>
+<td class="instruction">LD B,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the next waveform delay into <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9e6"></span>F9E6</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance the waveform pointer in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="f9e7"></span>
+<div class="comments">
+<div class="paragraph">
+Pad the non-square waveform delay from the stream at <span class="register">HL</span>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Play_QueuedSound_WaveDelay</td>
+<td class="address-2"><span id="f9e7"></span>F9E7</td>
+<td class="instruction">BIT 0,(IX+$00)</td>
+<td class="comment-1" rowspan="7">Timing pad for the waveform delay.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9eb"></span>F9EB</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9ec"></span>F9EC</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9ed"></span>F9ED</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9ee"></span>F9EE</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9ef"></span>F9EF</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9f0"></span>F9F0</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9f1"></span>F9F1</td>
+<td class="instruction">DJNZ <a href="F9AF.html#f9e7">Play_QueuedSound_WaveDelay</a></td>
+<td class="comment-1" rowspan="1">Decrease the waveform delay and jump to <a href="F9AF.html#f9e7">Play_QueuedSound_WaveDelay</a> while it remains.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="f9f3"></span>
+<div class="comments">
+<div class="paragraph">
+Turn the speaker off and hold for the off-delay in <span class="register">E</span>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Play_QueuedSound_SpeakerOff</td>
+<td class="address-2"><span id="f9f3"></span>F9F3</td>
+<td class="instruction">RES 4,A</td>
+<td class="comment-1" rowspan="1">Clear bit 04 (speaker off).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9f5"></span>F9F5</td>
+<td class="instruction">OUT ($FE),A</td>
+<td class="comment-1" rowspan="1">Send it to the speaker (port FE).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9f7"></span>F9F7</td>
+<td class="instruction">LD B,E</td>
+<td class="comment-1" rowspan="1">Keep the off-delay in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="f9f8"></span>
+<div class="comments">
+<div class="paragraph">
+Hold the speaker off for the off-delay, then apply the per-pulse deltas.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Play_QueuedSound_OffDelay</td>
+<td class="address-2"><span id="f9f8"></span>F9F8</td>
+<td class="instruction">NOP</td>
+<td class="comment-1" rowspan="2">Hold for the off-delay. jump to <a href="F9AF.html#f9f8">Play_QueuedSound_OffDelay</a> while it remains.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9f9"></span>F9F9</td>
+<td class="instruction">DJNZ <a href="F9AF.html#f9f8">Play_QueuedSound_OffDelay</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9fb"></span>F9FB</td>
+<td class="instruction">LD A,(IX+$04)</td>
+<td class="comment-1" rowspan="3">Add the on-delay delta from <span class="register">IX</span>+04 to <span class="register">D</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9fe"></span>F9FE</td>
+<td class="instruction">ADD A,D</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f9ff"></span>F9FF</td>
+<td class="instruction">LD D,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fa00"></span>FA00</td>
+<td class="instruction">LD A,(IX+$05)</td>
+<td class="comment-1" rowspan="3">Add the off-delay delta from <span class="register">IX</span>+05 to <span class="register">E</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fa03"></span>FA03</td>
+<td class="instruction">ADD A,E</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fa04"></span>FA04</td>
+<td class="instruction">LD E,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fa05"></span>FA05</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fa06"></span>FA06</td>
+<td class="instruction">DJNZ <a href="F9AF.html#f9d5">Play_QueuedSound_PulseLoop</a></td>
+<td class="comment-1" rowspan="1">Decrease the pulse counter and jump to <a href="F9AF.html#f9d5">Play_QueuedSound_PulseLoop</a> while pulses remain.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fa08"></span>FA08</td>
+<td class="instruction">DEC C</td>
+<td class="comment-1" rowspan="1">Decrease the repeat counter.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fa09"></span>FA09</td>
+<td class="instruction">JR NZ,<a href="F9AF.html#f9c9">Play_QueuedSound_RepeatLoop</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="F9AF.html#f9c9">Play_QueuedSound_RepeatLoop</a> while repeats remain.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="fa0b"></span>
+<div class="comments">
+<div class="paragraph">
+Housekeeping; restore the registers stashed at the start of the routine.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fa0b"></span>FA0B</td>
+<td class="instruction">POP IX</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">IX</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fa0d"></span>FA0D</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="F90F.html">F90F</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#f9af">Map</a></td>
+<td class="next">
+Next: <a href="FA0E.html">FA0E</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/63919.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

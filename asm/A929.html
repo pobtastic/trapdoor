@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at A929</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at A929. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at A929" />
+<meta property="og:description" content="The Trap Door: Data at A929. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/A929.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/A929.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at A929",
+"name": "The Trap Door: Data at A929",
+"description": "The Trap Door: Data at A929. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/A929.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at A929"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/A929.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="A8F6.html">A8F6</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#a929">Map</a></td>
+<td class="next">
+Next: <a href="AA28.html">AA28</a>
+</td>
+</tr>
+</table>
+<div class="description">A929: Graphic Layout Data: Swamp Dripping Water</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Wrap-around swamp scenery for room 00 (entity at <a href="8B69.html#8bcb">8BCB</a>, x EA-FF). Drawn when the camera sits at E0-FF via <a href="E6DB.html">PopulateDisplayBuffer_VisibleEntities</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="a929"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-a929" src="../images/scr/layout-a929.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GraphicLayout_SwampDrippingWater</td>
+<td class="address-1"><span id="a929"></span>A929</td>
+<td class="instruction">DEFB $F4,$05</td>
+<td class="comment-1" rowspan="1">Set the graphic set to <a href="8661.html">05</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a92b"></span>A92B</td>
+<td class="instruction">DEFB $FB,$C2,$A9</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A929.html#a9c2">A9C2</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a92e"></span>A92E</td>
+<td class="instruction">DEFB $FA,$01,$00</td>
+<td class="comment-1" rowspan="1">Move the cursor by 00 horizontally and 01 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a931"></span>A931</td>
+<td class="instruction">DEFB $FB,$C2,$A9</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A929.html#a9c2">A9C2</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a934"></span>A934</td>
+<td class="instruction">DEFB $FA,$02,$00</td>
+<td class="comment-1" rowspan="1">Move the cursor by 00 horizontally and 02 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a937"></span>A937</td>
+<td class="instruction">DEFB $FB,$C2,$A9</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A929.html#a9c2">A9C2</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a93a"></span>A93A</td>
+<td class="instruction">DEFB $FE,$03,$F6</td>
+<td class="comment-1" rowspan="1">Move the cursor by -0A horizontally and 03 vertically, and store as the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a93d"></span>A93D</td>
+<td class="instruction">DEFB $FA,$00,$0A</td>
+<td class="comment-1" rowspan="1">Move the cursor by 0A horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a940"></span>A940</td>
+<td class="instruction">DEFB $FB,$12,$AA</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A929.html#aa12">AA12</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a943"></span>A943</td>
+<td class="instruction">DEFB $FA,$00,$0B</td>
+<td class="comment-1" rowspan="1">Move the cursor by 0B horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a946"></span>A946</td>
+<td class="instruction">DEFB $FB,$DF,$A9</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A929.html#a9df">A9DF</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a949"></span>A949</td>
+<td class="instruction">DEFB $FA,$00,$0C</td>
+<td class="comment-1" rowspan="1">Move the cursor by 0C horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a94c"></span>A94C</td>
+<td class="instruction">DEFB $FB,$FF,$A9</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A929.html#a9ff">A9FF</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a94f"></span>A94F</td>
+<td class="instruction">DEFB $FA,$00,$0D</td>
+<td class="comment-1" rowspan="1">Move the cursor by 0D horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a952"></span>A952</td>
+<td class="instruction">DEFB $FB,$CE,$A9</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A929.html#a9ce">A9CE</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a955"></span>A955</td>
+<td class="instruction">DEFB $FA,$00,$0E</td>
+<td class="comment-1" rowspan="1">Move the cursor by 0E horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a958"></span>A958</td>
+<td class="instruction">DEFB $FB,$DF,$A9</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A929.html#a9df">A9DF</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a95b"></span>A95B</td>
+<td class="instruction">DEFB $FA,$00,$0F</td>
+<td class="comment-1" rowspan="1">Move the cursor by 0F horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a95e"></span>A95E</td>
+<td class="instruction">DEFB $FB,$CE,$A9</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A929.html#a9ce">A9CE</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a961"></span>A961</td>
+<td class="instruction">DEFB $FA,$00,$10</td>
+<td class="comment-1" rowspan="1">Move the cursor by 10 horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a964"></span>A964</td>
+<td class="instruction">DEFB $FB,$D5,$A9</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A929.html#a9d5">A9D5</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a967"></span>A967</td>
+<td class="instruction">DEFB $FA,$00,$11</td>
+<td class="comment-1" rowspan="1">Move the cursor by 11 horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a96a"></span>A96A</td>
+<td class="instruction">DEFB $FB,$CE,$A9</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A929.html#a9ce">A9CE</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a96d"></span>A96D</td>
+<td class="instruction">DEFB $FA,$00,$12</td>
+<td class="comment-1" rowspan="1">Move the cursor by 12 horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a970"></span>A970</td>
+<td class="instruction">DEFB $FB,$CA,$A9</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A929.html#a9ca">A9CA</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a973"></span>A973</td>
+<td class="instruction">DEFB $FA,$00,$13</td>
+<td class="comment-1" rowspan="1">Move the cursor by 13 horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a976"></span>A976</td>
+<td class="instruction">DEFB $FB,$D5,$A9</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A929.html#a9d5">A9D5</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a979"></span>A979</td>
+<td class="instruction">DEFB $FA,$00,$14</td>
+<td class="comment-1" rowspan="1">Move the cursor by 14 horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a97c"></span>A97C</td>
+<td class="instruction">DEFB $FB,$DF,$A9</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A929.html#a9df">A9DF</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a97f"></span>A97F</td>
+<td class="instruction">DEFB $FA,$00,$15</td>
+<td class="comment-1" rowspan="1">Move the cursor by 15 horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a982"></span>A982</td>
+<td class="instruction">DEFB $FB,$CE,$A9</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A929.html#a9ce">A9CE</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a985"></span>A985</td>
+<td class="instruction">DEFB $FA,$00,$16</td>
+<td class="comment-1" rowspan="1">Move the cursor by 16 horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a988"></span>A988</td>
+<td class="instruction">DEFB $FB,$EF,$A9</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A929.html#a9ef">A9EF</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a98b"></span>A98B</td>
+<td class="instruction">DEFB $FA,$00,$17</td>
+<td class="comment-1" rowspan="1">Move the cursor by 17 horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a98e"></span>A98E</td>
+<td class="instruction">DEFB $FB,$12,$AA</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A929.html#aa12">AA12</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a991"></span>A991</td>
+<td class="instruction">DEFB $FA,$00,$18</td>
+<td class="comment-1" rowspan="1">Move the cursor by 18 horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a994"></span>A994</td>
+<td class="instruction">DEFB $FB,$FF,$A9</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A929.html#a9ff">A9FF</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a997"></span>A997</td>
+<td class="instruction">DEFB $FA,$00,$19</td>
+<td class="comment-1" rowspan="1">Move the cursor by 19 horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a99a"></span>A99A</td>
+<td class="instruction">DEFB $FB,$DF,$A9</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A929.html#a9df">A9DF</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a99d"></span>A99D</td>
+<td class="instruction">DEFB $FA,$00,$1A</td>
+<td class="comment-1" rowspan="1">Move the cursor by 1A horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9a0"></span>A9A0</td>
+<td class="instruction">DEFB $FB,$EF,$A9</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A929.html#a9ef">A9EF</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9a3"></span>A9A3</td>
+<td class="instruction">DEFB $FA,$00,$1B</td>
+<td class="comment-1" rowspan="1">Move the cursor by 1B horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9a6"></span>A9A6</td>
+<td class="instruction">DEFB $FB,$CE,$A9</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A929.html#a9ce">A9CE</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9a9"></span>A9A9</td>
+<td class="instruction">DEFB $FA,$00,$1C</td>
+<td class="comment-1" rowspan="1">Move the cursor by 1C horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9ac"></span>A9AC</td>
+<td class="instruction">DEFB $FB,$D5,$A9</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A929.html#a9d5">A9D5</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9af"></span>A9AF</td>
+<td class="instruction">DEFB $FA,$00,$1D</td>
+<td class="comment-1" rowspan="1">Move the cursor by 1D horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9b2"></span>A9B2</td>
+<td class="instruction">DEFB $FB,$D5,$A9</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A929.html#a9d5">A9D5</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9b5"></span>A9B5</td>
+<td class="instruction">DEFB $FA,$00,$1E</td>
+<td class="comment-1" rowspan="1">Move the cursor by 1E horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9b8"></span>A9B8</td>
+<td class="instruction">DEFB $FB,$CE,$A9</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A929.html#a9ce">A9CE</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9bb"></span>A9BB</td>
+<td class="instruction">DEFB $FA,$00,$1F</td>
+<td class="comment-1" rowspan="1">Move the cursor by 1F horizontally and 00 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9be"></span>A9BE</td>
+<td class="instruction">DEFB $FB,$FF,$A9</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="A929.html#a9ff">A9FF</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9c1"></span>A9C1</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="a9c2"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-a9c2" src="../images/scr/layout-a9c2.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9c2"></span>A9C2</td>
+<td class="instruction">DEFB $F2,$09</td>
+<td class="comment-1" rowspan="1">Set the current attribute to INK: BLUE,
+PAPER: BLUE (09).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9c4"></span>A9C4</td>
+<td class="instruction">DEFB $EE,$16</td>
+<td class="comment-1" rowspan="1">Start a loop of count 16.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9c6"></span>A9C6</td>
+<td class="instruction">DEFB $00,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 00 and move right by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9c8"></span>A9C8</td>
+<td class="instruction">DEFB $EF</td>
+<td class="comment-1" rowspan="1">End the current loop.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9c9"></span>A9C9</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="a9ca"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-a9ca" src="../images/scr/layout-a9ca.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9ca"></span>A9CA</td>
+<td class="instruction">DEFB $2B,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 2B with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9cd"></span>A9CD</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="a9ce"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-a9ce" src="../images/scr/layout-a9ce.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9ce"></span>A9CE</td>
+<td class="instruction">DEFB $2C,$01,$20</td>
+<td class="comment-1" rowspan="1">Draw tile 2C with INK: BLUE,
+PAPER: BLACK (01) and move down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9d1"></span>A9D1</td>
+<td class="instruction">DEFB $2D,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 2D with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9d4"></span>A9D4</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="a9d5"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-a9d5" src="../images/scr/layout-a9d5.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9d5"></span>A9D5</td>
+<td class="instruction">DEFB $12,$01,$20</td>
+<td class="comment-1" rowspan="1">Draw tile 12 with INK: BLUE,
+PAPER: BLACK (01) and move down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9d8"></span>A9D8</td>
+<td class="instruction">DEFB $13,$01,$20</td>
+<td class="comment-1" rowspan="1">Draw tile 13 with INK: BLUE,
+PAPER: BLACK (01) and move down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9db"></span>A9DB</td>
+<td class="instruction">DEFB $14,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 14 with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9de"></span>A9DE</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="a9df"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-a9df" src="../images/scr/layout-a9df.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9df"></span>A9DF</td>
+<td class="instruction">DEFB $15,$01,$20</td>
+<td class="comment-1" rowspan="1">Draw tile 15 with INK: BLUE,
+PAPER: BLACK (01) and move down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9e2"></span>A9E2</td>
+<td class="instruction">DEFB $16,$01,$20</td>
+<td class="comment-1" rowspan="1">Draw tile 16 with INK: BLUE,
+PAPER: BLACK (01) and move down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9e5"></span>A9E5</td>
+<td class="instruction">DEFB $17,$01,$20</td>
+<td class="comment-1" rowspan="1">Draw tile 17 with INK: BLUE,
+PAPER: BLACK (01) and move down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9e8"></span>A9E8</td>
+<td class="instruction">DEFB $18,$01,$20</td>
+<td class="comment-1" rowspan="1">Draw tile 18 with INK: BLUE,
+PAPER: BLACK (01) and move down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9eb"></span>A9EB</td>
+<td class="instruction">DEFB $19,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 19 with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9ee"></span>A9EE</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="a9ef"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-a9ef" src="../images/scr/layout-a9ef.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9ef"></span>A9EF</td>
+<td class="instruction">DEFB $26,$01,$20</td>
+<td class="comment-1" rowspan="1">Draw tile 26 with INK: BLUE,
+PAPER: BLACK (01) and move down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9f2"></span>A9F2</td>
+<td class="instruction">DEFB $27,$01,$20</td>
+<td class="comment-1" rowspan="1">Draw tile 27 with INK: BLUE,
+PAPER: BLACK (01) and move down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9f5"></span>A9F5</td>
+<td class="instruction">DEFB $28,$01,$20</td>
+<td class="comment-1" rowspan="1">Draw tile 28 with INK: BLUE,
+PAPER: BLACK (01) and move down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9f8"></span>A9F8</td>
+<td class="instruction">DEFB $29,$01,$20</td>
+<td class="comment-1" rowspan="1">Draw tile 29 with INK: BLUE,
+PAPER: BLACK (01) and move down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9fb"></span>A9FB</td>
+<td class="instruction">DEFB $2A,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 2A with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9fe"></span>A9FE</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="a9ff"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-a9ff" src="../images/scr/layout-a9ff.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a9ff"></span>A9FF</td>
+<td class="instruction">DEFB $20,$01,$20</td>
+<td class="comment-1" rowspan="1">Draw tile 20 with INK: BLUE,
+PAPER: BLACK (01) and move down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa02"></span>AA02</td>
+<td class="instruction">DEFB $21,$01,$20</td>
+<td class="comment-1" rowspan="1">Draw tile 21 with INK: BLUE,
+PAPER: BLACK (01) and move down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa05"></span>AA05</td>
+<td class="instruction">DEFB $22,$01,$20</td>
+<td class="comment-1" rowspan="1">Draw tile 22 with INK: BLUE,
+PAPER: BLACK (01) and move down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa08"></span>AA08</td>
+<td class="instruction">DEFB $23,$01,$20</td>
+<td class="comment-1" rowspan="1">Draw tile 23 with INK: BLUE,
+PAPER: BLACK (01) and move down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa0b"></span>AA0B</td>
+<td class="instruction">DEFB $24,$01,$20</td>
+<td class="comment-1" rowspan="1">Draw tile 24 with INK: BLUE,
+PAPER: BLACK (01) and move down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa0e"></span>AA0E</td>
+<td class="instruction">DEFB $25,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 25 with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa11"></span>AA11</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="aa12"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-aa12" src="../images/scr/layout-aa12.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa12"></span>AA12</td>
+<td class="instruction">DEFB $00,$09,$20</td>
+<td class="comment-1" rowspan="1">Draw tile 00 with INK: BLUE,
+PAPER: BLUE (09) and move down by 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa15"></span>AA15</td>
+<td class="instruction">DEFB $1A,$01,$20</td>
+<td class="comment-1" rowspan="1">Draw tile 1A with INK: BLUE,
+PAPER: BLACK (01) and move down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa18"></span>AA18</td>
+<td class="instruction">DEFB $1B,$01,$20</td>
+<td class="comment-1" rowspan="1">Draw tile 1B with INK: BLUE,
+PAPER: BLACK (01) and move down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa1b"></span>AA1B</td>
+<td class="instruction">DEFB $1C,$01,$20</td>
+<td class="comment-1" rowspan="1">Draw tile 1C with INK: BLUE,
+PAPER: BLACK (01) and move down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa1e"></span>AA1E</td>
+<td class="instruction">DEFB $1D,$01,$20</td>
+<td class="comment-1" rowspan="1">Draw tile 1D with INK: BLUE,
+PAPER: BLACK (01) and move down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa21"></span>AA21</td>
+<td class="instruction">DEFB $1E,$01,$20</td>
+<td class="comment-1" rowspan="1">Draw tile 1E with INK: BLUE,
+PAPER: BLACK (01) and move down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa24"></span>AA24</td>
+<td class="instruction">DEFB $1F,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 1F with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa27"></span>AA27</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="A8F6.html">A8F6</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#a929">Map</a></td>
+<td class="next">
+Next: <a href="AA28.html">AA28</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/43305.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

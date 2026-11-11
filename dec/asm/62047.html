@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 62047</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 62047. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 62047" />
+<meta property="og:description" content="The Trap Door: Routine at 62047. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/62047.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/62047.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 62047",
+"name": "The Trap Door: Routine at 62047",
+"description": "The Trap Door: Routine at 62047. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/62047.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 62047"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/62047.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62043.html">62043</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#62047">Map</a></td>
+<td class="next">
+Next: <a href="62141.html">62141</a>
+</td>
+</tr>
+</table>
+<div class="description">62047: Adjust Camera Y</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="46144.html">Update_Berk_ReadControls</a> and <a href="53587.html">ScriptRoutine_VatRoomTransition</a>.
+</div>
+<div class="paragraph">
+Adjust the camera y-coordinate.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Adjust_CameraY</td>
+<td class="address-2"><span id="62047"></span>62047</td>
+<td class="instruction">LD C,0</td>
+<td class="comment-1" rowspan="1">Load <span class="register">C</span> with 0.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62049"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="62043.html">Adjust_CameraX</a>.
+</div>
+<div class="paragraph">
+Shared camera adjust: scan entities backward from the weight-chain slot.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Adjust_Camera_Common</td>
+<td class="address-2"><span id="62049"></span>62049</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="2">Stash <span class="register">HL</span> and <span class="register">DE</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62050"></span>62050</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62051"></span>62051</td>
+<td class="instruction">LD HL,37005</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the weight-chain entity (<a href="36595.html#37005">StateData_Complex_30</a>).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62054"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="62034.html">Clamp_CameraPosition</a>.
+</div>
+<div class="paragraph">
+Walk entity records with stride $FFF2 looking for a camera blocker.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Adjust_Camera_ScanEntities</td>
+<td class="address-2"><span id="62054"></span>62054</td>
+<td class="instruction">LD DE,65522</td>
+<td class="comment-1" rowspan="1">Load <span class="register">DE</span> with $FFF2.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62057"></span>
+<div class="comments">
+<div class="paragraph">
+Stop with carry set when the entity-table terminator (255) is reached.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Adjust_Camera_ScanLoop</td>
+<td class="address-2"><span id="62057"></span>62057</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch this entity's type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62058"></span>62058</td>
+<td class="instruction">CP 255</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> equal to 255? If not, jump to <a href="62047.html#62066">Adjust_Camera_CheckEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62060"></span>62060</td>
+<td class="instruction">JR NZ,<a href="62047.html#62066">Adjust_Camera_CheckEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62062"></span>62062</td>
+<td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="2">Restore <span class="register">DE</span> and <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62063"></span>62063</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62064"></span>62064</td>
+<td class="instruction">SCF</td>
+<td class="comment-1" rowspan="1">Signal success.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62065"></span>62065</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62066"></span>
+<div class="comments">
+<div class="paragraph">
+Test whether this solid, same-room entity overlaps the camera subject.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Adjust_Camera_CheckEntity</td>
+<td class="address-2"><span id="62066"></span>62066</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Re-fetch this entity's type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62067"></span>62067</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the next script byte zero? If so, jump to <a href="62047.html#62138">Adjust_Camera_NextEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62068"></span>62068</td>
+<td class="instruction">JR Z,<a href="62047.html#62138">Adjust_Camera_NextEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62070"></span>62070</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-1" rowspan="2">Is bit 7 of <span class="register">A</span> set? If so, jump to <a href="62047.html#62138">Adjust_Camera_NextEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62072"></span>62072</td>
+<td class="instruction">JR NZ,<a href="62047.html#62138">Adjust_Camera_NextEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62074"></span>62074</td>
+<td class="instruction">CP (IX+0)</td>
+<td class="comment-1" rowspan="2">Does <span class="register">A</span> match this entity's type? If so, jump to <a href="62047.html#62138">Adjust_Camera_NextEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62077"></span>62077</td>
+<td class="instruction">JR Z,<a href="62047.html#62138">Adjust_Camera_NextEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62079"></span>62079</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">HL</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62080"></span>62080</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance the camera-table pointer in <span class="register">HL</span> by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62081"></span>62081</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch this entity's flags byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62082"></span>62082</td>
+<td class="instruction">AND %00000010</td>
+<td class="comment-1" rowspan="1">Keep only bit 1 of those flags.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62084"></span>62084</td>
+<td class="instruction">JR Z,<a href="62047.html#62137">Adjust_Camera_SkipEntity</a></td>
+<td class="comment-1" rowspan="1">If it was clear, skip this entity at <a href="62047.html#62137">Adjust_Camera_SkipEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62086"></span>62086</td>
+<td class="instruction">BIT 5,(HL)</td>
+<td class="comment-1" rowspan="2">Is bit 5 of the byte at <span class="register">HL</span> set? If so, jump to <a href="62047.html#62137">Adjust_Camera_SkipEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62088"></span>62088</td>
+<td class="instruction">JR NZ,<a href="62047.html#62137">Adjust_Camera_SkipEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62090"></span>62090</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="3">Advance <span class="register">HL</span> past three entity fields onto the room byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62091"></span>62091</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62092"></span>62092</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62093"></span>62093</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch this entity's room.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62094"></span>62094</td>
+<td class="instruction">ADD A,C</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>+=<span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62095"></span>62095</td>
+<td class="instruction">CP (IX+4)</td>
+<td class="comment-1" rowspan="2">Does <span class="register">A</span> match this entity's room? If not, jump to <a href="62047.html#62137">Adjust_Camera_SkipEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62098"></span>62098</td>
+<td class="instruction">JR NZ,<a href="62047.html#62137">Adjust_Camera_SkipEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62100"></span>62100</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance the camera-table pointer in <span class="register">HL</span> by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62101"></span>62101</td>
+<td class="instruction">LD A,(IX+6)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62104"></span>62104</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> less than the byte at <span class="register">HL</span>? If so, jump to <a href="62047.html#62137">Adjust_Camera_SkipEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62105"></span>62105</td>
+<td class="instruction">JR C,<a href="62047.html#62137">Adjust_Camera_SkipEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62107"></span>62107</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance the camera-table pointer in <span class="register">HL</span> by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62108"></span>62108</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the next script byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62109"></span>62109</td>
+<td class="instruction">CP (IX+5)</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> less than this entity's y-coordinate? If so, jump to <a href="62047.html#62137">Adjust_Camera_SkipEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62112"></span>62112</td>
+<td class="instruction">JR C,<a href="62047.html#62137">Adjust_Camera_SkipEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62114"></span>62114</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance the camera-table pointer in <span class="register">HL</span> by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62115"></span>62115</td>
+<td class="instruction">LD A,(IX+8)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62118"></span>62118</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> less than the byte at <span class="register">HL</span>? If so, jump to <a href="62047.html#62137">Adjust_Camera_SkipEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62119"></span>62119</td>
+<td class="instruction">JR C,<a href="62047.html#62137">Adjust_Camera_SkipEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62121"></span>62121</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance the camera-table pointer in <span class="register">HL</span> by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62122"></span>62122</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the next script byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62123"></span>62123</td>
+<td class="instruction">CP (IX+7)</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> less than this entity's x-coordinate? If so, jump to <a href="62047.html#62137">Adjust_Camera_SkipEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62126"></span>62126</td>
+<td class="instruction">JR C,<a href="62047.html#62137">Adjust_Camera_SkipEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62128"></span>62128</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62129"></span>62129</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">A</span> to 0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62130"></span>62130</td>
+<td class="instruction">LD (29354),HL</td>
+<td class="comment-1" rowspan="1">Store <span class="register">HL</span> in the last-collided entity pointer (<a href="29354.html">Pointer_LastCollidedEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62133"></span>62133</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the next script byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62134"></span>62134</td>
+<td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="2">Restore <span class="register">DE</span> and <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62135"></span>62135</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62136"></span>62136</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62137"></span>
+<div class="comments">
+<div class="paragraph">
+Skip a non-blocking camera entity and keep scanning.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Adjust_Camera_SkipEntity</td>
+<td class="address-2"><span id="62137"></span>62137</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62138"></span>
+<div class="comments">
+<div class="paragraph">
+Step to the previous entity record and continue the camera scan.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Adjust_Camera_NextEntity</td>
+<td class="address-2"><span id="62138"></span>62138</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>+=<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62139"></span>62139</td>
+<td class="instruction">JR <a href="62047.html#62057">Adjust_Camera_ScanLoop</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="62047.html#62057">Adjust_Camera_ScanLoop</a> to continue the loop.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62043.html">62043</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#62047">Map</a></td>
+<td class="next">
+Next: <a href="62141.html">62141</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/F25F.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

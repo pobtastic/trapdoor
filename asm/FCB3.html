@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at FCB3</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at FCB3. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at FCB3" />
+<meta property="og:description" content="The Trap Door: Routine at FCB3. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/FCB3.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/FCB3.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at FCB3",
+"name": "The Trap Door: Routine at FCB3",
+"description": "The Trap Door: Routine at FCB3. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/FCB3.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at FCB3"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/FCB3.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="FCAB.html">FCAB</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#fcb3">Map</a></td>
+<td class="next">
+Next: <a href="FD0C.html">FD0C</a>
+</td>
+</tr>
+</table>
+<div class="description">FCB3: Play Menu Music Tick</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="FC78.html">Wait_KeyWithMenuMusic</a>.
+</div>
+<div class="paragraph">
+One tick of the two-channel menu tune while the key-scan waits. Reads both stream cursors, looks each byte up in <a href="FD40.html">Table_MenuMusicDelay</a>, then either bit-bangs the speaker on port FE (toggling bit 04 via 10) or takes the <a href="FD76.html">Continue_MenuMusicTick</a> continue path. Called every pass of <a href="FC78.html#fc79">Wait_KeyWithMenuMusic_Loop</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Play_MenuMusicTick</td>
+<td class="address-2"><span id="fcb3"></span>FCB3</td>
+<td class="instruction">LD HL,$FC87</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at music cursor one (<a href="FC84.html#fc87">FC87</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcb6"></span>FCB6</td>
+<td class="instruction">CALL <a href="FC90.html">Read_MusicStreamByte</a></td>
+<td class="comment-1" rowspan="1">Call <a href="FC90.html">Read_MusicStreamByte</a> to read the next stream-one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcb9"></span>FCB9</td>
+<td class="instruction">LD ($FC84),A</td>
+<td class="comment-1" rowspan="1">Store it at <a href="FC84.html">MenuMusic_Workspace</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcbc"></span>FCBC</td>
+<td class="instruction">LD HL,$FC8B</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at music cursor two (<a href="FC84.html#fc8b">FC8B</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcbf"></span>FCBF</td>
+<td class="instruction">CALL <a href="FC90.html">Read_MusicStreamByte</a></td>
+<td class="comment-1" rowspan="1">Call <a href="FC90.html">Read_MusicStreamByte</a> to read the next stream-two byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcc2"></span>FCC2</td>
+<td class="instruction">LD ($FC85),A</td>
+<td class="comment-1" rowspan="1">Store it at <a href="FC84.html#fc85">FC85</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcc5"></span>FCC5</td>
+<td class="instruction">LD HL,$FC84</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at stream-one's stored byte (<a href="FC84.html">MenuMusic_Workspace</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcc8"></span>FCC8</td>
+<td class="instruction">CALL <a href="FC9D.html">Decode_MusicDelay</a></td>
+<td class="comment-1" rowspan="1">Call <a href="FC9D.html">Decode_MusicDelay</a> to decode its delay pair.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fccb"></span>FCCB</td>
+<td class="instruction">RL E</td>
+<td class="comment-1" rowspan="1">Rotate <span class="register">E</span> left through carry to test the channel flag.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fccd"></span>FCCD</td>
+<td class="instruction">JP C,<a href="FD76.html">Continue_MenuMusicTick</a></td>
+<td class="comment-1" rowspan="1">If carry is set, jump to <a href="FD76.html">Continue_MenuMusicTick</a> for the continue path.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcd0"></span>FCD0</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Stash the decoded delay on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcd1"></span>FCD1</td>
+<td class="instruction">LD HL,$FC85</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at stream-two's stored byte (<a href="FC84.html#fc85">FC85</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcd4"></span>FCD4</td>
+<td class="instruction">CALL <a href="FC9D.html">Decode_MusicDelay</a></td>
+<td class="comment-1" rowspan="1">Call <a href="FC9D.html">Decode_MusicDelay</a> to decode its delay pair.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcd7"></span>FCD7</td>
+<td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="1">Restore stream-one's delay into <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcd8"></span>FCD8</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-1" rowspan="3">If stream-one's duration is not 01, jump to <a href="FCB3.html#fce0">Play_MenuMusic_PreparePulse</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcd9"></span>FCD9</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcda"></span>FCDA</td>
+<td class="instruction">JR NZ,<a href="FCB3.html#fce0">Play_MenuMusic_PreparePulse</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcdc"></span>FCDC</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-1" rowspan="3">If stream-two's duration is 01, jump to <a href="FD22.html">Hold_MenuMusicSilence</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcdd"></span>FCDD</td>
+<td class="instruction">DEC A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcde"></span>FCDE</td>
+<td class="instruction">JR Z,<a href="FD22.html">Hold_MenuMusicSilence</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="fce0"></span>
+<div class="comments">
+<div class="paragraph">
+Prepare the speaker output value and enter the tone pulse loop.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Play_MenuMusic_PreparePulse</td>
+<td class="address-2"><span id="fce0"></span>FCE0</td>
+<td class="instruction">LD A,($FC8F)</td>
+<td class="comment-1" rowspan="3">Load the delay phase from <a href="FC84.html#fc8f">FC8F</a> into <span class="register">C</span> and clear <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fce3"></span>FCE3</td>
+<td class="instruction">LD C,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fce4"></span>FCE4</td>
+<td class="instruction">LD B,$00</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fce6"></span>FCE6</td>
+<td class="instruction">LD A,($FC86)</td>
+<td class="comment-1" rowspan="1">Load the border and speaker bits from <a href="FC84.html#fc86">FC86</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fce9"></span>FCE9</td>
+<td class="instruction">EX AF,AF'</td>
+<td class="comment-1" rowspan="1">Switch to the alternate accumulator.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcea"></span>FCEA</td>
+<td class="instruction">LD A,($FC86)</td>
+<td class="comment-1" rowspan="1">Reload the border and speaker bits from <a href="FC84.html#fc86">FC86</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fced"></span>FCED</td>
+<td class="instruction">LD IXh,D</td>
+<td class="comment-1" rowspan="1">Keep the inner delay count in <span class="register">IXh</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcef"></span>FCEF</td>
+<td class="instruction">LD D,$10</td>
+<td class="comment-1" rowspan="1">Load <span class="register">D</span> with 10 (speaker bit mask).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="fcf1"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="FD10.html">Play_MenuMusic_PulseTail</a>.
+</div>
+<div class="paragraph">
+Inner tone loop: burn delay, write port FE, and toggle the speaker bit.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Play_MenuMusic_PulseLoop</td>
+<td class="address-2"><span id="fcf1"></span>FCF1</td>
+<td class="instruction">NOP</td>
+<td class="comment-1" rowspan="2">Timing pad before the port write.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcf2"></span>FCF2</td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="fcf3"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="FD10.html">Play_MenuMusic_PulseTail</a>.
+</div>
+<div class="paragraph">
+Write the speaker level and advance the dual delay counters.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Play_MenuMusic_PulseWrite</td>
+<td class="address-2"><span id="fcf3"></span>FCF3</td>
+<td class="instruction">EX AF,AF'</td>
+<td class="comment-1" rowspan="1">Switch back to the primary accumulator.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcf4"></span>FCF4</td>
+<td class="instruction">DEC E</td>
+<td class="comment-1" rowspan="1">Decrease the fine delay in <span class="register">E</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcf5"></span>FCF5</td>
+<td class="instruction">OUT ($FE),A</td>
+<td class="comment-1" rowspan="1">Write the border and speaker bits to port FE.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcf7"></span>FCF7</td>
+<td class="instruction">JR NZ,<a href="FD10.html">Play_MenuMusic_PulseTail</a></td>
+<td class="comment-1" rowspan="1">If the fine delay remains, jump to <a href="FD10.html">Play_MenuMusic_PulseTail</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcf9"></span>FCF9</td>
+<td class="instruction">LD E,IXh</td>
+<td class="comment-1" rowspan="1">Reload the fine delay from <span class="register">IXh</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcfb"></span>FCFB</td>
+<td class="instruction">XOR D</td>
+<td class="comment-1" rowspan="1">Toggle the speaker bit (10) in <span class="register">A</span> via <span class="register">D</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcfc"></span>FCFC</td>
+<td class="instruction">EX AF,AF'</td>
+<td class="comment-1" rowspan="1">Switch to the alternate accumulator.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcfd"></span>FCFD</td>
+<td class="instruction">DEC L</td>
+<td class="comment-1" rowspan="1">Decrease the coarse delay in <span class="register">L</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fcfe"></span>FCFE</td>
+<td class="instruction">JP NZ,<a href="FD10.html#fd17">Play_MenuMusic_PulseTailWrite</a></td>
+<td class="comment-1" rowspan="1">If the coarse delay remains, jump to <a href="FD10.html#fd17">Play_MenuMusic_PulseTailWrite</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="fd01"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="FD10.html">Play_MenuMusic_PulseTail</a>.
+</div>
+<div class="paragraph">
+Reload the coarse delay from <span class="register">H</span> and keep pulsing.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Play_MenuMusic_ReloadCoarse</td>
+<td class="address-2"><span id="fd01"></span>FD01</td>
+<td class="instruction">OUT ($FE),A</td>
+<td class="comment-1" rowspan="1">Write the speaker level to port FE.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fd03"></span>FD03</td>
+<td class="instruction">LD L,H</td>
+<td class="comment-1" rowspan="1">Copy <span class="register">H</span> into <span class="register">L</span> to reload the coarse delay.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fd04"></span>FD04</td>
+<td class="instruction">XOR D</td>
+<td class="comment-1" rowspan="1">Toggle the speaker bit (10) in <span class="register">A</span> via <span class="register">D</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fd05"></span>FD05</td>
+<td class="instruction">DJNZ <a href="FCB3.html#fcf1">Play_MenuMusic_PulseLoop</a></td>
+<td class="comment-1" rowspan="1">Decrease <span class="register">B</span> and loop to <a href="FCB3.html#fcf1">Play_MenuMusic_PulseLoop</a> while the outer count remains.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fd07"></span>FD07</td>
+<td class="instruction">INC C</td>
+<td class="comment-1" rowspan="1">Advance the phase counter in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fd08"></span>FD08</td>
+<td class="instruction">JP NZ,<a href="FCB3.html#fcf3">Play_MenuMusic_PulseWrite</a></td>
+<td class="comment-1" rowspan="1">If the phase remains, jump to <a href="FCB3.html#fcf3">Play_MenuMusic_PulseWrite</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fd0b"></span>FD0B</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="FCAB.html">FCAB</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#fcb3">Map</a></td>
+<td class="next">
+Next: <a href="FD0C.html">FD0C</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/64691.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at D074</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at D074. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at D074" />
+<meta property="og:description" content="The Trap Door: Routine at D074. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/53364.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/53364.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at D074",
+"name": "The Trap Door: Routine at D074",
+"description": "The Trap Door: Routine at D074. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/53364.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at D074"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/53364.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="53356.html">D06C</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#d074">Map</a></td>
+<td class="next">
+Next: <a href="53587.html">D153</a>
+</td>
+</tr>
+</table>
+<div class="description">D074: Script Routine: (3E) Vat action</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="60462.html">AdvanceScriptInstruction</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Address of complex state data for an entity</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_VatScanNearbySlots</td>
+<td class="address-2"><span id="d074"></span>D074</td>
+<td class="instruction">LD E,$FF</td>
+<td class="comment-1" rowspan="1">Load <span class="register">E</span> with FF.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d076"></span>D076</td>
+<td class="instruction">LD IY,$8F9F</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IY</span> at an inactive complex-entity slot (<a href="36595.html#8f9f">StateData_Complex_13</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d07a"></span>D07A</td>
+<td class="instruction">LD B,$03</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 03 as a loop counter.</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_VatScanNearbySlots_ScanEntitySlot</td>
+<td class="address-2"><span id="d07c"></span>D07C</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">BC</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d07d"></span>D07D</td>
+<td class="instruction">LD A,(IY+$00)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d080"></span>D080</td>
+<td class="instruction">CP $0B</td>
+<td class="comment-1" rowspan="2">Is referenced entity's entity type equal to 0B? If not, jump to <a href="53364.html#d0a8">ScriptRoutine_VatScanNearbySlots_AdvanceEntitySlot</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d082"></span>D082</td>
+<td class="instruction">JR NZ,<a href="53364.html#d0a8">ScriptRoutine_VatScanNearbySlots_AdvanceEntitySlot</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d084"></span>D084</td>
+<td class="instruction">BIT 7,(IY+$01)</td>
+<td class="comment-1" rowspan="2">Is bit 07 of the referenced entity's entity flags set? If so, jump to <a href="53364.html#d0a8">ScriptRoutine_VatScanNearbySlots_AdvanceEntitySlot</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d088"></span>D088</td>
+<td class="instruction">JR NZ,<a href="53364.html#d0a8">ScriptRoutine_VatScanNearbySlots_AdvanceEntitySlot</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d08a"></span>D08A</td>
+<td class="instruction">LD A,(IY+$05)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's y-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d08d"></span>D08D</td>
+<td class="instruction">CP $1D</td>
+<td class="comment-1" rowspan="2">Is referenced entity's y-coordinate less than 1D? If so, jump to <a href="53364.html#d0a8">ScriptRoutine_VatScanNearbySlots_AdvanceEntitySlot</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d08f"></span>D08F</td>
+<td class="instruction">JR C,<a href="53364.html#d0a8">ScriptRoutine_VatScanNearbySlots_AdvanceEntitySlot</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d091"></span>D091</td>
+<td class="instruction">LD A,(IX+$07)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d094"></span>D094</td>
+<td class="instruction">SUB (IY+$07)</td>
+<td class="comment-1" rowspan="1">Subtract the referenced entity's x-coordinate from <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d097"></span>D097</td>
+<td class="instruction">LD D,A</td>
+<td class="comment-1" rowspan="1">Copy the signed x-delta into <span class="register">D</span> (bit 07 = sign).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d098"></span>D098</td>
+<td class="instruction">JR NC,<a href="53364.html#d09c">ScriptRoutine_VatScanNearbySlots_TrackBestAbsDeltaX</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="53364.html#d09c">ScriptRoutine_VatScanNearbySlots_TrackBestAbsDeltaX</a> if the subtraction did not underflow.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d09a"></span>D09A</td>
+<td class="instruction">NEG</td>
+<td class="comment-1" rowspan="1">Negate <span class="register">A</span> to get abs(x-delta).</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_VatScanNearbySlots_TrackBestAbsDeltaX</td>
+<td class="address-2"><span id="d09c"></span>D09C</td>
+<td class="instruction">CP $28</td>
+<td class="comment-1" rowspan="2">Is abs(x-delta) less than 28? If not, jump to <a href="53364.html#d0a8">ScriptRoutine_VatScanNearbySlots_AdvanceEntitySlot</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d09e"></span>D09E</td>
+<td class="instruction">JR NC,<a href="53364.html#d0a8">ScriptRoutine_VatScanNearbySlots_AdvanceEntitySlot</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0a0"></span>D0A0</td>
+<td class="instruction">CP E</td>
+<td class="comment-1" rowspan="2">Is abs(x-delta) greater than or equal to the best-so-far in <span class="register">E</span>? If so, jump to <a href="53364.html#d0a8">ScriptRoutine_VatScanNearbySlots_AdvanceEntitySlot</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0a1"></span>D0A1</td>
+<td class="instruction">JR NC,<a href="53364.html#d0a8">ScriptRoutine_VatScanNearbySlots_AdvanceEntitySlot</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0a3"></span>D0A3</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1">Store this abs(x-delta) as the new best in <span class="register">E</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0a4"></span>D0A4</td>
+<td class="instruction">LD ($CF35),IY</td>
+<td class="comment-1" rowspan="1">Store <span class="register">IY</span> in the miscellaneous-entity temp pointer (CF35).</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_VatScanNearbySlots_AdvanceEntitySlot</td>
+<td class="address-2"><span id="d0a8"></span>D0A8</td>
+<td class="instruction">LD BC,$000E</td>
+<td class="comment-1" rowspan="1">Each entity record is 000E bytes long, then load that length into <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0ab"></span>D0AB</td>
+<td class="instruction">ADD IY,BC</td>
+<td class="comment-1" rowspan="1">Add the offset in <span class="register">BC</span> to the entity pointer in <span class="register">IY</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0ad"></span>D0AD</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0ae"></span>D0AE</td>
+<td class="instruction">DJNZ <a href="53364.html#d07c">ScriptRoutine_VatScanNearbySlots_ScanEntitySlot</a></td>
+<td class="comment-1" rowspan="1">Decrease the loop counter in <span class="register">B</span> and jump to <a href="53364.html#d07c">ScriptRoutine_VatScanNearbySlots_ScanEntitySlot</a> if more iterations remain.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0b0"></span>D0B0</td>
+<td class="instruction">LD A,$28</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 28 (no-candidate sentinel matching the initial <span class="register">E</span>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0b2"></span>D0B2</td>
+<td class="instruction">CP E</td>
+<td class="comment-1" rowspan="2">Was no nearer entity found (<span class="register">E</span> still 28)? If carry set, jump to <a href="53364.html#d124">ScriptRoutine_VatScanNearbySlots_NoCandidateNearby</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0b3"></span>D0B3</td>
+<td class="instruction">JP C,<a href="53364.html#d124">ScriptRoutine_VatScanNearbySlots_NoCandidateNearby</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0b6"></span>D0B6</td>
+<td class="instruction">LD IY,($CF35)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">IY</span> from CF35.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0ba"></span>D0BA</td>
+<td class="instruction">LD A,(IX+$04)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's room index.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0bd"></span>D0BD</td>
+<td class="instruction">CP (IY+$04)</td>
+<td class="comment-1" rowspan="2">Does the candidate share this entity's room (<span class="register">IY</span>+04)? If so, jump to <a href="53364.html#d0d0">ScriptRoutine_VatScanNearbySlots_SameRoomCheckY</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0c0"></span>D0C0</td>
+<td class="instruction">JR Z,<a href="53364.html#d0d0">ScriptRoutine_VatScanNearbySlots_SameRoomCheckY</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0c2"></span>D0C2</td>
+<td class="instruction">JR C,<a href="53364.html#d0ca">ScriptRoutine_VatScanNearbySlots_SetDirBit2</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="53364.html#d0ca">ScriptRoutine_VatScanNearbySlots_SetDirBit2</a> if the result underflowed.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0c4"></span>D0C4</td>
+<td class="instruction">SET 3,(IX+$09)</td>
+<td class="comment-1" rowspan="1">Set bit 03 of the current entity's direction / state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0c8"></span>D0C8</td>
+<td class="instruction">JR <a href="53364.html#d0f0">ScriptRoutine_VatScanNearbySlots_DeltaSignPlus</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="53364.html#d0f0">ScriptRoutine_VatScanNearbySlots_DeltaSignPlus</a> to continue this routine.</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_VatScanNearbySlots_SetDirBit2</td>
+<td class="address-2"><span id="d0ca"></span>D0CA</td>
+<td class="instruction">SET 2,(IX+$09)</td>
+<td class="comment-1" rowspan="1">Set bit 02 of the current entity's direction / state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0ce"></span>D0CE</td>
+<td class="instruction">JR <a href="53364.html#d0f0">ScriptRoutine_VatScanNearbySlots_DeltaSignPlus</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="53364.html#d0f0">ScriptRoutine_VatScanNearbySlots_DeltaSignPlus</a> to continue this routine.</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_VatScanNearbySlots_SameRoomCheckY</td>
+<td class="address-2"><span id="d0d0"></span>D0D0</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-1" rowspan="1">Copy the best abs(x-delta) from <span class="register">E</span> into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0d1"></span>D0D1</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the best abs(x-delta) zero? If not, jump to <a href="53364.html#d0f0">ScriptRoutine_VatScanNearbySlots_DeltaSignPlus</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0d2"></span>D0D2</td>
+<td class="instruction">JR NZ,<a href="53364.html#d0f0">ScriptRoutine_VatScanNearbySlots_DeltaSignPlus</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0d4"></span>D0D4</td>
+<td class="instruction">LD A,(IX+$05)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's y-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0d7"></span>D0D7</td>
+<td class="instruction">CP (IY+$05)</td>
+<td class="comment-1" rowspan="2">Does this entity's y match the candidate's y (<span class="register">IY</span>+05)? If not, jump to <a href="53364.html#d0e6">ScriptRoutine_VatScanNearbySlots_YMismatchSetBit6</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0da"></span>D0DA</td>
+<td class="instruction">JR NZ,<a href="53364.html#d0e6">ScriptRoutine_VatScanNearbySlots_YMismatchSetBit6</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0dc"></span>D0DC</td>
+<td class="instruction">LD (IY+$00),$00</td>
+<td class="comment-1" rowspan="1">Write 00 to the referenced entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0e0"></span>D0E0</td>
+<td class="instruction">LD HL,$CFFE</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at miscellaneous-entity script data CFFE.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0e3"></span>D0E3</td>
+<td class="instruction">JP <a href="60462.html#ec30">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#ec30">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_VatScanNearbySlots_YMismatchSetBit6</td>
+<td class="address-2"><span id="d0e6"></span>D0E6</td>
+<td class="instruction">SET 6,(IX+$09)</td>
+<td class="comment-1" rowspan="1">Set bit 06 of the current entity's direction / state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0ea"></span>D0EA</td>
+<td class="instruction">LD HL,$CFBC</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at miscellaneous-entity script data CFBC.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0ed"></span>D0ED</td>
+<td class="instruction">JP <a href="60462.html#ec30">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#ec30">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_VatScanNearbySlots_DeltaSignPlus</td>
+<td class="address-2"><span id="d0f0"></span>D0F0</td>
+<td class="instruction">BIT 7,D</td>
+<td class="comment-1" rowspan="2">Is bit 07 of the signed x-delta in <span class="register">D</span> set? If so, jump to <a href="53364.html#d108">ScriptRoutine_VatScanNearbySlots_DeltaSignMinus</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0f2"></span>D0F2</td>
+<td class="instruction">JR NZ,<a href="53364.html#d108">ScriptRoutine_VatScanNearbySlots_DeltaSignMinus</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0f4"></span>D0F4</td>
+<td class="instruction">LD A,$02</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 02 as the <a href="60133.html">PseudoRandom</a> random maximum.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0f6"></span>D0F6</td>
+<td class="instruction">CALL <a href="60133.html">PseudoRandom</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60133.html">PseudoRandom</a> to pick a pseudo-random value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0f9"></span>D0F9</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> zero? If so, jump to <a href="53364.html#d102">ScriptRoutine_VatScanNearbySlots_ScriptCFAA</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0fa"></span>D0FA</td>
+<td class="instruction">JR Z,<a href="53364.html#d102">ScriptRoutine_VatScanNearbySlots_ScriptCFAA</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0fc"></span>D0FC</td>
+<td class="instruction">LD HL,$CF88</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at miscellaneous-entity script data CF88.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d0ff"></span>D0FF</td>
+<td class="instruction">JP <a href="60462.html#ec30">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#ec30">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_VatScanNearbySlots_ScriptCFAA</td>
+<td class="address-2"><span id="d102"></span>D102</td>
+<td class="instruction">LD HL,$CFAA</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at miscellaneous-entity script data CFAA.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d105"></span>D105</td>
+<td class="instruction">JP <a href="60462.html#ec30">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#ec30">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_VatScanNearbySlots_DeltaSignMinus</td>
+<td class="address-2"><span id="d108"></span>D108</td>
+<td class="instruction">LD A,$02</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 02 as the <a href="60133.html">PseudoRandom</a> random maximum.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d10a"></span>D10A</td>
+<td class="instruction">CALL <a href="60133.html">PseudoRandom</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60133.html">PseudoRandom</a> to pick a pseudo-random value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d10d"></span>D10D</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> zero? If so, jump to <a href="53364.html#d116">ScriptRoutine_VatScanNearbySlots_ScriptCF76</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d10e"></span>D10E</td>
+<td class="instruction">JR Z,<a href="53364.html#d116">ScriptRoutine_VatScanNearbySlots_ScriptCF76</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d110"></span>D110</td>
+<td class="instruction">LD HL,$CF54</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at miscellaneous-entity script data CF54.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d113"></span>D113</td>
+<td class="instruction">JP <a href="60462.html#ec30">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#ec30">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_VatScanNearbySlots_ScriptCF76</td>
+<td class="address-2"><span id="d116"></span>D116</td>
+<td class="instruction">LD HL,$CF76</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at miscellaneous-entity script data CF76.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d119"></span>D119</td>
+<td class="instruction">JP <a href="60462.html#ec30">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#ec30">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d11c"></span>D11C</td>
+<td class="instruction">LD D,H</td>
+<td class="comment-1" rowspan="1">Copy the high byte of the pointer into <span class="register">D</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d11d"></span>D11D</td>
+<td class="instruction">RST $08</td>
+<td class="comment-1" rowspan="1">Call the restart routine.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d11e"></span>D11E</td>
+<td class="instruction">ADC A,B</td>
+<td class="comment-1" rowspan="1">Add <span class="register">B</span> into <span class="register">A</span>, including the previous success marker.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d11f"></span>D11F</td>
+<td class="instruction">RST $08</td>
+<td class="comment-1" rowspan="1">Call the restart routine.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d120"></span>D120</td>
+<td class="instruction">JP C,$46CF</td>
+<td class="comment-1" rowspan="1">Jump to 46CF if the result underflowed.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d123"></span>D123</td>
+<td class="instruction">RST $08</td>
+<td class="comment-1" rowspan="1">Call the restart routine.</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_VatScanNearbySlots_NoCandidateNearby</td>
+<td class="address-2"><span id="d124"></span>D124</td>
+<td class="instruction">LD A,$05</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 05 as the <a href="60133.html">PseudoRandom</a> random maximum.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d126"></span>D126</td>
+<td class="instruction">CALL <a href="60133.html">PseudoRandom</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60133.html">PseudoRandom</a> to pick a pseudo-random value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d129"></span>D129</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> zero? If not, jump to <a href="53364.html#d13f">ScriptRoutine_VatScanNearbySlots_IndexTableD11C</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d12a"></span>D12A</td>
+<td class="instruction">JR NZ,<a href="53364.html#d13f">ScriptRoutine_VatScanNearbySlots_IndexTableD11C</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d12c"></span>D12C</td>
+<td class="instruction">LD A,(IX+$07)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d12f"></span>D12F</td>
+<td class="instruction">CP $70</td>
+<td class="comment-1" rowspan="2">Is the current entity's x-coordinate less than 70? If so, jump to <a href="53364.html#d139">ScriptRoutine_VatScanNearbySlots_ScriptCF54</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d131"></span>D131</td>
+<td class="instruction">JR C,<a href="53364.html#d139">ScriptRoutine_VatScanNearbySlots_ScriptCF54</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d133"></span>D133</td>
+<td class="instruction">LD HL,$CFAA</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at miscellaneous-entity script data CFAA.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d136"></span>D136</td>
+<td class="instruction">JP <a href="60462.html#ec30">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#ec30">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_VatScanNearbySlots_ScriptCF54</td>
+<td class="address-2"><span id="d139"></span>D139</td>
+<td class="instruction">LD HL,$CF54</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at miscellaneous-entity script data CF54.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d13c"></span>D13C</td>
+<td class="instruction">JP <a href="60462.html#ec30">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#ec30">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_VatScanNearbySlots_IndexTableD11C</td>
+<td class="address-2"><span id="d13f"></span>D13F</td>
+<td class="instruction">LD A,$04</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 04 as the <a href="60133.html">PseudoRandom</a> random maximum.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d141"></span>D141</td>
+<td class="instruction">CALL <a href="60133.html">PseudoRandom</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60133.html">PseudoRandom</a> to pick a pseudo-random value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d144"></span>D144</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-1" rowspan="1">Double <span class="register">A</span> to form a word index into the table at D11C.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d145"></span>D145</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1">Copy that word index into <span class="register">E</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d146"></span>D146</td>
+<td class="instruction">LD D,$00</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">D</span> (high byte of a pointer/offset).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d148"></span>D148</td>
+<td class="instruction">LD HL,$D11C</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at vat/misc routine data D11C.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d14b"></span>D14B</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">Add the offset in <span class="register">DE</span> to the pointer in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d14c"></span>D14C</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the low byte at <span class="register">HL</span> into <span class="register">E</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d14d"></span>D14D</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance <span class="register">HL</span> to the next script byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d14e"></span>D14E</td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the high byte at <span class="register">HL</span> into <span class="register">D</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d14f"></span>D14F</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Swap the destination and source pointers in <span class="register">DE</span>/<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d150"></span>D150</td>
+<td class="instruction">JP <a href="60462.html#ec30">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#ec30">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="53356.html">D06C</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#d074">Map</a></td>
+<td class="next">
+Next: <a href="53587.html">D153</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/340836.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

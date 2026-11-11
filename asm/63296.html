@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at F740</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at F740. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at F740" />
+<meta property="og:description" content="The Trap Door: Data at F740. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/63296.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/63296.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at F740",
+"name": "The Trap Door: Data at F740",
+"description": "The Trap Door: Data at F740. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/63296.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at F740"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/63296.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="63242.html">F70A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#f740">Map</a></td>
+<td class="next">
+Next: <a href="63737.html">F8F9</a>
+</td>
+</tr>
+</table>
+<div class="description">F740: Font: Main Menu Logo</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+UDG font for the main-menu logo drawn by <a href="63190.html">Draw_MainMenuLogo</a>. <a href="63190.html">Draw_MainMenuLogo</a> points the character set at <a href="63296.html">Font_MainMenuLogo</a>+01; glyph 00 (the first 0008 bytes) is also reused by <a href="63242.html">ColourCycle_MainMenuLogo</a> as the "last attribute" scratch byte. 0037 glyphs of 0008 bytes end at <a href="63737.html">Queue_Sound</a>.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="font-main-menu-logo" src="../images/udgs/font-main-menu-logo.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Font_MainMenuLogo</td>
+<td class="address-1"><span id="f740"></span>F740</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f748"></span>F748</td>
+<td class="instruction">DEFB $00,$80,$7F,$40,$5F,$58,$58,$58</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f750"></span>F750</td>
+<td class="instruction">DEFB $58,$00,$FF,$00,$FF,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f758"></span>F758</td>
+<td class="instruction">DEFB $00,$00,$FF,$00,$FF,$10,$10,$10</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f760"></span>F760</td>
+<td class="instruction">DEFB $10,$00,$FF,$00,$FF,$07,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f768"></span>F768</td>
+<td class="instruction">DEFB $00,$00,$FF,$00,$FF,$FF,$7E,$38</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f770"></span>F770</td>
+<td class="instruction">DEFB $18,$00,$FF,$00,$FF,$FF,$07,$03</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f778"></span>F778</td>
+<td class="instruction">DEFB $03,$00,$FF,$00,$FF,$E0,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f780"></span>F780</td>
+<td class="instruction">DEFB $00,$00,$FF,$00,$FF,$FF,$0F,$03</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f788"></span>F788</td>
+<td class="instruction">DEFB $03,$01,$FE,$02,$FA,$FA,$FA,$FA</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f790"></span>F790</td>
+<td class="instruction">DEFB $FA,$58,$58,$58,$58,$5F,$5F,$5F</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f798"></span>F798</td>
+<td class="instruction">DEFB $5F,$00,$00,$00,$00,$80,$80,$80</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f7a0"></span>F7A0</td>
+<td class="instruction">DEFB $80,$10,$10,$10,$70,$60,$60,$60</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f7a8"></span>F7A8</td>
+<td class="instruction">DEFB $60,$00,$60,$70,$70,$60,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f7b0"></span>F7B0</td>
+<td class="instruction">DEFB $00,$08,$08,$08,$08,$08,$11,$11</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f7b8"></span>F7B8</td>
+<td class="instruction">DEFB $21,$03,$03,$01,$01,$C1,$E1,$E1</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f7c0"></span>F7C0</td>
+<td class="instruction">DEFB $E0,$00,$00,$01,$81,$81,$81,$81</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f7c8"></span>F7C8</td>
+<td class="instruction">DEFB $80,$01,$00,$80,$C0,$C0,$80,$80</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f7d0"></span>F7D0</td>
+<td class="instruction">DEFB $01,$FA,$FA,$FA,$FA,$FA,$FA,$FA</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f7d8"></span>F7D8</td>
+<td class="instruction">DEFB $FA,$5F,$5F,$5F,$5F,$5F,$5F,$5C</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f7e0"></span>F7E0</td>
+<td class="instruction">DEFB $5C,$80,$80,$80,$80,$80,$80,$FF</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f7e8"></span>F7E8</td>
+<td class="instruction">DEFB $00,$60,$60,$60,$60,$60,$60,$FF</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f7f0"></span>F7F0</td>
+<td class="instruction">DEFB $7F,$00,$00,$60,$60,$70,$70,$F1</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f7f8"></span>F7F8</td>
+<td class="instruction">DEFB $FF,$40,$40,$20,$10,$13,$33,$C3</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f800"></span>F800</td>
+<td class="instruction">DEFB $83,$00,$00,$00,$00,$E0,$E0,$E0</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f808"></span>F808</td>
+<td class="instruction">DEFB $E7,$80,$80,$80,$80,$80,$80,$80</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f810"></span>F810</td>
+<td class="instruction">DEFB $80,$03,$0F,$7F,$FF,$FF,$FF,$FF</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f818"></span>F818</td>
+<td class="instruction">DEFB $C1,$FA,$FA,$FA,$FA,$FA,$FA,$FA</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f820"></span>F820</td>
+<td class="instruction">DEFB $FA,$5C,$5C,$5C,$5C,$5C,$5C,$5C</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f828"></span>F828</td>
+<td class="instruction">DEFB $5C,$00,$00,$00,$00,$00,$0E,$0F</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f830"></span>F830</td>
+<td class="instruction">DEFB $0F,$0F,$07,$06,$02,$02,$02,$02</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f838"></span>F838</td>
+<td class="instruction">DEFB $02,$81,$00,$00,$00,$00,$0C,$1E</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f840"></span>F840</td>
+<td class="instruction">DEFB $1E,$FF,$1E,$0C,$0C,$0C,$04,$04</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f848"></span>F848</td>
+<td class="instruction">DEFB $04,$FF,$01,$00,$00,$00,$0C,$1E</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f850"></span>F850</td>
+<td class="instruction">DEFB $1E,$00,$FF,$60,$10,$18,$18,$08</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f858"></span>F858</td>
+<td class="instruction">DEFB $08,$C0,$C0,$00,$00,$00,$70,$78</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f860"></span>F860</td>
+<td class="instruction">DEFB $78,$7A,$3A,$1A,$1A,$0A,$0A,$0A</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f868"></span>F868</td>
+<td class="instruction">DEFB $0A,$5C,$5C,$5C,$5C,$5C,$5C,$5C</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f870"></span>F870</td>
+<td class="instruction">DEFB $5C,$0F,$0F,$0E,$00,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f878"></span>F878</td>
+<td class="instruction">DEFB $00,$02,$02,$02,$02,$02,$02,$02</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f880"></span>F880</td>
+<td class="instruction">DEFB $02,$1E,$0C,$00,$00,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f888"></span>F888</td>
+<td class="instruction">DEFB $00,$04,$04,$04,$04,$04,$0C,$08</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f890"></span>F890</td>
+<td class="instruction">DEFB $08,$1E,$0C,$00,$00,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f898"></span>F898</td>
+<td class="instruction">DEFB $00,$08,$08,$08,$08,$08,$08,$18</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">Font_MainMenuLogo_0</td>
+<td class="address-2"><span id="f8a0"></span>F8A0</td>
+<td class="instruction">DEFB $18,$70,$00,$00,$00,$00,$00,$00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f8a8"></span>F8A8</td>
+<td class="instruction">DEFB $00,$1A,$1A,$1A,$3A,$7A,$3A,$1A</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f8b0"></span>F8B0</td>
+<td class="instruction">DEFB $0E,$5C,$5C,$5C,$5C,$5F,$40,$7F</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f8b8"></span>F8B8</td>
+<td class="instruction">DEFB $80,$00,$00,$00,$00,$FF,$00,$FF</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f8c0"></span>F8C0</td>
+<td class="instruction">DEFB $00,$06,$06,$0F,$7F,$FF,$00,$FF</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f8c8"></span>F8C8</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$C0,$FF,$00,$FF</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f8d0"></span>F8D0</td>
+<td class="instruction">DEFB $00,$08,$1C,$1E,$7F,$FF,$00,$FF</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f8d8"></span>F8D8</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$01,$FF,$00,$FF</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f8e0"></span>F8E0</td>
+<td class="instruction">DEFB $00,$10,$60,$60,$C0,$FF,$00,$FF</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f8e8"></span>F8E8</td>
+<td class="instruction">DEFB $00,$70,$70,$78,$78,$FC,$05,$FF</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f8f0"></span>F8F0</td>
+<td class="instruction">DEFB $00,$03,$01,$03,$1E,$7A,$C2,$FE</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f8f8"></span>F8F8</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="63242.html">F70A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#f740">Map</a></td>
+<td class="next">
+Next: <a href="63737.html">F8F9</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/406166.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

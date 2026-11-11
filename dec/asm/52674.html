@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at 52674</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at 52674. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at 52674" />
+<meta property="og:description" content="The Trap Door: Data at 52674. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/52674.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/52674.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at 52674",
+"name": "The Trap Door: Data at 52674",
+"description": "The Trap Door: Data at 52674. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/52674.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at 52674"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/52674.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52409.html">52409</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52674">Map</a></td>
+<td class="next">
+Next: <a href="52811.html">52811</a>
+</td>
+</tr>
+</table>
+<div class="description">52674: Data: Ghost And Plant Tables</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Table/script residue used by ghost and plant-pot update routines before <a href="52811.html">Update_Ghosts</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Data_GhostAndPlantTables</td>
+<td class="address-1"><span id="52674"></span>52674</td>
+<td class="instruction">DEFB 2,73,16,161,73,144,161</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes 2, 73, 16, 161, 73, 144, 161.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52681"></span>52681</td>
+<td class="instruction">DEFB 250</td>
+<td class="comment-1" rowspan="1">Layout 250 (adjust coordinates without storing).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52682"></span>52682</td>
+<td class="instruction">DEFB 255</td>
+<td class="comment-1" rowspan="1">Layout 255 (load stored coordinates and return).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52683"></span>52683</td>
+<td class="instruction">DEFB 254</td>
+<td class="comment-1" rowspan="1">Layout 254 (adjust coordinates and store).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52684"></span>52684</td>
+<td class="instruction">DEFB 66,2,33,66,130,30</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes 66, 2, 33, 66, 130, 30.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52690"></span>52690</td>
+<td class="instruction">DEFB 68,2,35,68,130,30,69,34</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes 68, 2, 35, 68, 130, 30, 69, 34.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52698"></span>52698</td>
+<td class="instruction">DEFB 33,69,162,31,70,34,33,70</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes 33, 69, 162, 31, 70, 34, 33, 70.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52706"></span>52706</td>
+<td class="instruction">DEFB 162,33</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes 162, 33.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52708"></span>52708</td>
+<td class="instruction">DEFB 255</td>
+<td class="comment-1" rowspan="1">Layout 255 (load stored coordinates and return).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52709"></span>52709</td>
+<td class="instruction">DEFB 250</td>
+<td class="comment-1" rowspan="1">Layout 250 (adjust coordinates without storing).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52710"></span>52710</td>
+<td class="instruction">DEFB 254</td>
+<td class="comment-1" rowspan="1">Layout 254 (adjust coordinates and store).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52711"></span>52711</td>
+<td class="instruction">DEFB 0,60,7</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes 0, 60, 7.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52714"></span>52714</td>
+<td class="instruction">DEFB 33,60,135,35,60,7,33,60</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes 33, 60, 135, 35, 60, 7, 33, 60.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52722"></span>52722</td>
+<td class="instruction">DEFB 135,27,61,7,33,65,7,35</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes 135, 27, 61, 7, 33, 65, 7, 35.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52730"></span>52730</td>
+<td class="instruction">DEFB 65,135,33,61,135,33</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes 65, 135, 33, 61, 135, 33.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52736"></span>52736</td>
+<td class="instruction">DEFB 255</td>
+<td class="comment-1" rowspan="1">Layout 255 (load stored coordinates and return).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52737"></span>52737</td>
+<td class="instruction">DEFB 250</td>
+<td class="comment-1" rowspan="1">Layout 250 (adjust coordinates without storing).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52738"></span>52738</td>
+<td class="instruction">DEFB 253</td>
+<td class="comment-1" rowspan="1">Layout 253 (jump using carried-entity width).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52739"></span>52739</td>
+<td class="instruction">DEFB 0</td>
+<td class="comment-1" rowspan="1">FD operand 0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52740"></span>52740</td>
+<td class="instruction">DEFB 60,7,33,63,7,35</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes 60, 7, 33, 63, 7, 35.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52746"></span>52746</td>
+<td class="instruction">DEFB 63,135,33,60,135,27,61,7</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes 63, 135, 33, 60, 135, 27, 61, 7.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52754"></span>52754</td>
+<td class="instruction">DEFB 33,64,7,35,64,135,33,61</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes 33, 64, 7, 35, 64, 135, 33, 61.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52762"></span>52762</td>
+<td class="instruction">DEFB 135,28,74,6,35,74,134,33</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes 135, 28, 74, 6, 35, 74, 134, 33.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52770"></span>52770</td>
+<td class="instruction">DEFB 255</td>
+<td class="comment-1" rowspan="1">Layout 255 (load stored coordinates and return).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52771"></span>52771</td>
+<td class="instruction">DEFB 250</td>
+<td class="comment-1" rowspan="1">Layout 250 (adjust coordinates without storing).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52772"></span>52772</td>
+<td class="instruction">DEFB 252</td>
+<td class="comment-1" rowspan="1">Layout 252 (conditional jump or skip).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52773"></span>52773</td>
+<td class="instruction">DEFB 0,60,7,33,62</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes 0, 60, 7, 33, 62.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52778"></span>52778</td>
+<td class="instruction">DEFB 7,35,62,135,33,60,135,27</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes 7, 35, 62, 135, 33, 60, 135, 27.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52786"></span>52786</td>
+<td class="instruction">DEFB 61,7,33,61,135,35,61,7</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes 61, 7, 33, 61, 135, 35, 61, 7.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52794"></span>52794</td>
+<td class="instruction">DEFB 33,61,135,28,75,6,35,75</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes 33, 61, 135, 28, 75, 6, 35, 75.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52802"></span>52802</td>
+<td class="instruction">DEFB 134,29,76,6,35,76,134,33</td>
+<td class="comment-1" rowspan="1">Tile/delta bytes 134, 29, 76, 6, 35, 76, 134, 33.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52810"></span>52810</td>
+<td class="instruction">DEFB 255</td>
+<td class="comment-1" rowspan="1">Layout 255 (load stored coordinates and return).</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52409.html">52409</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52674">Map</a></td>
+<td class="next">
+Next: <a href="52811.html">52811</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/CDC2.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 60225</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 60225. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 60225" />
+<meta property="og:description" content="The Trap Door: Routine at 60225. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/60225.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/60225.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 60225",
+"name": "The Trap Door: Routine at 60225",
+"description": "The Trap Door: Routine at 60225. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/60225.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 60225"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/60225.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60192.html">60192</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60225">Map</a></td>
+<td class="next">
+Next: <a href="60263.html">60263</a>
+</td>
+</tr>
+</table>
+<div class="description">60225: Print Digit</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="60192.html">Print_ScoreDigits</a>.
+</div>
+<div class="paragraph">
+Divide <span class="register">HL</span> by <span class="register">DE</span>, print the quotient digit through <span class="register">IX</span>, and leave the remainder in <span class="register">HL</span>. Uses <a href="60191.html">Flag_ScoreLeadingZeroSuppress</a> to suppress leading zeros.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Print_Digit</td>
+<td class="address-2"><span id="60225"></span>60225</td>
+<td class="instruction">AND A</td>
+<td class="comment-1" rowspan="1">Is <span class="register">A</span> zero?.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60226"></span>60226</td>
+<td class="instruction">LD B,255</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 255.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60228"></span>
+<div class="comments">
+<div class="paragraph">
+Count how many times <span class="register">DE</span> fits into <span class="register">HL</span> (digit quotient).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Print_Digit_DivideLoop</td>
+<td class="address-2"><span id="60228"></span>60228</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Step the outer print loop counter on by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60229"></span>60229</td>
+<td class="instruction">SBC HL,DE</td>
+<td class="comment-1" rowspan="1">Subtract <span class="register">DE</span> from <span class="register">HL</span>, including the previous success marker.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60231"></span>60231</td>
+<td class="instruction">JR NC,<a href="60225.html#60228">Print_Digit_DivideLoop</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60225.html#60228">Print_Digit_DivideLoop</a> if the result did not underflow.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60233"></span>60233</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>+=<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60234"></span>60234</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-1" rowspan="1">Copy the loop counter from <span class="register">B</span> into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60235"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="60192.html">Print_ScoreDigits</a>.
+</div>
+<div class="paragraph">
+Choose a digit glyph, a leading space, or a leading zero using <a href="60191.html">Flag_ScoreLeadingZeroSuppress</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Print_Digit_SelectGlyph</td>
+<td class="address-2"><span id="60235"></span>60235</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> zero? If not, jump to <a href="60225.html#60252">Print_DigitLoopB</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60236"></span>60236</td>
+<td class="instruction">JR NZ,<a href="60225.html#60252">Print_DigitLoopB</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60238"></span>60238</td>
+<td class="instruction">LD A,(60191)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> from <a href="60191.html">Flag_ScoreLeadingZeroSuppress</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60241"></span>60241</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> zero? If not, jump to <a href="60225.html#60248">Print_Digit_LeadingZero</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60242"></span>60242</td>
+<td class="instruction">JR NZ,<a href="60225.html#60248">Print_Digit_LeadingZero</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60244"></span>60244</td>
+<td class="instruction">LD A,32</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 32.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60246"></span>60246</td>
+<td class="instruction">JR <a href="60225.html#60257">Print_DigitLoopB2</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60225.html#60257">Print_DigitLoopB2</a> to continue the loop.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60248"></span>
+<div class="comments">
+<div class="paragraph">
+Print a leading zero (&#48;) while suppression is still armed.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Print_Digit_LeadingZero</td>
+<td class="address-2"><span id="60248"></span>60248</td>
+<td class="instruction">LD A,48</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 48.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60250"></span>60250</td>
+<td class="instruction">JR <a href="60225.html#60257">Print_DigitLoopB2</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60225.html#60257">Print_DigitLoopB2</a> to continue the loop.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60252"></span>
+<div class="comments">
+<div class="paragraph">
+Convert a non-zero quotient to ASCII and clear the leading-zero suppress flag.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Print_DigitLoopB</td>
+<td class="address-2"><span id="60252"></span>60252</td>
+<td class="instruction">ADD A,48</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>+=48.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60254"></span>60254</td>
+<td class="instruction">LD (60191),A</td>
+<td class="comment-1" rowspan="1">Set <a href="60191.html">Flag_ScoreLeadingZeroSuppress</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60257"></span>
+<div class="comments">
+<div class="paragraph">
+Write the chosen character through <span class="register">IX</span> and advance one column.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Print_DigitLoopB2</td>
+<td class="address-2"><span id="60257"></span>60257</td>
+<td class="instruction">LD (IX+0),A</td>
+<td class="comment-1" rowspan="1">Write the character code through <span class="register">IX</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60260"></span>60260</td>
+<td class="instruction">INC IX</td>
+<td class="comment-1" rowspan="1">Advance <span class="register">IX</span> to the next character column.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60262"></span>60262</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60192.html">60192</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60225">Map</a></td>
+<td class="next">
+Next: <a href="60263.html">60263</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/EB41.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

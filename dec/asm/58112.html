@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 58112</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 58112. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 58112" />
+<meta property="og:description" content="The Trap Door: Routine at 58112. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/58112.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/58112.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 58112",
+"name": "The Trap Door: Routine at 58112",
+"description": "The Trap Door: Routine at 58112. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/58112.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 58112"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/58112.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="58105.html">58105</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#58112">Map</a></td>
+<td class="next">
+Next: <a href="58186.html">58186</a>
+</td>
+</tr>
+</table>
+<div class="description">58112: Paint Message Buffer</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="57990.html">Print_EncodedMessage</a>.
+</div>
+<div class="paragraph">
+Paint the decoded buffer at <a href="25504.html">PrimaryDisplayBuffer</a> with the double-height font at <a href="58410.html">Font_MessageCharacters</a>, pulsing the attribute through 150 frames.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="58112"></span>
+<div class="comments">
+<div class="paragraph">
+Point the character set at the message font and paint the buffer until the flash counter hits 150.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Paint_MessageBuffer</td>
+<td class="address-2"><span id="58112"></span>58112</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Clear <span class="register">A</span>, then clear the message-frame counter (<a href="56724.html">56738</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58113"></span>58113</td>
+<td class="instruction">LD (56738),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58116"></span>58116</td>
+<td class="instruction">LD HL,58411</td>
+<td class="comment-1" rowspan="2">Point <span class="register">HL</span> at the message font + 1 (<a href="58410.html">Font_MessageCharacters</a> + 1), then store it as the current character set.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58119"></span>58119</td>
+<td class="instruction">LD (29433),HL</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="58122"></span>
+<div class="comments">
+<div class="paragraph">
+Repaint the decoded buffer at <a href="25504.html">PrimaryDisplayBuffer</a> from attribute row 22720 (attribute buffer).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Paint_MessageBuffer_Frame</td>
+<td class="address-2"><span id="58122"></span>58122</td>
+<td class="instruction">LD HL,22720</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the message attribute row (22720 (attribute buffer)).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58125"></span>58125</td>
+<td class="instruction">LD IX,25504</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the decoded message buffer (<a href="25504.html">PrimaryDisplayBuffer</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58129"></span>58129</td>
+<td class="instruction">LD A,(56738)</td>
+<td class="comment-1" rowspan="3">Fetch the message-frame counter (<a href="56724.html">56738</a>). Has it reached 150 frames? If not, continue the pulse at <a href="58112.html#58140">Paint_MessageBuffer_PulseAttr</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58132"></span>58132</td>
+<td class="instruction">CP 150</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58134"></span>58134</td>
+<td class="instruction">JR NZ,<a href="58112.html#58140">Paint_MessageBuffer_PulseAttr</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58136"></span>58136</td>
+<td class="instruction">CALL <a href="59964.html">Clear_BothDisplayBuffers</a></td>
+<td class="comment-1" rowspan="1">Call <a href="59964.html">Clear_BothDisplayBuffers</a> to clear both display buffers.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58139"></span>58139</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="58140"></span>
+<div class="comments">
+<div class="paragraph">
+Pulse the text attribute from the frame counter at <a href="56724.html">56738</a> after dividing by 8, never leaving it at zero.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Paint_MessageBuffer_PulseAttr</td>
+<td class="address-2"><span id="58140"></span>58140</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="2">Advance the frame counter and store it back at <a href="56724.html">56738</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58141"></span>58141</td>
+<td class="instruction">LD (56738),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58144"></span>58144</td>
+<td class="instruction">SRL A</td>
+<td class="comment-1" rowspan="3">Divide <span class="register">A</span> by 8 to slow the attribute pulse.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58146"></span>58146</td>
+<td class="instruction">SRL A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58148"></span>58148</td>
+<td class="instruction">SRL A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58150"></span>58150</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the pulsed value zero? If not, jump to <a href="58112.html#58154">Paint_MessageBuffer_ClampAttr</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58151"></span>58151</td>
+<td class="instruction">JR NZ,<a href="58112.html#58154">Paint_MessageBuffer_ClampAttr</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58153"></span>58153</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Force a minimum pulse of 1.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="58154"></span>
+<div class="comments">
+<div class="paragraph">
+Clamp the pulsed attribute to white (7) when it reaches 8 or above.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Paint_MessageBuffer_ClampAttr</td>
+<td class="address-2"><span id="58154"></span>58154</td>
+<td class="instruction">CP 8</td>
+<td class="comment-1" rowspan="3">Is the pulsed attribute &lt; 8? If so, keep it at <a href="58112.html#58160">Paint_MessageBuffer_StoreAttr</a>. Otherwise clamp it to white (7).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58156"></span>58156</td>
+<td class="instruction">JR C,<a href="58112.html#58160">Paint_MessageBuffer_StoreAttr</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58158"></span>58158</td>
+<td class="instruction">LD A,7</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="58160"></span>
+<div class="comments">
+<div class="paragraph">
+Store the pulsed ink in <a href="29447.html">CurrentTextAttribute</a> and its 7−value inverse shift in <a href="56724.html">56736</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Paint_MessageBuffer_StoreAttr</td>
+<td class="address-2"><span id="58160"></span>58160</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Keep the attribute in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58161"></span>58161</td>
+<td class="instruction">LD (29447),A</td>
+<td class="comment-1" rowspan="1">Store it as the current text attribute (<a href="29447.html">CurrentTextAttribute</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58164"></span>58164</td>
+<td class="instruction">LD A,7</td>
+<td class="comment-1" rowspan="1">Compute 7−attribute.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58166"></span>58166</td>
+<td class="instruction">SUB C</td>
+<td class="comment-1" rowspan="1">Subtract the centred column from 7 to get the left pad.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58167"></span>58167</td>
+<td class="instruction">LD (56736),A</td>
+<td class="comment-1" rowspan="1">Store that inverse shift at <a href="56724.html">56736</a> (used while plotting).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="58170"></span>
+<div class="comments">
+<div class="paragraph">
+Centre and draw one message row via <a href="58186.html">Centre_AndDrawMessageRow</a>, then step three attribute rows for the next.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Paint_MessageBuffer_RowLoop</td>
+<td class="address-2"><span id="58170"></span>58170</td>
+<td class="instruction">CALL <a href="58186.html">Centre_AndDrawMessageRow</a></td>
+<td class="comment-1" rowspan="1">Call <a href="58186.html">Centre_AndDrawMessageRow</a> to centre and draw one message row.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58173"></span>58173</td>
+<td class="instruction">LD A,(56737)</td>
+<td class="comment-1" rowspan="3">Fetch the row-terminator byte saved by <a href="58186.html">Centre_AndDrawMessageRow</a> (<a href="56724.html">56737</a>). Was it the message end (&#93;)? If so, restart a new frame at <a href="58112.html#58122">Paint_MessageBuffer_Frame</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58176"></span>58176</td>
+<td class="instruction">CP 93</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58178"></span>58178</td>
+<td class="instruction">JR Z,<a href="58112.html#58122">Paint_MessageBuffer_Frame</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58180"></span>58180</td>
+<td class="instruction">LD BC,96</td>
+<td class="comment-1" rowspan="1">Step <span class="register">HL</span> down by 0096 attribute bytes (three rows).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58183"></span>58183</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-1" rowspan="1">Advance <span class="register">HL</span> by one message row (0096 attribute bytes).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="58184"></span>58184</td>
+<td class="instruction">JR <a href="58112.html#58170">Paint_MessageBuffer_RowLoop</a></td>
+<td class="comment-1" rowspan="1">Draw the next message row at <a href="58112.html#58170">Paint_MessageBuffer_RowLoop</a>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="58105.html">58105</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#58112">Map</a></td>
+<td class="next">
+Next: <a href="58186.html">58186</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/E300.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

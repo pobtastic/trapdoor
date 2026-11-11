@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at B2AA</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at B2AA. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at B2AA" />
+<meta property="og:description" content="The Trap Door: Routine at B2AA. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/45738.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/45738.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at B2AA",
+"name": "The Trap Door: Routine at B2AA",
+"description": "The Trap Door: Routine at B2AA. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/45738.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at B2AA"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/45738.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="45656.html">B258</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#b2aa">Map</a></td>
+<td class="next">
+Next: <a href="46106.html">B41A</a>
+</td>
+</tr>
+</table>
+<div class="description">B2AA: Update Entity Slot</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="45656.html">Process_Special_Entity_Flags</a>.
+</div>
+<div class="paragraph">
+Update Entity Slot walking the entity tables at <a href="35689.html">StateData_Simple_00</a> / <a href="36585.html">StateData_Berk</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Address of complex state data for an entity</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Entity_Slot</td>
+<td class="address-2"><span id="b2aa"></span>B2AA</td>
+<td class="instruction">CALL <a href="62141.html">Test_EntityOverlap_AllowSpecial</a></td>
+<td class="comment-1" rowspan="2">Call <a href="62141.html">Test_EntityOverlap_AllowSpecial</a> to test Entity Overlap (Allow Special)? If so, jump to <a href="45738.html#b3be">Update_Entity_Slot_SnapToRoomFloor</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2ad"></span>B2AD</td>
+<td class="instruction">JP C,<a href="45738.html#b3be">Update_Entity_Slot_SnapToRoomFloor</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2b0"></span>B2B0</td>
+<td class="instruction">CP $41</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> equal to 41? If not, jump to <a href="45738.html#b2e4">Update_Entity_Slot_Branch</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2b2"></span>B2B2</td>
+<td class="instruction">JR NZ,<a href="45738.html#b2e4">Update_Entity_Slot_Branch</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2b4"></span>B2B4</td>
+<td class="instruction">LD A,(IX+$08)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2b7"></span>B2B7</td>
+<td class="instruction">CP $73</td>
+<td class="comment-1" rowspan="2">Is the current entity's x-extent less than 73? If so, jump to <a href="45738.html#b2bd">Update_Entity_Slot_AtColumn6B</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2b9"></span>B2B9</td>
+<td class="instruction">JR C,<a href="45738.html#b2bd">Update_Entity_Slot_AtColumn6B</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2bb"></span>B2BB</td>
+<td class="instruction">JR <a href="45738.html#b2e4">Update_Entity_Slot_Branch</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="45738.html#b2e4">Update_Entity_Slot_Branch</a> to continue the entity-slot update.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Entity_Slot_AtColumn6B</td>
+<td class="address-2"><span id="b2bd"></span>B2BD</td>
+<td class="instruction">LD A,(IX+$07)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2c0"></span>B2C0</td>
+<td class="instruction">CP $6B</td>
+<td class="comment-1" rowspan="2">Is the current entity's x-coordinate equal to 6B? If not, jump to <a href="45738.html#b2d0">Update_Entity_Slot_SetRiseAndEvent</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2c2"></span>B2C2</td>
+<td class="instruction">JR NZ,<a href="45738.html#b2d0">Update_Entity_Slot_SetRiseAndEvent</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2c4"></span>B2C4</td>
+<td class="instruction">DEC (IX+$05)</td>
+<td class="comment-1" rowspan="2">Move this entity one character up.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2c7"></span>B2C7</td>
+<td class="instruction">DEC (IX+$06)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2ca"></span>B2CA</td>
+<td class="instruction">INC (IX+$07)</td>
+<td class="comment-1" rowspan="2">Move this entity one character right.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2cd"></span>B2CD</td>
+<td class="instruction">INC (IX+$08)</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Entity_Slot_SetRiseAndEvent</td>
+<td class="address-2"><span id="b2d0"></span>B2D0</td>
+<td class="instruction">SET 5,(IX+$02)</td>
+<td class="comment-1" rowspan="1">Set bit 05 of the current entity's entity flags.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2d4"></span>B2D4</td>
+<td class="instruction">SET 0,(HL)</td>
+<td class="comment-1" rowspan="1">Set "room / script event raised" (bit 00 of <a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2d6"></span>B2D6</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Fetch the current entity's type for the type test.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2d9"></span>B2D9</td>
+<td class="instruction">CP $01</td>
+<td class="comment-1" rowspan="2">Is the current entity's entity type equal to 01? If not, jump to <a href="45738.html#b2e2">Update_Entity_Slot_ReturnSuccess</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2db"></span>B2DB</td>
+<td class="instruction">JR NZ,<a href="45738.html#b2e2">Update_Entity_Slot_ReturnSuccess</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2dd"></span>B2DD</td>
+<td class="instruction">LD A,$06</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with Bad Tempered Thing state 06 for <a href="29383.html">BadTemperedThingState</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2df"></span>B2DF</td>
+<td class="instruction">LD ($72C7),A</td>
+<td class="comment-1" rowspan="1">Set the Bad Tempered Thing state (<a href="29383.html">BadTemperedThingState</a>).</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Entity_Slot_ReturnSuccess</td>
+<td class="address-2"><span id="b2e2"></span>B2E2</td>
+<td class="instruction">SCF</td>
+<td class="comment-1" rowspan="1">Signal success.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2e3"></span>B2E3</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Entity_Slot_Branch</td>
+<td class="address-2"><span id="b2e4"></span>B2E4</td>
+<td class="instruction">LD IY,($72AA)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">IY</span> with the last-collided entity pointer (<a href="29354.html">Pointer_LastCollidedEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2e8"></span>B2E8</td>
+<td class="instruction">BIT 1,(IY+$02)</td>
+<td class="comment-1" rowspan="2">Is bit 01 of the referenced entity's entity flags set? If not, jump to <a href="45738.html#b3be">Update_Entity_Slot_SnapToRoomFloor</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2ec"></span>B2EC</td>
+<td class="instruction">JP Z,<a href="45738.html#b3be">Update_Entity_Slot_SnapToRoomFloor</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2ef"></span>B2EF</td>
+<td class="instruction">LD A,(IX+$07)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2f2"></span>B2F2</td>
+<td class="instruction">CP (IY+$07)</td>
+<td class="comment-1" rowspan="2">Is this entity's x left of the referenced entity's x? If so, no horizontal overlap, so jump to <a href="45738.html#b3be">Update_Entity_Slot_SnapToRoomFloor</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2f5"></span>B2F5</td>
+<td class="instruction">JP C,<a href="45738.html#b3be">Update_Entity_Slot_SnapToRoomFloor</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2f8"></span>B2F8</td>
+<td class="instruction">LD A,(IY+$08)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's x-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2fb"></span>B2FB</td>
+<td class="instruction">CP (IX+$08)</td>
+<td class="comment-1" rowspan="2">Is the referenced entity's x-extent left of this entity's x-extent? If so, no horizontal overlap, so jump to <a href="45738.html#b3be">Update_Entity_Slot_SnapToRoomFloor</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b2fe"></span>B2FE</td>
+<td class="instruction">JP C,<a href="45738.html#b3be">Update_Entity_Slot_SnapToRoomFloor</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b301"></span>B301</td>
+<td class="instruction">LD A,(IY+$00)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b304"></span>B304</td>
+<td class="instruction">CP $04</td>
+<td class="comment-1" rowspan="2">Is referenced entity's entity type equal to 04? If not, jump to <a href="45738.html#b31a">Update_Entity_Slot_CompareHeights</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b306"></span>B306</td>
+<td class="instruction">JR NZ,<a href="45738.html#b31a">Update_Entity_Slot_CompareHeights</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b308"></span>B308</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Fetch the current entity's type for the type test.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b30b"></span>B30B</td>
+<td class="instruction">CP $06</td>
+<td class="comment-1" rowspan="2">Is the current entity's entity type equal to 06? If not, jump to <a href="45738.html#b3be">Update_Entity_Slot_SnapToRoomFloor</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b30d"></span>B30D</td>
+<td class="instruction">JP NZ,<a href="45738.html#b3be">Update_Entity_Slot_SnapToRoomFloor</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b310"></span>B310</td>
+<td class="instruction">CALL <a href="49262.html">Spawn_Task_Entity</a></td>
+<td class="comment-1" rowspan="1">Call <a href="49262.html">Spawn_Task_Entity</a> to spawn Task Entity.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b313"></span>B313</td>
+<td class="instruction">LD (IX+$00),$00</td>
+<td class="comment-1" rowspan="1">Write 00 to the current entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b317"></span>B317</td>
+<td class="instruction">JP <a href="45738.html#b3b3">Update_Entity_Slot_ClearBit7AndSound</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="45738.html#b3b3">Update_Entity_Slot_ClearBit7AndSound</a> to finish the entity-slot update.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Entity_Slot_CompareHeights</td>
+<td class="address-2"><span id="b31a"></span>B31A</td>
+<td class="instruction">LD A,(IX+$06)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b31d"></span>B31D</td>
+<td class="instruction">SUB (IX+$05)</td>
+<td class="comment-1" rowspan="1">Subtract the current entity's y-coordinate from <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b320"></span>B320</td>
+<td class="instruction">JR Z,<a href="45738.html#b32d">Update_Entity_Slot_Type0FPath</a></td>
+<td class="comment-1" rowspan="1">If the result was zero, jump to <a href="45738.html#b32d">Update_Entity_Slot_Type0FPath</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b322"></span>B322</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Keep the current entity's y-extent in <span class="register">C</span> for later.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b323"></span>B323</td>
+<td class="instruction">LD A,(IY+$06)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b326"></span>B326</td>
+<td class="instruction">SUB (IY+$05)</td>
+<td class="comment-1" rowspan="1">Subtract the referenced entity's y-coordinate from <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b329"></span>B329</td>
+<td class="instruction">CP C</td>
+<td class="comment-1" rowspan="2">Is the referenced entity's y-extent less than <span class="register">C</span>? If so, no vertical overlap, jump to <a href="45738.html#b3be">Update_Entity_Slot_SnapToRoomFloor</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b32a"></span>B32A</td>
+<td class="instruction">JP C,<a href="45738.html#b3be">Update_Entity_Slot_SnapToRoomFloor</a></td>
+</tr>
+<tr>
+<td class="asm-label">Update_Entity_Slot_Type0FPath</td>
+<td class="address-2"><span id="b32d"></span>B32D</td>
+<td class="instruction">LD A,(IY+$00)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b330"></span>B330</td>
+<td class="instruction">CP $0F</td>
+<td class="comment-1" rowspan="2">Is referenced entity's entity type equal to 0F? If not, jump to <a href="45738.html#b357">Update_Entity_Slot_Type14Stove</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b332"></span>B332</td>
+<td class="instruction">JR NZ,<a href="45738.html#b357">Update_Entity_Slot_Type14Stove</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b334"></span>B334</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Fetch the current entity's type for the type test.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b337"></span>B337</td>
+<td class="instruction">CP $0D</td>
+<td class="comment-1" rowspan="2">Is the current entity's entity type equal to 0D? If not, jump to <a href="45738.html#b3be">Update_Entity_Slot_SnapToRoomFloor</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b339"></span>B339</td>
+<td class="instruction">JP NZ,<a href="45738.html#b3be">Update_Entity_Slot_SnapToRoomFloor</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b33c"></span>B33C</td>
+<td class="instruction">LD (IX+$00),$00</td>
+<td class="comment-1" rowspan="1">Write 00 to the current entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b340"></span>B340</td>
+<td class="instruction">RES 1,(IY+$02)</td>
+<td class="comment-1" rowspan="1">Reset bit 01 of the referenced entity's entity flags.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b344"></span>B344</td>
+<td class="instruction">INC (IY+$09)</td>
+<td class="comment-1" rowspan="1">Increment the referenced entity's direction / state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b347"></span>B347</td>
+<td class="instruction">LD (IY+$0C),$32</td>
+<td class="comment-1" rowspan="1">Write 32 to the referenced entity's extra state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b34b"></span>B34B</td>
+<td class="instruction">LD A,($72B9)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the entity interaction flag (<a href="29369.html">EntityInteractionFlag</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b34e"></span>B34E</td>
+<td class="instruction">SET 1,A</td>
+<td class="comment-1" rowspan="1">Set bit 01 of <a href="29369.html">EntityInteractionFlag</a> (tested by <a href="55251.html#d93e">D93E</a> to gate dialogue).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b350"></span>B350</td>
+<td class="instruction">SET 3,A</td>
+<td class="comment-1" rowspan="1">Set bit 03 of <a href="29369.html">EntityInteractionFlag</a> (tested by <a href="52811.html">Update_Ghosts</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b352"></span>B352</td>
+<td class="instruction">LD ($72B9),A</td>
+<td class="comment-1" rowspan="1">Set the entity interaction flag (<a href="29369.html">EntityInteractionFlag</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b355"></span>B355</td>
+<td class="instruction">JR <a href="45738.html#b3b3">Update_Entity_Slot_ClearBit7AndSound</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="45738.html#b3b3">Update_Entity_Slot_ClearBit7AndSound</a> to finish the entity-slot update.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Entity_Slot_Type14Stove</td>
+<td class="address-2"><span id="b357"></span>B357</td>
+<td class="instruction">CP $14</td>
+<td class="comment-1" rowspan="2">Is the referenced entity's entity type equal to 14? If not, jump to <a href="45738.html#b367">Update_Entity_Slot_Type05Gate</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b359"></span>B359</td>
+<td class="instruction">JR NZ,<a href="45738.html#b367">Update_Entity_Slot_Type05Gate</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b35b"></span>B35B</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Fetch the current entity's type for the type test.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b35e"></span>B35E</td>
+<td class="instruction">CP $09</td>
+<td class="comment-1" rowspan="2">Is the current entity's entity type equal to 09? If not, jump to <a href="45738.html#b367">Update_Entity_Slot_Type05Gate</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b360"></span>B360</td>
+<td class="instruction">JR NZ,<a href="45738.html#b367">Update_Entity_Slot_Type05Gate</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b362"></span>B362</td>
+<td class="instruction">CALL <a href="50747.html">Update_Stove</a></td>
+<td class="comment-1" rowspan="1">Call <a href="50747.html">Update_Stove</a> to update Stove.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b365"></span>B365</td>
+<td class="instruction">JR <a href="45738.html#b3a2">Update_Entity_Slot_MarkComplete</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="45738.html#b3a2">Update_Entity_Slot_MarkComplete</a> to mark the entity slot complete.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Entity_Slot_Type05Gate</td>
+<td class="address-2"><span id="b367"></span>B367</td>
+<td class="instruction">CP $05</td>
+<td class="comment-1" rowspan="2">Is the current entity's entity type equal to 05? If so, jump to <a href="45738.html#b375">Update_Entity_Slot_Type08Collision</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b369"></span>B369</td>
+<td class="instruction">JR Z,<a href="45738.html#b375">Update_Entity_Slot_Type08Collision</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b36b"></span>B36B</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Fetch the current entity's type for the type test.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b36e"></span>B36E</td>
+<td class="instruction">CP $09</td>
+<td class="comment-1" rowspan="2">Is the current entity's entity type equal to 09? If so, jump to <a href="45738.html#b3be">Update_Entity_Slot_SnapToRoomFloor</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b370"></span>B370</td>
+<td class="instruction">JR Z,<a href="45738.html#b3be">Update_Entity_Slot_SnapToRoomFloor</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b372"></span>B372</td>
+<td class="instruction">LD A,(IY+$00)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Entity_Slot_Type08Collision</td>
+<td class="address-2"><span id="b375"></span>B375</td>
+<td class="instruction">CP $08</td>
+<td class="comment-1" rowspan="2">Is referenced entity's entity type equal to 08? If not, jump to <a href="45738.html#b385">Update_Entity_Slot_Type16Crusher</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b377"></span>B377</td>
+<td class="instruction">JR NZ,<a href="45738.html#b385">Update_Entity_Slot_Type16Crusher</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b379"></span>B379</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Fetch the current entity's type for the type test.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b37c"></span>B37C</td>
+<td class="instruction">CP $0B</td>
+<td class="comment-1" rowspan="2">Is the current entity's entity type equal to 0B? If not, jump to <a href="45738.html#b385">Update_Entity_Slot_Type16Crusher</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b37e"></span>B37E</td>
+<td class="instruction">JR NZ,<a href="45738.html#b385">Update_Entity_Slot_Type16Crusher</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b380"></span>B380</td>
+<td class="instruction">CALL <a href="54342.html">Check_Entity_Collision</a></td>
+<td class="comment-1" rowspan="1">Call <a href="54342.html">Check_Entity_Collision</a> to check Entity Collision.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b383"></span>B383</td>
+<td class="instruction">JR <a href="45738.html#b3a2">Update_Entity_Slot_MarkComplete</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="45738.html#b3a2">Update_Entity_Slot_MarkComplete</a> to mark the entity slot complete.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Entity_Slot_Type16Crusher</td>
+<td class="address-2"><span id="b385"></span>B385</td>
+<td class="instruction">CP $16</td>
+<td class="comment-1" rowspan="2">Is the current entity's entity type equal to 16? If not, jump to <a href="45738.html#b396">Update_Entity_Slot_Type01BTT</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b387"></span>B387</td>
+<td class="instruction">JR NZ,<a href="45738.html#b396">Update_Entity_Slot_Type01BTT</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b389"></span>B389</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Fetch the current entity's type for the type test.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b38c"></span>B38C</td>
+<td class="instruction">CP $0E</td>
+<td class="comment-1" rowspan="2">Is the current entity's entity type equal to 0E? If not, jump to <a href="45738.html#b3be">Update_Entity_Slot_SnapToRoomFloor</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b38e"></span>B38E</td>
+<td class="instruction">JP NZ,<a href="45738.html#b3be">Update_Entity_Slot_SnapToRoomFloor</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b391"></span>B391</td>
+<td class="instruction">CALL <a href="53022.html">Update_Crusher</a></td>
+<td class="comment-1" rowspan="1">Call <a href="53022.html">Update_Crusher</a> to update Crusher.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b394"></span>B394</td>
+<td class="instruction">JR <a href="45738.html#b3a2">Update_Entity_Slot_MarkComplete</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="45738.html#b3a2">Update_Entity_Slot_MarkComplete</a> to mark the entity slot complete.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Entity_Slot_Type01BTT</td>
+<td class="address-2"><span id="b396"></span>B396</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Fetch the current entity's type for the type test.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b399"></span>B399</td>
+<td class="instruction">CP $01</td>
+<td class="comment-1" rowspan="2">Is the current entity's entity type equal to 01? If not, jump to <a href="45738.html#b3a2">Update_Entity_Slot_MarkComplete</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b39b"></span>B39B</td>
+<td class="instruction">JR NZ,<a href="45738.html#b3a2">Update_Entity_Slot_MarkComplete</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b39d"></span>B39D</td>
+<td class="instruction">LD A,$03</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with Bad Tempered Thing state 03 for <a href="29383.html">BadTemperedThingState</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b39f"></span>B39F</td>
+<td class="instruction">LD ($72C7),A</td>
+<td class="comment-1" rowspan="1">Set the Bad Tempered Thing state (<a href="29383.html">BadTemperedThingState</a>).</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Entity_Slot_MarkComplete</td>
+<td class="address-2"><span id="b3a2"></span>B3A2</td>
+<td class="instruction">SET 5,(IX+$01)</td>
+<td class="comment-1" rowspan="1">Set bit 05 of the current entity's entity flags.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3a6"></span>B3A6</td>
+<td class="instruction">PUSH IY</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">IY</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3a8"></span>B3A8</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3a9"></span>B3A9</td>
+<td class="instruction">LD (IX+$0C),C</td>
+<td class="comment-1" rowspan="1">Store <span class="register">C</span> in the current entity's extra state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3ac"></span>B3AC</td>
+<td class="instruction">LD (IX+$0D),B</td>
+<td class="comment-1" rowspan="1">Store <span class="register">B</span> in the current entity's extra state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3af"></span>B3AF</td>
+<td class="instruction">SET 7,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Set bit 07 of the current entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Entity_Slot_ClearBit7AndSound</td>
+<td class="address-2"><span id="b3b3"></span>B3B3</td>
+<td class="instruction">RES 7,(IX+$01)</td>
+<td class="comment-1" rowspan="1">Reset bit 07 of the current entity's entity flags.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3b7"></span>B3B7</td>
+<td class="instruction">LD A,$84</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with sound index 84.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3b9"></span>B3B9</td>
+<td class="instruction">CALL <a href="63737.html">Queue_Sound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="63737.html">Queue_Sound</a> to queue a sound effect.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3bc"></span>B3BC</td>
+<td class="instruction">SCF</td>
+<td class="comment-1" rowspan="1">Signal success.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3bd"></span>B3BD</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Entity_Slot_SnapToRoomFloor</td>
+<td class="address-2"><span id="b3be"></span>B3BE</td>
+<td class="instruction">LD A,(IX+$04)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's room index.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3c1"></span>B3C1</td>
+<td class="instruction">ADD A,$22</td>
+<td class="comment-1" rowspan="1">Add 22 to <span class="register">A</span> (adjust an entity coordinate).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3c3"></span>B3C3</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1">Keep the current entity's room index in <span class="register">B</span> for later.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3c4"></span>B3C4</td>
+<td class="instruction">CP (IX+$06)</td>
+<td class="comment-1" rowspan="2">Does room+22 match this entity's y-extent? If not, jump to <a href="45738.html#b410">Update_Entity_Slot_RaiseYAndEvent</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3c7"></span>B3C7</td>
+<td class="instruction">JR NC,<a href="45738.html#b410">Update_Entity_Slot_RaiseYAndEvent</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3c9"></span>B3C9</td>
+<td class="instruction">LD A,(IX+$06)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3cc"></span>B3CC</td>
+<td class="instruction">SUB (IX+$05)</td>
+<td class="comment-1" rowspan="1">Subtract the current entity's y-coordinate from <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3cf"></span>B3CF</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Keep the current entity's y-extent in <span class="register">C</span> for later.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3d0"></span>B3D0</td>
+<td class="instruction">LD (IX+$06),B</td>
+<td class="comment-1" rowspan="1">Store <span class="register">B</span> in the current entity's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3d3"></span>B3D3</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-1" rowspan="1">Copy the loop counter from <span class="register">B</span> into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3d4"></span>B3D4</td>
+<td class="instruction">SUB C</td>
+<td class="comment-1" rowspan="1">Subtract <span class="register">C</span> from the current entity's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3d5"></span>B3D5</td>
+<td class="instruction">LD (IX+$05),A</td>
+<td class="comment-1" rowspan="1">Set the current entity's y-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3d8"></span>B3D8</td>
+<td class="instruction">RES 7,(IX+$01)</td>
+<td class="comment-1" rowspan="1">Reset bit 07 of the current entity's entity flags.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3dc"></span>B3DC</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Fetch the current entity's type for the type test.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3df"></span>B3DF</td>
+<td class="instruction">CP $06</td>
+<td class="comment-1" rowspan="2">Is the current entity's entity type equal to 06? If not, jump to <a href="45738.html#b3f4">Update_Entity_Slot_MaybeSetBTT</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3e1"></span>B3E1</td>
+<td class="instruction">JR NZ,<a href="45738.html#b3f4">Update_Entity_Slot_MaybeSetBTT</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3e3"></span>B3E3</td>
+<td class="instruction">LD A,($72B5)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the task-two flags (<a href="29365.html">TaskTwoFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3e6"></span>B3E6</td>
+<td class="instruction">SET 3,A</td>
+<td class="comment-1" rowspan="1">Set "helper entity needs its layout restoring" (bit 03 of <a href="29365.html">TaskTwoFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3e8"></span>B3E8</td>
+<td class="instruction">LD ($72B5),A</td>
+<td class="comment-1" rowspan="1">Set the task-two flags (<a href="29365.html">TaskTwoFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3eb"></span>B3EB</td>
+<td class="instruction">LD BC,$9DC0</td>
+<td class="comment-1" rowspan="1">Load <span class="register">BC</span> with helper graphic layout address 9DC0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3ee"></span>B3EE</td>
+<td class="instruction">LD ($8FE1),BC</td>
+<td class="comment-1" rowspan="1">Write the layout address into the spawned helper's layout field (8FE1).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3f2"></span>B3F2</td>
+<td class="instruction">JR <a href="45738.html#b409">Update_Entity_Slot_QueueLandSound</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="45738.html#b409">Update_Entity_Slot_QueueLandSound</a> to queue the entity-slot wait sound.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Entity_Slot_MaybeSetBTT</td>
+<td class="address-2"><span id="b3f4"></span>B3F4</td>
+<td class="instruction">CP $01</td>
+<td class="comment-1" rowspan="2">Is task-two flags equal to 01? If not, jump to <a href="45738.html#b3fd">Update_Entity_Slot_MaybeTaskThreeBit</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3f6"></span>B3F6</td>
+<td class="instruction">JR NZ,<a href="45738.html#b3fd">Update_Entity_Slot_MaybeTaskThreeBit</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3f8"></span>B3F8</td>
+<td class="instruction">LD A,$02</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with Bad Tempered Thing state 02 for <a href="29383.html">BadTemperedThingState</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3fa"></span>B3FA</td>
+<td class="instruction">LD ($72C7),A</td>
+<td class="comment-1" rowspan="1">Set the Bad Tempered Thing state (<a href="29383.html">BadTemperedThingState</a>).</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Entity_Slot_MaybeTaskThreeBit</td>
+<td class="address-2"><span id="b3fd"></span>B3FD</td>
+<td class="instruction">CP $09</td>
+<td class="comment-1" rowspan="2">Is 02 equal to 09? If not, jump to <a href="45738.html#b409">Update_Entity_Slot_QueueLandSound</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b3ff"></span>B3FF</td>
+<td class="instruction">JR NZ,<a href="45738.html#b409">Update_Entity_Slot_QueueLandSound</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b401"></span>B401</td>
+<td class="instruction">LD A,($72B6)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the task-three flags (<a href="29366.html">TaskThreeFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b404"></span>B404</td>
+<td class="instruction">SET 2,A</td>
+<td class="comment-1" rowspan="1">Set SlimyLoose (bit 02 of <a href="29366.html">TaskThreeFlags</a>; <a href="55251.html#d907">D907</a> skips that line while set).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b406"></span>B406</td>
+<td class="instruction">LD ($72B6),A</td>
+<td class="comment-1" rowspan="1">Set the task-three flags (<a href="29366.html">TaskThreeFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Entity_Slot_QueueLandSound</td>
+<td class="address-2"><span id="b409"></span>B409</td>
+<td class="instruction">LD A,$87</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with sound index 87.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b40b"></span>B40B</td>
+<td class="instruction">CALL <a href="63737.html">Queue_Sound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="63737.html">Queue_Sound</a> to queue a sound effect.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b40e"></span>B40E</td>
+<td class="instruction">SCF</td>
+<td class="comment-1" rowspan="1">Signal success.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b40f"></span>B40F</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Entity_Slot_RaiseYAndEvent</td>
+<td class="address-2"><span id="b410"></span>B410</td>
+<td class="instruction">INC (IX+$05)</td>
+<td class="comment-1" rowspan="2">Move this entity one character down.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b413"></span>B413</td>
+<td class="instruction">INC (IX+$06)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b416"></span>B416</td>
+<td class="instruction">SET 0,(HL)</td>
+<td class="comment-1" rowspan="1">Set "room / script event raised" (bit 00 of <a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b418"></span>B418</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">A</span> as a false / no-match result.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b419"></span>B419</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="45656.html">B258</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#b2aa">Map</a></td>
+<td class="next">
+Next: <a href="46106.html">B41A</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/284472.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

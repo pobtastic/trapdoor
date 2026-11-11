@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 59624</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 59624. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 59624" />
+<meta property="og:description" content="The Trap Door: Routine at 59624. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/59624.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/59624.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 59624",
+"name": "The Trap Door: Routine at 59624",
+"description": "The Trap Door: Routine at 59624. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/59624.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 59624"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/59624.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="59562.html">59562</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#59624">Map</a></td>
+<td class="next">
+Next: <a href="59657.html">59657</a>
+</td>
+</tr>
+</table>
+<div class="description">59624: Graphic Layout Routine: (243) Increment Index And Jump To N-th Address</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Advance the graphic index and jump to the N-th address in the following table.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GraphicLayoutRoutine_IncIndexJumpNth</td>
+<td class="address-2"><span id="59624"></span>59624</td>
+<td class="instruction">LD A,(IX+0)</td>
+<td class="comment-1" rowspan="1">Fetch the current entity's type into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59627"></span>59627</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Step the graphic-set / attribute index on by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59628"></span>59628</td>
+<td class="instruction">CP (IX+1)</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> less than this entity's flags byte 1? If so, jump to <a href="59624.html#59634">GraphicLayoutRoutine_F3Continue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59631"></span>59631</td>
+<td class="instruction">JR C,<a href="59624.html#59634">GraphicLayoutRoutine_F3Continue</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59633"></span>59633</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">A</span> to 0.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="59634"></span>
+<div class="comments">
+<div class="paragraph">
+Write the wrapped 243 index, index the address list, and jump to that layout.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GraphicLayoutRoutine_F3Continue</td>
+<td class="address-2"><span id="59634"></span>59634</td>
+<td class="instruction">LD (IX+0),A</td>
+<td class="comment-1" rowspan="1">Set the current entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59637"></span>59637</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-1" rowspan="1">Double <span class="register">A</span> to form a word index into the table.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59638"></span>59638</td>
+<td class="instruction">ADD A,2</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>+=2.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59640"></span>59640</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1">Copy <span class="register">A</span> into <span class="register">E</span> as a saved coordinate / value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59641"></span>59641</td>
+<td class="instruction">LD D,0</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">D</span> (high byte of a pointer/offset).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59643"></span>59643</td>
+<td class="instruction">ADD IX,DE</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>+=<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59645"></span>59645</td>
+<td class="instruction">LD E,(IX+0)</td>
+<td class="comment-1" rowspan="2">Fetch the next graphic-layout address into <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59648"></span>59648</td>
+<td class="instruction">LD D,(IX+1)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59651"></span>59651</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="2">Copy <span class="register">DE</span> into <span class="register">IX</span> (using the stack).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59652"></span>59652</td>
+<td class="instruction">POP IX</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="59654"></span>59654</td>
+<td class="instruction">JP <a href="59199.html">Process_GraphicLayoutData</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="59199.html">Process_GraphicLayoutData</a> to process graphic layout data.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="comments">
+<div class="paragraph">
+View the equivalent code in; <ul class="">
+<li><a href="/flunky/dec/asm/39805.html">Flunky</a></li>
+</ul>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="59562.html">59562</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#59624">Map</a></td>
+<td class="next">
+Next: <a href="59657.html">59657</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/E8E8.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

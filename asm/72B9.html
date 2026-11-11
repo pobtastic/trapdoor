@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Game status buffer entry at 72B9</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Game status buffer entry at 72B9. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Game status buffer entry at 72B9" />
+<meta property="og:description" content="The Trap Door: Game status buffer entry at 72B9. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/72B9.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/72B9.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Game status buffer entry at 72B9",
+"name": "The Trap Door: Game status buffer entry at 72B9",
+"description": "The Trap Door: Game status buffer entry at 72B9. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/72B9.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Game status buffer entry at 72B9"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/72B9.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-g">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Game status buffer</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="72B8.html">72B8</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#72b9">Map</a></td>
+<td class="next">
+Next: <a href="72BA.html">72BA</a>
+</td>
+</tr>
+</table>
+<div class="description">72B9: Entity Interaction Flag</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Cross-cutting interaction bits for crushers, ghosts and hazards. Meanings below are from observed writers/readers only. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Bit</th>
+<th colspan="1" rowspan="1">Meaning</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">01</td>
+<td class="centre" colspan="1" rowspan="1">Set by <a href="B2AA.html#b34b">B34B</a>; tested by <a href="D7D3.html#d93e">D93E</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">02</td>
+<td class="centre" colspan="1" rowspan="1">Set/cleared by <a href="CBCE.html">ScriptRoutine_TaskFourTickOfferItem</a>; tested by <a href="D7D3.html#d95c">D95C</a> to gate dialogue</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">03</td>
+<td class="centre" colspan="1" rowspan="1">Set by <a href="CE4B.html#cebd">Update_Ghosts_RetriggerBit3</a>; tested and cleared by <a href="CE4B.html">Update_Ghosts</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">04</td>
+<td class="centre" colspan="1" rowspan="1">Set by <a href="CF1E.html">Update_Crusher</a>; tested by <a href="D7D3.html#d944">D944</a> to gate dialogue</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">06</td>
+<td class="centre" colspan="1" rowspan="1">Set by <a href="CF1E.html">Update_Crusher</a> when <a href="72C2.html">SharedTick</a> reaches 03; no BIT reader found</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">07</td>
+<td class="centre" colspan="1" rowspan="1">Set by <a href="CF1E.html">Update_Crusher</a> on every crusher update; no BIT reader found</td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="72b9"></span>
+<div class="comments">
+<div class="paragraph">
+Bit 01 is set by <a href="B2AA.html#b34b">B34B</a>; tested by <a href="D7D3.html#d93e">D93E</a> to gate Bad Tempered Thing dialogue.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">EntityInteractionFlag</td>
+<td class="address-1"><span id="72b9"></span>72B9</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="72B8.html">72B8</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#72b9">Map</a></td>
+<td class="next">
+Next: <a href="72BA.html">72BA</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/29369.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Game status buffer entry at 8EF3</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Game status buffer entry at 8EF3. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Game status buffer entry at 8EF3" />
+<meta property="og:description" content="The Trap Door: Game status buffer entry at 8EF3. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/8EF3.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/8EF3.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Game status buffer entry at 8EF3",
+"name": "The Trap Door: Game status buffer entry at 8EF3",
+"description": "The Trap Door: Game status buffer entry at 8EF3. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/8EF3.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Game status buffer entry at 8EF3"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/8EF3.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-g">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Game status buffer</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="8EE9.html">8EE9</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#8ef3">Map</a></td>
+<td class="next">
+Next: <a href="90B7.html">90B7</a>
+</td>
+</tr>
+</table>
+<div class="description">8EF3: Pointer: Boney Graphic Layout</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Current graphic layout pointer for Boney (entity field <span class="register">IX</span>+0A). The snapshot holds <a href="9C9E.html">GraphicLayout_Boney</a> (Boney's skull). <a href="D7D3.html#d82f">D82F</a> / <a href="D971.html#da04">DA04</a> restore <a href="9C9E.html">GraphicLayout_Boney</a> after Bad Tempered Thing dialogue.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Pointer_BoneyGraphicLayout</td>
+<td class="address-1"><span id="8ef3"></span>8EF3</td>
+<td class="instruction">DEFW <a href="9C9E.html">GraphicLayout_Boney</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8ef5"></span>8EF5</td>
+<td class="instruction">DEFB $00,$00</td>
+<td class="comment-1" rowspan="1">Remaining Boney entity state bytes after the layout pointer.</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Drutt</td>
+<td class="address-1"><span id="8ef7"></span>8EF7</td>
+<td class="instruction">DEFB $87,$1F,$00,$00,$05,$26,$27,$45</td>
+<td class="comment-1" rowspan="2">Drutt (type 87, room 05, layout <a href="9E37.html">GraphicLayout_Bullet</a> (the bullet)). Drutt's script and animation data is at <a href="D234.html">Data_DruttScriptAnim</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8eff"></span>8EFF</td>
+<td class="instruction">DEFB $45,$00,$37,$9E,$47,$90</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_02</td>
+<td class="address-1"><span id="8f05"></span>8F05</td>
+<td class="instruction">DEFB $00,$1F,$00,$00,$04,$26,$27,$44</td>
+<td class="comment-1" rowspan="2">Inactive slot (type 00, room 04).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f0d"></span>8F0D</td>
+<td class="instruction">DEFB $45,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_03</td>
+<td class="address-1"><span id="8f13"></span>8F13</td>
+<td class="instruction">DEFB $89,$17,$80,$00,$05,$26,$27,$EA</td>
+<td class="comment-1" rowspan="2">Slimies (type 89, room 05, layout <a href="A1F8.html">GraphicLayout_Slimies</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f1b"></span>8F1B</td>
+<td class="instruction">DEFB $EB,$00,$F8,$A1,$00,$00</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_04</td>
+<td class="address-1"><span id="8f21"></span>8F21</td>
+<td class="instruction">DEFB $89,$17,$80,$00,$05,$26,$27,$EA</td>
+<td class="comment-1" rowspan="2">Slimies (type 89, room 05, layout <a href="A1F8.html">GraphicLayout_Slimies</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f29"></span>8F29</td>
+<td class="instruction">DEFB $EB,$00,$F8,$A1,$00,$00</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_05</td>
+<td class="address-1"><span id="8f2f"></span>8F2F</td>
+<td class="instruction">DEFB $89,$17,$80,$00,$05,$26,$27,$EA</td>
+<td class="comment-1" rowspan="2">Slimies (type 89, room 05, layout <a href="A1F8.html">GraphicLayout_Slimies</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f37"></span>8F37</td>
+<td class="instruction">DEFB $EB,$00,$F8,$A1,$00,$00</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_06</td>
+<td class="address-1"><span id="8f3d"></span>8F3D</td>
+<td class="instruction">DEFB $89,$17,$80,$00,$05,$26,$27,$EA</td>
+<td class="comment-1" rowspan="2">Slimies (type 89, room 05, layout <a href="A1F8.html">GraphicLayout_Slimies</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f45"></span>8F45</td>
+<td class="instruction">DEFB $EB,$00,$F8,$A1,$00,$00</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_07</td>
+<td class="address-1"><span id="8f4b"></span>8F4B</td>
+<td class="instruction">DEFB $8D,$1F,$80,$00,$00,$00,$00,$04</td>
+<td class="comment-1" rowspan="2">Collectible eyeball (type 8D, room 00, layout <a href="A033.html">GraphicLayout_CollectibleEyeball</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f53"></span>8F53</td>
+<td class="instruction">DEFB $04,$00,$33,$A0,$1D,$90</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_08</td>
+<td class="address-1"><span id="8f59"></span>8F59</td>
+<td class="instruction">DEFB $8D,$1F,$80,$00,$00,$00,$00,$06</td>
+<td class="comment-1" rowspan="2">Collectible eyeball (type 8D, room 00, layout <a href="A033.html">GraphicLayout_CollectibleEyeball</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f61"></span>8F61</td>
+<td class="instruction">DEFB $06,$00,$33,$A0,$1D,$90</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_09</td>
+<td class="address-1"><span id="8f67"></span>8F67</td>
+<td class="instruction">DEFB $8D,$1F,$80,$00,$00,$00,$00,$08</td>
+<td class="comment-1" rowspan="2">Collectible eyeball (type 8D, room 00, layout <a href="A033.html">GraphicLayout_CollectibleEyeball</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f6f"></span>8F6F</td>
+<td class="instruction">DEFB $08,$00,$33,$A0,$1D,$90</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_10</td>
+<td class="address-1"><span id="8f75"></span>8F75</td>
+<td class="instruction">DEFB $0F,$03,$02,$00,$04,$24,$26,$25</td>
+<td class="comment-1" rowspan="2">Plant pot (type 0F, room 04, layout <a href="A082.html">GraphicLayout_PlantPot</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f7d"></span>8F7D</td>
+<td class="instruction">DEFB $27,$00,$82,$A0,$00,$00</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_11</td>
+<td class="address-1"><span id="8f83"></span>8F83</td>
+<td class="instruction">DEFB $0F,$03,$02,$00,$03,$23,$25,$2E</td>
+<td class="comment-1" rowspan="2">Plant pot (type 0F, room 03, layout <a href="A082.html">GraphicLayout_PlantPot</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f8b"></span>8F8B</td>
+<td class="instruction">DEFB $30,$00,$82,$A0,$00,$00</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_12</td>
+<td class="address-1"><span id="8f91"></span>8F91</td>
+<td class="instruction">DEFB $0F,$03,$02,$00,$04,$24,$26,$38</td>
+<td class="comment-1" rowspan="2">Plant pot (type 0F, room 04, layout <a href="A082.html">GraphicLayout_PlantPot</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f99"></span>8F99</td>
+<td class="instruction">DEFB $3A,$00,$82,$A0,$00,$00</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_13</td>
+<td class="address-1"><span id="8f9f"></span>8F9F</td>
+<td class="instruction">DEFB $00,$17,$80,$00,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="2">Inactive slot (type 00, room 00).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8fa7"></span>8FA7</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_14</td>
+<td class="address-1"><span id="8fad"></span>8FAD</td>
+<td class="instruction">DEFB $00,$17,$80,$00,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="2">Inactive slot (type 00, room 00).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8fb5"></span>8FB5</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_15</td>
+<td class="address-1"><span id="8fbb"></span>8FBB</td>
+<td class="instruction">DEFB $00,$17,$80,$00,$00,$00,$00,$00</td>
+<td class="comment-1" rowspan="2">Inactive slot (type 00, room 00).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8fc3"></span>8FC3</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$00,$00</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_16</td>
+<td class="address-1"><span id="8fc9"></span>8FC9</td>
+<td class="instruction">DEFB $0C,$03,$80,$00,$05,$27,$27,$78</td>
+<td class="comment-1" rowspan="2">Crusher / hazard (type 0C, room 05, layout <a href="D234.html">Data_DruttScriptAnim</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8fd1"></span>8FD1</td>
+<td class="instruction">DEFB $78,$00,$34,$D2,$00,$00</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_17</td>
+<td class="address-1"><span id="8fd7"></span>8FD7</td>
+<td class="instruction">DEFB $86,$1F,$00,$00,$03,$00,$00,$00</td>
+<td class="comment-1" rowspan="2">White orb helper (type 86, room 03, layout <a href="9DB3.html">GraphicLayout_WhiteOrb</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8fdf"></span>8FDF</td>
+<td class="instruction">DEFB $00,$00,$B3,$9D,$00,$00</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_18</td>
+<td class="address-1"><span id="8fe5"></span>8FE5</td>
+<td class="instruction">DEFB $A1,$07,$00,$00,$03,$25,$2B,$6E</td>
+<td class="comment-1" rowspan="2">Task-three entity (type A1, room 03, layout <a href="C102.html">Data_TaskHelperLayouts</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8fed"></span>8FED</td>
+<td class="instruction">DEFB $71,$00,$02,$C1,$00,$00</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_19</td>
+<td class="address-1"><span id="8ff3"></span>8FF3</td>
+<td class="instruction">DEFB $A3,$00,$00,$00,$03,$2A,$2D,$6C</td>
+<td class="comment-1" rowspan="2">Task-three entity (type A3, room 03, layout <a href="CCB9.html#ccba">CCBA</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8ffb"></span>8FFB</td>
+<td class="instruction">DEFB $71,$00,$BA,$CC,$00,$00</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_20</td>
+<td class="address-1"><span id="9001"></span>9001</td>
+<td class="instruction">DEFB $00,$00,$00,$00,$03,$26,$29,$6E</td>
+<td class="comment-1" rowspan="2">Inactive slot (type 00, room 03, ghost layout <a href="BDC3.html">GraphicLayout_Ghost</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9009"></span>9009</td>
+<td class="instruction">DEFB $70,$00,$C3,$BD,$00,$00</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_21</td>
+<td class="address-1"><span id="900f"></span>900F</td>
+<td class="instruction">DEFB $11,$1F,$00,$00,$01,$1D,$20,$45</td>
+<td class="comment-1" rowspan="2">Empty bottle (type 11, room 01, layout <a href="A051.html">GraphicLayout_EmptyBottle</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9017"></span>9017</td>
+<td class="instruction">DEFB $47,$00,$51,$A0,$00,$00</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_22</td>
+<td class="address-1"><span id="901d"></span>901D</td>
+<td class="instruction">DEFB $90,$1F,$02,$00,$05,$00,$01,$00</td>
+<td class="comment-1" rowspan="2">Seed box (type 90, room 05, layout <a href="A13F.html">GraphicLayout_SeedBox</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9025"></span>9025</td>
+<td class="instruction">DEFB $01,$00,$3F,$A1,$39,$90</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_23</td>
+<td class="address-1"><span id="902b"></span>902B</td>
+<td class="instruction">DEFB $08,$1F,$02,$00,$01,$1D,$1F,$4C</td>
+<td class="comment-1" rowspan="2">Worm can (type 08, room 01, layout <a href="9DA2.html">GraphicLayout_WormCan</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9033"></span>9033</td>
+<td class="instruction">DEFB $4D,$00,$A2,$9D,$00,$00</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_24</td>
+<td class="address-1"><span id="9039"></span>9039</td>
+<td class="instruction">DEFB $05,$1F,$02,$00,$00,$15,$17,$4C</td>
+<td class="comment-1" rowspan="2">Yellow cup (type 05, room 00, layout <a href="9D69.html">GraphicLayout_YellowCup</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9041"></span>9041</td>
+<td class="instruction">DEFB $4D,$00,$69,$9D,$00,$00</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_25</td>
+<td class="address-1"><span id="9047"></span>9047</td>
+<td class="instruction">DEFB $03,$1F,$02,$00,$00,$15,$17,$45</td>
+<td class="comment-1" rowspan="2">Basket (type 03, room 00, layout <a href="9D0F.html">GraphicLayout_Basket</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="904f"></span>904F</td>
+<td class="instruction">DEFB $47,$00,$0F,$9D,$00,$00</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_26</td>
+<td class="address-1"><span id="9055"></span>9055</td>
+<td class="instruction">DEFB $04,$1F,$02,$00,$01,$20,$20,$51</td>
+<td class="comment-1" rowspan="2">Pan (type 04, room 01, layout <a href="9E07.html">GraphicLayout_Pan</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="905d"></span>905D</td>
+<td class="instruction">DEFB $54,$00,$07,$9E,$00,$00</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_27</td>
+<td class="address-1"><span id="9063"></span>9063</td>
+<td class="instruction">DEFB $14,$0F,$02,$00,$03,$22,$25,$48</td>
+<td class="comment-1" rowspan="2">Cauldron (type 14, room 03, layout <a href="9F9D.html">GraphicLayout_Cauldron</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="906b"></span>906B</td>
+<td class="instruction">DEFB $4C,$00,$9D,$9F,$00,$00</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_28</td>
+<td class="address-1"><span id="9071"></span>9071</td>
+<td class="instruction">DEFB $16,$0F,$02,$00,$04,$1D,$26,$54</td>
+<td class="comment-1" rowspan="2">Vat (type 16, room 04, layout <a href="A18B.html">GraphicLayout_Vat</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9079"></span>9079</td>
+<td class="instruction">DEFB $59,$00,$8B,$A1,$00,$00</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_29</td>
+<td class="address-1"><span id="907f"></span>907F</td>
+<td class="instruction">DEFB $00,$0F,$00,$00,$00,$11,$15,$99</td>
+<td class="comment-1" rowspan="2">Inactive slot (type 00, room 00, layout <a href="9EE2.html">GraphicLayout_Safe</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9087"></span>9087</td>
+<td class="instruction">DEFB $9C,$00,$E2,$9E,$00,$00</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_30</td>
+<td class="address-1"><span id="908d"></span>908D</td>
+<td class="instruction">DEFB $37,$03,$00,$00,$03,$14,$25,$AB</td>
+<td class="comment-1" rowspan="2">Weight chain (type 37, room 03, layout <a href="9E61.html">GraphicLayout_WeightChain</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9095"></span>9095</td>
+<td class="instruction">DEFB $B1,$00,$61,$9E,$00,$00</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Berk</td>
+<td class="address-1"><span id="909b"></span>909B</td>
+<td class="instruction">DEFB $1F,$07,$00,$00,$04,$21,$27,$62</td>
+<td class="comment-1" rowspan="2">Berk (type 1F, room 04, layout <a href="963B.html#9647">GraphicLayout_BerkFacingOut_Idle</a>). Camera-follow entity that holds Berk's live layout pointer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90a3"></span>90A3</td>
+<td class="instruction">DEFB $67,$00,$47,$96,$00,$00</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_Complex_32</td>
+<td class="address-1"><span id="90a9"></span>90A9</td>
+<td class="instruction">DEFB $00,$07,$00,$00,$03,$26,$2D,$6D</td>
+<td class="comment-1" rowspan="2">Inactive slot (type 00, room 03, mobile flamer layout <a href="C70E.html">GraphicLayout_MobileFlamer</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90b1"></span>90B1</td>
+<td class="instruction">DEFB $71,$00,$0E,$C7,$00,$00</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="8EE9.html">8EE9</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#8ef3">Map</a></td>
+<td class="next">
+Next: <a href="90B7.html">90B7</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/36595.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 60133</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 60133. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 60133" />
+<meta property="og:description" content="The Trap Door: Routine at 60133. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/60133.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/60133.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 60133",
+"name": "The Trap Door: Routine at 60133",
+"description": "The Trap Door: Routine at 60133. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/60133.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 60133"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/60133.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60130.html">60130</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60133">Map</a></td>
+<td class="next">
+Next: <a href="60191.html">60191</a>
+</td>
+</tr>
+</table>
+<div class="description">60133: Generate Pseudo-Random Number</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="43925.html">Update_Berk_State</a>, <a href="44260.html">Start_Berk_Script</a>, <a href="48257.html">ScriptRoutine_ThingUpstairsChase</a>, <a href="48444.html">Update_ThingUpstairs_Movement</a>, <a href="48498.html">Test_ThingUpstairs_Overlap</a>, <a href="48870.html">Update_TaskTwoEntityState</a>, <a href="50518.html">Update_Slimy_Creature</a>, <a href="50780.html">Update_Task_Three_Helpers</a>, <a href="51998.html">ScriptRoutine_TaskFourRandomiseExtra</a>, <a href="52811.html">Update_Ghosts</a>, <a href="53312.html">Update_Vat_TestEventAndDirBit0</a>, <a href="53364.html">ScriptRoutine_VatScanNearbySlots</a>, <a href="54414.html">Collect_Entity</a>, <a href="54634.html">ScriptRoutine_CollectibleRandomScript</a>, <a href="54686.html">ScriptRoutine_CollectibleScanCounter</a>, <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>, <a href="57990.html">Print_EncodedMessage</a>, <a href="58230.html">Draw_MessageCharacter</a>, <a href="59417.html">GraphicLayoutRoutine_JumpRandomFromList</a>, <a href="59463.html">GraphicLayoutRoutine_SetGraphicFromRandomList</a>, <a href="59562.html">GraphicLayoutRoutine_JumpTimeWeightedRandom</a>, <a href="59657.html">GraphicLayoutRoutine_TimerRandomGraphicIndex</a>, <a href="59715.html">GraphicLayoutRoutine_JumpRandomAddress</a>, <a href="60019.html">Reposition_CameraFollowEntity</a>, <a href="60635.html">ScriptRoutine_BerkDoorBehind</a>, <a href="60976.html">Check_EntitiesNearTrapDoor</a> and <a href="63242.html">ColourCycle_MainMenuLogo</a>.
+</div>
+<div class="paragraph">
+Return a pseudo-random number between 1 and max(2, <span class="register">A</span>).
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">Maximum value</td>
+</tr>
+</table>
+<table class="output">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">Random number</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label">PseudoRandom</td>
+<td class="address-2"><span id="60133"></span>60133</td>
+<td class="instruction">CP 2</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> less than 2? If not, jump to <a href="60133.html#60139">PseudoRandom_Mix</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60135"></span>60135</td>
+<td class="instruction">JR NC,<a href="60133.html#60139">PseudoRandom_Mix</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60137"></span>60137</td>
+<td class="instruction">LD A,2</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 2.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60139"></span>
+<div class="comments">
+<div class="paragraph">
+Clamp the range to at least 2, mix the seed at <a href="60130.html">RandomSeedScratch</a>, and reduce into 1…max.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">PseudoRandom_Mix</td>
+<td class="address-2"><span id="60139"></span>60139</td>
+<td class="instruction">LD (60132),A</td>
+<td class="comment-1" rowspan="1">Store <span class="register">A</span> as the random-range maximum at <a href="60130.html#60132">RandomRangeMaximum</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60142"></span>60142</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="3">Stash <span class="register">HL</span>, <span class="register">DE</span> and <span class="register">BC</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60143"></span>60143</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60144"></span>60144</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60145"></span>60145</td>
+<td class="instruction">LD DE,(60130)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">DE</span> from <a href="60130.html">RandomSeedScratch</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60149"></span>60149</td>
+<td class="instruction">LD H,E</td>
+<td class="comment-1" rowspan="1">Copy <span class="register">E</span> into <span class="register">H</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60150"></span>60150</td>
+<td class="instruction">LD L,253</td>
+<td class="comment-1" rowspan="1">Load <span class="register">L</span> with 253.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60152"></span>60152</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-1" rowspan="1">Copy <span class="register">D</span> into <span class="register">A</span> for later use.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60153"></span>60153</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="1">Is <span class="register">A</span> zero?.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60154"></span>60154</td>
+<td class="instruction">SBC HL,DE</td>
+<td class="comment-1" rowspan="1">Subtract <span class="register">DE</span> from <span class="register">HL</span>, including the previous success marker.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60156"></span>60156</td>
+<td class="instruction">SBC A,0</td>
+<td class="comment-1" rowspan="1">Subtract the previous success marker from <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60158"></span>60158</td>
+<td class="instruction">SBC HL,DE</td>
+<td class="comment-1" rowspan="1">Subtract <span class="register">DE</span> from <span class="register">HL</span>, including the previous success marker.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60160"></span>60160</td>
+<td class="instruction">SBC A,0</td>
+<td class="comment-1" rowspan="1">Subtract the previous success marker from <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60162"></span>60162</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1">Copy <span class="register">A</span> into <span class="register">E</span> as a saved coordinate / value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60163"></span>60163</td>
+<td class="instruction">LD D,0</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">D</span> (high byte of a pointer/offset).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60165"></span>60165</td>
+<td class="instruction">SBC HL,DE</td>
+<td class="comment-1" rowspan="1">Subtract <span class="register">DE</span> from <span class="register">HL</span>, including the previous success marker.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60167"></span>60167</td>
+<td class="instruction">JR NC,<a href="60133.html#60170">PseudoRandomContinue</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60133.html#60170">PseudoRandomContinue</a> if the result did not underflow.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60169"></span>60169</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance the data pointer in <span class="register">HL</span> by one byte.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60170"></span>
+<div class="comments">
+<div class="paragraph">
+Write the mixed seed back to <a href="60130.html">RandomSeedScratch</a> and accumulate it against the range.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">PseudoRandomContinue</td>
+<td class="address-2"><span id="60170"></span>60170</td>
+<td class="instruction">LD (60130),HL</td>
+<td class="comment-1" rowspan="1">Store <span class="register">HL</span> in <a href="60130.html">RandomSeedScratch</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60173"></span>60173</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="2">Copy <span class="register">HL</span> into <span class="register">DE</span> (using the stack).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60174"></span>60174</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60175"></span>60175</td>
+<td class="instruction">LD A,(60132)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the random-range maximum at <a href="60130.html#60132">RandomRangeMaximum</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60178"></span>60178</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1">Decrease <span class="register">A</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60179"></span>60179</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1">Keep a copy of <span class="register">A</span> in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60180"></span>60180</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">A</span> to 0.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60181"></span>
+<div class="comments">
+<div class="paragraph">
+Fold the seed word into the result by repeated addition.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">PseudoRandomContinueB</td>
+<td class="address-2"><span id="60181"></span>60181</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>+=<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60182"></span>60182</td>
+<td class="instruction">JR NC,<a href="60133.html#60185">PseudoRandomContinueB2</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60133.html#60185">PseudoRandomContinueB2</a> if the result did not underflow.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60184"></span>60184</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Step the print-position / counter on by one.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60185"></span>
+<div class="comments">
+<div class="paragraph">
+Finish the accumulate loop and restore the caller's registers.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">PseudoRandomContinueB2</td>
+<td class="address-2"><span id="60185"></span>60185</td>
+<td class="instruction">DJNZ <a href="60133.html#60181">PseudoRandomContinueB</a></td>
+<td class="comment-1" rowspan="1">Decrease the loop counter in <span class="register">B</span> and jump to <a href="60133.html#60181">PseudoRandomContinueB</a> if more iterations remain.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60187"></span>60187</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="3">Restore <span class="register">BC</span>, <span class="register">DE</span> and <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60188"></span>60188</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60189"></span>60189</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60190"></span>60190</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="comments">
+<div class="paragraph">
+View the equivalent code in; <ul class="">
+<li><a href="/flunky/dec/asm/38234.html">Flunky</a></li>
+</ul>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60130.html">60130</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60133">Map</a></td>
+<td class="next">
+Next: <a href="60191.html">60191</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/EAE5.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

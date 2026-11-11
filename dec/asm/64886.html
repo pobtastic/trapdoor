@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 64886</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 64886. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 64886" />
+<meta property="og:description" content="The Trap Door: Routine at 64886. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/64886.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/64886.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 64886",
+"name": "The Trap Door: Routine at 64886",
+"description": "The Trap Door: Routine at 64886. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/64886.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 64886"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/64886.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="64832.html">64832</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#64886">Map</a></td>
+<td class="next">
+Next: <a href="64921.html">64921</a>
+</td>
+</tr>
+</table>
+<div class="description">64886: Continue Menu Music Tick</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="64691.html">Play_MenuMusicTick</a>.
+</div>
+<div class="paragraph">
+Continue a music tick when <a href="64691.html">Play_MenuMusicTick</a> takes the carry path: build a delay via <a href="64921.html">Build_MusicDelayCount</a>, then either pulse the speaker, play the table-driven coda, or return.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Continue_MenuMusicTick</td>
+<td class="address-2"><span id="64886"></span>64886</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="3">Stash <span class="register">AF</span>, load stream-two's byte from <a href="64644.html#64645">64645</a> into <span class="register">D</span>, then restore <span class="register">AF</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="64887"></span>64887</td>
+<td class="instruction">LD A,(64645)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="64890"></span>64890</td>
+<td class="instruction">LD D,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="64891"></span>64891</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="64892"></span>64892</td>
+<td class="instruction">CALL <a href="64921.html">Build_MusicDelayCount</a></td>
+<td class="comment-1" rowspan="1">Call <a href="64921.html">Build_MusicDelayCount</a> to build the delay count.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="64895"></span>64895</td>
+<td class="instruction">CP 255</td>
+<td class="comment-1" rowspan="2">Jump to <a href="64942.html">Pulse_MenuMusicSpeaker</a> if <span class="register">A</span> is 255 (pulse the speaker).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="64897"></span>64897</td>
+<td class="instruction">JR Z,<a href="64942.html">Pulse_MenuMusicSpeaker</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="64899"></span>64899</td>
+<td class="instruction">CP 192</td>
+<td class="comment-1" rowspan="2">Jump to <a href="65003.html">Play_MenuMusicCoda</a> if <span class="register">A</span> is 192 (play the coda).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="64901"></span>64901</td>
+<td class="instruction">JP Z,<a href="65003.html">Play_MenuMusicCoda</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="64904"></span>64904</td>
+<td class="instruction">LD B,4</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 4 step bits.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="64906"></span>64906</td>
+<td class="instruction">LD C,E</td>
+<td class="comment-1" rowspan="1">Copy the delay into <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="64907"></span>64907</td>
+<td class="instruction">RLA</td>
+<td class="comment-1" rowspan="4">Rotate <span class="register">A</span> left through carry four times to walk the step mask.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="64908"></span>64908</td>
+<td class="instruction">RLA</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="64909"></span>64909</td>
+<td class="instruction">RLA</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="64910"></span>64910</td>
+<td class="instruction">RLA</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="64911"></span>
+<div class="comments">
+<div class="paragraph">
+Apply the current step bit: pulse, hold, then loop.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Continue_MenuMusicTick_StepBit</td>
+<td class="address-2"><span id="64911"></span>64911</td>
+<td class="instruction">RLA</td>
+<td class="comment-1" rowspan="1">Rotate <span class="register">A</span> left through carry once more for this step.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="64912"></span>64912</td>
+<td class="instruction">CALL C,<a href="64942.html">Pulse_MenuMusicSpeaker</a></td>
+<td class="comment-1" rowspan="1">If carry is set, call <a href="64942.html">Pulse_MenuMusicSpeaker</a> to pulse the speaker.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="64915"></span>64915</td>
+<td class="instruction">CALL NC,<a href="64802.html#64807">Hold_MenuMusicSilence_Loop</a></td>
+<td class="comment-1" rowspan="1">If carry is clear, call <a href="64802.html#64807">Hold_MenuMusicSilence_Loop</a> for a silent hold.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="64918"></span>64918</td>
+<td class="instruction">DJNZ <a href="64886.html#64911">Continue_MenuMusicTick_StepBit</a></td>
+<td class="comment-1" rowspan="1">Decrease <span class="register">B</span> and loop to <a href="64886.html#64911">Continue_MenuMusicTick_StepBit</a> while steps remain.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="64920"></span>64920</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="64832.html">64832</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#64886">Map</a></td>
+<td class="next">
+Next: <a href="64921.html">64921</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/FD76.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

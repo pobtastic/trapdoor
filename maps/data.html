@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data" />
+<meta property="og:description" content="The Trap Door: Data. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/maps/data.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/maps/data.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data",
+"name": "The Trap Door: Data",
+"description": "The Trap Door: Data. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/maps/data.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/maps/data.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="DataMap">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<div class="map-intro"></div>
+<table class="map">
+<tr>
+<th class="map-page">Page</th>
+<th class="map-byte">Byte</th>
+<th>Address</th>
+<th>Description</th>
+</tr>
+<tr>
+<td class="map-page">64</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="4000"></span><a href="../asm/4000.html">4000</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/4000.html">Loading Screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">99</td>
+<td class="map-byte">109</td>
+<td class="map-b"><span id="636d"></span><a href="../asm/636D.html">636D</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/636D.html">Data: Display Buffer Scratch</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">99</td>
+<td class="map-byte">160</td>
+<td class="map-b"><span id="63a0"></span><a href="../asm/63A0.html">63A0</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/63A0.html">Primary Display Buffer</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">107</td>
+<td class="map-byte">32</td>
+<td class="map-b"><span id="6b20"></span><a href="../asm/6B20.html">6B20</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/6B20.html">Secondary Display Buffer</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">111</td>
+<td class="map-byte">4</td>
+<td class="map-b"><span id="6f04"></span><a href="../asm/6F04.html">6F04</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/6F04.html">Menu Music Source</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">115</td>
+<td class="map-byte">11</td>
+<td class="map-w"><span id="730b"></span><a href="../asm/730B.html">730B</a></td>
+<td class="map-w-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/730B.html">Table: Addresses of Graphic Sets</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">115</td>
+<td class="map-byte">25</td>
+<td class="map-b"><span id="7319"></span><a href="../asm/7319.html">7319</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/7319.html">Bitmap Mirror Image Lookup Table</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">116</td>
+<td class="map-byte">25</td>
+<td class="map-b"><span id="7419"></span><a href="../asm/7419.html">7419</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/7419.html">Graphics: Set 03</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">121</td>
+<td class="map-byte">89</td>
+<td class="map-b"><span id="7959"></span><a href="../asm/7959.html">7959</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/7959.html">Graphics: Set 04</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">124</td>
+<td class="map-byte">81</td>
+<td class="map-b"><span id="7c51"></span><a href="../asm/7C51.html">7C51</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/7C51.html">Graphics: Set 01</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">129</td>
+<td class="map-byte">233</td>
+<td class="map-b"><span id="81e9"></span><a href="../asm/81E9.html">81E9</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/81E9.html">Graphics: Set 02</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">134</td>
+<td class="map-byte">97</td>
+<td class="map-b"><span id="8661"></span><a href="../asm/8661.html">8661</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/8661.html">Graphics: Set 05</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">137</td>
+<td class="map-byte">137</td>
+<td class="map-b"><span id="8989"></span><a href="../asm/8989.html">8989</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/8989.html">Graphics: Set 06</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">139</td>
+<td class="map-byte">105</td>
+<td class="map-b"><span id="8b69"></span><a href="../asm/8B69.html">8B69</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/8B69.html">State Data: Simple Entities</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">142</td>
+<td class="map-byte">233</td>
+<td class="map-b"><span id="8ee9"></span><a href="../asm/8EE9.html">8EE9</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/8EE9.html">State Data: Complex Entities</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">144</td>
+<td class="map-byte">183</td>
+<td class="map-b"><span id="90b7"></span><a href="../asm/90B7.html">90B7</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/90B7.html">State Data: Scenery Entities</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">146</td>
+<td class="map-byte">8</td>
+<td class="map-b"><span id="9208"></span><a href="../asm/9208.html">9208</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/9208.html">Graphic Layout: Berk</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">148</td>
+<td class="map-byte">88</td>
+<td class="map-b"><span id="9458"></span><a href="../asm/9458.html">9458</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/9458.html">Graphic Layout: Berk Walking Left</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">150</td>
+<td class="map-byte">59</td>
+<td class="map-b"><span id="963b"></span><a href="../asm/963B.html">963B</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/963B.html">Graphic Layout: Berk Facing Out</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">152</td>
+<td class="map-byte">90</td>
+<td class="map-b"><span id="985a"></span><a href="../asm/985A.html">985A</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/985A.html">Graphic Layout: Berk Facing In</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">153</td>
+<td class="map-byte">41</td>
+<td class="map-b"><span id="9929"></span><a href="../asm/9929.html">9929</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/9929.html">Graphic Layout: Berk Body Parts</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">155</td>
+<td class="map-byte">103</td>
+<td class="map-b"><span id="9b67"></span><a href="../asm/9B67.html">9B67</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/9B67.html">Graphic Layout: Berk In Action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">156</td>
+<td class="map-byte">138</td>
+<td class="map-b"><span id="9c8a"></span><a href="../asm/9C8A.html">9C8A</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/9C8A.html">Graphic Layout / Script Data: Boney Actions</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">156</td>
+<td class="map-byte">158</td>
+<td class="map-b"><span id="9c9e"></span><a href="../asm/9C9E.html">9C9E</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/9C9E.html">Graphic Layout Data: Boney</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">157</td>
+<td class="map-byte">15</td>
+<td class="map-b"><span id="9d0f"></span><a href="../asm/9D0F.html">9D0F</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/9D0F.html">Graphic Layout: Basket</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">157</td>
+<td class="map-byte">45</td>
+<td class="map-b"><span id="9d2d"></span><a href="../asm/9D2D.html">9D2D</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/9D2D.html">Graphic Layout: Basket Rim</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">157</td>
+<td class="map-byte">75</td>
+<td class="map-b"><span id="9d4b"></span><a href="../asm/9D4B.html">9D4B</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/9D4B.html">Graphic Layout: Basket Upside Down</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">157</td>
+<td class="map-byte">105</td>
+<td class="map-b"><span id="9d69"></span><a href="../asm/9D69.html">9D69</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/9D69.html">Graphic Layout: Yellow Cup</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">157</td>
+<td class="map-byte">126</td>
+<td class="map-b"><span id="9d7e"></span><a href="../asm/9D7E.html">9D7E</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/9D7E.html">Graphic Layout: Yellow Cup Rim</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">157</td>
+<td class="map-byte">141</td>
+<td class="map-b"><span id="9d8d"></span><a href="../asm/9D8D.html">9D8D</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/9D8D.html">Graphic Layout: Yellow Cup Upside Down</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">157</td>
+<td class="map-byte">162</td>
+<td class="map-b"><span id="9da2"></span><a href="../asm/9DA2.html">9DA2</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/9DA2.html">Graphic Layout Data: Worm Can</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">157</td>
+<td class="map-byte">179</td>
+<td class="map-b"><span id="9db3"></span><a href="../asm/9DB3.html">9DB3</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/9DB3.html">Graphic Layout Data: White Orb</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">157</td>
+<td class="map-byte">192</td>
+<td class="map-b"><span id="9dc0"></span><a href="../asm/9DC0.html">9DC0</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/9DC0.html">Graphic Layout Data: White Burst</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">157</td>
+<td class="map-byte">216</td>
+<td class="map-b"><span id="9dd8"></span><a href="../asm/9DD8.html">9DD8</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/9DD8.html">Graphic Layout: Hot Pan</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">157</td>
+<td class="map-byte">227</td>
+<td class="map-b"><span id="9de3"></span><a href="../asm/9DE3.html">9DE3</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/9DE3.html">Graphic Layout: Pan Cooking</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">158</td>
+<td class="map-byte">7</td>
+<td class="map-b"><span id="9e07"></span><a href="../asm/9E07.html">9E07</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/9E07.html">Graphic Layout: Pan</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">158</td>
+<td class="map-byte">55</td>
+<td class="map-b"><span id="9e37"></span><a href="../asm/9E37.html">9E37</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/9E37.html">Graphic Layout: Bullet</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">158</td>
+<td class="map-byte">97</td>
+<td class="map-b"><span id="9e61"></span><a href="../asm/9E61.html">9E61</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/9E61.html">Graphic Layout: Weight Chain</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">158</td>
+<td class="map-byte">226</td>
+<td class="map-b"><span id="9ee2"></span><a href="../asm/9EE2.html">9EE2</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/9EE2.html">Graphic Layout Data: Safe</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">159</td>
+<td class="map-byte">117</td>
+<td class="map-b"><span id="9f75"></span><a href="../asm/9F75.html">9F75</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/9F75.html">Graphic Layout: Cauldron Cooking</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">159</td>
+<td class="map-byte">157</td>
+<td class="map-b"><span id="9f9d"></span><a href="../asm/9F9D.html">9F9D</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/9F9D.html">Graphic Layout Data: Cauldron</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">159</td>
+<td class="map-byte">220</td>
+<td class="map-b"><span id="9fdc"></span><a href="../asm/9FDC.html">9FDC</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/9FDC.html">Graphic Layout: Stove Lit</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">160</td>
+<td class="map-byte">51</td>
+<td class="map-b"><span id="a033"></span><a href="../asm/A033.html">A033</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A033.html">Graphic Layout: Collectible Eyeball</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">160</td>
+<td class="map-byte">81</td>
+<td class="map-b"><span id="a051"></span><a href="../asm/A051.html">A051</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A051.html">Graphic Layout: Empty Bottle</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">160</td>
+<td class="map-byte">130</td>
+<td class="map-b"><span id="a082"></span><a href="../asm/A082.html">A082</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A082.html">Graphic Layout Data: Plant Pot</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">161</td>
+<td class="map-byte">63</td>
+<td class="map-b"><span id="a13f"></span><a href="../asm/A13F.html">A13F</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A13F.html">Graphic Layout Data: Seed Box</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">161</td>
+<td class="map-byte">102</td>
+<td class="map-b"><span id="a166"></span><a href="../asm/A166.html">A166</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A166.html">Graphic Layout Data: Vat Pouring</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">161</td>
+<td class="map-byte">139</td>
+<td class="map-b"><span id="a18b"></span><a href="../asm/A18B.html">A18B</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A18B.html">Graphic Layout Data: Vat</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">161</td>
+<td class="map-byte">248</td>
+<td class="map-b"><span id="a1f8"></span><a href="../asm/A1F8.html">A1F8</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A1F8.html">Graphic Layout: Slimies</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">162</td>
+<td class="map-byte">55</td>
+<td class="map-b"><span id="a237"></span><a href="../asm/A237.html">A237</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A237.html">Graphic Layout Data: Room 1 Scenery</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">162</td>
+<td class="map-byte">114</td>
+<td class="map-b"><span id="a272"></span><a href="../asm/A272.html">A272</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A272.html">Graphic Layout Data: Shared Scenery Tile</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">162</td>
+<td class="map-byte">139</td>
+<td class="map-b"><span id="a28b"></span><a href="../asm/A28B.html">A28B</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A28B.html">Graphic Layout Data: Room Scenery</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">162</td>
+<td class="map-byte">168</td>
+<td class="map-b"><span id="a2a8"></span><a href="../asm/A2A8.html">A2A8</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A2A8.html">Graphic Layout Data: Room Scenery</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">162</td>
+<td class="map-byte">241</td>
+<td class="map-b"><span id="a2f1"></span><a href="../asm/A2F1.html">A2F1</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A2F1.html">Graphic Layout Data: Floor Strip</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">163</td>
+<td class="map-byte">216</td>
+<td class="map-b"><span id="a3d8"></span><a href="../asm/A3D8.html">A3D8</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A3D8.html">Graphic Layout Data: Trap Door Edge</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">163</td>
+<td class="map-byte">243</td>
+<td class="map-b"><span id="a3f3"></span><a href="../asm/A3F3.html">A3F3</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A3F3.html">Graphic Layout: Closed Trap Door</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">164</td>
+<td class="map-byte">38</td>
+<td class="map-b"><span id="a426"></span><a href="../asm/A426.html">A426</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A426.html">Graphic Layout: Open Trap Door</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">164</td>
+<td class="map-byte">83</td>
+<td class="map-b"><span id="a453"></span><a href="../asm/A453.html">A453</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A453.html">Graphic Layout: Trap Door Floor</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">164</td>
+<td class="map-byte">108</td>
+<td class="map-b"><span id="a46c"></span><a href="../asm/A46C.html">A46C</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A46C.html">Graphic Layout: Green Arch Top</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">164</td>
+<td class="map-byte">189</td>
+<td class="map-b"><span id="a4bd"></span><a href="../asm/A4BD.html">A4BD</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A4BD.html">Graphic Layout: Green Arch Bottom</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">165</td>
+<td class="map-byte">8</td>
+<td class="map-b"><span id="a508"></span><a href="../asm/A508.html">A508</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A508.html">Graphic Layout: White Arch</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">165</td>
+<td class="map-byte">182</td>
+<td class="map-b"><span id="a5b6"></span><a href="../asm/A5B6.html">A5B6</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A5B6.html">Graphic Layout Data: Door Frame</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">165</td>
+<td class="map-byte">233</td>
+<td class="map-b"><span id="a5e9"></span><a href="../asm/A5E9.html">A5E9</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A5E9.html">Graphic Layout Data: Door Frame Variant</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">166</td>
+<td class="map-byte">28</td>
+<td class="map-b"><span id="a61c"></span><a href="../asm/A61C.html">A61C</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A61C.html">Graphic Layout Data: Vertical Column</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">166</td>
+<td class="map-byte">79</td>
+<td class="map-b"><span id="a64f"></span><a href="../asm/A64F.html">A64F</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A64F.html">Graphic Layout Data: Small Decor</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">166</td>
+<td class="map-byte">91</td>
+<td class="map-b"><span id="a65b"></span><a href="../asm/A65B.html">A65B</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A65B.html">Graphic Layout Data</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">166</td>
+<td class="map-byte">172</td>
+<td class="map-b"><span id="a6ac"></span><a href="../asm/A6AC.html">A6AC</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A6AC.html">Graphic Layout Data</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">166</td>
+<td class="map-byte">187</td>
+<td class="map-b"><span id="a6bb"></span><a href="../asm/A6BB.html">A6BB</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A6BB.html">Graphic Layout Data: Long Platform</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">167</td>
+<td class="map-byte">122</td>
+<td class="map-b"><span id="a77a"></span><a href="../asm/A77A.html">A77A</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A77A.html">Graphic Layout Data: Mossy Arch</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">167</td>
+<td class="map-byte">218</td>
+<td class="map-b"><span id="a7da"></span><a href="../asm/A7DA.html">A7DA</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A7DA.html">Graphic Layout: Dumb Waiter</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">167</td>
+<td class="map-byte">250</td>
+<td class="map-b"><span id="a7fa"></span><a href="../asm/A7FA.html">A7FA</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A7FA.html">Graphic Layout: Lever Open Facing Right</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">168</td>
+<td class="map-byte">9</td>
+<td class="map-b"><span id="a809"></span><a href="../asm/A809.html">A809</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A809.html">Graphic Layout: Lever Closed Facing Right</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">168</td>
+<td class="map-byte">24</td>
+<td class="map-b"><span id="a818"></span><a href="../asm/A818.html">A818</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A818.html">Graphic Layout: Lever Open Facing Left</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">168</td>
+<td class="map-byte">39</td>
+<td class="map-b"><span id="a827"></span><a href="../asm/A827.html">A827</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A827.html">Graphic Layout: Lever Closed Facing Left</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">168</td>
+<td class="map-byte">57</td>
+<td class="map-b"><span id="a839"></span><a href="../asm/A839.html">A839</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A839.html">Graphic Layout: Blue Staircase</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">168</td>
+<td class="map-byte">204</td>
+<td class="map-b"><span id="a8cc"></span><a href="../asm/A8CC.html">A8CC</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A8CC.html">Graphic Layout Data: Room 1 Scenery</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">168</td>
+<td class="map-byte">246</td>
+<td class="map-b"><span id="a8f6"></span><a href="../asm/A8F6.html">A8F6</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A8F6.html">Graphic Layout Data: Room 1 Scenery</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">169</td>
+<td class="map-byte">41</td>
+<td class="map-b"><span id="a929"></span><a href="../asm/A929.html">A929</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/A929.html">Graphic Layout Data: Swamp Dripping Water</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">170</td>
+<td class="map-byte">40</td>
+<td class="map-b"><span id="aa28"></span><a href="../asm/AA28.html">AA28</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/AA28.html">Graphic Layout: Green Scenery Strip</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">171</td>
+<td class="map-byte">113</td>
+<td class="map-b"><span id="ab71"></span><a href="../asm/AB71.html">AB71</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/AB71.html">Data: Berk Idle Script Selectors</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">173</td>
+<td class="map-byte">23</td>
+<td class="map-b"><span id="ad17"></span><a href="../asm/AD17.html">AD17</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/AD17.html">Data: Menu Glyph Bitmaps</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">183</td>
+<td class="map-byte">156</td>
+<td class="map-b"><span id="b79c"></span><a href="../asm/B79C.html">B79C</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/B79C.html">Data: Berk Movement Scripts</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">185</td>
+<td class="map-byte">165</td>
+<td class="map-b"><span id="b9a5"></span><a href="../asm/B9A5.html">B9A5</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/B9A5.html">Data: Berk Put-Down Scripts</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">188</td>
+<td class="map-byte">0</td>
+<td class="map-b"><span id="bc00"></span><a href="../asm/BC00.html">BC00</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/BC00.html">Data: Thing Upstairs Script Tail</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">188</td>
+<td class="map-byte">90</td>
+<td class="map-b"><span id="bc5a"></span><a href="../asm/BC5A.html">BC5A</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/BC5A.html">Data: Thing Upstairs Entity Template</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">189</td>
+<td class="map-byte">195</td>
+<td class="map-b"><span id="bdc3"></span><a href="../asm/BDC3.html">BDC3</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/BDC3.html">Graphic Layout: Ghost</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">190</td>
+<td class="map-byte">109</td>
+<td class="map-b"><span id="be6d"></span><a href="../asm/BE6D.html">BE6D</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/BE6D.html">Data: Bird Scripts</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">193</td>
+<td class="map-byte">2</td>
+<td class="map-b"><span id="c102"></span><a href="../asm/C102.html">C102</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/C102.html">Data: Task Helper Layouts</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">194</td>
+<td class="map-byte">34</td>
+<td class="map-b"><span id="c222"></span><a href="../asm/C222.html">C222</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/C222.html">Graphic Layout: Bird</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">194</td>
+<td class="map-byte">228</td>
+<td class="map-b"><span id="c2e4"></span><a href="../asm/C2E4.html">C2E4</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/C2E4.html">Task Three Runtime Workspace</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">194</td>
+<td class="map-byte">233</td>
+<td class="map-b"><span id="c2e9"></span><a href="../asm/C2E9.html">C2E9</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/C2E9.html">Data: Task Three Tables (continued)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">198</td>
+<td class="map-byte">43</td>
+<td class="map-b"><span id="c62b"></span><a href="../asm/C62B.html">C62B</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/C62B.html">Cauldron Init Template</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">199</td>
+<td class="map-byte">14</td>
+<td class="map-b"><span id="c70e"></span><a href="../asm/C70E.html">C70E</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/C70E.html">Graphic Layout: Mobile Flamer</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">202</td>
+<td class="map-byte">35</td>
+<td class="map-b"><span id="ca23"></span><a href="../asm/CA23.html">CA23</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/CA23.html">Data: Task Four Script</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">204</td>
+<td class="map-byte">185</td>
+<td class="map-b"><span id="ccb9"></span><a href="../asm/CCB9.html">CCB9</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/CCB9.html">Data: Task Four Script / Table Residue</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">205</td>
+<td class="map-byte">192</td>
+<td class="map-b"><span id="cdc0"></span><a href="../asm/CDC0.html">CDC0</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/CDC0.html">Graphic Layout Data: Ghost And Plant</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">207</td>
+<td class="map-byte">68</td>
+<td class="map-b"><span id="cf44"></span><a href="../asm/CF44.html">CF44</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/CF44.html">Data: Drutt Scripts</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">208</td>
+<td class="map-byte">54</td>
+<td class="map-b"><span id="d036"></span><a href="../asm/D036.html">D036</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D036.html">Crusher Entity Template</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">210</td>
+<td class="map-byte">52</td>
+<td class="map-b"><span id="d234"></span><a href="../asm/D234.html">D234</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D234.html">Data: Drutt Script / Animation</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">213</td>
+<td class="map-byte">98</td>
+<td class="map-b"><span id="d562"></span><a href="../asm/D562.html">D562</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D562.html">Collectible Script Table Base</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">214</td>
+<td class="map-byte">125</td>
+<td class="map-b"><span id="d67d"></span><a href="../asm/D67D.html">D67D</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D67D.html">Data: Collectible Script / Table Residue</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">226</td>
+<td class="map-byte">78</td>
+<td class="map-w"><span id="e24e"></span><a href="../asm/E24E.html">E24E</a></td>
+<td class="map-w-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E24E.html">Table: Task Progress Message Pointers</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">228</td>
+<td class="map-byte">42</td>
+<td class="map-b"><span id="e42a"></span><a href="../asm/E42A.html">E42A</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E42A.html">Font: Message Characters</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">231</td>
+<td class="map-byte">213</td>
+<td class="map-w"><span id="e7d5"></span><a href="../asm/E7D5.html">E7D5</a></td>
+<td class="map-w-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E7D5.html">Table of Addresses of Graphic Layout Handling Routines</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">233</td>
+<td class="map-byte">103</td>
+<td class="map-b"><span id="e967"></span><a href="../asm/E967.html">E967</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E967.html">Table: Display Buffer Row Offsets</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">235</td>
+<td class="map-byte">31</td>
+<td class="map-b"><span id="eb1f"></span><a href="../asm/EB1F.html">EB1F</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EB1F.html">Score Leading-Zero Suppress Flag</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">235</td>
+<td class="map-byte">140</td>
+<td class="map-w"><span id="eb8c"></span><a href="../asm/EB8C.html">EB8C</a></td>
+<td class="map-w-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EB8C.html">Table of Addresses of Script Handling Routines</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">237</td>
+<td class="map-byte">195</td>
+<td class="map-b"><span id="edc3"></span><a href="../asm/EDC3.html">EDC3</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EDC3.html">Data: Entity Type Bytes</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">239</td>
+<td class="map-byte">176</td>
+<td class="map-b"><span id="efb0"></span><a href="../asm/EFB0.html">EFB0</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EFB0.html">Script Push Direction Flag</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">245</td>
+<td class="map-byte">251</td>
+<td class="map-b"><span id="f5fb"></span><a href="../asm/F5FB.html">F5FB</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F5FB.html">Table: Control Key Codes</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">246</td>
+<td class="map-byte">126</td>
+<td class="map-b"><span id="f67e"></span><a href="../asm/F67E.html">F67E</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F67E.html">Table: Keyboard Port Map</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">246</td>
+<td class="map-byte">198</td>
+<td class="map-w"><span id="f6c6"></span><a href="../asm/F6C6.html">F6C6</a></td>
+<td class="map-w-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F6C6.html">Table: Main Menu Logo Attribute Addresses</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">247</td>
+<td class="map-byte">64</td>
+<td class="map-b"><span id="f740"></span><a href="../asm/F740.html">F740</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F740.html">Font: Main Menu Logo</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">249</td>
+<td class="map-byte">15</td>
+<td class="map-b"><span id="f90f"></span><a href="../asm/F90F.html">F90F</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F90F.html">Table: Sound Parameters</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">250</td>
+<td class="map-byte">14</td>
+<td class="map-b"><span id="fa0e"></span><a href="../asm/FA0E.html">FA0E</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/FA0E.html">Buffer: Entity State Backup</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">252</td>
+<td class="map-byte">132</td>
+<td class="map-b"><span id="fc84"></span><a href="../asm/FC84.html">FC84</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/FC84.html">Menu Music Workspace</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">253</td>
+<td class="map-byte">12</td>
+<td class="map-b"><span id="fd0c"></span><a href="../asm/FD0C.html">FD0C</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/FD0C.html">Data: Embedded "adam" Pad</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">253</td>
+<td class="map-byte">64</td>
+<td class="map-b"><span id="fd40"></span><a href="../asm/FD40.html">FD40</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/FD40.html">Menu Music Delay Table</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">254</td>
+<td class="map-byte">35</td>
+<td class="map-b"><span id="fe23"></span><a href="../asm/FE23.html">FE23</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/FE23.html">Menu Music Coda Note Table</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-page">254</td>
+<td class="map-byte">59</td>
+<td class="map-b"><span id="fe3b"></span><a href="../asm/FE3B.html">FE3B</a></td>
+<td class="map-b-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/FE3B.html">Menu Music Stream One Base</a></div>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/maps/data.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

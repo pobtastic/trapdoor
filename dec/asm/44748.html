@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 44748</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 44748. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 44748" />
+<meta property="og:description" content="The Trap Door: Routine at 44748. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44748.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44748.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 44748",
+"name": "The Trap Door: Routine at 44748",
+"description": "The Trap Door: Routine at 44748. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44748.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 44748"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44748.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="44449.html">44449</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#44748">Map</a></td>
+<td class="next">
+Next: <a href="44801.html">44801</a>
+</td>
+</tr>
+</table>
+<div class="description">44748: Handle Berk Action</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="43925.html">Update_Berk_State</a> and <a href="44449.html">Update_Timed_Events</a>.
+</div>
+<div class="paragraph">
+Flash the status attribute strip, play a stinger, clear messaging attrs, then count down <a href="29403.html">Pointer_BerkHeldEntity</a> / score.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Handle_Berk_Action</td>
+<td class="address-2"><span id="44748"></span>44748</td>
+<td class="instruction">LD HL,23225</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at attribute-file address 23225 (attribute buffer).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44751"></span>44751</td>
+<td class="instruction">LD B,6</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 6 as a loop counter.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44753"></span>
+<div class="comments">
+<div class="paragraph">
+Paint the status attribute strip bright, play Berk's action stinger, then clear messaging attrs.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Handle_Berk_Action_FillAttributes</td>
+<td class="address-2"><span id="44753"></span>44753</td>
+<td class="instruction">LD (HL),120</td>
+<td class="comment-1" rowspan="1">Write attribute/value 120 through the pointer in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44755"></span>44755</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance 23225 (attribute buffer) by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44756"></span>44756</td>
+<td class="instruction">DJNZ <a href="44748.html#44753">Handle_Berk_Action_FillAttributes</a></td>
+<td class="comment-1" rowspan="1">Decrease the loop counter in <span class="register">B</span> and jump to <a href="44748.html#44753">Handle_Berk_Action_FillAttributes</a> if more iterations remain.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44758"></span>
+<div class="comments">
+<div class="paragraph">
+<audio controls="" src="../../audio/berk-action.wav">
+<p>Your browser doesn't support HTML5 audio. Here is a <a href="../../audio/berk-action.wav">link to the audio</a> instead.</p>
+</audio>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44758"></span>44758</td>
+<td class="instruction">LD A,2</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with sound index 2.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44760"></span>44760</td>
+<td class="instruction">CALL <a href="63737.html">Queue_Sound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="63737.html">Queue_Sound</a> to queue a sound effect.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44763"></span>44763</td>
+<td class="instruction">CALL <a href="63919.html">Play_QueuedSound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="63919.html">Play_QueuedSound</a> to play a fanfare / stinger.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44766"></span>44766</td>
+<td class="instruction">CALL <a href="44440.html">Clear_Messaging_Attributes</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44440.html">Clear_Messaging_Attributes</a> to clear messaging attributes.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44769"></span>
+<div class="comments">
+<div class="paragraph">
+Count down the held-entity pointer and bump the score while <a href="29403.html">Pointer_BerkHeldEntity</a> is non-zero.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Handle_Berk_Action_ScoreHeldCountdown</td>
+<td class="address-2"><span id="44769"></span>44769</td>
+<td class="instruction">LD HL,(29403)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">HL</span> with the pointer to the entity Berk is holding (<a href="29403.html">Pointer_BerkHeldEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44772"></span>44772</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-1" rowspan="1">Copy the high byte of the pointer into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44773"></span>44773</td>
+<td class="instruction">OR L</td>
+<td class="comment-1" rowspan="1">OR <span class="register">L</span> into <span class="register">A</span> to test whether <a href="29403.html">Pointer_BerkHeldEntity</a> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44774"></span>44774</td>
+<td class="instruction">JP Z,<a href="44801.html">Initialise_Room_Display</a></td>
+<td class="comment-1" rowspan="1">If the result was zero, jump to <a href="44801.html">Initialise_Room_Display</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44777"></span>44777</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-1" rowspan="1">Step pointer to the entity Berk is holding back by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44778"></span>44778</td>
+<td class="instruction">LD (29403),HL</td>
+<td class="comment-1" rowspan="1">Store <span class="register">HL</span> in the pointer to the entity Berk is holding (<a href="29403.html">Pointer_BerkHeldEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44781"></span>44781</td>
+<td class="instruction">LD HL,(29405)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">HL</span> with the score (<a href="29405.html">Score</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44784"></span>44784</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance score by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44785"></span>44785</td>
+<td class="instruction">LD (29405),HL</td>
+<td class="comment-1" rowspan="1">Store <span class="register">HL</span> in the score (<a href="29405.html">Score</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44788"></span>44788</td>
+<td class="instruction">CALL <a href="44801.html">Initialise_Room_Display</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44801.html">Initialise_Room_Display</a> to initialise the room display.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44791"></span>
+<div class="comments">
+<div class="paragraph">
+<audio controls="" src="../../audio/score.wav">
+<p>Your browser doesn't support HTML5 audio. Here is a <a href="../../audio/score.wav">link to the audio</a> instead.</p>
+</audio>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44791"></span>44791</td>
+<td class="instruction">LD A,1</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with sound index 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44793"></span>44793</td>
+<td class="instruction">CALL <a href="63737.html">Queue_Sound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="63737.html">Queue_Sound</a> to queue a sound effect.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44796"></span>44796</td>
+<td class="instruction">CALL <a href="63919.html">Play_QueuedSound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="63919.html">Play_QueuedSound</a> to play a fanfare / stinger.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44799"></span>44799</td>
+<td class="instruction">JR <a href="44748.html#44769">Handle_Berk_Action_ScoreHeldCountdown</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="44748.html#44769">Handle_Berk_Action_ScoreHeldCountdown</a> to keep scanning held-entity slots.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="44449.html">44449</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#44748">Map</a></td>
+<td class="next">
+Next: <a href="44801.html">44801</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/AECC.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

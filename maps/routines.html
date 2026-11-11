@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routines</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routines. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routines" />
+<meta property="og:description" content="The Trap Door: Routines. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/maps/routines.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/maps/routines.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routines",
+"name": "The Trap Door: Routines",
+"description": "The Trap Door: Routines. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/maps/routines.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routines"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/maps/routines.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="RoutinesMap">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<div class="map-intro"></div>
+<table class="map">
+<tr>
+<th>Address</th>
+<th>Description</th>
+</tr>
+<tr>
+<td class="map-c"><span id="72a0"></span><a href="../asm/72A0.html">72A0</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/72A0.html">Game Start Alias</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="aaab"></span><a href="../asm/AAAB.html">AAAB</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/AAAB.html">Game Restart</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="aab3"></span><a href="../asm/AAB3.html">AAB3</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/AAB3.html">Game Start</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ab31"></span><a href="../asm/AB31.html">AB31</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/AB31.html">Initialise Entity Data</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ab76"></span><a href="../asm/AB76.html">AB76</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/AB76.html">Initialise Entity Defaults</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ab95"></span><a href="../asm/AB95.html">AB95</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/AB95.html">Update Berk State</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ace4"></span><a href="../asm/ACE4.html">ACE4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/ACE4.html">Start Berk Script</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ad47"></span><a href="../asm/AD47.html">AD47</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/AD47.html">Reset Text Position</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ad6f"></span><a href="../asm/AD6F.html">AD6F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/AD6F.html">Print Menu Strings</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ad98"></span><a href="../asm/AD98.html">AD98</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/AD98.html">Clear Messaging Attributes</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ada1"></span><a href="../asm/ADA1.html">ADA1</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/ADA1.html">Update Timed Events</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="aecc"></span><a href="../asm/AECC.html">AECC</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/AECC.html">Handle Berk Action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="af01"></span><a href="../asm/AF01.html">AF01</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/AF01.html">Initialise Room Display</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="af3c"></span><a href="../asm/AF3C.html">AF3C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/AF3C.html">Initialise New Game</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="af7f"></span><a href="../asm/AF7F.html">AF7F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/AF7F.html">Check Task Completion</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="afa9"></span><a href="../asm/AFA9.html">AFA9</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/AFA9.html">Backup Entity And Game State</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="afdc"></span><a href="../asm/AFDC.html">AFDC</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/AFDC.html">Script Routine: (1B) Animate trap door / update Berk interaction</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="b01e"></span><a href="../asm/B01E.html">B01E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/B01E.html">Reset Trap Door Animation State</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="b034"></span><a href="../asm/B034.html">B034</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/B034.html">Update Drutt</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="b16e"></span><a href="../asm/B16E.html">B16E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/B16E.html">Update Drutt Animation</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="b1a9"></span><a href="../asm/B1A9.html">B1A9</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/B1A9.html">Process Falling Entities</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="b1e3"></span><a href="../asm/B1E3.html">B1E3</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/B1E3.html">Advance Falling Entity</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="b21e"></span><a href="../asm/B21E.html">B21E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/B21E.html">Process Rising Entities</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="b258"></span><a href="../asm/B258.html">B258</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/B258.html">Process Special Entity Flags</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="b2aa"></span><a href="../asm/B2AA.html">B2AA</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/B2AA.html">Update Entity Slot</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="b41a"></span><a href="../asm/B41A.html">B41A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/B41A.html">Update Berk Controller</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="b440"></span><a href="../asm/B440.html">B440</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/B440.html">Update Berk: Read Controls</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="b7a1"></span><a href="../asm/B7A1.html">B7A1</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/B7A1.html">Berk Read Controls: Down Branches</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="b7f3"></span><a href="../asm/B7F3.html">B7F3</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/B7F3.html">Berk Interact With Entity</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="b87c"></span><a href="../asm/B87C.html">B87C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/B87C.html">Berk Pick Up Entity</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="b92c"></span><a href="../asm/B92C.html">B92C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/B92C.html">Berk Put Down Entity</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="bc12"></span><a href="../asm/BC12.html">BC12</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/BC12.html">Update Thing Upstairs Entity</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="bc2f"></span><a href="../asm/BC2F.html">BC2F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/BC2F.html">Update Thing Upstairs Entity State</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="bc36"></span><a href="../asm/BC36.html">BC36</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/BC36.html">Script Routine: (31) Thing Upstairs action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="bc45"></span><a href="../asm/BC45.html">BC45</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/BC45.html">Script Routine: (32) Thing Upstairs action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="bc54"></span><a href="../asm/BC54.html">BC54</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/BC54.html">Script Routine: (35) Thing Upstairs action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="bc64"></span><a href="../asm/BC64.html">BC64</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/BC64.html">Script Routine: (33) Thing Upstairs action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="bc81"></span><a href="../asm/BC81.html">BC81</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/BC81.html">Script Routine: (34) Thing Upstairs action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="bd3c"></span><a href="../asm/BD3C.html">BD3C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/BD3C.html">Update Thing Upstairs Movement</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="bd72"></span><a href="../asm/BD72.html">BD72</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/BD72.html">Test Thing Upstairs Overlap</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="becd"></span><a href="../asm/BECD.html">BECD</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/BECD.html">Update Task Two Entities</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="bee6"></span><a href="../asm/BEE6.html">BEE6</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/BEE6.html">Update Task Two Entity State</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="bf77"></span><a href="../asm/BF77.html">BF77</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/BF77.html">Script Routine: (28) Task-two entity action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="bf8f"></span><a href="../asm/BF8F.html">BF8F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/BF8F.html">Script Routine: (24) Task-two entity action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="bfbf"></span><a href="../asm/BFBF.html">BFBF</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/BFBF.html">Script Routine: (29) Task-two entity action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="bfea"></span><a href="../asm/BFEA.html">BFEA</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/BFEA.html">Script Routine: (25) Task-two entity action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="c000"></span><a href="../asm/C000.html">C000</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/C000.html">Script Routine: (26) Task-two entity action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="c027"></span><a href="../asm/C027.html">C027</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/C027.html">Script Routine: (27) Task-two entity action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="c06e"></span><a href="../asm/C06E.html">C06E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/C06E.html">Spawn Task Entity</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="c095"></span><a href="../asm/C095.html">C095</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/C095.html">Update Task Helper Entities</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="c378"></span><a href="../asm/C378.html">C378</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/C378.html">Update Task Three Entities</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="c3b2"></span><a href="../asm/C3B2.html">C3B2</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/C3B2.html">Update Task Three Entity State</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="c3d7"></span><a href="../asm/C3D7.html">C3D7</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/C3D7.html">Script Routine: (30) Task-three entity action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="c3df"></span><a href="../asm/C3DF.html">C3DF</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/C3DF.html">Script Routine: (2B) Task-three entity action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="c443"></span><a href="../asm/C443.html">C443</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/C443.html">Script Routine: (2D) Task-three entity action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="c556"></span><a href="../asm/C556.html">C556</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/C556.html">Update Slimy Creature</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="c568"></span><a href="../asm/C568.html">C568</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/C568.html">Script Routine: (2F) Task-three entity action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="c582"></span><a href="../asm/C582.html">C582</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/C582.html">Script Routine: (2E) Task-three entity action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="c5f6"></span><a href="../asm/C5F6.html">C5F6</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/C5F6.html">Script Routine: (2C) Slimy-creature action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="c602"></span><a href="../asm/C602.html">C602</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/C602.html">Script Routine: (2A) Cauldron / heater action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="c60d"></span><a href="../asm/C60D.html">C60D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/C60D.html">Update Cauldron</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="c635"></span><a href="../asm/C635.html">C635</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/C635.html">Update Heater</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="c63b"></span><a href="../asm/C63B.html">C63B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/C63B.html">Update Stove</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="c65c"></span><a href="../asm/C65C.html">C65C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/C65C.html">Update Task Three Helpers</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="caa7"></span><a href="../asm/CAA7.html">CAA7</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/CAA7.html">Update Task Four Entities</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="cac4"></span><a href="../asm/CAC4.html">CAC4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/CAC4.html">Update Task Four Entity State</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="caf0"></span><a href="../asm/CAF0.html">CAF0</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/CAF0.html">Script Routine: (50) Task-four entity action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="cafe"></span><a href="../asm/CAFE.html">CAFE</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/CAFE.html">Script Routine: (48) Task-four entity action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="cb1e"></span><a href="../asm/CB1E.html">CB1E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/CB1E.html">Script Routine: (4F) Task-four entity action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="cb44"></span><a href="../asm/CB44.html">CB44</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/CB44.html">Script Routine: (4B) Task-four entity action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="cbc3"></span><a href="../asm/CBC3.html">CBC3</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/CBC3.html">Script Routine: (4E) Task-four entity action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="cbce"></span><a href="../asm/CBCE.html">CBCE</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/CBCE.html">Script Routine: (4D) Task-four entity action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="cc53"></span><a href="../asm/CC53.html">CC53</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/CC53.html">Script Routine: (49) Task-four entity action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="cc78"></span><a href="../asm/CC78.html">CC78</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/CC78.html">Script Routine: (4A) Task-four entity action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="cc8b"></span><a href="../asm/CC8B.html">CC8B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/CC8B.html">Script Routine: (4C) Task-four entity action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ce4b"></span><a href="../asm/CE4B.html">CE4B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/CE4B.html">Update Ghosts</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="cee1"></span><a href="../asm/CEE1.html">CEE1</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/CEE1.html">Update Plant Pots</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="cf1e"></span><a href="../asm/CF1E.html">CF1E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/CF1E.html">Update Crusher</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="cf37"></span><a href="../asm/CF37.html">CF37</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/CF37.html">Update Miscellaneous Entities</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="d012"></span><a href="../asm/D012.html">D012</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D012.html">Update Vat</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="d040"></span><a href="../asm/D040.html">D040</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D040.html">Update Vat: Event And Direction</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="d06c"></span><a href="../asm/D06C.html">D06C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D06C.html">Script Routine: (47) Vat action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="d074"></span><a href="../asm/D074.html">D074</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D074.html">Script Routine: (3E) Vat action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="d153"></span><a href="../asm/D153.html">D153</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D153.html">Script Routine: (43) Vat action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="d1ac"></span><a href="../asm/D1AC.html">D1AC</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D1AC.html">Script Routine: (40) Vat shift right when clear above</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="d1bd"></span><a href="../asm/D1BD.html">D1BD</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D1BD.html">Script Routine: (3F) Vat action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="d1cc"></span><a href="../asm/D1CC.html">D1CC</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D1CC.html">Script Routine: (45) Vat action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="d1d5"></span><a href="../asm/D1D5.html">D1D5</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D1D5.html">Script Routine: (42) Vat action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="d1e6"></span><a href="../asm/D1E6.html">D1E6</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D1E6.html">Script Routine: (41) Vat action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="d1f5"></span><a href="../asm/D1F5.html">D1F5</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D1F5.html">Script Routine: (44) Vat action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="d1fe"></span><a href="../asm/D1FE.html">D1FE</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D1FE.html">Script Routine: (46) Vat action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="d446"></span><a href="../asm/D446.html">D446</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D446.html">Check Entity Collision</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="d45b"></span><a href="../asm/D45B.html">D45B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D45B.html">Update Collectibles</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="d48e"></span><a href="../asm/D48E.html">D48E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D48E.html">Collect Entity</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="d56a"></span><a href="../asm/D56A.html">D56A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D56A.html">Script Routine: (37) Collectible action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="d59e"></span><a href="../asm/D59E.html">D59E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D59E.html">Script Routine: (36) Collectible action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="d5ed"></span><a href="../asm/D5ED.html">D5ED</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D5ED.html">Script Routine: (3D) Collectible action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="d5f4"></span><a href="../asm/D5F4.html">D5F4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D5F4.html">Script Routine: (3C) Collectible action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="d601"></span><a href="../asm/D601.html">D601</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D601.html">Script Routine: (38) Collectible action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="d61d"></span><a href="../asm/D61D.html">D61D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D61D.html">Script Routine: (39) Collectible action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="d639"></span><a href="../asm/D639.html">D639</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D639.html">Script Routine: (3A) Collectible action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="d65b"></span><a href="../asm/D65B.html">D65B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D65B.html">Script Routine: (3B) Collectible action</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="d7d3"></span><a href="../asm/D7D3.html">D7D3</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D7D3.html">Update Bad Tempered Thing Dialogue</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="d971"></span><a href="../asm/D971.html">D971</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/D971.html">Continue Bad Tempered Thing Dialogue</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="da23"></span><a href="../asm/DA23.html">DA23</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/DA23.html">Advance Dialogue Character</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="da2d"></span><a href="../asm/DA2D.html">DA2D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/DA2D.html">Draw Dialogue Character</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="da5b"></span><a href="../asm/DA5B.html">DA5B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/DA5B.html">Clear Dialogue Area</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="dda3"></span><a href="../asm/DDA3.html">DDA3</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/DDA3.html">Print Too-Late Task Feedback</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="de19"></span><a href="../asm/DE19.html">DE19</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/DE19.html">Print Status Messages</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="de51"></span><a href="../asm/DE51.html">DE51</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/DE51.html">Print Message By Index</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="de57"></span><a href="../asm/DE57.html">DE57</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/DE57.html">Print Message String</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="dfb5"></span><a href="../asm/DFB5.html">DFB5</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/DFB5.html">Print Death Message</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="dfdd"></span><a href="../asm/DFDD.html">DFDD</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/DFDD.html">Print Task Progress Intro</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="dff3"></span><a href="../asm/DFF3.html">DFF3</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/DFF3.html">Print Wages Message</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e25e"></span><a href="../asm/E25E.html">E25E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E25E.html">Select Task Progress Message</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e286"></span><a href="../asm/E286.html">E286</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E286.html">Print Encoded Message</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e2f9"></span><a href="../asm/E2F9.html">E2F9</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E2F9.html">Skip To Message Marker</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e300"></span><a href="../asm/E300.html">E300</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E300.html">Paint Message Buffer</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e34a"></span><a href="../asm/E34A.html">E34A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E34A.html">Centre And Draw Message Row</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e376"></span><a href="../asm/E376.html">E376</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E376.html">Draw Message Character</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e3c7"></span><a href="../asm/E3C7.html">E3C7</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E3C7.html">Plot Message Glyph Half</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e6db"></span><a href="../asm/E6DB.html">E6DB</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E6DB.html">Populate Display Buffer For Visible Entities</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e71d"></span><a href="../asm/E71D.html">E71D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E71D.html">Process Graphic Layout Data For Entity</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e73b"></span><a href="../asm/E73B.html">E73B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E73B.html">Advance Graphic Layout Pointer By Two Bytes And Process</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e73f"></span><a href="../asm/E73F.html">E73F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E73F.html">Process Graphic Layout Data</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e7bb"></span><a href="../asm/E7BB.html">E7BB</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E7BB.html">Jump Graphic Layout Routine</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e7f9"></span><a href="../asm/E7F9.html">E7F9</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E7F9.html">Graphic Layout Routine: (EE) Start Loop</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e808"></span><a href="../asm/E808.html">E808</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E808.html">Graphic Layout Routine: (EF) End Loop</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e819"></span><a href="../asm/E819.html">E819</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E819.html">Graphic Layout: Random Address Jump</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e82c"></span><a href="../asm/E82C.html">E82C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E82C.html">Graphic Layout Routine: (F0) Set New Pending Sound</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e835"></span><a href="../asm/E835.html">E835</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E835.html">Graphic Layout Routine: (F2) Set Current Attribute</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e83e"></span><a href="../asm/E83E.html">E83E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E83E.html">Graphic Layout Routine: (F4) Set Current Graphic Set Index</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e847"></span><a href="../asm/E847.html">E847</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E847.html">Graphic Layout Routine: (F5) Set Next Graphic Index From Random List</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e866"></span><a href="../asm/E866.html">E866</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E866.html">Graphic Layout Routine: (FF) Load Stored Coordinates And Return</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e86e"></span><a href="../asm/E86E.html">E86E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E86E.html">Graphic Layout Routine: (FA) Adjust Coordinates Without Storing</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e87b"></span><a href="../asm/E87B.html">E87B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E87B.html">Graphic Layout Routine: (FE) Adjust Coordinates And Store</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e88b"></span><a href="../asm/E88B.html">E88B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E88B.html">Graphic Layout Routine: (FB) Process Nested Graphic Layout Data</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e89e"></span><a href="../asm/E89E.html">E89E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E89E.html">Graphic Layout Routine: (F8) Jump To Graphic Layout Address</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e8aa"></span><a href="../asm/E8AA.html">E8AA</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E8AA.html">Graphic Layout Routine: (F9) Jump To Time-Weighted Random Address</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e8e8"></span><a href="../asm/E8E8.html">E8E8</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E8E8.html">Graphic Layout Routine: (F3) Increment Index And Jump To N-th Address</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e909"></span><a href="../asm/E909.html">E909</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E909.html">Graphic Layout Routine: (F7) Timer-Based Random Graphic Index</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e943"></span><a href="../asm/E943.html">E943</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E943.html">Graphic Layout Routine: (F6) Jump To Randomly Selected Address</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e954"></span><a href="../asm/E954.html">E954</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E954.html">Graphic Layout Routine: (FD) Jump Using Carried-Entity Width</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e959"></span><a href="../asm/E959.html">E959</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E959.html">Graphic Layout Routine: (FC) Conditional Jump Or Skip</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e991"></span><a href="../asm/E991.html">E991</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E991.html">Blit Display Buffer To Screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="e9ef"></span><a href="../asm/E9EF.html">E9EF</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/E9EF.html">Blit Display Buffer Row</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ea3c"></span><a href="../asm/EA3C.html">EA3C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EA3C.html">Clear Both Display Buffers</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ea44"></span><a href="../asm/EA44.html">EA44</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EA44.html">Clear Display Buffer</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ea52"></span><a href="../asm/EA52.html">EA52</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EA52.html">Clear Attribute File</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ea6d"></span><a href="../asm/EA6D.html">EA6D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EA6D.html">Set Border And Speaker State</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ea73"></span><a href="../asm/EA73.html">EA73</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EA73.html">Reposition Camera-Follow Entity After Interaction</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="eae5"></span><a href="../asm/EAE5.html">EAE5</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EAE5.html">Generate Pseudo-Random Number</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="eb20"></span><a href="../asm/EB20.html">EB20</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EB20.html">Print Score Digits</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="eb41"></span><a href="../asm/EB41.html">EB41</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EB41.html">Print Digit</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="eb67"></span><a href="../asm/EB67.html">EB67</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EB67.html">Print Character</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ec2e"></span><a href="../asm/EC2E.html">EC2E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EC2E.html">Advance <span class="register">HL</span> To Next Script Instruction And Execute</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ec53"></span><a href="../asm/EC53.html">EC53</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EC53.html">Script Routine: (21) Start script loop with count</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ec61"></span><a href="../asm/EC61.html">EC61</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EC61.html">Script Routine: (22) End script loop</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ec72"></span><a href="../asm/EC72.html">EC72</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EC72.html">Script Routine: (1E) Have Berk interact with a door in front of him</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ecb0"></span><a href="../asm/ECB0.html">ECB0</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/ECB0.html">Script Routine: (20) Have Berk open a door in front of him</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ecdb"></span><a href="../asm/ECDB.html">ECDB</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/ECDB.html">Script Routine: (1F) Have Berk interact with a door behind him</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="edcf"></span><a href="../asm/EDCF.html">EDCF</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EDCF.html">Script Routine: (1C) Close Trap Door</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="edd5"></span><a href="../asm/EDD5.html">EDD5</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EDD5.html">Script Routine: (1A) Open Trap Door</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="eddb"></span><a href="../asm/EDDB.html">EDDB</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EDDB.html">Close Trap Door</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="edf8"></span><a href="../asm/EDF8.html">EDF8</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EDF8.html">Open Trap Door</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ee30"></span><a href="../asm/EE30.html">EE30</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EE30.html">Check Entities Near Trap Door</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ef12"></span><a href="../asm/EF12.html">EF12</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EF12.html">Script Routine: (17) Move held entity up one room row</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ef28"></span><a href="../asm/EF28.html">EF28</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EF28.html">Script: Set Entity Latch</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ef32"></span><a href="../asm/EF32.html">EF32</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EF32.html">Script Routine: (18) Start loop</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ef54"></span><a href="../asm/EF54.html">EF54</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EF54.html">Script Routine: (0A) Reset entity direction flags</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ef5b"></span><a href="../asm/EF5B.html">EF5B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EF5B.html">Script Routine: (0B) Set entity facing right</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ef62"></span><a href="../asm/EF62.html">EF62</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EF62.html">Script Routine: (0C) Set entity facing left</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ef69"></span><a href="../asm/EF69.html">EF69</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EF69.html">Script Routine: (0D) Set entity facing up</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ef70"></span><a href="../asm/EF70.html">EF70</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EF70.html">Script Routine: (0E) Set entity facing down</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ef77"></span><a href="../asm/EF77.html">EF77</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EF77.html">Script: Jump If Carrying</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ef82"></span><a href="../asm/EF82.html">EF82</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EF82.html">Script: Load Script Pointer</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="ef8c"></span><a href="../asm/EF8C.html">EF8C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EF8C.html">Script Routine: (02) Move entity left one character</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="efb1"></span><a href="../asm/EFB1.html">EFB1</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/EFB1.html">Script Routine: (03) Move entity right one character</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f014"></span><a href="../asm/F014.html">F014</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F014.html">Script Routine: (04) Move entity up one character</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f069"></span><a href="../asm/F069.html">F069</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F069.html">Script Routine: (05) Move entity down one character</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f0c7"></span><a href="../asm/F0C7.html">F0C7</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F0C7.html">Script Routine: (06) Move entity left two characters</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f0ce"></span><a href="../asm/F0CE.html">F0CE</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F0CE.html">Script Routine: (07) Move entity right two characters</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f0d5"></span><a href="../asm/F0D5.html">F0D5</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F0D5.html">Script Routine: (09) Move entity down two characters</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f0dc"></span><a href="../asm/F0DC.html">F0DC</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F0DC.html">Script Routine: (08) Move entity up two characters</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f0e3"></span><a href="../asm/F0E3.html">F0E3</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F0E3.html">Script Routine: (0F) Have entity put down carried entity</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f13e"></span><a href="../asm/F13E.html">F13E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F13E.html">Script Routine: (14) Have entity pick up / restore held entity state</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f166"></span><a href="../asm/F166.html">F166</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F166.html">Script Routine: (10) Have entity face left after putting down</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f173"></span><a href="../asm/F173.html">F173</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F173.html">Script Routine: (11) Have entity face right after putting down</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f1a1"></span><a href="../asm/F1A1.html">F1A1</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F1A1.html">Script Routine: (12) Position put-down entity to the left</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f1b7"></span><a href="../asm/F1B7.html">F1B7</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F1B7.html">Script Routine: (13) Position put-down entity to the right</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f1df"></span><a href="../asm/F1DF.html">F1DF</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F1DF.html">Script Routine: (16) Start Drutt script</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f1f3"></span><a href="../asm/F1F3.html">F1F3</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F1F3.html">Update Camera Follow</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f24f"></span><a href="../asm/F24F.html">F24F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F24F.html">Script Routine: (19) Continue To Next Instruction</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f252"></span><a href="../asm/F252.html">F252</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F252.html">Clamp Camera Position</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f25b"></span><a href="../asm/F25B.html">F25B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F25B.html">Adjust Camera X</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f25f"></span><a href="../asm/F25F.html">F25F</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F25F.html">Adjust Camera Y</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f2bd"></span><a href="../asm/F2BD.html">F2BD</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F2BD.html">Test Entity Overlap (Allow Special)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f2c2"></span><a href="../asm/F2C2.html">F2C2</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F2C2.html">Test Entity Overlap</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f2c7"></span><a href="../asm/F2C7.html">F2C7</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F2C7.html">Test Entity Overlap At Depth</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f32a"></span><a href="../asm/F32A.html">F32A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F32A.html">Test Entity On Left</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f32e"></span><a href="../asm/F32E.html">F32E</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F32E.html">Test Entity On Right</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f38d"></span><a href="../asm/F38D.html">F38D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F38D.html">Test Entity Above</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f391"></span><a href="../asm/F391.html">F391</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F391.html">Test Entity Below</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f3ef"></span><a href="../asm/F3EF.html">F3EF</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F3EF.html">Display And Handle Main Menu</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f43d"></span><a href="../asm/F43D.html">F43D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F43D.html">Main Menu: Choose Learner Or Super Berk</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f454"></span><a href="../asm/F454.html">F454</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F454.html">Draw Menu Background</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f46b"></span><a href="../asm/F46B.html">F46B</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F46B.html">Print Controls Menu</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f51d"></span><a href="../asm/F51D.html">F51D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F51D.html">Main Menu Select Options</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f5c5"></span><a href="../asm/F5C5.html">F5C5</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F5C5.html">Print Control Key Labels (Short)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f5ca"></span><a href="../asm/F5CA.html">F5CA</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F5CA.html">Print Control Key Labels</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f5ea"></span><a href="../asm/F5EA.html">F5EA</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F5EA.html">Pulse Menu Timing</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f603"></span><a href="../asm/F603.html">F603</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F603.html">Read Player Controls</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f640"></span><a href="../asm/F640.html">F640</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F640.html">Read Keyboard Controls</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f6a6"></span><a href="../asm/F6A6.html">F6A6</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F6A6.html">Update High Score Display</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f6d6"></span><a href="../asm/F6D6.html">F6D6</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F6D6.html">Draw Main Menu Logo</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f70a"></span><a href="../asm/F70A.html">F70A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F70A.html">Colour-Cycle Main Menu Logo</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f8f9"></span><a href="../asm/F8F9.html">F8F9</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F8F9.html">Queue Sound</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="f9af"></span><a href="../asm/F9AF.html">F9AF</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/F9AF.html">Play Queued Sound</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="fc6c"></span><a href="../asm/FC6C.html">FC6C</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/FC6C.html">Seed Menu Music And Wait For Key</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="fc78"></span><a href="../asm/FC78.html">FC78</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/FC78.html">Wait For Key With Menu Music</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="fc90"></span><a href="../asm/FC90.html">FC90</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/FC90.html">Read Music Stream Byte</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="fc9d"></span><a href="../asm/FC9D.html">FC9D</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/FC9D.html">Decode Music Delay</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="fcab"></span><a href="../asm/FCAB.html">FCAB</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/FCAB.html">Reload Music Stream Cursor</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="fcb3"></span><a href="../asm/FCB3.html">FCB3</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/FCB3.html">Play Menu Music Tick</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="fd10"></span><a href="../asm/FD10.html">FD10</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/FD10.html">Play Menu Music Pulse Tail</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="fd22"></span><a href="../asm/FD22.html">FD22</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/FD22.html">Hold Menu Music Silence</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="fd76"></span><a href="../asm/FD76.html">FD76</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/FD76.html">Continue Menu Music Tick</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="fd99"></span><a href="../asm/FD99.html">FD99</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/FD99.html">Build Music Delay Count</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="fdae"></span><a href="../asm/FDAE.html">FDAE</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/FDAE.html">Pulse Menu Music Speaker</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="fdeb"></span><a href="../asm/FDEB.html">FDEB</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/FDEB.html">Play Menu Music Coda</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="fe0a"></span><a href="../asm/FE0A.html">FE0A</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/FE0A.html">Sound Coda Beep</a></div>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/maps/routines.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

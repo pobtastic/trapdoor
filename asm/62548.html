@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at F454</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at F454. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at F454" />
+<meta property="og:description" content="The Trap Door: Routine at F454. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/62548.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/62548.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at F454",
+"name": "The Trap Door: Routine at F454",
+"description": "The Trap Door: Routine at F454. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/62548.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at F454"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/62548.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62525.html">F43D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#f454">Map</a></td>
+<td class="next">
+Next: <a href="62571.html">F46B</a>
+</td>
+</tr>
+</table>
+<div class="description">F454: Draw Menu Background</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="62447.html">MainMenu</a>.
+</div>
+<div class="paragraph">
+Black out the whole attribute file, then clear a 0E×18 character window starting at 5809 for the main-menu / controls layout.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="f454"></span>
+<div class="comments">
+<div class="paragraph">
+Fill the attribute file, then clear the menu window.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Draw_MenuBackground</td>
+<td class="address-2"><span id="f454"></span>F454</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Clear <span class="register">A</span> (black ink/paper), then call <a href="60013.html">Set_BorderSpeakerState</a> to fill the attribute file.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f455"></span>F455</td>
+<td class="instruction">CALL <a href="60013.html">Set_BorderSpeakerState</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f458"></span>F458</td>
+<td class="instruction">LD HL,$5809</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the menu window top-left (5809).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f45b"></span>F45B</td>
+<td class="instruction">LD DE,$0012</td>
+<td class="comment-1" rowspan="1">Load <span class="register">DE</span> with the per-row skip (0012 bytes).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f45e"></span>F45E</td>
+<td class="instruction">LD C,$18</td>
+<td class="comment-1" rowspan="1">Load <span class="register">C</span> with 18 row counter.</td>
+</tr>
+<tr>
+<td class="asm-label">Draw_MenuBackground_RowLoop</td>
+<td class="address-2"><span id="f460"></span>F460</td>
+<td class="instruction">LD B,$0E</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 0E column counter.</td>
+</tr>
+<tr>
+<td class="asm-label">Draw_MenuBackground_ColLoop</td>
+<td class="address-2"><span id="f462"></span>F462</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="3">Write black at <span class="register">HL</span>. Advance one character. Loop across the row.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f463"></span>F463</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f464"></span>F464</td>
+<td class="instruction">DJNZ <a href="62548.html#f462">Draw_MenuBackground_ColLoop</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f466"></span>F466</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">Step <span class="register">HL</span> by the row skip in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f467"></span>F467</td>
+<td class="instruction">DEC C</td>
+<td class="comment-1" rowspan="1">Decrease the row counter.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f468"></span>F468</td>
+<td class="instruction">JR NZ,<a href="62548.html#f460">Draw_MenuBackground_RowLoop</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="62548.html#f460">Draw_MenuBackground_RowLoop</a> if more rows remain.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f46a"></span>F46A</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62525.html">F43D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#f454">Map</a></td>
+<td class="next">
+Next: <a href="62571.html">F46B</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/402760.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

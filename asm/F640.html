@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at F640</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at F640. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at F640" />
+<meta property="og:description" content="The Trap Door: Routine at F640. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/F640.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/F640.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at F640",
+"name": "The Trap Door: Routine at F640",
+"description": "The Trap Door: Routine at F640. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/F640.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at F640"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/F640.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="F603.html">F603</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#f640">Map</a></td>
+<td class="next">
+Next: <a href="F67E.html">F67E</a>
+</td>
+</tr>
+</table>
+<div class="description">F640: Read Keyboard Controls</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="F43D.html">MainMenu_ChooseLearnerOrSuper</a>, <a href="F51D.html">MainMenu_SelectOptions</a> and <a href="F603.html">Read_PlayerControls</a>.
+</div>
+<div class="paragraph">
+Scan the keyboard half-rows via <a href="F67E.html">Table_KeyboardPortMap</a> and return the matching ASCII key code in <span class="register">A</span>, or 00 if nothing is pressed.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="f640"></span>
+<div class="comments">
+<div class="paragraph">
+Probe port FEFE first (caps/shift row with bit 00 forced).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Read_KeyboardControls</td>
+<td class="address-2"><span id="f640"></span>F640</td>
+<td class="instruction">LD BC,$FEFE</td>
+<td class="comment-1" rowspan="1">Load <span class="register">BC</span> with keyboard port FEFE.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f643"></span>F643</td>
+<td class="instruction">LD HL,$F67E</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at <a href="F67E.html">Table_KeyboardPortMap</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f646"></span>F646</td>
+<td class="instruction">IN A,(C)</td>
+<td class="comment-1" rowspan="1">Read the half-row.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f648"></span>F648</td>
+<td class="instruction">SET 0,A</td>
+<td class="comment-1" rowspan="1">Force bit 00 set (ignore caps-shift alone).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f64a"></span>F64A</td>
+<td class="instruction">AND %00011111</td>
+<td class="comment-1" rowspan="1">Keep the five key bits.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f64c"></span>F64C</td>
+<td class="instruction">XOR %00011111</td>
+<td class="comment-1" rowspan="1">Invert so pressed keys are set.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f64e"></span>F64E</td>
+<td class="instruction">JR NZ,<a href="F640.html#f675">Read_KeyboardControls_Decode</a></td>
+<td class="comment-1" rowspan="1">If any are pressed, decode at <a href="F640.html#f675">Read_KeyboardControls_Decode</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f650"></span>F650</td>
+<td class="instruction">LD DE,$0005</td>
+<td class="comment-1" rowspan="2">Load <span class="register">DE</span> with 0005, then advance <span class="register">HL</span> onto the next half-row's key codes.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f653"></span>F653</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f654"></span>F654</td>
+<td class="instruction">LD E,$06</td>
+<td class="comment-1" rowspan="1">Load <span class="register">E</span> with 06 remaining half-rows.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="f656"></span>
+<div class="comments">
+<div class="paragraph">
+Scan the remaining keyboard half-rows for a pressed key.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Read_KeyboardControls_HalfRowLoop</td>
+<td class="address-2"><span id="f656"></span>F656</td>
+<td class="instruction">RLC B</td>
+<td class="comment-1" rowspan="1">Rotate the port select in <span class="register">B</span> left (next half-row).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f658"></span>F658</td>
+<td class="instruction">IN A,(C)</td>
+<td class="comment-1" rowspan="1">Read that half-row.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f65a"></span>F65A</td>
+<td class="instruction">AND %00011111</td>
+<td class="comment-1" rowspan="1">Keep the five key bits.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f65c"></span>F65C</td>
+<td class="instruction">XOR %00011111</td>
+<td class="comment-1" rowspan="1">Invert so pressed keys are set.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f65e"></span>F65E</td>
+<td class="instruction">JR NZ,<a href="F640.html#f675">Read_KeyboardControls_Decode</a></td>
+<td class="comment-1" rowspan="1">If any are pressed, decode at <a href="F640.html#f675">Read_KeyboardControls_Decode</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f660"></span>F660</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="5">Advance <span class="register">HL</span> onto the next half-row's key codes.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f661"></span>F661</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f662"></span>F662</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f663"></span>F663</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f664"></span>F664</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f665"></span>F665</td>
+<td class="instruction">DEC E</td>
+<td class="comment-1" rowspan="1">Decrease the half-row counter.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f666"></span>F666</td>
+<td class="instruction">JR NZ,<a href="F640.html#f656">Read_KeyboardControls_HalfRowLoop</a></td>
+<td class="comment-1" rowspan="1">Loop at <a href="F640.html#f656">Read_KeyboardControls_HalfRowLoop</a> if more half-rows remain.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="f668"></span>
+<div class="comments">
+<div class="paragraph">
+Final half-row: force bit 01 set before testing.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f668"></span>F668</td>
+<td class="instruction">RLC B</td>
+<td class="comment-1" rowspan="1">Rotate onto the last half-row port.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f66a"></span>F66A</td>
+<td class="instruction">IN A,(C)</td>
+<td class="comment-1" rowspan="1">Read it.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f66c"></span>F66C</td>
+<td class="instruction">SET 1,A</td>
+<td class="comment-1" rowspan="1">Force bit 01 set.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f66e"></span>F66E</td>
+<td class="instruction">AND %00011111</td>
+<td class="comment-1" rowspan="1">Keep / invert the key bits.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f670"></span>F670</td>
+<td class="instruction">XOR %00011111</td>
+<td class="comment-1" rowspan="1">Invert so pressed keys are set.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f672"></span>F672</td>
+<td class="instruction">JR NZ,<a href="F640.html#f675">Read_KeyboardControls_Decode</a></td>
+<td class="comment-1" rowspan="1">If any are pressed, decode at <a href="F640.html#f675">Read_KeyboardControls_Decode</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f674"></span>F674</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return with <span class="register">A</span> = 00 (no key).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="f675"></span>
+<div class="comments">
+<div class="paragraph">
+Shift through the pressed-bit positions to pick the ASCII code at <span class="register">HL</span>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Read_KeyboardControls_Decode</td>
+<td class="address-2"><span id="f675"></span>F675</td>
+<td class="instruction">SRL A</td>
+<td class="comment-1" rowspan="2">Shift the pressed-bit mask right, then if that key is pressed, take its code at <a href="F640.html#f67c">Read_KeyboardControls_Found</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f677"></span>F677</td>
+<td class="instruction">JR C,<a href="F640.html#f67c">Read_KeyboardControls_Found</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f679"></span>F679</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance <span class="register">HL</span> onto the next key's code.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f67a"></span>F67A</td>
+<td class="instruction">JR <a href="F640.html#f675">Read_KeyboardControls_Decode</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="F640.html#f675">Read_KeyboardControls_Decode</a> to keep decoding.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="f67c"></span>
+<div class="comments">
+<div class="paragraph">
+Return the ASCII code for the pressed bit position from the port map.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Read_KeyboardControls_Found</td>
+<td class="address-2"><span id="f67c"></span>F67C</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the ASCII key code at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="f67d"></span>F67D</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="F603.html">F603</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#f640">Map</a></td>
+<td class="next">
+Next: <a href="F67E.html">F67E</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/63040.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at E7D5</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at E7D5. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at E7D5" />
+<meta property="og:description" content="The Trap Door: Data at E7D5. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/E7D5.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/E7D5.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at E7D5",
+"name": "The Trap Door: Data at E7D5",
+"description": "The Trap Door: Data at E7D5. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/E7D5.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at E7D5"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/E7D5.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-w">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="E7BB.html">E7BB</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#e7d5">Map</a></td>
+<td class="next">
+Next: <a href="E7F9.html">E7F9</a>
+</td>
+</tr>
+</table>
+<div class="description">E7D5: Table of Addresses of Graphic Layout Handling Routines</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+One word per graphic layout opcode from EE to FF. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Opcode</th>
+<th colspan="1" rowspan="1">Handler</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">EE</td>
+<td class="centre" colspan="1" rowspan="1"><a href="E7F9.html">GraphicLayoutRoutine_StartLoop</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">EF</td>
+<td class="centre" colspan="1" rowspan="1"><a href="E808.html">GraphicLayoutRoutine_EndLoop</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">F0</td>
+<td class="centre" colspan="1" rowspan="1"><a href="E82C.html">GraphicLayoutRoutine_SetPendingSound</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">F1</td>
+<td class="centre" colspan="1" rowspan="1"><a href="E819.html">GraphicLayoutRoutine_JumpRandomFromList</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">F2</td>
+<td class="centre" colspan="1" rowspan="1"><a href="E835.html">GraphicLayoutRoutine_SetCurrentAttribute</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">F3</td>
+<td class="centre" colspan="1" rowspan="1"><a href="E8E8.html">GraphicLayoutRoutine_IncIndexJumpNth</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">F4</td>
+<td class="centre" colspan="1" rowspan="1"><a href="E83E.html">GraphicLayoutRoutine_SetGraphicSetIndex</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">F5</td>
+<td class="centre" colspan="1" rowspan="1"><a href="E847.html">GraphicLayoutRoutine_SetGraphicFromRandomList</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">F6</td>
+<td class="centre" colspan="1" rowspan="1"><a href="E943.html">GraphicLayoutRoutine_JumpRandomAddress</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">F7</td>
+<td class="centre" colspan="1" rowspan="1"><a href="E909.html">GraphicLayoutRoutine_TimerRandomGraphicIndex</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">F8</td>
+<td class="centre" colspan="1" rowspan="1"><a href="E89E.html">GraphicLayoutRoutine_JumpGraphicAddress</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">F9</td>
+<td class="centre" colspan="1" rowspan="1"><a href="E8AA.html">GraphicLayoutRoutine_JumpTimeWeightedRandom</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">FA</td>
+<td class="centre" colspan="1" rowspan="1"><a href="E86E.html">GraphicLayoutRoutine_AdjustCoordsNoStore</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">FB</td>
+<td class="centre" colspan="1" rowspan="1"><a href="E88B.html">GraphicLayoutRoutine_ProcessNestedLayout</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">FC</td>
+<td class="centre" colspan="1" rowspan="1"><a href="E959.html">GraphicLayoutRoutine_ConditionalJumpOrSkip</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">FD</td>
+<td class="centre" colspan="1" rowspan="1"><a href="E954.html">GraphicLayoutRoutine_JumpUsingCarriedWidth</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">FE</td>
+<td class="centre" colspan="1" rowspan="1"><a href="E87B.html">GraphicLayoutRoutine_AdjustCoordsAndStore</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">FF</td>
+<td class="centre" colspan="1" rowspan="1"><a href="E866.html">GraphicLayoutRoutine_LoadStoredCoordsReturn</a></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">TableGraphicLayoutHandlers</td>
+<td class="address-1"><span id="e7d5"></span>E7D5</td>
+<td class="instruction">DEFW <a href="E7F9.html">GraphicLayoutRoutine_StartLoop</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for graphic-layout opcode EE.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e7d7"></span>E7D7</td>
+<td class="instruction">DEFW <a href="E808.html">GraphicLayoutRoutine_EndLoop</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for graphic-layout opcode EF.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e7d9"></span>E7D9</td>
+<td class="instruction">DEFW <a href="E82C.html">GraphicLayoutRoutine_SetPendingSound</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for graphic-layout opcode F0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e7db"></span>E7DB</td>
+<td class="instruction">DEFW <a href="E819.html">GraphicLayoutRoutine_JumpRandomFromList</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for graphic-layout opcode F1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e7dd"></span>E7DD</td>
+<td class="instruction">DEFW <a href="E835.html">GraphicLayoutRoutine_SetCurrentAttribute</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for graphic-layout opcode F2.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e7df"></span>E7DF</td>
+<td class="instruction">DEFW <a href="E8E8.html">GraphicLayoutRoutine_IncIndexJumpNth</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for graphic-layout opcode F3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e7e1"></span>E7E1</td>
+<td class="instruction">DEFW <a href="E83E.html">GraphicLayoutRoutine_SetGraphicSetIndex</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for graphic-layout opcode F4.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e7e3"></span>E7E3</td>
+<td class="instruction">DEFW <a href="E847.html">GraphicLayoutRoutine_SetGraphicFromRandomList</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for graphic-layout opcode F5.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e7e5"></span>E7E5</td>
+<td class="instruction">DEFW <a href="E943.html">GraphicLayoutRoutine_JumpRandomAddress</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for graphic-layout opcode F6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e7e7"></span>E7E7</td>
+<td class="instruction">DEFW <a href="E909.html">GraphicLayoutRoutine_TimerRandomGraphicIndex</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for graphic-layout opcode F7.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e7e9"></span>E7E9</td>
+<td class="instruction">DEFW <a href="E89E.html">GraphicLayoutRoutine_JumpGraphicAddress</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for graphic-layout opcode F8.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e7eb"></span>E7EB</td>
+<td class="instruction">DEFW <a href="E8AA.html">GraphicLayoutRoutine_JumpTimeWeightedRandom</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for graphic-layout opcode F9.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e7ed"></span>E7ED</td>
+<td class="instruction">DEFW <a href="E86E.html">GraphicLayoutRoutine_AdjustCoordsNoStore</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for graphic-layout opcode FA.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e7ef"></span>E7EF</td>
+<td class="instruction">DEFW <a href="E88B.html">GraphicLayoutRoutine_ProcessNestedLayout</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for graphic-layout opcode FB.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e7f1"></span>E7F1</td>
+<td class="instruction">DEFW <a href="E959.html">GraphicLayoutRoutine_ConditionalJumpOrSkip</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for graphic-layout opcode FC.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e7f3"></span>E7F3</td>
+<td class="instruction">DEFW <a href="E954.html">GraphicLayoutRoutine_JumpUsingCarriedWidth</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for graphic-layout opcode FD.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e7f5"></span>E7F5</td>
+<td class="instruction">DEFW <a href="E87B.html">GraphicLayoutRoutine_AdjustCoordsAndStore</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for graphic-layout opcode FE.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e7f7"></span>E7F7</td>
+<td class="instruction">DEFW <a href="E866.html">GraphicLayoutRoutine_LoadStoredCoordsReturn</a></td>
+<td class="comment-1" rowspan="1">Address of the handler for graphic-layout opcode FF.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="E7BB.html">E7BB</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#e7d5">Map</a></td>
+<td class="next">
+Next: <a href="E7F9.html">E7F9</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/59349.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

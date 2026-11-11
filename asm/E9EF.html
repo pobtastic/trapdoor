@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at E9EF</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at E9EF. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at E9EF" />
+<meta property="og:description" content="The Trap Door: Routine at E9EF. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/E9EF.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/E9EF.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at E9EF",
+"name": "The Trap Door: Routine at E9EF",
+"description": "The Trap Door: Routine at E9EF. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/E9EF.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at E9EF"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/E9EF.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="E991.html">E991</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#e9ef">Map</a></td>
+<td class="next">
+Next: <a href="EA3C.html">EA3C</a>
+</td>
+</tr>
+</table>
+<div class="description">E9EF: Blit Display Buffer Row</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="E991.html">Blit_DisplayBuffer</a>.
+</div>
+<div class="paragraph">
+Blit one display-buffer tile to the screen. The graphic-set index selects a base from <a href="730B.html">Table_GraphicSetAddresses</a>; the tile index × 08 is added to that base Attribute bit 07 selects the mirrored blit at <a href="E9EF.html#ea23">Blit_DisplayBufferRowLoop</a> (via <a href="7319.html">BitmapMirrorLookup</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="e9ef"></span>
+<div class="comments">
+<div class="paragraph">
+Write the attribute and resolve the graphic-set tile address.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Blit_DisplayBufferRow</td>
+<td class="address-2"><span id="e9ef"></span>E9EF</td>
+<td class="instruction">SET 6,A</td>
+<td class="comment-1" rowspan="2">Force bright on the attribute in <span class="register">A</span> and write it through <span class="register">IX</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e9f1"></span>E9F1</td>
+<td class="instruction">LD (IX+$00),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e9f4"></span>E9F4</td>
+<td class="instruction">LD L,B</td>
+<td class="comment-1" rowspan="4">Keep the tile index in <span class="register">HL</span> (high byte cleared).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e9f5"></span>E9F5</td>
+<td class="instruction">XOR A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e9f6"></span>E9F6</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e9f7"></span>E9F7</td>
+<td class="instruction">LD H,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e9f8"></span>E9F8</td>
+<td class="instruction">ADD A,C</td>
+<td class="comment-1" rowspan="4">Double the graphic-set index into <span class="register">BC</span> as a word offset.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e9f9"></span>E9F9</td>
+<td class="instruction">ADD A,C</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e9fa"></span>E9FA</td>
+<td class="instruction">LD C,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e9fb"></span>E9FB</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e9fc"></span>E9FC</td>
+<td class="instruction">LD HL,$730B</td>
+<td class="comment-1" rowspan="5">Point <span class="register">HL</span> at <a href="730B.html">Table_GraphicSetAddresses</a>, add the set offset, and fetch the set base into <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e9ff"></span>E9FF</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea00"></span>EA00</td>
+<td class="instruction">LD C,(HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea01"></span>EA01</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea02"></span>EA02</td>
+<td class="instruction">LD B,(HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea03"></span>EA03</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="5">Restore the tile index, multiply it by 08, and add the set base to get the bitmap address.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea04"></span>EA04</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea05"></span>EA05</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea06"></span>EA06</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea07"></span>EA07</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea08"></span>EA08</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Keep the bitmap address in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ea09"></span>
+<div class="comments">
+<div class="paragraph">
+Convert the attribute address into a screen-bitmap address and blit.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea09"></span>EA09</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="1">Copy <span class="register">IX</span> to <span class="register">HL</span> (using the stack).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea0b"></span>EA0B</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea0c"></span>EA0C</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-1" rowspan="4">Multiply the attribute high byte by 08.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea0d"></span>EA0D</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea0e"></span>EA0E</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea0f"></span>EA0F</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea10"></span>EA10</td>
+<td class="instruction">AND %01011011</td>
+<td class="comment-1" rowspan="1">Keep only the screen-bitmap high bits (mask 5B).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea12"></span>EA12</td>
+<td class="instruction">LD H,A</td>
+<td class="comment-1" rowspan="2">Write the result to <span class="register">H</span> and move the address into <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea13"></span>EA13</td>
+<td class="instruction">EX DE,HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea14"></span>EA14</td>
+<td class="instruction">BIT 7,(IX+$00)</td>
+<td class="comment-1" rowspan="2">Is the mirror bit (bit 07) set on the attribute? If so, blit the mirrored tile at <a href="E9EF.html#ea23">Blit_DisplayBufferRowLoop</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea18"></span>EA18</td>
+<td class="instruction">JR NZ,<a href="E9EF.html#ea23">Blit_DisplayBufferRowLoop</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea1a"></span>EA1A</td>
+<td class="instruction">LD B,$08</td>
+<td class="comment-1" rowspan="1">There are 08 pixel rows in a tile.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ea1c"></span>
+<div class="comments">
+<div class="paragraph">
+Copy 08 pixel rows of an unmirrored tile into the screen bitmap.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Blit_DisplayBufferRow_CopyRows</td>
+<td class="address-2"><span id="ea1c"></span>EA1C</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="5">Copy one bitmap row to the screen and step to the next pixel row.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea1d"></span>EA1D</td>
+<td class="instruction">LD (DE),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea1e"></span>EA1E</td>
+<td class="instruction">INC D</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea1f"></span>EA1F</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea20"></span>EA20</td>
+<td class="instruction">DJNZ <a href="E9EF.html#ea1c">Blit_DisplayBufferRow_CopyRows</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea22"></span>EA22</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ea23"></span>
+<div class="comments">
+<div class="paragraph">
+Blit the tile with horizontal mirroring via <a href="7319.html">BitmapMirrorLookup</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Blit_DisplayBufferRowLoop</td>
+<td class="address-2"><span id="ea23"></span>EA23</td>
+<td class="instruction">RES 7,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Clear the mirror bit on the attribute at <span class="register">IX</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea27"></span>EA27</td>
+<td class="instruction">LD B,$08</td>
+<td class="comment-1" rowspan="1">There are 08 pixel rows in a tile.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ea29"></span>
+<div class="comments">
+<div class="paragraph">
+Copy 08 pixel rows with horizontal mirroring via <a href="7319.html">BitmapMirrorLookup</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Blit_DisplayBufferRowLoopB</td>
+<td class="address-2"><span id="ea29"></span>EA29</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="14">Fetch a bitmap byte, reverse it through <a href="7319.html">BitmapMirrorLookup</a>, write it to the screen, and step to the next pixel row.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea2a"></span>EA2A</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea2b"></span>EA2B</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea2c"></span>EA2C</td>
+<td class="instruction">LD HL,$7319</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea2f"></span>EA2F</td>
+<td class="instruction">LD C,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea30"></span>EA30</td>
+<td class="instruction">LD B,$00</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea32"></span>EA32</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea33"></span>EA33</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea34"></span>EA34</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea35"></span>EA35</td>
+<td class="instruction">LD (DE),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea36"></span>EA36</td>
+<td class="instruction">INC D</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea37"></span>EA37</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea38"></span>EA38</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea39"></span>EA39</td>
+<td class="instruction">DJNZ <a href="E9EF.html#ea29">Blit_DisplayBufferRowLoopB</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea3b"></span>EA3B</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="E991.html">E991</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#e9ef">Map</a></td>
+<td class="next">
+Next: <a href="EA3C.html">EA3C</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/59887.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

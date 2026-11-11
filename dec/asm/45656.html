@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 45656</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 45656. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 45656" />
+<meta property="og:description" content="The Trap Door: Routine at 45656. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/45656.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/45656.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 45656",
+"name": "The Trap Door: Routine at 45656",
+"description": "The Trap Door: Routine at 45656. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/45656.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 45656"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/45656.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="45598.html">45598</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#45656">Map</a></td>
+<td class="next">
+Next: <a href="45738.html">45738</a>
+</td>
+</tr>
+</table>
+<div class="description">45656: Process Special Entity Flags</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="43699.html">GameStart</a>.
+</div>
+<div class="paragraph">
+Process Special Entity Flags walking the entity tables at <a href="35689.html">StateData_SimpleEntities</a> / <a href="36585.html">StateData_Boney</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Process_Special_Entity_Flags</td>
+<td class="address-2"><span id="45656"></span>45656</td>
+<td class="instruction">LD HL,29363</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the game event flags (<a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45659"></span>45659</td>
+<td class="instruction">BIT 0,(HL)</td>
+<td class="comment-1" rowspan="2">Is "room / script event raised" (bit 0 of <a href="29363.html">GameEventFlags</a>) set? If not, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45661"></span>45661</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45662"></span>45662</td>
+<td class="instruction">RES 0,(HL)</td>
+<td class="comment-1" rowspan="1">Clear "room / script event raised" (bit 0 of <a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45664"></span>45664</td>
+<td class="instruction">LD DE,14</td>
+<td class="comment-1" rowspan="1">Each entity record is 0014 bytes long, then load that length into <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45667"></span>45667</td>
+<td class="instruction">LD IX,36585</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at Boney's complex entity state (<a href="36585.html">StateData_Boney</a>).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="45671"></span>
+<div class="comments">
+<div class="paragraph">
+Scan special-flag entities: raise them while y &lt; 40, else deactivate, or try an entity-slot update.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Process_Special_Entity_Flags_Scan</td>
+<td class="address-2"><span id="45671"></span>45671</td>
+<td class="instruction">LD A,(IX+0)</td>
+<td class="comment-1" rowspan="1">Fetch the current entity's type for the type test.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45674"></span>45674</td>
+<td class="instruction">CP 50</td>
+<td class="comment-1" rowspan="2">Is the current entity's entity type equal to 50? If so, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45676"></span>45676</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45677"></span>45677</td>
+<td class="instruction">BIT 5,(IX+2)</td>
+<td class="comment-1" rowspan="2">Is bit 5 of the current entity's flags byte 2 set? If not, jump to <a href="45656.html#45720">Process_Special_Entity_Flags_TryUpdateSlot</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45681"></span>45681</td>
+<td class="instruction">JR Z,<a href="45656.html#45720">Process_Special_Entity_Flags_TryUpdateSlot</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45683"></span>45683</td>
+<td class="instruction">LD A,(IX+5)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's y-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45686"></span>45686</td>
+<td class="instruction">CP 40</td>
+<td class="comment-1" rowspan="2">Is the current entity's y-coordinate less than 40? If so, jump to <a href="45656.html#45704">Process_Special_Entity_Flags_RaiseY</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45688"></span>45688</td>
+<td class="instruction">JR C,<a href="45656.html#45704">Process_Special_Entity_Flags_RaiseY</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45690"></span>45690</td>
+<td class="instruction">LD (IX+0),0</td>
+<td class="comment-1" rowspan="1">Write 0 to the current entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45694"></span>45694</td>
+<td class="instruction">RES 7,(IX+1)</td>
+<td class="comment-1" rowspan="1">Reset bit 7 of the current entity's flags byte 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45698"></span>45698</td>
+<td class="instruction">RES 5,(IX+2)</td>
+<td class="comment-1" rowspan="1">Reset bit 5 of the current entity's flags byte 2.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45702"></span>45702</td>
+<td class="instruction">JR <a href="45656.html#45734">Process_Special_Entity_Flags_Branch</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="45656.html#45734">Process_Special_Entity_Flags_Branch</a> to finish this special-flag entity.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="45704"></span>
+<div class="comments">
+<div class="paragraph">
+Raise the special-flag entity two characters and keep the room/script event latched.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Process_Special_Entity_Flags_RaiseY</td>
+<td class="address-2"><span id="45704"></span>45704</td>
+<td class="instruction">INC (IX+5)</td>
+<td class="comment-1" rowspan="4">Move this entity two characters down.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45707"></span>45707</td>
+<td class="instruction">INC (IX+6)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45710"></span>45710</td>
+<td class="instruction">INC (IX+5)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45713"></span>45713</td>
+<td class="instruction">INC (IX+6)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45716"></span>45716</td>
+<td class="instruction">SET 0,(HL)</td>
+<td class="comment-1" rowspan="1">Set "room / script event raised" (bit 0 of <a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45718"></span>45718</td>
+<td class="instruction">JR <a href="45656.html#45734">Process_Special_Entity_Flags_Branch</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="45656.html#45734">Process_Special_Entity_Flags_Branch</a> to finish this special-flag entity.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="45720"></span>
+<div class="comments">
+<div class="paragraph">
+When bit 7 is set, call <a href="45738.html">Update_Entity_Slot</a> to update the entity slot (once or twice).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Process_Special_Entity_Flags_TryUpdateSlot</td>
+<td class="address-2"><span id="45720"></span>45720</td>
+<td class="instruction">BIT 7,(IX+1)</td>
+<td class="comment-1" rowspan="2">Is bit 7 of the current entity's flags byte 1 set? If not, jump to <a href="45656.html#45734">Process_Special_Entity_Flags_Branch</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45724"></span>45724</td>
+<td class="instruction">JR Z,<a href="45656.html#45734">Process_Special_Entity_Flags_Branch</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45726"></span>45726</td>
+<td class="instruction">CALL <a href="45738.html">Update_Entity_Slot</a></td>
+<td class="comment-1" rowspan="2">Call <a href="45738.html">Update_Entity_Slot</a> to update Entity Slot? If so, jump to <a href="45656.html#45734">Process_Special_Entity_Flags_Branch</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45729"></span>45729</td>
+<td class="instruction">JR C,<a href="45656.html#45734">Process_Special_Entity_Flags_Branch</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45731"></span>45731</td>
+<td class="instruction">CALL <a href="45738.html">Update_Entity_Slot</a></td>
+<td class="comment-1" rowspan="1">Call <a href="45738.html">Update_Entity_Slot</a> to update Entity Slot.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="45734"></span>
+<div class="comments">
+<div class="paragraph">
+Advance to the next entity and continue the special-flag scan.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Process_Special_Entity_Flags_Branch</td>
+<td class="address-2"><span id="45734"></span>45734</td>
+<td class="instruction">ADD IX,DE</td>
+<td class="comment-1" rowspan="1">Advance <span class="register">IX</span> to the next entity record.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45736"></span>45736</td>
+<td class="instruction">JR <a href="45656.html#45671">Process_Special_Entity_Flags_Scan</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="45656.html#45671">Process_Special_Entity_Flags_Scan</a> to advance to the next special-flag entity.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="45598.html">45598</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#45656">Map</a></td>
+<td class="next">
+Next: <a href="45738.html">45738</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/B258.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

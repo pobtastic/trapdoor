@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 55251</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 55251. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 55251" />
+<meta property="og:description" content="The Trap Door: Routine at 55251. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/55251.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/55251.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 55251",
+"name": "The Trap Door: Routine at 55251",
+"description": "The Trap Door: Routine at 55251. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/55251.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 55251"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/55251.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="54909.html">54909</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#55251">Map</a></td>
+<td class="next">
+Next: <a href="55653.html">55653</a>
+</td>
+</tr>
+</table>
+<div class="description">55251: Update Bad Tempered Thing Dialogue</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="43699.html">GameStart</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue</td>
+<td class="address-2"><span id="55251"></span>55251</td>
+<td class="instruction">LD A,(29383)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the Bad Tempered Thing state (<a href="29383.html">BadTemperedThingState</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55254"></span>55254</td>
+<td class="instruction">CP 255</td>
+<td class="comment-1" rowspan="2">Is Bad Tempered Thing state equal to 255? If so, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55256"></span>55256</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55257"></span>55257</td>
+<td class="instruction">LD HL,15360</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at <a rel="noopener nofollow" href="https://skoolkit.ca/disassemblies/rom/asm/15616.html">CHARSET</a>-256.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55260"></span>55260</td>
+<td class="instruction">LD (29433),HL</td>
+<td class="comment-1" rowspan="1">Write the pointer in <span class="register">HL</span> to the temporary screen pointer (<a href="29433.html">Pointer_CurrentCharacterSet</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55263"></span>55263</td>
+<td class="instruction">LD HL,55250</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Bad Tempered Thing dialogue state (<a href="54909.html">55250</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55266"></span>55266</td>
+<td class="instruction">INC (HL)</td>
+<td class="comment-1" rowspan="1">Increment the Bad Tempered Thing dialogue counter at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55267"></span>55267</td>
+<td class="instruction">LD HL,55245</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Bad Tempered Thing dialogue bytes (<a href="54909.html#55245">55245</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55270"></span>55270</td>
+<td class="instruction">LD A,(29383)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the Bad Tempered Thing state (<a href="29383.html">BadTemperedThingState</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55273"></span>55273</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is Bad Tempered Thing state zero? If so, jump to <a href="55251.html#55312">Update_Bad_Tempered_Thing_Dialogue_BerkHeldBit5</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55274"></span>55274</td>
+<td class="instruction">JR Z,<a href="55251.html#55312">Update_Bad_Tempered_Thing_Dialogue_BerkHeldBit5</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55276"></span>55276</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1">Keep Bad Tempered Thing state in <span class="register">E</span> for later.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55277"></span>55277</td>
+<td class="instruction">LD A,(55250)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> from <a href="54909.html">55250</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55280"></span>55280</td>
+<td class="instruction">CP 50</td>
+<td class="comment-1" rowspan="2">Is Bad Tempered Thing state less than 50? If not, jump to <a href="55251.html#55334">Update_Bad_Tempered_Thing_Dialogue_ResetTickLayout</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55282"></span>55282</td>
+<td class="instruction">JR NC,<a href="55251.html#55334">Update_Bad_Tempered_Thing_Dialogue_ResetTickLayout</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55284"></span>55284</td>
+<td class="instruction">BIT 0,(HL)</td>
+<td class="comment-1" rowspan="2">Has this Bad Tempered Thing aside already been shown (bit 0 of <a href="54909.html#55245">55245</a>)? If so, jump to <a href="55665.html#55834">Update_Bad_Tempered_Thing_Dialogue_PartH</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55286"></span>55286</td>
+<td class="instruction">JP NZ,<a href="55665.html#55834">Update_Bad_Tempered_Thing_Dialogue_PartH</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55289"></span>55289</td>
+<td class="instruction">LD A,(29383)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the Bad Tempered Thing state (<a href="29383.html">BadTemperedThingState</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55292"></span>55292</td>
+<td class="instruction">CP 254</td>
+<td class="comment-1" rowspan="2">Is Bad Tempered Thing state equal to 254? If so, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55294"></span>55294</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55295"></span>55295</td>
+<td class="instruction">SET 0,(HL)</td>
+<td class="comment-1" rowspan="1">Mark this Bad Tempered Thing aside as already shown (bit 0 of <a href="54909.html#55245">55245</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55297"></span>55297</td>
+<td class="instruction">CALL <a href="55899.html">Clear_DialogueArea</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55899.html">Clear_DialogueArea</a> to clear Dialogue Area.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55300"></span>55300</td>
+<td class="instruction">LD B,E</td>
+<td class="comment-1" rowspan="1">Copy the low byte from <span class="register">E</span> into <span class="register">B</span> (build a dialogue index).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55301"></span>55301</td>
+<td class="instruction">LD HL,56660</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at dialogue string data (<a href="56642.html#56660">56660</a>).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55304"></span>
+<div class="comments">
+<div class="paragraph">
+Skip <span class="register">B</span> dialogue fragments via <a href="55843.html">Advance_DialogueCharacter</a>, then start printing at <a href="55665.html#55746">Update_Bad_Tempered_Thing_Dialogue_PartB</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_AdvanceChars</td>
+<td class="address-2"><span id="55304"></span>55304</td>
+<td class="instruction">CALL <a href="55843.html">Advance_DialogueCharacter</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55843.html">Advance_DialogueCharacter</a> to advance Dialogue Character.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55307"></span>55307</td>
+<td class="instruction">DJNZ <a href="55251.html#55304">Update_Bad_Tempered_Thing_Dialogue_AdvanceChars</a></td>
+<td class="comment-1" rowspan="1">Decrease the loop counter in <span class="register">B</span> and jump to <a href="55251.html#55304">Update_Bad_Tempered_Thing_Dialogue_AdvanceChars</a> if more iterations remain.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55309"></span>55309</td>
+<td class="instruction">JP <a href="55665.html#55746">Update_Bad_Tempered_Thing_Dialogue_PartB</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="55665.html#55746">Update_Bad_Tempered_Thing_Dialogue_PartB</a> to continue Bad Tempered Thing dialogue.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55312"></span>
+<div class="comments">
+<div class="paragraph">
+When Berk is held (flags bit 5), either resume a mid-line print or open the task branch.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_BerkHeldBit5</td>
+<td class="address-2"><span id="55312"></span>55312</td>
+<td class="instruction">LD IX,(36585)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">IX</span> with Boney's complex entity state (<a href="36585.html">StateData_Boney</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55316"></span>55316</td>
+<td class="instruction">BIT 5,(IX+1)</td>
+<td class="comment-1" rowspan="2">Is bit 5 of the current entity's flags byte 1 set? If not, jump to <a href="55251.html#55334">Update_Bad_Tempered_Thing_Dialogue_ResetTickLayout</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55320"></span>55320</td>
+<td class="instruction">JR Z,<a href="55251.html#55334">Update_Bad_Tempered_Thing_Dialogue_ResetTickLayout</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55322"></span>55322</td>
+<td class="instruction">BIT 0,(HL)</td>
+<td class="comment-1" rowspan="2">Has this Bad Tempered Thing aside already been shown (bit 0 of <a href="54909.html#55245">55245</a>)? If so, jump to <a href="55665.html#55834">Update_Bad_Tempered_Thing_Dialogue_PartH</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55324"></span>55324</td>
+<td class="instruction">JP NZ,<a href="55665.html#55834">Update_Bad_Tempered_Thing_Dialogue_PartH</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55327"></span>55327</td>
+<td class="instruction">LD A,(55250)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> from <a href="54909.html">55250</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55330"></span>55330</td>
+<td class="instruction">CP 50</td>
+<td class="comment-1" rowspan="2">Is Bad Tempered Thing state less than 50? If so, jump to <a href="55251.html#55352">Update_Bad_Tempered_Thing_Dialogue_Branch</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55332"></span>55332</td>
+<td class="instruction">JR C,<a href="55251.html#55352">Update_Bad_Tempered_Thing_Dialogue_Branch</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55334"></span>
+<div class="comments">
+<div class="paragraph">
+Reset the dialogue tick, restore layout <a href="40094.html">GraphicLayout_Boney</a> (Boney), and clear the dialogue strip.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_ResetTickLayout</td>
+<td class="address-2"><span id="55334"></span>55334</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear the Bad Tempered Thing dialogue tick.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55335"></span>55335</td>
+<td class="instruction">LD (55250),A</td>
+<td class="comment-1" rowspan="1">Set the Bad Tempered Thing dialogue state (<a href="54909.html">55250</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55338"></span>55338</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1">Write Bad Tempered Thing state through <a href="56642.html#56660">56660</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55339"></span>55339</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1">Step Bad Tempered Thing state back by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55340"></span>55340</td>
+<td class="instruction">LD (29383),A</td>
+<td class="comment-1" rowspan="1">Set the Bad Tempered Thing state (<a href="29383.html">BadTemperedThingState</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55343"></span>55343</td>
+<td class="instruction">LD HL,40094</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at <a href="40094.html">GraphicLayout_Boney</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55346"></span>55346</td>
+<td class="instruction">LD (36595),HL</td>
+<td class="comment-1" rowspan="1">Write that layout pointer to Boney's graphic-layout field (<a href="36595.html">Pointer_BoneyGraphicLayout</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55349"></span>55349</td>
+<td class="instruction">JP <a href="55899.html">Clear_DialogueArea</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="55899.html">Clear_DialogueArea</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55352"></span>
+<div class="comments">
+<div class="paragraph">
+At dialogue state 6, clear the strip and pick task-1..4 (or menu) gate logic.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_Branch</td>
+<td class="address-2"><span id="55352"></span>55352</td>
+<td class="instruction">CP 6</td>
+<td class="comment-1" rowspan="2">Is Bad Tempered Thing state equal to 6? If not, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55354"></span>55354</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55355"></span>55355</td>
+<td class="instruction">SET 0,(HL)</td>
+<td class="comment-1" rowspan="1">Set bit 0 of <a href="40094.html">GraphicLayout_Boney</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55357"></span>55357</td>
+<td class="instruction">CALL <a href="55899.html">Clear_DialogueArea</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55899.html">Clear_DialogueArea</a> to clear Dialogue Area.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55360"></span>55360</td>
+<td class="instruction">LD A,(29358)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current task index (<a href="29358.html">CurrentTaskIndex</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55363"></span>55363</td>
+<td class="instruction">CP 1</td>
+<td class="comment-1" rowspan="2">Is current task index equal to 1? If so, jump to <a href="55251.html#55395">Update_Bad_Tempered_Thing_Dialogue_Task1Gates</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55365"></span>55365</td>
+<td class="instruction">JR Z,<a href="55251.html#55395">Update_Bad_Tempered_Thing_Dialogue_Task1Gates</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55367"></span>55367</td>
+<td class="instruction">CP 2</td>
+<td class="comment-1" rowspan="2">Is current task index equal to 2? If so, jump to <a href="55251.html#55441">Update_Bad_Tempered_Thing_Dialogue_Task2Gates</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55369"></span>55369</td>
+<td class="instruction">JR Z,<a href="55251.html#55441">Update_Bad_Tempered_Thing_Dialogue_Task2Gates</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55371"></span>55371</td>
+<td class="instruction">CP 3</td>
+<td class="comment-1" rowspan="2">Is current task index equal to 3? If so, jump to <a href="55251.html#55518">Update_Bad_Tempered_Thing_Dialogue_Task3Gates</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55373"></span>55373</td>
+<td class="instruction">JP Z,<a href="55251.html#55518">Update_Bad_Tempered_Thing_Dialogue_Task3Gates</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55376"></span>55376</td>
+<td class="instruction">CP 4</td>
+<td class="comment-1" rowspan="2">Is current task index equal to 4? If so, jump to <a href="55251.html#55600">Update_Bad_Tempered_Thing_Dialogue_Task4Gates</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55378"></span>55378</td>
+<td class="instruction">JP Z,<a href="55251.html#55600">Update_Bad_Tempered_Thing_Dialogue_Task4Gates</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55381"></span>55381</td>
+<td class="instruction">LD B,1</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 1 as a loop counter.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55383"></span>55383</td>
+<td class="instruction">LD A,(29364)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the task status flags (<a href="29364.html">TaskStatusFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55386"></span>55386</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-1" rowspan="2">Is bit 7 of task status flags set? If not, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55388"></span>55388</td>
+<td class="instruction">JP Z,<a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55391"></span>55391</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Advance the dialogue-check counter in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55392"></span>55392</td>
+<td class="instruction">JP <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55395"></span>
+<div class="comments">
+<div class="paragraph">
+Task 1 gates: empty slot <a href="36595.html#36865">StateData_Complex_20</a>, collision count <a href="29373.html">CollisionScratchByte</a>, and door X choose the line index.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_Task1Gates</td>
+<td class="address-2"><span id="55395"></span>55395</td>
+<td class="instruction">LD B,1</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 1 as a loop counter.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55397"></span>55397</td>
+<td class="instruction">LD A,(36865)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the type of complex entity slot 32 (<a href="36595.html#36865">StateData_Complex_20</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55400"></span>55400</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the type at <a href="36595.html#36865">StateData_Complex_20</a> non-zero? If so, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55401"></span>55401</td>
+<td class="instruction">JP NZ,<a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55404"></span>55404</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Advance the dialogue-check counter in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55405"></span>55405</td>
+<td class="instruction">LD A,(29373)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the collision scratch byte (<a href="29373.html">CollisionScratchByte</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55408"></span>55408</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is <a href="29373.html">CollisionScratchByte</a> non-zero? If so, jump to <a href="55251.html#55426">Update_Bad_Tempered_Thing_Dialogue_Task1CounterGates</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55409"></span>55409</td>
+<td class="instruction">JR NZ,<a href="55251.html#55426">Update_Bad_Tempered_Thing_Dialogue_Task1CounterGates</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55411"></span>55411</td>
+<td class="instruction">LD IX,36907</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the worm-can entity (<a href="36595.html#36907">StateData_Complex_23</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55415"></span>55415</td>
+<td class="instruction">LD A,(IX+7)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55418"></span>55418</td>
+<td class="instruction">CP 94</td>
+<td class="comment-1" rowspan="2">Is the current entity's x-coordinate less than 94? If so, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55420"></span>55420</td>
+<td class="instruction">JP C,<a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55423"></span>55423</td>
+<td class="instruction">LD A,(29373)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the collision scratch byte (<a href="29373.html">CollisionScratchByte</a>).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55426"></span>
+<div class="comments">
+<div class="paragraph">
+Refine the task-1 line from how far <a href="29373.html">CollisionScratchByte</a> has progressed (zero / mid / 3).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_Task1CounterGates</td>
+<td class="address-2"><span id="55426"></span>55426</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Advance the dialogue-line index in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55427"></span>55427</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is <a href="29373.html">CollisionScratchByte</a> zero? If so, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55428"></span>55428</td>
+<td class="instruction">JP Z,<a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55431"></span>55431</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Advance the dialogue-line index in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55432"></span>55432</td>
+<td class="instruction">CP 3</td>
+<td class="comment-1" rowspan="2">Is <a href="29373.html">CollisionScratchByte</a> equal to 3? If not, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55434"></span>55434</td>
+<td class="instruction">JP NZ,<a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55437"></span>55437</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Advance the dialogue-check counter in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55438"></span>55438</td>
+<td class="instruction">JP <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55441"></span>
+<div class="comments">
+<div class="paragraph">
+Task 2 gates: require the script-active flag and phase 2 before deeper checks.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_Task2Gates</td>
+<td class="address-2"><span id="55441"></span>55441</td>
+<td class="instruction">LD B,1</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 1 as a loop counter.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55443"></span>55443</td>
+<td class="instruction">LD A,(29363)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the game event flags (<a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55446"></span>55446</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-1" rowspan="2">Is bit 7 of game event flags set? If not, jump to <a href="55251.html#55458">Update_Bad_Tempered_Thing_Dialogue_Task2Creature</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55448"></span>55448</td>
+<td class="instruction">JR Z,<a href="55251.html#55458">Update_Bad_Tempered_Thing_Dialogue_Task2Creature</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55450"></span>55450</td>
+<td class="instruction">LD A,(29359)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current task phase (<a href="29359.html">CurrentTaskPhase</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55453"></span>55453</td>
+<td class="instruction">CP 2</td>
+<td class="comment-1" rowspan="2">Is current task phase equal to 2? If not, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55455"></span>55455</td>
+<td class="instruction">JP NZ,<a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55458"></span>
+<div class="comments">
+<div class="paragraph">
+Task-2 pan X checks before looking at the spawn timer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_Task2Creature</td>
+<td class="address-2"><span id="55458"></span>55458</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Advance the dialogue-check counter in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55459"></span>55459</td>
+<td class="instruction">LD A,(36949)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the pan entity's type (<a href="36595.html#36949">StateData_Complex_26</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55462"></span>55462</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the type at <a href="36595.html#36949">StateData_Complex_26</a> zero? If so, jump to <a href="55251.html#55473">Update_Bad_Tempered_Thing_Dialogue_Task2SpawnZero</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55463"></span>55463</td>
+<td class="instruction">JR Z,<a href="55251.html#55473">Update_Bad_Tempered_Thing_Dialogue_Task2SpawnZero</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55465"></span>55465</td>
+<td class="instruction">LD A,(36956)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> from <a href="36595.html">36956</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55468"></span>55468</td>
+<td class="instruction">CP 94</td>
+<td class="comment-1" rowspan="2">Is the byte at <a href="36595.html">36956</a> less than 94? If so, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55470"></span>55470</td>
+<td class="instruction">JP C,<a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55473"></span>
+<div class="comments">
+<div class="paragraph">
+Task-2 spawn-timer zero path: only continue while the script-active flag is set.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_Task2SpawnZero</td>
+<td class="address-2"><span id="55473"></span>55473</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Advance the dialogue-check counter in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55474"></span>55474</td>
+<td class="instruction">LD A,(29376)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the entity spawn timer (<a href="29376.html">EntitySpawnTimer</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55477"></span>55477</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is entity spawn timer zero? If not, jump to <a href="55251.html#55488">Update_Bad_Tempered_Thing_Dialogue_Task2SpawnMatch</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55478"></span>55478</td>
+<td class="instruction">JR NZ,<a href="55251.html#55488">Update_Bad_Tempered_Thing_Dialogue_Task2SpawnMatch</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55480"></span>55480</td>
+<td class="instruction">LD A,(29363)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the game event flags (<a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55483"></span>55483</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-1" rowspan="2">Is bit 7 of game event flags set? If not, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55485"></span>55485</td>
+<td class="instruction">JP Z,<a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55488"></span>
+<div class="comments">
+<div class="paragraph">
+Task-2 spawn-timer path: match <a href="29375.html">RoomTransitionFlag</a> and require timer 4 for the final line.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_Task2SpawnMatch</td>
+<td class="address-2"><span id="55488"></span>55488</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Advance the dialogue-check counter in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55489"></span>55489</td>
+<td class="instruction">LD A,(29376)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the entity spawn timer (<a href="29376.html">EntitySpawnTimer</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55492"></span>55492</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is entity spawn timer zero? If so, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55493"></span>55493</td>
+<td class="instruction">JP Z,<a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55496"></span>55496</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Advance the dialogue-check counter in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55497"></span>55497</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Keep entity spawn timer in <span class="register">C</span> for later.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55498"></span>55498</td>
+<td class="instruction">LD A,(29375)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the room-transition flag (<a href="29375.html">RoomTransitionFlag</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55501"></span>55501</td>
+<td class="instruction">CP C</td>
+<td class="comment-1" rowspan="2">Does the room-transition flag equal the spawn timer in <span class="register">C</span>? If not, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55502"></span>55502</td>
+<td class="instruction">JP NZ,<a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55505"></span>55505</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Advance the dialogue-check counter in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55506"></span>55506</td>
+<td class="instruction">LD A,(29376)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the entity spawn timer (<a href="29376.html">EntitySpawnTimer</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55509"></span>55509</td>
+<td class="instruction">CP 4</td>
+<td class="comment-1" rowspan="2">Is entity spawn timer equal to 4? If not, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55511"></span>55511</td>
+<td class="instruction">JP NZ,<a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55514"></span>55514</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Advance the dialogue-check counter in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55515"></span>55515</td>
+<td class="instruction">JP <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55518"></span>
+<div class="comments">
+<div class="paragraph">
+Task 3 gates: require the script-active flag and phase 3 before Slimy / stove checks.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_Task3Gates</td>
+<td class="address-2"><span id="55518"></span>55518</td>
+<td class="instruction">LD B,1</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 1 as a loop counter.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55520"></span>55520</td>
+<td class="instruction">LD A,(29363)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the game event flags (<a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55523"></span>55523</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-1" rowspan="2">Is bit 7 of game event flags set? If not, jump to <a href="55251.html#55535">Update_Bad_Tempered_Thing_Dialogue_Task3CreatureFlags</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55525"></span>55525</td>
+<td class="instruction">JR Z,<a href="55251.html#55535">Update_Bad_Tempered_Thing_Dialogue_Task3CreatureFlags</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55527"></span>55527</td>
+<td class="instruction">LD A,(29359)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current task phase (<a href="29359.html">CurrentTaskPhase</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55530"></span>55530</td>
+<td class="instruction">CP 3</td>
+<td class="comment-1" rowspan="2">Is current task phase equal to 3? If not, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55532"></span>55532</td>
+<td class="instruction">JP NZ,<a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55535"></span>
+<div class="comments">
+<div class="paragraph">
+Task-3 creature X and Slimies / SlimyLoose / StoveReady flags choose the line index.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_Task3CreatureFlags</td>
+<td class="address-2"><span id="55535"></span>55535</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="2">Advance the dialogue-check counter in <span class="register">B</span> by two.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55536"></span>55536</td>
+<td class="instruction">INC B</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55537"></span>55537</td>
+<td class="instruction">LD IX,36963</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the cauldron entity (<a href="36595.html#36963">StateData_Complex_27</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55541"></span>55541</td>
+<td class="instruction">LD A,(IX+7)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55544"></span>55544</td>
+<td class="instruction">CP 94</td>
+<td class="comment-1" rowspan="2">Is the current entity's x-coordinate less than 94? If so, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55546"></span>55546</td>
+<td class="instruction">JP C,<a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55549"></span>55549</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Advance the dialogue-check counter in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55550"></span>55550</td>
+<td class="instruction">LD HL,29366</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the task-three flags (<a href="29366.html">TaskThreeFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55553"></span>55553</td>
+<td class="instruction">BIT 1,(HL)</td>
+<td class="comment-1" rowspan="2">Is Slimies (bit 1 of <a href="29366.html">TaskThreeFlags</a>) set? If not, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55555"></span>55555</td>
+<td class="instruction">JP Z,<a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55558"></span>55558</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Advance the dialogue-check counter in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55559"></span>55559</td>
+<td class="instruction">BIT 2,(HL)</td>
+<td class="comment-1" rowspan="2">Is SlimyLoose (bit 2 of <a href="29366.html">TaskThreeFlags</a>) set? If so, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55561"></span>55561</td>
+<td class="instruction">JP NZ,<a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55564"></span>55564</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="2">Advance the dialogue-check counter in <span class="register">B</span> by two.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55565"></span>55565</td>
+<td class="instruction">INC B</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55566"></span>55566</td>
+<td class="instruction">LD A,(29363)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the game event flags (<a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55569"></span>55569</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-1" rowspan="2">Is bit 7 of game event flags set? If not, jump to <a href="55251.html#55578">Update_Bad_Tempered_Thing_Dialogue_Task3FlagWalk</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55571"></span>55571</td>
+<td class="instruction">JR Z,<a href="55251.html#55578">Update_Bad_Tempered_Thing_Dialogue_Task3FlagWalk</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55573"></span>55573</td>
+<td class="instruction">BIT 6,(HL)</td>
+<td class="comment-1" rowspan="2">Is StoveReady (bit 6 of <a href="29366.html">TaskThreeFlags</a>) set? If not, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55575"></span>55575</td>
+<td class="instruction">JP Z,<a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55578"></span>
+<div class="comments">
+<div class="paragraph">
+Final task-3 gates: StoveReady, MobileHeater, and BoilEmUp must all be set.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_Task3FlagWalk</td>
+<td class="address-2"><span id="55578"></span>55578</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Advance the dialogue-check counter in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55579"></span>55579</td>
+<td class="instruction">BIT 6,(HL)</td>
+<td class="comment-1" rowspan="2">Is StoveReady (bit 6 of <a href="29366.html">TaskThreeFlags</a>) set? If not, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55581"></span>55581</td>
+<td class="instruction">JP Z,<a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55584"></span>55584</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Advance the dialogue-check counter in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55585"></span>55585</td>
+<td class="instruction">BIT 0,(HL)</td>
+<td class="comment-1" rowspan="2">Is MobileHeater (bit 0 of <a href="29366.html">TaskThreeFlags</a>) set? If not, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55587"></span>55587</td>
+<td class="instruction">JP Z,<a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55590"></span>55590</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Advance the dialogue-check counter in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55591"></span>55591</td>
+<td class="instruction">BIT 4,(HL)</td>
+<td class="comment-1" rowspan="2">Is BoilEmUp (bit 4 of <a href="29366.html">TaskThreeFlags</a>) set? If not, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55593"></span>55593</td>
+<td class="instruction">JP Z,<a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55596"></span>55596</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Advance the dialogue-check counter in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55597"></span>55597</td>
+<td class="instruction">JP <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="55600"></span>
+<div class="comments">
+<div class="paragraph">
+Task 4 gates: animation frame, interaction bits on <a href="29369.html">EntityInteractionFlag</a>, and phase 4 choose the line.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Bad_Tempered_Thing_Dialogue_Task4Gates</td>
+<td class="address-2"><span id="55600"></span>55600</td>
+<td class="instruction">LD B,1</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 1 as a loop counter.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55602"></span>55602</td>
+<td class="instruction">LD A,(29377)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the animation frame counter (<a href="29377.html">AnimationFrameCounter</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55605"></span>55605</td>
+<td class="instruction">CP 3</td>
+<td class="comment-1" rowspan="2">Is animation frame counter equal to 3? If so, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55607"></span>55607</td>
+<td class="instruction">JP Z,<a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55610"></span>55610</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Advance the dialogue-check counter in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55611"></span>55611</td>
+<td class="instruction">LD HL,29369</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the entity interaction flag (<a href="29369.html">EntityInteractionFlag</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55614"></span>55614</td>
+<td class="instruction">BIT 1,(HL)</td>
+<td class="comment-1" rowspan="2">Is bit 1 of <a href="29369.html">EntityInteractionFlag</a> set? If not, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55616"></span>55616</td>
+<td class="instruction">JP Z,<a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55619"></span>55619</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Advance the dialogue-check counter in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55620"></span>55620</td>
+<td class="instruction">BIT 4,(HL)</td>
+<td class="comment-1" rowspan="2">Is bit 4 of <a href="29369.html">EntityInteractionFlag</a> set? If not, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55622"></span>55622</td>
+<td class="instruction">JP Z,<a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55625"></span>55625</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Advance the dialogue-check counter in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55626"></span>55626</td>
+<td class="instruction">LD A,(29363)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the game event flags (<a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55629"></span>55629</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-1" rowspan="2">Is bit 7 of game event flags set? If not, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55631"></span>55631</td>
+<td class="instruction">JP Z,<a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55634"></span>55634</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Advance the dialogue-check counter in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55635"></span>55635</td>
+<td class="instruction">LD A,(29359)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current task phase (<a href="29359.html">CurrentTaskPhase</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55638"></span>55638</td>
+<td class="instruction">CP 4</td>
+<td class="comment-1" rowspan="2">Is current task phase equal to 4? If not, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55640"></span>55640</td>
+<td class="instruction">JP NZ,<a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55643"></span>55643</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Advance the dialogue-check counter in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55644"></span>55644</td>
+<td class="instruction">BIT 2,(HL)</td>
+<td class="comment-1" rowspan="2">Is bit 2 of <a href="29369.html">EntityInteractionFlag</a> set? If so, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55646"></span>55646</td>
+<td class="instruction">JP NZ,<a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55649"></span>55649</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Advance the dialogue-check counter in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55650"></span>55650</td>
+<td class="instruction">JP <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="54909.html">54909</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#55251">Map</a></td>
+<td class="next">
+Next: <a href="55653.html">55653</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/D7D3.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

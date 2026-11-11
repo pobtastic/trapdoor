@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 50747</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 50747. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 50747" />
+<meta property="og:description" content="The Trap Door: Routine at 50747. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/50747.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/50747.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 50747",
+"name": "The Trap Door: Routine at 50747",
+"description": "The Trap Door: Routine at 50747. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/50747.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 50747"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/50747.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="50741.html">50741</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#50747">Map</a></td>
+<td class="next">
+Next: <a href="50780.html">50780</a>
+</td>
+</tr>
+</table>
+<div class="description">50747: Update Stove</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="45738.html">Update_Entity_Slot</a>.
+</div>
+<div class="paragraph">
+When the collided entity's type is 20 and the current entity's type is 9. Clears SlimyLoose, BoilEmUp and BoilEmUpLatch; raises StoveUpdated; advances <a href="29374.html">StoveTick</a> (setting StoveReady on the fourth tick); and repoints the cauldron at idle layout <a href="40861.html">GraphicLayout_Cauldron</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50747"></span>
+<div class="comments">
+<div class="paragraph">
+Clear SlimyLoose / BoilEmUp / BoilEmUpLatch; raise StoveUpdated.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Stove</td>
+<td class="address-2"><span id="50747"></span>50747</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">HL</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50748"></span>50748</td>
+<td class="instruction">LD HL,29366</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the task-three flags (<a href="29366.html">TaskThreeFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50751"></span>50751</td>
+<td class="instruction">RES 2,(HL)</td>
+<td class="comment-1" rowspan="1">Clear SlimyLoose (bit 2 of <a href="29366.html">TaskThreeFlags</a>. set by <a href="45738.html#46081">46081</a> / <a href="50780.html#50940">50940</a> tested by <a href="55251.html#55559">55559</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50753"></span>50753</td>
+<td class="instruction">RES 4,(HL)</td>
+<td class="comment-1" rowspan="1">Clear BoilEmUp (bit 4 of <a href="29366.html">TaskThreeFlags</a>. set by <a href="50562.html#50642">ScriptRoutine_TaskThreeBerkRightWindow_SetFlagsAndLayout</a>. tested by <a href="55251.html#55591">55591</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50755"></span>50755</td>
+<td class="instruction">RES 5,(HL)</td>
+<td class="comment-1" rowspan="1">Clear BoilEmUpLatch (bit 5 of <a href="29366.html">TaskThreeFlags</a>. set by <a href="50562.html#50642">ScriptRoutine_TaskThreeBerkRightWindow_SetFlagsAndLayout</a>. also cleared at <a href="50040.html#50074">50074</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50757"></span>50757</td>
+<td class="instruction">SET 7,(HL)</td>
+<td class="comment-1" rowspan="1">Set StoveUpdated (bit 7 of <a href="29366.html">TaskThreeFlags</a>. tested by <a href="50562.html#50642">ScriptRoutine_TaskThreeBerkRightWindow_SetFlagsAndLayout</a> before it sets BoilEmUp / BoilEmUpLatch).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50759"></span>
+<div class="comments">
+<div class="paragraph">
+Count another stove tick (<a href="29374.html">StoveTick</a>); has it reached 4?.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50759"></span>50759</td>
+<td class="instruction">LD A,(29374)</td>
+<td class="comment-1" rowspan="1">Load the stove tick (<a href="29374.html">StoveTick</a>) into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50762"></span>50762</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Advance the stove tick by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50763"></span>50763</td>
+<td class="instruction">LD (29374),A</td>
+<td class="comment-1" rowspan="1">Store the stove tick (<a href="29374.html">StoveTick</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50766"></span>50766</td>
+<td class="instruction">CP 4</td>
+<td class="comment-1" rowspan="2">Has the stove tick reached 4? If not, skip to <a href="50747.html#50772">Update_Stove_IdleLayout</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50768"></span>50768</td>
+<td class="instruction">JR NZ,<a href="50747.html#50772">Update_Stove_IdleLayout</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50770"></span>50770</td>
+<td class="instruction">SET 6,(HL)</td>
+<td class="comment-1" rowspan="1">Set StoveReady (bit 6 of <a href="29366.html">TaskThreeFlags</a>. tested by <a href="55251.html#55573">55573</a> / <a href="55251.html#55579">55579</a>).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="50772"></span>
+<div class="comments">
+<div class="paragraph">
+Point the cauldron at its idle layout and return.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Stove_IdleLayout</td>
+<td class="address-2"><span id="50772"></span>50772</td>
+<td class="instruction">LD HL,40861</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the cauldron layout (<a href="40861.html">GraphicLayout_Cauldron</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50775"></span>50775</td>
+<td class="instruction">LD (36973),HL</td>
+<td class="comment-1" rowspan="1">Write that layout into the graphic-layout field of <a href="36595.html#36963">StateData_Complex_27</a> (<a href="36595.html">36973</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50778"></span>50778</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="50779"></span>50779</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="50741.html">50741</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#50747">Map</a></td>
+<td class="next">
+Next: <a href="50780.html">50780</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/C63B.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

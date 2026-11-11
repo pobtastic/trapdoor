@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at FD22</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at FD22. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at FD22" />
+<meta property="og:description" content="The Trap Door: Routine at FD22. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/FD22.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/FD22.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at FD22",
+"name": "The Trap Door: Routine at FD22",
+"description": "The Trap Door: Routine at FD22. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/FD22.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at FD22"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/FD22.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="FD10.html">FD10</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#fd22">Map</a></td>
+<td class="next">
+Next: <a href="FD40.html">FD40</a>
+</td>
+</tr>
+</table>
+<div class="description">FD22: Hold Menu Music Silence</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="FCB3.html">Play_MenuMusicTick</a>.
+</div>
+<div class="paragraph">
+Hold silence while both channel durations are zero, or when <a href="FD76.html">Continue_MenuMusicTick</a> takes the clear-carry path into <a href="FD22.html#fd27">Hold_MenuMusicSilence_Loop</a>. Burns a delay derived from <a href="FC84.html#fc8f">FC8F</a>, then returns.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Hold_MenuMusicSilence</td>
+<td class="address-2"><span id="fd22"></span>FD22</td>
+<td class="instruction">LD A,($FC8F)</td>
+<td class="comment-1" rowspan="1">Load the delay phase from <a href="FC84.html#fc8f">FC8F</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fd25"></span>FD25</td>
+<td class="instruction">CPL</td>
+<td class="comment-1" rowspan="2">Complement it into <span class="register">C</span> as a hold count.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fd26"></span>FD26</td>
+<td class="instruction">LD C,A</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="fd27"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="FD76.html">Continue_MenuMusicTick</a>.
+</div>
+<div class="paragraph">
+Timed silent hold used by <a href="FD76.html">Continue_MenuMusicTick</a> and the expired-duration path.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Hold_MenuMusicSilence_Loop</td>
+<td class="address-2"><span id="fd27"></span>FD27</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="2">Stash <span class="register">BC</span> and <span class="register">AF</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fd28"></span>FD28</td>
+<td class="instruction">PUSH AF</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fd29"></span>FD29</td>
+<td class="instruction">LD B,$00</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">B</span> for the inner burn count.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="fd2b"></span>
+<div class="comments">
+<div class="paragraph">
+Burn cycles for one silent-hold iteration.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Hold_MenuMusicSilence_Burn</td>
+<td class="address-2"><span id="fd2b"></span>FD2B</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">HL</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fd2c"></span>FD2C</td>
+<td class="instruction">LD HL,$0000</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at 0000.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fd2f"></span>FD2F</td>
+<td class="instruction">SRA (HL)</td>
+<td class="comment-1" rowspan="3">Burn cycles with three <code>SRA (HL)</code> pads.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fd31"></span>FD31</td>
+<td class="instruction">SRA (HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fd33"></span>FD33</td>
+<td class="instruction">SRA (HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fd35"></span>FD35</td>
+<td class="instruction">NOP</td>
+<td class="comment-1" rowspan="1">Timing pad.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fd36"></span>FD36</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fd37"></span>FD37</td>
+<td class="instruction">DJNZ <a href="FD22.html#fd2b">Hold_MenuMusicSilence_Burn</a></td>
+<td class="comment-1" rowspan="1">Decrease <span class="register">B</span> and loop to <a href="FD22.html#fd2b">Hold_MenuMusicSilence_Burn</a> while the burn count remains.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fd39"></span>FD39</td>
+<td class="instruction">DEC C</td>
+<td class="comment-1" rowspan="1">Decrease the hold count in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fd3a"></span>FD3A</td>
+<td class="instruction">JP NZ,<a href="FD22.html#fd2b">Hold_MenuMusicSilence_Burn</a></td>
+<td class="comment-1" rowspan="1">If the hold count remains, jump to <a href="FD22.html#fd2b">Hold_MenuMusicSilence_Burn</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fd3d"></span>FD3D</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="2">Restore <span class="register">AF</span> and <span class="register">BC</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fd3e"></span>FD3E</td>
+<td class="instruction">POP BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="fd3f"></span>FD3F</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="FD10.html">FD10</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#fd22">Map</a></td>
+<td class="next">
+Next: <a href="FD40.html">FD40</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/64802.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

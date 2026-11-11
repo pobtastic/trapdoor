@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at B034</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at B034. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at B034" />
+<meta property="og:description" content="The Trap Door: Routine at B034. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/45108.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/45108.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at B034",
+"name": "The Trap Door: Routine at B034",
+"description": "The Trap Door: Routine at B034. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/45108.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at B034"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/45108.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="45086.html">B01E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#b034">Map</a></td>
+<td class="next">
+Next: <a href="45422.html">B16E</a>
+</td>
+</tr>
+</table>
+<div class="description">B034: Update Drutt</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="43699.html">GameStart</a>.
+</div>
+<div class="paragraph">
+Advance Drutt's trap-door animation and collection logic using the large-creature slot at <a href="36595.html#908d">StateData_Complex_30</a> and Drutt's state at <a href="36595.html#8ef7">StateData_Drutt</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="b034"></span>
+<div class="comments">
+<div class="paragraph">
+Finish a pending creature-layout swap, then either tick the animation counter or watch for Berk near the trap.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Drutt</td>
+<td class="address-2"><span id="b034"></span>B034</td>
+<td class="instruction">LD IX,$908D</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the large-creature entity (<a href="36595.html#908d">StateData_Complex_30</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b038"></span>B038</td>
+<td class="instruction">LD HL,$72BA</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the trap-door flags (<a href="29370.html">TrapDoorFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b03b"></span>B03B</td>
+<td class="instruction">BIT 1,(HL)</td>
+<td class="comment-1" rowspan="2">Is a creature-layout swap pending (bit 01)? If not, continue at <a href="45108.html#b049">Update_Drutt_CheckCounter</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b03d"></span>B03D</td>
+<td class="instruction">JR Z,<a href="45108.html#b049">Update_Drutt_CheckCounter</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b03f"></span>B03F</td>
+<td class="instruction">RES 1,(HL)</td>
+<td class="comment-1" rowspan="1">Clear the layout-swap latch.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b041"></span>B041</td>
+<td class="instruction">LD BC,$9E61</td>
+<td class="comment-1" rowspan="1">Load the resting large-creature layout address (<a href="40545.html">GraphicLayout_EntityType37</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b044"></span>B044</td>
+<td class="instruction">LD ($9097),BC</td>
+<td class="comment-1" rowspan="1">Write that layout into the creature's layout field (9097).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b048"></span>B048</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return, then the swap is done for this frame.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Drutt_CheckCounter</td>
+<td class="address-2"><span id="b049"></span>B049</td>
+<td class="instruction">LD A,($72BB)</td>
+<td class="comment-1" rowspan="1">Fetch Drutt's animation counter (<a href="29371.html">DruttAnimationCounter</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b04c"></span>B04C</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the counter idle (zero)? If so, watch for Berk at <a href="45108.html#b14f">Update_Drutt_WatchBerk</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b04d"></span>B04D</td>
+<td class="instruction">JP Z,<a href="45108.html#b14f">Update_Drutt_WatchBerk</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b050"></span>B050</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1">Keep the remaining tick count in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b051"></span>B051</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Advance the animation counter by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b052"></span>B052</td>
+<td class="instruction">LD ($72BB),A</td>
+<td class="comment-1" rowspan="1">Store the updated counter at <a href="29371.html">DruttAnimationCounter</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="b055"></span>
+<div class="comments">
+<div class="paragraph">
+Handle animation: move the creature down a row and finish or keep going.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Drutt_AnimateFrame</td>
+<td class="address-2"><span id="b055"></span>B055</td>
+<td class="instruction">INC (IX+$05)</td>
+<td class="comment-1" rowspan="1">Move the creature down one character (raise y).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b058"></span>B058</td>
+<td class="instruction">INC (IX+$06)</td>
+<td class="comment-1" rowspan="1">Grow its y-extent to match.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b05b"></span>B05B</td>
+<td class="instruction">LD A,(IX+$06)</td>
+<td class="comment-1" rowspan="1">Load the new y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b05e"></span>B05E</td>
+<td class="instruction">CP $25</td>
+<td class="comment-1" rowspan="2">Has it reached the open-trap row (y-extent 25)? If not, keep animating at <a href="45108.html#b0a3">Update_Drutt_MidAnimation</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b060"></span>B060</td>
+<td class="instruction">JR NZ,<a href="45108.html#b0a3">Update_Drutt_MidAnimation</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b062"></span>B062</td>
+<td class="instruction">LD A,$8E</td>
+<td class="comment-1" rowspan="1">Queue sound effect 8E (trap-door thump).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b064"></span>B064</td>
+<td class="instruction">CALL <a href="63737.html">Queue_Sound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="63737.html">Queue_Sound</a> to play that effect.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b067"></span>B067</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">A</span> so the animation counter can stop.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b068"></span>B068</td>
+<td class="instruction">LD ($72BB),A</td>
+<td class="comment-1" rowspan="1">Clear Drutt's animation counter (<a href="29371.html">DruttAnimationCounter</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b06b"></span>B06B</td>
+<td class="instruction">LD BC,$A827</td>
+<td class="comment-1" rowspan="1">Load the closed-trap graphic layout (<a href="43047.html">GraphicLayout_TrapDoorAnimB</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b06e"></span>B06E</td>
+<td class="instruction">LD ($91AF),BC</td>
+<td class="comment-1" rowspan="1">Write it into the trap-door animation slot (<a href="37047.html#91af">Pointer_AnimatingSceneryLayout</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b072"></span>B072</td>
+<td class="instruction">BIT 2,(HL)</td>
+<td class="comment-1" rowspan="2">Is Drutt mid trap-door animation (bit 02)? If not, nothing more to do.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b074"></span>B074</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b075"></span>B075</td>
+<td class="instruction">RES 2,(HL)</td>
+<td class="comment-1" rowspan="1">Clear the mid-animation latch.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b077"></span>B077</td>
+<td class="instruction">SET 1,(HL)</td>
+<td class="comment-1" rowspan="1">Request a creature-layout swap next frame (set bit 01).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b079"></span>B079</td>
+<td class="instruction">LD A,($AFDB)</td>
+<td class="comment-1" rowspan="1">Fetch the entity type Drutt saved at <a href="45019.html">Drutt_SavedEntityType</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b07c"></span>B07C</td>
+<td class="instruction">CP $20</td>
+<td class="comment-1" rowspan="2">Was it type 20? If so, boil the cooking pot at <a href="45108.html#b085">Update_Drutt_CaughtPot</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b07e"></span>B07E</td>
+<td class="instruction">JR Z,<a href="45108.html#b085">Update_Drutt_CaughtPot</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b080"></span>B080</td>
+<td class="instruction">LD HL,$9E48</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at creature layout <a href="40503.html">GraphicLayout_Drutt</a> (non-pot catch).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b083"></span>B083</td>
+<td class="instruction">JR <a href="45108.html#b08b">Update_Drutt_InstallLayout</a></td>
+<td class="comment-1" rowspan="1">Skip the pot update and install that layout at <a href="45108.html#b08b">Update_Drutt_InstallLayout</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Drutt_CaughtPot</td>
+<td class="address-2"><span id="b085"></span>B085</td>
+<td class="instruction">CALL <a href="50701.html">Update_Cooking_Pot</a></td>
+<td class="comment-1" rowspan="1">Call <a href="50701.html">Update_Cooking_Pot</a> to update the cooking pot after Drutt's catch.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b088"></span>B088</td>
+<td class="instruction">LD HL,$9E40</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Drutt's pot-catch layout (<a href="40503.html#9e40">GraphicLayout_Drutt_PotCatch</a>).</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Drutt_InstallLayout</td>
+<td class="address-2"><span id="b08b"></span>B08B</td>
+<td class="instruction">LD ($9097),HL</td>
+<td class="comment-1" rowspan="1">Write the chosen layout into the creature's layout field (9097).</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Drutt_EatLoop</td>
+<td class="address-2"><span id="b08e"></span>B08E</td>
+<td class="instruction">CALL <a href="45422.html">Update_Drutt_Animation</a></td>
+<td class="comment-1" rowspan="1">Call <a href="45422.html">Update_Drutt_Animation</a> to step Drutt's eat / chew animation.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b091"></span>B091</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">Return if that animation has finished.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b092"></span>B092</td>
+<td class="instruction">LD A,(IY+$00)</td>
+<td class="comment-1" rowspan="1">Load the type of the entity Drutt is chewing.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b095"></span>B095</td>
+<td class="instruction">CP $1F</td>
+<td class="comment-1" rowspan="2">Is it type 1F (inedible / special)? If not, clear the slot at <a href="45108.html#b09d">Update_Drutt_ClearChewed</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b097"></span>B097</td>
+<td class="instruction">JR NZ,<a href="45108.html#b09d">Update_Drutt_ClearChewed</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b099"></span>B099</td>
+<td class="instruction">CALL <a href="60019.html">Reposition_CameraFollowEntity</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60019.html">Reposition_CameraFollowEntity</a> to handle the special chew.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b09c"></span>B09C</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Drutt_ClearChewed</td>
+<td class="address-2"><span id="b09d"></span>B09D</td>
+<td class="instruction">LD (IY+$00),$00</td>
+<td class="comment-1" rowspan="1">Clear the chewed entity's type (deactivate the slot).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0a1"></span>B0A1</td>
+<td class="instruction">JR <a href="45108.html#b08e">Update_Drutt_EatLoop</a></td>
+<td class="comment-1" rowspan="1">Keep chewing via <a href="45108.html#b08e">Update_Drutt_EatLoop</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Drutt_MidAnimation</td>
+<td class="address-2"><span id="b0a3"></span>B0A3</td>
+<td class="instruction">BIT 2,(HL)</td>
+<td class="comment-1" rowspan="2">Still mid trap-door animation (bit 02)? If not, look for a new catch at <a href="45108.html#b0c4">Update_Drutt_SeekCatch</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0a5"></span>B0A5</td>
+<td class="instruction">JR Z,<a href="45108.html#b0c4">Update_Drutt_SeekCatch</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0a7"></span>B0A7</td>
+<td class="instruction">LD IY,($AFD9)</td>
+<td class="comment-1" rowspan="1">Load the entity Drutt is currently grabbing (<a href="45017.html">TemporaryEntityPointer_Drutt</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0ab"></span>B0AB</td>
+<td class="instruction">LD A,(IY+$06)</td>
+<td class="comment-1" rowspan="1">Load that entity's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0ae"></span>B0AE</td>
+<td class="instruction">SUB (IY+$05)</td>
+<td class="comment-1" rowspan="1">Subtract its y-coordinate to get its height.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0b1"></span>B0B1</td>
+<td class="instruction">SRL A</td>
+<td class="comment-1" rowspan="1">Halve the height.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0b3"></span>B0B3</td>
+<td class="instruction">ADD A,(IY+$05)</td>
+<td class="comment-1" rowspan="1">Add the y-coordinate back to get the vertical centre.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0b6"></span>B0B6</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Keep the grabbed entity's vertical centre in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0b7"></span>B0B7</td>
+<td class="instruction">LD A,(IX+$06)</td>
+<td class="comment-1" rowspan="1">Load the creature's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0ba"></span>B0BA</td>
+<td class="instruction">CP C</td>
+<td class="comment-1" rowspan="2">Has the creature's mouth reached that centre yet? If not, keep animating at <a href="45108.html#b0c1">Update_Drutt_NextAnimTick</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0bb"></span>B0BB</td>
+<td class="instruction">JR C,<a href="45108.html#b0c1">Update_Drutt_NextAnimTick</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0bd"></span>B0BD</td>
+<td class="instruction">LD (IY+$00),$00</td>
+<td class="comment-1" rowspan="1">Clear the grabbed entity's type (Drutt swallowed it).</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Drutt_NextAnimTick</td>
+<td class="address-2"><span id="b0c1"></span>B0C1</td>
+<td class="instruction">DJNZ <a href="45108.html#b055">Update_Drutt_AnimateFrame</a></td>
+<td class="comment-1" rowspan="1">Decrease the remaining tick count and loop to <a href="45108.html#b055">Update_Drutt_AnimateFrame</a> while ticks remain.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0c3"></span>B0C3</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return when the animation ticks are exhausted.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="b0c4"></span>
+<div class="comments">
+<div class="paragraph">
+Handle catch: find a candidate entity under the mouth and classify it.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Drutt_SeekCatch</td>
+<td class="address-2"><span id="b0c4"></span>B0C4</td>
+<td class="instruction">CALL <a href="45422.html">Update_Drutt_Animation</a></td>
+<td class="comment-1" rowspan="1">Call <a href="45422.html">Update_Drutt_Animation</a> to see whether Drutt can start a catch this frame.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0c7"></span>B0C7</td>
+<td class="instruction">JR Z,<a href="45108.html#b0c1">Update_Drutt_NextAnimTick</a></td>
+<td class="comment-1" rowspan="1">If not, just consume an animation tick at <a href="45108.html#b0c1">Update_Drutt_NextAnimTick</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0c9"></span>B0C9</td>
+<td class="instruction">LD A,(IX+$06)</td>
+<td class="comment-1" rowspan="1">Load the creature's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0cc"></span>B0CC</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Peek one row below the mouth.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0cd"></span>B0CD</td>
+<td class="instruction">CP (IY+$05)</td>
+<td class="comment-1" rowspan="2">Does that row meet the candidate entity's y? If not, keep waiting at <a href="45108.html#b0c1">Update_Drutt_NextAnimTick</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0d0"></span>B0D0</td>
+<td class="instruction">JR NZ,<a href="45108.html#b0c1">Update_Drutt_NextAnimTick</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0d2"></span>B0D2</td>
+<td class="instruction">LD ($AFD9),IY</td>
+<td class="comment-1" rowspan="1">Remember this candidate at <a href="45017.html">TemporaryEntityPointer_Drutt</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0d6"></span>B0D6</td>
+<td class="instruction">LD A,(IY+$05)</td>
+<td class="comment-1" rowspan="1">Load the candidate's y-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0d9"></span>B0D9</td>
+<td class="instruction">CP (IY+$06)</td>
+<td class="comment-1" rowspan="2">Is the candidate a flat / already-swallowed slot (y == y-extent)? If not, classify it at <a href="45108.html#b0e4">Update_Drutt_ClassifyCatch</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0dc"></span>B0DC</td>
+<td class="instruction">JR NZ,<a href="45108.html#b0e4">Update_Drutt_ClassifyCatch</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0de"></span>B0DE</td>
+<td class="instruction">LD (IY+$00),$00</td>
+<td class="comment-1" rowspan="1">Clear that empty slot's type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0e2"></span>B0E2</td>
+<td class="instruction">JR <a href="45108.html#b13a">Update_Drutt_CatchFailed</a></td>
+<td class="comment-1" rowspan="1">Treat it as a failed catch at <a href="45108.html#b13a">Update_Drutt_CatchFailed</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="b0e4"></span>
+<div class="comments">
+<div class="paragraph">
+Handle collectible types: worms, eyes and special catches.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Drutt_ClassifyCatch</td>
+<td class="address-2"><span id="b0e4"></span>B0E4</td>
+<td class="instruction">LD A,(IY+$00)</td>
+<td class="comment-1" rowspan="1">Load the candidate's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0e7"></span>B0E7</td>
+<td class="instruction">LD ($AFDB),A</td>
+<td class="comment-1" rowspan="1">Save it at <a href="45019.html">Drutt_SavedEntityType</a> for the layout chooser.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0ea"></span>B0EA</td>
+<td class="instruction">CP $16</td>
+<td class="comment-1" rowspan="2">Type 16 (worm)?, then play the catch sound at <a href="45108.html#b130">Update_Drutt_CatchSound</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0ec"></span>B0EC</td>
+<td class="instruction">JR Z,<a href="45108.html#b130">Update_Drutt_CatchSound</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0ee"></span>B0EE</td>
+<td class="instruction">CP $18</td>
+<td class="comment-1" rowspan="2">Type 18 (collectible eye variant)?, then same catch sound at <a href="45108.html#b130">Update_Drutt_CatchSound</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0f0"></span>B0F0</td>
+<td class="instruction">JR Z,<a href="45108.html#b130">Update_Drutt_CatchSound</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0f2"></span>B0F2</td>
+<td class="instruction">CP $17</td>
+<td class="comment-1" rowspan="2">Type 17? If not, mark a failed catch at <a href="45108.html#b13a">Update_Drutt_CatchFailed</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0f4"></span>B0F4</td>
+<td class="instruction">JR NZ,<a href="45108.html#b13a">Update_Drutt_CatchFailed</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0f6"></span>B0F6</td>
+<td class="instruction">LD A,($B01D)</td>
+<td class="comment-1" rowspan="1">Fetch Drutt's saved animation state (<a href="45085.html">Drutt_SavedAnimationState</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0f9"></span>B0F9</td>
+<td class="instruction">CP $1C</td>
+<td class="comment-1" rowspan="2">Is that saved state 1C? If so, take the type-1C collect path at <a href="45108.html#b11e">Update_Drutt_CollectType1C</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0fb"></span>B0FB</td>
+<td class="instruction">JR Z,<a href="45108.html#b11e">Update_Drutt_CollectType1C</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0fd"></span>B0FD</td>
+<td class="instruction">JR NC,<a href="45108.html#b130">Update_Drutt_CatchSound</a></td>
+<td class="comment-1" rowspan="1">If the saved state is above 1C just play the catch sound at <a href="45108.html#b130">Update_Drutt_CatchSound</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b0ff"></span>B0FF</td>
+<td class="instruction">LD B,$03</td>
+<td class="comment-1" rowspan="1">Lift the catch three rows (loop counter 03).</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Drutt_LiftCatch</td>
+<td class="address-2"><span id="b101"></span>B101</td>
+<td class="instruction">INC (IX+$05)</td>
+<td class="comment-1" rowspan="1">Raise the creature's y.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b104"></span>B104</td>
+<td class="instruction">INC (IX+$06)</td>
+<td class="comment-1" rowspan="1">Grow its y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b107"></span>B107</td>
+<td class="instruction">INC (IY+$05)</td>
+<td class="comment-1" rowspan="1">Raise the caught entity's y with it.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b10a"></span>B10A</td>
+<td class="instruction">DJNZ <a href="45108.html#b101">Update_Drutt_LiftCatch</a></td>
+<td class="comment-1" rowspan="1">Loop to <a href="45108.html#b101">Update_Drutt_LiftCatch</a> for each remaining row.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b10c"></span>B10C</td>
+<td class="instruction">LD (IY+$00),$18</td>
+<td class="comment-1" rowspan="1">Retype the catch as 18 (collected eye).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b110"></span>B110</td>
+<td class="instruction">LD DE,$9F55</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the collected-eye layout (<a href="40674.html">GraphicLayout_CollectedEye</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b113"></span>B113</td>
+<td class="instruction">LD ($9089),DE</td>
+<td class="comment-1" rowspan="1">Write that layout into entity state at 9089.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b117"></span>B117</td>
+<td class="instruction">LD HL,$72B4</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the task status flags (<a href="29364.html">TaskStatusFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b11a"></span>B11A</td>
+<td class="instruction">SET 4,(HL)</td>
+<td class="comment-1" rowspan="1">Mark "Drutt collected a type-18 object" (bit 04).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b11c"></span>B11C</td>
+<td class="instruction">JR <a href="45108.html#b12a">Update_Drutt_CollectDone</a></td>
+<td class="comment-1" rowspan="1">Finish the collect at <a href="45108.html#b12a">Update_Drutt_CollectDone</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Drutt_CollectType1C</td>
+<td class="address-2"><span id="b11e"></span>B11E</td>
+<td class="instruction">LD DE,$9F06</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the type-1C collect layout (<a href="40674.html#9f06">GraphicLayout_CollectedType1C</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b121"></span>B121</td>
+<td class="instruction">LD ($9089),DE</td>
+<td class="comment-1" rowspan="1">Write that layout into entity state at 9089.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b125"></span>B125</td>
+<td class="instruction">LD HL,$72B4</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the task status flags (<a href="29364.html">TaskStatusFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b128"></span>B128</td>
+<td class="instruction">SET 5,(HL)</td>
+<td class="comment-1" rowspan="1">Mark "Drutt collected a type-1C object" (bit 05).</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Drutt_CollectDone</td>
+<td class="address-2"><span id="b12a"></span>B12A</td>
+<td class="instruction">SET 0,(HL)</td>
+<td class="comment-1" rowspan="1">Set the task-progress gate (bit 00 of <a href="29364.html">TaskStatusFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b12c"></span>B12C</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">A</span> so the current task index can reset.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b12d"></span>B12D</td>
+<td class="instruction">LD ($72AE),A</td>
+<td class="comment-1" rowspan="1">Clear the current task index (<a href="29358.html">CurrentTaskIndex</a>).</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Drutt_CatchSound</td>
+<td class="address-2"><span id="b130"></span>B130</td>
+<td class="instruction">LD A,$8E</td>
+<td class="comment-1" rowspan="1">Queue sound effect 8E (catch thump).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b132"></span>B132</td>
+<td class="instruction">CALL <a href="63737.html">Queue_Sound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="63737.html">Queue_Sound</a> to play it.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b135"></span>B135</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">A</span> to stop further animation ticks.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b136"></span>B136</td>
+<td class="instruction">LD ($72BB),A</td>
+<td class="comment-1" rowspan="1">Clear Drutt's animation counter (<a href="29371.html">DruttAnimationCounter</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b139"></span>B139</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Drutt_CatchFailed</td>
+<td class="address-2"><span id="b13a"></span>B13A</td>
+<td class="instruction">CP $1F</td>
+<td class="comment-1" rowspan="2">Was the saved type 1F? If not, stay mid-animation at <a href="45108.html#b14a">Update_Drutt_StayMidAnimation</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b13c"></span>B13C</td>
+<td class="instruction">JR NZ,<a href="45108.html#b14a">Update_Drutt_StayMidAnimation</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b13e"></span>B13E</td>
+<td class="instruction">CALL <a href="60019.html">Reposition_CameraFollowEntity</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60019.html">Reposition_CameraFollowEntity</a> for the special failure case.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b141"></span>B141</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">A</span> so the saved entity type can be wiped.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b142"></span>B142</td>
+<td class="instruction">LD ($AFDB),A</td>
+<td class="comment-1" rowspan="1">Clear Drutt's saved entity type (<a href="45019.html">Drutt_SavedEntityType</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b145"></span>B145</td>
+<td class="instruction">RES 2,(HL)</td>
+<td class="comment-1" rowspan="1">Clear the mid-animation latch (bit 02 of <a href="29370.html">TrapDoorFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b147"></span>B147</td>
+<td class="instruction">JP <a href="45108.html#b0c1">Update_Drutt_NextAnimTick</a></td>
+<td class="comment-1" rowspan="1">Consume an animation tick at <a href="45108.html#b0c1">Update_Drutt_NextAnimTick</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Drutt_StayMidAnimation</td>
+<td class="address-2"><span id="b14a"></span>B14A</td>
+<td class="instruction">SET 2,(HL)</td>
+<td class="comment-1" rowspan="1">Keep the mid-animation latch set (bit 02 of <a href="29370.html">TrapDoorFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b14c"></span>B14C</td>
+<td class="instruction">JP <a href="45108.html#b0c1">Update_Drutt_NextAnimTick</a></td>
+<td class="comment-1" rowspan="1">Consume an animation tick at <a href="45108.html#b0c1">Update_Drutt_NextAnimTick</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="b14f"></span>
+<div class="comments">
+<div class="paragraph">
+Handle idle watch: start a trap-door animation only when Berk is in the mouth band.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Drutt_WatchBerk</td>
+<td class="address-2"><span id="b14f"></span>B14F</td>
+<td class="instruction">LD A,(IX+$06)</td>
+<td class="comment-1" rowspan="1">Load the creature's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b152"></span>B152</td>
+<td class="instruction">CP $1E</td>
+<td class="comment-1" rowspan="2">Is the mouth still above the trigger row (y-extent &lt; 1E)? If not, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b154"></span>B154</td>
+<td class="instruction">RET NC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b155"></span>B155</td>
+<td class="instruction">LD A,($7303)</td>
+<td class="comment-1" rowspan="1">Fetch Berk's X-coordinate copy (<a href="29443.html">BerkXCoordinateCopy</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b158"></span>B158</td>
+<td class="instruction">CP $A0</td>
+<td class="comment-1" rowspan="2">Is Berk left of the trap mouth (x &lt; A0)? If so, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b15a"></span>B15A</td>
+<td class="instruction">RET C</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b15b"></span>B15B</td>
+<td class="instruction">CP $E0</td>
+<td class="comment-1" rowspan="2">Is Berk right of the trap mouth (x &gt;= E0)? If so, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b15d"></span>B15D</td>
+<td class="instruction">RET NC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b15e"></span>B15E</td>
+<td class="instruction">CALL <a href="45422.html">Update_Drutt_Animation</a></td>
+<td class="comment-1" rowspan="1">Call <a href="45422.html">Update_Drutt_Animation</a> to see whether a catchable entity is present.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b161"></span>B161</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">Return if nothing is ready.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b162"></span>B162</td>
+<td class="instruction">LD A,(IY+$05)</td>
+<td class="comment-1" rowspan="1">Load that entity's y-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b165"></span>B165</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1">Step one row up from the candidate entity's y-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b166"></span>B166</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1">Step a second row up.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b167"></span>B167</td>
+<td class="instruction">CP (IX+$06)</td>
+<td class="comment-1" rowspan="2">Has the creature's mouth reached that row yet? If not, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b16a"></span>B16A</td>
+<td class="instruction">RET C</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="b16b"></span>B16B</td>
+<td class="instruction">JP <a href="45086.html">Reset_Trap_Door_Animation_State</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="45086.html">Reset_Trap_Door_Animation_State</a> to reset the trap-door animation state and begin.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="45086.html">B01E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#b034">Map</a></td>
+<td class="next">
+Next: <a href="45422.html">B16E</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/282888.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

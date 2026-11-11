@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at BE6D</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at BE6D. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at BE6D" />
+<meta property="og:description" content="The Trap Door: Data at BE6D. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/BE6D.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/BE6D.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at BE6D",
+"name": "The Trap Door: Data at BE6D",
+"description": "The Trap Door: Data at BE6D. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/BE6D.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at BE6D"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/BE6D.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="BDC3.html">BDC3</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#be6d">Map</a></td>
+<td class="next">
+Next: <a href="BECD.html">BECD</a>
+</td>
+</tr>
+</table>
+<div class="description">BE6D: Data: Bird Scripts</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Bird scripts that drive the bird laying an egg. <a href="BEE6.html#bf38">BF38</a> starts here. Other readers enter at <a href="BE6D.html#be79">BirdScript_RiseLoop</a>, <a href="BE6D.html#be81">BirdScript_IdleLoop</a>, <a href="BE6D.html#be89">BirdScript_TurnLoop</a>, <a href="BE6D.html#be91">BirdScript_Wander</a>, <a href="BE6D.html#beb9">BirdScript_BoundLoop</a> and <a href="BE6D.html#bec1">BirdScript_AltWander</a>. <a href="BEE6.html#bf68">BF68</a> pokes the wander loop count at <a href="BE6D.html#be9b">BE9B</a>. Ends immediately before <a href="BECD.html">Update_Task_Two_Entities</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="be6d"></span>
+<div class="comments">
+<div class="paragraph">
+Start script published by <a href="BEE6.html#bf2b">Update_TaskTwo_StartEntity</a> and <a href="BEE6.html#bf38">BF38</a>.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="script-be6d" src="../images/script-be6d.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Data_BirdScripts</td>
+<td class="address-1"><span id="be6d"></span>BE6D</td>
+<td class="instruction">DEFB $02,$C1</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="C102.html">Data_TaskHelperLayouts</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be6f"></span>BE6F</td>
+<td class="instruction">DEFW $0021</td>
+<td class="comment-1" rowspan="1">Script opcode 21 (start counted script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be71"></span>BE71</td>
+<td class="instruction">DEFB $09,$00</td>
+<td class="comment-1" rowspan="1">Loop count 09 (<a href="EC53.html">ScriptRoutine_StartScriptLoop</a> reads only the low byte).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be73"></span>BE73</td>
+<td class="instruction">DEFB $02,$C1</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="C102.html">Data_TaskHelperLayouts</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be75"></span>BE75</td>
+<td class="instruction">DEFW $0022</td>
+<td class="comment-1" rowspan="1">Script opcode 22 (end script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be77"></span>BE77</td>
+<td class="instruction">DEFW $0028</td>
+<td class="comment-1" rowspan="1">Script opcode 28 (arm the bird script-active flags).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="be79"></span>
+<div class="comments">
+<div class="paragraph">
+Rise and vertical-walk loop entered from <a href="BFBF.html#bfe4">ScriptRoutine_TaskTwoRiseOnEvent_RunStartScript</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BirdScript_RiseLoop</td>
+<td class="address-1"><span id="be79"></span>BE79</td>
+<td class="instruction">DEFB $02,$C1</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="C102.html">Data_TaskHelperLayouts</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be7b"></span>BE7B</td>
+<td class="instruction">DEFW $0024</td>
+<td class="comment-1" rowspan="1">Script opcode 24 (walk the bird vertically).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be7d"></span>BE7D</td>
+<td class="instruction">DEFW $0001</td>
+<td class="comment-1" rowspan="1">Script opcode 01 (jump to script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be7f"></span>BE7F</td>
+<td class="instruction">DEFW <a href="BE6D.html#be79">BirdScript_RiseLoop</a></td>
+<td class="comment-1" rowspan="1">Jump to script address <a href="BE6D.html#be79">BirdScript_RiseLoop</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="be81"></span>
+<div class="comments">
+<div class="paragraph">
+Idle and horizontal-walk loop entered from <a href="BF8F.html#bfb9">ScriptRoutine_TaskTwoWalkVertical_RunIdleScript</a> and <a href="BFEA.html#bffa">ScriptRoutine_TaskTwoWalkRight_RunIdleScript</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BirdScript_IdleLoop</td>
+<td class="address-1"><span id="be81"></span>BE81</td>
+<td class="instruction">DEFB $02,$C1</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="C102.html">Data_TaskHelperLayouts</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be83"></span>BE83</td>
+<td class="instruction">DEFW $0026</td>
+<td class="comment-1" rowspan="1">Script opcode 26 (walk the bird horizontally).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be85"></span>BE85</td>
+<td class="instruction">DEFW $0001</td>
+<td class="comment-1" rowspan="1">Script opcode 01 (jump to script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be87"></span>BE87</td>
+<td class="instruction">DEFW <a href="BE6D.html#be81">BirdScript_IdleLoop</a></td>
+<td class="comment-1" rowspan="1">Jump to script address <a href="BE6D.html#be81">BirdScript_IdleLoop</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="be89"></span>
+<div class="comments">
+<div class="paragraph">
+Turn-around and walk-right loop entered from <a href="C000.html#c021">ScriptRoutine_TaskTwoWalkHorizontal_RunTurnScript</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BirdScript_TurnLoop</td>
+<td class="address-1"><span id="be89"></span>BE89</td>
+<td class="instruction">DEFB $02,$C1</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="C102.html">Data_TaskHelperLayouts</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be8b"></span>BE8B</td>
+<td class="instruction">DEFW $0025</td>
+<td class="comment-1" rowspan="1">Script opcode 25 (walk the bird right).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be8d"></span>BE8D</td>
+<td class="instruction">DEFW $0001</td>
+<td class="comment-1" rowspan="1">Script opcode 01 (jump to script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be8f"></span>BE8F</td>
+<td class="instruction">DEFW <a href="BE6D.html#be89">BirdScript_TurnLoop</a></td>
+<td class="comment-1" rowspan="1">Jump to script address <a href="BE6D.html#be89">BirdScript_TurnLoop</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="be91"></span>
+<div class="comments">
+<div class="paragraph">
+Wander script entered from <a href="BEE6.html#bf6b">BF6B</a>. <a href="BEE6.html#bf68">BF68</a> rewrites <a href="BE6D.html#be9b">BE9B</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BirdScript_Wander</td>
+<td class="address-1"><span id="be91"></span>BE91</td>
+<td class="instruction">DEFW $0021</td>
+<td class="comment-1" rowspan="1">Script opcode 21 (start counted script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be93"></span>BE93</td>
+<td class="instruction">DEFB $14,$00</td>
+<td class="comment-1" rowspan="1">Loop count 14 (<a href="EC53.html">ScriptRoutine_StartScriptLoop</a> reads only the low byte).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be95"></span>BE95</td>
+<td class="instruction">DEFB $2F,$C1</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="C102.html#c12f">C12F</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be97"></span>BE97</td>
+<td class="instruction">DEFW $0022</td>
+<td class="comment-1" rowspan="1">Script opcode 22 (end script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be99"></span>BE99</td>
+<td class="instruction">DEFW $0021</td>
+<td class="comment-1" rowspan="1">Script opcode 21 (start counted script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be9b"></span>BE9B</td>
+<td class="instruction">DEFB $12,$00</td>
+<td class="comment-1" rowspan="1">Loop count 12 (rewritten by <a href="BEE6.html#bf68">BF68</a>). <a href="EC53.html">ScriptRoutine_StartScriptLoop</a> reads the low byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be9d"></span>BE9D</td>
+<td class="instruction">DEFB $2F,$C1</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="C102.html#c12f">C12F</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="be9f"></span>BE9F</td>
+<td class="instruction">DEFW $0025</td>
+<td class="comment-1" rowspan="1">Script opcode 25 (walk the bird right).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bea1"></span>BEA1</td>
+<td class="instruction">DEFW $0022</td>
+<td class="comment-1" rowspan="1">Script opcode 22 (end script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bea3"></span>BEA3</td>
+<td class="instruction">DEFW $0021</td>
+<td class="comment-1" rowspan="1">Script opcode 21 (start counted script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bea5"></span>BEA5</td>
+<td class="instruction">DEFB $28,$00</td>
+<td class="comment-1" rowspan="1">Loop count 28 (<a href="EC53.html">ScriptRoutine_StartScriptLoop</a> reads only the low byte).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bea7"></span>BEA7</td>
+<td class="instruction">DEFB $19,$C1</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="C102.html#c119">C119</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bea9"></span>BEA9</td>
+<td class="instruction">DEFW $0022</td>
+<td class="comment-1" rowspan="1">Script opcode 22 (end script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="beab"></span>BEAB</td>
+<td class="instruction">DEFW $0021</td>
+<td class="comment-1" rowspan="1">Script opcode 21 (start counted script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bead"></span>BEAD</td>
+<td class="instruction">DEFB $0A,$00</td>
+<td class="comment-1" rowspan="1">Loop count 0A (<a href="EC53.html">ScriptRoutine_StartScriptLoop</a> reads only the low byte).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="beaf"></span>BEAF</td>
+<td class="instruction">DEFB $24,$C1</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="C102.html#c124">C124</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="beb1"></span>BEB1</td>
+<td class="instruction">DEFW $0022</td>
+<td class="comment-1" rowspan="1">Script opcode 22 (end script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="beb3"></span>BEB3</td>
+<td class="instruction">DEFW $0027</td>
+<td class="comment-1" rowspan="1">Script opcode 27 (spawn or refresh the bird helper).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="beb5"></span>BEB5</td>
+<td class="instruction">DEFW $0001</td>
+<td class="comment-1" rowspan="1">Script opcode 01 (jump to script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="beb7"></span>BEB7</td>
+<td class="instruction">DEFW <a href="BE6D.html#be81">BirdScript_IdleLoop</a></td>
+<td class="comment-1" rowspan="1">Jump to script address <a href="BE6D.html#be81">BirdScript_IdleLoop</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="beb9"></span>
+<div class="comments">
+<div class="paragraph">
+Bound and rise-on-event loop entered from <a href="BF8F.html#bfb3">BFB3</a> and <a href="C000.html#c01b">ScriptRoutine_TaskTwoWalkHorizontal_RunBoundScript</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BirdScript_BoundLoop</td>
+<td class="address-1"><span id="beb9"></span>BEB9</td>
+<td class="instruction">DEFB $02,$C1</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="C102.html">Data_TaskHelperLayouts</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bebb"></span>BEBB</td>
+<td class="instruction">DEFW $0029</td>
+<td class="comment-1" rowspan="1">Script opcode 29 (raise the bird on its event bit).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bebd"></span>BEBD</td>
+<td class="instruction">DEFW $0001</td>
+<td class="comment-1" rowspan="1">Script opcode 01 (jump to script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bebf"></span>BEBF</td>
+<td class="instruction">DEFW <a href="BE6D.html#beb9">BirdScript_BoundLoop</a></td>
+<td class="comment-1" rowspan="1">Jump to script address <a href="BE6D.html#beb9">BirdScript_BoundLoop</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bec1"></span>
+<div class="comments">
+<div class="paragraph">
+Alternate wander script entered from <a href="BEE6.html#bf71">Update_TaskTwo_AltScript</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BirdScript_AltWander</td>
+<td class="address-1"><span id="bec1"></span>BEC1</td>
+<td class="instruction">DEFW $0021</td>
+<td class="comment-1" rowspan="1">Script opcode 21 (start counted script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bec3"></span>BEC3</td>
+<td class="instruction">DEFB $10,$00</td>
+<td class="comment-1" rowspan="1">Loop count 10 (<a href="EC53.html">ScriptRoutine_StartScriptLoop</a> reads only the low byte).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bec5"></span>BEC5</td>
+<td class="instruction">DEFB $2F,$C1</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="C102.html#c12f">C12F</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bec7"></span>BEC7</td>
+<td class="instruction">DEFW $0022</td>
+<td class="comment-1" rowspan="1">Script opcode 22 (end script loop).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bec9"></span>BEC9</td>
+<td class="instruction">DEFW $0001</td>
+<td class="comment-1" rowspan="1">Script opcode 01 (jump to script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="becb"></span>BECB</td>
+<td class="instruction">DEFW <a href="BE6D.html#be89">BirdScript_TurnLoop</a></td>
+<td class="comment-1" rowspan="1">Jump to script address <a href="BE6D.html#be89">BirdScript_TurnLoop</a>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="BDC3.html">BDC3</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#be6d">Map</a></td>
+<td class="next">
+Next: <a href="BECD.html">BECD</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/48749.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

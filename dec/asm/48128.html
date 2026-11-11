@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at 48128</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at 48128. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at 48128" />
+<meta property="og:description" content="The Trap Door: Data at 48128. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/48128.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/48128.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at 48128",
+"name": "The Trap Door: Data at 48128",
+"description": "The Trap Door: Data at 48128. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/48128.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at 48128"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/48128.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="47525.html">47525</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#48128">Map</a></td>
+<td class="next">
+Next: <a href="48146.html">48146</a>
+</td>
+</tr>
+</table>
+<div class="description">48128: Data: Thing Upstairs Script Tail</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Continuation of the Thing Upstairs script that starts at <a href="47525.html#48096">48096</a>. <a href="48257.html#48297">48297</a> points <span class="register">HL</span> at <a href="48128.html#48142">48142</a> and enters <a href="60462.html#60464">ScriptInstruction</a>; <a href="48498.html#48570">48570</a> arms the same script via <a href="29401.html">Pointer_ThingUpstairsScriptPosition</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Data_ThingUpstairsScriptTail</td>
+<td class="address-1"><span id="48128"></span>48128</td>
+<td class="instruction">DEFW <a href="48579.html">GraphicLayout_Ghost</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="48579.html">GraphicLayout_Ghost</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48130"></span>48130</td>
+<td class="instruction">DEFW 53</td>
+<td class="comment-1" rowspan="1">Script opcode 53 (fill attribute rows).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48132"></span>48132</td>
+<td class="instruction">DEFW <a href="48579.html">GraphicLayout_Ghost</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="48579.html">GraphicLayout_Ghost</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48134"></span>48134</td>
+<td class="instruction">DEFW <a href="48579.html">GraphicLayout_Ghost</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="48579.html">GraphicLayout_Ghost</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48136"></span>48136</td>
+<td class="instruction">DEFW <a href="48579.html">GraphicLayout_Ghost</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="48579.html">GraphicLayout_Ghost</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48138"></span>48138</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48140"></span>48140</td>
+<td class="instruction">DEFW <a href="47525.html#48116">48116</a></td>
+<td class="comment-1" rowspan="1">Script address <a href="47525.html#48116">48116</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48142"></span>48142</td>
+<td class="instruction">DEFW <a href="48579.html">GraphicLayout_Ghost</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="48579.html">GraphicLayout_Ghost</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48144"></span>48144</td>
+<td class="instruction">DEFW 51</td>
+<td class="comment-1" rowspan="1">Script opcode 51 (clear attribute file / reset slot).</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="47525.html">47525</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#48128">Map</a></td>
+<td class="next">
+Next: <a href="48146.html">48146</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/BC00.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at BD72</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at BD72. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at BD72" />
+<meta property="og:description" content="The Trap Door: Routine at BD72. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/BD72.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/BD72.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at BD72",
+"name": "The Trap Door: Routine at BD72",
+"description": "The Trap Door: Routine at BD72. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/BD72.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at BD72"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/BD72.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="BD3C.html">BD3C</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#bd72">Map</a></td>
+<td class="next">
+Next: <a href="BDC3.html">BDC3</a>
+</td>
+</tr>
+</table>
+<div class="description">BD72: Test Thing Upstairs Overlap</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="BC81.html">ScriptRoutine_ThingUpstairsChase</a>.
+</div>
+<div class="paragraph">
+Return 01 in <span class="register">A</span> when the Thing Upstairs entity overlaps Berk on X (<a href="7303.html">BerkXCoordinateCopy</a> / <a href="7304.html">BerkXExtentCopy</a>) and the camera-follow entity (<a href="8EF3.html#909b">StateData_Berk</a>) on Y while Berk's room copy is 00. Otherwise return 00.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Address of the Thing Upstairs entity's complex state data</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bd72"></span>
+<div class="comments">
+<div class="paragraph">
+Horizontal overlap against Berk's X / X-extent copies.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Test_ThingUpstairs_Overlap</td>
+<td class="address-2"><span id="bd72"></span>BD72</td>
+<td class="instruction">LD A,($7304)</td>
+<td class="comment-1" rowspan="1">Load Berk's X-extent copy (<a href="7304.html">BerkXExtentCopy</a>) into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd75"></span>BD75</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1">Step that right edge back by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd76"></span>BD76</td>
+<td class="instruction">CP (IX+$07)</td>
+<td class="comment-1" rowspan="2">Is Berk's right edge left of the Thing Upstairs entity's left edge (<span class="register">IX</span>+07)? If so, no overlap, so return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd79"></span>BD79</td>
+<td class="instruction">RET C</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd7a"></span>BD7A</td>
+<td class="instruction">LD A,($7303)</td>
+<td class="comment-1" rowspan="1">Load Berk's X-coordinate copy (<a href="7303.html">BerkXCoordinateCopy</a>) into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd7d"></span>BD7D</td>
+<td class="instruction">CP (IX+$08)</td>
+<td class="comment-1" rowspan="2">Is Berk's left edge at or beyond the Thing Upstairs entity's right edge (<span class="register">IX</span>+08)? If so, no overlap, so return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd80"></span>BD80</td>
+<td class="instruction">RET NC</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bd81"></span>
+<div class="comments">
+<div class="paragraph">
+Vertical overlap against the camera-follow entity.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd81"></span>BD81</td>
+<td class="instruction">LD A,(IX+$06)</td>
+<td class="comment-1" rowspan="1">Load the Thing Upstairs entity's y-extent (bottom edge) into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd84"></span>BD84</td>
+<td class="instruction">LD IY,$909B</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IY</span> at the camera-follow entity (<a href="8EF3.html#909b">StateData_Berk</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd88"></span>BD88</td>
+<td class="instruction">LD C,(IY+$06)</td>
+<td class="comment-1" rowspan="1">Load the camera-follow entity's y-extent into <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd8b"></span>BD8B</td>
+<td class="instruction">CP (IY+$05)</td>
+<td class="comment-1" rowspan="2">Is the Thing Upstairs entity's bottom above the camera-follow entity's top (<span class="register">IY</span>+05)? If so, no overlap, so return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd8e"></span>BD8E</td>
+<td class="instruction">RET C</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd8f"></span>BD8F</td>
+<td class="instruction">LD A,(IX+$05)</td>
+<td class="comment-1" rowspan="1">Load the Thing Upstairs entity's y-coordinate (top edge) into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd92"></span>BD92</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="2">Advance that top edge by two.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd93"></span>BD93</td>
+<td class="instruction">INC A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd94"></span>BD94</td>
+<td class="instruction">CP C</td>
+<td class="comment-1" rowspan="2">Is that raised top at or below the camera-follow entity's bottom in <span class="register">C</span>? If so, no overlap, so return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd95"></span>BD95</td>
+<td class="instruction">RET NC</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bd96"></span>
+<div class="comments">
+<div class="paragraph">
+Accept only when Berk's room copy is 00.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd96"></span>BD96</td>
+<td class="instruction">LD A,($7305)</td>
+<td class="comment-1" rowspan="1">Load Berk's room-index copy (<a href="7305.html">BerkRoomIndexCopy</a>) into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd99"></span>BD99</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is Berk in room 00? If not, jump to <a href="BD72.html#bd9e">Test_ThingUpstairs_Overlap_NoMatch</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd9a"></span>BD9A</td>
+<td class="instruction">JR NZ,<a href="BD72.html#bd9e">Test_ThingUpstairs_Overlap_NoMatch</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd9c"></span>BD9C</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Set <span class="register">A</span> to 01 as a successful overlap result.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd9d"></span>BD9D</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bd9e"></span>
+<div class="comments">
+<div class="paragraph">
+No Thing Upstairs overlap (wrong room or miss): return 00 in <span class="register">A</span>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Test_ThingUpstairs_Overlap_NoMatch</td>
+<td class="address-2"><span id="bd9e"></span>BD9E</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">A</span> as a false / no-match result.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd9f"></span>BD9F</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bda0"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="BC12.html">Update_ThingUpstairs_Entity</a>.
+</div>
+<div class="paragraph">
+Entry from <a href="BC12.html">Update_ThingUpstairs_Entity</a> when slot 20 is not Thing Upstairs: maybe arm the Thing Upstairs script/sound.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_ThingUpstairs_Entity_ArmSpawn</td>
+<td class="address-2"><span id="bda0"></span>BDA0</td>
+<td class="instruction">LD A,($72B3)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the game event flags (<a href="72B3.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bda3"></span>BDA3</td>
+<td class="instruction">BIT 1,A</td>
+<td class="comment-1" rowspan="2">Is "trap door is open / trap door event armed" (bit 01 of <a href="72B3.html">GameEventFlags</a>) set? If not, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bda5"></span>BDA5</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bda6"></span>BDA6</td>
+<td class="instruction">LD A,$3C</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with random maximum 3C.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bda8"></span>BDA8</td>
+<td class="instruction">CALL <a href="EAE5.html">PseudoRandom</a></td>
+<td class="comment-1" rowspan="1">Call <a href="EAE5.html">PseudoRandom</a> to pick a pseudo-random value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bdab"></span>BDAB</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is that random value zero? If not, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bdac"></span>BDAC</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bdad"></span>
+<div class="comments">
+<div class="paragraph">
+<audio controls="" src="../audio/game-event.wav">
+<p>Your browser doesn't support HTML5 audio. Here is a <a href="../audio/game-event.wav">link to the audio</a> instead.</p>
+</audio>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bdad"></span>BDAD</td>
+<td class="instruction">LD A,$88</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 88.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bdaf"></span>BDAF</td>
+<td class="instruction">CALL <a href="F8F9.html">Queue_Sound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="F8F9.html">Queue_Sound</a> to queue a sound effect.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bdb2"></span>BDB2</td>
+<td class="instruction">LD HL,$72B3</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the game event flags (<a href="72B3.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bdb5"></span>BDB5</td>
+<td class="instruction">SET 4,(HL)</td>
+<td class="comment-1" rowspan="1">Set "task-two / upstairs event latch" (bit 04 of <a href="72B3.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bdb7"></span>BDB7</td>
+<td class="instruction">LD HL,$BBE0</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the Thing Upstairs script (<a href="B9A5.html#bbe0">BBE0</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bdba"></span>BDBA</td>
+<td class="instruction">LD ($72D9),HL</td>
+<td class="comment-1" rowspan="1">Store <span class="register">HL</span> in <a href="72D9.html">Pointer_ThingUpstairsScriptPosition</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bdbd"></span>BDBD</td>
+<td class="instruction">LD A,$22</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 22.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bdbf"></span>BDBF</td>
+<td class="instruction">LD ($9001),A</td>
+<td class="comment-1" rowspan="1">Store <span class="register">A</span> in complex entity slot 20's type (<a href="8EF3.html#9001">StateData_Complex_20</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bdc2"></span>BDC2</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="BD3C.html">BD3C</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#bd72">Map</a></td>
+<td class="next">
+Next: <a href="BDC3.html">BDC3</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/48498.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

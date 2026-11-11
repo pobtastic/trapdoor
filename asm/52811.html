@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at CE4B</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at CE4B. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at CE4B" />
+<meta property="og:description" content="The Trap Door: Routine at CE4B. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/52811.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/52811.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at CE4B",
+"name": "The Trap Door: Routine at CE4B",
+"description": "The Trap Door: Routine at CE4B. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/52811.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at CE4B"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/52811.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52674.html">CDC2</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#ce4b">Map</a></td>
+<td class="next">
+Next: <a href="52961.html">CEE1</a>
+</td>
+</tr>
+</table>
+<div class="description">CE4B: Update Ghosts</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="51879.html">Update_Task_Four_Entities</a>.
+</div>
+<div class="paragraph">
+Update the ghost entities: clear their interaction latch, walk their scripts and queue a moan if one is active.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Ghosts</td>
+<td class="address-2"><span id="ce4b"></span>CE4B</td>
+<td class="instruction">LD HL,$72B9</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the entity interaction flag (<a href="29369.html">EntityInteractionFlag</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce4e"></span>CE4E</td>
+<td class="instruction">BIT 3,(HL)</td>
+<td class="comment-1" rowspan="2">Is bit 03 of <a href="29369.html">EntityInteractionFlag</a> set? If not, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce50"></span>CE50</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce51"></span>CE51</td>
+<td class="instruction">RES 3,(HL)</td>
+<td class="comment-1" rowspan="1">Clear bit 03 of <a href="29369.html">EntityInteractionFlag</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce53"></span>CE53</td>
+<td class="instruction">LD IX,$8F75</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the plant-pot complex entity (<a href="36595.html#8f75">StateData_Complex_10</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce57"></span>CE57</td>
+<td class="instruction">LD B,$03</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 03 as a loop counter.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Ghosts_Scan</td>
+<td class="address-2"><span id="ce59"></span>CE59</td>
+<td class="instruction">LD A,(IX+$09)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's direction / state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce5c"></span>CE5C</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the current entity's direction / state zero? If so, jump to <a href="52811.html#cebf">Update_Ghosts_AdvanceSlot</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce5d"></span>CE5D</td>
+<td class="instruction">JR Z,<a href="52811.html#cebf">Update_Ghosts_AdvanceSlot</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce5f"></span>CE5F</td>
+<td class="instruction">CP $0B</td>
+<td class="comment-1" rowspan="2">Is the current entity's direction / state less than 0B? If not, jump to <a href="52811.html#cebf">Update_Ghosts_AdvanceSlot</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce61"></span>CE61</td>
+<td class="instruction">JR NC,<a href="52811.html#cebf">Update_Ghosts_AdvanceSlot</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce63"></span>CE63</td>
+<td class="instruction">LD A,(IX+$0C)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's extra state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce66"></span>CE66</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the current entity's extra state zero? If so, jump to <a href="52811.html#ce6e">Update_Ghosts_AdvanceFrame</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce67"></span>CE67</td>
+<td class="instruction">JR Z,<a href="52811.html#ce6e">Update_Ghosts_AdvanceFrame</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce69"></span>CE69</td>
+<td class="instruction">DEC (IX+$0C)</td>
+<td class="comment-1" rowspan="1">Decrease the current entity's extra state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce6c"></span>CE6C</td>
+<td class="instruction">JR <a href="52811.html#cebd">Update_Ghosts_RetriggerBit3</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="52811.html#cebd">Update_Ghosts_RetriggerBit3</a> to mark this ghost slot done.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Ghosts_AdvanceFrame</td>
+<td class="address-2"><span id="ce6e"></span>CE6E</td>
+<td class="instruction">LD A,(IX+$09)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's direction / state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce71"></span>CE71</td>
+<td class="instruction">CP $0A</td>
+<td class="comment-1" rowspan="2">Is the current entity's direction / state less than 0A? If so, jump to <a href="52811.html#ce8b">Update_Ghosts_WriteLayoutFromTable</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce73"></span>CE73</td>
+<td class="instruction">JR C,<a href="52811.html#ce8b">Update_Ghosts_WriteLayoutFromTable</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce75"></span>CE75</td>
+<td class="instruction">LD C,$0C</td>
+<td class="comment-1" rowspan="1">Load <span class="register">C</span> with 0C (vertical offset passed to <a href="52961.html">Update_Plant_Pots</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce77"></span>CE77</td>
+<td class="instruction">CALL <a href="52961.html">Update_Plant_Pots</a></td>
+<td class="comment-1" rowspan="1">Call <a href="52961.html">Update_Plant_Pots</a> to update Plant Pots.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce7a"></span>CE7A</td>
+<td class="instruction">SET 7,(IY+$01)</td>
+<td class="comment-1" rowspan="1">Set bit 07 of the referenced entity's entity flags.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce7e"></span>CE7E</td>
+<td class="instruction">INC (IY+$04)</td>
+<td class="comment-1" rowspan="1">Increment the referenced entity's room index.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce81"></span>CE81</td>
+<td class="instruction">LD A,($72B3)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the game event flags (<a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce84"></span>CE84</td>
+<td class="instruction">SET 0,A</td>
+<td class="comment-1" rowspan="1">Set bit 00 of game event flags.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce86"></span>CE86</td>
+<td class="instruction">LD ($72B3),A</td>
+<td class="comment-1" rowspan="1">Set the game event flags (<a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce89"></span>CE89</td>
+<td class="instruction">LD A,$0A</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 0A.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Ghosts_WriteLayoutFromTable</td>
+<td class="address-2"><span id="ce8b"></span>CE8B</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Advance the ghost frame index in <span class="register">A</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce8c"></span>CE8C</td>
+<td class="instruction">LD (IX+$09),A</td>
+<td class="comment-1" rowspan="1">Set the current entity's direction / state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce8f"></span>CE8F</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-1" rowspan="1">Double 0A (word index).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce90"></span>CE90</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1">Keep 0A in <span class="register">E</span> for later.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce91"></span>CE91</td>
+<td class="instruction">LD D,$00</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">D</span> (high byte of a pointer/offset).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce93"></span>CE93</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">HL</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce94"></span>CE94</td>
+<td class="instruction">LD HL,$CEC9</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at ghost script/table data (CEC9).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce97"></span>CE97</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">Add the offset in <span class="register">DE</span> to the pointer in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce98"></span>CE98</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the next byte from CEC9.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce99"></span>CE99</td>
+<td class="instruction">LD (IX+$0A),A</td>
+<td class="comment-1" rowspan="1">Set the current entity's graphic layout address (low).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce9c"></span>CE9C</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance CEC9 by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce9d"></span>CE9D</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the next byte from CEC9.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce9e"></span>CE9E</td>
+<td class="instruction">LD (IX+$0B),A</td>
+<td class="comment-1" rowspan="1">Set the current entity's graphic layout address (high).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cea1"></span>CEA1</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cea2"></span>CEA2</td>
+<td class="instruction">LD A,(IX+$09)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's direction / state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cea5"></span>CEA5</td>
+<td class="instruction">CP $07</td>
+<td class="comment-1" rowspan="2">Is the current entity's direction / state equal to 07? If not, jump to <a href="52811.html#cead">Update_Ghosts_RandomExtraState</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cea7"></span>CEA7</td>
+<td class="instruction">JR NZ,<a href="52811.html#cead">Update_Ghosts_RandomExtraState</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cea9"></span>CEA9</td>
+<td class="instruction">LD A,$05</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 05.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ceab"></span>CEAB</td>
+<td class="instruction">JR <a href="52811.html#ceb5">Update_Ghosts_StoreExtraAndMoan</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="52811.html#ceb5">Update_Ghosts_StoreExtraAndMoan</a> to store the ghost's extra state.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Ghosts_RandomExtraState</td>
+<td class="address-2"><span id="cead"></span>CEAD</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-1" rowspan="1">Double the frame index in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ceae"></span>CEAE</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-1" rowspan="1">Double 05 (word index).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ceaf"></span>CEAF</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-1" rowspan="1">Double 05 (word index).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ceb0"></span>CEB0</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Keep 05 in <span class="register">C</span> for later.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ceb1"></span>CEB1</td>
+<td class="instruction">CALL <a href="60133.html">PseudoRandom</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60133.html">PseudoRandom</a> to pick a pseudo-random value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ceb4"></span>CEB4</td>
+<td class="instruction">ADD A,C</td>
+<td class="comment-1" rowspan="1">Add the saved count in <span class="register">C</span> to <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Ghosts_StoreExtraAndMoan</td>
+<td class="address-2"><span id="ceb5"></span>CEB5</td>
+<td class="instruction">LD (IX+$0C),A</td>
+<td class="comment-1" rowspan="1">Set the current entity's extra state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ceb8"></span>CEB8</td>
+<td class="instruction">LD A,$0F</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 0F.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ceba"></span>CEBA</td>
+<td class="instruction">CALL <a href="63737.html">Queue_Sound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="63737.html">Queue_Sound</a> to queue a sound effect.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Ghosts_RetriggerBit3</td>
+<td class="address-2"><span id="cebd"></span>CEBD</td>
+<td class="instruction">SET 3,(HL)</td>
+<td class="comment-1" rowspan="1">Set bit 03 of <a href="29369.html">EntityInteractionFlag</a> (tested by <a href="52811.html">Update_Ghosts</a>).</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Ghosts_AdvanceSlot</td>
+<td class="address-2"><span id="cebf"></span>CEBF</td>
+<td class="instruction">LD DE,$000E</td>
+<td class="comment-1" rowspan="1">Each entity record is 000E bytes long, then load that length into <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cec2"></span>CEC2</td>
+<td class="instruction">ADD IX,DE</td>
+<td class="comment-1" rowspan="1">Advance <span class="register">IX</span> to the next entity record.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cec4"></span>CEC4</td>
+<td class="instruction">DEC B</td>
+<td class="comment-1" rowspan="1">Step the loop counter in <span class="register">B</span> back by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cec5"></span>CEC5</td>
+<td class="instruction">JP NZ,<a href="52811.html#ce59">Update_Ghosts_Scan</a></td>
+<td class="comment-1" rowspan="1">If the result was non-zero, jump to <a href="52811.html#ce59">Update_Ghosts_Scan</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cec8"></span>CEC8</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cec9"></span>CEC9</td>
+<td class="instruction">ADD A,D</td>
+<td class="comment-1" rowspan="1">Add <span class="register">D</span> into <span class="register">A</span> while building a 16-bit entity/screen address.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ceca"></span>CECA</td>
+<td class="instruction">AND B</td>
+<td class="comment-1" rowspan="1">Mask 0F with <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cecb"></span>CECB</td>
+<td class="instruction">ADD A,D</td>
+<td class="comment-1" rowspan="1">Add <span class="register">D</span> into <span class="register">A</span> while building a 16-bit entity/screen address.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cecc"></span>CECC</td>
+<td class="instruction">AND B</td>
+<td class="comment-1" rowspan="1">Mask 0F with <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cecd"></span>CECD</td>
+<td class="instruction">AND B</td>
+<td class="comment-1" rowspan="1">Mask 0F with <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cece"></span>CECE</td>
+<td class="instruction">AND B</td>
+<td class="comment-1" rowspan="1">Mask 0F with <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cecf"></span>CECF</td>
+<td class="instruction">XOR C</td>
+<td class="comment-1" rowspan="1">Toggle bits of the flag byte in <span class="register">A</span> using <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ced0"></span>CED0</td>
+<td class="instruction">AND B</td>
+<td class="comment-1" rowspan="1">Mask 0F with <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ced1"></span>CED1</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ced2"></span>CED2</td>
+<td class="instruction">AND B</td>
+<td class="comment-1" rowspan="1">Mask 0F with <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ced3"></span>CED3</td>
+<td class="instruction">OR L</td>
+<td class="comment-1" rowspan="1">Merge another flag byte into 0F.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ced4"></span>CED4</td>
+<td class="instruction">AND B</td>
+<td class="comment-1" rowspan="1">Mask 0F with <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ced5"></span>CED5</td>
+<td class="instruction">CP E</td>
+<td class="comment-1" rowspan="1">Compare 0F with <span class="register">E</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ced6"></span>CED6</td>
+<td class="instruction">AND B</td>
+<td class="comment-1" rowspan="1">Mask 0F with <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ced7"></span>CED7</td>
+<td class="instruction">ADC A,$A0</td>
+<td class="comment-1" rowspan="1">Add A0 into <span class="register">A</span> (with carry) for an attribute address.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ced9"></span>CED9</td>
+<td class="instruction">JP C,$E3A0</td>
+<td class="comment-1" rowspan="1">If a hit/borrow was signaled, jump to E3A0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cedc"></span>CEDC</td>
+<td class="instruction">AND B</td>
+<td class="comment-1" rowspan="1">Mask 0F with <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cedd"></span>CEDD</td>
+<td class="instruction">JP P,$F8A0</td>
+<td class="comment-1" rowspan="1">Jump to <a href="63296.html#f8a0">Font_MainMenuLogo_0</a> if the sign flag is reset.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cee0"></span>CEE0</td>
+<td class="instruction">AND B</td>
+<td class="comment-1" rowspan="1">Mask 0F with <span class="register">B</span>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52674.html">CDC2</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#ce4b">Map</a></td>
+<td class="next">
+Next: <a href="52961.html">CEE1</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/337937.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at CAC4</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at CAC4. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at CAC4" />
+<meta property="og:description" content="The Trap Door: Routine at CAC4. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/CAC4.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/CAC4.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at CAC4",
+"name": "The Trap Door: Routine at CAC4",
+"description": "The Trap Door: Routine at CAC4. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/CAC4.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at CAC4"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/CAC4.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="CAA7.html">CAA7</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#cac4">Map</a></td>
+<td class="next">
+Next: <a href="CAF0.html">CAF0</a>
+</td>
+</tr>
+</table>
+<div class="description">CAC4: Update Task Four Entity State</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="CAA7.html">Update_Task_Four_Entities</a>.
+</div>
+<div class="paragraph">
+Advance task-four entity scripts and start/stop the entity when game event flags at <a href="72B3.html">GameEventFlags</a> change.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_TaskFourEntityState</td>
+<td class="address-2"><span id="cac4"></span>CAC4</td>
+<td class="instruction">LD A,($72B3)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the game event flags (<a href="72B3.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cac7"></span>CAC7</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-1" rowspan="2">Is bit 07 of game event flags set? If so, jump to <a href="EC2E.html">AdvanceScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cac9"></span>CAC9</td>
+<td class="instruction">JP NZ,<a href="EC2E.html">AdvanceScriptInstruction</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cacc"></span>CACC</td>
+<td class="instruction">BIT 7,(IX+$00)</td>
+<td class="comment-1" rowspan="2">Is bit 07 of the current entity's entity type set? If so, jump to <a href="CAC4.html#cae6">Update_TaskFour_StopEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cad0"></span>CAD0</td>
+<td class="instruction">JR NZ,<a href="CAC4.html#cae6">Update_TaskFour_StopEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cad2"></span>CAD2</td>
+<td class="instruction">BIT 1,A</td>
+<td class="comment-1" rowspan="2">Is bit 01 of game event flags set? If so, jump to <a href="EC2E.html">AdvanceScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cad4"></span>CAD4</td>
+<td class="instruction">JP NZ,<a href="EC2E.html">AdvanceScriptInstruction</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="cad7"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="CAF0.html">ScriptRoutine_TaskFourClearScriptFlags</a>.
+</div>
+<div class="paragraph">
+Shared entry used by script routine <a href="CAF0.html">ScriptRoutine_TaskFourClearScriptFlags</a> to start the task-four entity script.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_TaskFour_StartEntity</td>
+<td class="address-2"><span id="cad7"></span>CAD7</td>
+<td class="instruction">SET 7,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Set bit 07 of the current entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cadb"></span>CADB</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear the current task phase (idle).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cadc"></span>CADC</td>
+<td class="instruction">LD ($72AF),A</td>
+<td class="comment-1" rowspan="1">Set the current task phase (<a href="72AF.html">CurrentTaskPhase</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cadf"></span>CADF</td>
+<td class="instruction">LD HL,$CA23</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at task-four script <a href="CA23.html">Data_TaskFourScript</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cae2"></span>CAE2</td>
+<td class="instruction">LD ($72CF),HL</td>
+<td class="comment-1" rowspan="1">Store <span class="register">HL</span> in the active script cursor (<a href="72CF.html">Pointer_ActiveScriptCursor</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cae5"></span>CAE5</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="cae6"></span>
+<div class="comments">
+<div class="paragraph">
+Stop the task-four entity when game-event bit 01 is set: clear type bit 07 and continue the script.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_TaskFour_StopEntity</td>
+<td class="address-2"><span id="cae6"></span>CAE6</td>
+<td class="instruction">BIT 1,A</td>
+<td class="comment-1" rowspan="2">Is bit 01 of game event flags set? If not, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cae8"></span>CAE8</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cae9"></span>CAE9</td>
+<td class="instruction">RES 7,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Reset bit 07 of the current entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="caed"></span>CAED</td>
+<td class="instruction">JP <a href="EC2E.html">AdvanceScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="EC2E.html">AdvanceScriptInstruction</a> to run the next script instruction.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="CAA7.html">CAA7</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#cac4">Map</a></td>
+<td class="next">
+Next: <a href="CAF0.html">CAF0</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/51908.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

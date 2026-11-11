@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at A839</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at A839. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at A839" />
+<meta property="og:description" content="The Trap Door: Data at A839. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/A839.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/A839.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at A839",
+"name": "The Trap Door: Data at A839",
+"description": "The Trap Door: Data at A839. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/A839.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at A839"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/A839.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="A827.html">A827</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#a839">Map</a></td>
+<td class="next">
+Next: <a href="A8CC.html">A8CC</a>
+</td>
+</tr>
+</table>
+<div class="description">A839: Graphic Layout: Blue Staircase</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Blue staircase. Referenced from scenery entities at <a href="8B69.html">StateData_SimpleEntities</a> through <a href="8B69.html#8bbd">8BBD</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="a839"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-a839" src="../images/scr/layout-a839.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GraphicLayout_BlueStaircase</td>
+<td class="address-1"><span id="a839"></span>A839</td>
+<td class="instruction">DEFB $F4,$02</td>
+<td class="comment-1" rowspan="1">Set the graphic set to <a href="81E9.html">02</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a83b"></span>A83B</td>
+<td class="instruction">DEFB $1F,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 1F with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a83e"></span>A83E</td>
+<td class="instruction">DEFB $77,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 77 with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a841"></span>A841</td>
+<td class="instruction">DEFB $78,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 78 with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a844"></span>A844</td>
+<td class="instruction">DEFB $78,$81,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 78 with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (81) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a847"></span>A847</td>
+<td class="instruction">DEFB $77,$81,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 77 with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (81) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a84a"></span>A84A</td>
+<td class="instruction">DEFB $20,$01,$1B</td>
+<td class="comment-1" rowspan="1">Draw tile 20 with INK: BLUE,
+PAPER: BLACK (01) and move left by 05 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a84d"></span>A84D</td>
+<td class="instruction">DEFB $64,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 64 with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a850"></span>A850</td>
+<td class="instruction">DEFB $65,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 65 with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a853"></span>A853</td>
+<td class="instruction">DEFB $66,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 66 with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a856"></span>A856</td>
+<td class="instruction">DEFB $66,$81,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 66 with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (81) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a859"></span>A859</td>
+<td class="instruction">DEFB $65,$81,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 65 with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (81) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a85c"></span>A85C</td>
+<td class="instruction">DEFB $64,$81,$1B</td>
+<td class="comment-1" rowspan="1">Draw tile 64 with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (81) and move left by 05 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a85f"></span>A85F</td>
+<td class="instruction">DEFB $68,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 68 with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a862"></span>A862</td>
+<td class="instruction">DEFB $69,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 69 with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a865"></span>A865</td>
+<td class="instruction">DEFB $6A,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 6A with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a868"></span>A868</td>
+<td class="instruction">DEFB $6A,$81,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 6A with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (81) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a86b"></span>A86B</td>
+<td class="instruction">DEFB $69,$81,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 69 with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (81) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a86e"></span>A86E</td>
+<td class="instruction">DEFB $68,$81,$1B</td>
+<td class="comment-1" rowspan="1">Draw tile 68 with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (81) and move left by 05 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a871"></span>A871</td>
+<td class="instruction">DEFB $6B,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 6B with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a874"></span>A874</td>
+<td class="instruction">DEFB $6C,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 6C with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a877"></span>A877</td>
+<td class="instruction">DEFB $6D,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 6D with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a87a"></span>A87A</td>
+<td class="instruction">DEFB $6D,$81,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 6D with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (81) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a87d"></span>A87D</td>
+<td class="instruction">DEFB $6C,$81,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 6C with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (81) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a880"></span>A880</td>
+<td class="instruction">DEFB $6B,$81,$1B</td>
+<td class="comment-1" rowspan="1">Draw tile 6B with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (81) and move left by 05 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a883"></span>A883</td>
+<td class="instruction">DEFB $6E,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 6E with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a886"></span>A886</td>
+<td class="instruction">DEFB $6F,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 6F with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a889"></span>A889</td>
+<td class="instruction">DEFB $70,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 70 with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a88c"></span>A88C</td>
+<td class="instruction">DEFB $70,$81,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 70 with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (81) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a88f"></span>A88F</td>
+<td class="instruction">DEFB $6F,$81,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 6F with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (81) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a892"></span>A892</td>
+<td class="instruction">DEFB $6E,$81,$1B</td>
+<td class="comment-1" rowspan="1">Draw tile 6E with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (81) and move left by 05 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a895"></span>A895</td>
+<td class="instruction">DEFB $71,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 71 with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a898"></span>A898</td>
+<td class="instruction">DEFB $72,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 72 with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a89b"></span>A89B</td>
+<td class="instruction">DEFB $73,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 73 with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a89e"></span>A89E</td>
+<td class="instruction">DEFB $73,$81,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 73 with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (81) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a8a1"></span>A8A1</td>
+<td class="instruction">DEFB $72,$81,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 72 with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (81) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a8a4"></span>A8A4</td>
+<td class="instruction">DEFB $71,$81,$1B</td>
+<td class="comment-1" rowspan="1">Draw tile 71 with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (81) and move left by 05 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a8a7"></span>A8A7</td>
+<td class="instruction">DEFB $74,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 74 with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a8aa"></span>A8AA</td>
+<td class="instruction">DEFB $75,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 75 with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a8ad"></span>A8AD</td>
+<td class="instruction">DEFB $76,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 76 with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a8b0"></span>A8B0</td>
+<td class="instruction">DEFB $76,$81,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 76 with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (81) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a8b3"></span>A8B3</td>
+<td class="instruction">DEFB $75,$81,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 75 with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (81) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a8b6"></span>A8B6</td>
+<td class="instruction">DEFB $74,$81,$1B</td>
+<td class="comment-1" rowspan="1">Draw tile 74 with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (81) and move left by 05 and down by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a8b9"></span>A8B9</td>
+<td class="instruction">DEFB $77,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 77 with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a8bc"></span>A8BC</td>
+<td class="instruction">DEFB $78,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 78 with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a8bf"></span>A8BF</td>
+<td class="instruction">DEFB $79,$01,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 79 with INK: BLUE,
+PAPER: BLACK (01) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a8c2"></span>A8C2</td>
+<td class="instruction">DEFB $79,$81,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 79 with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (81) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a8c5"></span>A8C5</td>
+<td class="instruction">DEFB $78,$81,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 78 with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (81) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a8c8"></span>A8C8</td>
+<td class="instruction">DEFB $77,$81,$21</td>
+<td class="comment-1" rowspan="1">Draw tile 77 with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (81) and move right by 01&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="a8cb"></span>A8CB</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="A827.html">A827</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#a839">Map</a></td>
+<td class="next">
+Next: <a href="A8CC.html">A8CC</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/43065.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

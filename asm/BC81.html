@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at BC81</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at BC81. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at BC81" />
+<meta property="og:description" content="The Trap Door: Routine at BC81. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/BC81.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/BC81.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at BC81",
+"name": "The Trap Door: Routine at BC81",
+"description": "The Trap Door: Routine at BC81. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/BC81.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at BC81"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/BC81.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="BC64.html">BC64</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#bc81">Map</a></td>
+<td class="next">
+Next: <a href="BD3C.html">BD3C</a>
+</td>
+</tr>
+</table>
+<div class="description">BC81: Script Routine: (34) Thing Upstairs action</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Chase Berk with the Thing Upstairs entity when the two overlap; otherwise keep the script moving.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Address of complex state data for an entity</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_ThingUpstairsChase</td>
+<td class="address-2"><span id="bc81"></span>BC81</td>
+<td class="instruction">CALL <a href="BD72.html">Test_ThingUpstairs_Overlap</a></td>
+<td class="comment-1" rowspan="1">Call <a href="BD72.html">Test_ThingUpstairs_Overlap</a> to test whether the Thing Upstairs entity overlaps Berk / the camera-follow entity.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bc84"></span>BC84</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> zero? If not, jump to <a href="BC81.html#bcb5">ScriptRoutine_ThingUpstairsChase_MoveTick</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bc85"></span>BC85</td>
+<td class="instruction">JR NZ,<a href="BC81.html#bcb5">ScriptRoutine_ThingUpstairsChase_MoveTick</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bc87"></span>BC87</td>
+<td class="instruction">LD IY,$909B</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IY</span> at the camera-follow entity (<a href="8EF3.html#909b">StateData_Berk</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bc8b"></span>BC8B</td>
+<td class="instruction">SET 0,(IY+$03)</td>
+<td class="comment-1" rowspan="1">Set bit 00 of the referenced entity's flags byte 3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bc8f"></span>BC8F</td>
+<td class="instruction">BIT 4,(IY+$03)</td>
+<td class="comment-1" rowspan="2">Is bit 04 of flags byte 3 (<span class="register">IY</span>+03) set? If not, jump to <a href="BC81.html#bcaf">ScriptRoutine_ThingUpstairsChase_RunStorage</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bc93"></span>BC93</td>
+<td class="instruction">JR Z,<a href="BC81.html#bcaf">ScriptRoutine_ThingUpstairsChase_RunStorage</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bc95"></span>BC95</td>
+<td class="instruction">LD IY,($72AC)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">IY</span> with the current-entity pointer (<a href="72AC.html">Pointer_CurrentEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bc99"></span>BC99</td>
+<td class="instruction">BIT 7,(IY+$02)</td>
+<td class="comment-1" rowspan="2">Is bit 07 of the referenced entity's flags byte 2 set? If not, jump to <a href="BC81.html#bcaf">ScriptRoutine_ThingUpstairsChase_RunStorage</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bc9d"></span>BC9D</td>
+<td class="instruction">JR Z,<a href="BC81.html#bcaf">ScriptRoutine_ThingUpstairsChase_RunStorage</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bc9f"></span>BC9F</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear the referenced entity type (deactivate the slot).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bca0"></span>BCA0</td>
+<td class="instruction">LD (IY+$00),A</td>
+<td class="comment-1" rowspan="1">Set the referenced entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bca3"></span>BCA3</td>
+<td class="instruction">LD HL,$BA35</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk script data <a href="B9A5.html#ba35">BerkPutDownScript_CameraFollow</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bca6"></span>BCA6</td>
+<td class="instruction">LD ($72B1),HL</td>
+<td class="comment-1" rowspan="1">Store <span class="register">HL</span> in Berk's script position pointer (<a href="72B1.html">Pointer_BerkScriptPosition</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bca9"></span>BCA9</td>
+<td class="instruction">LD HL,$BC0E</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the Thing Upstairs script tail (<a href="BC00.html#bc0e">BC0E</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bcac"></span>BCAC</td>
+<td class="instruction">JP <a href="EC2E.html#ec30">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="EC2E.html#ec30">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bcaf"></span>
+<div class="comments">
+<div class="paragraph">
+No chase overlap: run the Thing Upstairs storage/idle script at <a href="B9A5.html#bbfc">BBFC</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_ThingUpstairsChase_RunStorage</td>
+<td class="address-2"><span id="bcaf"></span>BCAF</td>
+<td class="instruction">LD HL,$BBFC</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Thing Upstairs storage at <a href="B9A5.html#bbfc">BBFC</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bcb2"></span>BCB2</td>
+<td class="instruction">JP <a href="EC2E.html#ec30">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="EC2E.html#ec30">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bcb5"></span>
+<div class="comments">
+<div class="paragraph">
+Chase tick: random skip, honour move-delay <a href="B9A5.html#bbdf">BBDF</a>, else retarget via <a href="BD3C.html">Update_ThingUpstairs_Movement</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_ThingUpstairsChase_MoveTick</td>
+<td class="address-2"><span id="bcb5"></span>BCB5</td>
+<td class="instruction">LD A,$0A</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 0A.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bcb7"></span>BCB7</td>
+<td class="instruction">CALL <a href="EAE5.html">PseudoRandom</a></td>
+<td class="comment-1" rowspan="1">Call <a href="EAE5.html">PseudoRandom</a> to pick a pseudo-random value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bcba"></span>BCBA</td>
+<td class="instruction">CP $03</td>
+<td class="comment-1" rowspan="2">Is 0A less than 03? If so, jump to <a href="EC2E.html">AdvanceScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bcbc"></span>BCBC</td>
+<td class="instruction">JP C,<a href="EC2E.html">AdvanceScriptInstruction</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bcbf"></span>BCBF</td>
+<td class="instruction">LD A,($BBDF)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> from <a href="B9A5.html#bbdf">BBDF</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bcc2"></span>BCC2</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> zero? If not, jump to <a href="BC81.html#bcca">ScriptRoutine_ThingUpstairsChase_DecMoveDelay</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bcc3"></span>BCC3</td>
+<td class="instruction">JR NZ,<a href="BC81.html#bcca">ScriptRoutine_ThingUpstairsChase_DecMoveDelay</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bcc5"></span>BCC5</td>
+<td class="instruction">CALL <a href="BD3C.html">Update_ThingUpstairs_Movement</a></td>
+<td class="comment-1" rowspan="1">Call <a href="BD3C.html">Update_ThingUpstairs_Movement</a> to update Thing Upstairs Movement.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bcc8"></span>BCC8</td>
+<td class="instruction">JR <a href="BC81.html#bcce">ScriptRoutine_ThingUpstairsChase_ApplyDirection</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="BC81.html#bcce">ScriptRoutine_ThingUpstairsChase_ApplyDirection</a> to continue this routine.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bcca"></span>
+<div class="comments">
+<div class="paragraph">
+Count down the Thing Upstairs move-delay byte at <a href="B9A5.html#bbdf">BBDF</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_ThingUpstairsChase_DecMoveDelay</td>
+<td class="address-2"><span id="bcca"></span>BCCA</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1">Step 0A back by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bccb"></span>BCCB</td>
+<td class="instruction">LD ($BBDF),A</td>
+<td class="comment-1" rowspan="1">Set Thing Upstairs flag byte <a href="B9A5.html#bbdf">BBDF</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bcce"></span>
+<div class="comments">
+<div class="paragraph">
+Apply direction bits: step right, left, down or up, then continue the script.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_ThingUpstairsChase_ApplyDirection</td>
+<td class="address-2"><span id="bcce"></span>BCCE</td>
+<td class="instruction">LD A,(IX+$09)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's direction / state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bcd1"></span>BCD1</td>
+<td class="instruction">BIT 0,A</td>
+<td class="comment-1" rowspan="2">Is bit 00 of the current entity's direction / state set? If so, call <a href="BC81.html#bce8">ScriptRoutine_ThingUpstairsChase_TryMoveRight</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bcd3"></span>BCD3</td>
+<td class="instruction">CALL NZ,<a href="BC81.html#bce8">ScriptRoutine_ThingUpstairsChase_TryMoveRight</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bcd6"></span>BCD6</td>
+<td class="instruction">BIT 1,A</td>
+<td class="comment-1" rowspan="2">Is bit 01 of the current entity's direction / state set? If so, call <a href="BC81.html#bcfd">ScriptRoutine_ThingUpstairsChase_TryMoveLeft</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bcd8"></span>BCD8</td>
+<td class="instruction">CALL NZ,<a href="BC81.html#bcfd">ScriptRoutine_ThingUpstairsChase_TryMoveLeft</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bcdb"></span>BCDB</td>
+<td class="instruction">BIT 2,A</td>
+<td class="comment-1" rowspan="2">Is bit 02 of the current entity's direction / state set? If so, call <a href="BC81.html#bd27">ScriptRoutine_ThingUpstairsChase_TryMoveDown</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bcdd"></span>BCDD</td>
+<td class="instruction">CALL NZ,<a href="BC81.html#bd27">ScriptRoutine_ThingUpstairsChase_TryMoveDown</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bce0"></span>BCE0</td>
+<td class="instruction">BIT 3,A</td>
+<td class="comment-1" rowspan="2">Is bit 03 of the current entity's direction / state set? If so, call <a href="BC81.html#bd12">ScriptRoutine_ThingUpstairsChase_TryMoveUp</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bce2"></span>BCE2</td>
+<td class="instruction">CALL NZ,<a href="BC81.html#bd12">ScriptRoutine_ThingUpstairsChase_TryMoveUp</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bce5"></span>BCE5</td>
+<td class="instruction">JP <a href="EC2E.html">AdvanceScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="EC2E.html">AdvanceScriptInstruction</a> to run the next script instruction.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bce8"></span>
+<div class="comments">
+<div class="paragraph">
+Try moving the Thing Upstairs entity right, or retarget when X-extent hits the right bound.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_ThingUpstairsChase_TryMoveRight</td>
+<td class="address-2"><span id="bce8"></span>BCE8</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">AF</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bce9"></span>BCE9</td>
+<td class="instruction">LD A,(IX+$08)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bcec"></span>BCEC</td>
+<td class="instruction">CP $FC</td>
+<td class="comment-1" rowspan="2">Is the current entity's x-extent less than FC? If so, jump to <a href="BC81.html#bcf5">ScriptRoutine_ThingUpstairsChase_IncX</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bcee"></span>BCEE</td>
+<td class="instruction">JR C,<a href="BC81.html#bcf5">ScriptRoutine_ThingUpstairsChase_IncX</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bcf0"></span>BCF0</td>
+<td class="instruction">CALL <a href="BD3C.html">Update_ThingUpstairs_Movement</a></td>
+<td class="comment-1" rowspan="1">Call <a href="BD3C.html">Update_ThingUpstairs_Movement</a> to update Thing Upstairs Movement.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bcf3"></span>BCF3</td>
+<td class="instruction">JR <a href="BC81.html#bcfb">ScriptRoutine_ThingUpstairsChase_RestoreReturnRight</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="BC81.html#bcfb">ScriptRoutine_ThingUpstairsChase_RestoreReturnRight</a> to continue this routine.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bcf5"></span>
+<div class="comments">
+<div class="paragraph">
+Nudge the Thing Upstairs entity one character right (X and X-extent).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_ThingUpstairsChase_IncX</td>
+<td class="address-2"><span id="bcf5"></span>BCF5</td>
+<td class="instruction">INC (IX+$07)</td>
+<td class="comment-1" rowspan="1">Increment the entity's x-coordinate.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bcf8"></span>
+<div class="comments">
+<div class="paragraph">
+Advance the Thing Upstairs entity's X-extent as part of the right-step.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_ThingUpstairsChase_IncXExtent</td>
+<td class="address-1"><span id="bcf8"></span>BCF8</td>
+<td class="instruction">INC (IX+$08)</td>
+<td class="comment-1" rowspan="1">Increment the entity's x-extent.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bcfb"></span>
+<div class="comments">
+<div class="paragraph">
+Restore flags and return from the right-step attempt.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_ThingUpstairsChase_RestoreReturnRight</td>
+<td class="address-2"><span id="bcfb"></span>BCFB</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">AF</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bcfc"></span>BCFC</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bcfd"></span>
+<div class="comments">
+<div class="paragraph">
+Try moving the Thing Upstairs entity left, or retarget when X hits the left bound.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_ThingUpstairsChase_TryMoveLeft</td>
+<td class="address-2"><span id="bcfd"></span>BCFD</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">AF</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bcfe"></span>BCFE</td>
+<td class="instruction">LD A,(IX+$07)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd01"></span>BD01</td>
+<td class="instruction">CP $22</td>
+<td class="comment-1" rowspan="2">Is the current entity's x-coordinate less than 22? If not, jump to <a href="BC81.html#bd0a">ScriptRoutine_ThingUpstairsChase_DecX</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd03"></span>BD03</td>
+<td class="instruction">JR NC,<a href="BC81.html#bd0a">ScriptRoutine_ThingUpstairsChase_DecX</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd05"></span>BD05</td>
+<td class="instruction">CALL <a href="BD3C.html">Update_ThingUpstairs_Movement</a></td>
+<td class="comment-1" rowspan="1">Call <a href="BD3C.html">Update_ThingUpstairs_Movement</a> to update Thing Upstairs Movement.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd08"></span>BD08</td>
+<td class="instruction">JR <a href="BC81.html#bd10">ScriptRoutine_ThingUpstairsChase_RestoreReturnLeft</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="BC81.html#bd10">ScriptRoutine_ThingUpstairsChase_RestoreReturnLeft</a> to continue this routine.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bd0a"></span>
+<div class="comments">
+<div class="paragraph">
+Nudge the Thing Upstairs entity one character left.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_ThingUpstairsChase_DecX</td>
+<td class="address-2"><span id="bd0a"></span>BD0A</td>
+<td class="instruction">DEC (IX+$07)</td>
+<td class="comment-1" rowspan="2">Move this entity one character left.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd0d"></span>BD0D</td>
+<td class="instruction">DEC (IX+$08)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bd10"></span>
+<div class="comments">
+<div class="paragraph">
+Restore flags and return from the left-step attempt.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_ThingUpstairsChase_RestoreReturnLeft</td>
+<td class="address-2"><span id="bd10"></span>BD10</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">AF</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd11"></span>BD11</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bd12"></span>
+<div class="comments">
+<div class="paragraph">
+Try moving the Thing Upstairs entity up, or retarget when Y hits the top bound.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_ThingUpstairsChase_TryMoveUp</td>
+<td class="address-2"><span id="bd12"></span>BD12</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">AF</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd13"></span>BD13</td>
+<td class="instruction">LD A,(IX+$05)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's y-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd16"></span>BD16</td>
+<td class="instruction">CP $14</td>
+<td class="comment-1" rowspan="2">Is the current entity's y-coordinate less than 14? If not, jump to <a href="BC81.html#bd1f">ScriptRoutine_ThingUpstairsChase_DecY</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd18"></span>BD18</td>
+<td class="instruction">JR NC,<a href="BC81.html#bd1f">ScriptRoutine_ThingUpstairsChase_DecY</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd1a"></span>BD1A</td>
+<td class="instruction">CALL <a href="BD3C.html">Update_ThingUpstairs_Movement</a></td>
+<td class="comment-1" rowspan="1">Call <a href="BD3C.html">Update_ThingUpstairs_Movement</a> to update Thing Upstairs Movement.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd1d"></span>BD1D</td>
+<td class="instruction">JR <a href="BC81.html#bd25">ScriptRoutine_ThingUpstairsChase_RestoreReturnUp</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="BC81.html#bd25">ScriptRoutine_ThingUpstairsChase_RestoreReturnUp</a> to continue this routine.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bd1f"></span>
+<div class="comments">
+<div class="paragraph">
+Nudge the Thing Upstairs entity one character up.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_ThingUpstairsChase_DecY</td>
+<td class="address-2"><span id="bd1f"></span>BD1F</td>
+<td class="instruction">DEC (IX+$05)</td>
+<td class="comment-1" rowspan="2">Move this entity one character up.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd22"></span>BD22</td>
+<td class="instruction">DEC (IX+$06)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bd25"></span>
+<div class="comments">
+<div class="paragraph">
+Restore flags and return from the up-step attempt.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_ThingUpstairsChase_RestoreReturnUp</td>
+<td class="address-2"><span id="bd25"></span>BD25</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">AF</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd26"></span>BD26</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bd27"></span>
+<div class="comments">
+<div class="paragraph">
+Try moving the Thing Upstairs entity down, or retarget when Y-extent hits the bottom bound.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_ThingUpstairsChase_TryMoveDown</td>
+<td class="address-2"><span id="bd27"></span>BD27</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">AF</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd28"></span>BD28</td>
+<td class="instruction">LD A,(IX+$06)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd2b"></span>BD2B</td>
+<td class="instruction">CP $24</td>
+<td class="comment-1" rowspan="2">Is the current entity's y-extent less than 24? If so, jump to <a href="BC81.html#bd34">ScriptRoutine_ThingUpstairsChase_IncY</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd2d"></span>BD2D</td>
+<td class="instruction">JR C,<a href="BC81.html#bd34">ScriptRoutine_ThingUpstairsChase_IncY</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd2f"></span>BD2F</td>
+<td class="instruction">CALL <a href="BD3C.html">Update_ThingUpstairs_Movement</a></td>
+<td class="comment-1" rowspan="1">Call <a href="BD3C.html">Update_ThingUpstairs_Movement</a> to update Thing Upstairs Movement.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd32"></span>BD32</td>
+<td class="instruction">JR <a href="BC81.html#bd3a">ScriptRoutine_ThingUpstairsChase_RestoreReturnDown</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="BC81.html#bd3a">ScriptRoutine_ThingUpstairsChase_RestoreReturnDown</a> to continue this routine.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bd34"></span>
+<div class="comments">
+<div class="paragraph">
+Nudge the Thing Upstairs entity one character down.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_ThingUpstairsChase_IncY</td>
+<td class="address-2"><span id="bd34"></span>BD34</td>
+<td class="instruction">INC (IX+$05)</td>
+<td class="comment-1" rowspan="2">Move this entity one character down.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd37"></span>BD37</td>
+<td class="instruction">INC (IX+$06)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="bd3a"></span>
+<div class="comments">
+<div class="paragraph">
+Restore flags and return from the down-step attempt.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_ThingUpstairsChase_RestoreReturnDown</td>
+<td class="address-2"><span id="bd3a"></span>BD3A</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">AF</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bd3b"></span>BD3B</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="BC64.html">BC64</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#bc81">Map</a></td>
+<td class="next">
+Next: <a href="BD3C.html">BD3C</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/48257.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 60592</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 60592. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 60592" />
+<meta property="og:description" content="The Trap Door: Routine at 60592. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/60592.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/60592.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 60592",
+"name": "The Trap Door: Routine at 60592",
+"description": "The Trap Door: Routine at 60592. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/60592.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 60592"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/60592.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60530.html">60530</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60592">Map</a></td>
+<td class="next">
+Next: <a href="60635.html">60635</a>
+</td>
+</tr>
+</table>
+<div class="description">60592: Script Routine: (32) Have Berk open a door in front of him</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Let Berk open the door directly in front of him.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_BerkOpenDoorInFront</td>
+<td class="address-2"><span id="60592"></span>60592</td>
+<td class="instruction">LD IY,(29356)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">IY</span> with the current-entity pointer (<a href="29356.html">Pointer_CurrentEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60596"></span>60596</td>
+<td class="instruction">LD (IY+2),2</td>
+<td class="comment-1" rowspan="1">Write 2 to the referenced entity's flags byte 2.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60600"></span>60600</td>
+<td class="instruction">LD A,(IY+0)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60603"></span>60603</td>
+<td class="instruction">CP 5</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> equal to 5? If so, jump to <a href="60592.html#60620">Script_OpenDoor_Hit</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60605"></span>60605</td>
+<td class="instruction">JR Z,<a href="60592.html#60620">Script_OpenDoor_Hit</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60607"></span>60607</td>
+<td class="instruction">CP 3</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> equal to 3? If so, jump to <a href="60592.html#60625">Script_OpenDoor_Basket</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60609"></span>60609</td>
+<td class="instruction">JR Z,<a href="60592.html#60625">Script_OpenDoor_Basket</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60611"></span>60611</td>
+<td class="instruction">CP 16</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> equal to 16? If so, jump to <a href="60592.html#60630">Script_OpenDoor_TaskProp</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60613"></span>60613</td>
+<td class="instruction">JR Z,<a href="60592.html#60630">Script_OpenDoor_TaskProp</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60615"></span>60615</td>
+<td class="instruction">LD BC,40354</td>
+<td class="comment-1" rowspan="1">Point <span class="register">BC</span> at entity-type-8 layout <a href="40354.html">GraphicLayout_WormCan</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60618"></span>60618</td>
+<td class="instruction">JR <a href="60530.html#60575">Script_DoorInteract_Found</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60530.html#60575">Script_DoorInteract_Found</a> to script Door Interact Found.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60620"></span>
+<div class="comments">
+<div class="paragraph">
+Open the type-5 yellow cup using layout <a href="40297.html">GraphicLayout_YellowCup</a>, then store via <a href="60530.html#60565">Script_DoorInteract_StoreDoorSlot</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Script_OpenDoor_Hit</td>
+<td class="address-2"><span id="60620"></span>60620</td>
+<td class="instruction">LD BC,40297</td>
+<td class="comment-1" rowspan="1">Point <span class="register">BC</span> at yellow cup layout <a href="40297.html">GraphicLayout_YellowCup</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60623"></span>60623</td>
+<td class="instruction">JR <a href="60530.html#60565">Script_DoorInteract_StoreDoorSlot</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60530.html#60565">Script_DoorInteract_StoreDoorSlot</a> to script Door Interact Next.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60625"></span>
+<div class="comments">
+<div class="paragraph">
+Open the type-3 basket using layout <a href="40207.html">GraphicLayout_Basket</a>, then store via <a href="60530.html#60555">Script_DoorInteract_Scan</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Script_OpenDoor_Basket</td>
+<td class="address-2"><span id="60625"></span>60625</td>
+<td class="instruction">LD BC,40207</td>
+<td class="comment-1" rowspan="1">Point <span class="register">BC</span> at basket layout <a href="40207.html">GraphicLayout_Basket</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60628"></span>60628</td>
+<td class="instruction">JR <a href="60530.html#60555">Script_DoorInteract_Scan</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60530.html#60555">Script_DoorInteract_Scan</a> to continue scanning.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="60630"></span>
+<div class="comments">
+<div class="paragraph">
+Open the type-16 prop using layout <a href="41279.html">GraphicLayout_SeedBox</a>, then store via <a href="60530.html#60585">Script_DoorInteract_StoreAltDoorSlot</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Script_OpenDoor_TaskProp</td>
+<td class="address-2"><span id="60630"></span>60630</td>
+<td class="instruction">LD BC,41279</td>
+<td class="comment-1" rowspan="1">Point <span class="register">BC</span> at task-prop layout <a href="41279.html">GraphicLayout_SeedBox</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="60633"></span>60633</td>
+<td class="instruction">JR <a href="60530.html#60585">Script_DoorInteract_StoreAltDoorSlot</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60530.html#60585">Script_DoorInteract_StoreAltDoorSlot</a> to finish this handler.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="60530.html">60530</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#60592">Map</a></td>
+<td class="next">
+Next: <a href="60635.html">60635</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/ECB0.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

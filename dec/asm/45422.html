@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 45422</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 45422. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 45422" />
+<meta property="og:description" content="The Trap Door: Routine at 45422. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/45422.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/45422.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 45422",
+"name": "The Trap Door: Routine at 45422",
+"description": "The Trap Door: Routine at 45422. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/45422.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 45422"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/45422.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="45108.html">45108</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#45422">Map</a></td>
+<td class="next">
+Next: <a href="45481.html">45481</a>
+</td>
+</tr>
+</table>
+<div class="description">45422: Update Drutt Animation</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="45108.html">Update_Drutt</a>.
+</div>
+<div class="paragraph">
+Update Drutt Animation for Drutt using complex state at <a href="36595.html#36599">StateData_Drutt</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Drutt_Animation</td>
+<td class="address-2"><span id="45422"></span>45422</td>
+<td class="instruction">LD IY,36585</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IY</span> at Boney's complex entity state (<a href="36585.html">StateData_Boney</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45426"></span>45426</td>
+<td class="instruction">LD DE,14</td>
+<td class="comment-1" rowspan="1">Each entity record is 0014 bytes long, then load that length into <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="45429"></span>
+<div class="comments">
+<div class="paragraph">
+Accept only a live room-3 entity under Drutt's mouth band; otherwise scan on.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Drutt_Animation_CheckType</td>
+<td class="address-2"><span id="45429"></span>45429</td>
+<td class="instruction">LD A,(IY+0)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45432"></span>45432</td>
+<td class="instruction">CP 50</td>
+<td class="comment-1" rowspan="3">Is referenced entity's entity type equal to 50? If so, return? If not, jump to <a href="45422.html#45477">Update_Drutt_Animation_NextEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45434"></span>45434</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45435"></span>45435</td>
+<td class="instruction">JR NC,<a href="45422.html#45477">Update_Drutt_Animation_NextEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45437"></span>45437</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is referenced entity's entity type zero? If so, jump to <a href="45422.html#45477">Update_Drutt_Animation_NextEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45438"></span>45438</td>
+<td class="instruction">JR Z,<a href="45422.html#45477">Update_Drutt_Animation_NextEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45440"></span>45440</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-1" rowspan="2">Is bit 7 of referenced entity's entity type set? If so, jump to <a href="45422.html#45477">Update_Drutt_Animation_NextEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45442"></span>45442</td>
+<td class="instruction">JR NZ,<a href="45422.html#45477">Update_Drutt_Animation_NextEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45444"></span>45444</td>
+<td class="instruction">LD A,(IY+4)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's room index.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45447"></span>45447</td>
+<td class="instruction">CP 3</td>
+<td class="comment-1" rowspan="2">Is referenced entity's room index equal to 3? If not, jump to <a href="45422.html#45477">Update_Drutt_Animation_NextEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45449"></span>45449</td>
+<td class="instruction">JR NZ,<a href="45422.html#45477">Update_Drutt_Animation_NextEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45451"></span>45451</td>
+<td class="instruction">LD A,(IY+7)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45454"></span>45454</td>
+<td class="instruction">CP 171</td>
+<td class="comment-1" rowspan="2">Is referenced entity's x-coordinate less than 171? If so, jump to <a href="45422.html#45477">Update_Drutt_Animation_NextEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45456"></span>45456</td>
+<td class="instruction">JR C,<a href="45422.html#45477">Update_Drutt_Animation_NextEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45458"></span>45458</td>
+<td class="instruction">LD A,177</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 177.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45460"></span>45460</td>
+<td class="instruction">CP (IY+8)</td>
+<td class="comment-1" rowspan="2">Is 177 less than the referenced entity's x-extent? If so, jump to <a href="45422.html#45477">Update_Drutt_Animation_NextEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45463"></span>45463</td>
+<td class="instruction">JR C,<a href="45422.html#45477">Update_Drutt_Animation_NextEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45465"></span>45465</td>
+<td class="instruction">BIT 5,(IY+1)</td>
+<td class="comment-1" rowspan="2">Is bit 5 of the referenced entity's flags byte 1 set? If so, jump to <a href="45422.html#45477">Update_Drutt_Animation_NextEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45469"></span>45469</td>
+<td class="instruction">JR NZ,<a href="45422.html#45477">Update_Drutt_Animation_NextEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45471"></span>45471</td>
+<td class="instruction">CP 171</td>
+<td class="comment-1" rowspan="1">Compare 177 with 171.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45473"></span>45473</td>
+<td class="instruction">LD A,(IY+0)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45476"></span>45476</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="45477"></span>
+<div class="comments">
+<div class="paragraph">
+Advance to the next entity and continue the Drutt catchability scan.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Drutt_Animation_NextEntity</td>
+<td class="address-2"><span id="45477"></span>45477</td>
+<td class="instruction">ADD IY,DE</td>
+<td class="comment-1" rowspan="1">Advance <span class="register">IY</span> to the next entity record.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45479"></span>45479</td>
+<td class="instruction">JR <a href="45422.html#45429">Update_Drutt_Animation_CheckType</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="45422.html#45429">Update_Drutt_Animation_CheckType</a> to continue the Drutt animation scan.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="45108.html">45108</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#45422">Map</a></td>
+<td class="next">
+Next: <a href="45481.html">45481</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/B16E.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

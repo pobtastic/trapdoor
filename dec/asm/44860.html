@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 44860</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 44860. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 44860" />
+<meta property="og:description" content="The Trap Door: Routine at 44860. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44860.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44860.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 44860",
+"name": "The Trap Door: Routine at 44860",
+"description": "The Trap Door: Routine at 44860. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44860.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 44860"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44860.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="44801.html">44801</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#44860">Map</a></td>
+<td class="next">
+Next: <a href="44927.html">44927</a>
+</td>
+</tr>
+</table>
+<div class="description">44860: Initialise New Game</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="43699.html">GameStart</a>.
+</div>
+<div class="paragraph">
+Start a new game: reset display buffers, tick counter, menu glyphs and room state for Learner or Super Berk.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Initialise_New_Game</td>
+<td class="address-2"><span id="44860"></span>44860</td>
+<td class="instruction">CALL <a href="44969.html">Backup_Entity_And_Game_State</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44969.html">Backup_Entity_And_Game_State</a> to backup Entity And Game State.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44863"></span>44863</td>
+<td class="instruction">LD HL,25504</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Primary Display Buffer (<a href="25504.html">PrimaryDisplayBuffer</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44866"></span>44866</td>
+<td class="instruction">LD (29429),HL</td>
+<td class="comment-1" rowspan="1">Store <span class="register">HL</span> in Pointer: Current Display Buffer (<a href="29429.html">Pointer_CurrentDisplayBuffer</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44869"></span>44869</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear the display-buffer select flag.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44870"></span>44870</td>
+<td class="instruction">LD (29418),A</td>
+<td class="comment-1" rowspan="1">Set Display Buffer Select Flag (<a href="29418.html">DisplayBufferSelectFlag</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44873"></span>44873</td>
+<td class="instruction">LD A,100</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 100 as the initial game tick counter.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44875"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="44801.html">Initialise_Room_Display</a>.
+</div>
+<div class="paragraph">
+Set the game tick counter, clear both display buffers, and set the border/speaker state.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Initialise_New_Game_SetTickCounter</td>
+<td class="address-2"><span id="44875"></span>44875</td>
+<td class="instruction">LD (29426),A</td>
+<td class="comment-1" rowspan="1">Set the game tick counter (<a href="29426.html">GameTickCounter</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44878"></span>44878</td>
+<td class="instruction">CALL <a href="59964.html">Clear_BothDisplayBuffers</a></td>
+<td class="comment-1" rowspan="1">Call <a href="59964.html">Clear_BothDisplayBuffers</a> to clear both display buffers.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44881"></span>44881</td>
+<td class="instruction">LD A,2</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 2.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44883"></span>44883</td>
+<td class="instruction">CALL <a href="60013.html">Set_BorderSpeakerState</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60013.html">Set_BorderSpeakerState</a> to set Border And Speaker State.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44886"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="44801.html">Initialise_Room_Display</a>.
+</div>
+<div class="paragraph">
+Point the glyph printer at <a href="44311.html">Data_MenuGlyphBitmaps</a> and choose the Learner (122) vs Super Berk (104) room byte.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Initialise_New_Game_SetGlyphPointer</td>
+<td class="address-2"><span id="44886"></span>44886</td>
+<td class="instruction">LD HL,44311</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the menu/glyph bitmap data (<a href="44311.html">Data_MenuGlyphBitmaps</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44889"></span>44889</td>
+<td class="instruction">LD (29433),HL</td>
+<td class="comment-1" rowspan="1">Write the pointer in <span class="register">HL</span> to the temporary screen pointer (<a href="29433.html">Pointer_CurrentCharacterSet</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44892"></span>44892</td>
+<td class="instruction">LD E,4</td>
+<td class="comment-1" rowspan="1">Load <span class="register">E</span> with 4 as a small loop/position count.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44894"></span>44894</td>
+<td class="instruction">LD A,(29353)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the Learner Berk mode flag (<a href="29353.html">Flag_LearnerBerkMode</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44897"></span>44897</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is Learner Berk mode flag zero? If so, jump to <a href="44860.html#44904">Initialise_New_Game_SuperBerkRoomByte</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44898"></span>44898</td>
+<td class="instruction">JR Z,<a href="44860.html#44904">Initialise_New_Game_SuperBerkRoomByte</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44900"></span>44900</td>
+<td class="instruction">LD A,122</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 122.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44902"></span>44902</td>
+<td class="instruction">JR <a href="44860.html#44907">Initialise_New_Game_WriteRoomByte</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="44860.html#44907">Initialise_New_Game_WriteRoomByte</a> to set the temporary room/state byte.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44904"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="44801.html">Initialise_Room_Display</a>.
+</div>
+<div class="paragraph">
+Super Berk path: use room/state byte 104.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Initialise_New_Game_SuperBerkRoomByte</td>
+<td class="address-2"><span id="44904"></span>44904</td>
+<td class="instruction">LD A,104</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 104.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44906"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="44801.html">Initialise_Room_Display</a>.
+</div>
+<div class="paragraph">
+Advance the small position count before writing the room/state byte.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Initialise_New_Game_Branch</td>
+<td class="address-2"><span id="44906"></span>44906</td>
+<td class="instruction">INC E</td>
+<td class="comment-1" rowspan="1">Advance the low byte of the pointer/offset in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44907"></span>
+<div class="comments">
+<div class="paragraph">
+Write the room/state byte and prepare to fill the attribute-file base row.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Initialise_New_Game_WriteRoomByte</td>
+<td class="address-2"><span id="44907"></span>44907</td>
+<td class="instruction">LD (29447),A</td>
+<td class="comment-1" rowspan="1">Set the temporary room/state byte (<a href="29447.html">CurrentTextAttribute</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44910"></span>44910</td>
+<td class="instruction">LD B,128</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 128 as a loop counter.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44912"></span>44912</td>
+<td class="instruction">LD D,0</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">D</span> (high byte of a pointer/offset).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44914"></span>44914</td>
+<td class="instruction">LD HL,23168</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the attribute-file base (23168 (attribute buffer)).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44917"></span>
+<div class="comments">
+<div class="paragraph">
+Print a full attribute-file row of glyphs, then initialise the room display.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Initialise_New_Game_PrintAttrRow</td>
+<td class="address-2"><span id="44917"></span>44917</td>
+<td class="instruction">CALL <a href="60263.html">Print_Character</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60263.html">Print_Character</a> to print Character.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44920"></span>44920</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance 23168 (attribute buffer) by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44921"></span>44921</td>
+<td class="instruction">DJNZ <a href="44860.html#44917">Initialise_New_Game_PrintAttrRow</a></td>
+<td class="comment-1" rowspan="1">Decrease the loop counter in <span class="register">B</span> and jump to <a href="44860.html#44917">Initialise_New_Game_PrintAttrRow</a> if more iterations remain.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44923"></span>44923</td>
+<td class="instruction">CALL <a href="44801.html">Initialise_Room_Display</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44801.html">Initialise_Room_Display</a> to initialise the room display.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44926"></span>44926</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="44801.html">44801</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#44860">Map</a></td>
+<td class="next">
+Next: <a href="44927.html">44927</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/AF3C.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at C06E</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at C06E. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at C06E" />
+<meta property="og:description" content="The Trap Door: Routine at C06E. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/C06E.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/C06E.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at C06E",
+"name": "The Trap Door: Routine at C06E",
+"description": "The Trap Door: Routine at C06E. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/C06E.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at C06E"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/C06E.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="C027.html">C027</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#c06e">Map</a></td>
+<td class="next">
+Next: <a href="C095.html">C095</a>
+</td>
+</tr>
+</table>
+<div class="description">C06E: Spawn Task Entity</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="B2AA.html">Update_Entity_Slot</a>.
+</div>
+<div class="paragraph">
+Spawn Task Entity for the current Thing Upstairs task.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="c06e"></span>
+<div class="comments">
+<div class="paragraph">
+Spawns a pan into a free complex-entity slot.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Spawn_Task_Entity</td>
+<td class="address-2"><span id="c06e"></span>C06E</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">HL</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c06f"></span>C06F</td>
+<td class="instruction">LD IY,$9055</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IY</span> at the pan entity (<a href="8EF3.html#9055">StateData_Complex_26</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c073"></span>C073</td>
+<td class="instruction">SET 7,(IY+$02)</td>
+<td class="comment-1" rowspan="1">Set bit 07 of the referenced entity's flags byte 2.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c077"></span>C077</td>
+<td class="instruction">LD HL,$72B5</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the task-two flags (<a href="72B5.html">TaskTwoFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c07a"></span>C07A</td>
+<td class="instruction">RES 4,(HL)</td>
+<td class="comment-1" rowspan="1">Clear bit 04 of <a href="72B5.html">TaskTwoFlags</a> (also set at <a href="C095.html#c0d2">C0D2</a>. no BIT reader found).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c07c"></span>C07C</td>
+<td class="instruction">RES 5,(HL)</td>
+<td class="comment-1" rowspan="1">Clear bit 05 of <a href="72B5.html">TaskTwoFlags</a> (also set at <a href="C095.html#c0d4">C0D4</a> / cleared at <a href="C095.html#c0f1">C0F1</a>. no BIT reader found).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c07e"></span>C07E</td>
+<td class="instruction">SET 7,(HL)</td>
+<td class="comment-1" rowspan="1">Set bit 07 of <a href="72B5.html">TaskTwoFlags</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c080"></span>C080</td>
+<td class="instruction">LD A,($72BF)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the room-transition flag (<a href="72BF.html">RoomTransitionFlag</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c083"></span>C083</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Advance room-transition flag by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c084"></span>C084</td>
+<td class="instruction">LD ($72BF),A</td>
+<td class="comment-1" rowspan="1">Set the room-transition flag (<a href="72BF.html">RoomTransitionFlag</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c087"></span>C087</td>
+<td class="instruction">CP $04</td>
+<td class="comment-1" rowspan="2">Is room-transition flag equal to 04? If not, jump to <a href="C06E.html#c08d">Spawn_Task_Entity_PanLayout</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c089"></span>C089</td>
+<td class="instruction">JR NZ,<a href="C06E.html#c08d">Spawn_Task_Entity_PanLayout</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c08b"></span>C08B</td>
+<td class="instruction">SET 6,(HL)</td>
+<td class="comment-1" rowspan="1">Set bit 06 of <a href="72B5.html">TaskTwoFlags</a> (written here when <a href="72BF.html">RoomTransitionFlag</a> reaches 04 no BIT reader found).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="c08d"></span>
+<div class="comments">
+<div class="paragraph">
+Point the helper entity at layout <a href="9E07.html">GraphicLayout_Pan</a> after arming spawn flags.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Spawn_Task_Entity_PanLayout</td>
+<td class="address-2"><span id="c08d"></span>C08D</td>
+<td class="instruction">LD HL,$9E07</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the pan layout <a href="9E07.html">GraphicLayout_Pan</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c090"></span>C090</td>
+<td class="instruction">LD ($905F),HL</td>
+<td class="comment-1" rowspan="1">Write the layout pointer into the helper entity's layout field (<a href="8EF3.html">905F</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c093"></span>C093</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c094"></span>C094</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="C027.html">C027</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#c06e">Map</a></td>
+<td class="next">
+Next: <a href="C095.html">C095</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/49262.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

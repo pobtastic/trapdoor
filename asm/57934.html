@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at E24E</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at E24E. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at E24E" />
+<meta property="og:description" content="The Trap Door: Data at E24E. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/57934.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/57934.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at E24E",
+"name": "The Trap Door: Data at E24E",
+"description": "The Trap Door: Data at E24E. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/57934.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at E24E"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/57934.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-w">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="57915.html">E23B</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#e24e">Map</a></td>
+<td class="next">
+Next: <a href="57950.html">E25E</a>
+</td>
+</tr>
+</table>
+<div class="description">E24E: Table: Task Progress Message Pointers</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Four entries for tasks 01–04 used by <a href="57950.html">Select_TaskProgressMessage</a>. Each entry is a flag address followed by a message address: worms (<a href="57360.html">Messaging_ACanATinCan</a>), eggs (<a href="57486.html">Messaging_IWantMyEggsInAPan</a>), slimies (<a href="57645.html">Messaging_ABigPotForSlimies</a>), bottle (<a href="57830.html">Messaging_InABottle</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Table_TaskProgressMessagePointers</td>
+<td class="address-1"><span id="e24e"></span>E24E</td>
+<td class="instruction">DEFW <a href="29368.html">TaskOneCollisionFlags</a></td>
+<td class="comment-1" rowspan="1">Flag pointer / message pointer for task 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e250"></span>E250</td>
+<td class="instruction">DEFW <a href="57360.html">Messaging_ACanATinCan</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e252"></span>E252</td>
+<td class="instruction">DEFW <a href="29365.html">TaskTwoFlags</a></td>
+<td class="comment-1" rowspan="1">Flag pointer / message pointer for task 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e254"></span>E254</td>
+<td class="instruction">DEFW <a href="57486.html">Messaging_IWantMyEggsInAPan</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e256"></span>E256</td>
+<td class="instruction">DEFW <a href="29366.html">TaskThreeFlags</a></td>
+<td class="comment-1" rowspan="1">Flag pointer / message pointer for task 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e258"></span>E258</td>
+<td class="instruction">DEFW <a href="57645.html">Messaging_ABigPotForSlimies</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e25a"></span>E25A</td>
+<td class="instruction">DEFW <a href="29369.html">EntityInteractionFlag</a></td>
+<td class="comment-1" rowspan="1">Flag pointer / message pointer for task 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e25c"></span>E25C</td>
+<td class="instruction">DEFW <a href="57830.html">Messaging_InABottle</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="57915.html">E23B</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#e24e">Map</a></td>
+<td class="next">
+Next: <a href="57950.html">E25E</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/358708.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at D1FE</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at D1FE. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at D1FE" />
+<meta property="og:description" content="The Trap Door: Routine at D1FE. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/D1FE.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/D1FE.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at D1FE",
+"name": "The Trap Door: Routine at D1FE",
+"description": "The Trap Door: Routine at D1FE. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/D1FE.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at D1FE"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/D1FE.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="D1F5.html">D1F5</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#d1fe">Map</a></td>
+<td class="next">
+Next: <a href="D234.html">D234</a>
+</td>
+</tr>
+</table>
+<div class="description">D1FE: Script Routine: (46) Vat action</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Clear the vat's busy bit and reset it onto the post-reset script at <a href="CF44.html#cff4">CFF4</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Address of complex state data for an entity</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_VatClearBit6AndReset</td>
+<td class="address-2"><span id="d1fe"></span>D1FE</td>
+<td class="instruction">BIT 6,(IX+$09)</td>
+<td class="comment-1" rowspan="2">Is bit 06 of the current entity's direction / state set? If not, jump to <a href="EC2E.html">AdvanceScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d202"></span>D202</td>
+<td class="instruction">JP Z,<a href="EC2E.html">AdvanceScriptInstruction</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d205"></span>D205</td>
+<td class="instruction">RES 6,(IX+$09)</td>
+<td class="comment-1" rowspan="1">Reset bit 06 of the current entity's direction / state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d209"></span>D209</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">IX</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d20b"></span>D20B</td>
+<td class="instruction">LD IX,($CF35)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">IX</span> from <a href="CF35.html">TemporaryEntityPointer_Misc</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d20f"></span>D20F</td>
+<td class="instruction">LD (IX+$00),$00</td>
+<td class="comment-1" rowspan="1">Write 00 to the current entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d213"></span>D213</td>
+<td class="instruction">BIT 5,(IX+$01)</td>
+<td class="comment-1" rowspan="2">Is bit 05 of the current entity's flags byte 1 set? If not, jump to <a href="D1FE.html#d227">ScriptRoutine_VatClearBit6AndReset_RestoreQueueSound</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d217"></span>D217</td>
+<td class="instruction">JR Z,<a href="D1FE.html#d227">ScriptRoutine_VatClearBit6AndReset_RestoreQueueSound</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d219"></span>D219</td>
+<td class="instruction">LD IX,$909B</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the camera-follow entity (<a href="8EF3.html#909b">StateData_Berk</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d21d"></span>D21D</td>
+<td class="instruction">SET 0,(IX+$03)</td>
+<td class="comment-1" rowspan="1">Set bit 00 of the current entity's flags byte 3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d221"></span>D221</td>
+<td class="instruction">LD HL,$BA35</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk script data <a href="B9A5.html#ba35">BerkPutDownScript_CameraFollow</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d224"></span>D224</td>
+<td class="instruction">LD ($72B1),HL</td>
+<td class="comment-1" rowspan="1">Store <span class="register">HL</span> in Berk's script position pointer (<a href="72B1.html">Pointer_BerkScriptPosition</a>).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d227"></span>
+<div class="comments">
+<div class="paragraph">
+Restore <span class="register">IX</span>, queue the vat sound, and run the post-reset script at <a href="CF44.html#cff4">CFF4</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_VatClearBit6AndReset_RestoreQueueSound</td>
+<td class="address-2"><span id="d227"></span>D227</td>
+<td class="instruction">POP IX</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">IX</span> from the stack.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d229"></span>
+<div class="comments">
+<div class="paragraph">
+<audio controls="" src="../audio/vat.wav">
+<p>Your browser doesn't support HTML5 audio. Here is a <a href="../audio/vat.wav">link to the audio</a> instead.</p>
+</audio>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d229"></span>D229</td>
+<td class="instruction">LD A,$11</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with sound index 11.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d22b"></span>D22B</td>
+<td class="instruction">CALL <a href="F8F9.html">Queue_Sound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="F8F9.html">Queue_Sound</a> to queue a sound effect.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d22e"></span>D22E</td>
+<td class="instruction">LD HL,$CFF4</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Drutt script data <a href="CF44.html#cff4">CFF4</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d231"></span>D231</td>
+<td class="instruction">JP <a href="EC2E.html#ec30">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="EC2E.html#ec30">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="D1F5.html">D1F5</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#d1fe">Map</a></td>
+<td class="next">
+Next: <a href="D234.html">D234</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/53758.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

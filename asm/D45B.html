@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at D45B</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at D45B. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at D45B" />
+<meta property="og:description" content="The Trap Door: Routine at D45B. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/D45B.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/D45B.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at D45B",
+"name": "The Trap Door: Routine at D45B",
+"description": "The Trap Door: Routine at D45B. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/D45B.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at D45B"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/D45B.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="D446.html">D446</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#d45b">Map</a></td>
+<td class="next">
+Next: <a href="D48E.html">D48E</a>
+</td>
+</tr>
+</table>
+<div class="description">D45B: Update Collectibles</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="CF37.html">Update_Miscellaneous_Entities</a>.
+</div>
+<div class="paragraph">
+Update Collectibles against the complex entity table at <a href="8EE9.html">StateData_Boney</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Collectibles</td>
+<td class="address-2"><span id="d45b"></span>D45B</td>
+<td class="instruction">LD HL,$72DF</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at collectible slot state (<a href="72DF.html">CollectibleSlotState</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d45e"></span>D45E</td>
+<td class="instruction">LD IX,$8F9F</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at an inactive complex-entity slot (<a href="8EF3.html#8f9f">StateData_Complex_13</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d462"></span>D462</td>
+<td class="instruction">LD B,$03</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 03 as a loop counter.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d464"></span>
+<div class="comments">
+<div class="paragraph">
+For each collectible slot: reload its script cursor / counter, run <a href="D48E.html">Collect_Entity</a>, then save them back.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Collectibles_Scan</td>
+<td class="address-2"><span id="d464"></span>D464</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">BC</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d465"></span>D465</td>
+<td class="instruction">LD C,(HL)</td>
+<td class="comment-1" rowspan="3">Fetch the word at <span class="register">HL</span> into <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d466"></span>D466</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d467"></span>D467</td>
+<td class="instruction">LD B,(HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d468"></span>D468</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance <a href="72DF.html">CollectibleSlotState</a> by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d469"></span>D469</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the next byte from <a href="72DF.html">CollectibleSlotState</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d46a"></span>D46A</td>
+<td class="instruction">LD ($72BC),A</td>
+<td class="comment-1" rowspan="1">Set the collectible counter (<a href="72BC.html">CollectibleCounter</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d46d"></span>D46D</td>
+<td class="instruction">LD ($72CF),BC</td>
+<td class="comment-1" rowspan="1">Store <span class="register">BC</span> in the active script cursor (<a href="72CF.html">Pointer_ActiveScriptCursor</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d471"></span>D471</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">HL</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d472"></span>D472</td>
+<td class="instruction">CALL <a href="D48E.html">Collect_Entity</a></td>
+<td class="comment-1" rowspan="1">Call <a href="D48E.html">Collect_Entity</a> to collect Entity.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d475"></span>D475</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d476"></span>D476</td>
+<td class="instruction">LD A,($72BC)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the collectible counter (<a href="72BC.html">CollectibleCounter</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d479"></span>D479</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1">Write collectible counter through <a href="72DF.html">CollectibleSlotState</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d47a"></span>D47A</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-1" rowspan="1">Step <a href="72DF.html">CollectibleSlotState</a> back by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d47b"></span>D47B</td>
+<td class="instruction">LD BC,($72CF)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">BC</span> with the active script cursor (<a href="72CF.html">Pointer_ActiveScriptCursor</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d47f"></span>D47F</td>
+<td class="instruction">LD (HL),B</td>
+<td class="comment-1" rowspan="1">Write the loop counter through the pointer in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d480"></span>D480</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-1" rowspan="1">Step <a href="72DF.html">CollectibleSlotState</a> back by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d481"></span>D481</td>
+<td class="instruction">LD (HL),C</td>
+<td class="comment-1" rowspan="1">Write the saved count in <span class="register">C</span> through the pointer in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d482"></span>D482</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="3">Advance <span class="register">HL</span> onto the next collectible slot record.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d483"></span>D483</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d484"></span>D484</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d485"></span>D485</td>
+<td class="instruction">LD BC,$000E</td>
+<td class="comment-1" rowspan="1">Each entity record is 000E bytes long, then load that length into <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d488"></span>D488</td>
+<td class="instruction">ADD IX,BC</td>
+<td class="comment-1" rowspan="1">Advance <span class="register">IX</span> to the next entity record.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d48a"></span>D48A</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d48b"></span>D48B</td>
+<td class="instruction">DJNZ <a href="D45B.html#d464">Update_Collectibles_Scan</a></td>
+<td class="comment-1" rowspan="1">Decrease the loop counter in <span class="register">B</span> and jump to <a href="D45B.html#d464">Update_Collectibles_Scan</a> if more iterations remain.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d48d"></span>D48D</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="D446.html">D446</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#d45b">Map</a></td>
+<td class="next">
+Next: <a href="D48E.html">D48E</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/54363.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

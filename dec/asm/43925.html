@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 43925</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 43925. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 43925" />
+<meta property="og:description" content="The Trap Door: Routine at 43925. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/43925.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/43925.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 43925",
+"name": "The Trap Door: Routine at 43925",
+"description": "The Trap Door: Routine at 43925. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/43925.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 43925"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/43925.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="43894.html">43894</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#43925">Map</a></td>
+<td class="next">
+Next: <a href="44258.html">44258</a>
+</td>
+</tr>
+</table>
+<div class="description">43925: Update Berk State</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="43699.html">GameStart</a>.
+</div>
+<div class="paragraph">
+Update Berk State for the player character using complex state at <a href="36585.html">StateData_Boney</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="43925"></span>
+<div class="comments">
+<div class="paragraph">
+Checks the current task phase/index, Berk action lock and timed events before driving Berk scripts.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State</td>
+<td class="address-2"><span id="43925"></span>43925</td>
+<td class="instruction">LD A,(29359)</td>
+<td class="comment-1" rowspan="3">Load <span class="register">A</span> with the current task phase (<a href="29359.html">CurrentTaskPhase</a>). Is the current task phase inactive (zero)? If not, skip to the timed-event checks at <a href="43925.html#43968">Update_Berk_State_TickCounter</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43928"></span>43928</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43929"></span>43929</td>
+<td class="instruction">JR NZ,<a href="43925.html#43968">Update_Berk_State_TickCounter</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43931"></span>43931</td>
+<td class="instruction">LD A,(29363)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the game event flags (<a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43934"></span>43934</td>
+<td class="instruction">BIT 1,A</td>
+<td class="comment-1" rowspan="2">Is bit 1 of the game event flags set? If so, jump to <a href="43925.html#43968">Update_Berk_State_TickCounter</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43936"></span>43936</td>
+<td class="instruction">JR NZ,<a href="43925.html#43968">Update_Berk_State_TickCounter</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43938"></span>43938</td>
+<td class="instruction">LD A,(29384)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with Berk's action lock (<a href="29384.html">BerkActionLock</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43941"></span>43941</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is Berk's action lock zero? If not, jump to <a href="43925.html#43947">Update_Berk_State_ByTaskIndex</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43942"></span>43942</td>
+<td class="instruction">JR NZ,<a href="43925.html#43947">Update_Berk_State_ByTaskIndex</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43944"></span>43944</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Set <span class="register">A</span> to 1 ready to store as the task phase.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43945"></span>43945</td>
+<td class="instruction">JR <a href="43925.html#43965">Update_Berk_State_SetTaskPhase</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43925.html#43965">Update_Berk_State_SetTaskPhase</a> to store the task phase.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="43947"></span>
+<div class="comments">
+<div class="paragraph">
+Branch on the current task index: finish phase 5, tick when idle, or start an idle Berk script.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_ByTaskIndex</td>
+<td class="address-2"><span id="43947"></span>43947</td>
+<td class="instruction">LD A,(29358)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current task index (<a href="29358.html">CurrentTaskIndex</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43950"></span>43950</td>
+<td class="instruction">CP 5</td>
+<td class="comment-1" rowspan="2">Is the current task index equal to 5? If so, jump to <a href="43925.html#43965">Update_Berk_State_SetTaskPhase</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43952"></span>43952</td>
+<td class="instruction">JR Z,<a href="43925.html#43965">Update_Berk_State_SetTaskPhase</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43954"></span>43954</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the current task index zero? If so, jump to <a href="43925.html#43968">Update_Berk_State_TickCounter</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43955"></span>43955</td>
+<td class="instruction">JR Z,<a href="43925.html#43968">Update_Berk_State_TickCounter</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43957"></span>43957</td>
+<td class="instruction">LD HL,43889</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk's idle script selectors (<a href="43889.html">Data_BerkIdleScriptSelectors</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43960"></span>43960</td>
+<td class="instruction">LD A,4</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 4 as the candidate-row count.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43962"></span>43962</td>
+<td class="instruction">CALL <a href="44260.html">Start_Berk_Script</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44260.html">Start_Berk_Script</a> to start Berk's script.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="43965"></span>
+<div class="comments">
+<div class="paragraph">
+Store the chosen task phase into <a href="29359.html">CurrentTaskPhase</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_SetTaskPhase</td>
+<td class="address-2"><span id="43965"></span>43965</td>
+<td class="instruction">LD (29359),A</td>
+<td class="comment-1" rowspan="1">Set the current task phase (<a href="29359.html">CurrentTaskPhase</a>).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="43968"></span>
+<div class="comments">
+<div class="paragraph">
+Count down the game tick; when it hits zero, continue into the idle/task branch.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_TickCounter</td>
+<td class="address-2"><span id="43968"></span>43968</td>
+<td class="instruction">LD HL,29426</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the game tick counter (<a href="29426.html">GameTickCounter</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43971"></span>43971</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the game tick counter into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43972"></span>43972</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the game tick counter zero? If so, jump to <a href="43925.html#43977">Update_Berk_State_Branch</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43973"></span>43973</td>
+<td class="instruction">JR Z,<a href="43925.html#43977">Update_Berk_State_Branch</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43975"></span>43975</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-1" rowspan="1">Decrease the game tick counter.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43976"></span>43976</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="43977"></span>
+<div class="comments">
+<div class="paragraph">
+With no active task, either run Berk's action path or pick a random idle-script selector.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_Branch</td>
+<td class="address-2"><span id="43977"></span>43977</td>
+<td class="instruction">LD A,(29358)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current task index (<a href="29358.html">CurrentTaskIndex</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43980"></span>43980</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the current task index zero? If not, jump to <a href="43925.html#44104">Update_Berk_State_ActiveTaskFrameTick</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43981"></span>43981</td>
+<td class="instruction">JR NZ,<a href="43925.html#44104">Update_Berk_State_ActiveTaskFrameTick</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43983"></span>43983</td>
+<td class="instruction">LD A,(29364)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the task status flags (<a href="29364.html">TaskStatusFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43986"></span>43986</td>
+<td class="instruction">BIT 0,A</td>
+<td class="comment-1" rowspan="2">Is bit 0 of the task status flags set? If so, jump to <a href="43925.html#44073">Update_Berk_State_ActionAndMaybeRestart</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43988"></span>43988</td>
+<td class="instruction">JR NZ,<a href="43925.html#44073">Update_Berk_State_ActionAndMaybeRestart</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43990"></span>43990</td>
+<td class="instruction">LD HL,29385</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at <a href="29385.html">TaskSelectionTable</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43993"></span>43993</td>
+<td class="instruction">LD A,(29384)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with Berk's action lock (<a href="29384.html">BerkActionLock</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43996"></span>43996</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is Berk's action lock zero? If not, jump to <a href="43925.html#44005">Update_Berk_State_RandomActionPick</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43997"></span>43997</td>
+<td class="instruction">JR NZ,<a href="43925.html#44005">Update_Berk_State_RandomActionPick</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43999"></span>43999</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="2">Advance Berk's action lock by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44000"></span>44000</td>
+<td class="instruction">LD (29384),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44003"></span>44003</td>
+<td class="instruction">JR <a href="43925.html#44053">Update_Berk_State_MarkTaskSlotUsed</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43925.html#44053">Update_Berk_State_MarkTaskSlotUsed</a> with task 1 in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44005"></span>
+<div class="comments">
+<div class="paragraph">
+Pick a random task-selection slot and prepare to try up to 4 candidates.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_RandomActionPick</td>
+<td class="address-2"><span id="44005"></span>44005</td>
+<td class="instruction">LD A,4</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 4.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44007"></span>44007</td>
+<td class="instruction">CALL <a href="60133.html">PseudoRandom</a></td>
+<td class="comment-1" rowspan="2">Call <a href="60133.html">PseudoRandom</a> to pick a pseudo-random offset and keep it in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44010"></span>44010</td>
+<td class="instruction">LD C,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44011"></span>44011</td>
+<td class="instruction">LD B,0</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">B</span> so <span class="register">BC</span> is the random offset alone.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44013"></span>44013</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-1" rowspan="1">Advance <span class="register">HL</span> by the random offset in <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44014"></span>44014</td>
+<td class="instruction">LD A,4</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 4 as the try counter.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44016"></span>
+<div class="comments">
+<div class="paragraph">
+Skip used task slots; free slots fall through, used ones try the next candidate.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_TrySelectorRow</td>
+<td class="address-2"><span id="44016"></span>44016</td>
+<td class="instruction">BIT 7,(HL)</td>
+<td class="comment-1" rowspan="2">Is this task slot already used (bit 7)? If not, jump to <a href="43925.html#44052">Update_Berk_State_TakeSelectorByte</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44018"></span>44018</td>
+<td class="instruction">JR Z,<a href="43925.html#44052">Update_Berk_State_TakeSelectorByte</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44020"></span>44020</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance the pointer in <span class="register">HL</span> by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44021"></span>44021</td>
+<td class="instruction">BIT 6,(HL)</td>
+<td class="comment-1" rowspan="2">Is the wrap marker (bit 6) clear? If so, jump to <a href="43925.html#44028">Update_Berk_State_DecTryCounter</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44023"></span>44023</td>
+<td class="instruction">JR Z,<a href="43925.html#44028">Update_Berk_State_DecTryCounter</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44025"></span>44025</td>
+<td class="instruction">LD HL,29385</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at <a href="29385.html">TaskSelectionTable</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44028"></span>
+<div class="comments">
+<div class="paragraph">
+Exhaust selector tries, then either run Berk's action or force task index 5 after resetting defaults.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_DecTryCounter</td>
+<td class="address-2"><span id="44028"></span>44028</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1">Decrease the try counter in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44029"></span>44029</td>
+<td class="instruction">JR NZ,<a href="43925.html#44016">Update_Berk_State_TrySelectorRow</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43925.html#44016">Update_Berk_State_TrySelectorRow</a> while tries remain.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44031"></span>44031</td>
+<td class="instruction">LD A,(29360)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the dialogue line index (<a href="29360.html">DialogueLineIndex</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44034"></span>44034</td>
+<td class="instruction">CP 4</td>
+<td class="comment-1" rowspan="2">Is the dialogue line index less than 4? If so, jump to <a href="43925.html#44073">Update_Berk_State_ActionAndMaybeRestart</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44036"></span>44036</td>
+<td class="instruction">JP C,<a href="43925.html#44073">Update_Berk_State_ActionAndMaybeRestart</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44039"></span>44039</td>
+<td class="instruction">LD A,(29353)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the Learner Berk mode flag (<a href="29353.html">Flag_LearnerBerkMode</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44042"></span>44042</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the Learner Berk mode flag zero? If not, jump to <a href="43925.html#44073">Update_Berk_State_ActionAndMaybeRestart</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44043"></span>44043</td>
+<td class="instruction">JR NZ,<a href="43925.html#44073">Update_Berk_State_ActionAndMaybeRestart</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44045"></span>44045</td>
+<td class="instruction">CALL <a href="43894.html">Initialise_Entity_Defaults</a></td>
+<td class="comment-1" rowspan="1">Call <a href="43894.html">Initialise_Entity_Defaults</a> to initialise entity defaults.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44048"></span>44048</td>
+<td class="instruction">LD A,5</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 5.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44050"></span>44050</td>
+<td class="instruction">JR <a href="43925.html#44055">Update_Berk_State_SetTaskIndexAndAnnounce</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43925.html#44055">Update_Berk_State_SetTaskIndexAndAnnounce</a> to store task index 5.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44052"></span>
+<div class="comments">
+<div class="paragraph">
+Take the free selector byte as the new task index.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_TakeSelectorByte</td>
+<td class="address-2"><span id="44052"></span>44052</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the selected byte through <span class="register">HL</span> into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44053"></span>
+<div class="comments">
+<div class="paragraph">
+Mark the selected task slot as used with bit 7.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_MarkTaskSlotUsed</td>
+<td class="address-2"><span id="44053"></span>44053</td>
+<td class="instruction">SET 7,(HL)</td>
+<td class="comment-1" rowspan="1">Mark the selected task slot as used (bit 7).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44055"></span>
+<div class="comments">
+<div class="paragraph">
+Announce the new task, reset the text cursor, seed the held-entity countdown and refresh the room display.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_SetTaskIndexAndAnnounce</td>
+<td class="address-2"><span id="44055"></span>44055</td>
+<td class="instruction">LD (29358),A</td>
+<td class="comment-1" rowspan="1">Set the current task index (<a href="29358.html">CurrentTaskIndex</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44058"></span>44058</td>
+<td class="instruction">CALL <a href="56913.html">Print_MessageByIndex</a></td>
+<td class="comment-1" rowspan="1">Call <a href="56913.html">Print_MessageByIndex</a> to print a message by index.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44061"></span>44061</td>
+<td class="instruction">CALL <a href="44359.html">Reset_Text_Position</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44359.html">Reset_Text_Position</a> to reset the text position.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44064"></span>44064</td>
+<td class="instruction">LD A,160</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 160.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44066"></span>44066</td>
+<td class="instruction">LD (29403),A</td>
+<td class="comment-1" rowspan="1">Set the held-entity pointer (<a href="29403.html">Pointer_BerkHeldEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44069"></span>44069</td>
+<td class="instruction">CALL <a href="44801.html">Initialise_Room_Display</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44801.html">Initialise_Room_Display</a> to initialise the room display.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44072"></span>44072</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44073"></span>
+<div class="comments">
+<div class="paragraph">
+Run Berk's action handler; if task status bit 5 is set, refresh the room display and act again before restart.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_ActionAndMaybeRestart</td>
+<td class="address-2"><span id="44073"></span>44073</td>
+<td class="instruction">CALL <a href="44748.html">Handle_Berk_Action</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44748.html">Handle_Berk_Action</a> to handle Berk's action.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44076"></span>44076</td>
+<td class="instruction">CALL <a href="44440.html">Clear_Messaging_Attributes</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44440.html">Clear_Messaging_Attributes</a> to clear messaging attributes.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44079"></span>44079</td>
+<td class="instruction">LD A,(29364)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the task status flags (<a href="29364.html">TaskStatusFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44082"></span>44082</td>
+<td class="instruction">BIT 5,A</td>
+<td class="comment-1" rowspan="2">Is bit 5 of the task status flags set? If not, jump to <a href="43925.html#44097">Update_Berk_State_PrintStatusAndRestart</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44084"></span>44084</td>
+<td class="instruction">JR Z,<a href="43925.html#44097">Update_Berk_State_PrintStatusAndRestart</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44086"></span>44086</td>
+<td class="instruction">LD A,200</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 200.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44088"></span>44088</td>
+<td class="instruction">LD (29403),A</td>
+<td class="comment-1" rowspan="1">Set the held-entity pointer (<a href="29403.html">Pointer_BerkHeldEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44091"></span>44091</td>
+<td class="instruction">CALL <a href="44801.html">Initialise_Room_Display</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44801.html">Initialise_Room_Display</a> to initialise the room display.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44094"></span>44094</td>
+<td class="instruction">CALL <a href="44748.html">Handle_Berk_Action</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44748.html">Handle_Berk_Action</a> to handle Berk's action.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44097"></span>
+<div class="comments">
+<div class="paragraph">
+Print status/rating messages and restart the game at <a href="43691.html">GameRestart</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_PrintStatusAndRestart</td>
+<td class="address-2"><span id="44097"></span>44097</td>
+<td class="instruction">CALL <a href="56857.html">Print_StatusMessages</a></td>
+<td class="comment-1" rowspan="1">Call <a href="56857.html">Print_StatusMessages</a> to print status messages.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44100"></span>44100</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44101"></span>44101</td>
+<td class="instruction">JP <a href="43691.html">GameRestart</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43691.html">GameRestart</a> to restart the game.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44104"></span>
+<div class="comments">
+<div class="paragraph">
+While a timed event is quiet, tick the frame counter and fall through when it expires.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_ActiveTaskFrameTick</td>
+<td class="address-2"><span id="44104"></span>44104</td>
+<td class="instruction">LD A,(29390)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the timed event latch (<a href="29390.html">TimedEventLatch</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44107"></span>44107</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the timed event latch zero? If not, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44108"></span>44108</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44109"></span>44109</td>
+<td class="instruction">LD A,(29382)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the frame counter (<a href="29382.html">FrameCounter</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44112"></span>44112</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="2">Step the frame counter back by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44113"></span>44113</td>
+<td class="instruction">LD (29382),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44116"></span>44116</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1">Return unless the frame counter is now zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44117"></span>44117</td>
+<td class="instruction">LD A,(29353)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the Learner Berk mode flag (<a href="29353.html">Flag_LearnerBerkMode</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44120"></span>44120</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the Learner Berk mode flag zero? If so, jump to <a href="43925.html#44125">Update_Berk_State_ReloadFrameCounter</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44121"></span>44121</td>
+<td class="instruction">JR Z,<a href="43925.html#44125">Update_Berk_State_ReloadFrameCounter</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44123"></span>44123</td>
+<td class="instruction">LD A,5</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 5.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44125"></span>
+<div class="comments">
+<div class="paragraph">
+Reload the frame counter, advance the task timer, and either paint the attr strip or play the task-fanfare path.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_ReloadFrameCounter</td>
+<td class="address-2"><span id="44125"></span>44125</td>
+<td class="instruction">ADD A,15</td>
+<td class="comment-1" rowspan="1">Add 15 to <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44127"></span>44127</td>
+<td class="instruction">LD (29382),A</td>
+<td class="comment-1" rowspan="1">Set the frame counter (<a href="29382.html">FrameCounter</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44130"></span>44130</td>
+<td class="instruction">LD A,(29424)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the task timer (<a href="29424.html">TaskTimer</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44133"></span>44133</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="2">Advance the task timer by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44134"></span>44134</td>
+<td class="instruction">LD (29424),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44137"></span>44137</td>
+<td class="instruction">CP 160</td>
+<td class="comment-1" rowspan="2">Is the task timer less than 160? If so, jump to <a href="43925.html#44194">Update_Berk_State_AttrStripFromSeed</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44139"></span>44139</td>
+<td class="instruction">JR C,<a href="43925.html#44194">Update_Berk_State_AttrStripFromSeed</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44141"></span>
+<div class="comments">
+<div class="paragraph">
+<audio controls="" src="../../audio/task-fanfare.wav">
+<p>Your browser doesn't support HTML5 audio. Here is a <a href="../../audio/task-fanfare.wav">link to the audio</a> instead.</p>
+</audio>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44141"></span>44141</td>
+<td class="instruction">LD A,11</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with sound index 11.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44143"></span>44143</td>
+<td class="instruction">CALL <a href="63737.html">Queue_Sound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="63737.html">Queue_Sound</a> to queue a sound.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44146"></span>44146</td>
+<td class="instruction">CALL <a href="63919.html">Play_QueuedSound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="63919.html">Play_QueuedSound</a> to play the queued sound.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44149"></span>44149</td>
+<td class="instruction">LD A,(29358)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current task index (<a href="29358.html">CurrentTaskIndex</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44152"></span>44152</td>
+<td class="instruction">CP 5</td>
+<td class="comment-1" rowspan="2">Is the current task index equal to 5? If so, jump to <a href="43925.html#44097">Update_Berk_State_PrintStatusAndRestart</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44154"></span>44154</td>
+<td class="instruction">JP Z,<a href="43925.html#44097">Update_Berk_State_PrintStatusAndRestart</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44157"></span>44157</td>
+<td class="instruction">LD A,(29353)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the Learner Berk mode flag (<a href="29353.html">Flag_LearnerBerkMode</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44160"></span>44160</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the Learner Berk mode flag zero? If so, jump to <a href="43925.html#44097">Update_Berk_State_PrintStatusAndRestart</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44161"></span>44161</td>
+<td class="instruction">JP Z,<a href="43925.html#44097">Update_Berk_State_PrintStatusAndRestart</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44164"></span>44164</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44165"></span>44165</td>
+<td class="instruction">LD (29358),A</td>
+<td class="comment-1" rowspan="1">Set the current task index (<a href="29358.html">CurrentTaskIndex</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44168"></span>44168</td>
+<td class="instruction">LD A,(29359)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current task phase (<a href="29359.html">CurrentTaskPhase</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44171"></span>44171</td>
+<td class="instruction">CP 1</td>
+<td class="comment-1" rowspan="2">Is the current task phase equal to 1? If not, jump to <a href="43925.html#44179">Update_Berk_State_TooLateFeedback</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44173"></span>44173</td>
+<td class="instruction">JR NZ,<a href="43925.html#44179">Update_Berk_State_TooLateFeedback</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44175"></span>44175</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="2">Step the current task phase back by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44176"></span>44176</td>
+<td class="instruction">LD (29359),A</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44179"></span>
+<div class="comments">
+<div class="paragraph">
+Print too-late feedback, handle Berk's action, and reload the game tick counter.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_TooLateFeedback</td>
+<td class="address-2"><span id="44179"></span>44179</td>
+<td class="instruction">CALL <a href="56739.html">Print_TooLateTaskFeedback</a></td>
+<td class="comment-1" rowspan="1">Call <a href="56739.html">Print_TooLateTaskFeedback</a> to print too-late task feedback.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44182"></span>44182</td>
+<td class="instruction">CALL <a href="44359.html">Reset_Text_Position</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44359.html">Reset_Text_Position</a> to reset the text position.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44185"></span>44185</td>
+<td class="instruction">CALL <a href="44748.html">Handle_Berk_Action</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44748.html">Handle_Berk_Action</a> to handle Berk's action.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44188"></span>44188</td>
+<td class="instruction">LD A,70</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 70 as the game tick reload value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44190"></span>44190</td>
+<td class="instruction">LD (29426),A</td>
+<td class="comment-1" rowspan="1">Set the game tick counter (<a href="29426.html">GameTickCounter</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44193"></span>44193</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44194"></span>
+<div class="comments">
+<div class="paragraph">
+Choose an attribute value from the task timer (bright white, or divide to map into the ink range).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_AttrStripFromSeed</td>
+<td class="address-2"><span id="44194"></span>44194</td>
+<td class="instruction">LD A,(29424)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the task timer (<a href="29424.html">TaskTimer</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44197"></span>44197</td>
+<td class="instruction">CP 156</td>
+<td class="comment-1" rowspan="2">Is the task timer less than 156? If so, jump to <a href="43925.html#44205">Update_Berk_State_DivModSetup</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44199"></span>44199</td>
+<td class="instruction">JR C,<a href="43925.html#44205">Update_Berk_State_DivModSetup</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44201"></span>44201</td>
+<td class="instruction">LD A,199</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 199.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44203"></span>44203</td>
+<td class="instruction">JR <a href="43925.html#44215">Update_Berk_State_Hit</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43925.html#44215">Update_Berk_State_Hit</a> to paint the attribute strip.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44205"></span>
+<div class="comments">
+<div class="paragraph">
+Set up divisor 23 to map the task timer into an attribute ink.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_DivModSetup</td>
+<td class="address-2"><span id="44205"></span>44205</td>
+<td class="instruction">LD BC,23</td>
+<td class="comment-1" rowspan="1">Load <span class="register">BC</span> with 0023.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44208"></span>
+<div class="comments">
+<div class="paragraph">
+Divide the task timer by 23 and bias the quotient into the attribute ink range.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_DivModLoop</td>
+<td class="address-2"><span id="44208"></span>44208</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Increment the quotient counter in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44209"></span>44209</td>
+<td class="instruction">SUB C</td>
+<td class="comment-1" rowspan="1">Subtract <span class="register">C</span> from <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44210"></span>44210</td>
+<td class="instruction">JR NC,<a href="43925.html#44208">Update_Berk_State_DivModLoop</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43925.html#44208">Update_Berk_State_DivModLoop</a> while <span class="register">A</span> remains at least <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44212"></span>44212</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-1" rowspan="1">Copy the quotient from <span class="register">B</span> into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44213"></span>44213</td>
+<td class="instruction">ADD A,64</td>
+<td class="comment-1" rowspan="1">Add 64 to <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44215"></span>
+<div class="comments">
+<div class="paragraph">
+Point at the status attribute strip (23204 (attribute buffer)) ready to paint.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_Hit</td>
+<td class="address-2"><span id="44215"></span>44215</td>
+<td class="instruction">LD HL,23204</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at attribute-file address 23204 (attribute buffer).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44218"></span>44218</td>
+<td class="instruction">LD B,20</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 20 as a loop counter.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44220"></span>
+<div class="comments">
+<div class="paragraph">
+Fill the status attribute strip, then prepare to scan the matching screen row.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_Exit</td>
+<td class="address-2"><span id="44220"></span>44220</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1">Store <span class="register">A</span> at the address in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44221"></span>44221</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance <span class="register">HL</span> by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44222"></span>44222</td>
+<td class="instruction">DJNZ <a href="43925.html#44220">Update_Berk_State_Exit</a></td>
+<td class="comment-1" rowspan="1">Decrease the loop counter in <span class="register">B</span> and jump to <a href="43925.html#44220">Update_Berk_State_Exit</a> while bytes remain.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44224"></span>44224</td>
+<td class="instruction">LD HL,20900</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at screen address 20900 (screen buffer).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44227"></span>44227</td>
+<td class="instruction">LD B,19</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 19 as a loop counter.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44229"></span>
+<div class="comments">
+<div class="paragraph">
+Scan the status screen row for a non-255 cell to rotate.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_PartA</td>
+<td class="address-2"><span id="44229"></span>44229</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the next byte through <span class="register">HL</span> into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44230"></span>44230</td>
+<td class="instruction">CP 255</td>
+<td class="comment-1" rowspan="2">Is the fetched byte equal to 255? If not, jump to <a href="43925.html#44237">Update_Berk_State_PartB</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44232"></span>44232</td>
+<td class="instruction">JR NZ,<a href="43925.html#44237">Update_Berk_State_PartB</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44234"></span>44234</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance <span class="register">HL</span> by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44235"></span>44235</td>
+<td class="instruction">DJNZ <a href="43925.html#44229">Update_Berk_State_PartA</a></td>
+<td class="comment-1" rowspan="1">Decrease the loop counter in <span class="register">B</span> and jump to <a href="43925.html#44229">Update_Berk_State_PartA</a> while bytes remain.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44237"></span>
+<div class="comments">
+<div class="paragraph">
+Prepare to rotate six pixel rows of the found status glyph.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_PartB</td>
+<td class="address-2"><span id="44237"></span>44237</td>
+<td class="instruction">LD B,6</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 6 as a loop counter.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44239"></span>
+<div class="comments">
+<div class="paragraph">
+Rotate the status glyph down the screen rows, then count down the held-entity pointer if set.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_PartC</td>
+<td class="address-2"><span id="44239"></span>44239</td>
+<td class="instruction">SCF</td>
+<td class="comment-1" rowspan="1">Signal success.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44240"></span>44240</td>
+<td class="instruction">RR (HL)</td>
+<td class="comment-1" rowspan="1">Rotate right the byte at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44242"></span>44242</td>
+<td class="instruction">INC H</td>
+<td class="comment-1" rowspan="1">Advance the high byte of the pointer in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44243"></span>44243</td>
+<td class="instruction">DJNZ <a href="43925.html#44239">Update_Berk_State_PartC</a></td>
+<td class="comment-1" rowspan="1">Decrease the loop counter in <span class="register">B</span> and jump to <a href="43925.html#44239">Update_Berk_State_PartC</a> while rows remain.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44245"></span>44245</td>
+<td class="instruction">LD HL,(29403)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">HL</span> with the held-entity pointer (<a href="29403.html">Pointer_BerkHeldEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44248"></span>44248</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-1" rowspan="1">Copy the high byte of the pointer into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44249"></span>44249</td>
+<td class="instruction">OR L</td>
+<td class="comment-1" rowspan="1">Merge the low byte of the pointer into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44250"></span>44250</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">Return if the held-entity pointer is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44251"></span>44251</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-1" rowspan="1">Step the held-entity pointer back by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44252"></span>44252</td>
+<td class="instruction">LD (29403),HL</td>
+<td class="comment-1" rowspan="1">Store <span class="register">HL</span> in the held-entity pointer (<a href="29403.html">Pointer_BerkHeldEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44255"></span>44255</td>
+<td class="instruction">JP <a href="44801.html#44830">Initialise_Room_Display_HeldEntity</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="44801.html#44830">Initialise_Room_Display_HeldEntity</a> to reprint the bonus.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="43894.html">43894</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#43925">Map</a></td>
+<td class="next">
+Next: <a href="44258.html">44258</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/AB95.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

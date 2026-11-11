@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Pokes</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Pokes. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Pokes" />
+<meta property="og:description" content="The Trap Door: Pokes. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/reference/pokes.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/reference/pokes.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Pokes",
+"name": "The Trap Door: Pokes",
+"description": "The Trap Door: Pokes. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/reference/pokes.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Pokes"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/reference/pokes.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Pokes">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Pokes</td>
+</tr>
+</table>
+<ul class="contents">
+<li><a href="#noTickDelay">No Game Tick Delay</a></li>
+<li><a href="#neverFired">Never Fired On Task Timeout</a></li>
+<li><a href="#freezeTaskThree">Freeze Task Three Timer</a></li>
+<li><a href="#learnerSuper">Learner Or Super Berk</a></li>
+<li><a href="#startTask">Start On Task</a></li>
+<li><a href="#infiniteTime">Infinite Time</a></li>
+<li><a href="#maximumBonus">Maximum Bonus</a></li>
+</ul>
+<div><span id="noTickDelay"></span></div>
+<div class="box box-1">
+<div class="box-title">No Game Tick Delay</div>
+<div class="paragraph">
+<code>
+<div>POKE <a href="../asm/43925.html#43973">43973</a>,24</div>
+</code>
+</div>
+<div class="paragraph">
+Berk's per-frame update at <a href="../asm/43925.html#43968">Update_Berk_State_TickCounter</a> returns early while <a href="../asm/29426.html">GameTickCounter</a> is non-zero.
+This changes the <code>JR Z</code> into an absolute <code>JR</code>, so the delay
+gate is skipped and Berk always continues into the rest of the update.
+</div>
+<div class="paragraph">
+<table>
+<tbody>
+<tr>
+<td class="address-1"><a href="../asm/43925.html#43968">43968</a></td>
+<td class="instruction">LD <span class="register">HL</span>,<a href="../asm/29426.html">29426</a></td>
+<td class="comment-2" rowspan="5">If the tick counter is non-zero, decrease it and
+return; otherwise continue.</td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/43925.html#43971">43971</a></td>
+<td class="instruction">LD <span class="register">A</span>,(<span class="register">HL</span>)</td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/43925.html#43972">43972</a></td>
+<td class="instruction">OR <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/43925.html#43973">43973</a></td>
+<td class="instruction">JR Z,<a href="../asm/43925.html#43977">43977</a></td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/43925.html#43975">43975</a></td>
+<td class="instruction">DEC (<span class="register">HL</span>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph">
+<table>
+<tbody>
+<tr>
+<td class="address-1"><a href="../asm/43925.html#43973">43973</a></td>
+<td class="instruction">JR <a href="../asm/43925.html#43977">43977</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div><span id="neverFired"></span></div>
+<div class="box box-2">
+<div class="box-title">Never Fired On Task Timeout</div>
+<div class="paragraph">
+<code>
+<div>POKE <a href="../asm/43925.html#44161">44161</a>,0</div>
+<div>POKE <a href="../asm/43925.html#44161">44162</a>,0</div>
+<div>POKE <a href="../asm/43925.html#44161">44163</a>,0</div>
+</code>
+</div>
+<div class="paragraph">
+When the task frame counter runs out in Super Berk mode, <a href="../asm/43925.html#44157">44157</a> jumps to
+<a href="../asm/43925.html#44097">Update_Berk_State_PrintStatusAndRestart</a>, which prints the ratings (including "YOU'RE FIRED") and restarts.
+These POKEs remove that jump, so a timed-out Super Berk game continues
+instead of ending.
+</div>
+<div class="paragraph">
+<table>
+<tbody>
+<tr>
+<td class="address-1"><a href="../asm/43925.html#44157">44157</a></td>
+<td class="instruction">LD <span class="register">A</span>,(<a href="../asm/29353.html">Flag_LearnerBerkMode</a>)</td>
+<td class="comment-2" rowspan="3">If Learner Berk mode is clear (Super Berk), jump to
+the fired / ratings restart at <a href="../asm/43925.html#44097">Update_Berk_State_PrintStatusAndRestart</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/43925.html#44160">44160</a></td>
+<td class="instruction">OR <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/43925.html#44161">44161</a></td>
+<td class="instruction">JP Z,<a href="../asm/43925.html#44097">Update_Berk_State_PrintStatusAndRestart</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph">
+<table>
+<tbody>
+<tr>
+<td class="address-1"><a href="../asm/43925.html#44161">44161</a></td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/43925.html#44161">44162</a></td>
+<td class="instruction">NOP</td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/43925.html#44161">44163</a></td>
+<td class="instruction">NOP</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div><span id="freezeTaskThree"></span></div>
+<div class="box box-1">
+<div class="box-title">Freeze Task Three Timer</div>
+<div class="paragraph">
+<code>
+<div>POKE <a href="../asm/50040.html#50057">50057</a>,0</div>
+</code>
+</div>
+<div class="paragraph">
+While the task-three timer at <a href="../asm/29379.html">TaskThreeTimer</a> is non-zero, <a href="../asm/50040.html">Update_Task_Three_Entities</a> counts it down with
+<code>DEC <span class="register">A</span></code> at <a href="../asm/50040.html#50057">50057</a>. This NOPs that decrease, so the timer value
+stops falling and the countdown side-effects no longer advance.
+</div>
+<div class="paragraph">
+<table>
+<tbody>
+<tr>
+<td class="address-1"><a href="../asm/50040.html#50043">50043</a></td>
+<td class="instruction">LD <span class="register">A</span>,(<a href="../asm/29379.html">TaskThreeTimer</a>)</td>
+<td class="comment-2" rowspan="4">Load the task-three timer and, when it is
+non-zero, decrease it.</td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/50040.html#50046">50046</a></td>
+<td class="instruction">OR <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/50040.html#50047">50047</a></td>
+<td class="instruction">JR Z,<a href="../asm/50040.html#50076">Update_Task_Three_Entities_RunStateMachine</a></td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/50040.html#50057">50057</a></td>
+<td class="instruction">DEC <span class="register">A</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph">
+<table>
+<tbody>
+<tr>
+<td class="address-1"><a href="../asm/50040.html#50057">50057</a></td>
+<td class="instruction">NOP</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div><span id="learnerSuper"></span></div>
+<div class="box box-2">
+<div class="box-title">Learner Or Super Berk</div>
+<div class="paragraph">
+<code>
+<div>POKE <a href="../asm/29353.html">Flag_LearnerBerkMode</a>,0</div>
+<div>POKE <a href="../asm/29353.html">Flag_LearnerBerkMode</a>,1</div>
+</code>
+</div>
+<div class="paragraph">
+<a href="../asm/29353.html">Flag_LearnerBerkMode</a> is the Learner Berk mode flag written by the main menu at <a href="../asm/62525.html">MainMenu_ChooseLearnerOrSuper</a>.
+0 selects Super Berk; 1 selects Learner Berk. Apply after the menu
+choice (or it will be overwritten). Learner mode softens timing and skips the
+Super-only timeout jump at <a href="../asm/43925.html#44161">44161</a>.
+</div>
+</div>
+<div><span id="startTask"></span></div>
+<div class="box box-1">
+<div class="box-title">Start On Task</div>
+<div class="paragraph">
+<code>
+<div>POKE <a href="../asm/29358.html">CurrentTaskIndex</a>,<em>nn</em></div>
+</code>
+</div>
+<div class="paragraph">
+<a href="../asm/29358.html">CurrentTaskIndex</a> is the current task index. After a game has started, set it to one of:
+</div>
+<div class="paragraph">
+<ul class="">
+<li>1 Can of worms</li>
+<li>2 Fried eggs</li>
+<li>3 Boiled slimies</li>
+<li>4 Eyeball crush</li>
+<li>5 Tidy up</li>
+</ul>
+</div>
+<div class="paragraph">
+The briefing printer at <a href="../asm/56913.html">Print_MessageByIndex</a> reads this index through the table at <a href="../asm/56931.html">Messaging_BerkGetMeACanOfWorms</a>.
+You will usually also want <a href="../asm/29359.html">CurrentTaskPhase</a> non-zero so the task phase is treated as
+active (see <a href="../asm/43925.html">Update_Berk_State</a>).
+</div>
+</div>
+<div><span id="infiniteTime"></span></div>
+<div class="box box-2">
+<div class="box-title">Infinite Time</div>
+<div class="paragraph">
+<code>
+<div>POKE <a href="../asm/43925.html#44139">44139</a>,24</div>
+</code>
+</div>
+<div class="paragraph">
+When the task frame counter at <a href="../asm/29382.html">FrameCounter</a> hits zero, <a href="../asm/43925.html#44137">44137</a> compares the task
+timer at <a href="../asm/29424.html">TaskTimer</a> with 160. The original <code>JR C</code> at <a href="../asm/43925.html#44139">44139</a> only
+skips ahead to the attribute-strip path at <a href="../asm/43925.html#44194">Update_Berk_State_AttrStripFromSeed</a> when the timer is below that
+threshold; otherwise control falls into the fanfare / timeout path at <a href="../asm/43925.html#44141">44141</a>
+(and can reach the "YOU'RE FIRED" restart at <a href="../asm/43925.html#44097">Update_Berk_State_PrintStatusAndRestart</a>). This changes that
+instruction into an absolute <code>JR</code>, so the timeout path is always
+skipped.
+</div>
+<div class="paragraph">
+<table>
+<tbody>
+<tr>
+<td class="address-1"><a href="../asm/43925.html#44130">44130</a></td>
+<td class="instruction">LD <span class="register">A</span>,(<a href="../asm/29424.html">TaskTimer</a>)</td>
+<td class="comment-2" rowspan="5">Advance the task timer and, if it is less than
+160, jump to the attribute-strip path.</td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/43925.html#44133">44133</a></td>
+<td class="instruction">INC <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/43925.html#44134">44134</a></td>
+<td class="instruction">LD (<a href="../asm/29424.html">TaskTimer</a>),<span class="register">A</span></td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/43925.html#44137">44137</a></td>
+<td class="instruction">CP 160</td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/43925.html#44139">44139</a></td>
+<td class="instruction">JR C,<a href="../asm/43925.html#44194">Update_Berk_State_AttrStripFromSeed</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph">
+<table>
+<tbody>
+<tr>
+<td class="address-1"><a href="../asm/43925.html#44139">44139</a></td>
+<td class="instruction">JR <a href="../asm/43925.html#44194">Update_Berk_State_AttrStripFromSeed</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div><span id="maximumBonus"></span></div>
+<div class="box box-1">
+<div class="box-title">Maximum Bonus</div>
+<div class="paragraph">
+<code>
+<div>POKE <a href="../asm/43925.html#44251">44251</a>,0</div>
+</code>
+</div>
+<div class="paragraph">
+On the quiet frame-tick path, <a href="../asm/43925.html#44215">Update_Berk_State_Hit</a> paints the status strip and <a href="../asm/43925.html#44239">Update_Berk_State_PartC</a>
+rotates the timer glyph. <a href="../asm/43925.html#44245">44245</a> then counts <a href="../asm/29403.html">Pointer_BerkHeldEntity</a> down with
+<code>DEC <span class="register">HL</span></code> at <a href="../asm/43925.html#44251">44251</a> before reprinting it via <a href="../asm/44801.html#44830">Initialise_Room_Display_HeldEntity</a>. That word
+is the bonus. This NOPs the decrease, so the bonus no longer drains on each
+tick.
+</div>
+<div class="paragraph">
+<table>
+<tbody>
+<tr>
+<td class="address-1"><a href="../asm/43925.html#44245">44245</a></td>
+<td class="instruction">LD <span class="register">HL</span>,(<a href="../asm/29403.html">Pointer_BerkHeldEntity</a>)</td>
+<td class="comment-2" rowspan="5">If the bonus is non-zero, decrease it and
+reprint it via <a href="../asm/44801.html#44830">Initialise_Room_Display_HeldEntity</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/43925.html#44248">44248</a></td>
+<td class="instruction">LD <span class="register">A</span>,<span class="register">H</span></td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/43925.html#44249">44249</a></td>
+<td class="instruction">OR <span class="register">L</span></td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/43925.html#44250">44250</a></td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/43925.html#44251">44251</a></td>
+<td class="instruction">DEC <span class="register">HL</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph">
+<table>
+<tbody>
+<tr>
+<td class="address-1"><a href="../asm/43925.html#44251">44251</a></td>
+<td class="instruction">NOP</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../reference/pokes.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

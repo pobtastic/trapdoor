@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at ADA1</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at ADA1. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at ADA1" />
+<meta property="og:description" content="The Trap Door: Routine at ADA1. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/ADA1.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/ADA1.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at ADA1",
+"name": "The Trap Door: Routine at ADA1",
+"description": "The Trap Door: Routine at ADA1. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/ADA1.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at ADA1"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/ADA1.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="AD98.html">AD98</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#ada1">Map</a></td>
+<td class="next">
+Next: <a href="AECC.html">AECC</a>
+</td>
+</tr>
+</table>
+<div class="description">ADA1: Update Timed Events</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="AAB3.html">GameStart</a>.
+</div>
+<div class="paragraph">
+Once per frame: run timed room events, fanfares and the script-temporary countdown while a task is active.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Timed_Events</td>
+<td class="address-2"><span id="ada1"></span>ADA1</td>
+<td class="instruction">LD A,($72CE)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the timed event latch (<a href="72CE.html">TimedEventLatch</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ada4"></span>ADA4</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is timed event latch zero? If so, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ada5"></span>ADA5</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ada6"></span>ADA6</td>
+<td class="instruction">LD IX,$8D7D</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the dumb-waiter entity (<a href="8B69.html#8d7d">8D7D</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="adaa"></span>ADAA</td>
+<td class="instruction">CP $1C</td>
+<td class="comment-1" rowspan="2">Is timed event latch equal to 1C? If not, jump to <a href="ADA1.html#adec">Update_Timed_Events_AdvanceTypeAndSound</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="adac"></span>ADAC</td>
+<td class="instruction">JR NZ,<a href="ADA1.html#adec">Update_Timed_Events_AdvanceTypeAndSound</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="adae"></span>ADAE</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear the timed event latch.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="adaf"></span>ADAF</td>
+<td class="instruction">LD ($72CE),A</td>
+<td class="comment-1" rowspan="1">Set the timed event latch.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="adb2"></span>ADB2</td>
+<td class="instruction">LD IX,($8D89)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">IX</span> from the trap door entity pointer (<a href="8B69.html#8d89">8D89</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="adb6"></span>ADB6</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Fetch the current entity's type for the type test.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="adb9"></span>ADB9</td>
+<td class="instruction">CP $14</td>
+<td class="comment-1" rowspan="2">Is the current entity's entity type less than 14? If so, jump to <a href="ADA1.html#adde">Update_Timed_Events_TrapDoorLayout</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="adbb"></span>ADBB</td>
+<td class="instruction">JR C,<a href="ADA1.html#adde">Update_Timed_Events_TrapDoorLayout</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="adbd"></span>ADBD</td>
+<td class="instruction">BIT 6,(IX+$01)</td>
+<td class="comment-1" rowspan="2">Is bit 06 of the current entity's flags byte 1 set? If not, jump to <a href="ADA1.html#adde">Update_Timed_Events_TrapDoorLayout</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="adc1"></span>ADC1</td>
+<td class="instruction">JR Z,<a href="ADA1.html#adde">Update_Timed_Events_TrapDoorLayout</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="adc3"></span>ADC3</td>
+<td class="instruction">RES 6,(IX+$01)</td>
+<td class="comment-1" rowspan="1">Reset bit 06 of the current entity's flags byte 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="adc7"></span>ADC7</td>
+<td class="instruction">INC (IX+$04)</td>
+<td class="comment-1" rowspan="1">Advance this entity into the next room.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="adca"></span>ADCA</td>
+<td class="instruction">INC (IX+$05)</td>
+<td class="comment-1" rowspan="2">Move this entity one character down.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="adcd"></span>ADCD</td>
+<td class="instruction">INC (IX+$06)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="add0"></span>ADD0</td>
+<td class="instruction">INC (IX+$04)</td>
+<td class="comment-1" rowspan="1">Advance this entity into the next room.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="add3"></span>ADD3</td>
+<td class="instruction">INC (IX+$05)</td>
+<td class="comment-1" rowspan="2">Move this entity one character down.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="add6"></span>ADD6</td>
+<td class="instruction">INC (IX+$06)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="add9"></span>ADD9</td>
+<td class="instruction">LD HL,$72B3</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the game event flags (<a href="72B3.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="addc"></span>ADDC</td>
+<td class="instruction">RES 3,(HL)</td>
+<td class="comment-1" rowspan="1">Clear "object has been offered to the trap" (bit 03 of <a href="72B3.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="adde"></span>
+<div class="comments">
+<div class="paragraph">
+Force the lever scenery slot onto closed facing left at <a href="A827.html">GraphicLayout_LeverClosedLeft</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Timed_Events_TrapDoorLayout</td>
+<td class="address-2"><span id="adde"></span>ADDE</td>
+<td class="instruction">LD IX,$8D8B</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the lever scenery entity (<a href="8B69.html#8d8b">8D8B</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ade2"></span>ADE2</td>
+<td class="instruction">LD BC,$A827</td>
+<td class="comment-1" rowspan="1">Load <span class="register">BC</span> with the lever closed, facing left (<a href="A827.html">GraphicLayout_LeverClosedLeft</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ade5"></span>ADE5</td>
+<td class="instruction">LD (IX+$0A),C</td>
+<td class="comment-1" rowspan="1">Set the low byte of the current entity's graphic layout address from <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ade8"></span>ADE8</td>
+<td class="instruction">LD (IX+$0B),B</td>
+<td class="comment-1" rowspan="1">Set the high byte of the current entity's graphic layout address from <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="adeb"></span>ADEB</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="adec"></span>
+<div class="comments">
+<div class="paragraph">
+Advance the timed-event entity type, queue a cue, and either raise or lower it toward the trap.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Timed_Events_AdvanceTypeAndSound</td>
+<td class="address-2"><span id="adec"></span>ADEC</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Advance the current entity's entity type by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aded"></span>ADED</td>
+<td class="instruction">LD ($72CE),A</td>
+<td class="comment-1" rowspan="1">Set the timed event latch.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="adf0"></span>ADF0</td>
+<td class="instruction">CP $0F</td>
+<td class="comment-1" rowspan="2">Is the current entity's entity type equal to 0F? If so, jump to <a href="ADA1.html#ae2a">Update_Timed_Events_Branch</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="adf2"></span>ADF2</td>
+<td class="instruction">JP Z,<a href="ADA1.html#ae2a">Update_Timed_Events_Branch</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="adf5"></span>ADF5</td>
+<td class="instruction">PUSH AF</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">AF</span> on the stack.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="adf6"></span>
+<div class="comments">
+<div class="paragraph">
+<audio controls="" src="../audio/timed-event.wav">
+<p>Your browser doesn't support HTML5 audio. Here is a <a href="../audio/timed-event.wav">link to the audio</a> instead.</p>
+</audio>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="adf6"></span>ADF6</td>
+<td class="instruction">LD A,$0C</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with sound index 0C.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="adf8"></span>ADF8</td>
+<td class="instruction">CALL <a href="F8F9.html">Queue_Sound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="F8F9.html">Queue_Sound</a> to queue a sound effect.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="adfb"></span>ADFB</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">AF</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="adfc"></span>ADFC</td>
+<td class="instruction">JR NC,<a href="ADA1.html#ae14">Update_Timed_Events_RaiseEntityY</a></td>
+<td class="comment-1" rowspan="1">If no borrow/miss was signaled, jump to <a href="ADA1.html#ae14">Update_Timed_Events_RaiseEntityY</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="adfe"></span>ADFE</td>
+<td class="instruction">DEC (IX+$05)</td>
+<td class="comment-1" rowspan="2">Move this entity one character up.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae01"></span>AE01</td>
+<td class="instruction">DEC (IX+$06)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae04"></span>AE04</td>
+<td class="instruction">LD IX,($8D89)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">IX</span> from the trap door entity pointer (<a href="8B69.html#8d89">8D89</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae08"></span>AE08</td>
+<td class="instruction">BIT 6,(IX+$01)</td>
+<td class="comment-1" rowspan="2">Is bit 06 of the current entity's flags byte 1 set? If not, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae0c"></span>AE0C</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae0d"></span>AE0D</td>
+<td class="instruction">DEC (IX+$05)</td>
+<td class="comment-1" rowspan="2">Move this entity one character up.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae10"></span>AE10</td>
+<td class="instruction">DEC (IX+$06)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae13"></span>AE13</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ae14"></span>
+<div class="comments">
+<div class="paragraph">
+Lower the timed-event entity (and the offered trap entity if flagged) one character.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Timed_Events_RaiseEntityY</td>
+<td class="address-2"><span id="ae14"></span>AE14</td>
+<td class="instruction">INC (IX+$05)</td>
+<td class="comment-1" rowspan="2">Move this entity one character down.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae17"></span>AE17</td>
+<td class="instruction">INC (IX+$06)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae1a"></span>AE1A</td>
+<td class="instruction">LD IX,($8D89)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">IX</span> from the trap door entity pointer (<a href="8B69.html#8d89">8D89</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae1e"></span>AE1E</td>
+<td class="instruction">BIT 6,(IX+$01)</td>
+<td class="comment-1" rowspan="2">Is bit 06 of the current entity's flags byte 1 set? If not, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae22"></span>AE22</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae23"></span>AE23</td>
+<td class="instruction">INC (IX+$05)</td>
+<td class="comment-1" rowspan="2">Move this entity one character down.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae26"></span>AE26</td>
+<td class="instruction">INC (IX+$06)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae29"></span>AE29</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ae2a"></span>
+<div class="comments">
+<div class="paragraph">
+When the timed event finishes on task 05, latch Berk's eat/action path or run the fanfare branch.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Timed_Events_Branch</td>
+<td class="address-2"><span id="ae2a"></span>AE2A</td>
+<td class="instruction">LD A,($72AE)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current task index (<a href="72AE.html">CurrentTaskIndex</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae2d"></span>AE2D</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is current task index zero? If so, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae2e"></span>AE2E</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae2f"></span>AE2F</td>
+<td class="instruction">CP $05</td>
+<td class="comment-1" rowspan="2">Is current task index equal to 05? If not, jump to <a href="ADA1.html#ae54">Update_Timed_Events_TrapEntityMessage</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae31"></span>AE31</td>
+<td class="instruction">JR NZ,<a href="ADA1.html#ae54">Update_Timed_Events_TrapEntityMessage</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae33"></span>AE33</td>
+<td class="instruction">LD A,($72B4)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the task status flags (<a href="72B4.html">TaskStatusFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae36"></span>AE36</td>
+<td class="instruction">BIT 6,A</td>
+<td class="comment-1" rowspan="2">Is bit 06 of task status flags set? If so, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae38"></span>AE38</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae39"></span>AE39</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-1" rowspan="2">Is bit 07 of task status flags set? If not, jump to <a href="ADA1.html#ae63">Update_Timed_Events_TaskProgressFanfare</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae3b"></span>AE3B</td>
+<td class="instruction">JR Z,<a href="ADA1.html#ae63">Update_Timed_Events_TaskProgressFanfare</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae3d"></span>AE3D</td>
+<td class="instruction">SET 6,A</td>
+<td class="comment-1" rowspan="1">Set "Berk action / eat latch" (bit 06 of <a href="72B4.html">TaskStatusFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae3f"></span>AE3F</td>
+<td class="instruction">LD ($72B4),A</td>
+<td class="comment-1" rowspan="1">Set the task status flags (<a href="72B4.html">TaskStatusFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae42"></span>AE42</td>
+<td class="instruction">LD IY,$907F</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IY</span> at the inactive complex-entity slot (<a href="8EF3.html#907f">StateData_Complex_29</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae46"></span>AE46</td>
+<td class="instruction">LD (IY+$00),$17</td>
+<td class="comment-1" rowspan="1">Write 17 to the referenced entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae4a"></span>AE4A</td>
+<td class="instruction">SET 6,(IY+$01)</td>
+<td class="comment-1" rowspan="1">Set bit 06 of the referenced entity's flags byte 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae4e"></span>AE4E</td>
+<td class="instruction">LD ($8D89),IY</td>
+<td class="comment-1" rowspan="1">Store <span class="register">IY</span> in the trap door entity pointer (<a href="8B69.html#8d89">8D89</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae52"></span>AE52</td>
+<td class="instruction">JR <a href="ADA1.html#ae63">Update_Timed_Events_TaskProgressFanfare</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="ADA1.html#ae63">Update_Timed_Events_TaskProgressFanfare</a> to finish the timed-event pass.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ae54"></span>
+<div class="comments">
+<div class="paragraph">
+If an entity was offered to the trap, copy its type into the message trigger.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Timed_Events_TrapEntityMessage</td>
+<td class="address-2"><span id="ae54"></span>AE54</td>
+<td class="instruction">LD IX,($8D89)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">IX</span> from the trap door entity pointer (<a href="8B69.html#8d89">8D89</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae58"></span>AE58</td>
+<td class="instruction">BIT 6,(IX+$01)</td>
+<td class="comment-1" rowspan="2">Is bit 06 of the current entity's flags byte 1 set? If not, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae5c"></span>AE5C</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae5d"></span>AE5D</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Fetch the current entity's type into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae60"></span>AE60</td>
+<td class="instruction">LD ($72C5),A</td>
+<td class="comment-1" rowspan="1">Set the message trigger (<a href="72C5.html">MessageTrigger</a>).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ae63"></span>
+<div class="comments">
+<div class="paragraph">
+Select the task-progress message, clear the offered-to-trap flag, and tidy helper slots on task 01.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Timed_Events_TaskProgressFanfare</td>
+<td class="address-2"><span id="ae63"></span>AE63</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">IX</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae65"></span>AE65</td>
+<td class="instruction">CALL <a href="E25E.html">Select_TaskProgressMessage</a></td>
+<td class="comment-1" rowspan="1">Call <a href="E25E.html">Select_TaskProgressMessage</a> to select Task Progress Message.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae68"></span>AE68</td>
+<td class="instruction">POP IX</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">IX</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae6a"></span>AE6A</td>
+<td class="instruction">LD A,($72F1)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the task progress repeat count (<a href="72F1.html">TaskProgressRepeatCount</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae6d"></span>AE6D</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Return if the task progress repeat count is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae6e"></span>AE6E</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae6f"></span>AE6F</td>
+<td class="instruction">LD A,($72B3)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the game event flags (<a href="72B3.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae72"></span>AE72</td>
+<td class="instruction">RES 3,A</td>
+<td class="comment-1" rowspan="1">Clear "object has been offered to the trap" (bit 03 of <a href="72B3.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae74"></span>AE74</td>
+<td class="instruction">LD ($72B3),A</td>
+<td class="comment-1" rowspan="1">Set the game event flags (<a href="72B3.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae77"></span>AE77</td>
+<td class="instruction">LD A,($72AE)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current task index (<a href="72AE.html">CurrentTaskIndex</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae7a"></span>AE7A</td>
+<td class="instruction">CP $01</td>
+<td class="comment-1" rowspan="2">Is current task index equal to 01? If not, jump to <a href="ADA1.html#ae96">Update_Timed_Events_AdvanceDialogue</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae7c"></span>AE7C</td>
+<td class="instruction">JR NZ,<a href="ADA1.html#ae96">Update_Timed_Events_AdvanceDialogue</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae7e"></span>AE7E</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear the current task phase (idle).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae7f"></span>AE7F</td>
+<td class="instruction">LD ($72AF),A</td>
+<td class="comment-1" rowspan="1">Set the current task phase (<a href="72AF.html">CurrentTaskPhase</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae82"></span>AE82</td>
+<td class="instruction">LD IY,$8F9F</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IY</span> at the inactive complex-entity slot (<a href="8EF3.html#8f9f">StateData_Complex_13</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae86"></span>AE86</td>
+<td class="instruction">LD DE,$000E</td>
+<td class="comment-1" rowspan="1">Each entity record is 000E bytes long, then load that length into <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae89"></span>AE89</td>
+<td class="instruction">LD B,$03</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 03 as a loop counter.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ae8b"></span>
+<div class="comments">
+<div class="paragraph">
+Clear helper entity types/flags across the upstairs helper slots.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Timed_Events_ClearHelperTypes</td>
+<td class="address-2"><span id="ae8b"></span>AE8B</td>
+<td class="instruction">LD (IY+$00),A</td>
+<td class="comment-1" rowspan="1">Set the referenced entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae8e"></span>AE8E</td>
+<td class="instruction">RES 5,(IY+$01)</td>
+<td class="comment-1" rowspan="1">Reset bit 05 of the referenced entity's flags byte 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae92"></span>AE92</td>
+<td class="instruction">ADD IY,DE</td>
+<td class="comment-1" rowspan="1">Advance <span class="register">IY</span> to the next entity record.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae94"></span>AE94</td>
+<td class="instruction">DJNZ <a href="ADA1.html#ae8b">Update_Timed_Events_ClearHelperTypes</a></td>
+<td class="comment-1" rowspan="1">Decrease the loop counter in <span class="register">B</span> and jump to <a href="ADA1.html#ae8b">Update_Timed_Events_ClearHelperTypes</a> if more iterations remain.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ae96"></span>
+<div class="comments">
+<div class="paragraph">
+Deactivate the timed-event entity, advance dialogue, handle Berk's action and reload the tick counter.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Timed_Events_AdvanceDialogue</td>
+<td class="address-2"><span id="ae96"></span>AE96</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear the current entity type (deactivate the slot).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae97"></span>AE97</td>
+<td class="instruction">LD (IX+$00),A</td>
+<td class="comment-1" rowspan="1">Set the current entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae9a"></span>AE9A</td>
+<td class="instruction">LD ($72AE),A</td>
+<td class="comment-1" rowspan="1">Set the current task index (<a href="72AE.html">CurrentTaskIndex</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ae9d"></span>AE9D</td>
+<td class="instruction">LD A,($72B0)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the dialogue line index (<a href="72B0.html">DialogueLineIndex</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aea0"></span>AEA0</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Advance dialogue line index by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aea1"></span>AEA1</td>
+<td class="instruction">LD ($72B0),A</td>
+<td class="comment-1" rowspan="1">Set the dialogue line index (<a href="72B0.html">DialogueLineIndex</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aea4"></span>AEA4</td>
+<td class="instruction">CALL <a href="AECC.html">Handle_Berk_Action</a></td>
+<td class="comment-1" rowspan="1">Call <a href="AECC.html">Handle_Berk_Action</a> to handle Berk's action.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aea7"></span>AEA7</td>
+<td class="instruction">CALL <a href="AD47.html">Reset_Text_Position</a></td>
+<td class="comment-1" rowspan="1">Call <a href="AD47.html">Reset_Text_Position</a> to reset the text position.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aeaa"></span>AEAA</td>
+<td class="instruction">LD A,$50</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 50 as the game tick reload value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aeac"></span>AEAC</td>
+<td class="instruction">LD ($72F2),A</td>
+<td class="comment-1" rowspan="1">Set the game tick counter (<a href="72F2.html">GameTickCounter</a>).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="aeaf"></span>
+<div class="comments">
+<div class="paragraph">
+Choose the held-entity countdown length (19, doubled outside Learner Berk mode).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Timed_Events_HeldCountdownStep</td>
+<td class="address-2"><span id="aeaf"></span>AEAF</td>
+<td class="instruction">LD HL,$0019</td>
+<td class="comment-1" rowspan="1">Load <span class="register">HL</span> with 0019 as a delay/count constant.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aeb2"></span>AEB2</td>
+<td class="instruction">LD A,($72A9)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the Learner Berk mode flag (<a href="72A9.html">Flag_LearnerBerkMode</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aeb5"></span>AEB5</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is Learner Berk mode flag zero? If not, jump to <a href="ADA1.html#aeb9">Update_Timed_Events_StoreHeldAndRefresh</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aeb6"></span>AEB6</td>
+<td class="instruction">JR NZ,<a href="ADA1.html#aeb9">Update_Timed_Events_StoreHeldAndRefresh</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aeb8"></span>AEB8</td>
+<td class="instruction">ADD HL,HL</td>
+<td class="comment-1" rowspan="1">Double the pointer/offset in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="aeb9"></span>
+<div class="comments">
+<div class="paragraph">
+Store the bonus, refresh the room display/action, and repeat until the task progress repeat count hits zero.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Timed_Events_StoreHeldAndRefresh</td>
+<td class="address-2"><span id="aeb9"></span>AEB9</td>
+<td class="instruction">LD ($72DB),HL</td>
+<td class="comment-1" rowspan="1">Store <span class="register">HL</span> in the pointer to the entity Berk is holding (<a href="72DB.html">Pointer_BerkHeldEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aebc"></span>AEBC</td>
+<td class="instruction">CALL <a href="AF01.html">Initialise_Room_Display</a></td>
+<td class="comment-1" rowspan="1">Call <a href="AF01.html">Initialise_Room_Display</a> to initialise the room display.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aebf"></span>AEBF</td>
+<td class="instruction">CALL <a href="AECC.html">Handle_Berk_Action</a></td>
+<td class="comment-1" rowspan="1">Call <a href="AECC.html">Handle_Berk_Action</a> to handle Berk's action.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aec2"></span>AEC2</td>
+<td class="instruction">LD A,($72F1)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the task progress repeat count (<a href="72F1.html">TaskProgressRepeatCount</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aec5"></span>AEC5</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1">Decrease the task progress repeat count in <span class="register">A</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aec6"></span>AEC6</td>
+<td class="instruction">LD ($72F1),A</td>
+<td class="comment-1" rowspan="1">Set the task progress repeat count (<a href="72F1.html">TaskProgressRepeatCount</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aec9"></span>AEC9</td>
+<td class="instruction">JR NZ,<a href="ADA1.html#aeaf">Update_Timed_Events_HeldCountdownStep</a></td>
+<td class="comment-1" rowspan="1">If the result was non-zero, jump to <a href="ADA1.html#aeaf">Update_Timed_Events_HeldCountdownStep</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aecb"></span>AECB</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="AD98.html">AD98</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#ada1">Map</a></td>
+<td class="next">
+Next: <a href="AECC.html">AECC</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/44449.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

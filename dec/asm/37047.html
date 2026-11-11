@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at 37047</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at 37047. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at 37047" />
+<meta property="og:description" content="The Trap Door: Data at 37047. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/37047.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/37047.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at 37047",
+"name": "The Trap Door: Data at 37047",
+"description": "The Trap Door: Data at 37047. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/37047.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at 37047"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/37047.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="36595.html">36595</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37047">Map</a></td>
+<td class="next">
+Next: <a href="37384.html">37384</a>
+</td>
+</tr>
+</table>
+<div class="description">37047: State Data: Scenery Entities</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Additional entity state records for room scenery and fixtures (0014 bytes each, terminated by 255 at <a href="37047.html#37383">37383</a>). These are not included in the <a href="44969.html">Backup_Entity_And_Game_State</a> backup. Each record's layout pointer references graphic layout data in <a href="37384.html">GraphicLayout_Berk</a>–<a href="43047.html">GraphicLayout_LeverClosedLeft</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">StateData_SceneryEntities</td>
+<td class="address-1"><span id="37047"></span>37047</td>
+<td class="instruction">DEFB 50</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37048"></span>37048</td>
+<td class="instruction">DEFB 7,0,0,1,20,27,94,95</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37056"></span>37056</td>
+<td class="instruction">DEFB 0,233,165,0,0,53,1,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37064"></span>37064</td>
+<td class="instruction">DEFB 0,1,19,27,86,87,0,182</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37072"></span>37072</td>
+<td class="instruction">DEFB 165,0,0,53,1,0,0,1</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37080"></span>37080</td>
+<td class="instruction">DEFB 17,27,122,123,0,182,165,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37088"></span>37088</td>
+<td class="instruction">DEFB 0,53,1,0,0,1,17,27</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37096"></span>37096</td>
+<td class="instruction">DEFB 62,65,0,114,162,0,0,62</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37104"></span>37104</td>
+<td class="instruction">DEFB 1,0,0,1,25,27,105,127</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37112"></span>37112</td>
+<td class="instruction">DEFB 0,187,166,0,0,53,1,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37120"></span>37120</td>
+<td class="instruction">DEFB 0,1,17,27,136,137,0,233</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37128"></span>37128</td>
+<td class="instruction">DEFB 165,0,0,62,1,0,0,1</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37136"></span>37136</td>
+<td class="instruction">DEFB 25,27,128,138,0,187,166,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37144"></span>37144</td>
+<td class="instruction">DEFB 0,50,0,0,0,1,26,29</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37152"></span>37152</td>
+<td class="instruction">DEFB 142,143,0,108,164,0,0,62</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37160"></span>37160</td>
+<td class="instruction">DEFB 1,0,0,1,25,27,167,191</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37168"></span>37168</td>
+<td class="instruction">DEFB 0,187,166,0,0,50,0,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37176"></span>37176</td>
+<td class="instruction">DEFB 0,1,26,29,172,172,0,108</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37184"></span>37184</td>
+<td class="instruction">DEFB 164,0,0,51,4,0,0,5</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37192"></span>37192</td>
+<td class="instruction">DEFB 30,39,32,33,0,28,166,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37200"></span>37200</td>
+<td class="instruction">DEFB 0,51,4,0,0,5,30,39</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37208"></span>37208</td>
+<td class="instruction">DEFB 62,63,0,28,166,0,0,50</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37216"></span>37216</td>
+<td class="instruction">DEFB 4,0,0,5,30,39,95,96</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37224"></span>37224</td>
+<td class="instruction">DEFB 0,28,166,0,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">StateData_TrapDoorScenery</td>
+<td class="address-1"><span id="37229"></span>37229</td>
+<td class="instruction">DEFB 57,4,0,0,5,33,35,96</td>
+<td class="comment-1" rowspan="2">Trap door scenery entity.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37237"></span>37237</td>
+<td class="instruction">DEFB 97,0</td>
+</tr>
+<tr>
+<td class="asm-label">Pointer_TrapDoorLayout</td>
+<td class="address-1"><span id="37239"></span>37239</td>
+<td class="instruction">DEFW <a href="43017.html">GraphicLayout_LeverClosedRight</a></td>
+<td class="comment-1" rowspan="1">Current open/closed graphic layout pointer for the trap door.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37241"></span>37241</td>
+<td class="instruction">DEFB 0,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">StateData_ScenerySecondary</td>
+<td class="address-1"><span id="37243"></span>37243</td>
+<td class="instruction">DEFB 101</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37244"></span>37244</td>
+<td class="instruction">DEFB 1,0,0,5,29,39,160,169</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37252"></span>37252</td>
+<td class="instruction">DEFB 0,8,165,0,0,51,7,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37260"></span>37260</td>
+<td class="instruction">DEFB 0,5,30,39,64,65,0,28</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37268"></span>37268</td>
+<td class="instruction">DEFB 166,0,0,51,7,0,0,5</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37276"></span>37276</td>
+<td class="instruction">DEFB 30,39,190,191,0,28,166,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37284"></span>37284</td>
+<td class="instruction">DEFB 0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">StateData_AnimatingScenery</td>
+<td class="address-1"><span id="37285"></span>37285</td>
+<td class="instruction">DEFB 59</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37286"></span>37286</td>
+<td class="instruction">DEFB 4,0,0,5,33,35,189,190</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37294"></span>37294</td>
+<td class="instruction">DEFB 0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">Pointer_AnimatingSceneryLayout</td>
+<td class="address-1"><span id="37295"></span>37295</td>
+<td class="instruction">DEFW <a href="43047.html">GraphicLayout_LeverClosedLeft</a></td>
+<td class="comment-1" rowspan="1">Graphic layout pointer for the scenery entity at <a href="37047.html#37285">StateData_AnimatingScenery</a>; written by <a href="45020.html">ScriptRoutine_AnimateTrapDoorBerk</a> / <a href="45086.html">Reset_Trap_Door_Animation_State</a> while animating the trap door.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37297"></span>37297</td>
+<td class="instruction">DEFB 0,0,50,0,0,0,1,35</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37305"></span>37305</td>
+<td class="instruction">DEFB 35,224,255,0,40,170,0,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37313"></span>37313</td>
+<td class="instruction">DEFB 50,0,0,0,2,36,36,224</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37321"></span>37321</td>
+<td class="instruction">DEFB 255,0,40,170,0,0,50,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37329"></span>37329</td>
+<td class="instruction">DEFB 0,0,3,37,37,224,255,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37337"></span>37337</td>
+<td class="instruction">DEFB 40,170,0,0,50,0,0,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37345"></span>37345</td>
+<td class="instruction">DEFB 4,38,38,224,255,0,40,170</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37353"></span>37353</td>
+<td class="instruction">DEFB 0,0,50,0,0,0,5,39</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37361"></span>37361</td>
+<td class="instruction">DEFB 39,224,255,0,40,170,0,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37369"></span>37369</td>
+<td class="instruction">DEFB 50,0,0,0,5,39,39,224</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37377"></span>37377</td>
+<td class="instruction">DEFB 255,0,33,169,0,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="37383"></span>37383</td>
+<td class="instruction">DEFB 255</td>
+<td class="comment-1" rowspan="1">Terminator.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="36595.html">36595</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#37047">Map</a></td>
+<td class="next">
+Next: <a href="37384.html">37384</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/90B7.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

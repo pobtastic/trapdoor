@@ -1,0 +1,2080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at 47525</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at 47525. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at 47525" />
+<meta property="og:description" content="The Trap Door: Data at 47525. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/47525.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/47525.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at 47525",
+"name": "The Trap Door: Data at 47525",
+"description": "The Trap Door: Data at 47525. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/47525.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at 47525"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/47525.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="47404.html">47404</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#47525">Map</a></td>
+<td class="next">
+Next: <a href="48128.html">48128</a>
+</td>
+</tr>
+</table>
+<div class="description">47525: Data: Berk Put-Down Scripts</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Script and table data used when Berk puts an entity down (<a href="47525.html">Data_BerkPutDownScripts</a>, <a href="47525.html#47905">BerkPutDownScript_TrapDoor</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47525"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="script-b9a5" src="../../images/script-b9a5.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Data_BerkPutDownScripts</td>
+<td class="address-1"><span id="47525"></span>47525</td>
+<td class="instruction">DEFW 8</td>
+<td class="comment-1" rowspan="1">Script opcode 8 (move entity up two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47527"></span>47527</td>
+<td class="instruction">DEFW 19</td>
+<td class="comment-1" rowspan="1">Script opcode 19 (position put-down entity to the right).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47529"></span>47529</td>
+<td class="instruction">DEFB 8,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html">GraphicLayout_Berk</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47531"></span>47531</td>
+<td class="instruction">DEFB 20,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37396">37396</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47533"></span>47533</td>
+<td class="instruction">DEFW 10</td>
+<td class="comment-1" rowspan="1">Script opcode 10 (reset entity direction flags).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47535"></span>47535</td>
+<td class="instruction">DEFW 9</td>
+<td class="comment-1" rowspan="1">Script opcode 9 (move entity down two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47537"></span>47537</td>
+<td class="instruction">DEFW 7</td>
+<td class="comment-1" rowspan="1">Script opcode 7 (move entity right two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47539"></span>47539</td>
+<td class="instruction">DEFW 21</td>
+<td class="comment-1" rowspan="1">Script opcode 21 (jump if carrying).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47541"></span>47541</td>
+<td class="instruction">DEFB 189,185</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#47549">47549</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47543"></span>47543</td>
+<td class="instruction">DEFB 71,150</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html#38471">GraphicLayout_BerkFacingOut_Idle</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47545"></span>47545</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47547"></span>47547</td>
+<td class="instruction">DEFB 183,185</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#47543">47543</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47549"></span>47549</td>
+<td class="instruction">DEFW 16</td>
+<td class="comment-1" rowspan="1">Script opcode 16 (have entity face left after putting down).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47551"></span>
+<div class="comments">
+<div class="paragraph">
+Continuation after the standard put-down preamble.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BerkPutDownScript_AfterStandard</td>
+<td class="address-1"><span id="47551"></span>47551</td>
+<td class="instruction">DEFB 66,151</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html#38722">38722</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47553"></span>47553</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47555"></span>47555</td>
+<td class="instruction">DEFB 189,185,8,0</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#47549">47549</a>; Script opcode 8 (move entity up two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47559"></span>47559</td>
+<td class="instruction">DEFW 18</td>
+<td class="comment-1" rowspan="1">Script opcode 18 (position put-down entity to the left).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47561"></span>47561</td>
+<td class="instruction">DEFB 88,148</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37976.html">GraphicLayout_BerkWalkingLeft</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47563"></span>47563</td>
+<td class="instruction">DEFB 97,148,9,0</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37976.html#37985">37985</a>; Script opcode 9 (move entity down two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47567"></span>47567</td>
+<td class="instruction">DEFW 6</td>
+<td class="comment-1" rowspan="1">Script opcode 6 (task entity script is active).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47569"></span>47569</td>
+<td class="instruction">DEFW 10</td>
+<td class="comment-1" rowspan="1">Script opcode 10 (reset entity direction flags).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47571"></span>47571</td>
+<td class="instruction">DEFW 21</td>
+<td class="comment-1" rowspan="1">Script opcode 21 (jump if carrying).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47573"></span>47573</td>
+<td class="instruction">DEFB 17,186</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#47633">47633</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47575"></span>47575</td>
+<td class="instruction">DEFB 105,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39017">39017</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47577"></span>47577</td>
+<td class="instruction">DEFB 105,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39017">39017</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47579"></span>47579</td>
+<td class="instruction">DEFB 105,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39017">39017</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47581"></span>47581</td>
+<td class="instruction">DEFB 105,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39017">39017</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47583"></span>47583</td>
+<td class="instruction">DEFB 105,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39017">39017</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47585"></span>47585</td>
+<td class="instruction">DEFB 105,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39017">39017</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47587"></span>47587</td>
+<td class="instruction">DEFB 105,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39017">39017</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47589"></span>47589</td>
+<td class="instruction">DEFB 105,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39017">39017</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47591"></span>47591</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47593"></span>47593</td>
+<td class="instruction">DEFB 165,185,10,0</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html">Data_BerkPutDownScripts</a>; Script opcode 10 (reset entity direction flags).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47597"></span>47597</td>
+<td class="instruction">DEFW 8</td>
+<td class="comment-1" rowspan="1">Script opcode 8 (move entity up two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47599"></span>47599</td>
+<td class="instruction">DEFB 90,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html">GraphicLayout_BerkFacingIn</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47601"></span>47601</td>
+<td class="instruction">DEFB 193,155</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39783.html#39873">39873</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47603"></span>47603</td>
+<td class="instruction">DEFW 15</td>
+<td class="comment-1" rowspan="1">Script opcode 15 (put down carried entity).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47605"></span>47605</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47607"></span>47607</td>
+<td class="instruction">DEFB 17,186,10,0</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#47633">47633</a>; Script opcode 10 (reset entity direction flags).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47611"></span>47611</td>
+<td class="instruction">DEFW 8</td>
+<td class="comment-1" rowspan="1">Script opcode 8 (move entity up two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47613"></span>47613</td>
+<td class="instruction">DEFB 6,156</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39783.html#39942">39942</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47615"></span>47615</td>
+<td class="instruction">DEFB 6,156</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39783.html#39942">39942</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47617"></span>47617</td>
+<td class="instruction">DEFW 15</td>
+<td class="comment-1" rowspan="1">Script opcode 15 (put down carried entity).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47619"></span>47619</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47621"></span>47621</td>
+<td class="instruction">DEFB 17,186</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#47633">47633</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47623"></span>47623</td>
+<td class="instruction">DEFW 10</td>
+<td class="comment-1" rowspan="1">Script opcode 10 (reset entity direction flags).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47625"></span>47625</td>
+<td class="instruction">DEFW 8</td>
+<td class="comment-1" rowspan="1">Script opcode 8 (move entity up two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47627"></span>47627</td>
+<td class="instruction">DEFB 90,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html">GraphicLayout_BerkFacingIn</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47629"></span>47629</td>
+<td class="instruction">DEFB 180,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39092">39092</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47631"></span>47631</td>
+<td class="instruction">DEFW 15</td>
+<td class="comment-1" rowspan="1">Script opcode 15 (put down carried entity).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47633"></span>47633</td>
+<td class="instruction">DEFW 17</td>
+<td class="comment-1" rowspan="1">Script opcode 17 (face right after put-down).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47635"></span>47635</td>
+<td class="instruction">DEFB 180,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39092">39092</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47637"></span>47637</td>
+<td class="instruction">DEFB 180,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39092">39092</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47639"></span>47639</td>
+<td class="instruction">DEFB 180,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39092">39092</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47641"></span>47641</td>
+<td class="instruction">DEFB 180,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39092">39092</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47643"></span>47643</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47645"></span>47645</td>
+<td class="instruction">DEFB 165,185</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html">Data_BerkPutDownScripts</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47647"></span>
+<div class="comments">
+<div class="paragraph">
+Script used when the down-control interact path loads a put-down.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BerkPutDownScript_DownInteract</td>
+<td class="address-1"><span id="47647"></span>47647</td>
+<td class="instruction">DEFW 8</td>
+<td class="comment-1" rowspan="1">Script opcode 8 (move entity up two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47649"></span>47649</td>
+<td class="instruction">DEFW 10</td>
+<td class="comment-1" rowspan="1">Script opcode 10 (reset entity direction flags).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47651"></span>47651</td>
+<td class="instruction">DEFB 59,150</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html">GraphicLayout_BerkFacingOut</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47653"></span>47653</td>
+<td class="instruction">DEFB 103,155</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39783.html">GraphicLayout_BerkInAction</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47655"></span>47655</td>
+<td class="instruction">DEFB 103,155</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39783.html">GraphicLayout_BerkInAction</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47657"></span>47657</td>
+<td class="instruction">DEFB 103,155</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39783.html">GraphicLayout_BerkInAction</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47659"></span>47659</td>
+<td class="instruction">DEFW 15</td>
+<td class="comment-1" rowspan="1">Script opcode 15 (put down carried entity).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47661"></span>47661</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47663"></span>47663</td>
+<td class="instruction">DEFB 173,185,8,0</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#47533">47533</a>; Script opcode 8 (move entity up two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47667"></span>47667</td>
+<td class="instruction">DEFW 16</td>
+<td class="comment-1" rowspan="1">Script opcode 16 (have entity face left after putting down).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47669"></span>
+<div class="comments">
+<div class="paragraph">
+Script installed into Berk's script pointer when camera-follow engages.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BerkPutDownScript_CameraFollow</td>
+<td class="address-1"><span id="47669"></span>47669</td>
+<td class="instruction">DEFB 59,150</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html">GraphicLayout_BerkFacingOut</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47671"></span>47671</td>
+<td class="instruction">DEFW 24</td>
+<td class="comment-1" rowspan="1">Script opcode 24 (start loop).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47673"></span>
+<div class="comments">
+<div class="paragraph">
+Body of the camera-follow put-down script.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BerkPutDownScript_CameraFollowCont</td>
+<td class="address-1"><span id="47673"></span>47673</td>
+<td class="instruction">DEFB 59,150</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html">GraphicLayout_BerkFacingOut</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47675"></span>47675</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47677"></span>47677</td>
+<td class="instruction">DEFB 173,185,8,0</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#47533">47533</a>; Script opcode 8 (move entity up two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47681"></span>47681</td>
+<td class="instruction">DEFW 20</td>
+<td class="comment-1" rowspan="1">Script opcode 20 (pick up / restore held entity).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47683"></span>47683</td>
+<td class="instruction">DEFB 193,155</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39783.html#39873">39873</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47685"></span>47685</td>
+<td class="instruction">DEFB 193,155</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39783.html#39873">39873</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47687"></span>47687</td>
+<td class="instruction">DEFB 90,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html">GraphicLayout_BerkFacingIn</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47689"></span>47689</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47691"></span>47691</td>
+<td class="instruction">DEFB 205,185,8,0</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html">47565</a>; Script opcode 8 (move entity up two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47695"></span>47695</td>
+<td class="instruction">DEFW 17</td>
+<td class="comment-1" rowspan="1">Script opcode 17 (face right after put-down).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47697"></span>47697</td>
+<td class="instruction">DEFW 20</td>
+<td class="comment-1" rowspan="1">Script opcode 20 (pick up / restore held entity).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47699"></span>47699</td>
+<td class="instruction">DEFB 6,156</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39783.html#39942">39942</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47701"></span>47701</td>
+<td class="instruction">DEFB 6,156</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39783.html#39942">39942</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47703"></span>47703</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47705"></span>47705</td>
+<td class="instruction">DEFB 165,185,8,0</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html">Data_BerkPutDownScripts</a>; Script opcode 8 (move entity up two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47709"></span>47709</td>
+<td class="instruction">DEFW 17</td>
+<td class="comment-1" rowspan="1">Script opcode 17 (face right after put-down).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47711"></span>47711</td>
+<td class="instruction">DEFW 20</td>
+<td class="comment-1" rowspan="1">Script opcode 20 (pick up / restore held entity).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47713"></span>47713</td>
+<td class="instruction">DEFB 90,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html">GraphicLayout_BerkFacingIn</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47715"></span>47715</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47717"></span>47717</td>
+<td class="instruction">DEFB 165,185,8,0</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html">Data_BerkPutDownScripts</a>; Script opcode 8 (move entity up two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47721"></span>47721</td>
+<td class="instruction">DEFW 16</td>
+<td class="comment-1" rowspan="1">Script opcode 16 (have entity face left after putting down).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47723"></span>
+<div class="comments">
+<div class="paragraph">
+Script fragment that loops back toward the standard put-down.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BerkPutDownScript_NearLoop</td>
+<td class="address-1"><span id="47723"></span>47723</td>
+<td class="instruction">DEFB 59,150</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html">GraphicLayout_BerkFacingOut</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47725"></span>47725</td>
+<td class="instruction">DEFW 23</td>
+<td class="comment-1" rowspan="1">Script opcode 23 (load script parameter into A).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47727"></span>47727</td>
+<td class="instruction">DEFB 59,150</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html">GraphicLayout_BerkFacingOut</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47729"></span>47729</td>
+<td class="instruction">DEFW 24</td>
+<td class="comment-1" rowspan="1">Script opcode 24 (start loop).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47731"></span>
+<div class="comments">
+<div class="paragraph">
+Script just before the walk-left facing put-down.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BerkPutDownScript_BeforeWalkLeft</td>
+<td class="address-1"><span id="47731"></span>47731</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47733"></span>47733</td>
+<td class="instruction">DEFB 173,185</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#47533">47533</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47735"></span>
+<div class="comments">
+<div class="paragraph">
+Put-down script when Berk faces right while walking.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BerkPutDownScript_WalkRightFace</td>
+<td class="address-1"><span id="47735"></span>47735</td>
+<td class="instruction">DEFW 12</td>
+<td class="comment-1" rowspan="1">Script opcode 12 (face left).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47737"></span>47737</td>
+<td class="instruction">DEFW 19</td>
+<td class="comment-1" rowspan="1">Script opcode 19 (position put-down entity to the right).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47739"></span>47739</td>
+<td class="instruction">DEFB 38,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37414">37414</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47741"></span>47741</td>
+<td class="instruction">DEFW 3</td>
+<td class="comment-1" rowspan="1">Script opcode 3 (task-two helper busy).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47743"></span>47743</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47745"></span>47745</td>
+<td class="instruction">DEFB 123,186</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#47739">47739</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47747"></span>
+<div class="comments">
+<div class="paragraph">
+Put-down script when Berk faces left while walking.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BerkPutDownScript_WalkLeftFace</td>
+<td class="address-1"><span id="47747"></span>47747</td>
+<td class="instruction">DEFW 11</td>
+<td class="comment-1" rowspan="1">Script opcode 11 (face right).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47749"></span>47749</td>
+<td class="instruction">DEFW 18</td>
+<td class="comment-1" rowspan="1">Script opcode 18 (position put-down entity to the left).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47751"></span>47751</td>
+<td class="instruction">DEFB 112,148</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37976.html#38000">38000</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47753"></span>
+<div class="comments">
+<div class="paragraph">
+Script just before the drop / control put-down.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BerkPutDownScript_BeforeDrop</td>
+<td class="address-1"><span id="47753"></span>47753</td>
+<td class="instruction">DEFW 2</td>
+<td class="comment-1" rowspan="1">Script opcode 2 (object has been offered to the trap (Bad Tempered Thing path)).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47755"></span>47755</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47757"></span>47757</td>
+<td class="instruction">DEFB 135,186</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#47751">47751</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47759"></span>
+<div class="comments">
+<div class="paragraph">
+Control put-down script used when Berk drops / releases an entity.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BerkPutDownScript_Drop</td>
+<td class="address-1"><span id="47759"></span>47759</td>
+<td class="instruction">DEFW 13</td>
+<td class="comment-1" rowspan="1">Script opcode 13 (face up).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47761"></span>47761</td>
+<td class="instruction">DEFW 21</td>
+<td class="comment-1" rowspan="1">Script opcode 21 (jump if carrying).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47763"></span>47763</td>
+<td class="instruction">DEFB 205,186</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#47821">47821</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47765"></span>47765</td>
+<td class="instruction">DEFB 120,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39032">39032</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47767"></span>47767</td>
+<td class="instruction">DEFW 4</td>
+<td class="comment-1" rowspan="1">Script opcode 4 (reserved / unused in the observed call sites).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47769"></span>47769</td>
+<td class="instruction">DEFB 135,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39047">39047</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47771"></span>47771</td>
+<td class="instruction">DEFB 150,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39062">39062</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47773"></span>47773</td>
+<td class="instruction">DEFW 4</td>
+<td class="comment-1" rowspan="1">Script opcode 4 (reserved / unused in the observed call sites).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47775"></span>47775</td>
+<td class="instruction">DEFB 165,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39077">39077</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47777"></span>47777</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47779"></span>47779</td>
+<td class="instruction">DEFB 149,186</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#47765">47765</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47781"></span>
+<div class="comments">
+<div class="paragraph">
+Put-down script from the down-control handler.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BerkPutDownScript_DownControl</td>
+<td class="address-1"><span id="47781"></span>47781</td>
+<td class="instruction">DEFW 14</td>
+<td class="comment-1" rowspan="1">Script opcode 14 (face down).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47783"></span>47783</td>
+<td class="instruction">DEFW 21</td>
+<td class="comment-1" rowspan="1">Script opcode 21 (jump if carrying).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47785"></span>47785</td>
+<td class="instruction">DEFB 223,186</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#47839">47839</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47787"></span>47787</td>
+<td class="instruction">DEFB 6,151</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html#38662">38662</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47789"></span>47789</td>
+<td class="instruction">DEFW 5</td>
+<td class="comment-1" rowspan="1">Script opcode 5 (task-two room-transition latch).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47791"></span>47791</td>
+<td class="instruction">DEFB 21,151</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html#38677">38677</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47793"></span>47793</td>
+<td class="instruction">DEFB 36,151</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html#38692">38692</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47795"></span>47795</td>
+<td class="instruction">DEFW 5</td>
+<td class="comment-1" rowspan="1">Script opcode 5 (task-two room-transition latch).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47797"></span>47797</td>
+<td class="instruction">DEFB 51,151</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html#38707">38707</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47799"></span>47799</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47801"></span>47801</td>
+<td class="instruction">DEFB 171,186</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#47787">47787</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47803"></span>
+<div class="comments">
+<div class="paragraph">
+Put-down script when direction/state bit 3 is set.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BerkPutDownScript_Bit3Set</td>
+<td class="address-1"><span id="47803"></span>47803</td>
+<td class="instruction">DEFW 8</td>
+<td class="comment-1" rowspan="1">Script opcode 8 (move entity up two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47805"></span>47805</td>
+<td class="instruction">DEFB 189,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39101">39101</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47807"></span>47807</td>
+<td class="instruction">DEFW 4</td>
+<td class="comment-1" rowspan="1">Script opcode 4 (reserved / unused in the observed call sites).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47809"></span>47809</td>
+<td class="instruction">DEFB 198,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39110">39110</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47811"></span>47811</td>
+<td class="instruction">DEFB 207,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39119">39119</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47813"></span>47813</td>
+<td class="instruction">DEFB 216,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39128">39128</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47815"></span>47815</td>
+<td class="instruction">DEFW 9</td>
+<td class="comment-1" rowspan="1">Script opcode 9 (move entity down two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47817"></span>47817</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47819"></span>47819</td>
+<td class="instruction">DEFB 205,185</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html">47565</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47821"></span>47821</td>
+<td class="instruction">DEFW 17</td>
+<td class="comment-1" rowspan="1">Script opcode 17 (face right after put-down).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47823"></span>47823</td>
+<td class="instruction">DEFB 189,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39101">39101</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47825"></span>47825</td>
+<td class="instruction">DEFW 4</td>
+<td class="comment-1" rowspan="1">Script opcode 4 (reserved / unused in the observed call sites).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47827"></span>47827</td>
+<td class="instruction">DEFB 198,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39110">39110</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47829"></span>47829</td>
+<td class="instruction">DEFB 207,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39119">39119</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47831"></span>47831</td>
+<td class="instruction">DEFW 4</td>
+<td class="comment-1" rowspan="1">Script opcode 4 (reserved / unused in the observed call sites).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47833"></span>47833</td>
+<td class="instruction">DEFB 216,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39128">39128</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47835"></span>47835</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47837"></span>47837</td>
+<td class="instruction">DEFB 207,186</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#47823">47823</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47839"></span>47839</td>
+<td class="instruction">DEFW 16</td>
+<td class="comment-1" rowspan="1">Script opcode 16 (have entity face left after putting down).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47841"></span>
+<div class="comments">
+<div class="paragraph">
+Self-looping animation fragment within the put-down scripts.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BerkPutDownScript_AnimLoop</td>
+<td class="address-1"><span id="47841"></span>47841</td>
+<td class="instruction">DEFB 78,151</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html#38734">38734</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47843"></span>47843</td>
+<td class="instruction">DEFW 5</td>
+<td class="comment-1" rowspan="1">Script opcode 5 (task-two room-transition latch).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47845"></span>47845</td>
+<td class="instruction">DEFB 90,151</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html#38746">38746</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47847"></span>47847</td>
+<td class="instruction">DEFB 102,151</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html#38758">38758</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47849"></span>47849</td>
+<td class="instruction">DEFW 5</td>
+<td class="comment-1" rowspan="1">Script opcode 5 (task-two room-transition latch).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47851"></span>47851</td>
+<td class="instruction">DEFB 114,151</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html#38770">38770</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47853"></span>47853</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47855"></span>47855</td>
+<td class="instruction">DEFB 225,186</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#47841">BerkPutDownScript_AnimLoop</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47857"></span>47857</td>
+<td class="instruction">DEFW 12</td>
+<td class="comment-1" rowspan="1">Script opcode 12 (face left).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47859"></span>47859</td>
+<td class="instruction">DEFW 8</td>
+<td class="comment-1" rowspan="1">Script opcode 8 (move entity up two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47861"></span>47861</td>
+<td class="instruction">DEFB 32,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37408">37408</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47863"></span>47863</td>
+<td class="instruction">DEFW 3</td>
+<td class="comment-1" rowspan="1">Script opcode 3 (task-two helper busy).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47865"></span>47865</td>
+<td class="instruction">DEFW 9</td>
+<td class="comment-1" rowspan="1">Script opcode 9 (move entity down two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47867"></span>47867</td>
+<td class="instruction">DEFB 32,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37408">37408</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47869"></span>47869</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47871"></span>47871</td>
+<td class="instruction">DEFB 241,186</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#47857">47857</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47873"></span>47873</td>
+<td class="instruction">DEFW 11</td>
+<td class="comment-1" rowspan="1">Script opcode 11 (face right).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47875"></span>47875</td>
+<td class="instruction">DEFW 8</td>
+<td class="comment-1" rowspan="1">Script opcode 8 (move entity up two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47877"></span>47877</td>
+<td class="instruction">DEFB 106,148</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37976.html#37994">37994</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47879"></span>47879</td>
+<td class="instruction">DEFW 2</td>
+<td class="comment-1" rowspan="1">Script opcode 2 (object has been offered to the trap (Bad Tempered Thing path)).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47881"></span>47881</td>
+<td class="instruction">DEFW 9</td>
+<td class="comment-1" rowspan="1">Script opcode 9 (move entity down two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47883"></span>47883</td>
+<td class="instruction">DEFB 106,148</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37976.html#37994">37994</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47885"></span>47885</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47887"></span>47887</td>
+<td class="instruction">DEFB 1,187</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#47873">47873</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47889"></span>47889</td>
+<td class="instruction">DEFW 8</td>
+<td class="comment-1" rowspan="1">Script opcode 8 (move entity up two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47891"></span>47891</td>
+<td class="instruction">DEFB 81,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37457">37457</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47893"></span>47893</td>
+<td class="instruction">DEFB 81,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37457">37457</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47895"></span>47895</td>
+<td class="instruction">DEFW 22</td>
+<td class="comment-1" rowspan="1">Script opcode 22 (start Drutt script).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47897"></span>47897</td>
+<td class="instruction">DEFB 69,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37445">37445</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47899"></span>47899</td>
+<td class="instruction">DEFB 69,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37445">37445</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47901"></span>47901</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47903"></span>47903</td>
+<td class="instruction">DEFB 173,185</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#47533">47533</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47905"></span>
+<div class="comments">
+<div class="paragraph">
+Put-down script used at the trap door.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BerkPutDownScript_TrapDoor</td>
+<td class="address-1"><span id="47905"></span>47905</td>
+<td class="instruction">DEFW 8</td>
+<td class="comment-1" rowspan="1">Script opcode 8 (move entity up two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47907"></span>47907</td>
+<td class="instruction">DEFB 81,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37457">37457</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47909"></span>47909</td>
+<td class="instruction">DEFB 81,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37457">37457</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47911"></span>47911</td>
+<td class="instruction">DEFW 27</td>
+<td class="comment-1" rowspan="1">Script opcode 27 (animate trap door).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47913"></span>47913</td>
+<td class="instruction">DEFB 69,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37445">37445</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47915"></span>47915</td>
+<td class="instruction">DEFB 69,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37445">37445</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47917"></span>47917</td>
+<td class="instruction">DEFW 27</td>
+<td class="comment-1" rowspan="1">Script opcode 27 (animate trap door).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47919"></span>47919</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47921"></span>47921</td>
+<td class="instruction">DEFB 173,185,8,0</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#47533">47533</a>; Script opcode 8 (move entity up two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47925"></span>47925</td>
+<td class="instruction">DEFB 105,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37481">37481</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47927"></span>47927</td>
+<td class="instruction">DEFB 105,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37481">37481</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47929"></span>47929</td>
+<td class="instruction">DEFW 26</td>
+<td class="comment-1" rowspan="1">Script opcode 26 (open trap door).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47931"></span>47931</td>
+<td class="instruction">DEFB 93,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37469">37469</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47933"></span>47933</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47935"></span>47935</td>
+<td class="instruction">DEFB 173,185</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#47533">47533</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47937"></span>47937</td>
+<td class="instruction">DEFW 8</td>
+<td class="comment-1" rowspan="1">Script opcode 8 (move entity up two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47939"></span>47939</td>
+<td class="instruction">DEFB 93,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37469">37469</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47941"></span>47941</td>
+<td class="instruction">DEFB 93,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37469">37469</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47943"></span>47943</td>
+<td class="instruction">DEFW 28</td>
+<td class="comment-1" rowspan="1">Script opcode 28 (close trap door).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47945"></span>47945</td>
+<td class="instruction">DEFB 105,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37481">37481</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47947"></span>47947</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47949"></span>47949</td>
+<td class="instruction">DEFB 173,185,8,0</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#47533">47533</a>; Script opcode 8 (move entity up two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47953"></span>47953</td>
+<td class="instruction">DEFW 17</td>
+<td class="comment-1" rowspan="1">Script opcode 17 (face right after put-down).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47955"></span>47955</td>
+<td class="instruction">DEFB 120,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39032">39032</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47957"></span>47957</td>
+<td class="instruction">DEFW 4</td>
+<td class="comment-1" rowspan="1">Script opcode 4 (reserved / unused in the observed call sites).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47959"></span>47959</td>
+<td class="instruction">DEFB 135,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39047">39047</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47961"></span>47961</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47963"></span>47963</td>
+<td class="instruction">DEFB 153,187</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#48025">48025</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47965"></span>
+<div class="comments">
+<div class="paragraph">
+Put-down script for the high y-extent down-interact path.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BerkPutDownScript_DownHighY</td>
+<td class="address-1"><span id="47965"></span>47965</td>
+<td class="instruction">DEFW 8</td>
+<td class="comment-1" rowspan="1">Script opcode 8 (move entity up two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47967"></span>47967</td>
+<td class="instruction">DEFW 14</td>
+<td class="comment-1" rowspan="1">Script opcode 14 (face down).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47969"></span>47969</td>
+<td class="instruction">DEFW 21</td>
+<td class="comment-1" rowspan="1">Script opcode 21 (jump if carrying).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47971"></span>47971</td>
+<td class="instruction">DEFB 111,187</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#47983">47983</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47973"></span>47973</td>
+<td class="instruction">DEFB 6,151</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html#38662">38662</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47975"></span>47975</td>
+<td class="instruction">DEFW 5</td>
+<td class="comment-1" rowspan="1">Script opcode 5 (task-two room-transition latch).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47977"></span>47977</td>
+<td class="instruction">DEFB 21,151</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html#38677">38677</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47979"></span>47979</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47981"></span>47981</td>
+<td class="instruction">DEFB 153,187</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#48025">48025</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47983"></span>47983</td>
+<td class="instruction">DEFW 16</td>
+<td class="comment-1" rowspan="1">Script opcode 16 (have entity face left after putting down).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="47985"></span>
+<div class="comments">
+<div class="paragraph">
+Prep fragment ahead of the trap door put-down animation.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BerkPutDownScript_TrapDoorPrep</td>
+<td class="address-1"><span id="47985"></span>47985</td>
+<td class="instruction">DEFB 78,151</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html#38734">38734</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47987"></span>47987</td>
+<td class="instruction">DEFW 5</td>
+<td class="comment-1" rowspan="1">Script opcode 5 (task-two room-transition latch).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47989"></span>47989</td>
+<td class="instruction">DEFB 90,151</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html#38746">38746</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47991"></span>47991</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47993"></span>47993</td>
+<td class="instruction">DEFB 153,187,8,0</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#48025">48025</a>; Script opcode 8 (move entity up two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47997"></span>47997</td>
+<td class="instruction">DEFW 12</td>
+<td class="comment-1" rowspan="1">Script opcode 12 (face left).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47999"></span>47999</td>
+<td class="instruction">DEFW 19</td>
+<td class="comment-1" rowspan="1">Script opcode 19 (position put-down entity to the right).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48001"></span>48001</td>
+<td class="instruction">DEFB 38,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37414">37414</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48003"></span>48003</td>
+<td class="instruction">DEFW 3</td>
+<td class="comment-1" rowspan="1">Script opcode 3 (task-two helper busy).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48005"></span>48005</td>
+<td class="instruction">DEFB 38,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37414">37414</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48007"></span>48007</td>
+<td class="instruction">DEFW 3</td>
+<td class="comment-1" rowspan="1">Script opcode 3 (task-two helper busy).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48009"></span>48009</td>
+<td class="instruction">DEFB 38,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37414">37414</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48011"></span>48011</td>
+<td class="instruction">DEFW 3</td>
+<td class="comment-1" rowspan="1">Script opcode 3 (task-two helper busy).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48013"></span>48013</td>
+<td class="instruction">DEFB 38,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37414">37414</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48015"></span>48015</td>
+<td class="instruction">DEFW 3</td>
+<td class="comment-1" rowspan="1">Script opcode 3 (task-two helper busy).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48017"></span>48017</td>
+<td class="instruction">DEFB 38,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37414">37414</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48019"></span>48019</td>
+<td class="instruction">DEFW 3</td>
+<td class="comment-1" rowspan="1">Script opcode 3 (task-two helper busy).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48021"></span>48021</td>
+<td class="instruction">DEFW 16</td>
+<td class="comment-1" rowspan="1">Script opcode 16 (have entity face left after putting down).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="48023"></span>
+<div class="comments">
+<div class="paragraph">
+Trap door put-down animation script.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BerkPutDownScript_TrapDoorAnim</td>
+<td class="address-1"><span id="48023"></span>48023</td>
+<td class="instruction">DEFB 6,151</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html#38662">38662</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48025"></span>48025</td>
+<td class="instruction">DEFW 29</td>
+<td class="comment-1" rowspan="1">Script opcode 29 (set event flags after interaction).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48027"></span>48027</td>
+<td class="instruction">DEFB 59,150</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html">GraphicLayout_BerkFacingOut</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48029"></span>48029</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48031"></span>48031</td>
+<td class="instruction">DEFB 155,187,8,0</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#48027">48027</a>; Script opcode 8 (move entity up two characters).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48035"></span>48035</td>
+<td class="instruction">DEFW 16</td>
+<td class="comment-1" rowspan="1">Script opcode 16 (have entity face left after putting down).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="48037"></span>
+<div class="comments">
+<div class="paragraph">
+Trap door put-down frame table / script.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BerkPutDownScript_TrapDoorFrames</td>
+<td class="address-1"><span id="48037"></span>48037</td>
+<td class="instruction">DEFB 66,151</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html#38722">38722</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48039"></span>48039</td>
+<td class="instruction">DEFB 30,0,66,151</td>
+<td class="comment-1" rowspan="1">Script opcode 30 (berk interact with door ahead); Graphic-layout pointer <a href="38459.html#38722">38722</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48043"></span>48043</td>
+<td class="instruction">DEFW 31</td>
+<td class="comment-1" rowspan="1">Script opcode 31 (berk interact with door behind).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48045"></span>48045</td>
+<td class="instruction">DEFB 66,151</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html#38722">38722</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48047"></span>48047</td>
+<td class="instruction">DEFB 66,151</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html#38722">38722</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48049"></span>48049</td>
+<td class="instruction">DEFB 66,151</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html#38722">38722</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48051"></span>48051</td>
+<td class="instruction">DEFW 30</td>
+<td class="comment-1" rowspan="1">Script opcode 30 (berk interact with door ahead).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48053"></span>48053</td>
+<td class="instruction">DEFB 66,151</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html#38722">38722</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48055"></span>48055</td>
+<td class="instruction">DEFW 32</td>
+<td class="comment-1" rowspan="1">Script opcode 32 (berk open door ahead).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="48057"></span>
+<div class="comments">
+<div class="paragraph">
+Release fragment at the end of the put-down sequence.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BerkPutDownScript_Release</td>
+<td class="address-1"><span id="48057"></span>48057</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48059"></span>48059</td>
+<td class="instruction">DEFB 173,185,16,0</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="47525.html#47533">47533</a>; Script opcode 16 (have entity face left after putting down).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="48063"></span>
+<div class="comments">
+<div class="paragraph">
+Tail of the release put-down fragment.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BerkPutDownScript_ReleaseTail</td>
+<td class="address-1"><span id="48063"></span>48063</td>
+<td class="instruction">DEFW 24</td>
+<td class="comment-1" rowspan="1">Script opcode 24 (start loop).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="48065"></span>
+<div class="comments">
+<div class="paragraph">
+Continuation of the release put-down fragment.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">BerkPutDownScript_ReleaseCont</td>
+<td class="address-1"><span id="48065"></span>48065</td>
+<td class="instruction">DEFB 59,150</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html">GraphicLayout_BerkFacingOut</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48067"></span>48067</td>
+<td class="instruction">DEFB 38,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37414">37414</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48069"></span>48069</td>
+<td class="instruction">DEFB 59,150</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="38459.html">GraphicLayout_BerkFacingOut</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48071"></span>48071</td>
+<td class="instruction">DEFB 112,148</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37976.html#38000">38000</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48073"></span>48073</td>
+<td class="instruction">DEFB 120,152</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39002.html#39032">39032</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48075"></span>48075</td>
+<td class="instruction">DEFB 38,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37414">37414</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48077"></span>48077</td>
+<td class="instruction">DEFB 193,155</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39783.html#39873">39873</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48079"></span>48079</td>
+<td class="instruction">DEFB 112,148</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37976.html#38000">38000</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48081"></span>48081</td>
+<td class="instruction">DEFB 6,156</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39783.html#39942">39942</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48083"></span>48083</td>
+<td class="instruction">DEFB 38,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37414">37414</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48085"></span>48085</td>
+<td class="instruction">DEFB 193,155</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39783.html#39873">39873</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48087"></span>48087</td>
+<td class="instruction">DEFB 38,146</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="37384.html#37414">37414</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48089"></span>48089</td>
+<td class="instruction">DEFB 6,156</td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="39783.html#39942">39942</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48091"></span>48091</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48093"></span>48093</td>
+<td class="instruction">DEFW <a href="47525.html#47533">47533</a></td>
+<td class="comment-1" rowspan="1">Script address <a href="47525.html#47533">47533</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48095"></span>48095</td>
+<td class="instruction">DEFB 0</td>
+<td class="comment-1" rowspan="1">Move-delay flag for the Thing Upstairs entity.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48096"></span>48096</td>
+<td class="instruction">DEFW <a href="48579.html">GraphicLayout_Ghost</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="48579.html">GraphicLayout_Ghost</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48098"></span>48098</td>
+<td class="instruction">DEFW 49</td>
+<td class="comment-1" rowspan="1">Script opcode 49 (Thing Upstairs chase step).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48100"></span>48100</td>
+<td class="instruction">DEFW <a href="48579.html">GraphicLayout_Ghost</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="48579.html">GraphicLayout_Ghost</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48102"></span>48102</td>
+<td class="instruction">DEFW 49</td>
+<td class="comment-1" rowspan="1">Script opcode 49 (Thing Upstairs chase step).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48104"></span>48104</td>
+<td class="instruction">DEFW <a href="48579.html">GraphicLayout_Ghost</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="48579.html">GraphicLayout_Ghost</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48106"></span>48106</td>
+<td class="instruction">DEFW 49</td>
+<td class="comment-1" rowspan="1">Script opcode 49 (Thing Upstairs chase step).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48108"></span>48108</td>
+<td class="instruction">DEFW <a href="48579.html">GraphicLayout_Ghost</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="48579.html">GraphicLayout_Ghost</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48110"></span>48110</td>
+<td class="instruction">DEFW 49</td>
+<td class="comment-1" rowspan="1">Script opcode 49 (Thing Upstairs chase step).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48112"></span>48112</td>
+<td class="instruction">DEFW <a href="48579.html">GraphicLayout_Ghost</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="48579.html">GraphicLayout_Ghost</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48114"></span>48114</td>
+<td class="instruction">DEFW 50</td>
+<td class="comment-1" rowspan="1">Script opcode 50 (Thing Upstairs chase variant).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48116"></span>48116</td>
+<td class="instruction">DEFW <a href="48579.html">GraphicLayout_Ghost</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="48579.html">GraphicLayout_Ghost</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48118"></span>48118</td>
+<td class="instruction">DEFW 52</td>
+<td class="comment-1" rowspan="1">Script opcode 52 (Thing Upstairs chase variant).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48120"></span>48120</td>
+<td class="instruction">DEFW 1</td>
+<td class="comment-1" rowspan="1">Script opcode 1 (load script address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48122"></span>48122</td>
+<td class="instruction">DEFW <a href="47525.html#48116">48116</a></td>
+<td class="comment-1" rowspan="1">Script address <a href="47525.html#48116">48116</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48124"></span>48124</td>
+<td class="instruction">DEFW <a href="48579.html#48592">GraphicLayout_GhostBoo</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="48579.html#48592">GraphicLayout_GhostBoo</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="48126"></span>48126</td>
+<td class="instruction">DEFW <a href="48579.html#48592">GraphicLayout_GhostBoo</a></td>
+<td class="comment-1" rowspan="1">Graphic-layout pointer <a href="48579.html#48592">GraphicLayout_GhostBoo</a>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="47404.html">47404</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#47525">Map</a></td>
+<td class="next">
+Next: <a href="48128.html">48128</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/B9A5.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

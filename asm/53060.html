@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at CF44</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at CF44. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at CF44" />
+<meta property="og:description" content="The Trap Door: Data at CF44. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/53060.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/53060.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at CF44",
+"name": "The Trap Door: Data at CF44",
+"description": "The Trap Door: Data at CF44. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/53060.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at CF44"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/53060.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="53047.html">CF37</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#cf44">Map</a></td>
+<td class="next">
+Next: <a href="53266.html">D012</a>
+</td>
+</tr>
+</table>
+<div class="description">CF44: Data: Miscellaneous Entity Scripts</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Script bytes for miscellaneous entities (<a href="53060.html">Data_MiscEntityScripts</a> entered via <a href="60462.html#ec30">ScriptInstruction</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Data_MiscEntityScripts</td>
+<td class="address-1"><span id="cf44"></span>CF44</td>
+<td class="instruction">DEFB $5C,$D2,$34,$D2,$43,$D2,$43,$D2</td>
+<td class="comment-1" rowspan="2">Words: D25C <a href="53812.html">Data_VatResidue</a>, D243 D243 <a href="53812.html">Data_VatResidue</a>, D243 D243 3E.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf4c"></span>CF4C</td>
+<td class="instruction">DEFB $34,$D2,$43,$D2,$43,$D2,$3E,$00</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf54"></span>CF54</td>
+<td class="instruction">DEFB $B1,$D2,$40,$00,$C5,$D2,$40,$00</td>
+<td class="comment-1" rowspan="2">Words: D2B1 40 D2C5 40 D2D2 43 42 D2DC.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf5c"></span>CF5C</td>
+<td class="instruction">DEFB $D2,$D2,$43,$00,$42,$00,$DC,$D2</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf64"></span>CF64</td>
+<td class="instruction">DEFB $42,$00,$3E,$00,$42,$00,$DC,$D2</td>
+<td class="comment-1" rowspan="2">Words: 42 3E 42 D2DC 42 D2DC 44 D2B1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf6c"></span>CF6C</td>
+<td class="instruction">DEFB $42,$00,$DC,$D2,$44,$00,$B1,$D2</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf74"></span>CF74</td>
+<td class="instruction">DEFB $3E,$00,$B1,$D2,$40,$00,$C5,$D2</td>
+<td class="comment-1" rowspan="2">Words: 3E D2B1 40 D2C5 40 D2D2 42 D2DC.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf7c"></span>CF7C</td>
+<td class="instruction">DEFB $40,$00,$D2,$D2,$42,$00,$DC,$D2</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf84"></span>CF84</td>
+<td class="instruction">DEFB $44,$00,$3E,$00,$FB,$D2,$3F,$00</td>
+<td class="comment-1" rowspan="2">Words: 44 3E D2FB 3F D30F 3F D31C 43.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf8c"></span>CF8C</td>
+<td class="instruction">DEFB $0F,$D3,$3F,$00,$1C,$D3,$43,$00</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf94"></span>CF94</td>
+<td class="instruction">DEFB $41,$00,$26,$D3,$41,$00,$3E,$00</td>
+<td class="comment-1" rowspan="2">Words: 41 D326 41 3E 41 D326 41 D326.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cf9c"></span>CF9C</td>
+<td class="instruction">DEFB $41,$00,$26,$D3,$41,$00,$26,$D3</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfa4"></span>CFA4</td>
+<td class="instruction">DEFB $44,$00,$FB,$D2,$3E,$00,$FB,$D2</td>
+<td class="comment-1" rowspan="2">Words: 44 D2FB 3E D2FB 3F D30F 3F D31C.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfac"></span>CFAC</td>
+<td class="instruction">DEFB $3F,$00,$0F,$D3,$3F,$00,$1C,$D3</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfb4"></span>CFB4</td>
+<td class="instruction">DEFB $41,$00,$26,$D3,$44,$00,$3E,$00</td>
+<td class="comment-1" rowspan="2">Words: 41 D326 44 3E D275 45 45 D28D.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfbc"></span>CFBC</td>
+<td class="instruction">DEFB $75,$D2,$45,$00,$45,$00,$8D,$D2</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfc4"></span>CFC4</td>
+<td class="instruction">DEFB $45,$00,$45,$00,$8D,$D2,$46,$00</td>
+<td class="comment-1" rowspan="2">Words: 45 45 D28D 46 D28D 44 44 D28D.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfcc"></span>CFCC</td>
+<td class="instruction">DEFB $8D,$D2,$44,$00,$44,$00,$8D,$D2</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfd4"></span>CFD4</td>
+<td class="instruction">DEFB $44,$00,$44,$00,$3E,$00,$34,$D2</td>
+<td class="comment-1" rowspan="2">Words: 44 44 3E <a href="53812.html">Data_VatResidue</a>, 45 45 D25C 45.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfdc"></span>CFDC</td>
+<td class="instruction">DEFB $45,$00,$45,$00,$5C,$D2,$45,$00</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfe4"></span>CFE4</td>
+<td class="instruction">DEFB $45,$00,$5C,$D2,$44,$00,$44,$00</td>
+<td class="comment-1" rowspan="2">Words: 45 D25C 44 44 D25C 44 44 3E.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cfec"></span>CFEC</td>
+<td class="instruction">DEFB $5C,$D2,$44,$00,$44,$00,$3E,$00</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cff4"></span>CFF4</td>
+<td class="instruction">DEFB $44,$00,$44,$00,$8D,$D2,$44,$00</td>
+<td class="comment-1" rowspan="2">Words: 44 44 D28D 44 44 D389 47 D389.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cffc"></span>CFFC</td>
+<td class="instruction">DEFB $44,$00,$89,$D3,$47,$00,$89,$D3</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d004"></span>D004</td>
+<td class="instruction">DEFB $89,$D3,$89,$D3,$71,$D3,$71,$D3</td>
+<td class="comment-1" rowspan="2">Words: D389 D389 D371 D371 D371 D371 3E.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d00c"></span>D00C</td>
+<td class="instruction">DEFB $71,$D3,$71,$D3,$3E,$00</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="53047.html">CF37</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#cf44">Map</a></td>
+<td class="next">
+Next: <a href="53266.html">D012</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/340064.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

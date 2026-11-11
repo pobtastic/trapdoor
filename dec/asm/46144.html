@@ -1,0 +1,2381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 46144</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 46144. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 46144" />
+<meta property="og:description" content="The Trap Door: Routine at 46144. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/46144.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/46144.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 46144",
+"name": "The Trap Door: Routine at 46144",
+"description": "The Trap Door: Routine at 46144. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/46144.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 46144"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/46144.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="46106.html">46106</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#46144">Map</a></td>
+<td class="next">
+Next: <a href="47004.html">47004</a>
+</td>
+</tr>
+</table>
+<div class="description">46144: Update Berk: Read Controls</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="46106.html">Update_Berk_Controller</a>.
+</div>
+<div class="paragraph">
+Drive Berk from the control input bitmap at <a href="62968.html">ControlInputBitmap</a>: walk, turn, fire (pick up / put down / trap door offer) or idle scripts.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Address of the camera-follow entity (<a href="36595.html#37019">StateData_Berk</a>) (loaded by <a href="46106.html">Update_Berk_Controller</a>)</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46144"></span>
+<div class="comments">
+<div class="paragraph">
+Script lock and held-entity gate: ignore controls while a script is already running.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_ReadControls</td>
+<td class="address-2"><span id="46144"></span>46144</td>
+<td class="instruction">BIT 0,(IX+3)</td>
+<td class="comment-1" rowspan="2">Is Berk script-locked (bit 0 of <span class="register">IX</span>+3)? If so, advance the current script at <a href="60462.html">AdvanceScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46148"></span>46148</td>
+<td class="instruction">JP NZ,<a href="60462.html">AdvanceScriptInstruction</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46151"></span>46151</td>
+<td class="instruction">BIT 4,(IX+3)</td>
+<td class="comment-1" rowspan="2">Is Berk carrying / mid put-down (bit 4)? If not, read the controls at <a href="46144.html#46173">Berk_ReadControls_Dispatch</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46155"></span>46155</td>
+<td class="instruction">JR Z,<a href="46144.html#46173">Berk_ReadControls_Dispatch</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46157"></span>46157</td>
+<td class="instruction">LD IY,(29356)</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IY</span> at the held entity (<a href="29356.html">Pointer_CurrentEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46161"></span>46161</td>
+<td class="instruction">BIT 3,(IY+2)</td>
+<td class="comment-1" rowspan="2">Is that held entity still marked "held" (bit 3)? If not, read the controls at <a href="46144.html#46173">Berk_ReadControls_Dispatch</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46165"></span>46165</td>
+<td class="instruction">JR Z,<a href="46144.html#46173">Berk_ReadControls_Dispatch</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46167"></span>46167</td>
+<td class="instruction">LD HL,47665</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk's "still holding" interaction script (<a href="47525.html">47665</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46170"></span>46170</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Run that script via <a href="60462.html#60464">ScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46173"></span>
+<div class="comments">
+<div class="paragraph">
+Read the control input bitmap (<a href="62968.html">ControlInputBitmap</a>) and branch on direction / fire.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_Dispatch</td>
+<td class="address-2"><span id="46173"></span>46173</td>
+<td class="instruction">LD A,(62968)</td>
+<td class="comment-1" rowspan="1">Fetch the control input bitmap from <a href="62968.html">ControlInputBitmap</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46176"></span>46176</td>
+<td class="instruction">BIT 0,A</td>
+<td class="comment-1" rowspan="2">Has right been pressed? If so, jump to <a href="47228.html#47302">Berk_WalkRight</a> to walk Berk right.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46178"></span>46178</td>
+<td class="instruction">JP NZ,<a href="47228.html#47302">Berk_WalkRight</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46181"></span>46181</td>
+<td class="instruction">BIT 1,A</td>
+<td class="comment-1" rowspan="2">Has left been pressed? If so, jump to <a href="47091.html#47120">Berk_WalkLeft</a> to walk Berk left.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46183"></span>46183</td>
+<td class="instruction">JP NZ,<a href="47091.html#47120">Berk_WalkLeft</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46186"></span>46186</td>
+<td class="instruction">BIT 2,A</td>
+<td class="comment-1" rowspan="2">Has down (forward) been pressed? If so, jump to <a href="46144.html#46841">Berk_ReadControls_Down</a> to move Berk forward.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46188"></span>46188</td>
+<td class="instruction">JP NZ,<a href="46144.html#46841">Berk_ReadControls_Down</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46191"></span>46191</td>
+<td class="instruction">BIT 3,A</td>
+<td class="comment-1" rowspan="2">Has up (back) been pressed? If so, jump to <a href="46144.html#46432">Berk_ReadControls_Up</a> to move Berk back / up.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46193"></span>46193</td>
+<td class="instruction">JP NZ,<a href="46144.html#46432">Berk_ReadControls_Up</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46196"></span>46196</td>
+<td class="instruction">BIT 4,A</td>
+<td class="comment-1" rowspan="2">Has fire been pressed? If so, jump to <a href="46144.html#46245">Berk_ReadControls_OfferOrPutDown</a> to pick up, put down or offer to the trap.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46198"></span>46198</td>
+<td class="instruction">JP NZ,<a href="46144.html#46245">Berk_ReadControls_OfferOrPutDown</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46201"></span>46201</td>
+<td class="instruction">BIT 5,A</td>
+<td class="comment-1" rowspan="2">Has the secondary action key been pressed? If so, jump to <a href="46144.html#46382">Berk_ReadControls_SecondaryFire</a> for the alternate fire path.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46203"></span>46203</td>
+<td class="instruction">JP NZ,<a href="46144.html#46382">Berk_ReadControls_SecondaryFire</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46206"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a href="47091.html">Berk_Interact_With_Entity</a>, <a href="47228.html">Berk_Pick_Up_Entity</a> and <a href="47404.html">Berk_Put_Down_Entity</a>.
+</div>
+<div class="paragraph">
+Handle idle: clear the holding lock and pick a facing script.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_Idle</td>
+<td class="address-2"><span id="46206"></span>46206</td>
+<td class="instruction">RES 3,(IX+3)</td>
+<td class="comment-1" rowspan="1">Reset bit 3 of flags byte 3 (<span class="register">IX</span>+3).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46210"></span>46210</td>
+<td class="instruction">BIT 1,(IX+3)</td>
+<td class="comment-1" rowspan="2">Is Berk facing left (bit 1)? If not, use the right-facing idle script at <a href="46144.html#46239">Berk_ReadControls_IdleFaceRight</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46214"></span>46214</td>
+<td class="instruction">JR Z,<a href="46144.html#46239">Berk_ReadControls_IdleFaceRight</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46216"></span>46216</td>
+<td class="instruction">BIT 2,(IX+3)</td>
+<td class="comment-1" rowspan="3">Test the mid-interaction latch (bit 2). Clear that latch. If it was set, still use the right-facing idle script at <a href="46144.html#46239">Berk_ReadControls_IdleFaceRight</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46220"></span>46220</td>
+<td class="instruction">RES 2,(IX+3)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46224"></span>46224</td>
+<td class="instruction">JR NZ,<a href="46144.html#46239">Berk_ReadControls_IdleFaceRight</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46226"></span>46226</td>
+<td class="instruction">BIT 3,(IX+9)</td>
+<td class="comment-1" rowspan="2">Is Berk's direction byte already "face left" bit 3? If not, continue the current script at <a href="60462.html">AdvanceScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46230"></span>46230</td>
+<td class="instruction">JP Z,<a href="60462.html">AdvanceScriptInstruction</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46233"></span>46233</td>
+<td class="instruction">LD HL,47565</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk's left-facing idle script (<a href="47525.html">47565</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46236"></span>46236</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Run that script via <a href="60462.html#60464">ScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46239"></span>
+<div class="comments">
+<div class="paragraph">
+Idle facing right: run Berk's right-facing idle script at <a href="47525.html#47533">47533</a> via <a href="60462.html#60464">ScriptInstruction</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_IdleFaceRight</td>
+<td class="address-2"><span id="46239"></span>46239</td>
+<td class="instruction">LD HL,47533</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk's right-facing idle script (<a href="47525.html#47533">47533</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46242"></span>46242</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Run that script via <a href="60462.html#60464">ScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46245"></span>
+<div class="comments">
+<div class="paragraph">
+Handle fire: pick up, put down or offer an item to the trap door.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_OfferOrPutDown</td>
+<td class="address-2"><span id="46245"></span>46245</td>
+<td class="instruction">BIT 4,(IX+3)</td>
+<td class="comment-1" rowspan="2">Is bit 4 of flags byte 3 (<span class="register">IX</span>+3) set? If not, fall back to idle at <a href="46144.html#46206">Berk_ReadControls_Idle</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46249"></span>46249</td>
+<td class="instruction">JP Z,<a href="46144.html#46206">Berk_ReadControls_Idle</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46252"></span>46252</td>
+<td class="instruction">LD A,(IX+6)</td>
+<td class="comment-1" rowspan="1">Load Berk's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46255"></span>46255</td>
+<td class="instruction">CP 27</td>
+<td class="comment-1" rowspan="2">Is Berk standing on the trap door row (y-extent 27)? If so, handle the offer at <a href="46144.html#46264">Berk_ReadControls_OfferOrPutDownOfferTrap</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46257"></span>46257</td>
+<td class="instruction">JR Z,<a href="46144.html#46264">Berk_ReadControls_OfferOrPutDownOfferTrap</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46259"></span>46259</td>
+<td class="instruction">CP 35</td>
+<td class="comment-1" rowspan="2">Is he still below the offer band (y-extent &lt; 35)? If so, idle at <a href="46144.html#46206">Berk_ReadControls_Idle</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46261"></span>46261</td>
+<td class="instruction">JP C,<a href="46144.html#46206">Berk_ReadControls_Idle</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46264"></span>
+<div class="comments">
+<div class="paragraph">
+Facing-left trap offer: test the held entity with <a href="62047.html">Adjust_CameraY</a>, then offer or put down.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_OfferOrPutDownOfferTrap</td>
+<td class="address-2"><span id="46264"></span>46264</td>
+<td class="instruction">BIT 1,(IX+3)</td>
+<td class="comment-1" rowspan="2">Is Berk facing left? If not, try the right-facing offer path at <a href="46144.html#46335">Berk_ReadControls_OfferOrPutDownFaceRight</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46268"></span>46268</td>
+<td class="instruction">JR Z,<a href="46144.html#46335">Berk_ReadControls_OfferOrPutDownFaceRight</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46270"></span>46270</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">IX</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46272"></span>46272</td>
+<td class="instruction">LD IX,(29356)</td>
+<td class="comment-1" rowspan="1">Switch <span class="register">IX</span> to the held entity (<a href="29356.html">Pointer_CurrentEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46276"></span>46276</td>
+<td class="instruction">CALL <a href="62047.html">Adjust_CameraY</a></td>
+<td class="comment-1" rowspan="1">Call <a href="62047.html">Adjust_CameraY</a> to test whether that entity can be offered to the trap.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46279"></span>46279</td>
+<td class="instruction">POP IX</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">IX</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46281"></span>46281</td>
+<td class="instruction">JR C,<a href="46144.html#46323">Berk_ReadControls_OfferOrPutDownOfferScript</a></td>
+<td class="comment-1" rowspan="1">If the offer was rejected, skip ahead to the reject script at <a href="46144.html#46323">Berk_ReadControls_OfferOrPutDownOfferScript</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46283"></span>46283</td>
+<td class="instruction">CP 61</td>
+<td class="comment-1" rowspan="2">Is Berk's y-extent exactly the trap mouth (61)? If not, use the put-down script at <a href="46144.html#46329">Berk_ReadControls_OfferOrPutDownPutDown</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46285"></span>46285</td>
+<td class="instruction">JR NZ,<a href="46144.html#46329">Berk_ReadControls_OfferOrPutDownPutDown</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46287"></span>46287</td>
+<td class="instruction">LD A,(29363)</td>
+<td class="comment-1" rowspan="1">Fetch the game event flags (<a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46290"></span>46290</td>
+<td class="instruction">BIT 3,A</td>
+<td class="comment-1" rowspan="2">Has an object already been offered to the trap (bit 3)? If so, just put down at <a href="46144.html#46329">Berk_ReadControls_OfferOrPutDownPutDown</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46292"></span>46292</td>
+<td class="instruction">JR NZ,<a href="46144.html#46329">Berk_ReadControls_OfferOrPutDownPutDown</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46294"></span>46294</td>
+<td class="instruction">SET 3,A</td>
+<td class="comment-1" rowspan="1">Mark "object offered to the trap" (set bit 3).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46296"></span>46296</td>
+<td class="instruction">LD (29363),A</td>
+<td class="comment-1" rowspan="1">Write the updated game event flags back to <a href="29363.html">GameEventFlags</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46299"></span>46299</td>
+<td class="instruction">LD IY,(29356)</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IY</span> at the held entity (<a href="29356.html">Pointer_CurrentEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46303"></span>46303</td>
+<td class="instruction">SET 6,(IY+1)</td>
+<td class="comment-1" rowspan="1">Set that entity's can-fall latch (bit 6).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46307"></span>46307</td>
+<td class="instruction">LD (36233),IY</td>
+<td class="comment-1" rowspan="1">Remember it as the trap door entity pointer slot (<a href="35689.html#36233">36233</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46311"></span>46311</td>
+<td class="instruction">LD A,(IY+0)</td>
+<td class="comment-1" rowspan="1">Load the held entity's type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46314"></span>46314</td>
+<td class="instruction">CP 1</td>
+<td class="comment-1" rowspan="2">Is it type 1 (Berk's own slot)? If not, run the offer script at <a href="46144.html#46323">Berk_ReadControls_OfferOrPutDownOfferScript</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46316"></span>46316</td>
+<td class="instruction">JR NZ,<a href="46144.html#46323">Berk_ReadControls_OfferOrPutDownOfferScript</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46318"></span>46318</td>
+<td class="instruction">LD A,8</td>
+<td class="comment-1" rowspan="1">Load the Bad Tempered Thing "object offered" state (8).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46320"></span>46320</td>
+<td class="instruction">LD (29383),A</td>
+<td class="comment-1" rowspan="1">Store it at <a href="29383.html">BadTemperedThingState</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46323"></span>
+<div class="comments">
+<div class="paragraph">
+Run Berk's trap-offer script (<a href="47525.html">47679</a>) after accepting or rejecting the offer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_OfferOrPutDownOfferScript</td>
+<td class="address-2"><span id="46323"></span>46323</td>
+<td class="instruction">LD HL,47679</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk's trap-offer script (<a href="47525.html">47679</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46326"></span>46326</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Run that script via <a href="60462.html#60464">ScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46329"></span>
+<div class="comments">
+<div class="paragraph">
+Put the held item down with Berk's standard put-down script (<a href="47525.html">Data_BerkPutDownScripts</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_OfferOrPutDownPutDown</td>
+<td class="address-2"><span id="46329"></span>46329</td>
+<td class="instruction">LD HL,47525</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk's standard put-down script (<a href="47525.html">Data_BerkPutDownScripts</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46332"></span>46332</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Run that script via <a href="60462.html#60464">ScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46335"></span>
+<div class="comments">
+<div class="paragraph">
+Right-facing fire path: test a trap offer or fall back to idle / hold.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_OfferOrPutDownFaceRight</td>
+<td class="address-2"><span id="46335"></span>46335</td>
+<td class="instruction">LD A,(IX+6)</td>
+<td class="comment-1" rowspan="1">Load Berk's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46338"></span>46338</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">IX</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46340"></span>46340</td>
+<td class="instruction">LD IX,(29356)</td>
+<td class="comment-1" rowspan="1">Switch <span class="register">IX</span> to the held entity (<a href="29356.html">Pointer_CurrentEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46344"></span>46344</td>
+<td class="instruction">CP 27</td>
+<td class="comment-1" rowspan="2">Is Berk on the trap door row (y-extent 27)? If so, handle that offer at <a href="46144.html#46366">Berk_ReadControls_OfferOrPutDownTrapRow</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46346"></span>46346</td>
+<td class="instruction">JR Z,<a href="46144.html#46366">Berk_ReadControls_OfferOrPutDownTrapRow</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46348"></span>46348</td>
+<td class="instruction">CALL <a href="62146.html">Test_EntityOverlap</a></td>
+<td class="comment-1" rowspan="1">Call <a href="62146.html">Test_EntityOverlap</a> to test a right-facing trap offer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46351"></span>46351</td>
+<td class="instruction">POP IX</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">IX</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46353"></span>46353</td>
+<td class="instruction">JR C,<a href="46144.html#46360">Berk_ReadControls_OfferOrPutDownHoldScript</a></td>
+<td class="comment-1" rowspan="1">If the offer was accepted, run the holding script at <a href="46144.html#46360">Berk_ReadControls_OfferOrPutDownHoldScript</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46355"></span>46355</td>
+<td class="instruction">CP 50</td>
+<td class="comment-1" rowspan="2">Is Berk still below the mid-room band (y-extent &lt; 50)? If so, idle at <a href="46144.html#46206">Berk_ReadControls_Idle</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46357"></span>46357</td>
+<td class="instruction">JP C,<a href="46144.html#46206">Berk_ReadControls_Idle</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46360"></span>
+<div class="comments">
+<div class="paragraph">
+Keep holding: run Berk's "still holding" script (<a href="47525.html">47665</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_OfferOrPutDownHoldScript</td>
+<td class="address-2"><span id="46360"></span>46360</td>
+<td class="instruction">LD HL,47665</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk's "still holding" script (<a href="47525.html">47665</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46363"></span>46363</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Run that script via <a href="60462.html#60464">ScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46366"></span>
+<div class="comments">
+<div class="paragraph">
+On the trap door row facing right: validate the offer, then run the trap-row script.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_OfferOrPutDownTrapRow</td>
+<td class="address-2"><span id="46366"></span>46366</td>
+<td class="instruction">CALL <a href="62146.html">Test_EntityOverlap</a></td>
+<td class="comment-1" rowspan="1">Call <a href="62146.html">Test_EntityOverlap</a> to test the trap-row offer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46369"></span>46369</td>
+<td class="instruction">POP IX</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">IX</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46371"></span>46371</td>
+<td class="instruction">CP 53</td>
+<td class="comment-1" rowspan="2">Is Berk's y-extent exactly 53? If so, idle at <a href="46144.html#46206">Berk_ReadControls_Idle</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46373"></span>46373</td>
+<td class="instruction">JP Z,<a href="46144.html#46206">Berk_ReadControls_Idle</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46376"></span>46376</td>
+<td class="instruction">LD HL,47719</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk's trap-row interaction script (<a href="47525.html">47719</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46379"></span>46379</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Run that script via <a href="60462.html#60464">ScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46382"></span>
+<div class="comments">
+<div class="paragraph">
+Handle secondary fire: put down when carrying, otherwise idle.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_SecondaryFire</td>
+<td class="address-2"><span id="46382"></span>46382</td>
+<td class="instruction">BIT 4,(IX+3)</td>
+<td class="comment-1" rowspan="2">Is bit 4 of flags byte 3 (<span class="register">IX</span>+3) set? If not, idle at <a href="46144.html#46206">Berk_ReadControls_Idle</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46386"></span>46386</td>
+<td class="instruction">JP Z,<a href="46144.html#46206">Berk_ReadControls_Idle</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46389"></span>46389</td>
+<td class="instruction">BIT 1,(IX+3)</td>
+<td class="comment-1" rowspan="2">Is Berk facing left? If not, try the right-facing secondary path at <a href="46144.html#46401">Berk_ReadControls_SecondaryFireRight</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46393"></span>46393</td>
+<td class="instruction">JR Z,<a href="46144.html#46401">Berk_ReadControls_SecondaryFireRight</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46395"></span>46395</td>
+<td class="instruction">LD HL,47525</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk's standard put-down script (<a href="47525.html">Data_BerkPutDownScripts</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46398"></span>46398</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Run that script via <a href="60462.html#60464">ScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46401"></span>
+<div class="comments">
+<div class="paragraph">
+Right-facing secondary fire: validate the held entity with <a href="62146.html">Test_EntityOverlap</a>, then put it down.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_SecondaryFireRight</td>
+<td class="address-2"><span id="46401"></span>46401</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">IX</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46403"></span>46403</td>
+<td class="instruction">LD IX,(29356)</td>
+<td class="comment-1" rowspan="1">Switch <span class="register">IX</span> to the held entity (<a href="29356.html">Pointer_CurrentEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46407"></span>46407</td>
+<td class="instruction">LD A,(IX+2)</td>
+<td class="comment-1" rowspan="1">Load the held entity's flags byte 2.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46410"></span>46410</td>
+<td class="instruction">AND %01000010</td>
+<td class="comment-1" rowspan="1">Keep only bits 6 and 1 (can-fall / facing-left).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46412"></span>46412</td>
+<td class="instruction">JR Z,<a href="46144.html#46427">Berk_ReadControls_SecondaryFireAbort</a></td>
+<td class="comment-1" rowspan="1">If neither bit is set, abandon the secondary action at <a href="46144.html#46427">Berk_ReadControls_SecondaryFireAbort</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46414"></span>46414</td>
+<td class="instruction">CALL <a href="62146.html">Test_EntityOverlap</a></td>
+<td class="comment-1" rowspan="1">Call <a href="62146.html">Test_EntityOverlap</a> to validate the put-down.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46417"></span>46417</td>
+<td class="instruction">JR NC,<a href="46144.html#46427">Berk_ReadControls_SecondaryFireAbort</a></td>
+<td class="comment-1" rowspan="1">If validation failed, abandon at <a href="46144.html#46427">Berk_ReadControls_SecondaryFireAbort</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46419"></span>46419</td>
+<td class="instruction">POP IX</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">IX</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46421"></span>46421</td>
+<td class="instruction">LD HL,48033</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk's alternate put-down script (<a href="47525.html">48033</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46424"></span>46424</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Run that script via <a href="60462.html#60464">ScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46427"></span>
+<div class="comments">
+<div class="paragraph">
+Abort secondary fire and return Berk to idle at <a href="46144.html#46206">Berk_ReadControls_Idle</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_SecondaryFireAbort</td>
+<td class="address-2"><span id="46427"></span>46427</td>
+<td class="instruction">POP IX</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">IX</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46429"></span>46429</td>
+<td class="instruction">JP <a href="46144.html#46206">Berk_ReadControls_Idle</a></td>
+<td class="comment-1" rowspan="1">Idle at <a href="46144.html#46206">Berk_ReadControls_Idle</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46432"></span>
+<div class="comments">
+<div class="paragraph">
+Handle up / back: turn or walk Berk toward the back of the room.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_Up</td>
+<td class="address-2"><span id="46432"></span>46432</td>
+<td class="instruction">BIT 1,(IX+3)</td>
+<td class="comment-1" rowspan="2">Is Berk already facing left? If so, continue the up-walk at <a href="46144.html#46445">Berk_ReadControls_UpWalk</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46436"></span>46436</td>
+<td class="instruction">JP NZ,<a href="46144.html#46445">Berk_ReadControls_UpWalk</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46439"></span>46439</td>
+<td class="instruction">LD HL,47557</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk's turn-to-face-back script (<a href="47525.html">47557</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46442"></span>46442</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Run that script via <a href="60462.html#60464">ScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46445"></span>
+<div class="comments">
+<div class="paragraph">
+Walk Berk back/up: probe the row above, clamp the camera, then branch on collision height.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_UpWalk</td>
+<td class="address-2"><span id="46445"></span>46445</td>
+<td class="instruction">DEC (IX+5)</td>
+<td class="comment-1" rowspan="1">Probe one character above Berk's current y.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46448"></span>46448</td>
+<td class="instruction">CALL <a href="62034.html">Clamp_CameraPosition</a></td>
+<td class="comment-1" rowspan="1">Call <a href="62034.html">Clamp_CameraPosition</a> to clamp Camera Position.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46451"></span>46451</td>
+<td class="instruction">INC (IX+5)</td>
+<td class="comment-1" rowspan="1">Restore Berk's y after the camera clamp probe.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46454"></span>46454</td>
+<td class="instruction">JP C,<a href="46144.html#46615">Update_Berk_Movement_And_Script_PartA</a></td>
+<td class="comment-1" rowspan="1">If a hit/borrow was signaled, jump to <a href="46144.html#46615">Update_Berk_Movement_And_Script_PartA</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46457"></span>46457</td>
+<td class="instruction">CP 100</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> less than 100? If not, jump to <a href="46144.html#46628">Update_Berk_Movement_And_Script_PartB</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46459"></span>46459</td>
+<td class="instruction">JP NC,<a href="46144.html#46628">Update_Berk_Movement_And_Script_PartB</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46462"></span>46462</td>
+<td class="instruction">CP 65</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> equal to 65? If so, jump to <a href="46144.html#46826">Update_Berk_Movement_And_Script_PartL</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46464"></span>46464</td>
+<td class="instruction">JP Z,<a href="46144.html#46826">Update_Berk_Movement_And_Script_PartL</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46467"></span>46467</td>
+<td class="instruction">CP 50</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> less than 50? If not, jump to <a href="46144.html#46476">Berk_ReadControls_UpInteract</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46469"></span>46469</td>
+<td class="instruction">JR NC,<a href="46144.html#46476">Berk_ReadControls_UpInteract</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46471"></span>46471</td>
+<td class="instruction">CP 30</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> less than 30? If not, jump to <a href="47404.html#47494">Berk_Put_Down_Entity_PublishScriptPos</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46473"></span>46473</td>
+<td class="instruction">JP NC,<a href="47404.html#47494">Berk_Put_Down_Entity_PublishScriptPos</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46476"></span>
+<div class="comments">
+<div class="paragraph">
+Up-path interact: offer to the trap, grab scenery, or hand off to <a href="47091.html">Berk_Interact_With_Entity</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_UpInteract</td>
+<td class="address-2"><span id="46476"></span>46476</td>
+<td class="instruction">BIT 4,(IX+3)</td>
+<td class="comment-1" rowspan="2">Is bit 4 of flags byte 3 (<span class="register">IX</span>+3) set? If so, jump to <a href="46144.html#46764">Update_Berk_Movement_And_Script_PartI</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46480"></span>46480</td>
+<td class="instruction">JP NZ,<a href="46144.html#46764">Update_Berk_Movement_And_Script_PartI</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46483"></span>46483</td>
+<td class="instruction">LD IY,(29354)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">IY</span> with the last-collided entity pointer (<a href="29354.html">Pointer_LastCollidedEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46487"></span>46487</td>
+<td class="instruction">LD A,(IY+0)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46490"></span>46490</td>
+<td class="instruction">CP 15</td>
+<td class="comment-1" rowspan="2">Is referenced entity's entity type equal to 15? If so, jump to <a href="46144.html#46658">Update_Berk_Movement_And_Script_PartD</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46492"></span>46492</td>
+<td class="instruction">JP Z,<a href="46144.html#46658">Update_Berk_Movement_And_Script_PartD</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46495"></span>46495</td>
+<td class="instruction">BIT 4,(IY+1)</td>
+<td class="comment-1" rowspan="2">Is bit 4 of the referenced entity's flags byte 1 set? If so, jump to <a href="46144.html#46658">Update_Berk_Movement_And_Script_PartD</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46499"></span>46499</td>
+<td class="instruction">JP NZ,<a href="46144.html#46658">Update_Berk_Movement_And_Script_PartD</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46502"></span>46502</td>
+<td class="instruction">BIT 3,(IY+1)</td>
+<td class="comment-1" rowspan="2">Is bit 3 of the referenced entity's flags byte 1 set? If not, jump to <a href="46144.html#46584">Berk_ReadControls_UpPutDownScript</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46506"></span>46506</td>
+<td class="instruction">JR Z,<a href="46144.html#46584">Berk_ReadControls_UpPutDownScript</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46508"></span>46508</td>
+<td class="instruction">CALL <a href="47091.html">Berk_Interact_With_Entity</a></td>
+<td class="comment-1" rowspan="3">Call <a href="47091.html">Berk_Interact_With_Entity</a> to let Berk interact with an entity? If so, jump to <a href="47009.html#47011">Berk_ReadControls_DownBitTest</a>? If not, jump to <a href="47009.html#47028">Berk_ReadControls_DownPartT</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46511"></span>46511</td>
+<td class="instruction">JP C,<a href="47009.html#47011">Berk_ReadControls_DownBitTest</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46514"></span>46514</td>
+<td class="instruction">JP NZ,<a href="47009.html#47028">Berk_ReadControls_DownPartT</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46517"></span>46517</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">IX</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46519"></span>46519</td>
+<td class="instruction">LD IX,(29354)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">IX</span> with the last-collided entity pointer (<a href="29354.html">Pointer_LastCollidedEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46523"></span>46523</td>
+<td class="instruction">LD A,(IX+4)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's room index.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46526"></span>46526</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the current entity's room index zero? If so, jump to <a href="46144.html#46582">Berk_ReadControls_UpRestore</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46527"></span>46527</td>
+<td class="instruction">JR Z,<a href="46144.html#46582">Berk_ReadControls_UpRestore</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46529"></span>46529</td>
+<td class="instruction">CP 1</td>
+<td class="comment-1" rowspan="2">Is the current entity's room index equal to 1? If not, jump to <a href="46144.html#46548">Berk_ReadControls_UpRoomCheck</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46531"></span>46531</td>
+<td class="instruction">JR NZ,<a href="46144.html#46548">Berk_ReadControls_UpRoomCheck</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46533"></span>46533</td>
+<td class="instruction">LD (36233),IX</td>
+<td class="comment-1" rowspan="1">Store <span class="register">IX</span> in the trap door entity pointer (<a href="35689.html#36233">36233</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46537"></span>46537</td>
+<td class="instruction">SET 6,(IX+1)</td>
+<td class="comment-1" rowspan="1">Set bit 6 of the current entity's flags byte 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46541"></span>46541</td>
+<td class="instruction">LD HL,29363</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the game event flags (<a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46544"></span>46544</td>
+<td class="instruction">SET 3,(HL)</td>
+<td class="comment-1" rowspan="1">Set "object has been offered to the trap" (bit 3 of <a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46546"></span>46546</td>
+<td class="instruction">JR <a href="46144.html#46590">Berk_ReadControls_UpGrabEntity</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="46144.html#46590">Berk_ReadControls_UpGrabEntity</a> to store Berk's extra state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46548"></span>
+<div class="comments">
+<div class="paragraph">
+Room-specific up checks: camera tweak, trap mouth (61), or special X band (104).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_UpRoomCheck</td>
+<td class="address-2"><span id="46548"></span>46548</td>
+<td class="instruction">CALL <a href="62043.html">Adjust_CameraX</a></td>
+<td class="comment-1" rowspan="2">Call <a href="62043.html">Adjust_CameraX</a> to adjust Camera X? If so, jump to <a href="46144.html#46590">Berk_ReadControls_UpGrabEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46551"></span>46551</td>
+<td class="instruction">JR C,<a href="46144.html#46590">Berk_ReadControls_UpGrabEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46553"></span>46553</td>
+<td class="instruction">CP 61</td>
+<td class="comment-1" rowspan="2">Is the current entity's room index equal to 61? If so, jump to <a href="46144.html#46590">Berk_ReadControls_UpGrabEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46555"></span>46555</td>
+<td class="instruction">JR Z,<a href="46144.html#46590">Berk_ReadControls_UpGrabEntity</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46557"></span>46557</td>
+<td class="instruction">CP 104</td>
+<td class="comment-1" rowspan="2">Is the current entity's room index equal to 104? If not, jump to <a href="46144.html#46582">Berk_ReadControls_UpRestore</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46559"></span>46559</td>
+<td class="instruction">JR NZ,<a href="46144.html#46582">Berk_ReadControls_UpRestore</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46561"></span>46561</td>
+<td class="instruction">LD A,(29363)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the game event flags (<a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46564"></span>46564</td>
+<td class="instruction">BIT 3,A</td>
+<td class="comment-1" rowspan="2">Is bit 3 of game event flags set? If so, jump to <a href="46144.html#46582">Berk_ReadControls_UpRestore</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46566"></span>46566</td>
+<td class="instruction">JR NZ,<a href="46144.html#46582">Berk_ReadControls_UpRestore</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46568"></span>46568</td>
+<td class="instruction">LD A,(IX+7)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46571"></span>46571</td>
+<td class="instruction">CP 152</td>
+<td class="comment-1" rowspan="2">Is the current entity's x-coordinate less than 152? If so, jump to <a href="46144.html#46582">Berk_ReadControls_UpRestore</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46573"></span>46573</td>
+<td class="instruction">JR C,<a href="46144.html#46582">Berk_ReadControls_UpRestore</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46575"></span>46575</td>
+<td class="instruction">LD A,157</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 157.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46577"></span>46577</td>
+<td class="instruction">CP (IX+8)</td>
+<td class="comment-1" rowspan="2">Does <span class="register">A</span> match this entity's x-extent? If not, jump to <a href="46144.html#46590">Berk_ReadControls_UpGrabEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46580"></span>46580</td>
+<td class="instruction">JR NC,<a href="46144.html#46590">Berk_ReadControls_UpGrabEntity</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46582"></span>
+<div class="comments">
+<div class="paragraph">
+Failed up-path grab: restore Berk's entity pointer and fall into the put-down script.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_UpRestore</td>
+<td class="address-2"><span id="46582"></span>46582</td>
+<td class="instruction">POP IX</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">IX</span> from the stack.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46584"></span>
+<div class="comments">
+<div class="paragraph">
+Run a left-facing idle/put-down fragment (<a href="47525.html">47565</a>) when the up grab is rejected.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_UpPutDownScript</td>
+<td class="address-2"><span id="46584"></span>46584</td>
+<td class="instruction">LD HL,47565</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at a Berk put-down script fragment (<a href="47525.html">47565</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46587"></span>46587</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46590"></span>
+<div class="comments">
+<div class="paragraph">
+Commit the grabbed entity into Berk's held state and launch script <a href="47525.html#47803">BerkPutDownScript_Bit3Set</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_UpGrabEntity</td>
+<td class="address-2"><span id="46590"></span>46590</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">IX</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46592"></span>46592</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="2">Restore <span class="register">BC</span> and <span class="register">IX</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46593"></span>46593</td>
+<td class="instruction">POP IX</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46595"></span>46595</td>
+<td class="instruction">LD (IX+12),C</td>
+<td class="comment-1" rowspan="1">Store <span class="register">C</span> in the current entity's extra state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46598"></span>46598</td>
+<td class="instruction">LD (IX+13),B</td>
+<td class="comment-1" rowspan="1">Store <span class="register">B</span> in the current entity's extra state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46601"></span>46601</td>
+<td class="instruction">SET 3,(IX+3)</td>
+<td class="comment-1" rowspan="1">Set bit 3 of the current entity's flags byte 3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46605"></span>46605</td>
+<td class="instruction">RES 2,(IX+3)</td>
+<td class="comment-1" rowspan="1">Reset bit 2 of the current entity's flags byte 3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46609"></span>46609</td>
+<td class="instruction">LD HL,47803</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk control/put-down script data (<a href="47525.html#47803">BerkPutDownScript_Bit3Set</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46612"></span>46612</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46615"></span>
+<div class="comments">
+<div class="paragraph">
+Camera-clamp hit on up: drop/control put-down via <a href="47525.html#47759">BerkPutDownScript_Drop</a>, or keep the current script.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_Movement_And_Script_PartA</td>
+<td class="address-2"><span id="46615"></span>46615</td>
+<td class="instruction">BIT 3,(IX+9)</td>
+<td class="comment-1" rowspan="2">Is bit 3 of the current entity's direction / state set? If so, jump to <a href="60462.html">AdvanceScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46619"></span>46619</td>
+<td class="instruction">JP NZ,<a href="60462.html">AdvanceScriptInstruction</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46622"></span>46622</td>
+<td class="instruction">LD HL,47759</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk control/put-down script data (<a href="47525.html#47759">BerkPutDownScript_Drop</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46625"></span>46625</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46628"></span>
+<div class="comments">
+<div class="paragraph">
+Up-path collision: let <a href="47091.html">Berk_Interact_With_Entity</a> decide interact vs the shared down-branch at <a href="47009.html#47028">Berk_ReadControls_DownPartT</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_Movement_And_Script_PartB</td>
+<td class="address-2"><span id="46628"></span>46628</td>
+<td class="instruction">CALL <a href="47091.html">Berk_Interact_With_Entity</a></td>
+<td class="comment-1" rowspan="3">Call <a href="47091.html">Berk_Interact_With_Entity</a> to let Berk interact with an entity? If so, jump to <a href="46144.html#46639">Update_Berk_Movement_And_Script_PartC</a>? If not, jump to <a href="47009.html#47028">Berk_ReadControls_DownPartT</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46631"></span>46631</td>
+<td class="instruction">JR Z,<a href="46144.html#46639">Update_Berk_Movement_And_Script_PartC</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46633"></span>46633</td>
+<td class="instruction">JP NC,<a href="47009.html#47028">Berk_ReadControls_DownPartT</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46636"></span>46636</td>
+<td class="instruction">JP <a href="47009.html#47011">Berk_ReadControls_DownBitTest</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="47009.html#47011">Berk_ReadControls_DownBitTest</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46639"></span>
+<div class="comments">
+<div class="paragraph">
+Special room interact: refresh the camera origin from Berk movement data and resume.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_Movement_And_Script_PartC</td>
+<td class="address-2"><span id="46639"></span>46639</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-1" rowspan="1">Copy the saved count/flag from <span class="register">C</span> into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46640"></span>46640</td>
+<td class="instruction">CP 102</td>
+<td class="comment-1" rowspan="2">Is 157 equal to 102? If not, jump to <a href="46144.html#46615">Update_Berk_Movement_And_Script_PartA</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46642"></span>46642</td>
+<td class="instruction">JR NZ,<a href="46144.html#46615">Update_Berk_Movement_And_Script_PartA</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46644"></span>46644</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">HL</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46645"></span>46645</td>
+<td class="instruction">LD HL,46653</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk movement script data (<a href="46144.html#46653">46653</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46648"></span>46648</td>
+<td class="instruction">LD A,160</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 160.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46650"></span>46650</td>
+<td class="instruction">JP <a href="46144.html#46977">Berk_ReadControls_DownCameraCopy</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="46144.html#46977">Berk_ReadControls_DownCameraCopy</a> to refresh the camera room origin.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46653"></span>46653</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Advance the layout-table index in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46654"></span>46654</td>
+<td class="instruction">LD HL,41511</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at graphic layout/table <a href="41464.html">41511</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46657"></span>46657</td>
+<td class="instruction">AND A</td>
+<td class="comment-1" rowspan="1">Test whether 160 is zero (clear carry).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46658"></span>
+<div class="comments">
+<div class="paragraph">
+Plant-pot / type-15 up interact: retarget layout <a href="41090.html#41141">GraphicLayout_EyeballPlantLevel4</a> and update plant pots.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_Movement_And_Script_PartD</td>
+<td class="address-2"><span id="46658"></span>46658</td>
+<td class="instruction">CALL <a href="47091.html">Berk_Interact_With_Entity</a></td>
+<td class="comment-1" rowspan="3">Call <a href="47091.html">Berk_Interact_With_Entity</a> to let Berk interact with an entity? If so, jump to <a href="47009.html#47011">Berk_ReadControls_DownBitTest</a>? If not, jump to <a href="47009.html#47028">Berk_ReadControls_DownPartT</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46661"></span>46661</td>
+<td class="instruction">JP C,<a href="47009.html#47011">Berk_ReadControls_DownBitTest</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46664"></span>46664</td>
+<td class="instruction">JP NZ,<a href="47009.html#47028">Berk_ReadControls_DownPartT</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46667"></span>46667</td>
+<td class="instruction">LD B,(IX+6)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with the current entity's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46670"></span>46670</td>
+<td class="instruction">DEC B</td>
+<td class="comment-1" rowspan="1">Step the loop counter in <span class="register">B</span> back by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46671"></span>46671</td>
+<td class="instruction">LD IY,(29354)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">IY</span> with the last-collided entity pointer (<a href="29354.html">Pointer_LastCollidedEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46675"></span>46675</td>
+<td class="instruction">LD A,(IY+0)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46678"></span>46678</td>
+<td class="instruction">CP 15</td>
+<td class="comment-1" rowspan="2">Is referenced entity's entity type equal to 15? If not, jump to <a href="46144.html#46716">Update_Berk_Movement_And_Script_PartE</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46680"></span>46680</td>
+<td class="instruction">JR NZ,<a href="46144.html#46716">Update_Berk_Movement_And_Script_PartE</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46682"></span>46682</td>
+<td class="instruction">LD A,(IY+9)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's direction / state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46685"></span>46685</td>
+<td class="instruction">CP 7</td>
+<td class="comment-1" rowspan="2">Is referenced entity's direction / state equal to 7? If not, jump to <a href="46144.html#46584">Berk_ReadControls_UpPutDownScript</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46687"></span>46687</td>
+<td class="instruction">JP NZ,<a href="46144.html#46584">Berk_ReadControls_UpPutDownScript</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46690"></span>46690</td>
+<td class="instruction">LD (IY+9),11</td>
+<td class="comment-1" rowspan="1">Write 11 to the referenced entity's direction / state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46694"></span>46694</td>
+<td class="instruction">LD BC,41141</td>
+<td class="comment-1" rowspan="1">Load <span class="register">BC</span> with graphic layout address <a href="41090.html#41141">GraphicLayout_EyeballPlantLevel4</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46697"></span>46697</td>
+<td class="instruction">LD (IY+10),C</td>
+<td class="comment-1" rowspan="1">Set the low byte of the referenced entity's graphic layout address from <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46700"></span>46700</td>
+<td class="instruction">LD (IY+11),B</td>
+<td class="comment-1" rowspan="1">Set the high byte of the referenced entity's graphic layout address from <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46703"></span>46703</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">IX</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46705"></span>46705</td>
+<td class="instruction">LD IX,(29354)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">IX</span> with the last-collided entity pointer (<a href="29354.html">Pointer_LastCollidedEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46709"></span>46709</td>
+<td class="instruction">LD C,6</td>
+<td class="comment-1" rowspan="1">Load <span class="register">C</span> with 6 as an entity/loop count.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46711"></span>46711</td>
+<td class="instruction">CALL <a href="52961.html">Update_Plant_Pots</a></td>
+<td class="comment-1" rowspan="1">Call <a href="52961.html">Update_Plant_Pots</a> to update Plant Pots.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46714"></span>46714</td>
+<td class="instruction">POP IX</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">IX</span> from the stack.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46716"></span>
+<div class="comments">
+<div class="paragraph">
+Adopt the collided entity as held and clear any pending trap-offer flag.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_Movement_And_Script_PartE</td>
+<td class="address-2"><span id="46716"></span>46716</td>
+<td class="instruction">LD (29356),IY</td>
+<td class="comment-1" rowspan="1">Store <span class="register">IY</span> in the current-entity pointer (<a href="29356.html">Pointer_CurrentEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46720"></span>46720</td>
+<td class="instruction">BIT 6,(IY+1)</td>
+<td class="comment-1" rowspan="2">Is bit 6 of the referenced entity's flags byte 1 set? If not, jump to <a href="46144.html#46735">Update_Berk_Movement_And_Script_PartF</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46724"></span>46724</td>
+<td class="instruction">JR Z,<a href="46144.html#46735">Update_Berk_Movement_And_Script_PartF</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46726"></span>46726</td>
+<td class="instruction">RES 6,(IY+1)</td>
+<td class="comment-1" rowspan="1">Reset bit 6 of the referenced entity's flags byte 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46730"></span>46730</td>
+<td class="instruction">LD HL,29363</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the game event flags (<a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46733"></span>46733</td>
+<td class="instruction">RES 3,(HL)</td>
+<td class="comment-1" rowspan="1">Clear "object has been offered to the trap" (bit 3 of <a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46735"></span>
+<div class="comments">
+<div class="paragraph">
+Choose a pick-up/put-down script from the collided entity's y-extent vs Berk.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_Movement_And_Script_PartF</td>
+<td class="address-2"><span id="46735"></span>46735</td>
+<td class="instruction">LD A,(IY+6)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46738"></span>46738</td>
+<td class="instruction">CP (IX+5)</td>
+<td class="comment-1" rowspan="2">Does <span class="register">A</span> match this entity's y-coordinate? If so, jump to <a href="46144.html#46758">Update_Berk_Movement_And_Script_PartH</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46741"></span>46741</td>
+<td class="instruction">JR C,<a href="46144.html#46758">Update_Berk_Movement_And_Script_PartH</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46743"></span>46743</td>
+<td class="instruction">CP B</td>
+<td class="comment-1" rowspan="2">Does the referenced entity's y-extent equal <span class="register">B</span>? If so, jump to <a href="46144.html#46752">Update_Berk_Movement_And_Script_PartG</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46744"></span>46744</td>
+<td class="instruction">JR Z,<a href="46144.html#46752">Update_Berk_Movement_And_Script_PartG</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46746"></span>46746</td>
+<td class="instruction">LD HL,47623</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk control/put-down script data (<a href="47525.html#47623">47623</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46749"></span>46749</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46752"></span>
+<div class="comments">
+<div class="paragraph">
+Run put-down script <a href="47525.html">47595</a> when y-extents match the stepped collision band.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_Movement_And_Script_PartG</td>
+<td class="address-2"><span id="46752"></span>46752</td>
+<td class="instruction">LD HL,47595</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk control/put-down script data (<a href="47525.html">47595</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46755"></span>46755</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46758"></span>
+<div class="comments">
+<div class="paragraph">
+Run put-down script <a href="47525.html">47609</a> when the collided entity sits on Berk's own y.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_Movement_And_Script_PartH</td>
+<td class="address-2"><span id="46758"></span>46758</td>
+<td class="instruction">LD HL,47609</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk control/put-down script data (<a href="47525.html">47609</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46761"></span>46761</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46764"></span>
+<div class="comments">
+<div class="paragraph">
+Carrying-flag up path: require a latch-set collidee, with a type-21 special case.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_Movement_And_Script_PartI</td>
+<td class="address-2"><span id="46764"></span>46764</td>
+<td class="instruction">LD IY,(29354)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">IY</span> with the last-collided entity pointer (<a href="29354.html">Pointer_LastCollidedEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46768"></span>46768</td>
+<td class="instruction">LD A,(IY+0)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46771"></span>46771</td>
+<td class="instruction">BIT 2,(IY+2)</td>
+<td class="comment-1" rowspan="2">Is bit 2 of the referenced entity's flags byte 2 set? If not, jump to <a href="46144.html#46584">Berk_ReadControls_UpPutDownScript</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46775"></span>46775</td>
+<td class="instruction">JP Z,<a href="46144.html#46584">Berk_ReadControls_UpPutDownScript</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46778"></span>46778</td>
+<td class="instruction">CP 21</td>
+<td class="comment-1" rowspan="2">Is referenced entity's entity type equal to 21? If not, jump to <a href="46144.html#46792">Update_Berk_Movement_And_Script_PartJ</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46780"></span>46780</td>
+<td class="instruction">JR NZ,<a href="46144.html#46792">Update_Berk_Movement_And_Script_PartJ</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46782"></span>46782</td>
+<td class="instruction">LD BC,(29356)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">BC</span> with the current-entity pointer (<a href="29356.html">Pointer_CurrentEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46786"></span>46786</td>
+<td class="instruction">LD A,(BC)</td>
+<td class="comment-1" rowspan="1">Fetch a byte through the pointer in <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46787"></span>46787</td>
+<td class="instruction">CP 4</td>
+<td class="comment-1" rowspan="2">Is referenced entity's entity type equal to 4? If not, jump to <a href="46144.html#46584">Berk_ReadControls_UpPutDownScript</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46789"></span>46789</td>
+<td class="instruction">JP NZ,<a href="46144.html#46584">Berk_ReadControls_UpPutDownScript</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46792"></span>
+<div class="comments">
+<div class="paragraph">
+Align held-entity y-extent (<a href="29417.html">HeldEntityYExtent</a>) and pick script <a href="47525.html">47707</a> or <a href="47525.html">47693</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_Movement_And_Script_PartJ</td>
+<td class="address-2"><span id="46792"></span>46792</td>
+<td class="instruction">CALL <a href="47091.html">Berk_Interact_With_Entity</a></td>
+<td class="comment-1" rowspan="3">Call <a href="47091.html">Berk_Interact_With_Entity</a> to let Berk interact with an entity? If so, jump to <a href="47009.html#47011">Berk_ReadControls_DownBitTest</a>? If not, jump to <a href="47009.html#47028">Berk_ReadControls_DownPartT</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46795"></span>46795</td>
+<td class="instruction">JP C,<a href="47009.html#47011">Berk_ReadControls_DownBitTest</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46798"></span>46798</td>
+<td class="instruction">JP NZ,<a href="47009.html#47028">Berk_ReadControls_DownPartT</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46801"></span>46801</td>
+<td class="instruction">LD C,(IX+5)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">C</span> with the current entity's y-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46804"></span>46804</td>
+<td class="instruction">LD A,(IY+5)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's y-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46807"></span>46807</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1">Step referenced entity's y-coordinate back by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46808"></span>46808</td>
+<td class="instruction">LD (29417),A</td>
+<td class="comment-1" rowspan="1">Set held-entity y-extent (<a href="29417.html">HeldEntityYExtent</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46811"></span>46811</td>
+<td class="instruction">CP C</td>
+<td class="comment-1" rowspan="2">Does the referenced entity's y equal <span class="register">C</span>? If so, jump to <a href="46144.html#46820">Update_Berk_Movement_And_Script_PartK</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46812"></span>46812</td>
+<td class="instruction">JR C,<a href="46144.html#46820">Update_Berk_Movement_And_Script_PartK</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46814"></span>46814</td>
+<td class="instruction">LD HL,47707</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk control/put-down script data (<a href="47525.html">47707</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46817"></span>46817</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46820"></span>
+<div class="comments">
+<div class="paragraph">
+Run put-down script <a href="47525.html">47693</a> once the held entity's y matches Berk.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_Movement_And_Script_PartK</td>
+<td class="address-2"><span id="46820"></span>46820</td>
+<td class="instruction">LD HL,47693</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk control/put-down script data (<a href="47525.html">47693</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46823"></span>46823</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46826"></span>
+<div class="comments">
+<div class="paragraph">
+Flags-65 up interact: hand off to <a href="47091.html">Berk_Interact_With_Entity</a>, then run script <a href="47525.html">47951</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_Movement_And_Script_PartL</td>
+<td class="address-2"><span id="46826"></span>46826</td>
+<td class="instruction">CALL <a href="47091.html">Berk_Interact_With_Entity</a></td>
+<td class="comment-1" rowspan="3">Call <a href="47091.html">Berk_Interact_With_Entity</a> to let Berk interact with an entity? If so, jump to <a href="47009.html#47011">Berk_ReadControls_DownBitTest</a>? If not, jump to <a href="47009.html#47028">Berk_ReadControls_DownPartT</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46829"></span>46829</td>
+<td class="instruction">JP C,<a href="47009.html#47011">Berk_ReadControls_DownBitTest</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46832"></span>46832</td>
+<td class="instruction">JP NZ,<a href="47009.html#47028">Berk_ReadControls_DownPartT</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46835"></span>46835</td>
+<td class="instruction">LD HL,47951</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk control/put-down script data (<a href="47525.html">47951</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46838"></span>46838</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46841"></span>
+<div class="comments">
+<div class="paragraph">
+Handle down / forward: turn or walk Berk toward the front of the room.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_Down</td>
+<td class="address-2"><span id="46841"></span>46841</td>
+<td class="instruction">BIT 1,(IX+3)</td>
+<td class="comment-1" rowspan="2">Is the current entity facing left (bit 1 of <span class="register">IX</span>+3)? If not, jump to <a href="46144.html#46854">Berk_ReadControls_DownWalk</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46845"></span>46845</td>
+<td class="instruction">JP Z,<a href="46144.html#46854">Berk_ReadControls_DownWalk</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46848"></span>46848</td>
+<td class="instruction">LD HL,47525</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk put-down script data (<a href="47525.html">Data_BerkPutDownScripts</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46851"></span>46851</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46854"></span>
+<div class="comments">
+<div class="paragraph">
+Walk Berk forward/down: depth-overlap test, then branch on collidee height and flags.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_DownWalk</td>
+<td class="address-2"><span id="46854"></span>46854</td>
+<td class="instruction">CALL <a href="62151.html">Test_EntityOverlap_AtDepth</a></td>
+<td class="comment-1" rowspan="2">Call <a href="62151.html">Test_EntityOverlap_AtDepth</a> to test Entity Overlap At Depth? If so, jump to <a href="46144.html#46948">Berk_ReadControls_DownScript</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46857"></span>46857</td>
+<td class="instruction">JR C,<a href="46144.html#46948">Berk_ReadControls_DownScript</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46859"></span>46859</td>
+<td class="instruction">CP 100</td>
+<td class="comment-1" rowspan="2">Is referenced entity's y-coordinate less than 100? If not, jump to <a href="46144.html#46961">Berk_ReadControls_DownInteract</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46861"></span>46861</td>
+<td class="instruction">JP NC,<a href="46144.html#46961">Berk_ReadControls_DownInteract</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46864"></span>46864</td>
+<td class="instruction">CP 65</td>
+<td class="comment-1" rowspan="2">Is referenced entity's y-coordinate equal to 65? If so, jump to <a href="47009.html#47078">Berk_ReadControls_DownPartW</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46866"></span>46866</td>
+<td class="instruction">JP Z,<a href="47009.html#47078">Berk_ReadControls_DownPartW</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46869"></span>46869</td>
+<td class="instruction">CP 50</td>
+<td class="comment-1" rowspan="2">Is referenced entity's y-coordinate less than 50? If not, jump to <a href="46144.html#46206">Berk_ReadControls_Idle</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46871"></span>46871</td>
+<td class="instruction">JP NC,<a href="46144.html#46206">Berk_ReadControls_Idle</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46874"></span>46874</td>
+<td class="instruction">CP 30</td>
+<td class="comment-1" rowspan="2">Is referenced entity's y-coordinate less than 30? If not, jump to <a href="47404.html#47494">Berk_Put_Down_Entity_PublishScriptPos</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46876"></span>46876</td>
+<td class="instruction">JP NC,<a href="47404.html#47494">Berk_Put_Down_Entity_PublishScriptPos</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46879"></span>46879</td>
+<td class="instruction">BIT 4,(IX+3)</td>
+<td class="comment-1" rowspan="2">Is bit 4 of flags byte 3 (<span class="register">IX</span>+3) set? If so, jump to <a href="46144.html#46206">Berk_ReadControls_Idle</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46883"></span>46883</td>
+<td class="instruction">JP NZ,<a href="46144.html#46206">Berk_ReadControls_Idle</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46886"></span>46886</td>
+<td class="instruction">LD BC,(29354)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">BC</span> with the last-collided entity pointer (<a href="29354.html">Pointer_LastCollidedEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46890"></span>46890</td>
+<td class="instruction">INC BC</td>
+<td class="comment-1" rowspan="1">Advance the counter/pointer in <span class="register">BC</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46891"></span>46891</td>
+<td class="instruction">LD A,(BC)</td>
+<td class="comment-1" rowspan="1">Fetch a byte through the pointer in <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46892"></span>46892</td>
+<td class="instruction">BIT 4,A</td>
+<td class="comment-1" rowspan="2">Is bit 4 of referenced entity's y-coordinate set? If so, jump to <a href="47009.html#47045">Berk_ReadControls_DownPartU</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46894"></span>46894</td>
+<td class="instruction">JP NZ,<a href="47009.html#47045">Berk_ReadControls_DownPartU</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46897"></span>46897</td>
+<td class="instruction">BIT 3,A</td>
+<td class="comment-1" rowspan="2">Is bit 3 of referenced entity's y-coordinate set? If not, jump to <a href="46144.html#46206">Berk_ReadControls_Idle</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46899"></span>46899</td>
+<td class="instruction">JP Z,<a href="46144.html#46206">Berk_ReadControls_Idle</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46902"></span>46902</td>
+<td class="instruction">CALL <a href="47091.html">Berk_Interact_With_Entity</a></td>
+<td class="comment-1" rowspan="3">Call <a href="47091.html">Berk_Interact_With_Entity</a> to let Berk interact with an entity? If so, jump to <a href="47009.html#47011">Berk_ReadControls_DownBitTest</a>? If not, jump to <a href="47009.html#47028">Berk_ReadControls_DownPartT</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46905"></span>46905</td>
+<td class="instruction">JR C,<a href="47009.html#47011">Berk_ReadControls_DownBitTest</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46907"></span>46907</td>
+<td class="instruction">JP NZ,<a href="47009.html#47028">Berk_ReadControls_DownPartT</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46910"></span>46910</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">IX</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46912"></span>46912</td>
+<td class="instruction">LD IX,(29354)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">IX</span> with the last-collided entity pointer (<a href="29354.html">Pointer_LastCollidedEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46916"></span>46916</td>
+<td class="instruction">LD A,(IX+4)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's room index.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46919"></span>46919</td>
+<td class="instruction">CP 4</td>
+<td class="comment-1" rowspan="2">Is the current entity's room index less than 4? If not, jump to <a href="46144.html#46928">Berk_ReadControls_DownAbort</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46921"></span>46921</td>
+<td class="instruction">JR NC,<a href="46144.html#46928">Berk_ReadControls_DownAbort</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46923"></span>46923</td>
+<td class="instruction">CALL <a href="62151.html">Test_EntityOverlap_AtDepth</a></td>
+<td class="comment-1" rowspan="2">Call <a href="62151.html">Test_EntityOverlap_AtDepth</a> to test Entity Overlap At Depth? If so, jump to <a href="46144.html#46933">Berk_ReadControls_DownGrab</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46926"></span>46926</td>
+<td class="instruction">JR C,<a href="46144.html#46933">Berk_ReadControls_DownGrab</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46928"></span>
+<div class="comments">
+<div class="paragraph">
+Abort the down-path grab and return Berk to idle at <a href="46144.html#46206">Berk_ReadControls_Idle</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_DownAbort</td>
+<td class="address-2"><span id="46928"></span>46928</td>
+<td class="instruction">POP IX</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">IX</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46930"></span>46930</td>
+<td class="instruction">JP <a href="46144.html#46206">Berk_ReadControls_Idle</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="46144.html#46206">Berk_ReadControls_Idle</a> to resume Berk's controller.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46933"></span>
+<div class="comments">
+<div class="paragraph">
+Mark the collided entity held and fall into the down put-down script.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_DownGrab</td>
+<td class="address-2"><span id="46933"></span>46933</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">IX</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46935"></span>46935</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="2">Restore <span class="register">BC</span> and <span class="register">IX</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46936"></span>46936</td>
+<td class="instruction">POP IX</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46938"></span>46938</td>
+<td class="instruction">LD (IX+12),C</td>
+<td class="comment-1" rowspan="1">Store <span class="register">C</span> in the current entity's extra state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46941"></span>46941</td>
+<td class="instruction">LD (IX+13),B</td>
+<td class="comment-1" rowspan="1">Store <span class="register">B</span> in the current entity's extra state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46944"></span>46944</td>
+<td class="instruction">SET 3,(IX+3)</td>
+<td class="comment-1" rowspan="1">Set bit 3 of the current entity's flags byte 3.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46948"></span>
+<div class="comments">
+<div class="paragraph">
+Down put-down: continue the active script, or launch <a href="47525.html#47781">BerkPutDownScript_DownControl</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_DownScript</td>
+<td class="address-2"><span id="46948"></span>46948</td>
+<td class="instruction">BIT 2,(IX+9)</td>
+<td class="comment-1" rowspan="2">Is bit 2 of the current entity's direction / state set? If so, jump to <a href="60462.html">AdvanceScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46952"></span>46952</td>
+<td class="instruction">JP NZ,<a href="60462.html">AdvanceScriptInstruction</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46955"></span>46955</td>
+<td class="instruction">LD HL,47781</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk control/put-down script data (<a href="47525.html#47781">BerkPutDownScript_DownControl</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46958"></span>46958</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46961"></span>
+<div class="comments">
+<div class="paragraph">
+Deep down-interact: call <a href="47091.html">Berk_Interact_With_Entity</a>, then maybe retarget the camera room origin.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_DownInteract</td>
+<td class="address-2"><span id="46961"></span>46961</td>
+<td class="instruction">CALL <a href="47091.html">Berk_Interact_With_Entity</a></td>
+<td class="comment-1" rowspan="2">Call <a href="47091.html">Berk_Interact_With_Entity</a> to let Berk interact with an entity? If not, jump to <a href="47009.html">Berk_ReadControls_DownBranch</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46964"></span>46964</td>
+<td class="instruction">JR NZ,<a href="47009.html">Berk_ReadControls_DownBranch</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46966"></span>46966</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-1" rowspan="1">Copy the saved count/flag from <span class="register">C</span> into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46967"></span>46967</td>
+<td class="instruction">CP 101</td>
+<td class="comment-1" rowspan="2">Is the current entity's room index equal to 101? If not, jump to <a href="46144.html#46948">Berk_ReadControls_DownScript</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46969"></span>46969</td>
+<td class="instruction">JR NZ,<a href="46144.html#46948">Berk_ReadControls_DownScript</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46971"></span>46971</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">HL</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46972"></span>46972</td>
+<td class="instruction">LD HL,47004</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk movement script data (<a href="47004.html">Data_BerkMovementScripts</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46975"></span>46975</td>
+<td class="instruction">LD A,224</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 224.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46977"></span>
+<div class="comments">
+<div class="paragraph">
+Publish a new camera room-origin and copy follow fields, then resume idle.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Berk_ReadControls_DownCameraCopy</td>
+<td class="address-2"><span id="46977"></span>46977</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1">Keep 224 in <span class="register">E</span> for later.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46978"></span>46978</td>
+<td class="instruction">ADD A,31</td>
+<td class="comment-1" rowspan="1">Add 31 to <span class="register">A</span> (step down one screen row in the attribute map).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46980"></span>46980</td>
+<td class="instruction">LD D,A</td>
+<td class="comment-1" rowspan="1">Keep 224 in <span class="register">D</span> for later.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46981"></span>46981</td>
+<td class="instruction">LD (29435),DE</td>
+<td class="comment-1" rowspan="1">Store <span class="register">DE</span> in the camera room-origin pointer (<a href="29435.html">Pointer_CameraRoomOrigin</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46985"></span>46985</td>
+<td class="instruction">LD DE,37023</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at camera-follow entity fields (<a href="36595.html">37023</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46988"></span>46988</td>
+<td class="instruction">LD BC,5</td>
+<td class="comment-1" rowspan="1">Load <span class="register">BC</span> with 0005 as a short copy length.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46991"></span>46991</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="1">Copy the block at <span class="register">HL</span> to <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46993"></span>46993</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46994"></span>46994</td>
+<td class="instruction">BIT 4,(IX+3)</td>
+<td class="comment-1" rowspan="2">Is bit 4 of flags byte 3 (<span class="register">IX</span>+3) set? If so, call <a href="61667.html#61673">ScriptRoutine_PutDownCarried_PlaceHeldFromBerk</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46998"></span>46998</td>
+<td class="instruction">CALL NZ,<a href="61667.html#61673">ScriptRoutine_PutDownCarried_PlaceHeldFromBerk</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47001"></span>47001</td>
+<td class="instruction">JP <a href="46144.html#46206">Berk_ReadControls_Idle</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="46144.html#46206">Berk_ReadControls_Idle</a> to resume Berk's controller.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="46106.html">46106</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#46144">Map</a></td>
+<td class="next">
+Next: <a href="47004.html">47004</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/B440.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

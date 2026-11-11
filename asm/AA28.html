@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at AA28</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at AA28. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at AA28" />
+<meta property="og:description" content="The Trap Door: Data at AA28. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/AA28.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/AA28.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at AA28",
+"name": "The Trap Door: Data at AA28",
+"description": "The Trap Door: Data at AA28. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/AA28.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at AA28"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/AA28.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="A929.html">A929</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#aa28">Map</a></td>
+<td class="next">
+Next: <a href="AAAB.html">AAAB</a>
+</td>
+</tr>
+</table>
+<div class="description">AA28: Graphic Layout: Green Scenery Strip</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Green scenery strip. Referenced from the type-32 scenery entities after <a href="90B7.html#91b1">91B1</a> (rooms 01 through 05). Drawn with graphic set 05.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="aa28"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-aa28" src="../images/scr/layout-aa28.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GraphicLayout_GreenSceneryStrip</td>
+<td class="address-1"><span id="aa28"></span>AA28</td>
+<td class="instruction">DEFB $F4,$05</td>
+<td class="comment-1" rowspan="1">Set the graphic set to <a href="8661.html">05</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa2a"></span>AA2A</td>
+<td class="instruction">DEFB $F1,$0A</td>
+<td class="comment-1" rowspan="1">Jump into the following layout data at a random 3-byte entry (maximum index 0A). Drawing then carries on through every later tile to the FF.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa2c"></span>AA2C</td>
+<td class="instruction">DEFB $01,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 01 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa2f"></span>AA2F</td>
+<td class="instruction">DEFB $02,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 02 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa32"></span>AA32</td>
+<td class="instruction">DEFB $03,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 03 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa35"></span>AA35</td>
+<td class="instruction">DEFB $04,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 04 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa38"></span>AA38</td>
+<td class="instruction">DEFB $05,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 05 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa3b"></span>AA3B</td>
+<td class="instruction">DEFB $06,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 06 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa3e"></span>AA3E</td>
+<td class="instruction">DEFB $07,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 07 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa41"></span>AA41</td>
+<td class="instruction">DEFB $08,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 08 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa44"></span>AA44</td>
+<td class="instruction">DEFB $09,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 09 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa47"></span>AA47</td>
+<td class="instruction">DEFB $0A,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 0A with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa4a"></span>AA4A</td>
+<td class="instruction">DEFB $0B,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 0B with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa4d"></span>AA4D</td>
+<td class="instruction">DEFB $0C,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 0C with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa50"></span>AA50</td>
+<td class="instruction">DEFB $0D,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 0D with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa53"></span>AA53</td>
+<td class="instruction">DEFB $0E,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 0E with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa56"></span>AA56</td>
+<td class="instruction">DEFB $0F,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 0F with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa59"></span>AA59</td>
+<td class="instruction">DEFB $10,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 10 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa5c"></span>AA5C</td>
+<td class="instruction">DEFB $11,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 11 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa5f"></span>AA5F</td>
+<td class="instruction">DEFB $00,$00,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 00 with INK: BLACK,
+PAPER: BLACK (00) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa62"></span>AA62</td>
+<td class="instruction">DEFB $01,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 01 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa65"></span>AA65</td>
+<td class="instruction">DEFB $02,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 02 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa68"></span>AA68</td>
+<td class="instruction">DEFB $03,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 03 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa6b"></span>AA6B</td>
+<td class="instruction">DEFB $04,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 04 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa6e"></span>AA6E</td>
+<td class="instruction">DEFB $00,$00,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 00 with INK: BLACK,
+PAPER: BLACK (00) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa71"></span>AA71</td>
+<td class="instruction">DEFB $0A,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 0A with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa74"></span>AA74</td>
+<td class="instruction">DEFB $0B,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 0B with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa77"></span>AA77</td>
+<td class="instruction">DEFB $0C,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 0C with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa7a"></span>AA7A</td>
+<td class="instruction">DEFB $0F,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 0F with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa7d"></span>AA7D</td>
+<td class="instruction">DEFB $07,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 07 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa80"></span>AA80</td>
+<td class="instruction">DEFB $08,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 08 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa83"></span>AA83</td>
+<td class="instruction">DEFB $05,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 05 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa86"></span>AA86</td>
+<td class="instruction">DEFB $06,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 06 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa89"></span>AA89</td>
+<td class="instruction">DEFB $07,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 07 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa8c"></span>AA8C</td>
+<td class="instruction">DEFB $01,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 01 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa8f"></span>AA8F</td>
+<td class="instruction">DEFB $02,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 02 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa92"></span>AA92</td>
+<td class="instruction">DEFB $03,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 03 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa95"></span>AA95</td>
+<td class="instruction">DEFB $04,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 04 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa98"></span>AA98</td>
+<td class="instruction">DEFB $05,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 05 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa9b"></span>AA9B</td>
+<td class="instruction">DEFB $06,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 06 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aa9e"></span>AA9E</td>
+<td class="instruction">DEFB $07,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 07 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aaa1"></span>AAA1</td>
+<td class="instruction">DEFB $08,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 08 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aaa4"></span>AAA4</td>
+<td class="instruction">DEFB $09,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 09 with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aaa7"></span>AAA7</td>
+<td class="instruction">DEFB $0A,$04,$A1</td>
+<td class="comment-1" rowspan="1">Draw tile 0A with INK: GREEN,
+PAPER: BLACK (04) and move right by 01&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aaaa"></span>AAAA</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="A929.html">A929</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#aa28">Map</a></td>
+<td class="next">
+Next: <a href="AAAB.html">AAAB</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/43560.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

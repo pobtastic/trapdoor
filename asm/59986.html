@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at EA52</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at EA52. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at EA52" />
+<meta property="og:description" content="The Trap Door: Routine at EA52. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/59986.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/59986.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at EA52",
+"name": "The Trap Door: Routine at EA52",
+"description": "The Trap Door: Routine at EA52. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/59986.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at EA52"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/59986.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="59972.html">EA44</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#ea52">Map</a></td>
+<td class="next">
+Next: <a href="60012.html">EA6C</a>
+</td>
+</tr>
+</table>
+<div class="description">EA52: Clear Attribute File</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="44399.html">Print_Menu_Strings</a>, <a href="48228.html">ScriptRoutine_EyeballClearScreen</a> and <a href="60019.html">Reposition_CameraFollowEntity</a>.
+</div>
+<div class="paragraph">
+['Clear the attribute file.']
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Clear_AttributeFile</td>
+<td class="address-2"><span id="ea52"></span>EA52</td>
+<td class="instruction">EXX</td>
+<td class="comment-1" rowspan="1">Exchange the register sets.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea53"></span>EA53</td>
+<td class="instruction">LD HL,$5800</td>
+<td class="comment-1" rowspan="1">Load <span class="register">HL</span> with 5800.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea56"></span>EA56</td>
+<td class="instruction">LD D,H</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=<span class="register">H</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea57"></span>EA57</td>
+<td class="instruction">LD E,L</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=<span class="register">L</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea58"></span>EA58</td>
+<td class="instruction">INC DE</td>
+<td class="comment-1" rowspan="1">Advance the clear-attributes destination by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea59"></span>EA59</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1">Set the byte at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea5a"></span>EA5A</td>
+<td class="instruction">LD BC,$027F</td>
+<td class="comment-1" rowspan="1">Load <span class="register">BC</span> with 027F.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea5d"></span>EA5D</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="1">Copy bytes from *<span class="register">HL</span> to *<span class="register">DE</span> until <span class="register">BC</span> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea5f"></span>EA5F</td>
+<td class="instruction">CALL <a href="59964.html">Clear_BothDisplayBuffers</a></td>
+<td class="comment-1" rowspan="1">Call <a href="59964.html">Clear_BothDisplayBuffers</a> to clear both display buffers.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea62"></span>EA62</td>
+<td class="instruction">LD A,$89</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with sound index 89.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea64"></span>EA64</td>
+<td class="instruction">CALL <a href="63737.html">Queue_Sound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="63737.html">Queue_Sound</a> to queue a sound effect.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea67"></span>EA67</td>
+<td class="instruction">CALL <a href="63919.html">Play_QueuedSound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="63919.html">Play_QueuedSound</a> to play the queued sound.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea6a"></span>EA6A</td>
+<td class="instruction">EXX</td>
+<td class="comment-1" rowspan="1">Exchange the register sets.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ea6b"></span>EA6B</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="59972.html">EA44</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#ea52">Map</a></td>
+<td class="next">
+Next: <a href="60012.html">EA6C</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/366982.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

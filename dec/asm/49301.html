@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 49301</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 49301. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 49301" />
+<meta property="og:description" content="The Trap Door: Routine at 49301. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/49301.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/49301.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 49301",
+"name": "The Trap Door: Routine at 49301",
+"description": "The Trap Door: Routine at 49301. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/49301.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 49301"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/49301.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="49262.html">49262</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#49301">Map</a></td>
+<td class="next">
+Next: <a href="49410.html">49410</a>
+</td>
+</tr>
+</table>
+<div class="description">49301: Update Task Helper Entities</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="48845.html">Update_Task_Two_Entities</a>.
+</div>
+<div class="paragraph">
+Update Task Helper Entities for the current Thing Upstairs task.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Helper_Entities</td>
+<td class="address-2"><span id="49301"></span>49301</td>
+<td class="instruction">LD A,(36949)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the pan entity's type (<a href="36595.html#36949">StateData_Complex_26</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49304"></span>49304</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> zero? If so, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49305"></span>49305</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49306"></span>49306</td>
+<td class="instruction">LD A,(29375)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the room-transition flag (<a href="29375.html">RoomTransitionFlag</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49309"></span>49309</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is room-transition flag zero? If so, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49310"></span>49310</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49311"></span>49311</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1">Keep room-transition flag in <span class="register">E</span> for later.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49312"></span>49312</td>
+<td class="instruction">LD IX,36949</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the pan entity (<a href="36595.html#36949">StateData_Complex_26</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49316"></span>49316</td>
+<td class="instruction">LD HL,29365</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the task-two flags (<a href="29365.html">TaskTwoFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49319"></span>49319</td>
+<td class="instruction">LD A,(IX+7)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49322"></span>49322</td>
+<td class="instruction">CP 132</td>
+<td class="comment-1" rowspan="2">Is the current entity's x-coordinate equal to 132? If not, jump to <a href="49301.html#49373">Update_Task_Helper_Entities_Countdown</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49324"></span>49324</td>
+<td class="instruction">JR NZ,<a href="49301.html#49373">Update_Task_Helper_Entities_Countdown</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49326"></span>49326</td>
+<td class="instruction">LD A,(IX+5)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's y-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49329"></span>49329</td>
+<td class="instruction">CP 32</td>
+<td class="comment-1" rowspan="2">Is the current entity's y-coordinate equal to 32? If not, jump to <a href="49301.html#49373">Update_Task_Helper_Entities_Countdown</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49331"></span>49331</td>
+<td class="instruction">JR NZ,<a href="49301.html#49373">Update_Task_Helper_Entities_Countdown</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49333"></span>49333</td>
+<td class="instruction">LD A,(29380)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the stove / heater state (<a href="29380.html">StoveHeaterState</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49336"></span>49336</td>
+<td class="instruction">CP 255</td>
+<td class="comment-1" rowspan="2">Is stove / heater state equal to 255? If so, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49338"></span>49338</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49339"></span>49339</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Advance stove / heater state by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49340"></span>49340</td>
+<td class="instruction">LD (29380),A</td>
+<td class="comment-1" rowspan="1">Set the stove / heater state (<a href="29380.html">StoveHeaterState</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49343"></span>49343</td>
+<td class="instruction">CP 50</td>
+<td class="comment-1" rowspan="2">Is stove / heater state equal to 50? If so, jump to <a href="49301.html#49359">Update_Task_Helper_Entities_SetLayoutBit</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49345"></span>49345</td>
+<td class="instruction">JR Z,<a href="49301.html#49359">Update_Task_Helper_Entities_SetLayoutBit</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49347"></span>49347</td>
+<td class="instruction">CP 200</td>
+<td class="comment-1" rowspan="2">Is stove / heater state less than 200? If so, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49349"></span>49349</td>
+<td class="instruction">RET C</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49350"></span>49350</td>
+<td class="instruction">SET 3,(IX+2)</td>
+<td class="comment-1" rowspan="1">Set bit 3 of the current entity's flags byte 2.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49354"></span>49354</td>
+<td class="instruction">LD HL,40408</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the hot pan layout (<a href="40408.html">GraphicLayout_PanHot</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49357"></span>49357</td>
+<td class="instruction">JR <a href="49301.html#49369">Update_Task_Helper_Entities_WritePanLayout</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="49301.html#49369">Update_Task_Helper_Entities_WritePanLayout</a> to write the pan layout pointer.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="49359"></span>
+<div class="comments">
+<div class="paragraph">
+Heater reached 50: set task-two layout bits 4/5 on <a href="29365.html">TaskTwoFlags</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Helper_Entities_SetLayoutBit</td>
+<td class="address-2"><span id="49359"></span>49359</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-1" rowspan="1">Copy the saved low byte from <span class="register">E</span> into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49360"></span>49360</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the saved room-transition flag in <span class="register">A</span> zero? If so, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49361"></span>49361</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49362"></span>49362</td>
+<td class="instruction">SET 4,(HL)</td>
+<td class="comment-1" rowspan="1">Set bit 4 of <a href="29365.html">TaskTwoFlags</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49364"></span>49364</td>
+<td class="instruction">SET 5,(HL)</td>
+<td class="comment-1" rowspan="1">Set bit 5 of <a href="29365.html">TaskTwoFlags</a> (cleared by <a href="49262.html#49276">49276</a> / <a href="49301.html#49393">49393</a>. no BIT reader found).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="49366"></span>
+<div class="comments">
+<div class="paragraph">
+Select the pan cooking layout <a href="40419.html">GraphicLayout_PanCooking</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Helper_Entities_PanCookingLayout</td>
+<td class="address-2"><span id="49366"></span>49366</td>
+<td class="instruction">LD HL,40419</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the pan cooking layout (<a href="40419.html">GraphicLayout_PanCooking</a>).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="49369"></span>
+<div class="comments">
+<div class="paragraph">
+Write the chosen pan layout pointer into the pan entity at <a href="36595.html">36959</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Helper_Entities_WritePanLayout</td>
+<td class="address-2"><span id="49369"></span>49369</td>
+<td class="instruction">LD (36959),HL</td>
+<td class="comment-1" rowspan="1">Write the layout pointer into the pan entity's layout field (<a href="36595.html">36959</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49372"></span>49372</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="49373"></span>
+<div class="comments">
+<div class="paragraph">
+Countdown the stove/heater state (<a href="29380.html">StoveHeaterState</a>) and refresh pan layouts on thresholds.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Helper_Entities_Countdown</td>
+<td class="address-2"><span id="49373"></span>49373</td>
+<td class="instruction">LD A,(29380)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the stove / heater state (<a href="29380.html">StoveHeaterState</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49376"></span>49376</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is stove / heater state zero? If so, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49377"></span>49377</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49378"></span>49378</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1">Step stove / heater state back by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49379"></span>49379</td>
+<td class="instruction">LD (29380),A</td>
+<td class="comment-1" rowspan="1">Set the stove / heater state (<a href="29380.html">StoveHeaterState</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49382"></span>49382</td>
+<td class="instruction">CP 200</td>
+<td class="comment-1" rowspan="2">Is stove / heater state equal to 200? If so, jump to <a href="49301.html#49397">Update_Task_Helper_Entities_ClearFlagBit3</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49384"></span>49384</td>
+<td class="instruction">JR Z,<a href="49301.html#49397">Update_Task_Helper_Entities_ClearFlagBit3</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49386"></span>49386</td>
+<td class="instruction">CP 50</td>
+<td class="comment-1" rowspan="2">Is stove / heater state equal to 50? If not, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49388"></span>49388</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49389"></span>49389</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-1" rowspan="1">Copy the saved low byte from <span class="register">E</span> into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49390"></span>49390</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the saved room-transition flag zero? If so, jump to <a href="49301.html#49405">Update_Task_Helper_Entities_PanLayout</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49391"></span>49391</td>
+<td class="instruction">JR Z,<a href="49301.html#49405">Update_Task_Helper_Entities_PanLayout</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49393"></span>49393</td>
+<td class="instruction">RES 5,(HL)</td>
+<td class="comment-1" rowspan="1">Clear bit 5 of <a href="29365.html">TaskTwoFlags</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49395"></span>49395</td>
+<td class="instruction">JR <a href="49301.html#49405">Update_Task_Helper_Entities_PanLayout</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="49301.html#49405">Update_Task_Helper_Entities_PanLayout</a> to finish the pan update.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="49397"></span>
+<div class="comments">
+<div class="paragraph">
+Clear the pan entity's bit 3, then restore layout <a href="40419.html">GraphicLayout_PanCooking</a> or <a href="40455.html">GraphicLayout_Pan</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Helper_Entities_ClearFlagBit3</td>
+<td class="address-2"><span id="49397"></span>49397</td>
+<td class="instruction">RES 3,(IX+2)</td>
+<td class="comment-1" rowspan="1">Reset bit 3 of the current entity's flags byte 2.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49401"></span>49401</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-1" rowspan="1">Copy the saved low byte from <span class="register">E</span> into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49402"></span>49402</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the saved room-transition flag zero? If not, jump to <a href="49301.html#49366">Update_Task_Helper_Entities_PanCookingLayout</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49403"></span>49403</td>
+<td class="instruction">JR NZ,<a href="49301.html#49366">Update_Task_Helper_Entities_PanCookingLayout</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="49405"></span>
+<div class="comments">
+<div class="paragraph">
+Default pan layout: point at <a href="40455.html">GraphicLayout_Pan</a> and write it through <a href="49301.html#49369">Update_Task_Helper_Entities_WritePanLayout</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Helper_Entities_PanLayout</td>
+<td class="address-2"><span id="49405"></span>49405</td>
+<td class="instruction">LD HL,40455</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the pan layout <a href="40455.html">GraphicLayout_Pan</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="49408"></span>49408</td>
+<td class="instruction">JR <a href="49301.html#49369">Update_Task_Helper_Entities_WritePanLayout</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="49301.html#49369">Update_Task_Helper_Entities_WritePanLayout</a> to write the pan layout pointer.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="49262.html">49262</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#49301">Map</a></td>
+<td class="next">
+Next: <a href="49410.html">49410</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/C095.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

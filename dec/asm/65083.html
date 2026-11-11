@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at 65083</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at 65083. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at 65083" />
+<meta property="og:description" content="The Trap Door: Data at 65083. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/65083.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/65083.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at 65083",
+"name": "The Trap Door: Data at 65083",
+"description": "The Trap Door: Data at 65083. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/65083.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at 65083"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/65083.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="65059.html">65059</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#65083">Map</a></td>
+<td class="next">
+</td>
+</tr>
+</table>
+<div class="description">65083: Menu Music Stream One Base</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Base of music stream one. <a href="64620.html">Seed_MenuMusicAndWaitForKey</a> seeds the stream-one cursor at <a href="64644.html#64647">64647</a> to this address, and the stream-two cursor at <a href="64644.html#64651">64651</a> to <a href="65083.html#65305">MenuMusic_StreamTwoBase</a>. The leftover filename bytes from <a href="29326.html">Leftover_MusicEn</a> sit at <a href="65083.html#65526">Leftover_MusicEn_Relocated</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">MenuMusic_StreamOneBase</td>
+<td class="address-1"><span id="65083"></span>65083</td>
+<td class="instruction">DEFB 22,236,41,41,41,236,41,41</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65091"></span>65091</td>
+<td class="instruction">DEFB 41,236,41,236,41,236,229,180</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65099"></span>65099</td>
+<td class="instruction">DEFB 41,0,41,0,41,0,41,0</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65107"></span>65107</td>
+<td class="instruction">DEFB 41,0,41,0,41,0,41,0</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65115"></span>65115</td>
+<td class="instruction">DEFB 254,252,41,252,41,252,41,252</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65123"></span>65123</td>
+<td class="instruction">DEFB 41,252,41,252,41,252,41,252</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65131"></span>65131</td>
+<td class="instruction">DEFB 254,244,0,0,244,0,0,244</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65139"></span>65139</td>
+<td class="instruction">DEFB 0,244,0,0,244,0,0,244</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65147"></span>65147</td>
+<td class="instruction">DEFB 0,252,41,252,41,252,41,252</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65155"></span>65155</td>
+<td class="instruction">DEFB 41,251,41,251,41,251,41,19</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65163"></span>65163</td>
+<td class="instruction">DEFB 19,24,24,28,41,253,41,41</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65171"></span>65171</td>
+<td class="instruction">DEFB 253,253,41,251,41,249,41,41</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65179"></span>65179</td>
+<td class="instruction">DEFB 249,251,41,41,251,253,41,243</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65187"></span>65187</td>
+<td class="instruction">DEFB 253,253,41,251,41,249,41,19</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65195"></span>65195</td>
+<td class="instruction">DEFB 19,24,24,28,41,249,41,41</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65203"></span>65203</td>
+<td class="instruction">DEFB 249,251,41,41,251,253,41,41</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65211"></span>65211</td>
+<td class="instruction">DEFB 253,253,41,251,248,249,41,243</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65219"></span>65219</td>
+<td class="instruction">DEFB 249,251,41,243,251,244,180,244</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65227"></span>65227</td>
+<td class="instruction">DEFB 41,244,180,244,41,244,180,244</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65235"></span>65235</td>
+<td class="instruction">DEFB 41,244,41,244,41,244,15,17</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65243"></span>65243</td>
+<td class="instruction">DEFB 41,10,12,243,251,244,41,244</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65251"></span>65251</td>
+<td class="instruction">DEFB 41,0,251,254,251,252,15,17</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65259"></span>65259</td>
+<td class="instruction">DEFB 41,10,12,243,41,252,41,252</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65267"></span>65267</td>
+<td class="instruction">DEFB 41,252,247,254,247,244,15,17</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65275"></span>65275</td>
+<td class="instruction">DEFB 41,10,12,243,251,244,41,244</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65283"></span>65283</td>
+<td class="instruction">DEFB 251,0,251,254,251,252,15,17</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65291"></span>65291</td>
+<td class="instruction">DEFB 41,10,12,252,18,19,19,19</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65299"></span>65299</td>
+<td class="instruction">DEFB 236,180,243,180,41,64</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">MenuMusic_StreamTwoBase</td>
+<td class="address-1"><span id="65305"></span>65305</td>
+<td class="instruction">DEFB 0,1,41,41,41,1,41,41</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65313"></span>65313</td>
+<td class="instruction">DEFB 41,1,41,1,41,1,15,180</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65321"></span>65321</td>
+<td class="instruction">DEFB 41,12,12,15,12,19,12,12</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65329"></span>65329</td>
+<td class="instruction">DEFB 12,15,12,15,17,15,12,12</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65337"></span>65337</td>
+<td class="instruction">DEFB 41,12,12,15,12,19,15,12</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65345"></span>65345</td>
+<td class="instruction">DEFB 10,15,14,12,10,12,41,41</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65353"></span>65353</td>
+<td class="instruction">DEFB 41,19,20,19,20,19,15,15</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65361"></span>65361</td>
+<td class="instruction">DEFB 19,24,19,24,19,15,14,12</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65369"></span>65369</td>
+<td class="instruction">DEFB 15,12,12,15,12,19,12,12</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65377"></span>65377</td>
+<td class="instruction">DEFB 10,11,11,11,11,11,41,7</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65385"></span>65385</td>
+<td class="instruction">DEFB 7,12,12,16,41,21,41,21</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65393"></span>65393</td>
+<td class="instruction">DEFB 21,21,21,41,41,21,21,21</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65401"></span>65401</td>
+<td class="instruction">DEFB 21,23,23,21,23,24,41,255</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65409"></span>65409</td>
+<td class="instruction">DEFB 41,41,41,41,41,41,41,7</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65417"></span>65417</td>
+<td class="instruction">DEFB 7,12,12,16,41,21,41,21</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65425"></span>65425</td>
+<td class="instruction">DEFB 21,21,21,41,41,41,41,9</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65433"></span>65433</td>
+<td class="instruction">DEFB 9,12,9,7,12,9,41,255</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65441"></span>65441</td>
+<td class="instruction">DEFB 41,41,41,7,41,0,180,0</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65449"></span>65449</td>
+<td class="instruction">DEFB 41,0,41,0,41,0,2,4</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65457"></span>65457</td>
+<td class="instruction">DEFB 2,0,2,4,0,244,41,244</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65465"></span>65465</td>
+<td class="instruction">DEFB 41,254,0,255,41,0,41,0</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65473"></span>65473</td>
+<td class="instruction">DEFB 251,24,26,27,24,252,41,252</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65481"></span>65481</td>
+<td class="instruction">DEFB 41,254,252,255,247,8,41,8</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65489"></span>65489</td>
+<td class="instruction">DEFB 3,8,3,10,3,12,41,0</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65497"></span>65497</td>
+<td class="instruction">DEFB 41,0,41,255,41,0,41,0</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65505"></span>65505</td>
+<td class="instruction">DEFB 41,24,26,27,24,252,252,252</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65513"></span>65513</td>
+<td class="instruction">DEFB 252,252,252,252,252,251,41,251</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65521"></span>65521</td>
+<td class="instruction">DEFB 1,180,255,41,41</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label">Leftover_MusicEn_Relocated</td>
+<td class="address-1"><span id="65526"></span>65526</td>
+<td class="instruction">DEFB 64,77,117,115,105,99,46,101</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="65534"></span>65534</td>
+<td class="instruction">DEFB 110,0</td>
+<td class="comment-0" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="65059.html">65059</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#65083">Map</a></td>
+<td class="next">
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/FE3B.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

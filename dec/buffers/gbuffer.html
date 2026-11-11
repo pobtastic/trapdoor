@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Game Status Buffer</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Game Status Buffer. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Game Status Buffer" />
+<meta property="og:description" content="The Trap Door: Game Status Buffer. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/buffers/gbuffer.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/buffers/gbuffer.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Game Status Buffer",
+"name": "The Trap Door: Game Status Buffer",
+"description": "The Trap Door: Game Status Buffer. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/buffers/gbuffer.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Game Status Buffer"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/buffers/gbuffer.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="GameStatusBuffer">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Game Status Buffer</td>
+</tr>
+</table>
+<div class="map-intro"></div>
+<table class="map">
+<tr>
+<th>Address</th>
+<th class="map-length">Length</th>
+<th>Description</th>
+</tr>
+<tr>
+<td class="map-g"><span id="29347"></span><a href="../asm/29347.html">29347</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29347.html">Copy Length: Entity State Data</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Byte count used when copying entity state data during initialisation / room changes.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29349"></span><a href="../asm/29349.html">29349</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29349.html">Copy Length: Game State</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Byte count used when copying game-state data during initialisation / room changes.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29351"></span><a href="../asm/29351.html">29351</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29351.html">Pointer: Entity State Backup End</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+End pointer for the entity-state backup region used by copy routines.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29353"></span><a href="../asm/29353.html">29353</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29353.html">Flag: Learner Berk Mode</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Set by the main menu (<a href="../asm/62525.html">MainMenu_ChooseLearnerOrSuper</a>): 0 = Super Berk, 1 = Learner Berk. <a href="../asm/56857.html">Print_StatusMessages</a> uses this to choose the rating message at <a href="../asm/56756.html">Messaging_TooLateIveChangedMyMind</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29354"></span><a href="../asm/29354.html">29354</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29354.html">Pointer: Last Collided Entity</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Address of the complex state data for the entity involved in the last collision / interaction check. Written by the collision helpers at <a href="../asm/62047.html#62130">62130</a>, <a href="../asm/62151.html#62239">62239</a>, <a href="../asm/62254.html#62337">62337</a> and <a href="../asm/62353.html#62435">62435</a>; read as <span class="register">IX</span> / <span class="register">IY</span> / <span class="register">BC</span> throughout Berk's movement and pick-up / put-down logic.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29356"></span><a href="../asm/29356.html">29356</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29356.html">Pointer: Current Entity</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Address of the complex state data for the entity currently being processed (usually Berk). Often the entity Berk is holding when bit 4 of Berk's flags byte 3 (<span class="register">IX</span>+3) is set.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29358"></span><a href="../asm/29358.html">29358</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29358.html">Current Task Index</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Index of the current Bad Tempered Thing task (meal request).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29359"></span><a href="../asm/29359.html">29359</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29359.html">Current Task Phase</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Phase / sub-step within the current task.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29360"></span><a href="../asm/29360.html">29360</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29360.html">Dialogue Line Index</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Index of the current dialogue / message line.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29361"></span><a href="../asm/29361.html">29361</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29361.html">Pointer: Berk Script Position</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Pointer into Berk's current script data stream.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29363"></span><a href="../asm/29363.html">29363</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29363.html">Game Event Flags</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Cross-cutting event bits for trap door and task state. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Bit</th>
+<th colspan="1" rowspan="1">Meaning</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="centre" colspan="1" rowspan="1">Room / script event raised (set by helpers such as <a href="../asm/61234.html#61257">Script_Shared_SetEventBit</a>)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">1</td>
+<td class="centre" colspan="1" rowspan="1">Trap door is open / trap door event armed</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">2</td>
+<td class="centre" colspan="1" rowspan="1">Falling-entity latch (cleared/set by <a href="../asm/45481.html">Process_Falling_Entities</a>)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">3</td>
+<td class="centre" colspan="1" rowspan="1">Object has been offered to the trap (Bad Tempered Thing path)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="centre" colspan="1" rowspan="1">Task-two / upstairs event latch</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">5</td>
+<td class="centre" colspan="1" rowspan="1">Reserved / unused in the observed call sites</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">6</td>
+<td class="centre" colspan="1" rowspan="1">Special put-down / room-transition event</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">7</td>
+<td class="centre" colspan="1" rowspan="1">Task entity script is active</td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29364"></span><a href="../asm/29364.html">29364</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29364.html">Task Status Flags</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Per-task status bits (Drutt / collectible progress and dialogue gates). <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Bit</th>
+<th colspan="1" rowspan="1">Meaning</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="centre" colspan="1" rowspan="1">Task progress / dialogue gate</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">1</td>
+<td class="centre" colspan="1" rowspan="1">Timed Berk event pending</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="centre" colspan="1" rowspan="1">Drutt collected a type-24 object</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">5</td>
+<td class="centre" colspan="1" rowspan="1">Drutt collected a type-28 object</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">6</td>
+<td class="centre" colspan="1" rowspan="1">Berk action / eat latch</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">7</td>
+<td class="centre" colspan="1" rowspan="1">Berk script / dialogue busy</td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29365"></span><a href="../asm/29365.html">29365</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29365.html">Task Two Flags</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Flags for the "Thing Upstairs" (task two) state machine. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Bit</th>
+<th colspan="1" rowspan="1">Meaning</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">1</td>
+<td class="centre" colspan="1" rowspan="1">Task-two script should advance</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">2</td>
+<td class="centre" colspan="1" rowspan="1">Spawn / random-walk latch for the upstairs helper</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">3</td>
+<td class="centre" colspan="1" rowspan="1">Helper entity needs its layout restoring</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="centre" colspan="1" rowspan="1">Task-two helper busy</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">5</td>
+<td class="centre" colspan="1" rowspan="1">Task-two helper secondary latch</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">6</td>
+<td class="centre" colspan="1" rowspan="1">Task-two room-transition latch</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">7</td>
+<td class="centre" colspan="1" rowspan="1">Task-two entity script active</td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29366"></span><a href="../asm/29366.html">29366</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29366.html">Task Three Flags</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Flags for the task-three (boiled slimies / feeding) state machine. Bit names below are taken from the Bad Tempered Thing dialogue gates and the stove / put-down writers that set or clear them. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Bit</th>
+<th colspan="1" rowspan="1">Name</th>
+<th colspan="1" rowspan="1">Set / clear</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="centre" colspan="1" rowspan="1">MobileHeater</td>
+<td class="centre" colspan="1" rowspan="1">no SET/RES site found</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">1</td>
+<td class="centre" colspan="1" rowspan="1">Slimies</td>
+<td class="centre" colspan="1" rowspan="1">set by <a href="../asm/61667.html#61712">61712</a>; tested by <a href="../asm/55251.html#55553">55553</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">2</td>
+<td class="centre" colspan="1" rowspan="1">SlimyLoose</td>
+<td class="centre" colspan="1" rowspan="1">set by <a href="../asm/45738.html#46081">46081</a> / <a href="../asm/50780.html#50940">50940</a>; cleared by <a href="../asm/50747.html">Update_Stove</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="centre" colspan="1" rowspan="1">BoilEmUp</td>
+<td class="centre" colspan="1" rowspan="1">set by <a href="../asm/50562.html#50642">ScriptRoutine_TaskThreeBerkRightWindow_SetFlagsAndLayout</a>; cleared by <a href="../asm/50747.html">Update_Stove</a>; tested by <a href="../asm/55251.html#55591">55591</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">5</td>
+<td class="centre" colspan="1" rowspan="1">BoilEmUpLatch</td>
+<td class="centre" colspan="1" rowspan="1">set by <a href="../asm/50562.html#50642">ScriptRoutine_TaskThreeBerkRightWindow_SetFlagsAndLayout</a>; cleared by <a href="../asm/50747.html">Update_Stove</a> / <a href="../asm/50040.html#50071">50071</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">6</td>
+<td class="centre" colspan="1" rowspan="1">StoveReady</td>
+<td class="centre" colspan="1" rowspan="1">set by <a href="../asm/50747.html">Update_Stove</a> when <a href="../asm/29374.html">StoveTick</a> reaches 4</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">7</td>
+<td class="centre" colspan="1" rowspan="1">StoveUpdated</td>
+<td class="centre" colspan="1" rowspan="1">set by <a href="../asm/50747.html">Update_Stove</a>; tested by <a href="../asm/50562.html#50642">ScriptRoutine_TaskThreeBerkRightWindow_SetFlagsAndLayout</a></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29368"></span><a href="../asm/29368.html">29368</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29368.html">Task One / Collision Flags</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Flag byte for task-one progress messages (<a href="../asm/57934.html">Table_TaskProgressMessagePointers</a>) and the type-8 / type-11 collision latch at <a href="../asm/54342.html">Check_Entity_Collision</a>. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Bit</th>
+<th colspan="1" rowspan="1">Meaning</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">6</td>
+<td class="centre" colspan="1" rowspan="1">Third consecutive <a href="../asm/54342.html">Check_Entity_Collision</a> collision (cleared by <a href="../asm/60635.html#60856">60856</a>)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">7</td>
+<td class="centre" colspan="1" rowspan="1">Collision seen this check (<a href="../asm/54342.html">Check_Entity_Collision</a>)</td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29369"></span><a href="../asm/29369.html">29369</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29369.html">Entity Interaction Flag</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Cross-cutting interaction bits for crushers, ghosts and hazards. Meanings below are from observed writers/readers only. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Bit</th>
+<th colspan="1" rowspan="1">Meaning</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">1</td>
+<td class="centre" colspan="1" rowspan="1">Set by <a href="../asm/45738.html#45899">45899</a>; tested by <a href="../asm/55251.html#55614">55614</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">2</td>
+<td class="centre" colspan="1" rowspan="1">Set/cleared by <a href="../asm/52174.html">ScriptRoutine_TaskFourTickOfferItem</a>; tested by <a href="../asm/55251.html#55644">55644</a> to gate dialogue</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">3</td>
+<td class="centre" colspan="1" rowspan="1">Set by <a href="../asm/52811.html#52925">Update_Ghosts_RetriggerBit3</a>; tested and cleared by <a href="../asm/52811.html">Update_Ghosts</a></td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="centre" colspan="1" rowspan="1">Set by <a href="../asm/53022.html">Update_Crusher</a>; tested by <a href="../asm/55251.html#55620">55620</a> to gate dialogue</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">6</td>
+<td class="centre" colspan="1" rowspan="1">Set by <a href="../asm/53022.html">Update_Crusher</a> when <a href="../asm/29378.html">SharedTick</a> reaches 3; no BIT reader found</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">7</td>
+<td class="centre" colspan="1" rowspan="1">Set by <a href="../asm/53022.html">Update_Crusher</a> on every crusher update; no BIT reader found</td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29370"></span><a href="../asm/29370.html">29370</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29370.html">Trap Door Flags</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Animation and interaction bits for the trap door itself. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Bit</th>
+<th colspan="1" rowspan="1">Meaning</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">1</td>
+<td class="centre" colspan="1" rowspan="1">Weight-chain layout swap pending</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">2</td>
+<td class="centre" colspan="1" rowspan="1">Drutt is mid trap door animation</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">3</td>
+<td class="centre" colspan="1" rowspan="1">Trap door is open for Berk's put-down check</td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29371"></span><a href="../asm/29371.html">29371</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29371.html">Drutt Animation Counter</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Frame counter driving Drutt's animation.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29372"></span><a href="../asm/29372.html">29372</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29372.html">Collectible Counter</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Count of collectible eyeballs gathered so far.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29373"></span><a href="../asm/29373.html">29373</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29373.html">Collision Scratch Byte</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Byte used by collision / collectible helpers (<a href="../asm/54342.html">Check_Entity_Collision</a>, <a href="../asm/55251.html">Update_Bad_Tempered_Thing_Dialogue</a>) to remember a room index or entity field across a call.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29374"></span><a href="../asm/29374.html">29374</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29374.html">Stove Tick</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+How many times <a href="../asm/50747.html">Update_Stove</a> Update Stove has run this boil cycle. On the fourth call that routine sets StoveReady (bit 6 of <a href="../asm/29366.html">TaskThreeFlags</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29375"></span><a href="../asm/29375.html">29375</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29375.html">Room Transition Flag</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Non-zero while a room transition is in progress.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29376"></span><a href="../asm/29376.html">29376</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29376.html">Entity Spawn Timer</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Countdown / tick used when spawning transient entities.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29377"></span><a href="../asm/29377.html">29377</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29377.html">Animation Frame Counter</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Shared animation frame counter for scripted entities.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29378"></span><a href="../asm/29378.html">29378</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29378.html">Shared Tick</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+One-byte counter shared by <a href="../asm/53022.html">Update_Crusher</a> (increments on each crusher update) and script routine <a href="../asm/52174.html">ScriptRoutine_TaskFourTickOfferItem</a> (decrements toward zero). Not a pure frame counter: <a href="../asm/53022.html">Update_Crusher</a> advances it once per crusher call, and when the value reaches 3 that routine also sets bits 6 and 7 of <a href="../asm/29369.html">EntityInteractionFlag</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29379"></span><a href="../asm/29379.html">29379</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29379.html">Task Three Timer</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Countdown timer for task-three creature behaviour.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29380"></span><a href="../asm/29380.html">29380</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29380.html">Stove / Heater State</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+State of the stove / heater prop.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29381"></span><a href="../asm/29381.html">29381</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29381.html">Message Trigger</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Latch that triggers the next on-screen message.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29382"></span><a href="../asm/29382.html">29382</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29382.html">Frame Counter</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Global frame counter advanced by the main loop.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29383"></span><a href="../asm/29383.html">29383</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29383.html">Bad Tempered Thing State</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+State flags for the Bad Tempered Thing.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29384"></span><a href="../asm/29384.html">29384</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29384.html">Berk Action Lock</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Lock that prevents Berk starting a new action until cleared.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29385"></span><a href="../asm/29385.html">29385</a></td>
+<td class="map-length">5</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29385.html">Task Selection Table</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Bit 7 marks a task slot as used. Task 5 is chosen separately at <a href="../asm/43925.html#44048">44048</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29390"></span><a href="../asm/29390.html">29390</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29390.html">Timed Event Latch</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Non-zero while a timed Drutt / trap door script is armed. Set to 1 by <a href="../asm/61919.html">ScriptRoutine_StartDruttScript</a>, written from an entity type at <a href="../asm/44449.html#44525">44525</a>, cleared by <a href="../asm/44449.html">Update_Timed_Events</a>, and tested by <a href="../asm/43925.html#44104">Update_Berk_State_ActiveTaskFrameTick</a> / <a href="../asm/47404.html#47475">47475</a> before those paths run.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29391"></span><a href="../asm/29391.html">29391</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29391.html">Pointer: Active Script Cursor</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Live script-data cursor while a task / entity script runs. Task updaters copy their dedicated script position (<a href="../asm/29393.html">Pointer_TaskThreeScriptPosition</a> / <a href="../asm/29395.html">Pointer_DruttScriptPosition</a> / <a href="../asm/29397.html">Pointer_TaskTwoScriptPosition</a> / <a href="../asm/29399.html">Pointer_TaskFourScriptPosition</a> / <a href="../asm/29401.html">Pointer_ThingUpstairsScriptPosition</a> / <a href="../asm/29361.html">Pointer_BerkScriptPosition</a>) here, call the shared runner, then write the (possibly advanced) cursor back.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29393"></span><a href="../asm/29393.html">29393</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29393.html">Pointer: Task Three Script Position</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Pointer into task-three script data.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29395"></span><a href="../asm/29395.html">29395</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29395.html">Pointer: Drutt Script Position</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Pointer into Drutt script data.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29397"></span><a href="../asm/29397.html">29397</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29397.html">Pointer: Task Two Script Position</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Pointer into task-two script data.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29399"></span><a href="../asm/29399.html">29399</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29399.html">Pointer: Task Four Script Position</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Pointer into task-four script data.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29401"></span><a href="../asm/29401.html">29401</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29401.html">Pointer: Thing Upstairs Script Position</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Script cursor for complex entity slot 32 when its type is 34. Written by <a href="../asm/48498.html#48570">48570</a> / <a href="../asm/48146.html#48171">48171</a>; read by <a href="../asm/48146.html#48159">48159</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29403"></span><a href="../asm/29403.html">29403</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29403.html">Pointer: Berk Held Entity</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Pointer to the entity Berk is currently holding.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29405"></span><a href="../asm/29405.html">29405</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29405.html">Score</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Current score.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29407"></span><a href="../asm/29407.html">29407</a></td>
+<td class="map-length">9</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29407.html">Collectible Slot State</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Three 3-byte records used by <a href="../asm/54363.html">Update_Collectibles</a> Update Collectibles. Each record is a script-position word plus a per-slot counter; <a href="../asm/54363.html">Update_Collectibles</a> walks the table, copies a record through <a href="../asm/29391.html">Pointer_ActiveScriptCursor</a> / <a href="../asm/29372.html">CollectibleCounter</a>, calls <a href="../asm/54414.html">Collect_Entity</a>, then writes the updated values back.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29416"></span><a href="../asm/29416.html">29416</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29416.html">Saved Room Index</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Room index remembered by <a href="../asm/60635.html#60726">60726</a> while Berk opens a door behind him. Also used by <a href="../asm/44969.html#44997">44997</a> as the exclusive end address when measuring the <a href="../asm/29358.html">CurrentTaskIndex</a>…<a href="../asm/29407.html">29415</a> game-state backup length into <a href="../asm/29349.html">CopyLength_GameState</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29417"></span><a href="../asm/29417.html">29417</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29417.html">Held Entity Y-Extent</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Y-extent to restore onto a held entity. Written by <a href="../asm/46144.html#46808">46808</a> as the collision partner's y−1 during Berk's put-down / pick-up probe; read and cleared by <a href="../asm/61758.html">ScriptRoutine_PickUpHeld</a> when applying the held entity's new y / y-extent.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29418"></span><a href="../asm/29418.html">29418</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29418.html">Display Buffer Select Flag</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Selects which display buffer is active when swapping primary / secondary.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29419"></span><a href="../asm/29419.html">29419</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29419.html">Message Colour</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Attribute used when printing messages.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29420"></span><a href="../asm/29420.html">29420</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29420.html">Door Interaction Delay</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Short countdown used by <a href="../asm/60635.html">ScriptRoutine_BerkDoorBehind</a>. Set to 1–2 at <a href="../asm/60635.html#60827">60827</a> after a room change; while non-zero <a href="../asm/60635.html#60697">60697</a> decrements it and skips the rest of that interaction pass.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29421"></span><a href="../asm/29421.html">29421</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29421.html">Camera Y Coordinate</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Camera Y coordinate.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29422"></span><a href="../asm/29422.html">29422</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29422.html">Camera X Coordinate</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Camera X coordinate.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29424"></span><a href="../asm/29424.html">29424</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29424.html">Task Timer</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Task timer. Incremented at <a href="../asm/43925.html#44133">44133</a>. <a href="../asm/43925.html#44137">44137</a> compares it with 160 for the timeout path. <a href="../asm/43925.html#44194">Update_Berk_State_AttrStripFromSeed</a> also reads it for the status attribute strip. Reset to 0 at <a href="../asm/44359.html#44360">44360</a>. Not the pseudo-random seed at <a href="../asm/60130.html">RandomSeedScratch</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29425"></span><a href="../asm/29425.html">29425</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29425.html">Task Progress Repeat Count</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Cleared at <a href="../asm/57990.html#58020">58020</a> and loaded at <a href="../asm/57990.html#58054">58054</a> from the byte at the address the message stream names. <a href="../asm/44449.html#44650">44650</a> returns if it is zero. Otherwise each pass of the loop at <a href="../asm/44449.html#44719">Update_Timed_Events_HeldCountdownStep</a> sets the bonus at <a href="../asm/29403.html">Pointer_BerkHeldEntity</a>, reprints it and calls <a href="../asm/44748.html">Handle_Berk_Action</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29426"></span><a href="../asm/29426.html">29426</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29426.html">Game Tick Counter</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Game tick counter.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29427"></span><a href="../asm/29427.html">29427</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29427.html">High Score</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+High score.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29429"></span><a href="../asm/29429.html">29429</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29429.html">Pointer: Current Display Buffer</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Pointer to the current display-buffer base used while drawing layouts.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29431"></span><a href="../asm/29431.html">29431</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29431.html">Stored Drawing Coordinates</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Base x/y character coordinates used while processing graphic layout data (<span class="register">H</span> = x, <span class="register">L</span> = y).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29433"></span><a href="../asm/29433.html">29433</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29433.html">Pointer: Current Character Set</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Pointer to the character set currently used for text output.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29435"></span><a href="../asm/29435.html">29435</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29435.html">Pointer: Camera Room Origin</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Pointer to the camera room origin used while drawing.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29437"></span><a href="../asm/29437.html">29437</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29437.html">Pointer: Script Loop Restart</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Script-data address saved by <a href="../asm/60499.html">ScriptRoutine_StartScriptLoop</a> so <a href="../asm/60513.html">ScriptRoutine_EndScriptLoop</a> (End Script Loop) can reload <span class="register">HL</span> and repeat the body while <a href="../asm/29441.html">ScriptLoopCounter</a> remains non-zero.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29439"></span><a href="../asm/29439.html">29439</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29439.html">Pointer: Graphic Layout Loop Start</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Saved position in graphic layout data at the start of a loop (opcodes 238 / 239).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29441"></span><a href="../asm/29441.html">29441</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29441.html">Script Loop Counter</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Remaining iterations for a script-level loop. Loaded from the operand of <a href="../asm/60499.html">ScriptRoutine_StartScriptLoop</a>; decremented by <a href="../asm/60513.html">ScriptRoutine_EndScriptLoop</a> until it hits zero.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29442"></span><a href="../asm/29442.html">29442</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29442.html">Graphic Layout Loop Counter</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Remaining iterations for the current graphic layout loop (opcodes 238 / 239).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29443"></span><a href="../asm/29443.html">29443</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29443.html">Berk X Coordinate Copy</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Copy of Berk's X coordinate used by camera-follow logic.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29444"></span><a href="../asm/29444.html">29444</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29444.html">Berk X-Extent Copy</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Copy of the camera-follow entity's x-extent (<span class="register">IX</span>+8), written by <a href="../asm/46106.html">Update_Berk_Controller</a> alongside <a href="../asm/29443.html">BerkXCoordinateCopy</a>. Not a Y coordinate.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29445"></span><a href="../asm/29445.html">29445</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29445.html">Berk Room Index Copy</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Copy of Berk's room index used by camera-follow logic.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29446"></span><a href="../asm/29446.html">29446</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29446.html">Current Graphic Set Index</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Index of the graphic set currently selected by graphic layout opcode 244. Written into the display buffer with each tile; <a href="../asm/59887.html">Blit_DisplayBufferRow</a> looks up the set base in <a href="../asm/29451.html">Table_GraphicSetAddresses</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29447"></span><a href="../asm/29447.html">29447</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29447.html">Current Text Attribute</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Attribute applied when printing menu / HUD text.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29448"></span><a href="../asm/29448.html">29448</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29448.html">Current Attribute</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Attribute byte currently selected by graphic layout opcode 242. Written into the display buffer with each tile; 0 means "use the attribute from the graphic data".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29449"></span><a href="../asm/29449.html">29449</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29449.html">Pending Sound Index</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Sound index queued by <a href="../asm/63737.html">Queue_Sound</a> for <a href="../asm/63919.html">Play_QueuedSound</a> (0 = idle). Bit 7 marks a force-queue from <a href="../asm/63737.html">Queue_Sound</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="29450"></span><a href="../asm/29450.html">29450</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/29450.html">Camera Follow Delay</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Camera-follow delay countdown.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="36595"></span><a href="../asm/36595.html">36595</a></td>
+<td class="map-length">452</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/36595.html">Pointer: Boney Graphic Layout</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Current graphic layout pointer for Boney (entity field <span class="register">IX</span>+10). The snapshot holds <a href="../asm/40094.html">GraphicLayout_Boney</a> (Boney's skull). <a href="../asm/55251.html#55343">55343</a> / <a href="../asm/55665.html#55812">55812</a> restore <a href="../asm/40094.html">GraphicLayout_Boney</a> after Bad Tempered Thing dialogue.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="44258"></span><a href="../asm/44258.html">44258</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/44258.html">Pointer: Berk Script Table Base</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Saved base address of the Berk script table while <a href="../asm/44260.html">Start_Berk_Script</a> walks a random entry. Written on entry to <a href="../asm/44260.html">Start_Berk_Script</a> and reloaded when a candidate row is rejected.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="45017"></span><a href="../asm/45017.html">45017</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/45017.html">Temporary Entity Pointer</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Pointer used by Drutt / trap door animation routines.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="45019"></span><a href="../asm/45019.html">45019</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/45019.html">Drutt: Saved Entity Type</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Entity type remembered while Drutt's trap door animation runs (<a href="../asm/45108.html">Update_Drutt</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="45085"></span><a href="../asm/45085.html">45085</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/45085.html">Drutt: Saved Animation State</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Secondary state byte for Drutt's trap door animation (<a href="../asm/45086.html">Reset_Trap_Door_Animation_State</a> / <a href="../asm/45108.html">Update_Drutt</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="53045"></span><a href="../asm/53045.html">53045</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/53045.html">Temporary Entity Pointer</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Pointer used while updating miscellaneous entities.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="55653"></span><a href="../asm/55653.html">55653</a></td>
+<td class="map-length">12</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/55653.html">Table: Bad Tempered Thing Dialogue</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Per-task dialogue pointers indexed by <a href="../asm/55665.html#55683">Update_Bad_Tempered_Thing_Dialogue_IndexTable</a>. Task 0 skips this table and uses <a href="../asm/54909.html#55245">55245</a> instead.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="60012"></span><a href="../asm/60012.html">60012</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/60012.html">Border / Speaker State</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Current border colour and EAR bit. Written by <a href="../asm/60013.html">Set_BorderSpeakerState</a>; read by <a href="../asm/63919.html">Play_QueuedSound</a> before each speaker toggle.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="60130"></span><a href="../asm/60130.html">60130</a></td>
+<td class="map-length">3</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/60130.html">Random Seed Scratch</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Three-byte scratch written by game start and read by the pseudo-random routine.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="62968"></span><a href="../asm/62968.html">62968</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/62968.html">Control Input Bitmap</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Player control bits, written by <a href="../asm/62979.html">Read_PlayerControls</a>. <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Bit</th>
+<th colspan="1" rowspan="1">Meaning</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="centre" colspan="1" rowspan="1">Right</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">1</td>
+<td class="centre" colspan="1" rowspan="1">Left</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">2</td>
+<td class="centre" colspan="1" rowspan="1">Down (forward)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">3</td>
+<td class="centre" colspan="1" rowspan="1">Up (back)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="centre" colspan="1" rowspan="1">Fire (pick up / put down / interact)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">5</td>
+<td class="centre" colspan="1" rowspan="1">Secondary fire / alternate action (keyboard &#84; by default)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">6</td>
+<td class="centre" colspan="1" rowspan="1">Pause (keyboard &#72; by default; special-cased in <a href="../asm/62979.html">Read_PlayerControls</a>)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">7</td>
+<td class="centre" colspan="1" rowspan="1">Unused</td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="62969"></span><a href="../asm/62969.html">62969</a></td>
+<td class="map-length">2</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/62969.html">Pointer: Control Key Definition Cursor</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Pointer into <a href="../asm/62971.html">Table_ControlKeyCodes</a> used while redefine-keys walks the control table.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="map-g"><span id="62978"></span><a href="../asm/62978.html">62978</a></td>
+<td class="map-length">1</td>
+<td class="map-g-desc">
+<div class="map-entry-title-11"><a class="map-entry-title" href="../asm/62978.html">Flag: Kempston Joystick Enabled</a></div>
+<div class="map-entry-desc">
+<div class="paragraph">
+Non-zero to read Kempston (31) in <a href="../asm/62979.html">Read_PlayerControls</a>; zero to use the keyboard table at <a href="../asm/62971.html">Table_ControlKeyCodes</a>.
+</div>
+</div>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../buffers/gbuffer.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

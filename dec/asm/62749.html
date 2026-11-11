@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 62749</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 62749. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 62749" />
+<meta property="og:description" content="The Trap Door: Routine at 62749. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/62749.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/62749.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 62749",
+"name": "The Trap Door: Routine at 62749",
+"description": "The Trap Door: Routine at 62749. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/62749.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 62749"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/62749.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62712.html">62712</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#62749">Map</a></td>
+<td class="next">
+Next: <a href="62917.html">62917</a>
+</td>
+</tr>
+</table>
+<div class="description">62749: Main Menu Select Options</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Handle KEYS / JOYSTICK / REDEFINE / CONTINUE on the controls menu. Returns to the caller of <a href="62571.html">Print_ControlsMenu</a> (the Learner/Super pass at <a href="62447.html#62456">MainMenu_ChoosePass</a>) when CONTINUE (&#67;) is chosen.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62749"></span>
+<div class="comments">
+<div class="paragraph">
+If keyboard mode is selected, highlight the KEYS option first.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">MainMenu_SelectOptions</td>
+<td class="address-2"><span id="62749"></span>62749</td>
+<td class="instruction">LD A,(62978)</td>
+<td class="comment-1" rowspan="3">If Kempston is already selected (<a href="62978.html">Flag_KempstonJoystickEnabled</a>), skip the KEYS highlight at <a href="62749.html#62763">MainMenu_SelectOptions_KeyLoop</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62752"></span>62752</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62753"></span>62753</td>
+<td class="instruction">JR NZ,<a href="62749.html#62763">MainMenu_SelectOptions_KeyLoop</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62755"></span>62755</td>
+<td class="instruction">LD A,104</td>
+<td class="comment-1" rowspan="3">Highlight the KEYS option (104) and pulse the menu timing.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62757"></span>62757</td>
+<td class="instruction">CALL <a href="62922.html">Print_ControlKeyLabels</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62760"></span>62760</td>
+<td class="instruction">CALL <a href="62954.html">Pulse_MenuTiming</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62763"></span>
+<div class="comments">
+<div class="paragraph">
+Poll the controls menu for KEYS, JOYSTICK, REDEFINE or CONTINUE.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">MainMenu_SelectOptions_KeyLoop</td>
+<td class="address-2"><span id="62763"></span>62763</td>
+<td class="instruction">CALL <a href="64632.html">Wait_KeyWithMenuMusic</a></td>
+<td class="comment-1" rowspan="1">Call <a href="64632.html">Wait_KeyWithMenuMusic</a> for one menu-music wait tick.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62766"></span>62766</td>
+<td class="instruction">CALL <a href="63040.html">Read_KeyboardControls</a></td>
+<td class="comment-1" rowspan="1">Call <a href="63040.html">Read_KeyboardControls</a> to read a key code.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62769"></span>62769</td>
+<td class="instruction">CP 75</td>
+<td class="comment-1" rowspan="2">Was &#75; (KEYS) pressed? If so, select keyboard at <a href="62749.html#62786">MainMenu_SelectOptions_Keys</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62771"></span>62771</td>
+<td class="instruction">JR Z,<a href="62749.html#62786">MainMenu_SelectOptions_Keys</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62773"></span>62773</td>
+<td class="instruction">CP 74</td>
+<td class="comment-1" rowspan="2">Was &#74; (JOYSTICK) pressed? If so, select Kempston at <a href="62749.html#62792">MainMenu_SelectOptions_Joystick</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62775"></span>62775</td>
+<td class="instruction">JR Z,<a href="62749.html#62792">MainMenu_SelectOptions_Joystick</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62777"></span>62777</td>
+<td class="instruction">CP 82</td>
+<td class="comment-1" rowspan="2">Was &#82; (REDEFINE) pressed? If so, redefine keys at <a href="62749.html#62803">MainMenu_SelectOptions_Redefine</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62779"></span>62779</td>
+<td class="instruction">JR Z,<a href="62749.html#62803">MainMenu_SelectOptions_Redefine</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62781"></span>62781</td>
+<td class="instruction">CP 67</td>
+<td class="comment-1" rowspan="2">Was &#67; (CONTINUE) pressed? If so, return to <a href="62447.html#62456">MainMenu_ChoosePass</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62783"></span>62783</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62784"></span>62784</td>
+<td class="instruction">JR <a href="62749.html#62763">MainMenu_SelectOptions_KeyLoop</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="62749.html#62763">MainMenu_SelectOptions_KeyLoop</a> to keep waiting.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62786"></span>
+<div class="comments">
+<div class="paragraph">
+Select keyboard controls and refresh the highlights.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">MainMenu_SelectOptions_Keys</td>
+<td class="address-2"><span id="62786"></span>62786</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="3">Select keyboard controls (clear <a href="62978.html">Flag_KempstonJoystickEnabled</a>) and refresh the menu highlights at <a href="62749.html#62901">MainMenu_SelectOptions_Refresh</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62787"></span>62787</td>
+<td class="instruction">LD (62978),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62790"></span>62790</td>
+<td class="instruction">JR <a href="62749.html#62901">MainMenu_SelectOptions_Refresh</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62792"></span>
+<div class="comments">
+<div class="paragraph">
+Select Kempston and click the menu.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">MainMenu_SelectOptions_Joystick</td>
+<td class="address-2"><span id="62792"></span>62792</td>
+<td class="instruction">LD A,1</td>
+<td class="comment-1" rowspan="5">Select Kempston (1 at <a href="62978.html">Flag_KempstonJoystickEnabled</a>) and clear the KEYS column labels.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62794"></span>62794</td>
+<td class="instruction">LD (62978),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62797"></span>62797</td>
+<td class="instruction">XOR A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62798"></span>62798</td>
+<td class="instruction">CALL <a href="62917.html">Print_ControlKeyLabels_Short</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62801"></span>62801</td>
+<td class="instruction">JR <a href="62749.html#62763">MainMenu_SelectOptions_KeyLoop</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62803"></span>
+<div class="comments">
+<div class="paragraph">
+Clear the key table to &#63; prompt for seven new keys, and print each choice.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">MainMenu_SelectOptions_Redefine</td>
+<td class="address-2"><span id="62803"></span>62803</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Select keyboard mode (clear <a href="62978.html">Flag_KempstonJoystickEnabled</a>) before redefine.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62804"></span>62804</td>
+<td class="instruction">LD (62978),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62807"></span>62807</td>
+<td class="instruction">LD A,63</td>
+<td class="comment-1" rowspan="3">Fill all seven control-key slots at <a href="62971.html">Table_ControlKeyCodes</a> with &#63; placeholders.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62809"></span>62809</td>
+<td class="instruction">LD HL,62971</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62812"></span>62812</td>
+<td class="instruction">LD B,7</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62814"></span>
+<div class="comments">
+<div class="paragraph">
+Fill the seven control-key slots at <a href="62971.html">Table_ControlKeyCodes</a> with &#63; placeholders.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">MainMenu_SelectOptions_ClearKeys</td>
+<td class="address-2"><span id="62814"></span>62814</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="3">Write the placeholder into this slot and step <span class="register">HL</span> onto the next key slot until all seven are cleared.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62815"></span>62815</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62816"></span>62816</td>
+<td class="instruction">DJNZ <a href="62749.html#62814">MainMenu_SelectOptions_ClearKeys</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62818"></span>62818</td>
+<td class="instruction">LD A,199</td>
+<td class="comment-1" rowspan="3">Print the redefine placeholders in attribute 199 and pulse the menu timing.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62820"></span>62820</td>
+<td class="instruction">CALL <a href="62922.html">Print_ControlKeyLabels</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62823"></span>62823</td>
+<td class="instruction">CALL <a href="62954.html">Pulse_MenuTiming</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62826"></span>62826</td>
+<td class="instruction">LD A,79</td>
+<td class="comment-1" rowspan="2">Set the text attribute to 79 for newly typed key labels.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62828"></span>62828</td>
+<td class="instruction">LD (29447),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62831"></span>62831</td>
+<td class="instruction">LD IX,62971</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at <a href="62971.html">Table_ControlKeyCodes</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62835"></span>62835</td>
+<td class="instruction">LD HL,22796</td>
+<td class="comment-1" rowspan="2">Point <span class="register">HL</span> at the first key's attribute cell (22796 (attribute buffer)), then remember it in <a href="62969.html">Pointer_ControlKeyDefinitionCursor</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62838"></span>62838</td>
+<td class="instruction">LD (62969),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62841"></span>62841</td>
+<td class="instruction">LD B,7</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 7 keys to redefine.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62843"></span>
+<div class="comments">
+<div class="paragraph">
+Prompt for the next of seven redefine-key presses.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">MainMenu_SelectOptions_RedefineLoop</td>
+<td class="address-2"><span id="62843"></span>62843</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">BC</span> and <span class="register">IX</span> on the stack.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62844"></span>
+<div class="comments">
+<div class="paragraph">
+Wait until a fresh key is pressed during redefine.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">MainMenu_SelectOptions_WaitUniqueKey</td>
+<td class="address-2"><span id="62844"></span>62844</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62846"></span>62846</td>
+<td class="instruction">CALL <a href="64632.html">Wait_KeyWithMenuMusic</a></td>
+<td class="comment-1" rowspan="1">Call <a href="64632.html">Wait_KeyWithMenuMusic</a> for one menu-music wait tick.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62849"></span>62849</td>
+<td class="instruction">POP IX</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">IX</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62851"></span>62851</td>
+<td class="instruction">CALL <a href="63040.html">Read_KeyboardControls</a></td>
+<td class="comment-1" rowspan="1">Call <a href="63040.html">Read_KeyboardControls</a> to read a key code.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62854"></span>62854</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Was a key pressed? If not, keep waiting at <a href="62749.html#62844">MainMenu_SelectOptions_WaitUniqueKey</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62855"></span>62855</td>
+<td class="instruction">JR Z,<a href="62749.html#62844">MainMenu_SelectOptions_WaitUniqueKey</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62857"></span>62857</td>
+<td class="instruction">LD HL,62971</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at <a href="62971.html">Table_ControlKeyCodes</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62860"></span>62860</td>
+<td class="instruction">LD B,7</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 7 to scan for duplicates.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62862"></span>
+<div class="comments">
+<div class="paragraph">
+Reject the key if it already appears in <a href="62971.html">Table_ControlKeyCodes</a>; otherwise store and print it.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">MainMenu_SelectOptions_CheckDuplicate</td>
+<td class="address-2"><span id="62862"></span>62862</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-1" rowspan="2">Does this code already appear in the table? If so, reject it and wait again at <a href="62749.html#62844">MainMenu_SelectOptions_WaitUniqueKey</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62863"></span>62863</td>
+<td class="instruction">JR Z,<a href="62749.html#62844">MainMenu_SelectOptions_WaitUniqueKey</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62865"></span>62865</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance to the next slot.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62866"></span>62866</td>
+<td class="instruction">DJNZ <a href="62749.html#62862">MainMenu_SelectOptions_CheckDuplicate</a></td>
+<td class="comment-1" rowspan="1">Loop until all slots are checked.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62868"></span>62868</td>
+<td class="instruction">LD (IX+0),A</td>
+<td class="comment-1" rowspan="1">Store the new key code at <span class="register">IX</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62871"></span>62871</td>
+<td class="instruction">INC IX</td>
+<td class="comment-1" rowspan="1">Advance <span class="register">IX</span> onto the next slot.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62873"></span>62873</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="2">Stash <span class="register">IX</span> and <span class="register">AF</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62875"></span>62875</td>
+<td class="instruction">PUSH AF</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62876"></span>62876</td>
+<td class="instruction">CALL <a href="63242.html">ColourCycle_MainMenuLogo</a></td>
+<td class="comment-1" rowspan="1">Call <a href="63242.html">ColourCycle_MainMenuLogo</a> to colour-cycle the logo (menu acknowledge).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62879"></span>62879</td>
+<td class="instruction">POP AF</td>
+<td class="comment-1" rowspan="2">Restore <span class="register">AF</span> and <span class="register">IX</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62880"></span>62880</td>
+<td class="instruction">POP IX</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62882"></span>62882</td>
+<td class="instruction">LD HL,(62969)</td>
+<td class="comment-1" rowspan="4">Fetch the current label attribute address (<a href="62969.html">Pointer_ControlKeyDefinitionCursor</a>). Keep the key code in <span class="register">E</span>. Clear <span class="register">D</span>. Call <a href="60263.html">Print_Character</a> to print that character.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62885"></span>62885</td>
+<td class="instruction">LD E,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62886"></span>62886</td>
+<td class="instruction">LD D,0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62888"></span>62888</td>
+<td class="instruction">CALL <a href="60263.html">Print_Character</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62891"></span>62891</td>
+<td class="instruction">LD BC,64</td>
+<td class="comment-1" rowspan="3">Advance the key-label attribute address by one menu row (0064) and store it in <a href="62969.html">Pointer_ControlKeyDefinitionCursor</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62894"></span>62894</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62895"></span>62895</td>
+<td class="instruction">LD (62969),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62898"></span>62898</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62899"></span>62899</td>
+<td class="instruction">DJNZ <a href="62749.html#62843">MainMenu_SelectOptions_RedefineLoop</a></td>
+<td class="comment-1" rowspan="1">Loop until all seven keys are redefined.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62901"></span>
+<div class="comments">
+<div class="paragraph">
+Refresh both highlight attributes and return to the key loop.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">MainMenu_SelectOptions_Refresh</td>
+<td class="address-2"><span id="62901"></span>62901</td>
+<td class="instruction">LD A,199</td>
+<td class="comment-1" rowspan="2">Reprint all seven key labels in attribute 199.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62903"></span>62903</td>
+<td class="instruction">CALL <a href="62922.html">Print_ControlKeyLabels</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62906"></span>62906</td>
+<td class="instruction">LD A,104</td>
+<td class="comment-1" rowspan="2">Reprint the KEYS column highlight in attribute 104.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62908"></span>62908</td>
+<td class="instruction">CALL <a href="62922.html">Print_ControlKeyLabels</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62911"></span>62911</td>
+<td class="instruction">CALL <a href="62954.html">Pulse_MenuTiming</a></td>
+<td class="comment-1" rowspan="1">Call <a href="62954.html">Pulse_MenuTiming</a> to pulse the menu timing.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62914"></span>62914</td>
+<td class="instruction">JP <a href="62749.html#62763">MainMenu_SelectOptions_KeyLoop</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="62749.html#62763">MainMenu_SelectOptions_KeyLoop</a> to wait for the next KEYS / JOYSTICK / REDEFINE / CONTINUE choice.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62712.html">62712</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#62749">Map</a></td>
+<td class="next">
+Next: <a href="62917.html">62917</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/F51D.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

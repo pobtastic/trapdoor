@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at 63759</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at 63759. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at 63759" />
+<meta property="og:description" content="The Trap Door: Data at 63759. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/63759.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/63759.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at 63759",
+"name": "The Trap Door: Data at 63759",
+"description": "The Trap Door: Data at 63759. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/63759.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at 63759"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/63759.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="63737.html">63737</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#63759">Map</a></td>
+<td class="next">
+Next: <a href="63919.html">63919</a>
+</td>
+</tr>
+</table>
+<div class="description">63759: Table: Sound Parameters</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Eight-byte parameter blocks for sounds 1–20. <a href="63919.html">Play_QueuedSound</a> forms <span class="register">IX</span>=<a href="63737.html">63751</a>+(index×8). The base <a href="63737.html">63751</a> is the operand byte of <a href="63737.html#63750">JR NZ</a> in <a href="63737.html">Queue_Sound</a>; it is never read as a parameter because indexes start at 1, so sound 1 begins here. Layout: <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Offset</th>
+<th colspan="1" rowspan="1">Meaning</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">0</td>
+<td class="centre" colspan="1" rowspan="1">Outer repeat count (<span class="register">C</span>)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">1</td>
+<td class="centre" colspan="1" rowspan="1">Pulse count (<span class="register">B</span>)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">2</td>
+<td class="centre" colspan="1" rowspan="1">Speaker-off delay (<span class="register">E</span>)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">3</td>
+<td class="centre" colspan="1" rowspan="1">Speaker-on delay (<span class="register">D</span>)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="centre" colspan="1" rowspan="1">Per-pulse delta added to the on-delay</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">5</td>
+<td class="centre" colspan="1" rowspan="1">Per-pulse delta added to the off-delay</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">6</td>
+<td class="centre" colspan="1" rowspan="1">Flags / waveform high byte (bit 7 set = square wave only)</td>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">7</td>
+<td class="centre" colspan="1" rowspan="1">Waveform low byte when bit 7 of 6 is clear</td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Table_SoundParameters</td>
+<td class="address-1"><span id="63759"></span>63759</td>
+<td class="instruction">DEFB 1,23,112,14,46,158,128,0</td>
+<td class="comment-1" rowspan="1">Sound 1: score / room-init fanfare (<a href="44748.html#44791">44791</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63767"></span>63767</td>
+<td class="instruction">DEFB 15,14,34,41,241,4,128,0</td>
+<td class="comment-1" rowspan="1">Sound 2: Berk-action fanfare (<a href="44748.html#44758">44758</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63775"></span>63775</td>
+<td class="instruction">DEFB 8,255,17,8,254,254,128,0</td>
+<td class="comment-1" rowspan="1">Sound 3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63783"></span>63783</td>
+<td class="instruction">DEFB 1,90,119,70,2,4,128,0</td>
+<td class="comment-1" rowspan="1">Sound 4: entity-slot store (forced as 132 at <a href="45738.html#46007">46007</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63791"></span>63791</td>
+<td class="instruction">DEFB 1,120,10,10,250,1,128,0</td>
+<td class="comment-1" rowspan="1">Sound 5: trap door opening (<a href="60920.html#60939">60939</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63799"></span>63799</td>
+<td class="instruction">DEFB 1,50,236,150,3,3,6,0</td>
+<td class="comment-1" rowspan="1">Sound 6: trap door closing (<a href="60891.html#60904">60904</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63807"></span>63807</td>
+<td class="instruction">DEFB 1,18,10,10,247,11,0,0</td>
+<td class="comment-1" rowspan="1">Sound 7: entity-slot wait (forced as 135 at <a href="45738.html#46089">Update_Entity_Slot_QueueLandSound</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63815"></span>63815</td>
+<td class="instruction">DEFB 1,220,244,200,255,255,128,0</td>
+<td class="comment-1" rowspan="1">Sound 8: random game-event sting (forced as 136 at <a href="48498.html#48557">48557</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63823"></span>63823</td>
+<td class="instruction">DEFB 1,90,220,229,254,255,10,0</td>
+<td class="comment-1" rowspan="1">Sound 9: clear-attributes sting (forced as 137 at <a href="59986.html#60002">60002</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63831"></span>63831</td>
+<td class="instruction">DEFB 3,20,123,69,252,252,128,0</td>
+<td class="comment-1" rowspan="1">Sound 10: message-flash click (<a href="57990.html#58004">58004</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63839"></span>63839</td>
+<td class="instruction">DEFB 4,255,67,197,2,255,128,0</td>
+<td class="comment-1" rowspan="1">Sound 11: task fanfare / stinger (<a href="43925.html#44141">44141</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63847"></span>63847</td>
+<td class="instruction">DEFB 6,5,82,87,3,3,128,0</td>
+<td class="comment-1" rowspan="1">Sound 12: timed-event / Drutt script (<a href="44449.html#44534">44534</a> / <a href="45020.html#45027">45027</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63855"></span>63855</td>
+<td class="instruction">DEFB 1,46,41,70,1,255,128,0</td>
+<td class="comment-1" rowspan="1">Sound 13.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63863"></span>63863</td>
+<td class="instruction">DEFB 1,60,197,50,1,1,11,0</td>
+<td class="comment-1" rowspan="1">Sound 14: trap door / catch thump (also forced as 142 at <a href="45108.html#45154">45154</a> / <a href="45108.html#45360">Update_Drutt_CatchSound</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63871"></span>63871</td>
+<td class="instruction">DEFB 1,92,246,121,255,255,128,0</td>
+<td class="comment-1" rowspan="1">Sound 15: ghost update (<a href="52811.html#52920">52920</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63879"></span>63879</td>
+<td class="instruction">DEFB 1,8,144,113,253,25,20,0</td>
+<td class="comment-1" rowspan="1">Sound 16: scripted movement (<a href="61361.html#61451">Script_PushHitch_Click</a> / <a href="61545.html#61631">61631</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63887"></span>63887</td>
+<td class="instruction">DEFB 1,100,56,150,254,252,128,0</td>
+<td class="comment-1" rowspan="1">Sound 17: vat / script action (<a href="53356.html">ScriptRoutine_VatQueueSound</a> / <a href="53758.html#53801">53801</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63895"></span>63895</td>
+<td class="instruction">DEFB 1,11,33,181,1,1,128,0</td>
+<td class="comment-1" rowspan="1">Sound 18: heater (<a href="50741.html">Update_Heater</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63903"></span>63903</td>
+<td class="instruction">DEFB 7,1,96,69,0,0,1,0</td>
+<td class="comment-1" rowspan="1">Sound 19.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63911"></span>63911</td>
+<td class="instruction">DEFB 1,100,240,159,244,4,10,0</td>
+<td class="comment-1" rowspan="1">Sound 20: task-three script action (<a href="50135.html">ScriptRoutine_TaskThreeQueueSound</a>).</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="63737.html">63737</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#63759">Map</a></td>
+<td class="next">
+Next: <a href="63919.html">63919</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/F90F.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

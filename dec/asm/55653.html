@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Game status buffer entry at 55653</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Game status buffer entry at 55653. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Game status buffer entry at 55653" />
+<meta property="og:description" content="The Trap Door: Game status buffer entry at 55653. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/55653.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/55653.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Game status buffer entry at 55653",
+"name": "The Trap Door: Game status buffer entry at 55653",
+"description": "The Trap Door: Game status buffer entry at 55653. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/55653.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Game status buffer entry at 55653"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/55653.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-g">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Game status buffer</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="55251.html">55251</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#55653">Map</a></td>
+<td class="next">
+Next: <a href="55665.html">55665</a>
+</td>
+</tr>
+</table>
+<div class="description">55653: Table: Bad Tempered Thing Dialogue</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Per-task dialogue pointers indexed by <a href="55665.html#55683">Update_Bad_Tempered_Thing_Dialogue_IndexTable</a>. Task 0 skips this table and uses <a href="54909.html#55245">55245</a> instead.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Data_BadTemperedThingDialogue</td>
+<td class="address-1"><span id="55653"></span>55653</td>
+<td class="instruction">DEFW 0</td>
+<td class="comment-1" rowspan="1">Task 0 (unused, 0000).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55655"></span>55655</td>
+<td class="instruction">DEFW <a href="56003.html">Messaging_Ghost</a></td>
+<td class="comment-1" rowspan="1">Task 1 dialogue at <a href="56003.html">Messaging_Ghost</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55657"></span>55657</td>
+<td class="instruction">DEFW <a href="56098.html">Messaging_WrongCreature</a></td>
+<td class="comment-1" rowspan="1">Task 2 dialogue at <a href="56098.html">Messaging_WrongCreature</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55659"></span>55659</td>
+<td class="instruction">DEFW <a href="56230.html">Messaging_GetRidOfIt</a></td>
+<td class="comment-1" rowspan="1">Task 3 dialogue at <a href="56230.html">Messaging_GetRidOfIt</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55661"></span>55661</td>
+<td class="instruction">DEFW <a href="56406.html">Messaging_SendItUp</a></td>
+<td class="comment-1" rowspan="1">Task 4 dialogue at <a href="56406.html">Messaging_SendItUp</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="55663"></span>55663</td>
+<td class="instruction">DEFW <a href="56553.html">Messaging_ClearTheLot</a></td>
+<td class="comment-1" rowspan="1">Task 5 dialogue at <a href="56553.html">Messaging_ClearTheLot</a>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="55251.html">55251</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#55653">Map</a></td>
+<td class="next">
+Next: <a href="55665.html">55665</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/D965.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

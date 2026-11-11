@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at CDC2</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at CDC2. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at CDC2" />
+<meta property="og:description" content="The Trap Door: Data at CDC2. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/52674.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/52674.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at CDC2",
+"name": "The Trap Door: Data at CDC2",
+"description": "The Trap Door: Data at CDC2. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/52674.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at CDC2"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/52674.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52409.html">CCB9</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#cdc2">Map</a></td>
+<td class="next">
+Next: <a href="52811.html">CE4B</a>
+</td>
+</tr>
+</table>
+<div class="description">CDC2: Data: Ghost And Plant Tables</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Table/script residue used by ghost and plant-pot update routines before <a href="52811.html">Update_Ghosts</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Data_GhostAndPlantTables</td>
+<td class="address-1"><span id="cdc2"></span>CDC2</td>
+<td class="instruction">DEFB $02,$49,$10,$A1,$49,$90,$A1,$FA</td>
+<td class="comment-1" rowspan="1">Words: 4902 A110 9049 FAA1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cdca"></span>CDCA</td>
+<td class="instruction">DEFB $FF,$FE,$42,$02,$21,$42,$82,$1E</td>
+<td class="comment-1" rowspan="1">Words: FEFF 0242 4221 1E82.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cdd2"></span>CDD2</td>
+<td class="instruction">DEFB $44,$02,$23,$44,$82,$1E,$45,$22</td>
+<td class="comment-1" rowspan="1">Words: 0244 4423 1E82 2245.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cdda"></span>CDDA</td>
+<td class="instruction">DEFB $21,$45,$A2,$1F,$46,$22,$21,$46</td>
+<td class="comment-1" rowspan="1">Words: 4521 1FA2 2246 4621.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cde2"></span>CDE2</td>
+<td class="instruction">DEFB $A2,$21,$FF,$FA,$FE,$00,$3C,$07</td>
+<td class="comment-1" rowspan="1">Words: 21A2 FAFF FE 073C.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cdea"></span>CDEA</td>
+<td class="instruction">DEFB $21,$3C,$87,$23,$3C,$07,$21,$3C</td>
+<td class="comment-1" rowspan="1">Words: 3C21 2387 073C 3C21.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cdf2"></span>CDF2</td>
+<td class="instruction">DEFB $87,$1B,$3D,$07,$21,$41,$07,$23</td>
+<td class="comment-1" rowspan="1">Words: 1B87 073D 4121 2307.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="cdfa"></span>CDFA</td>
+<td class="instruction">DEFB $41,$87,$21,$3D,$87,$21,$FF,$FA</td>
+<td class="comment-1" rowspan="1">Words: 8741 3D21 2187 FAFF.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce02"></span>CE02</td>
+<td class="instruction">DEFB $FD,$00,$3C,$07,$21,$3F,$07,$23</td>
+<td class="comment-1" rowspan="1">Words: FD 073C 3F21 2307.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce0a"></span>CE0A</td>
+<td class="instruction">DEFB $3F,$87,$21,$3C,$87,$1B,$3D,$07</td>
+<td class="comment-1" rowspan="1">Words: 873F 3C21 1B87 073D.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce12"></span>CE12</td>
+<td class="instruction">DEFB $21,$40,$07,$23,$40,$87,$21,$3D</td>
+<td class="comment-1" rowspan="1">Words: 4021 2307 8740 3D21.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce1a"></span>CE1A</td>
+<td class="instruction">DEFB $87,$1C,$4A,$06,$23,$4A,$86,$21</td>
+<td class="comment-1" rowspan="1">Words: 1C87 064A 4A23 2186.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce22"></span>CE22</td>
+<td class="instruction">DEFB $FF,$FA,$FC,$00,$3C,$07,$21,$3E</td>
+<td class="comment-1" rowspan="1">Words: FAFF FC 073C 3E21.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce2a"></span>CE2A</td>
+<td class="instruction">DEFB $07,$23,$3E,$87,$21,$3C,$87,$1B</td>
+<td class="comment-1" rowspan="1">Words: 2307 873E 3C21 1B87.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce32"></span>CE32</td>
+<td class="instruction">DEFB $3D,$07,$21,$3D,$87,$23,$3D,$07</td>
+<td class="comment-1" rowspan="1">Words: 073D 3D21 2387 073D.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce3a"></span>CE3A</td>
+<td class="instruction">DEFB $21,$3D,$87,$1C,$4B,$06,$23,$4B</td>
+<td class="comment-1" rowspan="1">Words: 3D21 1C87 064B 4B23.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce42"></span>CE42</td>
+<td class="instruction">DEFB $86,$1D,$4C,$06,$23,$4C,$86,$21</td>
+<td class="comment-1" rowspan="1">Words: 1D86 064C 4C23 2186.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ce4a"></span>CE4A</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">FF.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52409.html">CCB9</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#cdc2">Map</a></td>
+<td class="next">
+Next: <a href="52811.html">CE4B</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/337524.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

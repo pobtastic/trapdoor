@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at C65C</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at C65C. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at C65C" />
+<meta property="og:description" content="The Trap Door: Routine at C65C. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/50780.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/50780.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at C65C",
+"name": "The Trap Door: Routine at C65C",
+"description": "The Trap Door: Routine at C65C. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/50780.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at C65C"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/50780.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="50747.html">C63B</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#c65c">Map</a></td>
+<td class="next">
+Next: <a href="50958.html">C70E</a>
+</td>
+</tr>
+</table>
+<div class="description">C65C: Update Task Three Helpers</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="50040.html">Update_Task_Three_Entities</a>.
+</div>
+<div class="paragraph">
+Update Task Three Helpers for the current Thing Upstairs task.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Three_Helpers</td>
+<td class="address-2"><span id="c65c"></span>C65C</td>
+<td class="instruction">LD IX,$8F13</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the first eyeball creature (<a href="36595.html#8f13">StateData_Complex_03</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c660"></span>C660</td>
+<td class="instruction">LD DE,$000E</td>
+<td class="comment-1" rowspan="1">Each entity record is 000E bytes long, then load that length into <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c663"></span>C663</td>
+<td class="instruction">LD B,$04</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 04 as a loop counter.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Three_Helpers_Scan</td>
+<td class="address-2"><span id="c665"></span>C665</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">BC</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c666"></span>C666</td>
+<td class="instruction">LD A,(IX+$01)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's entity flags.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c669"></span>C669</td>
+<td class="instruction">AND $E0</td>
+<td class="comment-1" rowspan="1">Keep only the top bits E0 of the flag/coordinate in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c66b"></span>C66B</td>
+<td class="instruction">JR NZ,<a href="50780.html#c6e3">Update_Task_Three_Helpers_AdvanceSlot</a></td>
+<td class="comment-1" rowspan="1">If the result was non-zero, jump to <a href="50780.html#c6e3">Update_Task_Three_Helpers_AdvanceSlot</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c66d"></span>C66D</td>
+<td class="instruction">LD A,(IX+$06)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c670"></span>C670</td>
+<td class="instruction">CP $22</td>
+<td class="comment-1" rowspan="2">Is the current entity's y-extent less than 22? If so, jump to <a href="50780.html#c6e3">Update_Task_Three_Helpers_AdvanceSlot</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c672"></span>C672</td>
+<td class="instruction">JR C,<a href="50780.html#c6e3">Update_Task_Three_Helpers_AdvanceSlot</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c674"></span>C674</td>
+<td class="instruction">BIT 7,(IX+$00)</td>
+<td class="comment-1" rowspan="2">Is bit 07 of the current entity's entity type set? If not, call <a href="50780.html#c6f1">Update_Task_Three_Helpers_MaybeSetFlagBit2</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c678"></span>C678</td>
+<td class="instruction">CALL Z,<a href="50780.html#c6f1">Update_Task_Three_Helpers_MaybeSetFlagBit2</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c67b"></span>C67B</td>
+<td class="instruction">LD A,$15</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 15.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c67d"></span>C67D</td>
+<td class="instruction">CALL <a href="60133.html">PseudoRandom</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60133.html">PseudoRandom</a> to pick a pseudo-random value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c680"></span>C680</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is 15 zero? If so, jump to <a href="50780.html#c6eb">Update_Task_Three_Helpers_ClearTypeBit7</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c681"></span>C681</td>
+<td class="instruction">JR Z,<a href="50780.html#c6eb">Update_Task_Three_Helpers_ClearTypeBit7</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c683"></span>C683</td>
+<td class="instruction">CP $06</td>
+<td class="comment-1" rowspan="2">Is 15 less than 06? If so, jump to <a href="50780.html#c6b3">Update_Task_Three_Helpers_TryMoveLeft</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c685"></span>C685</td>
+<td class="instruction">JR C,<a href="50780.html#c6b3">Update_Task_Three_Helpers_TryMoveLeft</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c687"></span>C687</td>
+<td class="instruction">CP $0B</td>
+<td class="comment-1" rowspan="2">Is 15 less than 0B? If so, jump to <a href="50780.html#c6cc">Update_Task_Three_Helpers_TryMoveRight</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c689"></span>C689</td>
+<td class="instruction">JR C,<a href="50780.html#c6cc">Update_Task_Three_Helpers_TryMoveRight</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c68b"></span>C68B</td>
+<td class="instruction">CP $10</td>
+<td class="comment-1" rowspan="2">Is 15 less than 10? If so, jump to <a href="50780.html#c6a1">Update_Task_Three_Helpers_MoveRoomDown</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c68d"></span>C68D</td>
+<td class="instruction">JR C,<a href="50780.html#c6a1">Update_Task_Three_Helpers_MoveRoomDown</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c68f"></span>C68F</td>
+<td class="instruction">LD A,(IX+$04)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's room index.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c692"></span>C692</td>
+<td class="instruction">CP $05</td>
+<td class="comment-1" rowspan="2">Is the current entity's room index equal to 05? If so, jump to <a href="50780.html#c6e3">Update_Task_Three_Helpers_AdvanceSlot</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c694"></span>C694</td>
+<td class="instruction">JR Z,<a href="50780.html#c6e3">Update_Task_Three_Helpers_AdvanceSlot</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c696"></span>C696</td>
+<td class="instruction">INC (IX+$05)</td>
+<td class="comment-1" rowspan="2">Move this entity one character down.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c699"></span>C699</td>
+<td class="instruction">INC (IX+$06)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c69c"></span>C69C</td>
+<td class="instruction">INC (IX+$04)</td>
+<td class="comment-1" rowspan="1">Advance this entity into the next room.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c69f"></span>C69F</td>
+<td class="instruction">JR <a href="50780.html#c6e3">Update_Task_Three_Helpers_AdvanceSlot</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="50780.html#c6e3">Update_Task_Three_Helpers_AdvanceSlot</a> to advance to the next helper entity.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Three_Helpers_MoveRoomDown</td>
+<td class="address-2"><span id="c6a1"></span>C6A1</td>
+<td class="instruction">LD A,(IX+$04)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's room index.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6a4"></span>C6A4</td>
+<td class="instruction">CP $01</td>
+<td class="comment-1" rowspan="2">Is the current entity's room index equal to 01? If so, jump to <a href="50780.html#c6e3">Update_Task_Three_Helpers_AdvanceSlot</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6a6"></span>C6A6</td>
+<td class="instruction">JR Z,<a href="50780.html#c6e3">Update_Task_Three_Helpers_AdvanceSlot</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6a8"></span>C6A8</td>
+<td class="instruction">DEC (IX+$05)</td>
+<td class="comment-1" rowspan="2">Move this entity one character up.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6ab"></span>C6AB</td>
+<td class="instruction">DEC (IX+$06)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6ae"></span>C6AE</td>
+<td class="instruction">DEC (IX+$04)</td>
+<td class="comment-1" rowspan="1">Move this entity back one room.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6b1"></span>C6B1</td>
+<td class="instruction">JR <a href="50780.html#c6e3">Update_Task_Three_Helpers_AdvanceSlot</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="50780.html#c6e3">Update_Task_Three_Helpers_AdvanceSlot</a> to advance to the next helper entity.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Three_Helpers_TryMoveLeft</td>
+<td class="address-2"><span id="c6b3"></span>C6B3</td>
+<td class="instruction">LD A,(IX+$07)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6b6"></span>C6B6</td>
+<td class="instruction">CP $E0</td>
+<td class="comment-1" rowspan="2">Is the current entity's x-coordinate less than E0? If so, jump to <a href="50780.html#c6c0">Update_Task_Three_Helpers_LeftBoundCheck</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6b8"></span>C6B8</td>
+<td class="instruction">JR C,<a href="50780.html#c6c0">Update_Task_Three_Helpers_LeftBoundCheck</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6ba"></span>C6BA</td>
+<td class="instruction">CP $E4</td>
+<td class="comment-1" rowspan="2">Is the current entity's x-coordinate less than E4? If so, jump to <a href="50780.html#c6e3">Update_Task_Three_Helpers_AdvanceSlot</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6bc"></span>C6BC</td>
+<td class="instruction">JR C,<a href="50780.html#c6e3">Update_Task_Three_Helpers_AdvanceSlot</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6be"></span>C6BE</td>
+<td class="instruction">JR <a href="50780.html#c6c4">Update_Task_Three_Helpers_DecX</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="50780.html#c6c4">Update_Task_Three_Helpers_DecX</a> to decrease the helper's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Three_Helpers_LeftBoundCheck</td>
+<td class="address-2"><span id="c6c0"></span>C6C0</td>
+<td class="instruction">CP $43</td>
+<td class="comment-1" rowspan="2">Is the current entity's x-coordinate less than 43? If so, jump to <a href="50780.html#c6dd">Update_Task_Three_Helpers_IncX</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6c2"></span>C6C2</td>
+<td class="instruction">JR C,<a href="50780.html#c6dd">Update_Task_Three_Helpers_IncX</a></td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Three_Helpers_DecX</td>
+<td class="address-2"><span id="c6c4"></span>C6C4</td>
+<td class="instruction">DEC (IX+$07)</td>
+<td class="comment-1" rowspan="2">Move this entity one character left.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6c7"></span>C6C7</td>
+<td class="instruction">DEC (IX+$08)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6ca"></span>C6CA</td>
+<td class="instruction">JR <a href="50780.html#c6e3">Update_Task_Three_Helpers_AdvanceSlot</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="50780.html#c6e3">Update_Task_Three_Helpers_AdvanceSlot</a> to advance to the next helper entity.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Three_Helpers_TryMoveRight</td>
+<td class="address-2"><span id="c6cc"></span>C6CC</td>
+<td class="instruction">LD A,(IX+$07)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6cf"></span>C6CF</td>
+<td class="instruction">CP $E0</td>
+<td class="comment-1" rowspan="2">Is the current entity's x-coordinate less than E0? If so, jump to <a href="50780.html#c6d9">Update_Task_Three_Helpers_RightBoundCheck</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6d1"></span>C6D1</td>
+<td class="instruction">JR C,<a href="50780.html#c6d9">Update_Task_Three_Helpers_RightBoundCheck</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6d3"></span>C6D3</td>
+<td class="instruction">CP $FB</td>
+<td class="comment-1" rowspan="2">Is the current entity's x-coordinate less than FB? If not, jump to <a href="50780.html#c6e3">Update_Task_Three_Helpers_AdvanceSlot</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6d5"></span>C6D5</td>
+<td class="instruction">JR NC,<a href="50780.html#c6e3">Update_Task_Three_Helpers_AdvanceSlot</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6d7"></span>C6D7</td>
+<td class="instruction">JR <a href="50780.html#c6dd">Update_Task_Three_Helpers_IncX</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="50780.html#c6dd">Update_Task_Three_Helpers_IncX</a> to increase the helper's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Three_Helpers_RightBoundCheck</td>
+<td class="address-2"><span id="c6d9"></span>C6D9</td>
+<td class="instruction">CP $BB</td>
+<td class="comment-1" rowspan="2">Is the current entity's x-coordinate less than BB? If not, jump to <a href="50780.html#c6c4">Update_Task_Three_Helpers_DecX</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6db"></span>C6DB</td>
+<td class="instruction">JR NC,<a href="50780.html#c6c4">Update_Task_Three_Helpers_DecX</a></td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Three_Helpers_IncX</td>
+<td class="address-2"><span id="c6dd"></span>C6DD</td>
+<td class="instruction">INC (IX+$07)</td>
+<td class="comment-1" rowspan="2">Move this entity one character right.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6e0"></span>C6E0</td>
+<td class="instruction">INC (IX+$08)</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Three_Helpers_AdvanceSlot</td>
+<td class="address-2"><span id="c6e3"></span>C6E3</td>
+<td class="instruction">ADD IX,DE</td>
+<td class="comment-1" rowspan="1">Advance <span class="register">IX</span> to the next entity record.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6e5"></span>C6E5</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6e6"></span>C6E6</td>
+<td class="instruction">DEC B</td>
+<td class="comment-1" rowspan="1">Step the loop counter in <span class="register">B</span> back by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6e7"></span>C6E7</td>
+<td class="instruction">JP NZ,<a href="50780.html#c665">Update_Task_Three_Helpers_Scan</a></td>
+<td class="comment-1" rowspan="1">If the result was non-zero, jump to <a href="50780.html#c665">Update_Task_Three_Helpers_Scan</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6ea"></span>C6EA</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Three_Helpers_ClearTypeBit7</td>
+<td class="address-2"><span id="c6eb"></span>C6EB</td>
+<td class="instruction">RES 7,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Reset bit 07 of the current entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6ef"></span>C6EF</td>
+<td class="instruction">JR <a href="50780.html#c6e3">Update_Task_Three_Helpers_AdvanceSlot</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="50780.html#c6e3">Update_Task_Three_Helpers_AdvanceSlot</a> to advance to the next helper entity.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Three_Helpers_MaybeSetFlagBit2</td>
+<td class="address-2"><span id="c6f1"></span>C6F1</td>
+<td class="instruction">LD A,(IX+$07)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6f4"></span>C6F4</td>
+<td class="instruction">CP $E0</td>
+<td class="comment-1" rowspan="2">Is the current entity's x-coordinate less than E0? If not, jump to <a href="50780.html#c702">Update_Task_Three_Helpers_MaybeSetTypeBit7</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6f6"></span>C6F6</td>
+<td class="instruction">JR NC,<a href="50780.html#c702">Update_Task_Three_Helpers_MaybeSetTypeBit7</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6f8"></span>C6F8</td>
+<td class="instruction">RES 7,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Reset bit 07 of the current entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6fc"></span>C6FC</td>
+<td class="instruction">LD HL,$72B6</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the task-three flags (<a href="29366.html">TaskThreeFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c6ff"></span>C6FF</td>
+<td class="instruction">SET 2,(HL)</td>
+<td class="comment-1" rowspan="1">Set SlimyLoose (bit 02 of <a href="29366.html">TaskThreeFlags</a>; <a href="55251.html#d907">D907</a> skips that line while set).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c701"></span>C701</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Three_Helpers_MaybeSetTypeBit7</td>
+<td class="address-2"><span id="c702"></span>C702</td>
+<td class="instruction">LD A,$0A</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 0A.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c704"></span>C704</td>
+<td class="instruction">CALL <a href="60133.html">PseudoRandom</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60133.html">PseudoRandom</a> to pick a pseudo-random value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c707"></span>C707</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the random result in <span class="register">A</span> zero? If not, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c708"></span>C708</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c709"></span>C709</td>
+<td class="instruction">SET 7,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Set bit 07 of the current entity's entity type.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="c70d"></span>C70D</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="50747.html">C63B</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#c65c">Map</a></td>
+<td class="next">
+Next: <a href="50958.html">C70E</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/329600.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

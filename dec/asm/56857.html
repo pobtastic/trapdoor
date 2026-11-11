@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 56857</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 56857. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 56857" />
+<meta property="og:description" content="The Trap Door: Routine at 56857. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/56857.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/56857.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 56857",
+"name": "The Trap Door: Routine at 56857",
+"description": "The Trap Door: Routine at 56857. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/56857.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 56857"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/56857.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="56823.html">56823</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#56857">Map</a></td>
+<td class="next">
+Next: <a href="56913.html">56913</a>
+</td>
+</tr>
+</table>
+<div class="description">56857: Print Status Messages</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="43699.html">GameStart</a> and <a href="43925.html">Update_Berk_State</a>.
+</div>
+<div class="paragraph">
+Print the Learner/Super rating line from <a href="56756.html">Messaging_TooLateIveChangedMyMind</a>, then a task-progress line chosen from the task status flags (<a href="29364.html">TaskStatusFlags</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="56857"></span>
+<div class="comments">
+<div class="paragraph">
+Choose the rating message from the Learner Berk mode flag (<a href="29353.html">Flag_LearnerBerkMode</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Print_StatusMessages</td>
+<td class="address-2"><span id="56857"></span>56857</td>
+<td class="instruction">LD A,(29353)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the Learner Berk mode flag (<a href="29353.html">Flag_LearnerBerkMode</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="56860"></span>56860</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is Learner mode selected? If so, use the Learner rating at <a href="56789.html">Messaging_AsALearnerIThinkYouAre</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="56861"></span>56861</td>
+<td class="instruction">JR NZ,<a href="56857.html#56868">Print_StatusMessages_Learner</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="56863"></span>56863</td>
+<td class="instruction">LD HL,56823</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the Super Berk rating message (<a href="56823.html">Messaging_AsASuperberkIRateYouAs</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="56866"></span>56866</td>
+<td class="instruction">JR <a href="56857.html#56871">Print_StatusMessages_PrintRating</a></td>
+<td class="comment-1" rowspan="1">Skip to print it at <a href="56857.html#56871">Print_StatusMessages_PrintRating</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="56868"></span>
+<div class="comments">
+<div class="paragraph">
+Use the Learner Berk rating message at <a href="56789.html">Messaging_AsALearnerIThinkYouAre</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Print_StatusMessages_Learner</td>
+<td class="address-2"><span id="56868"></span>56868</td>
+<td class="instruction">LD HL,56789</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the Learner rating message (<a href="56789.html">Messaging_AsALearnerIThinkYouAre</a>).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="56871"></span>
+<div class="comments">
+<div class="paragraph">
+Print the chosen Learner / Super rating line via <a href="57990.html">Print_EncodedMessage</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Print_StatusMessages_PrintRating</td>
+<td class="address-2"><span id="56871"></span>56871</td>
+<td class="instruction">CALL <a href="57990.html">Print_EncodedMessage</a></td>
+<td class="comment-1" rowspan="1">Call <a href="57990.html">Print_EncodedMessage</a> to print the encoded rating message.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="56874"></span>
+<div class="comments">
+<div class="paragraph">
+Choose a task-progress message index from <a href="29364.html">TaskStatusFlags</a> / <a href="29360.html">DialogueLineIndex</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="56874"></span>56874</td>
+<td class="instruction">LD HL,57101</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the task briefing/progress table (<a href="57101.html">Messaging_ACompleteFailureYoureFired</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="56877"></span>56877</td>
+<td class="instruction">LD A,(29364)</td>
+<td class="comment-1" rowspan="1">Load the task status flags (<a href="29364.html">TaskStatusFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="56880"></span>56880</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Any task-status bits set? If not, use the dialogue line index at <a href="56857.html#56883">Print_StatusMessages_UseDialogueIndex</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="56881"></span>56881</td>
+<td class="instruction">JR NZ,<a href="56857.html#56889">Print_StatusMessages_FromTaskFlags</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="56883"></span>
+<div class="comments">
+<div class="paragraph">
+Fall back to dialogue-line index <a href="29360.html">DialogueLineIndex</a> when no task-status bits are set.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Print_StatusMessages_UseDialogueIndex</td>
+<td class="address-2"><span id="56883"></span>56883</td>
+<td class="instruction">LD A,(29360)</td>
+<td class="comment-1" rowspan="1">Load the dialogue line index (<a href="29360.html">DialogueLineIndex</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="56886"></span>56886</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Advance it by one for the table walk.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="56887"></span>56887</td>
+<td class="instruction">JR <a href="56857.html#56906">Print_StatusMessages_PrintIndexed</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="56857.html#56906">Print_StatusMessages_PrintIndexed</a> to print that indexed string.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="56889"></span>
+<div class="comments">
+<div class="paragraph">
+Derive the progress message from task-status flags (<a href="29364.html">TaskStatusFlags</a>), including Drutt's type-24 catch.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Print_StatusMessages_FromTaskFlags</td>
+<td class="address-2"><span id="56889"></span>56889</td>
+<td class="instruction">LD A,(29364)</td>
+<td class="comment-1" rowspan="1">Reload the task status flags (<a href="29364.html">TaskStatusFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="56892"></span>56892</td>
+<td class="instruction">BIT 4,A</td>
+<td class="comment-1" rowspan="2">Did Drutt collect a type-24 object (bit 4)? If so, use index 6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="56894"></span>56894</td>
+<td class="instruction">JR Z,<a href="56857.html#56900">Print_StatusMessages_SafeLootBit</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="56896"></span>56896</td>
+<td class="instruction">LD A,6</td>
+<td class="comment-1" rowspan="1">Load message index 6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="56898"></span>56898</td>
+<td class="instruction">JR <a href="56857.html#56906">Print_StatusMessages_PrintIndexed</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="56857.html#56906">Print_StatusMessages_PrintIndexed</a> to print the indexed status string.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="56900"></span>
+<div class="comments">
+<div class="paragraph">
+If Drutt caught a type-28 object (bit 5), use progress message index 7.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Print_StatusMessages_SafeLootBit</td>
+<td class="address-2"><span id="56900"></span>56900</td>
+<td class="instruction">BIT 5,A</td>
+<td class="comment-1" rowspan="2">Did Drutt collect a type-28 object (bit 5)? If not, fall back to <a href="56857.html#56883">Print_StatusMessages_UseDialogueIndex</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="56902"></span>56902</td>
+<td class="instruction">JR Z,<a href="56857.html#56883">Print_StatusMessages_UseDialogueIndex</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="56904"></span>56904</td>
+<td class="instruction">LD A,7</td>
+<td class="comment-1" rowspan="1">Load message index 7.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="56906"></span>
+<div class="comments">
+<div class="paragraph">
+Print the indexed progress string via <a href="56919.html">Print_MessageString</a>, then seed menu music and wait for a key via <a href="64620.html">Seed_MenuMusicAndWaitForKey</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Print_StatusMessages_PrintIndexed</td>
+<td class="address-2"><span id="56906"></span>56906</td>
+<td class="instruction">CALL <a href="56919.html">Print_MessageString</a></td>
+<td class="comment-1" rowspan="1">Call <a href="56919.html">Print_MessageString</a> to print the indexed string at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="56909"></span>56909</td>
+<td class="instruction">CALL <a href="64620.html">Seed_MenuMusicAndWaitForKey</a></td>
+<td class="comment-1" rowspan="1">Call <a href="64620.html">Seed_MenuMusicAndWaitForKey</a> to seed the menu music and wait for a key.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="56912"></span>56912</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="56823.html">56823</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#56857">Map</a></td>
+<td class="next">
+Next: <a href="56913.html">56913</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/DE19.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at 39002</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at 39002. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at 39002" />
+<meta property="og:description" content="The Trap Door: Data at 39002. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/39002.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/39002.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at 39002",
+"name": "The Trap Door: Data at 39002",
+"description": "The Trap Door: Data at 39002. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/39002.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at 39002"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/39002.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="38459.html">38459</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#39002">Map</a></td>
+<td class="next">
+Next: <a href="39209.html">39209</a>
+</td>
+</tr>
+</table>
+<div class="description">39002: Graphic Layout: Berk Facing In</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Berk facing into the screen (back view). Put-down scripts load <a href="39002.html">GraphicLayout_BerkFacingIn</a> from <a href="47525.html#47599">47599</a>, <a href="47525.html#47627">47627</a>, <a href="47525.html#47687">47687</a> and <a href="47525.html#47713">47713</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="39002"></span>
+<div class="comments">
+<div class="paragraph">
+Arms out to the sides.
+</div>
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-985a" src="../../images/scr/layout-985a.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GraphicLayout_BerkFacingIn</td>
+<td class="address-1"><span id="39002"></span>39002</td>
+<td class="instruction">DEFB 251,127,150</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="38459.html#38527">38527</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39005"></span>39005</td>
+<td class="instruction">DEFB 251,103,153</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39209.html#39271">39271</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39008"></span>39008</td>
+<td class="instruction">DEFB 251,134,153</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39209.html#39302">39302</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39011"></span>39011</td>
+<td class="instruction">DEFB 251,32,154</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39209.html#39456">39456</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39014"></span>39014</td>
+<td class="instruction">DEFB 248,7,154</td>
+<td class="comment-1" rowspan="1">Jump to the layout at <a href="39209.html#39431">39431</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="39017"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-9869" src="../../images/scr/layout-9869.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39017"></span>39017</td>
+<td class="instruction">DEFB 251,127,150</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="38459.html#38527">38527</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39020"></span>39020</td>
+<td class="instruction">DEFB 251,145,154</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39209.html#39569">39569</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39023"></span>39023</td>
+<td class="instruction">DEFB 251,176,154</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39209.html#39600">39600</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39026"></span>39026</td>
+<td class="instruction">DEFB 251,32,154</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39209.html#39456">39456</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39029"></span>39029</td>
+<td class="instruction">DEFB 248,7,154</td>
+<td class="comment-1" rowspan="1">Jump to the layout at <a href="39209.html#39431">39431</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="39032"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-9878" src="../../images/scr/layout-9878.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39032"></span>39032</td>
+<td class="instruction">DEFB 251,127,150</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="38459.html#38527">38527</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39035"></span>39035</td>
+<td class="instruction">DEFB 251,165,153</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39209.html#39333">39333</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39038"></span>39038</td>
+<td class="instruction">DEFB 251,176,154</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39209.html#39600">39600</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39041"></span>39041</td>
+<td class="instruction">DEFB 251,101,154</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39209.html#39525">39525</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39044"></span>39044</td>
+<td class="instruction">DEFB 248,7,154</td>
+<td class="comment-1" rowspan="1">Jump to the layout at <a href="39209.html#39431">39431</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="39047"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-9887" src="../../images/scr/layout-9887.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39047"></span>39047</td>
+<td class="instruction">DEFB 251,127,150</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="38459.html#38527">38527</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39050"></span>39050</td>
+<td class="instruction">DEFB 251,103,153</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39209.html#39271">39271</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39053"></span>39053</td>
+<td class="instruction">DEFB 251,207,154</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39209.html#39631">39631</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39056"></span>39056</td>
+<td class="instruction">DEFB 251,32,154</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39209.html#39456">39456</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39059"></span>39059</td>
+<td class="instruction">DEFB 248,248,153</td>
+<td class="comment-1" rowspan="1">Jump to the layout at <a href="39209.html#39416">39416</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="39062"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-9896" src="../../images/scr/layout-9896.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39062"></span>39062</td>
+<td class="instruction">DEFB 251,127,150</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="38459.html#38527">38527</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39065"></span>39065</td>
+<td class="instruction">DEFB 251,145,154</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39209.html#39569">39569</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39068"></span>39068</td>
+<td class="instruction">DEFB 251,134,153</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39209.html#39302">39302</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39071"></span>39071</td>
+<td class="instruction">DEFB 251,32,154</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39209.html#39456">39456</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39074"></span>39074</td>
+<td class="instruction">DEFB 248,123,154</td>
+<td class="comment-1" rowspan="1">Jump to the layout at <a href="39209.html#39547">39547</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="39077"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-98a5" src="../../images/scr/layout-98a5.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39077"></span>39077</td>
+<td class="instruction">DEFB 251,127,150</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="38459.html#38527">38527</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39080"></span>39080</td>
+<td class="instruction">DEFB 251,241,154</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39209.html#39665">39665</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39083"></span>39083</td>
+<td class="instruction">DEFB 251,134,153</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39209.html#39302">39302</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39086"></span>39086</td>
+<td class="instruction">DEFB 251,233,153</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39209.html#39401">39401</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39089"></span>39089</td>
+<td class="instruction">DEFB 248,7,154</td>
+<td class="comment-1" rowspan="1">Jump to the layout at <a href="39209.html#39431">39431</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="39092"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-98b4" src="../../images/scr/layout-98b4.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39092"></span>39092</td>
+<td class="instruction">DEFB 251,225,152</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39002.html#39137">39137</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39095"></span>39095</td>
+<td class="instruction">DEFB 251,32,154</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39209.html#39456">39456</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39098"></span>39098</td>
+<td class="instruction">DEFB 248,7,154</td>
+<td class="comment-1" rowspan="1">Jump to the layout at <a href="39209.html#39431">39431</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="39101"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-98bd" src="../../images/scr/layout-98bd.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39101"></span>39101</td>
+<td class="instruction">DEFB 251,225,152</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39002.html#39137">39137</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39104"></span>39104</td>
+<td class="instruction">DEFB 251,101,154</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39209.html#39525">39525</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39107"></span>39107</td>
+<td class="instruction">DEFB 248,7,154</td>
+<td class="comment-1" rowspan="1">Jump to the layout at <a href="39209.html#39431">39431</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="39110"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-98c6" src="../../images/scr/layout-98c6.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39110"></span>39110</td>
+<td class="instruction">DEFB 251,225,152</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39002.html#39137">39137</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39113"></span>39113</td>
+<td class="instruction">DEFB 251,32,154</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39209.html#39456">39456</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39116"></span>39116</td>
+<td class="instruction">DEFB 248,248,153</td>
+<td class="comment-1" rowspan="1">Jump to the layout at <a href="39209.html#39416">39416</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="39119"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-98cf" src="../../images/scr/layout-98cf.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39119"></span>39119</td>
+<td class="instruction">DEFB 251,225,152</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39002.html#39137">39137</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39122"></span>39122</td>
+<td class="instruction">DEFB 251,32,154</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39209.html#39456">39456</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39125"></span>39125</td>
+<td class="instruction">DEFB 248,123,154</td>
+<td class="comment-1" rowspan="1">Jump to the layout at <a href="39209.html#39547">39547</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="39128"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-98d8" src="../../images/scr/layout-98d8.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39128"></span>39128</td>
+<td class="instruction">DEFB 251,225,152</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39002.html#39137">39137</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39131"></span>39131</td>
+<td class="instruction">DEFB 251,233,153</td>
+<td class="comment-1" rowspan="1">Process the nested layout at <a href="39209.html#39401">39401</a>, then return to the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39134"></span>39134</td>
+<td class="instruction">DEFB 248,7,154</td>
+<td class="comment-1" rowspan="1">Jump to the layout at <a href="39209.html#39431">39431</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="39137"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-98e1" src="../../images/scr/layout-98e1.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39137"></span>39137</td>
+<td class="instruction">DEFB 244,1</td>
+<td class="comment-1" rowspan="1">Set the graphic set to <a href="31825.html">1</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39139"></span>39139</td>
+<td class="instruction">DEFB 254,0,2</td>
+<td class="comment-1" rowspan="1">Move the cursor by 2 horizontally and 0 vertically, and store as the base coordinates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39142"></span>39142</td>
+<td class="instruction">DEFB 93,65,33</td>
+<td class="comment-1" rowspan="1">Draw tile 93 with INK: BLUE,
+PAPER: BLACK (65) and move right by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39145"></span>39145</td>
+<td class="instruction">DEFB 93,65,30</td>
+<td class="comment-1" rowspan="1">Draw tile 93 with INK: BLUE,
+PAPER: BLACK (65) and move left by 2 and down by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39148"></span>39148</td>
+<td class="instruction">DEFB 155,65,33</td>
+<td class="comment-1" rowspan="1">Draw tile 155 with INK: BLUE,
+PAPER: BLACK (65) and move right by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39151"></span>39151</td>
+<td class="instruction">DEFB 0,9,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 with INK: BLUE,
+PAPER: BLUE (9) and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39154"></span>39154</td>
+<td class="instruction">DEFB 0,9,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 with INK: BLUE,
+PAPER: BLUE (9) and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39157"></span>39157</td>
+<td class="instruction">DEFB 155,193,28</td>
+<td class="comment-1" rowspan="1">Draw tile 155 with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (193) and move left by 4 and down by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39160"></span>39160</td>
+<td class="instruction">DEFB 158,65,33</td>
+<td class="comment-1" rowspan="1">Draw tile 158 with INK: BLUE,
+PAPER: BLACK (65) and move right by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39163"></span>39163</td>
+<td class="instruction">DEFB 167,65,161</td>
+<td class="comment-1" rowspan="1">Draw tile 167 with INK: BLUE,
+PAPER: BLACK (65) and move right by 1&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39166"></span>39166</td>
+<td class="instruction">DEFB 0,9,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 with INK: BLUE,
+PAPER: BLUE (9) and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39169"></span>39169</td>
+<td class="instruction">DEFB 0,9,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 with INK: BLUE,
+PAPER: BLUE (9) and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39172"></span>39172</td>
+<td class="instruction">DEFB 167,193,161</td>
+<td class="comment-1" rowspan="1">Draw tile 167 with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (193) and move right by 1&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39175"></span>39175</td>
+<td class="instruction">DEFB 158,193,27</td>
+<td class="comment-1" rowspan="1">Draw tile 158 with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (193) and move left by 5 and down by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39178"></span>39178</td>
+<td class="instruction">DEFB 168,65,33</td>
+<td class="comment-1" rowspan="1">Draw tile 168 with INK: BLUE,
+PAPER: BLACK (65) and move right by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39181"></span>39181</td>
+<td class="instruction">DEFB 169,65,161</td>
+<td class="comment-1" rowspan="1">Draw tile 169 with INK: BLUE,
+PAPER: BLACK (65) and move right by 1&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39184"></span>39184</td>
+<td class="instruction">DEFB 0,9,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 with INK: BLUE,
+PAPER: BLUE (9) and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39187"></span>39187</td>
+<td class="instruction">DEFB 0,9,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 with INK: BLUE,
+PAPER: BLUE (9) and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39190"></span>39190</td>
+<td class="instruction">DEFB 169,193,161</td>
+<td class="comment-1" rowspan="1">Draw tile 169 with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (193) and move right by 1&#44; keeping black paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39193"></span>39193</td>
+<td class="instruction">DEFB 168,193,28</td>
+<td class="comment-1" rowspan="1">Draw tile 168 with INK: BLUE,
+PAPER: BLACK&#44; MIRRORED (193) and move left by 4 and down by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39196"></span>39196</td>
+<td class="instruction">DEFB 0,9,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 with INK: BLUE,
+PAPER: BLUE (9) and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39199"></span>39199</td>
+<td class="instruction">DEFB 0,9,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 with INK: BLUE,
+PAPER: BLUE (9) and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39202"></span>39202</td>
+<td class="instruction">DEFB 0,9,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 with INK: BLUE,
+PAPER: BLUE (9) and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39205"></span>39205</td>
+<td class="instruction">DEFB 0,9,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 with INK: BLUE,
+PAPER: BLUE (9) and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="39208"></span>39208</td>
+<td class="instruction">DEFB 255</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="38459.html">38459</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#39002">Map</a></td>
+<td class="next">
+Next: <a href="39209.html">39209</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/985A.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

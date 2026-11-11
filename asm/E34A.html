@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at E34A</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at E34A. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at E34A" />
+<meta property="og:description" content="The Trap Door: Routine at E34A. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/E34A.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/E34A.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at E34A",
+"name": "The Trap Door: Routine at E34A",
+"description": "The Trap Door: Routine at E34A. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/E34A.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at E34A"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/E34A.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="E300.html">E300</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#e34a">Map</a></td>
+<td class="next">
+Next: <a href="E376.html">E376</a>
+</td>
+</tr>
+</table>
+<div class="description">E34A: Centre And Draw Message Row</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="E300.html">Paint_MessageBuffer</a>.
+</div>
+<div class="paragraph">
+Count characters in the current message row (until &#36; &#43; or &#93;), centre that run within 20 columns, then draw it via <a href="E376.html">Draw_MessageCharacter</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Attribute-file address for the row</td>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Pointer into the decoded message buffer</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="e34a"></span>
+<div class="comments">
+<div class="paragraph">
+Count characters until a row or message end, then centre and draw the run.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Centre_AndDrawMessageRow</td>
+<td class="address-2"><span id="e34a"></span>E34A</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="2">Stash <span class="register">HL</span> and <span class="register">IX</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e34b"></span>E34B</td>
+<td class="instruction">PUSH IX</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e34d"></span>E34D</td>
+<td class="instruction">LD C,$FF</td>
+<td class="comment-1" rowspan="1">Start the character count at FF (pre-increment).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="e34f"></span>
+<div class="comments">
+<div class="paragraph">
+Count characters until &#36; &#43; or &#93; to measure the current message row.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Centre_AndDrawMessageRow_Count</td>
+<td class="address-2"><span id="e34f"></span>E34F</td>
+<td class="instruction">INC C</td>
+<td class="comment-1" rowspan="1">Advance the character count.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e350"></span>E350</td>
+<td class="instruction">LD A,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Fetch the next buffer byte through <span class="register">IX</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e353"></span>E353</td>
+<td class="instruction">CP $24</td>
+<td class="comment-1" rowspan="2">Is it &#36; &#43; or &#93; (row/message end)?, then if &#36; stop counting at <a href="E34A.html#e363">Centre_AndDrawMessageRow_Centre</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e355"></span>E355</td>
+<td class="instruction">JR Z,<a href="E34A.html#e363">Centre_AndDrawMessageRow_Centre</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e357"></span>E357</td>
+<td class="instruction">CP $2B</td>
+<td class="comment-1" rowspan="2">Is it a new-row marker (&#43;)? If so, stop counting at <a href="E34A.html#e363">Centre_AndDrawMessageRow_Centre</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e359"></span>E359</td>
+<td class="instruction">JR Z,<a href="E34A.html#e363">Centre_AndDrawMessageRow_Centre</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e35b"></span>E35B</td>
+<td class="instruction">CP $5D</td>
+<td class="comment-1" rowspan="2">Is it the message terminator (&#93;)? If so, stop counting at <a href="E34A.html#e363">Centre_AndDrawMessageRow_Centre</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e35d"></span>E35D</td>
+<td class="instruction">JR Z,<a href="E34A.html#e363">Centre_AndDrawMessageRow_Centre</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e35f"></span>E35F</td>
+<td class="instruction">INC IX</td>
+<td class="comment-1" rowspan="1">Advance <span class="register">IX</span> to the next buffer byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e361"></span>E361</td>
+<td class="instruction">JR <a href="E34A.html#e34f">Centre_AndDrawMessageRow_Count</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="E34A.html#e34f">Centre_AndDrawMessageRow_Count</a> to keep counting.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="e363"></span>
+<div class="comments">
+<div class="paragraph">
+Centre the counted run within 20 columns and draw it via <a href="E376.html">Draw_MessageCharacter</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Centre_AndDrawMessageRow_Centre</td>
+<td class="address-2"><span id="e363"></span>E363</td>
+<td class="instruction">POP IX</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">IX</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e365"></span>E365</td>
+<td class="instruction">LD ($DDA1),A</td>
+<td class="comment-1" rowspan="1">Remember the terminator byte in <a href="DD94.html">DDA1</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e368"></span>E368</td>
+<td class="instruction">LD A,$20</td>
+<td class="comment-1" rowspan="1">Compute (20−length)/02 as a left-indent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e36a"></span>E36A</td>
+<td class="instruction">SUB C</td>
+<td class="comment-1" rowspan="1">Subtract the row width from 20 to get the left pad.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e36b"></span>E36B</td>
+<td class="instruction">SRL A</td>
+<td class="comment-1" rowspan="1">Halve that pad so the row is centred.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e36d"></span>E36D</td>
+<td class="instruction">LD B,$00</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e36f"></span>E36F</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Keep the indent in <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e370"></span>E370</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-1" rowspan="1">Add it to the row's attribute address.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e371"></span>E371</td>
+<td class="instruction">CALL <a href="E376.html">Draw_MessageCharacter</a></td>
+<td class="comment-1" rowspan="1">Call <a href="E376.html">Draw_MessageCharacter</a> to draw the centred row.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e374"></span>E374</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e375"></span>E375</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="E300.html">E300</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#e34a">Map</a></td>
+<td class="next">
+Next: <a href="E376.html">E376</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/58186.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

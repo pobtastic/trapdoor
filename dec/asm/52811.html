@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 52811</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 52811. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 52811" />
+<meta property="og:description" content="The Trap Door: Routine at 52811. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/52811.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/52811.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 52811",
+"name": "The Trap Door: Routine at 52811",
+"description": "The Trap Door: Routine at 52811. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/52811.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 52811"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/52811.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52672.html">52672</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52811">Map</a></td>
+<td class="next">
+Next: <a href="52961.html">52961</a>
+</td>
+</tr>
+</table>
+<div class="description">52811: Update Ghosts</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="51879.html">Update_Task_Four_Entities</a>.
+</div>
+<div class="paragraph">
+Update the ghost entities: clear their interaction latch, walk their scripts and queue a moan if one is active.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Ghosts</td>
+<td class="address-2"><span id="52811"></span>52811</td>
+<td class="instruction">LD HL,29369</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the entity interaction flag (<a href="29369.html">EntityInteractionFlag</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52814"></span>52814</td>
+<td class="instruction">BIT 3,(HL)</td>
+<td class="comment-1" rowspan="2">Is bit 3 of <a href="29369.html">EntityInteractionFlag</a> set? If not, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52816"></span>52816</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52817"></span>52817</td>
+<td class="instruction">RES 3,(HL)</td>
+<td class="comment-1" rowspan="1">Clear bit 3 of <a href="29369.html">EntityInteractionFlag</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52819"></span>52819</td>
+<td class="instruction">LD IX,36725</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the plant-pot complex entity (<a href="36595.html#36725">StateData_Complex_10</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52823"></span>52823</td>
+<td class="instruction">LD B,3</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 3 as a loop counter.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52825"></span>
+<div class="comments">
+<div class="paragraph">
+Scan each ghost slot: idle ones skip; active ones tick their delay or advance a moan frame.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Ghosts_Scan</td>
+<td class="address-2"><span id="52825"></span>52825</td>
+<td class="instruction">LD A,(IX+9)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's direction / state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52828"></span>52828</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the current entity's direction / state zero? If so, jump to <a href="52811.html#52927">Update_Ghosts_AdvanceSlot</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52829"></span>52829</td>
+<td class="instruction">JR Z,<a href="52811.html#52927">Update_Ghosts_AdvanceSlot</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52831"></span>52831</td>
+<td class="instruction">CP 11</td>
+<td class="comment-1" rowspan="2">Is the current entity's direction / state less than 11? If not, jump to <a href="52811.html#52927">Update_Ghosts_AdvanceSlot</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52833"></span>52833</td>
+<td class="instruction">JR NC,<a href="52811.html#52927">Update_Ghosts_AdvanceSlot</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52835"></span>52835</td>
+<td class="instruction">LD A,(IX+12)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's extra state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52838"></span>52838</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the current entity's extra state zero? If so, jump to <a href="52811.html#52846">Update_Ghosts_AdvanceFrame</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52839"></span>52839</td>
+<td class="instruction">JR Z,<a href="52811.html#52846">Update_Ghosts_AdvanceFrame</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52841"></span>52841</td>
+<td class="instruction">DEC (IX+12)</td>
+<td class="comment-1" rowspan="1">Decrease the current entity's extra state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52844"></span>52844</td>
+<td class="instruction">JR <a href="52811.html#52925">Update_Ghosts_RetriggerBit3</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="52811.html#52925">Update_Ghosts_RetriggerBit3</a> to mark this ghost slot done.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52846"></span>
+<div class="comments">
+<div class="paragraph">
+Advance the ghost frame; at the end spawn a plant shoot via <a href="52961.html">Update_Plant_Pots</a> and raise game-event bit 0.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Ghosts_AdvanceFrame</td>
+<td class="address-2"><span id="52846"></span>52846</td>
+<td class="instruction">LD A,(IX+9)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's direction / state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52849"></span>52849</td>
+<td class="instruction">CP 10</td>
+<td class="comment-1" rowspan="2">Is the current entity's direction / state less than 10? If so, jump to <a href="52811.html#52875">Update_Ghosts_WriteLayoutFromTable</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52851"></span>52851</td>
+<td class="instruction">JR C,<a href="52811.html#52875">Update_Ghosts_WriteLayoutFromTable</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52853"></span>52853</td>
+<td class="instruction">LD C,12</td>
+<td class="comment-1" rowspan="1">Load <span class="register">C</span> with 12 (vertical offset passed to <a href="52961.html">Update_Plant_Pots</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52855"></span>52855</td>
+<td class="instruction">CALL <a href="52961.html">Update_Plant_Pots</a></td>
+<td class="comment-1" rowspan="1">Call <a href="52961.html">Update_Plant_Pots</a> to update Plant Pots.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52858"></span>52858</td>
+<td class="instruction">SET 7,(IY+1)</td>
+<td class="comment-1" rowspan="1">Set bit 7 of the referenced entity's flags byte 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52862"></span>52862</td>
+<td class="instruction">INC (IY+4)</td>
+<td class="comment-1" rowspan="1">Increment the referenced entity's room index.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52865"></span>52865</td>
+<td class="instruction">LD A,(29363)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the game event flags (<a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52868"></span>52868</td>
+<td class="instruction">SET 0,A</td>
+<td class="comment-1" rowspan="1">Set bit 0 of game event flags.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52870"></span>52870</td>
+<td class="instruction">LD (29363),A</td>
+<td class="comment-1" rowspan="1">Set the game event flags (<a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52873"></span>52873</td>
+<td class="instruction">LD A,10</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 10.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52875"></span>
+<div class="comments">
+<div class="paragraph">
+Install the next ghost layout from table <a href="52811.html#52937">52937</a>; frame 7 uses a fixed moan delay.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Ghosts_WriteLayoutFromTable</td>
+<td class="address-2"><span id="52875"></span>52875</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Advance the ghost frame index in <span class="register">A</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52876"></span>52876</td>
+<td class="instruction">LD (IX+9),A</td>
+<td class="comment-1" rowspan="1">Set the current entity's direction / state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52879"></span>52879</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-1" rowspan="1">Double 10 (word index).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52880"></span>52880</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1">Keep 10 in <span class="register">E</span> for later.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52881"></span>52881</td>
+<td class="instruction">LD D,0</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">D</span> (high byte of a pointer/offset).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52883"></span>52883</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">HL</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52884"></span>52884</td>
+<td class="instruction">LD HL,52937</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at ghost script/table data (<a href="52811.html#52937">52937</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52887"></span>52887</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">Add the offset in <span class="register">DE</span> to the pointer in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52888"></span>52888</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the next byte from <a href="52811.html#52937">52937</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52889"></span>52889</td>
+<td class="instruction">LD (IX+10),A</td>
+<td class="comment-1" rowspan="1">Set the current entity's graphic layout address (low).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52892"></span>52892</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance <a href="52811.html#52937">52937</a> by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52893"></span>52893</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the next byte from <a href="52811.html#52937">52937</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52894"></span>52894</td>
+<td class="instruction">LD (IX+11),A</td>
+<td class="comment-1" rowspan="1">Set the current entity's graphic layout address (high).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52897"></span>52897</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52898"></span>52898</td>
+<td class="instruction">LD A,(IX+9)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's direction / state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52901"></span>52901</td>
+<td class="instruction">CP 7</td>
+<td class="comment-1" rowspan="2">Is the current entity's direction / state equal to 7? If not, jump to <a href="52811.html#52909">Update_Ghosts_RandomExtraState</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52903"></span>52903</td>
+<td class="instruction">JR NZ,<a href="52811.html#52909">Update_Ghosts_RandomExtraState</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52905"></span>52905</td>
+<td class="instruction">LD A,5</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 5.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52907"></span>52907</td>
+<td class="instruction">JR <a href="52811.html#52917">Update_Ghosts_StoreExtraAndMoan</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="52811.html#52917">Update_Ghosts_StoreExtraAndMoan</a> to store the ghost's extra state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52909"></span>
+<div class="comments">
+<div class="paragraph">
+Pick a random extra-state delay from the current frame index.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Ghosts_RandomExtraState</td>
+<td class="address-2"><span id="52909"></span>52909</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-1" rowspan="1">Double the frame index in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52910"></span>52910</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-1" rowspan="2">Multiply <span class="register">A</span> by 4 to form a table index.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52911"></span>52911</td>
+<td class="instruction">ADD A,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52912"></span>52912</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Keep 5 in <span class="register">C</span> for later.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52913"></span>52913</td>
+<td class="instruction">CALL <a href="60133.html">PseudoRandom</a></td>
+<td class="comment-1" rowspan="2">Call <a href="60133.html">PseudoRandom</a> to pick a pseudo-random value and add the saved count in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52916"></span>52916</td>
+<td class="instruction">ADD A,C</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52917"></span>
+<div class="comments">
+<div class="paragraph">
+Arm the ghost's moan delay and queue sound 15 via <a href="63737.html">Queue_Sound</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Ghosts_StoreExtraAndMoan</td>
+<td class="address-2"><span id="52917"></span>52917</td>
+<td class="instruction">LD (IX+12),A</td>
+<td class="comment-1" rowspan="1">Set the current entity's extra state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52920"></span>
+<div class="comments">
+<div class="paragraph">
+<audio controls="" src="../../audio/ghost.wav">
+<p>Your browser doesn't support HTML5 audio. Here is a <a href="../../audio/ghost.wav">link to the audio</a> instead.</p>
+</audio>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52920"></span>52920</td>
+<td class="instruction">LD A,15</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 15.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52922"></span>52922</td>
+<td class="instruction">CALL <a href="63737.html">Queue_Sound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="63737.html">Queue_Sound</a> to queue a sound effect.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52925"></span>
+<div class="comments">
+<div class="paragraph">
+Retrigger interaction bit 3 of <a href="29369.html">EntityInteractionFlag</a> so <a href="52811.html">Update_Ghosts</a> will scan again.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Ghosts_RetriggerBit3</td>
+<td class="address-2"><span id="52925"></span>52925</td>
+<td class="instruction">SET 3,(HL)</td>
+<td class="comment-1" rowspan="1">Set bit 3 of <a href="29369.html">EntityInteractionFlag</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52927"></span>
+<div class="comments">
+<div class="paragraph">
+Advance to the next ghost slot and loop until all 3 are done.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Ghosts_AdvanceSlot</td>
+<td class="address-2"><span id="52927"></span>52927</td>
+<td class="instruction">LD DE,14</td>
+<td class="comment-1" rowspan="1">Each entity record is 0014 bytes long, then load that length into <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52930"></span>52930</td>
+<td class="instruction">ADD IX,DE</td>
+<td class="comment-1" rowspan="1">Advance <span class="register">IX</span> to the next entity record.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52932"></span>52932</td>
+<td class="instruction">DEC B</td>
+<td class="comment-1" rowspan="1">Step the loop counter in <span class="register">B</span> back by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52933"></span>52933</td>
+<td class="instruction">JP NZ,<a href="52811.html#52825">Update_Ghosts_Scan</a></td>
+<td class="comment-1" rowspan="1">If the result was non-zero, jump to <a href="52811.html#52825">Update_Ghosts_Scan</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52936"></span>52936</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52937"></span>52937</td>
+<td class="instruction">ADD A,D</td>
+<td class="comment-1" rowspan="1">Add <span class="register">D</span> into <span class="register">A</span> while building a 16-bit entity/screen address.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52938"></span>52938</td>
+<td class="instruction">AND B</td>
+<td class="comment-1" rowspan="1">Mask 15 with <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52939"></span>52939</td>
+<td class="instruction">ADD A,D</td>
+<td class="comment-1" rowspan="1">Add <span class="register">D</span> into <span class="register">A</span> while building a 16-bit entity/screen address.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52940"></span>52940</td>
+<td class="instruction">AND B</td>
+<td class="comment-1" rowspan="3">Mask <span class="register">A</span> with <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52941"></span>52941</td>
+<td class="instruction">AND B</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52942"></span>52942</td>
+<td class="instruction">AND B</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52943"></span>52943</td>
+<td class="instruction">XOR C</td>
+<td class="comment-1" rowspan="1">Toggle bits of the flag byte in <span class="register">A</span> using <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52944"></span>52944</td>
+<td class="instruction">AND B</td>
+<td class="comment-1" rowspan="1">Mask 15 with <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52945"></span>52945</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52946"></span>52946</td>
+<td class="instruction">AND B</td>
+<td class="comment-1" rowspan="1">Mask 15 with <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52947"></span>52947</td>
+<td class="instruction">OR L</td>
+<td class="comment-1" rowspan="1">Merge another flag byte into 15.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52948"></span>52948</td>
+<td class="instruction">AND B</td>
+<td class="comment-1" rowspan="1">Mask 15 with <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52949"></span>52949</td>
+<td class="instruction">CP E</td>
+<td class="comment-1" rowspan="1">Compare 15 with <span class="register">E</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52950"></span>52950</td>
+<td class="instruction">AND B</td>
+<td class="comment-1" rowspan="1">Mask 15 with <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52951"></span>52951</td>
+<td class="instruction">ADC A,160</td>
+<td class="comment-1" rowspan="1">Add 160 into <span class="register">A</span> (with carry) for an attribute address.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52953"></span>52953</td>
+<td class="instruction">JP C,58272</td>
+<td class="comment-1" rowspan="1">If a hit/borrow was signaled, jump to <a href="58230.html">58272</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52956"></span>52956</td>
+<td class="instruction">AND B</td>
+<td class="comment-1" rowspan="1">Mask 15 with <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52957"></span>52957</td>
+<td class="instruction">JP P,63648</td>
+<td class="comment-1" rowspan="1">Jump to <a href="63296.html#63648">Font_MainMenuLogo_0</a> if the sign flag is reset.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52960"></span>52960</td>
+<td class="instruction">AND B</td>
+<td class="comment-1" rowspan="1">Mask 15 with <span class="register">B</span>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52672.html">52672</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52811">Map</a></td>
+<td class="next">
+Next: <a href="52961.html">52961</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/CE4B.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

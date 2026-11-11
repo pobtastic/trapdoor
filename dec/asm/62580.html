@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Text at 62580</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Text at 62580. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Text at 62580" />
+<meta property="og:description" content="The Trap Door: Text at 62580. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/62580.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/62580.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Text at 62580",
+"name": "The Trap Door: Text at 62580",
+"description": "The Trap Door: Text at 62580. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/62580.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Text at 62580"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/62580.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-t">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Messages</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62571.html">62571</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#62580">Map</a></td>
+<td class="next">
+Next: <a href="62712.html">62712</a>
+</td>
+</tr>
+</table>
+<div class="description">62580: Messaging: Controls Menu</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Controls / redefine-keys printer stream for <a href="44399.html">Print_Menu_Strings</a>. Fragment headers are three bytes (attribute-file address low/high, then attribute); &#38; starts the next fragment. Options: KEYS, JOYSTICK, REDEFINE, CONTINUE; directions RIGHT / LEFT / DOWN / UP; actions DROP / TIP / HOLD. Score stream continues at <a href="62712.html">Messaging_ScoreHiScore</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Messaging_ControlsMenu</td>
+<td class="address-1"><span id="62580"></span>62580</td>
+<td class="instruction">DEFB 11</td>
+<td class="comment-1" rowspan="1">Attribute-file address low byte (11).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62581"></span>62581</td>
+<td class="instruction">DEFB 88</td>
+<td class="comment-1" rowspan="1">Attribute-file address high byte (88).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62582"></span>62582</td>
+<td class="instruction">DEFB 112</td>
+<td class="comment-1" rowspan="1">Text attribute (112).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62583"></span>62583</td>
+<td class="instruction">DEFM "K KEYS    "</td>
+<td class="comment-1" rowspan="1">"K KEYS&#160;&#160;&#160;&#160;".</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62593"></span>62593</td>
+<td class="instruction">DEFB 38</td>
+<td class="comment-1" rowspan="1">Join marker (&#38;).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62594"></span>62594</td>
+<td class="instruction">DEFB 75</td>
+<td class="comment-1" rowspan="1">Attribute-file address low byte (75).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62595"></span>62595</td>
+<td class="instruction">DEFB 88</td>
+<td class="comment-1" rowspan="1">Attribute-file address high byte (88).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62596"></span>62596</td>
+<td class="instruction">DEFB 112</td>
+<td class="comment-1" rowspan="1">Text attribute (112).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62597"></span>62597</td>
+<td class="instruction">DEFM "J JOYSTICK"</td>
+<td class="comment-1" rowspan="1">"J JOYSTICK".</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62607"></span>62607</td>
+<td class="instruction">DEFB 38</td>
+<td class="comment-1" rowspan="1">Join marker (&#38;).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62608"></span>62608</td>
+<td class="instruction">DEFB 139</td>
+<td class="comment-1" rowspan="1">Attribute-file address low byte (139).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62609"></span>62609</td>
+<td class="instruction">DEFB 88</td>
+<td class="comment-1" rowspan="1">Attribute-file address high byte (88).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62610"></span>62610</td>
+<td class="instruction">DEFB 112</td>
+<td class="comment-1" rowspan="1">Text attribute (112).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62611"></span>62611</td>
+<td class="instruction">DEFM "R REDEFINE"</td>
+<td class="comment-1" rowspan="1">"R REDEFINE".</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62621"></span>62621</td>
+<td class="instruction">DEFB 38</td>
+<td class="comment-1" rowspan="1">Join marker (&#38;).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62622"></span>62622</td>
+<td class="instruction">DEFB 203</td>
+<td class="comment-1" rowspan="1">Attribute-file address low byte (203).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62623"></span>62623</td>
+<td class="instruction">DEFB 88</td>
+<td class="comment-1" rowspan="1">Attribute-file address high byte (88).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62624"></span>62624</td>
+<td class="instruction">DEFB 112</td>
+<td class="comment-1" rowspan="1">Text attribute (112).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62625"></span>62625</td>
+<td class="instruction">DEFM "C CONTINUE"</td>
+<td class="comment-1" rowspan="1">"C CONTINUE".</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62635"></span>62635</td>
+<td class="instruction">DEFB 38</td>
+<td class="comment-1" rowspan="1">Join marker (&#38;).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62636"></span>62636</td>
+<td class="instruction">DEFB 13</td>
+<td class="comment-1" rowspan="1">Attribute-file address low byte (13).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62637"></span>62637</td>
+<td class="instruction">DEFB 89</td>
+<td class="comment-1" rowspan="1">Attribute-file address high byte (89).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62638"></span>62638</td>
+<td class="instruction">DEFB 112</td>
+<td class="comment-1" rowspan="1">Text attribute (112).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62639"></span>62639</td>
+<td class="instruction">DEFM " RIGHT "</td>
+<td class="comment-1" rowspan="1">" RIGHT ".</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62646"></span>62646</td>
+<td class="instruction">DEFB 38</td>
+<td class="comment-1" rowspan="1">Join marker (&#38;).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62647"></span>62647</td>
+<td class="instruction">DEFB 77</td>
+<td class="comment-1" rowspan="1">Attribute-file address low byte (77).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62648"></span>62648</td>
+<td class="instruction">DEFB 89</td>
+<td class="comment-1" rowspan="1">Attribute-file address high byte (89).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62649"></span>62649</td>
+<td class="instruction">DEFB 112</td>
+<td class="comment-1" rowspan="1">Text attribute (112).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62650"></span>62650</td>
+<td class="instruction">DEFM " LEFT  "</td>
+<td class="comment-1" rowspan="1">" LEFT&#160;&#160;".</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62657"></span>62657</td>
+<td class="instruction">DEFB 38</td>
+<td class="comment-1" rowspan="1">Join marker (&#38;).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62658"></span>62658</td>
+<td class="instruction">DEFB 141</td>
+<td class="comment-1" rowspan="1">Attribute-file address low byte (141).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62659"></span>62659</td>
+<td class="instruction">DEFB 89</td>
+<td class="comment-1" rowspan="1">Attribute-file address high byte (89).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62660"></span>62660</td>
+<td class="instruction">DEFB 112</td>
+<td class="comment-1" rowspan="1">Text attribute (112).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62661"></span>62661</td>
+<td class="instruction">DEFM " DOWN  "</td>
+<td class="comment-1" rowspan="1">" DOWN&#160;&#160;".</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62668"></span>62668</td>
+<td class="instruction">DEFB 38</td>
+<td class="comment-1" rowspan="1">Join marker (&#38;).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62669"></span>62669</td>
+<td class="instruction">DEFB 205</td>
+<td class="comment-1" rowspan="1">Attribute-file address low byte (205).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62670"></span>62670</td>
+<td class="instruction">DEFB 89</td>
+<td class="comment-1" rowspan="1">Attribute-file address high byte (89).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62671"></span>62671</td>
+<td class="instruction">DEFB 112</td>
+<td class="comment-1" rowspan="1">Text attribute (112).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62672"></span>62672</td>
+<td class="instruction">DEFM "  UP   "</td>
+<td class="comment-1" rowspan="1">"&#160;&#160;UP&#160;&#160;&#160;".</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62679"></span>62679</td>
+<td class="instruction">DEFB 38</td>
+<td class="comment-1" rowspan="1">Join marker (&#38;).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62680"></span>62680</td>
+<td class="instruction">DEFB 13</td>
+<td class="comment-1" rowspan="1">Attribute-file address low byte (13).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62681"></span>62681</td>
+<td class="instruction">DEFB 90</td>
+<td class="comment-1" rowspan="1">Attribute-file address high byte (90).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62682"></span>62682</td>
+<td class="instruction">DEFB 112</td>
+<td class="comment-1" rowspan="1">Text attribute (112).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62683"></span>62683</td>
+<td class="instruction">DEFM " DROP  "</td>
+<td class="comment-1" rowspan="1">" DROP&#160;&#160;".</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62690"></span>62690</td>
+<td class="instruction">DEFB 38</td>
+<td class="comment-1" rowspan="1">Join marker (&#38;).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62691"></span>62691</td>
+<td class="instruction">DEFB 77</td>
+<td class="comment-1" rowspan="1">Attribute-file address low byte (77).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62692"></span>62692</td>
+<td class="instruction">DEFB 90</td>
+<td class="comment-1" rowspan="1">Attribute-file address high byte (90).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62693"></span>62693</td>
+<td class="instruction">DEFB 112</td>
+<td class="comment-1" rowspan="1">Text attribute (112).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62694"></span>62694</td>
+<td class="instruction">DEFM "  TIP  "</td>
+<td class="comment-1" rowspan="1">"&#160;&#160;TIP&#160;&#160;".</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62701"></span>62701</td>
+<td class="instruction">DEFB 38</td>
+<td class="comment-1" rowspan="1">Join marker (&#38;).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62702"></span>62702</td>
+<td class="instruction">DEFB 141</td>
+<td class="comment-1" rowspan="1">Attribute-file address low byte (141).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62703"></span>62703</td>
+<td class="instruction">DEFB 90</td>
+<td class="comment-1" rowspan="1">Attribute-file address high byte (90).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62704"></span>62704</td>
+<td class="instruction">DEFB 112</td>
+<td class="comment-1" rowspan="1">Text attribute (112).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62705"></span>62705</td>
+<td class="instruction">DEFM " HOLD  "</td>
+<td class="comment-1" rowspan="1">" HOLD&#160;&#160;".</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62571.html">62571</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#62580">Map</a></td>
+<td class="next">
+Next: <a href="62712.html">62712</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/F474.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 43699</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 43699. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 43699" />
+<meta property="og:description" content="The Trap Door: Routine at 43699. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/43699.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/43699.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 43699",
+"name": "The Trap Door: Routine at 43699",
+"description": "The Trap Door: Routine at 43699. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/43699.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 43699"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/43699.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="43691.html">43691</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#43699">Map</a></td>
+<td class="next">
+Next: <a href="43825.html">43825</a>
+</td>
+</tr>
+</table>
+<div class="description">43699: Game Start</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="29344.html">Alias_GameStart</a>.
+</div>
+<div class="paragraph">
+Relocate the menu-music code, show the main menu, set up a new game, then enter the main loop.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GameStart</td>
+<td class="address-2"><span id="43699"></span>43699</td>
+<td class="instruction">DI</td>
+<td class="comment-1" rowspan="1">Disable interrupts.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43700"></span>43700</td>
+<td class="instruction">LD HL,28420</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at <a href="28420.html">MenuMusicSource</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43703"></span>43703</td>
+<td class="instruction">LD DE,64620</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=<a href="64620.html">Seed_MenuMusicAndWaitForKey</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43706"></span>43706</td>
+<td class="instruction">LD BC,915</td>
+<td class="comment-1" rowspan="1">Load <span class="register">BC</span> with 915 (menu-music source copy length).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43709"></span>43709</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="1">Copy the menu-music source to <a href="64620.html">Seed_MenuMusicAndWaitForKey</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43711"></span>43711</td>
+<td class="instruction">CALL <a href="64620.html">Seed_MenuMusicAndWaitForKey</a></td>
+<td class="comment-1" rowspan="1">Call <a href="64620.html">Seed_MenuMusicAndWaitForKey</a> to seed the menu music and wait for a key.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="43714"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="43691.html">GameRestart</a>.
+</div>
+<div class="paragraph">
+Seed RNG from <a rel="noopener nofollow" href="https://skoolkit.ca/disassemblies/rom/asm/23672.html">FRAMES</a>, run the main menu, initialise a new game, then tick the world.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GameStart_MainLoopEntry</td>
+<td class="address-2"><span id="43714"></span>43714</td>
+<td class="instruction">LD A,(23672)</td>
+<td class="comment-1" rowspan="2">Fetch <a rel="noopener nofollow" href="https://skoolkit.ca/disassemblies/rom/asm/23672.html">FRAMES</a>, then seed the random scratch byte (<a href="60130.html">RandomSeedScratch</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43717"></span>43717</td>
+<td class="instruction">LD (60130),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43720"></span>43720</td>
+<td class="instruction">CALL <a href="62447.html">MainMenu</a></td>
+<td class="comment-1" rowspan="1">Call <a href="62447.html">MainMenu</a> to display and handle the main menu.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43723"></span>43723</td>
+<td class="instruction">CALL <a href="44860.html">Initialise_New_Game</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44860.html">Initialise_New_Game</a> to initialise a new game.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="43726"></span>
+<div class="comments">
+<div class="paragraph">
+Per-frame update: controls, camera, Berk, task entities, Drutt, physics, messaging, blit.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GameStart_FrameLoop</td>
+<td class="address-2"><span id="43726"></span>43726</td>
+<td class="instruction">CALL <a href="62979.html">Read_PlayerControls</a></td>
+<td class="comment-1" rowspan="1">Call <a href="62979.html">Read_PlayerControls</a> to read the player controls into <a href="62968.html">ControlInputBitmap</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43729"></span>43729</td>
+<td class="instruction">CALL <a href="61939.html">Update_CameraFollow</a></td>
+<td class="comment-1" rowspan="1">Call <a href="61939.html">Update_CameraFollow</a> to update the camera follow.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="43732"></span>
+<div class="comments">
+<div class="paragraph">
+Update Berk's task/idle state and drive him from the control bitmap.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43732"></span>43732</td>
+<td class="instruction">CALL <a href="43925.html">Update_Berk_State</a></td>
+<td class="comment-1" rowspan="1">Call <a href="43925.html">Update_Berk_State</a> to update Berk's state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43735"></span>43735</td>
+<td class="instruction">CALL <a href="46106.html">Update_Berk_Controller</a></td>
+<td class="comment-1" rowspan="1">Call <a href="46106.html">Update_Berk_Controller</a> to update Berk's controller.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="43738"></span>
+<div class="comments">
+<div class="paragraph">
+Tick the current Thing Upstairs task entities (tasks two–four) plus the Thing Upstairs entity.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43738"></span>43738</td>
+<td class="instruction">CALL <a href="48845.html">Update_Task_Two_Entities</a></td>
+<td class="comment-1" rowspan="1">Call <a href="48845.html">Update_Task_Two_Entities</a> to update task-two entities.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43741"></span>43741</td>
+<td class="instruction">CALL <a href="50040.html">Update_Task_Three_Entities</a></td>
+<td class="comment-1" rowspan="1">Call <a href="50040.html">Update_Task_Three_Entities</a> to update task-three entities.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43744"></span>43744</td>
+<td class="instruction">CALL <a href="51879.html">Update_Task_Four_Entities</a></td>
+<td class="comment-1" rowspan="1">Call <a href="51879.html">Update_Task_Four_Entities</a> to update task-four entities.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43747"></span>43747</td>
+<td class="instruction">CALL <a href="48146.html">Update_ThingUpstairs_Entity</a></td>
+<td class="comment-1" rowspan="1">Call <a href="48146.html">Update_ThingUpstairs_Entity</a> to update the Thing Upstairs entity.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43750"></span>43750</td>
+<td class="instruction">CALL <a href="53047.html">Update_Miscellaneous_Entities</a></td>
+<td class="comment-1" rowspan="1">Call <a href="53047.html">Update_Miscellaneous_Entities</a> to update miscellaneous entities.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="43753"></span>
+<div class="comments">
+<div class="paragraph">
+Advance timed events, Drutt, falling/rising physics and Bad Tempered Thing dialogue.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43753"></span>43753</td>
+<td class="instruction">CALL <a href="44449.html">Update_Timed_Events</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44449.html">Update_Timed_Events</a> to update timed events.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43756"></span>43756</td>
+<td class="instruction">CALL <a href="45108.html">Update_Drutt</a></td>
+<td class="comment-1" rowspan="1">Call <a href="45108.html">Update_Drutt</a> to update Drutt.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43759"></span>43759</td>
+<td class="instruction">CALL <a href="45656.html">Process_Special_Entity_Flags</a></td>
+<td class="comment-1" rowspan="1">Call <a href="45656.html">Process_Special_Entity_Flags</a> to process special entity flags.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43762"></span>43762</td>
+<td class="instruction">CALL <a href="45481.html">Process_Falling_Entities</a></td>
+<td class="comment-1" rowspan="1">Call <a href="45481.html">Process_Falling_Entities</a> to process falling entities.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43765"></span>43765</td>
+<td class="instruction">CALL <a href="45598.html">Process_Rising_Entities</a></td>
+<td class="comment-1" rowspan="1">Call <a href="45598.html">Process_Rising_Entities</a> to process rising entities.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43768"></span>43768</td>
+<td class="instruction">CALL <a href="55251.html">Update_Bad_Tempered_Thing_Dialogue</a></td>
+<td class="comment-1" rowspan="1">Call <a href="55251.html">Update_Bad_Tempered_Thing_Dialogue</a> to update Bad Tempered Thing dialogue.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43771"></span>43771</td>
+<td class="instruction">CALL <a href="44927.html">Check_Task_Completion</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44927.html">Check_Task_Completion</a> to check task completion.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="43774"></span>
+<div class="comments">
+<div class="paragraph">
+Clear, populate and blit the display buffers, then play any queued sound.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43774"></span>43774</td>
+<td class="instruction">CALL <a href="59972.html">Clear_DisplayBuffer</a></td>
+<td class="comment-1" rowspan="1">Call <a href="59972.html">Clear_DisplayBuffer</a> to clear the display buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43777"></span>43777</td>
+<td class="instruction">CALL <a href="59099.html">PopulateDisplayBuffer_VisibleEntities</a></td>
+<td class="comment-1" rowspan="1">Call <a href="59099.html">PopulateDisplayBuffer_VisibleEntities</a> to populate the display buffer for visible entities.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43780"></span>43780</td>
+<td class="instruction">CALL <a href="59793.html">Blit_DisplayBuffer</a></td>
+<td class="comment-1" rowspan="1">Call <a href="59793.html">Blit_DisplayBuffer</a> to blit the display buffer to the screen.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43783"></span>43783</td>
+<td class="instruction">CALL <a href="63919.html">Play_QueuedSound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="63919.html">Play_QueuedSound</a> to play any queued sound.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="43786"></span>
+<div class="comments">
+<div class="paragraph">
+Flip the double-buffer select and continue unless the camera-follow entity has been cleared (death).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43786"></span>43786</td>
+<td class="instruction">LD HL,25504</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at display buffer A (<a href="25504.html">PrimaryDisplayBuffer</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43789"></span>43789</td>
+<td class="instruction">LD DE,27424</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at display buffer B (<a href="27424.html">SecondaryDisplayBuffer</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43792"></span>43792</td>
+<td class="instruction">LD A,(29418)</td>
+<td class="comment-1" rowspan="1">Fetch the display-buffer select flag (<a href="29418.html">DisplayBufferSelectFlag</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43795"></span>43795</td>
+<td class="instruction">XOR %00000001</td>
+<td class="comment-1" rowspan="1">Toggle bit 0 of <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43797"></span>43797</td>
+<td class="instruction">LD (29418),A</td>
+<td class="comment-1" rowspan="1">Store it back at <a href="29418.html">DisplayBufferSelectFlag</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43800"></span>43800</td>
+<td class="instruction">JR Z,<a href="43699.html#43803">GameStart_StoreBufferPointer</a></td>
+<td class="comment-1" rowspan="1">If it is now zero, keep <span class="register">HL</span> = buffer A at <a href="43699.html#43803">GameStart_StoreBufferPointer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43802"></span>43802</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Otherwise swap so <span class="register">HL</span> = buffer B.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="43803"></span>
+<div class="comments">
+<div class="paragraph">
+Remember the active display buffer, then loop another frame while the camera-follow entity is still alive.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GameStart_StoreBufferPointer</td>
+<td class="address-2"><span id="43803"></span>43803</td>
+<td class="instruction">LD (29429),HL</td>
+<td class="comment-1" rowspan="1">Store the active display-buffer pointer at <a href="29429.html">Pointer_CurrentDisplayBuffer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43806"></span>43806</td>
+<td class="instruction">LD A,(37019)</td>
+<td class="comment-1" rowspan="3">Fetch the camera-follow entity type (<a href="36595.html#37019">StateData_Berk</a>). Is the camera-follow entity still active? If so, jump to <a href="43699.html#43726">GameStart_FrameLoop</a> for another frame.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43809"></span>43809</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43810"></span>43810</td>
+<td class="instruction">JP NZ,<a href="43699.html#43726">GameStart_FrameLoop</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="43813"></span>
+<div class="comments">
+<div class="paragraph">
+Death / end-of-life: print the death line, blit, show ratings, restart.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43813"></span>43813</td>
+<td class="instruction">CALL <a href="57269.html">Print_DeathMessage</a></td>
+<td class="comment-1" rowspan="1">Call <a href="57269.html">Print_DeathMessage</a> to print the death message.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43816"></span>43816</td>
+<td class="instruction">CALL <a href="59793.html">Blit_DisplayBuffer</a></td>
+<td class="comment-1" rowspan="1">Call <a href="59793.html">Blit_DisplayBuffer</a> to blit the display buffer to the screen.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43819"></span>43819</td>
+<td class="instruction">CALL <a href="56857.html">Print_StatusMessages</a></td>
+<td class="comment-1" rowspan="1">Call <a href="56857.html">Print_StatusMessages</a> to print status / rating messages.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43822"></span>43822</td>
+<td class="instruction">JP <a href="43691.html">GameRestart</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43691.html">GameRestart</a> to restart the game.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="43691.html">43691</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#43699">Map</a></td>
+<td class="next">
+Next: <a href="43825.html">43825</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/AAB3.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 53312</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 53312. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 53312" />
+<meta property="og:description" content="The Trap Door: Routine at 53312. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/53312.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/53312.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 53312",
+"name": "The Trap Door: Routine at 53312",
+"description": "The Trap Door: Routine at 53312. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/53312.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 53312"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/53312.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="53302.html">53302</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#53312">Map</a></td>
+<td class="next">
+Next: <a href="53356.html">53356</a>
+</td>
+</tr>
+</table>
+<div class="description">53312: Update Vat: Event And Direction</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="53266.html">Update_Vat</a>.
+</div>
+<div class="paragraph">
+When the vat entity is not type 12, test game-event / direction bits and either copy the <a href="53302.html">Data_CrusherEntityTemplate</a> template into the crusher slot or randomly set direction bit 0.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53312"></span>
+<div class="comments">
+<div class="paragraph">
+Load game-event flags and test direction bit 0.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Vat_TestEventAndDirBit0</td>
+<td class="address-2"><span id="53312"></span>53312</td>
+<td class="instruction">LD A,(29363)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the game event flags (<a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53315"></span>53315</td>
+<td class="instruction">BIT 0,(IX+9)</td>
+<td class="comment-1" rowspan="1">Is bit 0 of the current entity's direction / state set?.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53319"></span>53319</td>
+<td class="instruction">JR Z,<a href="53312.html#53341">Update_Vat_RandomSetDirBit0</a></td>
+<td class="comment-1" rowspan="1">If not, jump to <a href="53312.html#53341">Update_Vat_RandomSetDirBit0</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53321"></span>53321</td>
+<td class="instruction">BIT 1,A</td>
+<td class="comment-1" rowspan="1">Is bit 1 of <span class="register">A</span> set?.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53323"></span>53323</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">If not, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53324"></span>53324</td>
+<td class="instruction">LD DE,36809</td>
+<td class="comment-1" rowspan="1">Point <span class="register">DE</span> at the crusher entity (<a href="36595.html#36809">StateData_Complex_16</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53327"></span>53327</td>
+<td class="instruction">LD HL,53302</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the vat template (<a href="53302.html">Data_CrusherEntityTemplate</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53330"></span>53330</td>
+<td class="instruction">LD BC,10</td>
+<td class="comment-1" rowspan="1">Load <span class="register">BC</span> with length 0010.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53333"></span>53333</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="1">Copy the template into the crusher entity slot.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53335"></span>53335</td>
+<td class="instruction">LD HL,53128</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at <a href="53060.html#53128">DruttScript_Copy</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53338"></span>53338</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53341"></span>
+<div class="comments">
+<div class="paragraph">
+Randomly set direction bit 0 when bit 1 of <span class="register">A</span> is clear.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Vat_RandomSetDirBit0</td>
+<td class="address-2"><span id="53341"></span>53341</td>
+<td class="instruction">BIT 1,A</td>
+<td class="comment-1" rowspan="1">Is bit 1 of <span class="register">A</span> set?.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53343"></span>53343</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1">If so, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53344"></span>53344</td>
+<td class="instruction">LD A,60</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 60.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53346"></span>53346</td>
+<td class="instruction">CALL <a href="60133.html">PseudoRandom</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60133.html">PseudoRandom</a> to pick a pseudo-random value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53349"></span>53349</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="1">Is <span class="register">A</span> zero?.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53350"></span>53350</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1">If not, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53351"></span>53351</td>
+<td class="instruction">SET 0,(IX+9)</td>
+<td class="comment-1" rowspan="1">Set bit 0 of the current entity's direction / state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53355"></span>53355</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="53302.html">53302</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#53312">Map</a></td>
+<td class="next">
+Next: <a href="53356.html">53356</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/D040.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

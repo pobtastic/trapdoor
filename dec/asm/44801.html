@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 44801</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 44801. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 44801" />
+<meta property="og:description" content="The Trap Door: Routine at 44801. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44801.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44801.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 44801",
+"name": "The Trap Door: Routine at 44801",
+"description": "The Trap Door: Routine at 44801. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44801.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 44801"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44801.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="44748.html">44748</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#44801">Map</a></td>
+<td class="next">
+Next: <a href="44860.html">44860</a>
+</td>
+</tr>
+</table>
+<div class="description">44801: Initialise Room Display</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="43925.html">Update_Berk_State</a>, <a href="44449.html">Update_Timed_Events</a>, <a href="44748.html">Handle_Berk_Action</a> and <a href="44860.html">Initialise_New_Game</a>.
+</div>
+<div class="paragraph">
+Print the score and a short attr-file label stream via <a href="44399.html">Print_Menu_Strings</a>, then the held-countdown stream.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Initialise_Room_Display</td>
+<td class="address-2"><span id="44801"></span>44801</td>
+<td class="instruction">LD HL,(29405)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">HL</span> with the score (<a href="29405.html">Score</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44804"></span>44804</td>
+<td class="instruction">LD IX,44823</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at room-display data (<a href="44801.html#44823">44823</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44808"></span>44808</td>
+<td class="instruction">CALL <a href="60192.html">Print_ScoreDigits</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60192.html">Print_ScoreDigits</a> to print Score Digits.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44811"></span>44811</td>
+<td class="instruction">LD HL,15360</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at <a rel="noopener nofollow" href="https://skoolkit.ca/disassemblies/rom/asm/15616.html">CHARSET</a>-256.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44814"></span>44814</td>
+<td class="instruction">LD (29433),HL</td>
+<td class="comment-1" rowspan="1">Write the pointer in <span class="register">HL</span> to the temporary screen pointer (<a href="29433.html">Pointer_CurrentCharacterSet</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44817"></span>44817</td>
+<td class="instruction">CALL <a href="44399.html">Print_Menu_Strings</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44399.html">Print_Menu_Strings</a> to print Menu Strings.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44820"></span>44820</td>
+<td class="instruction">EXX</td>
+<td class="comment-1" rowspan="1">Swap the main register pairs with their alternates.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44821"></span>44821</td>
+<td class="instruction">LD E,D</td>
+<td class="comment-1" rowspan="1">Copy <span class="register">D</span> into <span class="register">E</span> (build a pointer/offset).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44822"></span>44822</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1">Keep <span class="register">A</span> in <span class="register">B</span> for later.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44823"></span>44823</td>
+<td class="instruction">JR NZ,44857</td>
+<td class="comment-1" rowspan="1">If the result was non-zero, jump to <a href="44801.html">44857</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44825"></span>44825</td>
+<td class="instruction">JR NZ,<a href="44860.html#44875">Initialise_New_Game_SetTickCounter</a></td>
+<td class="comment-1" rowspan="1">If the result was non-zero, jump to <a href="44860.html#44875">Initialise_New_Game_SetTickCounter</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44827"></span>44827</td>
+<td class="instruction">JR NC,44877</td>
+<td class="comment-1" rowspan="1">If no borrow/miss was signaled, jump to <a href="44860.html">44877</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44829"></span>44829</td>
+<td class="instruction">LD E,L</td>
+<td class="comment-1" rowspan="1">Copy <span class="register">L</span> into <span class="register">E</span> (build a pointer/offset).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="44830"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="43925.html">Update_Berk_State</a>.
+</div>
+<div class="paragraph">
+Print the held-entity countdown digits and its trailing menu-string stream.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Initialise_Room_Display_HeldEntity</td>
+<td class="address-2"><span id="44830"></span>44830</td>
+<td class="instruction">LD HL,(29403)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">HL</span> with the pointer to the entity Berk is holding (<a href="29403.html">Pointer_BerkHeldEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44833"></span>44833</td>
+<td class="instruction">LD IX,44852</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at room-display data (<a href="44801.html#44852">44852</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44837"></span>44837</td>
+<td class="instruction">CALL <a href="60192.html">Print_ScoreDigits</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60192.html">Print_ScoreDigits</a> to print Score Digits.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44840"></span>44840</td>
+<td class="instruction">LD HL,15360</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at <a rel="noopener nofollow" href="https://skoolkit.ca/disassemblies/rom/asm/15616.html">CHARSET</a>-256.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44843"></span>44843</td>
+<td class="instruction">LD (29433),HL</td>
+<td class="comment-1" rowspan="1">Write the pointer in <span class="register">HL</span> to the temporary screen pointer (<a href="29433.html">Pointer_CurrentCharacterSet</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44846"></span>44846</td>
+<td class="instruction">CALL <a href="44399.html">Print_Menu_Strings</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44399.html">Print_Menu_Strings</a> to print Menu Strings.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44849"></span>44849</td>
+<td class="instruction">CP C</td>
+<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with <span class="register">C</span> (menu-string scan marker).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44850"></span>44850</td>
+<td class="instruction">LD E,D</td>
+<td class="comment-1" rowspan="1">Copy <span class="register">D</span> into <span class="register">E</span> (build a pointer/offset).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44851"></span>44851</td>
+<td class="instruction">LD B,(HL)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> from the byte at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44852"></span>44852</td>
+<td class="instruction">JR NZ,<a href="44860.html#44886">Initialise_New_Game_SetGlyphPointer</a></td>
+<td class="comment-1" rowspan="1">If the result was non-zero, jump to <a href="44860.html#44886">Initialise_New_Game_SetGlyphPointer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44854"></span>44854</td>
+<td class="instruction">JR NZ,<a href="44860.html#44904">Initialise_New_Game_SuperBerkRoomByte</a></td>
+<td class="comment-1" rowspan="1">If the result was non-zero, jump to <a href="44860.html#44904">Initialise_New_Game_SuperBerkRoomByte</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44856"></span>44856</td>
+<td class="instruction">JR NC,<a href="44860.html#44906">Initialise_New_Game_Branch</a></td>
+<td class="comment-1" rowspan="1">If no borrow/miss was signaled, jump to <a href="44860.html#44906">Initialise_New_Game_Branch</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44858"></span>44858</td>
+<td class="instruction">LD E,L</td>
+<td class="comment-1" rowspan="1">Copy <span class="register">L</span> into <span class="register">E</span> (build a pointer/offset).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44859"></span>44859</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="44748.html">44748</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#44801">Map</a></td>
+<td class="next">
+Next: <a href="44860.html">44860</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/AF01.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

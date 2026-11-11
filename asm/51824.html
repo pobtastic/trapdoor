@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at CA70</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at CA70. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at CA70" />
+<meta property="og:description" content="The Trap Door: Data at CA70. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/51824.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/51824.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at CA70",
+"name": "The Trap Door: Data at CA70",
+"description": "The Trap Door: Data at CA70. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/51824.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at CA70"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/51824.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="50958.html">C70E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#ca70">Map</a></td>
+<td class="next">
+Next: <a href="51879.html">CAA7</a>
+</td>
+</tr>
+</table>
+<div class="description">CA70: Data: Task Four Tables</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Tables used by the task four update routines.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Data_TaskFourTables</td>
+<td class="address-1"><span id="ca70"></span>CA70</td>
+<td class="instruction">DEFB $CC,$D4,$CC,$CE,$CC,$01,$00,$3B</td>
+<td class="comment-1" rowspan="1">Words: D4CC <a href="52811.html#cecc">CECC</a>, 01CC 3B00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca78"></span>CA78</td>
+<td class="instruction">DEFB $CA,$E6,$CC,$4A,$00,$E0,$CC,$D4</td>
+<td class="comment-1" rowspan="1">Words: E6CA 4ACC E000 D4CC.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca80"></span>CA80</td>
+<td class="instruction">DEFB $CC,$CE,$CC,$C8,$CC,$4D,$00,$CE</td>
+<td class="comment-1" rowspan="1">Words: <a href="52811.html#cecc">CECC</a>, C8CC 4DCC CE00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca88"></span>CA88</td>
+<td class="instruction">DEFB $CC,$D4,$CC,$DA,$CC,$21,$00,$03</td>
+<td class="comment-1" rowspan="1">Words: D4CC DACC 21CC 0300.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca90"></span>CA90</td>
+<td class="instruction">DEFB $00,$E6,$CC,$49,$00,$22,$00,$01</td>
+<td class="comment-1" rowspan="1">Words: E600 49CC 2200 0100.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ca98"></span>CA98</td>
+<td class="instruction">DEFB $00,$4D,$CA,$21,$00,$06,$00,$E6</td>
+<td class="comment-1" rowspan="1">Words: 4D00 21CA 0600 E600.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="caa0"></span>CAA0</td>
+<td class="instruction">DEFB $CC,$4A,$00,$22,$00,$50,$00</td>
+<td class="comment-1" rowspan="1">Words: 4ACC 2200 5000.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="50958.html">C70E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#ca70">Map</a></td>
+<td class="next">
+Next: <a href="51879.html">CAA7</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/333860.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

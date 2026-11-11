@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at E286</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at E286. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at E286" />
+<meta property="og:description" content="The Trap Door: Routine at E286. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/57990.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/57990.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at E286",
+"name": "The Trap Door: Routine at E286",
+"description": "The Trap Door: Routine at E286. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/57990.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at E286"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/57990.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="57950.html">E25E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#e286">Map</a></td>
+<td class="next">
+Next: <a href="58105.html">E2F9</a>
+</td>
+</tr>
+</table>
+<div class="description">E286: Print Encoded Message</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="56739.html">Print_TooLateTaskFeedback</a>, <a href="56857.html">Print_StatusMessages</a>, <a href="56919.html">Print_MessageString</a>, <a href="57269.html">Print_DeathMessage</a>, <a href="57309.html">Print_TaskProgressIntro</a> and <a href="57331.html">Print_WagesMessage</a>.
+</div>
+<div class="paragraph">
+Print one &#91;…&#93; encoded message at <span class="register">HL</span>. First runs a short border/sound flash, then filters control bytes into the display buffer at <a href="25504.html">PrimaryDisplayBuffer</a> and jumps to <a href="58112.html">Paint_MessageBuffer</a> to paint it. Control bytes before &#96; gate fragments by <a href="29381.html">MessageTrigger</a> / <a href="29419.html">MessageColour</a>; &#43; starts a new row; &#36; marks an alternate fragment.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Address of an encoded message (starts at &#91;)</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="e286"></span>
+<div class="comments">
+<div class="paragraph">
+Flash / click 0A times before decoding.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Print_EncodedMessage</td>
+<td class="address-2"><span id="e286"></span>E286</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">HL</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e287"></span>E287</td>
+<td class="instruction">LD B,$0A</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 0A flash iterations.</td>
+</tr>
+<tr>
+<td class="asm-label">Print_EncodedMessage_FlashLoop</td>
+<td class="address-2"><span id="e289"></span>E289</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">BC</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e28a"></span>E28A</td>
+<td class="instruction">LD A,$10</td>
+<td class="comment-1" rowspan="4">Pick a pseudo-random flash/sound parameter via <a href="60133.html">PseudoRandom</a> and store it at F958.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e28c"></span>E28C</td>
+<td class="instruction">CALL <a href="60133.html">PseudoRandom</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e28f"></span>E28F</td>
+<td class="instruction">ADD A,$14</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e291"></span>E291</td>
+<td class="instruction">LD ($F958),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e294"></span>E294</td>
+<td class="instruction">LD A,$0A</td>
+<td class="comment-1" rowspan="3">Play sound effect 0A via <a href="63737.html">Queue_Sound</a> / <a href="63919.html">Play_QueuedSound</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e296"></span>E296</td>
+<td class="instruction">CALL <a href="63737.html">Queue_Sound</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e299"></span>E299</td>
+<td class="instruction">CALL <a href="63919.html">Play_QueuedSound</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e29c"></span>E29C</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e29d"></span>E29D</td>
+<td class="instruction">DJNZ <a href="57990.html#e289">Print_EncodedMessage_FlashLoop</a></td>
+<td class="comment-1" rowspan="1">Loop until the flash sequence is done.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e29f"></span>E29F</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="e2a0"></span>
+<div class="comments">
+<div class="paragraph">
+Decode the selected fragment into the buffer at <a href="25504.html">PrimaryDisplayBuffer</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2a0"></span>E2A0</td>
+<td class="instruction">LD IX,$63A0</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the display buffer (<a href="25504.html">PrimaryDisplayBuffer</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2a4"></span>E2A4</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="2">Clear <span class="register">A</span>, then clear the secondary random/seed byte (<a href="29425.html">RandomSeedSecondary</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2a5"></span>E2A5</td>
+<td class="instruction">LD ($72F1),A</td>
+</tr>
+<tr>
+<td class="asm-label">Print_EncodedMessage_NextFrag</td>
+<td class="address-2"><span id="e2a8"></span>E2A8</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance the message pointer by one.</td>
+</tr>
+<tr>
+<td class="asm-label">Print_EncodedMessage_Scan</td>
+<td class="address-2"><span id="e2a9"></span>E2A9</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance the message pointer by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2aa"></span>E2AA</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the next control/text byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2ab"></span>E2AB</td>
+<td class="instruction">CP $60</td>
+<td class="comment-1" rowspan="2">Is it the text-start marker (&#96;)? If not, try the other controls at <a href="57990.html#e2b2">Print_EncodedMessage_CheckTrigger</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2ad"></span>E2AD</td>
+<td class="instruction">JR NZ,<a href="57990.html#e2b2">Print_EncodedMessage_CheckTrigger</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2af"></span>E2AF</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance past &#96;.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2b0"></span>E2B0</td>
+<td class="instruction">JR <a href="57990.html#e2db">Print_EncodedMessage_CopyText</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="57990.html#e2db">Print_EncodedMessage_CopyText</a> to copy literal text into the buffer.</td>
+</tr>
+<tr>
+<td class="asm-label">Print_EncodedMessage_CheckTrigger</td>
+<td class="address-2"><span id="e2b2"></span>E2B2</td>
+<td class="instruction">CP $21</td>
+<td class="comment-1" rowspan="2">Is it a trigger gate (&#33;)? If not, try the indirect-load control at <a href="57990.html#e2c2">Print_EncodedMessage_CheckIndirect</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2b4"></span>E2B4</td>
+<td class="instruction">JR NZ,<a href="57990.html#e2c2">Print_EncodedMessage_CheckIndirect</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2b6"></span>E2B6</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance onto the trigger key.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2b7"></span>E2B7</td>
+<td class="instruction">LD A,($72C5)</td>
+<td class="comment-1" rowspan="3">Fetch the message trigger (<a href="29381.html">MessageTrigger</a>). Does it match this fragment's key? If not, keep scanning at <a href="57990.html#e2a9">Print_EncodedMessage_Scan</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2ba"></span>E2BA</td>
+<td class="instruction">CP (HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2bb"></span>E2BB</td>
+<td class="instruction">JR NZ,<a href="57990.html#e2a9">Print_EncodedMessage_Scan</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2bd"></span>E2BD</td>
+<td class="instruction">CALL <a href="58105.html">Skip_ToMessageMarker</a></td>
+<td class="comment-1" rowspan="2">Call <a href="58105.html">Skip_ToMessageMarker</a> to skip to the next &#91; then continue with the next fragment at <a href="57990.html#e2a8">Print_EncodedMessage_NextFrag</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2c0"></span>E2C0</td>
+<td class="instruction">JR <a href="57990.html#e2a8">Print_EncodedMessage_NextFrag</a></td>
+</tr>
+<tr>
+<td class="asm-label">Print_EncodedMessage_CheckIndirect</td>
+<td class="address-2"><span id="e2c2"></span>E2C2</td>
+<td class="instruction">CP $29</td>
+<td class="comment-1" rowspan="2">Is it an indirect-load control (&#41;)? If not, treat it as a mask byte at <a href="57990.html#e2d0">Print_EncodedMessage_CheckMask</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2c4"></span>E2C4</td>
+<td class="instruction">JR NZ,<a href="57990.html#e2d0">Print_EncodedMessage_CheckMask</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2c6"></span>E2C6</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="7">Fetch the address word, read that byte into <a href="29425.html">RandomSeedSecondary</a>, and continue scanning at <a href="57990.html#e2a9">Print_EncodedMessage_Scan</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2c7"></span>E2C7</td>
+<td class="instruction">LD C,(HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2c8"></span>E2C8</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2c9"></span>E2C9</td>
+<td class="instruction">LD B,(HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2ca"></span>E2CA</td>
+<td class="instruction">LD A,(BC)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2cb"></span>E2CB</td>
+<td class="instruction">LD ($72F1),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2ce"></span>E2CE</td>
+<td class="instruction">JR <a href="57990.html#e2a9">Print_EncodedMessage_Scan</a></td>
+</tr>
+<tr>
+<td class="asm-label">Print_EncodedMessage_CheckMask</td>
+<td class="address-2"><span id="e2d0"></span>E2D0</td>
+<td class="instruction">LD A,($72EB)</td>
+<td class="comment-1" rowspan="3">Fetch the message colour/mask (<a href="29419.html">MessageColour</a>). AND with this fragment's mask byte. If nothing matches, skip to <a href="57990.html#e2a9">Print_EncodedMessage_Scan</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2d3"></span>E2D3</td>
+<td class="instruction">AND (HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2d4"></span>E2D4</td>
+<td class="instruction">JR Z,<a href="57990.html#e2a9">Print_EncodedMessage_Scan</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2d6"></span>E2D6</td>
+<td class="instruction">CALL <a href="58105.html">Skip_ToMessageMarker</a></td>
+<td class="comment-1" rowspan="2">Call <a href="58105.html">Skip_ToMessageMarker</a> to skip to the next &#91; then continue with the next fragment at <a href="57990.html#e2a8">Print_EncodedMessage_NextFrag</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2d9"></span>E2D9</td>
+<td class="instruction">JR <a href="57990.html#e2a8">Print_EncodedMessage_NextFrag</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="e2db"></span>
+<div class="comments">
+<div class="paragraph">
+Copy literal characters into <a href="25504.html">PrimaryDisplayBuffer</a> until &#93; (or a &#36; alternate).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Print_EncodedMessage_CopyText</td>
+<td class="address-2"><span id="e2db"></span>E2DB</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="6">Fetch the next text byte. Store it in the display buffer through <span class="register">IX</span>. Advance the buffer pointer. Advance the message pointer. Is it an alternate-fragment marker (&#36;)? If so, handle it at <a href="57990.html#e2ec">Print_EncodedMessage_SkipAlternate</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2dc"></span>E2DC</td>
+<td class="instruction">LD (IX+$00),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2df"></span>E2DF</td>
+<td class="instruction">INC IX</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2e1"></span>E2E1</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2e2"></span>E2E2</td>
+<td class="instruction">CP $24</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2e4"></span>E2E4</td>
+<td class="instruction">JR Z,<a href="57990.html#e2ec">Print_EncodedMessage_SkipAlternate</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2e6"></span>E2E6</td>
+<td class="instruction">CP $5D</td>
+<td class="comment-1" rowspan="3">Is it the message terminator (&#93;)? If so, jump to <a href="58112.html">Paint_MessageBuffer</a> to paint the buffer. Otherwise keep copying at <a href="57990.html#e2db">Print_EncodedMessage_CopyText</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2e8"></span>E2E8</td>
+<td class="instruction">JR Z,<a href="58112.html">Paint_MessageBuffer</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2ea"></span>E2EA</td>
+<td class="instruction">JR <a href="57990.html#e2db">Print_EncodedMessage_CopyText</a></td>
+</tr>
+<tr>
+<td class="asm-label">Print_EncodedMessage_SkipAlternate</td>
+<td class="address-2"><span id="e2ec"></span>E2EC</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="2">Fetch the alternate key byte, then keep it in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2ed"></span>E2ED</td>
+<td class="instruction">LD C,A</td>
+</tr>
+<tr>
+<td class="asm-label">Print_EncodedMessage_SkipAlternateLoop</td>
+<td class="address-2"><span id="e2ee"></span>E2EE</td>
+<td class="instruction">CALL <a href="58105.html">Skip_ToMessageMarker</a></td>
+<td class="comment-1" rowspan="5">Call <a href="58105.html">Skip_ToMessageMarker</a> to find the next &#91;. Step onto the key after that marker. Fetch it. Does it match the alternate key? If not, keep searching at <a href="57990.html#e2ee">Print_EncodedMessage_SkipAlternateLoop</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2f1"></span>E2F1</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2f2"></span>E2F2</td>
+<td class="instruction">LD A,(HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2f3"></span>E2F3</td>
+<td class="instruction">CP C</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2f4"></span>E2F4</td>
+<td class="instruction">JR NZ,<a href="57990.html#e2ee">Print_EncodedMessage_SkipAlternateLoop</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="e2f6"></span>E2F6</td>
+<td class="instruction">JP <a href="57990.html#e2a9">Print_EncodedMessage_Scan</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="57990.html#e2a9">Print_EncodedMessage_Scan</a> to resume scanning after the chosen alternate.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="57950.html">E25E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#e286">Map</a></td>
+<td class="next">
+Next: <a href="58105.html">E2F9</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/358800.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

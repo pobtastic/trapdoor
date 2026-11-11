@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 51879</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 51879. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 51879" />
+<meta property="og:description" content="The Trap Door: Routine at 51879. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/51879.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/51879.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 51879",
+"name": "The Trap Door: Routine at 51879",
+"description": "The Trap Door: Routine at 51879. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/51879.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 51879"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/51879.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="51747.html">51747</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#51879">Map</a></td>
+<td class="next">
+Next: <a href="51908.html">51908</a>
+</td>
+</tr>
+</table>
+<div class="description">51879: Update Task Four Entities</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="43699.html">GameStart</a>.
+</div>
+<div class="paragraph">
+Update Task Four Entities for the current Thing Upstairs task.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51879"></span>
+<div class="comments">
+<div class="paragraph">
+Runs task-four entity scripts while the task phase is 4.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Task_Four_Entities</td>
+<td class="address-2"><span id="51879"></span>51879</td>
+<td class="instruction">CALL <a href="52811.html">Update_Ghosts</a></td>
+<td class="comment-1" rowspan="1">Call <a href="52811.html">Update_Ghosts</a> to update Ghosts.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51882"></span>51882</td>
+<td class="instruction">LD A,(29359)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current task phase (<a href="29359.html">CurrentTaskPhase</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51885"></span>51885</td>
+<td class="instruction">CP 4</td>
+<td class="comment-1" rowspan="2">Is current task phase equal to 4? If not, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51887"></span>51887</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51888"></span>51888</td>
+<td class="instruction">LD HL,(29399)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">HL</span> with the task-four script-position pointer (<a href="29399.html">Pointer_TaskFourScriptPosition</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51891"></span>51891</td>
+<td class="instruction">LD (29391),HL</td>
+<td class="comment-1" rowspan="1">Store <span class="register">HL</span> in the active script cursor (<a href="29391.html">Pointer_ActiveScriptCursor</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51894"></span>51894</td>
+<td class="instruction">LD IX,36851</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the task-three/four entity at <a href="36595.html#36851">StateData_Complex_19</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51898"></span>51898</td>
+<td class="instruction">CALL <a href="51908.html">Update_TaskFourEntityState</a></td>
+<td class="comment-1" rowspan="1">Call <a href="51908.html">Update_TaskFourEntityState</a> to update Task Four Entity State.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51901"></span>51901</td>
+<td class="instruction">LD HL,(29391)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">HL</span> with the active script cursor (<a href="29391.html">Pointer_ActiveScriptCursor</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51904"></span>51904</td>
+<td class="instruction">LD (29399),HL</td>
+<td class="comment-1" rowspan="1">Store <span class="register">HL</span> in the task-four script-position pointer (<a href="29399.html">Pointer_TaskFourScriptPosition</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51907"></span>51907</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="51747.html">51747</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#51879">Map</a></td>
+<td class="next">
+Next: <a href="51908.html">51908</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/CAA7.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 61811</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 61811. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 61811" />
+<meta property="og:description" content="The Trap Door: Routine at 61811. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/61811.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/61811.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 61811",
+"name": "The Trap Door: Routine at 61811",
+"description": "The Trap Door: Routine at 61811. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/61811.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 61811"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/61811.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61798.html">61798</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#61811">Map</a></td>
+<td class="next">
+Next: <a href="61857.html">61857</a>
+</td>
+</tr>
+</table>
+<div class="description">61811: Script Routine: (17) Have entity face right after putting down</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+After a put-down, face the entity right.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Address of complex state data for an entity</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_FaceRightAfterPutDown</td>
+<td class="address-2"><span id="61811"></span>61811</td>
+<td class="instruction">BIT 4,(IX+3)</td>
+<td class="comment-1" rowspan="2">Is bit 4 of flags byte 3 (<span class="register">IX</span>+3) set? If not, jump to <a href="60462.html">AdvanceScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61815"></span>61815</td>
+<td class="instruction">JP Z,<a href="60462.html">AdvanceScriptInstruction</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61818"></span>61818</td>
+<td class="instruction">CALL <a href="61811.html#61827">Script_FaceAfterPutDown_Apply</a></td>
+<td class="comment-1" rowspan="1">Call <a href="61811.html#61827">Script_FaceAfterPutDown_Apply</a> to script Face After Put Down Apply.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61821"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="61798.html">ScriptRoutine_FaceLeftAfterPutDown</a>.
+</div>
+<div class="paragraph">
+Write the held entity's room after facing, then continue the script.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_FaceLeftAfterPutDown_ApplyFacing</td>
+<td class="address-2"><span id="61821"></span>61821</td>
+<td class="instruction">LD (IY+4),A</td>
+<td class="comment-1" rowspan="1">Set the referenced entity's room index.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61824"></span>61824</td>
+<td class="instruction">JP <a href="60462.html">AdvanceScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html">AdvanceScriptInstruction</a> to run the next script instruction.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61827"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="61798.html">ScriptRoutine_FaceLeftAfterPutDown</a>.
+</div>
+<div class="paragraph">
+Aim the held entity's X at Berk's <a href="29443.html">BerkXCoordinateCopy</a> using the saved width in <a href="29421.html">CameraYCoordinate</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Script_FaceAfterPutDown_Apply</td>
+<td class="address-2"><span id="61827"></span>61827</td>
+<td class="instruction">LD IY,(29356)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">IY</span> with the current-entity pointer (<a href="29356.html">Pointer_CurrentEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61831"></span>61831</td>
+<td class="instruction">LD A,(29421)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the saved held-entity width from <a href="29421.html">CameraYCoordinate</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61834"></span>61834</td>
+<td class="instruction">LD E,1</td>
+<td class="comment-1" rowspan="1">Load <span class="register">E</span> with 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61836"></span>61836</td>
+<td class="instruction">LD D,A</td>
+<td class="comment-1" rowspan="1">Copy <span class="register">A</span> into <span class="register">D</span> as a saved coordinate / value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61837"></span>61837</td>
+<td class="instruction">SRL A</td>
+<td class="comment-1" rowspan="1">Shift <span class="register">A</span> right logical.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61839"></span>61839</td>
+<td class="instruction">JR NZ,<a href="61811.html#61842">ScriptRoutine_FaceRightAfterPutDown_WriteHeldX</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="61811.html#61842">ScriptRoutine_FaceRightAfterPutDown_WriteHeldX</a> to continue if the comparison did not match.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61841"></span>61841</td>
+<td class="instruction">INC E</td>
+<td class="comment-1" rowspan="1">Advance the low byte of the pointer/offset in <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="61842"></span>
+<div class="comments">
+<div class="paragraph">
+Write the held entity's X and X-extent beside Berk after put-down facing.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_FaceRightAfterPutDown_WriteHeldX</td>
+<td class="address-2"><span id="61842"></span>61842</td>
+<td class="instruction">LD A,(29443)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with Berk's X-coordinate copy (<a href="29443.html">BerkXCoordinateCopy</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61845"></span>61845</td>
+<td class="instruction">ADD A,E</td>
+<td class="comment-1" rowspan="1">Add <span class="register">E</span> to <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61846"></span>61846</td>
+<td class="instruction">LD (IY+7),A</td>
+<td class="comment-1" rowspan="1">Set the referenced entity's x-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61849"></span>61849</td>
+<td class="instruction">ADD A,D</td>
+<td class="comment-1" rowspan="1">Add <span class="register">D</span> into <span class="register">A</span> while building a 16-bit entity/screen address.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61850"></span>61850</td>
+<td class="instruction">LD (IY+8),A</td>
+<td class="comment-1" rowspan="1">Set the referenced entity's x-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61853"></span>61853</td>
+<td class="instruction">LD A,(IX+4)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current entity's room index.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="61856"></span>61856</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="61798.html">61798</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#61811">Map</a></td>
+<td class="next">
+Next: <a href="61857.html">61857</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/F173.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

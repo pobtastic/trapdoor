@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at 40545</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at 40545. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at 40545" />
+<meta property="og:description" content="The Trap Door: Data at 40545. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/40545.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/40545.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at 40545",
+"name": "The Trap Door: Data at 40545",
+"description": "The Trap Door: Data at 40545. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/40545.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at 40545"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/40545.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="40503.html">40503</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#40545">Map</a></td>
+<td class="next">
+Next: <a href="40674.html">40674</a>
+</td>
+</tr>
+</table>
+<div class="description">40545: Graphic Layout: Weight Chain</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Weight chain for the type-55 entity at <a href="36595.html#37005">StateData_Complex_30</a>. <a href="40503.html#40512">GraphicLayout_WeightChainWrapper</a> nests this same chain for Drutt's catch path. Writers: entity init, also <a href="45108.html#45121">45121</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="40545"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="layout-9e61" src="../../images/scr/layout-9e61.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GraphicLayout_WeightChain</td>
+<td class="address-1"><span id="40545"></span>40545</td>
+<td class="instruction">DEFB 244,3</td>
+<td class="comment-1" rowspan="1">Set the graphic set to <a href="29721.html">3</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40547"></span>40547</td>
+<td class="instruction">DEFB 250,0,3</td>
+<td class="comment-1" rowspan="1">Move the cursor by 3 horizontally and 0 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40550"></span>40550</td>
+<td class="instruction">DEFB 242,6</td>
+<td class="comment-1" rowspan="1">Set the current attribute to INK: YELLOW,
+PAPER: BLACK (6).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40552"></span>40552</td>
+<td class="instruction">DEFB 99,32</td>
+<td class="comment-1" rowspan="1">Draw tile 99 and move down by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40554"></span>40554</td>
+<td class="instruction">DEFB 99,32</td>
+<td class="comment-1" rowspan="1">Draw tile 99 and move down by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40556"></span>40556</td>
+<td class="instruction">DEFB 99,32</td>
+<td class="comment-1" rowspan="1">Draw tile 99 and move down by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40558"></span>40558</td>
+<td class="instruction">DEFB 99,32</td>
+<td class="comment-1" rowspan="1">Draw tile 99 and move down by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40560"></span>40560</td>
+<td class="instruction">DEFB 99,32</td>
+<td class="comment-1" rowspan="1">Draw tile 99 and move down by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40562"></span>40562</td>
+<td class="instruction">DEFB 99,32</td>
+<td class="comment-1" rowspan="1">Draw tile 99 and move down by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40564"></span>40564</td>
+<td class="instruction">DEFB 99,32</td>
+<td class="comment-1" rowspan="1">Draw tile 99 and move down by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40566"></span>40566</td>
+<td class="instruction">DEFB 99,32</td>
+<td class="comment-1" rowspan="1">Draw tile 99 and move down by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40568"></span>40568</td>
+<td class="instruction">DEFB 99,32</td>
+<td class="comment-1" rowspan="1">Draw tile 99 and move down by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40570"></span>40570</td>
+<td class="instruction">DEFB 99,32</td>
+<td class="comment-1" rowspan="1">Draw tile 99 and move down by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40572"></span>40572</td>
+<td class="instruction">DEFB 99,32</td>
+<td class="comment-1" rowspan="1">Draw tile 99 and move down by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40574"></span>40574</td>
+<td class="instruction">DEFB 99,29</td>
+<td class="comment-1" rowspan="1">Draw tile 99 and move left by 3 and down by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40576"></span>40576</td>
+<td class="instruction">DEFB 242,0</td>
+<td class="comment-1" rowspan="1">Set the current attribute to INK: BLACK,
+PAPER: BLACK (0).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40578"></span>40578</td>
+<td class="instruction">DEFB 95,66,38</td>
+<td class="comment-1" rowspan="1">Draw tile 95 with INK: RED,
+PAPER: BLACK (66) and move right by 6&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40581"></span>40581</td>
+<td class="instruction">DEFB 95,194,26</td>
+<td class="comment-1" rowspan="1">Draw tile 95 with INK: RED,
+PAPER: BLACK&#44; MIRRORED (194) and move left by 6 and down by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40584"></span>40584</td>
+<td class="instruction">DEFB 96,66,38</td>
+<td class="comment-1" rowspan="1">Draw tile 96 with INK: RED,
+PAPER: BLACK (66) and move right by 6&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40587"></span>40587</td>
+<td class="instruction">DEFB 96,194,26</td>
+<td class="comment-1" rowspan="1">Draw tile 96 with INK: RED,
+PAPER: BLACK&#44; MIRRORED (194) and move left by 6 and down by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40590"></span>40590</td>
+<td class="instruction">DEFB 97,66,38</td>
+<td class="comment-1" rowspan="1">Draw tile 97 with INK: RED,
+PAPER: BLACK (66) and move right by 6&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40593"></span>40593</td>
+<td class="instruction">DEFB 97,194,26</td>
+<td class="comment-1" rowspan="1">Draw tile 97 with INK: RED,
+PAPER: BLACK&#44; MIRRORED (194) and move left by 6 and down by 1&#44; keeping the background paper.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40596"></span>40596</td>
+<td class="instruction">DEFB 242,18</td>
+<td class="comment-1" rowspan="1">Set the current attribute to INK: RED,
+PAPER: RED (18).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40598"></span>40598</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40600"></span>40600</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40602"></span>40602</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40604"></span>40604</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40606"></span>40606</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40608"></span>40608</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40610"></span>40610</td>
+<td class="instruction">DEFB 0,26</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move left by 6 and down by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40612"></span>40612</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40614"></span>40614</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40616"></span>40616</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40618"></span>40618</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40620"></span>40620</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40622"></span>40622</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40624"></span>40624</td>
+<td class="instruction">DEFB 0,26</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move left by 6 and down by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40626"></span>40626</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40628"></span>40628</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40630"></span>40630</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40632"></span>40632</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40634"></span>40634</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40636"></span>40636</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40638"></span>40638</td>
+<td class="instruction">DEFB 0,26</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move left by 6 and down by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40640"></span>40640</td>
+<td class="instruction">DEFB 250,250,1</td>
+<td class="comment-1" rowspan="1">Move the cursor by 1 horizontally and -6 vertically.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40643"></span>40643</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40645"></span>40645</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40647"></span>40647</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40649"></span>40649</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40651"></span>40651</td>
+<td class="instruction">DEFB 0,28</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move left by 4 and down by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40653"></span>40653</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40655"></span>40655</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40657"></span>40657</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40659"></span>40659</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40661"></span>40661</td>
+<td class="instruction">DEFB 0,28</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move left by 4 and down by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40663"></span>40663</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40665"></span>40665</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40667"></span>40667</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40669"></span>40669</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40671"></span>40671</td>
+<td class="instruction">DEFB 0,33</td>
+<td class="comment-1" rowspan="1">Draw tile 0 and move right by 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="40673"></span>40673</td>
+<td class="instruction">DEFB 255</td>
+<td class="comment-1" rowspan="1">Load the stored coordinates and return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="40503.html">40503</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#40545">Map</a></td>
+<td class="next">
+Next: <a href="40674.html">40674</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/9E61.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

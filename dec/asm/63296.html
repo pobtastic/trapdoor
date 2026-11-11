@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at 63296</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at 63296. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at 63296" />
+<meta property="og:description" content="The Trap Door: Data at 63296. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/63296.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/63296.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at 63296",
+"name": "The Trap Door: Data at 63296",
+"description": "The Trap Door: Data at 63296. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/63296.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at 63296"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/63296.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="63242.html">63242</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#63296">Map</a></td>
+<td class="next">
+Next: <a href="63737.html">63737</a>
+</td>
+</tr>
+</table>
+<div class="description">63296: Font: Main Menu Logo</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+UDG font for the main-menu logo drawn by <a href="63190.html">Draw_MainMenuLogo</a>. <a href="63190.html">Draw_MainMenuLogo</a> points the character set at <a href="63296.html">Font_MainMenuLogo</a>+1; glyph 0 (the first 0008 bytes) is also reused by <a href="63242.html">ColourCycle_MainMenuLogo</a> as the "last attribute" scratch byte. There are 0055 glyphs of 0008 bytes each.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Font_MainMenuLogo</td>
+<td class="address-1"><span id="63296"></span>63296</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,0,0</td>
+<td class="comment-1" rowspan="1">Glyph 0: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63296_56x4" src="../../images/udgs/udg63296_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63304"></span>63304</td>
+<td class="instruction">DEFB 0,128,127,64,95,88,88,88</td>
+<td class="comment-1" rowspan="1">Glyph 1: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63304_56x4" src="../../images/udgs/udg63304_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63312"></span>63312</td>
+<td class="instruction">DEFB 88,0,255,0,255,0,0,0</td>
+<td class="comment-1" rowspan="1">Glyph 2: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63312_56x4" src="../../images/udgs/udg63312_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63320"></span>63320</td>
+<td class="instruction">DEFB 0,0,255,0,255,16,16,16</td>
+<td class="comment-1" rowspan="1">Glyph 3: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63320_56x4" src="../../images/udgs/udg63320_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63328"></span>63328</td>
+<td class="instruction">DEFB 16,0,255,0,255,7,0,0</td>
+<td class="comment-1" rowspan="1">Glyph 4: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63328_56x4" src="../../images/udgs/udg63328_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63336"></span>63336</td>
+<td class="instruction">DEFB 0,0,255,0,255,255,126,56</td>
+<td class="comment-1" rowspan="1">Glyph 5: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63336_56x4" src="../../images/udgs/udg63336_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63344"></span>63344</td>
+<td class="instruction">DEFB 24,0,255,0,255,255,7,3</td>
+<td class="comment-1" rowspan="1">Glyph 6: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63344_56x4" src="../../images/udgs/udg63344_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63352"></span>63352</td>
+<td class="instruction">DEFB 3,0,255,0,255,224,0,0</td>
+<td class="comment-1" rowspan="1">Glyph 7: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63352_56x4" src="../../images/udgs/udg63352_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63360"></span>63360</td>
+<td class="instruction">DEFB 0,0,255,0,255,255,15,3</td>
+<td class="comment-1" rowspan="1">Glyph 8: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63360_56x4" src="../../images/udgs/udg63360_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63368"></span>63368</td>
+<td class="instruction">DEFB 3,1,254,2,250,250,250,250</td>
+<td class="comment-1" rowspan="1">Glyph 9: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63368_56x4" src="../../images/udgs/udg63368_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63376"></span>63376</td>
+<td class="instruction">DEFB 250,88,88,88,88,95,95,95</td>
+<td class="comment-1" rowspan="1">Glyph 10: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63376_56x4" src="../../images/udgs/udg63376_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63384"></span>63384</td>
+<td class="instruction">DEFB 95,0,0,0,0,128,128,128</td>
+<td class="comment-1" rowspan="1">Glyph 11: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63384_56x4" src="../../images/udgs/udg63384_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63392"></span>63392</td>
+<td class="instruction">DEFB 128,16,16,16,112,96,96,96</td>
+<td class="comment-1" rowspan="1">Glyph 12: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63392_56x4" src="../../images/udgs/udg63392_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63400"></span>63400</td>
+<td class="instruction">DEFB 96,0,96,112,112,96,0,0</td>
+<td class="comment-1" rowspan="1">Glyph 13: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63400_56x4" src="../../images/udgs/udg63400_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63408"></span>63408</td>
+<td class="instruction">DEFB 0,8,8,8,8,8,17,17</td>
+<td class="comment-1" rowspan="1">Glyph 14: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63408_56x4" src="../../images/udgs/udg63408_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63416"></span>63416</td>
+<td class="instruction">DEFB 33,3,3,1,1,193,225,225</td>
+<td class="comment-1" rowspan="1">Glyph 15: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63416_56x4" src="../../images/udgs/udg63416_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63424"></span>63424</td>
+<td class="instruction">DEFB 224,0,0,1,129,129,129,129</td>
+<td class="comment-1" rowspan="1">Glyph 16: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63424_56x4" src="../../images/udgs/udg63424_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63432"></span>63432</td>
+<td class="instruction">DEFB 128,1,0,128,192,192,128,128</td>
+<td class="comment-1" rowspan="1">Glyph 17: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63432_56x4" src="../../images/udgs/udg63432_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63440"></span>63440</td>
+<td class="instruction">DEFB 1,250,250,250,250,250,250,250</td>
+<td class="comment-1" rowspan="1">Glyph 18: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63440_56x4" src="../../images/udgs/udg63440_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63448"></span>63448</td>
+<td class="instruction">DEFB 250,95,95,95,95,95,95,92</td>
+<td class="comment-1" rowspan="1">Glyph 19: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63448_56x4" src="../../images/udgs/udg63448_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63456"></span>63456</td>
+<td class="instruction">DEFB 92,128,128,128,128,128,128,255</td>
+<td class="comment-1" rowspan="1">Glyph 20: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63456_56x4" src="../../images/udgs/udg63456_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63464"></span>63464</td>
+<td class="instruction">DEFB 0,96,96,96,96,96,96,255</td>
+<td class="comment-1" rowspan="1">Glyph 21: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63464_56x4" src="../../images/udgs/udg63464_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63472"></span>63472</td>
+<td class="instruction">DEFB 127,0,0,96,96,112,112,241</td>
+<td class="comment-1" rowspan="1">Glyph 22: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63472_56x4" src="../../images/udgs/udg63472_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63480"></span>63480</td>
+<td class="instruction">DEFB 255,64,64,32,16,19,51,195</td>
+<td class="comment-1" rowspan="1">Glyph 23: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63480_56x4" src="../../images/udgs/udg63480_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63488"></span>63488</td>
+<td class="instruction">DEFB 131,0,0,0,0,224,224,224</td>
+<td class="comment-1" rowspan="1">Glyph 24: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63488_56x4" src="../../images/udgs/udg63488_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63496"></span>63496</td>
+<td class="instruction">DEFB 231,128,128,128,128,128,128,128</td>
+<td class="comment-1" rowspan="1">Glyph 25: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63496_56x4" src="../../images/udgs/udg63496_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63504"></span>63504</td>
+<td class="instruction">DEFB 128,3,15,127,255,255,255,255</td>
+<td class="comment-1" rowspan="1">Glyph 26: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63504_56x4" src="../../images/udgs/udg63504_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63512"></span>63512</td>
+<td class="instruction">DEFB 193,250,250,250,250,250,250,250</td>
+<td class="comment-1" rowspan="1">Glyph 27: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63512_56x4" src="../../images/udgs/udg63512_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63520"></span>63520</td>
+<td class="instruction">DEFB 250,92,92,92,92,92,92,92</td>
+<td class="comment-1" rowspan="1">Glyph 28: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63520_56x4" src="../../images/udgs/udg63520_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63528"></span>63528</td>
+<td class="instruction">DEFB 92,0,0,0,0,0,14,15</td>
+<td class="comment-1" rowspan="1">Glyph 29: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63528_56x4" src="../../images/udgs/udg63528_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63536"></span>63536</td>
+<td class="instruction">DEFB 15,15,7,6,2,2,2,2</td>
+<td class="comment-1" rowspan="1">Glyph 30: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63536_56x4" src="../../images/udgs/udg63536_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63544"></span>63544</td>
+<td class="instruction">DEFB 2,129,0,0,0,0,12,30</td>
+<td class="comment-1" rowspan="1">Glyph 31: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63544_56x4" src="../../images/udgs/udg63544_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63552"></span>63552</td>
+<td class="instruction">DEFB 30,255,30,12,12,12,4,4</td>
+<td class="comment-1" rowspan="1">Glyph 32: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63552_56x4" src="../../images/udgs/udg63552_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63560"></span>63560</td>
+<td class="instruction">DEFB 4,255,1,0,0,0,12,30</td>
+<td class="comment-1" rowspan="1">Glyph 33: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63560_56x4" src="../../images/udgs/udg63560_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63568"></span>63568</td>
+<td class="instruction">DEFB 30,0,255,96,16,24,24,8</td>
+<td class="comment-1" rowspan="1">Glyph 34: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63568_56x4" src="../../images/udgs/udg63568_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63576"></span>63576</td>
+<td class="instruction">DEFB 8,192,192,0,0,0,112,120</td>
+<td class="comment-1" rowspan="1">Glyph 35: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63576_56x4" src="../../images/udgs/udg63576_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63584"></span>63584</td>
+<td class="instruction">DEFB 120,122,58,26,26,10,10,10</td>
+<td class="comment-1" rowspan="1">Glyph 36: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63584_56x4" src="../../images/udgs/udg63584_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63592"></span>63592</td>
+<td class="instruction">DEFB 10,92,92,92,92,92,92,92</td>
+<td class="comment-1" rowspan="1">Glyph 37: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63592_56x4" src="../../images/udgs/udg63592_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63600"></span>63600</td>
+<td class="instruction">DEFB 92,15,15,14,0,0,0,0</td>
+<td class="comment-1" rowspan="1">Glyph 38: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63600_56x4" src="../../images/udgs/udg63600_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63608"></span>63608</td>
+<td class="instruction">DEFB 0,2,2,2,2,2,2,2</td>
+<td class="comment-1" rowspan="1">Glyph 39: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63608_56x4" src="../../images/udgs/udg63608_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63616"></span>63616</td>
+<td class="instruction">DEFB 2,30,12,0,0,0,0,0</td>
+<td class="comment-1" rowspan="1">Glyph 40: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63616_56x4" src="../../images/udgs/udg63616_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63624"></span>63624</td>
+<td class="instruction">DEFB 0,4,4,4,4,4,12,8</td>
+<td class="comment-1" rowspan="1">Glyph 41: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63624_56x4" src="../../images/udgs/udg63624_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63632"></span>63632</td>
+<td class="instruction">DEFB 8,30,12,0,0,0,0,0</td>
+<td class="comment-1" rowspan="1">Glyph 42: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63632_56x4" src="../../images/udgs/udg63632_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63640"></span>63640</td>
+<td class="instruction">DEFB 0,8,8,8,8,8,8,24</td>
+<td class="comment-1" rowspan="1">Glyph 43: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63640_56x4" src="../../images/udgs/udg63640_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label">Font_MainMenuLogo_0</td>
+<td class="address-2"><span id="63648"></span>63648</td>
+<td class="instruction">DEFB 24,112,0,0,0,0,0,0</td>
+<td class="comment-1" rowspan="1">Glyph 44: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63648_56x4" src="../../images/udgs/udg63648_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63656"></span>63656</td>
+<td class="instruction">DEFB 0,26,26,26,58,122,58,26</td>
+<td class="comment-1" rowspan="1">Glyph 45: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63656_56x4" src="../../images/udgs/udg63656_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63664"></span>63664</td>
+<td class="instruction">DEFB 14,92,92,92,92,95,64,127</td>
+<td class="comment-1" rowspan="1">Glyph 46: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63664_56x4" src="../../images/udgs/udg63664_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63672"></span>63672</td>
+<td class="instruction">DEFB 128,0,0,0,0,255,0,255</td>
+<td class="comment-1" rowspan="1">Glyph 47: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63672_56x4" src="../../images/udgs/udg63672_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63680"></span>63680</td>
+<td class="instruction">DEFB 0,6,6,15,127,255,0,255</td>
+<td class="comment-1" rowspan="1">Glyph 48: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63680_56x4" src="../../images/udgs/udg63680_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63688"></span>63688</td>
+<td class="instruction">DEFB 0,0,0,0,192,255,0,255</td>
+<td class="comment-1" rowspan="1">Glyph 49: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63688_56x4" src="../../images/udgs/udg63688_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63696"></span>63696</td>
+<td class="instruction">DEFB 0,8,28,30,127,255,0,255</td>
+<td class="comment-1" rowspan="1">Glyph 50: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63696_56x4" src="../../images/udgs/udg63696_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63704"></span>63704</td>
+<td class="instruction">DEFB 0,0,0,0,1,255,0,255</td>
+<td class="comment-1" rowspan="1">Glyph 51: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63704_56x4" src="../../images/udgs/udg63704_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63712"></span>63712</td>
+<td class="instruction">DEFB 0,16,96,96,192,255,0,255</td>
+<td class="comment-1" rowspan="1">Glyph 52: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63712_56x4" src="../../images/udgs/udg63712_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63720"></span>63720</td>
+<td class="instruction">DEFB 0,112,112,120,120,252,5,255</td>
+<td class="comment-1" rowspan="1">Glyph 53: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63720_56x4" src="../../images/udgs/udg63720_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63728"></span>63728</td>
+<td class="instruction">DEFB 0,3,1,3,30,122,194,254</td>
+<td class="comment-1" rowspan="1">Glyph 54: <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="udg63728_56x4" src="../../images/udgs/udg63728_56x4.png" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="63736"></span>63736</td>
+<td class="instruction">DEFB 1</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="63242.html">63242</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#63296">Map</a></td>
+<td class="next">
+Next: <a href="63737.html">63737</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/F740.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

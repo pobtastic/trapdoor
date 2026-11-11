@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at AD6F</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at AD6F. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at AD6F" />
+<meta property="og:description" content="The Trap Door: Routine at AD6F. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44399.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44399.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at AD6F",
+"name": "The Trap Door: Routine at AD6F",
+"description": "The Trap Door: Routine at AD6F. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44399.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at AD6F"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/44399.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="44359.html">AD47</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#ad6f">Map</a></td>
+<td class="next">
+Next: <a href="44440.html">AD98</a>
+</td>
+</tr>
+</table>
+<div class="description">AD6F: Print Menu Strings</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="44359.html">Reset_Text_Position</a>, <a href="44801.html">Initialise_Room_Display</a>, <a href="62447.html">MainMenu</a> and <a href="62571.html">Print_ControlsMenu</a>.
+</div>
+<div class="paragraph">
+Print a menu printer stream from <span class="register">BC</span>. Fragment headers are three bytes (address low/high, attribute); &#38; (26) starts a new fragment; &#93; (5D) ends the stream. Uses the character set at <a href="29433.html">Pointer_CurrentCharacterSet</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ad6f"></span>
+<div class="comments">
+<div class="paragraph">
+Entry: pop the CALL return address into <span class="register">BC</span> as the printer-stream pointer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Print_Menu_Strings</td>
+<td class="address-2"><span id="ad6f"></span>AD6F</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Pop the stream pointer into <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="asm-label">Print_Menu_Strings_FetchByte</td>
+<td class="address-2"><span id="ad70"></span>AD70</td>
+<td class="instruction">LD A,(BC)</td>
+<td class="comment-1" rowspan="1">Fetch a byte through the pointer in <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad71"></span>AD71</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-1" rowspan="1">Keep the screen-address low byte in <span class="register">L</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad72"></span>AD72</td>
+<td class="instruction">INC BC</td>
+<td class="comment-1" rowspan="1">Advance the stream pointer in <span class="register">BC</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad73"></span>AD73</td>
+<td class="instruction">LD A,(BC)</td>
+<td class="comment-1" rowspan="1">Fetch a byte through the pointer in <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad74"></span>AD74</td>
+<td class="instruction">LD H,A</td>
+<td class="comment-1" rowspan="1">Keep the screen-address high byte in <span class="register">H</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad75"></span>AD75</td>
+<td class="instruction">INC BC</td>
+<td class="comment-1" rowspan="1">Advance the counter/pointer in <span class="register">BC</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad76"></span>AD76</td>
+<td class="instruction">LD A,(BC)</td>
+<td class="comment-1" rowspan="1">Fetch a byte through the pointer in <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad77"></span>AD77</td>
+<td class="instruction">LD ($7307),A</td>
+<td class="comment-1" rowspan="1">Set the temporary room/state byte (<a href="29447.html">CurrentTextAttribute</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad7a"></span>AD7A</td>
+<td class="instruction">INC BC</td>
+<td class="comment-1" rowspan="1">Advance the counter/pointer in <span class="register">BC</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad7b"></span>AD7B</td>
+<td class="instruction">LD D,$00</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">D</span> (high byte of a pointer/offset).</td>
+</tr>
+<tr>
+<td class="asm-label">Print_Menu_Strings_FetchGlyph</td>
+<td class="address-2"><span id="ad7d"></span>AD7D</td>
+<td class="instruction">LD A,(BC)</td>
+<td class="comment-1" rowspan="1">Fetch a byte through the pointer in <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad7e"></span>AD7E</td>
+<td class="instruction">INC BC</td>
+<td class="comment-1" rowspan="1">Advance the counter/pointer in <span class="register">BC</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad7f"></span>AD7F</td>
+<td class="instruction">CP $26</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> equal to 26? If so, jump to <a href="44399.html#ad70">Print_Menu_Strings_FetchByte</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad81"></span>AD81</td>
+<td class="instruction">JR Z,<a href="44399.html#ad70">Print_Menu_Strings_FetchByte</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad83"></span>AD83</td>
+<td class="instruction">CP $5D</td>
+<td class="comment-1" rowspan="2">Is <span class="register">A</span> equal to 5D? If not, jump to <a href="44399.html#ad89">Print_Menu_Strings_PrintGlyph</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad85"></span>AD85</td>
+<td class="instruction">JR NZ,<a href="44399.html#ad89">Print_Menu_Strings_PrintGlyph</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad87"></span>AD87</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">BC</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad88"></span>AD88</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label">Print_Menu_Strings_PrintGlyph</td>
+<td class="address-2"><span id="ad89"></span>AD89</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1">Keep the glyph code in <span class="register">E</span> for <a href="60263.html">Print_Character</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad8a"></span>AD8A</td>
+<td class="instruction">CALL <a href="60263.html">Print_Character</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60263.html">Print_Character</a> to print Character.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad8d"></span>AD8D</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance the current pointer by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad8e"></span>AD8E</td>
+<td class="instruction">JR <a href="44399.html#ad7d">Print_Menu_Strings_FetchGlyph</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="44399.html#ad7d">Print_Menu_Strings_FetchGlyph</a> to print the next menu glyph.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad90"></span>AD90</td>
+<td class="instruction">CALL <a href="59964.html">Clear_BothDisplayBuffers</a></td>
+<td class="comment-1" rowspan="1">Call <a href="59964.html">Clear_BothDisplayBuffers</a> to clear both display buffers.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad93"></span>AD93</td>
+<td class="instruction">LD A,$12</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 12.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ad95"></span>AD95</td>
+<td class="instruction">CALL <a href="59986.html">Clear_AttributeFile</a></td>
+<td class="comment-1" rowspan="1">Call <a href="59986.html">Clear_AttributeFile</a> to clear Attribute File.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="44359.html">AD47</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#ad6f">Map</a></td>
+<td class="next">
+Next: <a href="44440.html">AD98</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/279449.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

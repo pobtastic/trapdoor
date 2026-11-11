@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 62254</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 62254. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 62254" />
+<meta property="og:description" content="The Trap Door: Routine at 62254. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/62254.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/62254.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 62254",
+"name": "The Trap Door: Routine at 62254",
+"description": "The Trap Door: Routine at 62254. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/62254.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 62254"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/62254.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62250.html">62250</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#62254">Map</a></td>
+<td class="next">
+Next: <a href="62349.html">62349</a>
+</td>
+</tr>
+</table>
+<div class="description">62254: Test Entity On Right</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="47091.html">Berk_Interact_With_Entity</a> and <a href="50243.html">ScriptRoutine_TaskThreeClearUpstairs</a>.
+</div>
+<div class="paragraph">
+Find a solid simple entity immediately to the right of <span class="register">IX</span> (for a rightward step). On a hit, store it at <a href="29354.html">Pointer_LastCollidedEntity</a> and clear carry; on a miss, set carry.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Address of complex state data for the subject entity</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Test_EntityOnRight</td>
+<td class="address-2"><span id="62254"></span>62254</td>
+<td class="instruction">LD C,1</td>
+<td class="comment-1" rowspan="1">Load <span class="register">C</span> with 1 (room−1 / right bias).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62256"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="62250.html">Test_EntityOnLeft</a>.
+</div>
+<div class="paragraph">
+Walk <a href="35689.html">StateData_SimpleEntities</a> for a solid (bit 2) entity abutting <span class="register">IX</span> horizontally.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Test_EntityHorizontal_Scan</td>
+<td class="address-2"><span id="62256"></span>62256</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="2">Stash <span class="register">HL</span> and <span class="register">DE</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62257"></span>62257</td>
+<td class="instruction">PUSH DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62258"></span>62258</td>
+<td class="instruction">LD DE,14</td>
+<td class="comment-1" rowspan="1">Each entity record is 0014 bytes, then load that into <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62261"></span>62261</td>
+<td class="instruction">LD HL,35689</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the simple entity table (<a href="35689.html">StateData_SimpleEntities</a>).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62264"></span>
+<div class="comments">
+<div class="paragraph">
+Next simple-entity slot for the horizontal abut test (or miss on 255).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Test_EntityHorizontal_ScanSlot</td>
+<td class="address-2"><span id="62264"></span>62264</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="3">Fetch this entity's type. Is it the table terminator (255)? If not, test the slot at <a href="62254.html#62273">Test_EntityHorizontal_CheckSlot</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62265"></span>62265</td>
+<td class="instruction">CP 255</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62267"></span>62267</td>
+<td class="instruction">JR NZ,<a href="62254.html#62273">Test_EntityHorizontal_CheckSlot</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62269"></span>62269</td>
+<td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="2">Restore <span class="register">DE</span> and <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62270"></span>62270</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62271"></span>62271</td>
+<td class="instruction">SCF</td>
+<td class="comment-1" rowspan="1">Signal a miss.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62272"></span>62272</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62273"></span>
+<div class="comments">
+<div class="paragraph">
+Require a solid (bit 2) neighbour; skip room check for type 51.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Test_EntityHorizontal_CheckSlot</td>
+<td class="address-2"><span id="62273"></span>62273</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="3">Re-fetch the type. Is the slot empty? If so, skip to <a href="62254.html#62346">Test_EntityHorizontal_AdvanceSlot</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62274"></span>62274</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62275"></span>62275</td>
+<td class="instruction">JR Z,<a href="62254.html#62346">Test_EntityHorizontal_AdvanceSlot</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62277"></span>62277</td>
+<td class="instruction">BIT 7,A</td>
+<td class="comment-1" rowspan="2">Is the high bit set (inactive)? If so, skip to <a href="62254.html#62346">Test_EntityHorizontal_AdvanceSlot</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62279"></span>62279</td>
+<td class="instruction">JR NZ,<a href="62254.html#62346">Test_EntityHorizontal_AdvanceSlot</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62281"></span>62281</td>
+<td class="instruction">CP (IX+0)</td>
+<td class="comment-1" rowspan="2">Is it the same type as the subject? If so, skip to <a href="62254.html#62346">Test_EntityHorizontal_AdvanceSlot</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62284"></span>62284</td>
+<td class="instruction">JR Z,<a href="62254.html#62346">Test_EntityHorizontal_AdvanceSlot</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62286"></span>62286</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1">Keep the type in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62287"></span>62287</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">HL</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62288"></span>62288</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance onto flags byte 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62289"></span>62289</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the flags.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62290"></span>62290</td>
+<td class="instruction">AND %00000100</td>
+<td class="comment-1" rowspan="1">Keep only the solid/platform bit (bit 2).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62292"></span>62292</td>
+<td class="instruction">JR Z,<a href="62254.html#62345">Test_EntityHorizontal_Reject</a></td>
+<td class="comment-1" rowspan="1">If it was clear, reject at <a href="62254.html#62345">Test_EntityHorizontal_Reject</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62294"></span>62294</td>
+<td class="instruction">BIT 5,(HL)</td>
+<td class="comment-1" rowspan="2">Is bit 5 set? If so, reject at <a href="62254.html#62345">Test_EntityHorizontal_Reject</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62296"></span>62296</td>
+<td class="instruction">JR NZ,<a href="62254.html#62345">Test_EntityHorizontal_Reject</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62298"></span>62298</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="3">Advance past the room/y/y-extent fields onto the room-check byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62299"></span>62299</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62300"></span>62300</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62301"></span>62301</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-1" rowspan="2">Keep the candidate type in <span class="register">A</span>. Is it type 51 (skip room check)?.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62302"></span>62302</td>
+<td class="instruction">CP 51</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62304"></span>62304</td>
+<td class="instruction">JR Z,<a href="62254.html#62313">Test_EntityHorizontal_CheckBounds</a></td>
+<td class="comment-1" rowspan="1">If so, take the bounds check at <a href="62254.html#62313">Test_EntityHorizontal_CheckBounds</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62306"></span>62306</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="4">Fetch the entity's room. Subtract the caller's room bias in <span class="register">C</span>. Does it match the subject's room? If not, reject at <a href="62254.html#62345">Test_EntityHorizontal_Reject</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62307"></span>62307</td>
+<td class="instruction">SUB C</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62308"></span>62308</td>
+<td class="instruction">CP (IX+4)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62311"></span>62311</td>
+<td class="instruction">JR NZ,<a href="62254.html#62345">Test_EntityHorizontal_Reject</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62313"></span>
+<div class="comments">
+<div class="paragraph">
+Confirm vertical overlap and X-extent abutment with the subject.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Test_EntityHorizontal_CheckBounds</td>
+<td class="address-2"><span id="62313"></span>62313</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance onto the entity's y-coordinate.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62314"></span>62314</td>
+<td class="instruction">LD A,(IX+6)</td>
+<td class="comment-1" rowspan="3">Does the subject's y-extent (<span class="register">IX</span>+6) reach this candidate y? If not, reject at <a href="62254.html#62345">Test_EntityHorizontal_Reject</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62317"></span>62317</td>
+<td class="instruction">CP (HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62318"></span>62318</td>
+<td class="instruction">JR C,<a href="62254.html#62345">Test_EntityHorizontal_Reject</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62320"></span>62320</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance onto the entity's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62321"></span>62321</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="3">Does this candidate y-extent reach the subject's y (<span class="register">IX</span>+5)? If not, reject at <a href="62254.html#62345">Test_EntityHorizontal_Reject</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62322"></span>62322</td>
+<td class="instruction">CP (IX+5)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62325"></span>62325</td>
+<td class="instruction">JR C,<a href="62254.html#62345">Test_EntityHorizontal_Reject</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62327"></span>62327</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="2">Advance <span class="register">HL</span> past the x-coordinate onto the entity's x-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62328"></span>62328</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62329"></span>62329</td>
+<td class="instruction">LD A,(IX+7)</td>
+<td class="comment-1" rowspan="1">Fetch the subject's x (<span class="register">IX</span>+7).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62332"></span>62332</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1">Step it left by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62333"></span>62333</td>
+<td class="instruction">CP (HL)</td>
+<td class="comment-1" rowspan="2">Does it equal this entity's x-extent (abutting on the left/right)? If not, jump to <a href="62254.html#62345">Test_EntityHorizontal_Reject</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62334"></span>62334</td>
+<td class="instruction">JR NZ,<a href="62254.html#62345">Test_EntityHorizontal_Reject</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62336"></span>
+<div class="comments">
+<div class="paragraph">
+Horizontal neighbour hits: store the entity at <a href="29354.html">Pointer_LastCollidedEntity</a> and return its type.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62336"></span>62336</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62337"></span>62337</td>
+<td class="instruction">LD (29354),HL</td>
+<td class="comment-1" rowspan="1">Store it at <a href="29354.html">Pointer_LastCollidedEntity</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62340"></span>62340</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear carry.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62341"></span>62341</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the entity's type into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62342"></span>62342</td>
+<td class="instruction">POP DE</td>
+<td class="comment-1" rowspan="2">Restore <span class="register">DE</span> and <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62343"></span>62343</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62344"></span>62344</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62345"></span>
+<div class="comments">
+<div class="paragraph">
+Reject this horizontal neighbour and continue the simple-entity walk.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Test_EntityHorizontal_Reject</td>
+<td class="address-2"><span id="62345"></span>62345</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="62346"></span>
+<div class="comments">
+<div class="paragraph">
+Advance to the next simple-entity record in the horizontal scan.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Test_EntityHorizontal_AdvanceSlot</td>
+<td class="address-2"><span id="62346"></span>62346</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">Advance <span class="register">HL</span> by one entity record.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="62347"></span>62347</td>
+<td class="instruction">JR <a href="62254.html#62264">Test_EntityHorizontal_ScanSlot</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="62254.html#62264">Test_EntityHorizontal_ScanSlot</a> to test the next horizontal neighbour.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="62250.html">62250</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#62254">Map</a></td>
+<td class="next">
+Next: <a href="62349.html">62349</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/F32E.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

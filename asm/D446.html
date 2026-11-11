@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at D446</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at D446. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at D446" />
+<meta property="og:description" content="The Trap Door: Routine at D446. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/D446.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/D446.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at D446",
+"name": "The Trap Door: Routine at D446",
+"description": "The Trap Door: Routine at D446. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/D446.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at D446"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/D446.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="D234.html">D234</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#d446">Map</a></td>
+<td class="next">
+Next: <a href="D45B.html">D45B</a>
+</td>
+</tr>
+</table>
+<div class="description">D446: Check Entity Collision</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="B2AA.html">Update_Entity_Slot</a>.
+</div>
+<div class="paragraph">
+Check Entity Collision against the complex entity table at <a href="8EE9.html">StateData_Boney</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d446"></span>
+<div class="comments">
+<div class="paragraph">
+Called from <a href="B2AA.html#b380">B380</a> on a type-08 / type-0B pair: set bit 07 of <a href="72B8.html">TaskOneCollisionFlags</a>, bump <a href="72BD.html">CollisionScratchByte</a>, and on the third bump set bit 06 of <a href="72B8.html">TaskOneCollisionFlags</a> (cleared by <a href="ECDB.html#edb8">EDB8</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Check_Entity_Collision</td>
+<td class="address-2"><span id="d446"></span>D446</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">HL</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d447"></span>D447</td>
+<td class="instruction">LD HL,$72B8</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at task-one / collision flags (<a href="72B8.html">TaskOneCollisionFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d44a"></span>D44A</td>
+<td class="instruction">SET 7,(HL)</td>
+<td class="comment-1" rowspan="1">Set bit 07 of <a href="72B8.html">TaskOneCollisionFlags</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d44c"></span>D44C</td>
+<td class="instruction">LD A,($72BD)</td>
+<td class="comment-1" rowspan="1">Load the collision scratch byte (<a href="72BD.html">CollisionScratchByte</a>) into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d44f"></span>D44F</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Advance that counter by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d450"></span>D450</td>
+<td class="instruction">LD ($72BD),A</td>
+<td class="comment-1" rowspan="1">Store the counter back to <a href="72BD.html">CollisionScratchByte</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d453"></span>D453</td>
+<td class="instruction">CP $03</td>
+<td class="comment-1" rowspan="2">Has <a href="72BD.html">CollisionScratchByte</a> reached 03? If not, jump to <a href="D446.html#d459">Check_Entity_Collision_RestoreReturn</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d455"></span>D455</td>
+<td class="instruction">JR NZ,<a href="D446.html#d459">Check_Entity_Collision_RestoreReturn</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d457"></span>D457</td>
+<td class="instruction">SET 6,(HL)</td>
+<td class="comment-1" rowspan="1">Set bit 06 of <a href="72B8.html">TaskOneCollisionFlags</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="d459"></span>
+<div class="comments">
+<div class="paragraph">
+Restore <span class="register">HL</span> and return after recording the type-08 / 0B collision.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Check_Entity_Collision_RestoreReturn</td>
+<td class="address-2"><span id="d459"></span>D459</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d45a"></span>D45A</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="D234.html">D234</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#d446">Map</a></td>
+<td class="next">
+Next: <a href="D45B.html">D45B</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/54342.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

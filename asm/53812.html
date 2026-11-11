@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Data at D234</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Data at D234. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Data at D234" />
+<meta property="og:description" content="The Trap Door: Data at D234. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/53812.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/53812.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Data at D234",
+"name": "The Trap Door: Data at D234",
+"description": "The Trap Door: Data at D234. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/53812.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Data at D234"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/53812.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="53758.html">D1FE</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#d234">Map</a></td>
+<td class="next">
+Next: <a href="54342.html">D446</a>
+</td>
+</tr>
+</table>
+<div class="description">D234: Data: Vat Script / Table Residue</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Data following script routine <a href="53758.html">ScriptRoutine_VatClearBit6AndReset</a> (not executable code).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Data_VatResidue</td>
+<td class="address-1"><span id="d234"></span>D234</td>
+<td class="instruction">DEFB $F0,$0D,$FB,$45,$D3,$FA,$00,$FF</td>
+<td class="comment-1" rowspan="1">Words: 0DF0 45FB FAD3 FF00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d23c"></span>D23C</td>
+<td class="instruction">DEFB $2D,$06,$22,$2D,$86,$21,$FF,$FE</td>
+<td class="comment-1" rowspan="1">Words: 062D 2D22 2186 FEFF.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d244"></span>D244</td>
+<td class="instruction">DEFB $FF,$00,$FB,$45,$D3,$FA,$00,$FF</td>
+<td class="comment-1" rowspan="1">Words: FF 45FB FAD3 FF00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d24c"></span>D24C</td>
+<td class="instruction">DEFB $26,$06,$22,$26,$86,$1E,$2E,$06</td>
+<td class="comment-1" rowspan="1">Words: 0626 2622 1E86 062E.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d254"></span>D254</td>
+<td class="instruction">DEFB $21,$2F,$06,$21,$2E,$86,$21,$FF</td>
+<td class="comment-1" rowspan="1">Words: 2F21 2106 862E FF21.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d25c"></span>D25C</td>
+<td class="instruction">DEFB $FB,$45,$D3,$FA,$00,$FF,$26,$06</td>
+<td class="comment-1" rowspan="1">Words: 45FB FAD3 FF00 0626.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d264"></span>D264</td>
+<td class="instruction">DEFB $22,$26,$86,$1E,$3A,$06,$21,$38</td>
+<td class="comment-1" rowspan="1">Words: 2622 1E86 063A 3821.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d26c"></span>D26C</td>
+<td class="instruction">DEFB $06,$21,$3A,$86,$1F,$39,$06,$21</td>
+<td class="comment-1" rowspan="1">Words: 2106 863A 391F 2106.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d274"></span>D274</td>
+<td class="instruction">DEFB $FF,$F4,$06,$FA,$FF,$FF,$25,$06</td>
+<td class="comment-1" rowspan="1">Words: F4FF FA06 FFFF 0625.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d27c"></span>D27C</td>
+<td class="instruction">DEFB $21,$24,$06,$21,$25,$86,$1E,$2D</td>
+<td class="comment-1" rowspan="1">Words: 2421 2106 8625 2D1E.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d284"></span>D284</td>
+<td class="instruction">DEFB $06,$21,$00,$36,$21,$2D,$86,$21</td>
+<td class="comment-1" rowspan="1">Words: 2106 3600 2D21 2186.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d28c"></span>D28C</td>
+<td class="instruction">DEFB $FF,$F4,$06,$FA,$FF,$FF,$25,$06</td>
+<td class="comment-1" rowspan="1">Words: F4FF FA06 FFFF 0625.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d294"></span>D294</td>
+<td class="instruction">DEFB $21,$24,$06,$21,$25,$86,$1E,$26</td>
+<td class="comment-1" rowspan="1">Words: 2421 2106 8625 261E.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d29c"></span>D29C</td>
+<td class="instruction">DEFB $06,$21,$00,$36,$21,$26,$86,$1E</td>
+<td class="comment-1" rowspan="1">Words: 2106 3600 2621 1E86.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2a4"></span>D2A4</td>
+<td class="instruction">DEFB $3A,$06,$21,$38,$06,$21,$3A,$86</td>
+<td class="comment-1" rowspan="1">Words: 063A 3821 2106 863A.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2ac"></span>D2AC</td>
+<td class="instruction">DEFB $1F,$39,$06,$21,$FF,$F0,$0D,$F4</td>
+<td class="comment-1" rowspan="1">Words: 391F 2106 F0FF F40D.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2b4"></span>D2B4</td>
+<td class="instruction">DEFB $06,$FA,$FF,$00,$30,$07,$1F,$26</td>
+<td class="comment-1" rowspan="1">Words: FA06 FF 0730 261F.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2bc"></span>D2BC</td>
+<td class="instruction">DEFB $06,$21,$31,$06,$A1,$32,$06,$21</td>
+<td class="comment-1" rowspan="1">Words: 2106 0631 32A1 2106.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2c4"></span>D2C4</td>
+<td class="instruction">DEFB $FF,$FB,$E9,$D2,$FA,$01,$FF,$33</td>
+<td class="comment-1" rowspan="1">Words: FBFF D2E9 01FA 33FF.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2cc"></span>D2CC</td>
+<td class="instruction">DEFB $06,$21,$34,$06,$21,$FF,$FB,$E9</td>
+<td class="comment-1" rowspan="1">Words: 2106 0634 FF21 E9FB.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2d4"></span>D2D4</td>
+<td class="instruction">DEFB $D2,$FA,$01,$00,$35,$06,$21,$FF</td>
+<td class="comment-1" rowspan="1">Words: FAD2 01 0635 FF21.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2dc"></span>D2DC</td>
+<td class="instruction">DEFB $FB,$E9,$D2,$FA,$01,$00,$36,$06</td>
+<td class="comment-1" rowspan="1">Words: E9FB FAD2 01 0636.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2e4"></span>D2E4</td>
+<td class="instruction">DEFB $21,$37,$06,$21,$FF,$F4,$06,$FA</td>
+<td class="comment-1" rowspan="1">Words: 3721 2106 F4FF FA06.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2ec"></span>D2EC</td>
+<td class="instruction">DEFB $FF,$00,$30,$07,$1F,$26,$06,$21</td>
+<td class="comment-1" rowspan="1">Words: FF 0730 261F 2106.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2f4"></span>D2F4</td>
+<td class="instruction">DEFB $00,$36,$21,$26,$86,$21,$FF,$F0</td>
+<td class="comment-1" rowspan="1">Words: 3600 2621 2186 F0FF.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d2fc"></span>D2FC</td>
+<td class="instruction">DEFB $0D,$F4,$06,$FA,$FF,$00,$30,$87</td>
+<td class="comment-1" rowspan="1">Words: F40D FA06 FF 8730.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d304"></span>D304</td>
+<td class="instruction">DEFB $1F,$32,$86,$21,$31,$86,$A1,$26</td>
+<td class="comment-1" rowspan="1">Words: 321F 2186 8631 26A1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d30c"></span>D30C</td>
+<td class="instruction">DEFB $86,$21,$FF,$FB,$33,$D3,$FA,$01</td>
+<td class="comment-1" rowspan="1">Words: 2186 FBFF D333 01FA.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d314"></span>D314</td>
+<td class="instruction">DEFB $00,$34,$86,$21,$33,$86,$21,$FF</td>
+<td class="comment-1" rowspan="1">Words: 3400 2186 8633 FF21.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d31c"></span>D31C</td>
+<td class="instruction">DEFB $FB,$33,$D3,$FA,$01,$00,$35,$86</td>
+<td class="comment-1" rowspan="1">Words: 33FB FAD3 01 8635.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d324"></span>D324</td>
+<td class="instruction">DEFB $21,$FF,$FB,$33,$D3,$FA,$01,$FF</td>
+<td class="comment-1" rowspan="1">Words: FF21 33FB FAD3 FF01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d32c"></span>D32C</td>
+<td class="instruction">DEFB $37,$86,$21,$36,$86,$21,$FF,$F4</td>
+<td class="comment-1" rowspan="1">Words: 8637 3621 2186 F4FF.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d334"></span>D334</td>
+<td class="instruction">DEFB $06,$FA,$FF,$00,$30,$87,$1F,$26</td>
+<td class="comment-1" rowspan="1">Words: FA06 FF 8730 261F.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d33c"></span>D33C</td>
+<td class="instruction">DEFB $06,$21,$00,$36,$21,$26,$86,$21</td>
+<td class="comment-1" rowspan="1">Words: 2106 3600 2621 2186.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d344"></span>D344</td>
+<td class="instruction">DEFB $FF,$F4,$06,$F5,$03,$27,$28,$29</td>
+<td class="comment-1" rowspan="1">Words: F4FF F506 2703 2928.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d34c"></span>D34C</td>
+<td class="instruction">DEFB $00,$33,$21,$FA,$FF,$FE,$F9,$02</td>
+<td class="comment-1" rowspan="1">Words: 3300 FA21 FEFF 02F9.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d354"></span>D354</td>
+<td class="instruction">DEFB $00,$02,$04,$5D,$D3,$01,$02,$67</td>
+<td class="comment-1" rowspan="1">Words: 0200 5D04 01D3 6702.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d35c"></span>D35C</td>
+<td class="instruction">DEFB $D3,$25,$07,$21,$23,$07,$21,$25</td>
+<td class="comment-1" rowspan="1">Words: 25D3 2107 0723 2521.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d364"></span>D364</td>
+<td class="instruction">DEFB $87,$21,$FF,$25,$06,$21,$24,$06</td>
+<td class="comment-1" rowspan="1">Words: 2187 25FF 2106 0624.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d36c"></span>D36C</td>
+<td class="instruction">DEFB $21,$25,$86,$21,$FF,$F4,$06,$FA</td>
+<td class="comment-1" rowspan="1">Words: 2521 2186 F4FF FA06.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d374"></span>D374</td>
+<td class="instruction">DEFB $00,$FF,$2D,$06,$21,$2A,$33,$21</td>
+<td class="comment-1" rowspan="1">Words: FF00 062D 2A21 2133.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d37c"></span>D37C</td>
+<td class="instruction">DEFB $2D,$86,$21,$FA,$FF,$FD,$F3,$00</td>
+<td class="comment-1" rowspan="1">Words: 862D FA21 FDFF F3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d384"></span>D384</td>
+<td class="instruction">DEFB $02,$5D,$D3,$67,$D3,$F4,$06,$FA</td>
+<td class="comment-1" rowspan="1">Words: 5D02 67D3 F4D3 FA06.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d38c"></span>D38C</td>
+<td class="instruction">DEFB $FF,$FF,$25,$07,$21,$23,$07,$21</td>
+<td class="comment-1" rowspan="1">Words: FFFF 0725 2321 2107.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d394"></span>D394</td>
+<td class="instruction">DEFB $25,$87,$1E,$2D,$06,$22,$2D,$86</td>
+<td class="comment-1" rowspan="1">Words: 8725 2D1E 2206 862D.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d39c"></span>D39C</td>
+<td class="instruction">DEFB $21,$FA,$00,$FE,$F5,$02,$2B,$2C</td>
+<td class="comment-1" rowspan="1">Words: FA21 FE00 02F5 2C2B.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3a4"></span>D3A4</td>
+<td class="instruction">DEFB $00,$33,$20,$F3,$00,$03,$B0,$D3</td>
+<td class="comment-1" rowspan="1">Words: 3300 F320 0300 D3B0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3ac"></span>D3AC</td>
+<td class="instruction">DEFB $BA,$D3,$C1,$D3,$FA,$00,$FF,$11</td>
+<td class="comment-1" rowspan="1">Words: D3BA D3C1 FA 11FF.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3b4"></span>D3B4</td>
+<td class="instruction">DEFB $07,$21,$3B,$03,$21,$FF,$02,$03</td>
+<td class="comment-1" rowspan="1">Words: 2107 033B FF21 0302.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3bc"></span>D3BC</td>
+<td class="instruction">DEFB $20,$03,$07,$21,$FF,$3B,$83,$21</td>
+<td class="comment-1" rowspan="1">Words: 0320 2107 3BFF 2183.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3c4"></span>D3C4</td>
+<td class="instruction">DEFB $11,$87,$21,$FF,$92,$D7,$01,$00</td>
+<td class="comment-1" rowspan="1">Words: 8711 FF21 D792 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3cc"></span>D3CC</td>
+<td class="instruction">DEFB $C8,$D3,$7D,$D6,$36,$00,$01,$00</td>
+<td class="comment-1" rowspan="1">Words: D3C8 <a href="54909.html">Data_CollectibleResidue</a>, 36 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3d4"></span>D3D4</td>
+<td class="instruction">DEFB $CE,$D3,$92,$D7,$37,$00,$01,$00</td>
+<td class="comment-1" rowspan="1">Words: D3CE D792 37 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3dc"></span>D3DC</td>
+<td class="instruction">DEFB $D6,$D3,$B5,$D6,$38,$00,$C4,$D6</td>
+<td class="comment-1" rowspan="1">Words: D3D6 D6B5 38 D6C4.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3e4"></span>D3E4</td>
+<td class="instruction">DEFB $01,$00,$DE,$D3,$D6,$D6,$39,$00</td>
+<td class="comment-1" rowspan="1">Words: 01 D3DE D6D6 39.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3ec"></span>D3EC</td>
+<td class="instruction">DEFB $E5,$D6,$01,$00,$E8,$D3,$F7,$D6</td>
+<td class="comment-1" rowspan="1">Words: D6E5 01 D3E8 D6F7.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3f4"></span>D3F4</td>
+<td class="instruction">DEFB $3A,$00,$03,$D7,$01,$00,$F2,$D3</td>
+<td class="comment-1" rowspan="1">Words: 3A D703 01 D3F2.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d3fc"></span>D3FC</td>
+<td class="instruction">DEFB $12,$D7,$3B,$00,$1B,$D7,$01,$00</td>
+<td class="comment-1" rowspan="1">Words: D712 3B D71B 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d404"></span>D404</td>
+<td class="instruction">DEFB $FC,$D3,$2A,$D7,$2A,$D7,$01,$00</td>
+<td class="comment-1" rowspan="1">Words: D3FC D72A D72A 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d40c"></span>D40C</td>
+<td class="instruction">DEFB $DE,$D3,$39,$D7,$39,$D7,$01,$00</td>
+<td class="comment-1" rowspan="1">Words: D3DE D739 D739 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d414"></span>D414</td>
+<td class="instruction">DEFB $E8,$D3,$48,$D7,$01,$00,$16,$D4</td>
+<td class="comment-1" rowspan="1">Words: D3E8 D748 01 D416.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d41c"></span>D41C</td>
+<td class="instruction">DEFB $03,$D7,$7D,$D6,$3C,$00,$3D,$00</td>
+<td class="comment-1" rowspan="1">Words: D703 <a href="54909.html">Data_CollectibleResidue</a>, 3C 3D.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d424"></span>D424</td>
+<td class="instruction">DEFB $12,$D7,$01,$00,$D6,$D3,$FA,$D6</td>
+<td class="comment-1" rowspan="1">Words: D712 01 D3D6 D6FA.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d42c"></span>D42C</td>
+<td class="instruction">DEFB $FA,$D6,$3D,$00,$03,$D7,$F7,$D6</td>
+<td class="comment-1" rowspan="1">Words: D6FA 3D D703 D6F7.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d434"></span>D434</td>
+<td class="instruction">DEFB $01,$00,$D6,$D3,$80,$D7,$80,$D7</td>
+<td class="comment-1" rowspan="1">Words: 01 D3D6 D780 D780.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d43c"></span>D43C</td>
+<td class="instruction">DEFB $3D,$00,$E5,$D6,$D6,$D6,$01,$00</td>
+<td class="comment-1" rowspan="1">Words: 3D D6E5 D6D6 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="d444"></span>D444</td>
+<td class="instruction">DEFB $D6,$D3</td>
+<td class="comment-1" rowspan="1">Words: D3D6.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="53758.html">D1FE</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#d234">Map</a></td>
+<td class="next">
+Next: <a href="54342.html">D446</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/342034.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

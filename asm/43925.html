@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at AB95</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at AB95. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at AB95" />
+<meta property="og:description" content="The Trap Door: Routine at AB95. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/43925.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/43925.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at AB95",
+"name": "The Trap Door: Routine at AB95",
+"description": "The Trap Door: Routine at AB95. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/43925.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at AB95"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/43925.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="43894.html">AB76</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#ab95">Map</a></td>
+<td class="next">
+Next: <a href="44258.html">ACE2</a>
+</td>
+</tr>
+</table>
+<div class="description">AB95: Update Berk State</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="43699.html">GameStart</a>.
+</div>
+<div class="paragraph">
+Update Berk State for the player character using complex state at <a href="36585.html">StateData_Berk</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="ab95"></span>
+<div class="comments">
+<div class="paragraph">
+Checks the current task phase/index, Berk action lock and timed events before driving Berk scripts.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State</td>
+<td class="address-2"><span id="ab95"></span>AB95</td>
+<td class="instruction">LD A,($72AF)</td>
+<td class="comment-1" rowspan="3">Load <span class="register">A</span> with the current task phase (<a href="29359.html">CurrentTaskPhase</a>). Is the current task phase inactive (zero)? If not, skip to the timed-event checks at <a href="43925.html#abc0">Update_Berk_State_TickCounter</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ab98"></span>AB98</td>
+<td class="instruction">OR A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ab99"></span>AB99</td>
+<td class="instruction">JR NZ,<a href="43925.html#abc0">Update_Berk_State_TickCounter</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ab9b"></span>AB9B</td>
+<td class="instruction">LD A,($72B3)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the game event flags (<a href="29363.html">GameEventFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ab9e"></span>AB9E</td>
+<td class="instruction">BIT 1,A</td>
+<td class="comment-1" rowspan="2">Is bit 01 of the game event flags set? If so, jump to <a href="43925.html#abc0">Update_Berk_State_TickCounter</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aba0"></span>ABA0</td>
+<td class="instruction">JR NZ,<a href="43925.html#abc0">Update_Berk_State_TickCounter</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aba2"></span>ABA2</td>
+<td class="instruction">LD A,($72C8)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with Berk's action lock (<a href="29384.html">BerkActionLock</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aba5"></span>ABA5</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is Berk's action lock zero? If not, jump to <a href="43925.html#abab">Update_Berk_State_ByTaskIndex</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aba6"></span>ABA6</td>
+<td class="instruction">JR NZ,<a href="43925.html#abab">Update_Berk_State_ByTaskIndex</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aba8"></span>ABA8</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Set <span class="register">A</span> to 01 ready to store as the task phase.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aba9"></span>ABA9</td>
+<td class="instruction">JR <a href="43925.html#abbd">Update_Berk_State_SetTaskPhase</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43925.html#abbd">Update_Berk_State_SetTaskPhase</a> to store the task phase.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_ByTaskIndex</td>
+<td class="address-2"><span id="abab"></span>ABAB</td>
+<td class="instruction">LD A,($72AE)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current task index (<a href="29358.html">CurrentTaskIndex</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abae"></span>ABAE</td>
+<td class="instruction">CP $05</td>
+<td class="comment-1" rowspan="2">Is the current task index equal to 05? If so, jump to <a href="43925.html#abbd">Update_Berk_State_SetTaskPhase</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abb0"></span>ABB0</td>
+<td class="instruction">JR Z,<a href="43925.html#abbd">Update_Berk_State_SetTaskPhase</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abb2"></span>ABB2</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the current task index zero? If so, jump to <a href="43925.html#abc0">Update_Berk_State_TickCounter</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abb3"></span>ABB3</td>
+<td class="instruction">JR Z,<a href="43925.html#abc0">Update_Berk_State_TickCounter</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abb5"></span>ABB5</td>
+<td class="instruction">LD HL,$AB71</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk's idle script selectors (<a href="43889.html">Data_BerkIdleScriptSelectors</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abb8"></span>ABB8</td>
+<td class="instruction">LD A,$04</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 04 as the candidate-row count.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abba"></span>ABBA</td>
+<td class="instruction">CALL <a href="44260.html">Start_Berk_Script</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44260.html">Start_Berk_Script</a> to start Berk's script.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_SetTaskPhase</td>
+<td class="address-2"><span id="abbd"></span>ABBD</td>
+<td class="instruction">LD ($72AF),A</td>
+<td class="comment-1" rowspan="1">Set the current task phase (<a href="29359.html">CurrentTaskPhase</a>).</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_TickCounter</td>
+<td class="address-2"><span id="abc0"></span>ABC0</td>
+<td class="instruction">LD HL,$72F2</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the game tick counter (<a href="29426.html">GameTickCounter</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abc3"></span>ABC3</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the game tick counter into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abc4"></span>ABC4</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the game tick counter zero? If so, jump to <a href="43925.html#abc9">Update_Berk_State_Branch</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abc5"></span>ABC5</td>
+<td class="instruction">JR Z,<a href="43925.html#abc9">Update_Berk_State_Branch</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abc7"></span>ABC7</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-1" rowspan="1">Decrease the game tick counter.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abc8"></span>ABC8</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_Branch</td>
+<td class="address-2"><span id="abc9"></span>ABC9</td>
+<td class="instruction">LD A,($72AE)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current task index (<a href="29358.html">CurrentTaskIndex</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abcc"></span>ABCC</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the current task index zero? If not, jump to <a href="43925.html#ac48">Update_Berk_State_ActiveTaskFrameTick</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abcd"></span>ABCD</td>
+<td class="instruction">JR NZ,<a href="43925.html#ac48">Update_Berk_State_ActiveTaskFrameTick</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abcf"></span>ABCF</td>
+<td class="instruction">LD A,($72B4)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the task status flags (<a href="29364.html">TaskStatusFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abd2"></span>ABD2</td>
+<td class="instruction">BIT 0,A</td>
+<td class="comment-1" rowspan="2">Is bit 00 of the task status flags set? If so, jump to <a href="43925.html#ac29">Update_Berk_State_ActionAndMaybeRestart</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abd4"></span>ABD4</td>
+<td class="instruction">JR NZ,<a href="43925.html#ac29">Update_Berk_State_ActionAndMaybeRestart</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abd6"></span>ABD6</td>
+<td class="instruction">LD HL,$72C9</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk's action timer (<a href="29385.html">BerkActionTimer</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abd9"></span>ABD9</td>
+<td class="instruction">LD A,($72C8)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with Berk's action lock (<a href="29384.html">BerkActionLock</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abdc"></span>ABDC</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is Berk's action lock zero? If not, jump to <a href="43925.html#abe5">Update_Berk_State_RandomActionPick</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abdd"></span>ABDD</td>
+<td class="instruction">JR NZ,<a href="43925.html#abe5">Update_Berk_State_RandomActionPick</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abdf"></span>ABDF</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="2">Advance Berk's action lock by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abe0"></span>ABE0</td>
+<td class="instruction">LD ($72C8),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abe3"></span>ABE3</td>
+<td class="instruction">JR <a href="43925.html#ac15">Update_Berk_State_MarkActionTimerBit7</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43925.html#ac15">Update_Berk_State_MarkActionTimerBit7</a> to mark the selected action-timer flag.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_RandomActionPick</td>
+<td class="address-2"><span id="abe5"></span>ABE5</td>
+<td class="instruction">LD A,$04</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 04.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abe7"></span>ABE7</td>
+<td class="instruction">CALL <a href="60133.html">PseudoRandom</a></td>
+<td class="comment-1" rowspan="1">Call <a href="60133.html">PseudoRandom</a> to generate a pseudo-random number.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abea"></span>ABEA</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Keep the random offset in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abeb"></span>ABEB</td>
+<td class="instruction">LD B,$00</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">B</span> so <span class="register">BC</span> is the random offset alone.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abed"></span>ABED</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-1" rowspan="1">Advance <span class="register">HL</span> by the random offset in <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abee"></span>ABEE</td>
+<td class="instruction">LD A,$04</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 04 as the try counter.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_TrySelectorRow</td>
+<td class="address-2"><span id="abf0"></span>ABF0</td>
+<td class="instruction">BIT 7,(HL)</td>
+<td class="comment-1" rowspan="2">Is this Berk-script selector row marked in-use (bit 07)? If not, jump to <a href="43925.html#ac14">Update_Berk_State_TakeSelectorByte</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abf2"></span>ABF2</td>
+<td class="instruction">JR Z,<a href="43925.html#ac14">Update_Berk_State_TakeSelectorByte</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abf4"></span>ABF4</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance the pointer in <span class="register">HL</span> by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abf5"></span>ABF5</td>
+<td class="instruction">BIT 6,(HL)</td>
+<td class="comment-1" rowspan="2">Is this Berk-script selector row marked free (bit 06 clear)? If not, jump to <a href="43925.html#abfc">Update_Berk_State_DecTryCounter</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abf7"></span>ABF7</td>
+<td class="instruction">JR Z,<a href="43925.html#abfc">Update_Berk_State_DecTryCounter</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abf9"></span>ABF9</td>
+<td class="instruction">LD HL,$72C9</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at Berk's action timer (<a href="29385.html">BerkActionTimer</a>).</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_DecTryCounter</td>
+<td class="address-2"><span id="abfc"></span>ABFC</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1">Decrease the try counter in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abfd"></span>ABFD</td>
+<td class="instruction">JR NZ,<a href="43925.html#abf0">Update_Berk_State_TrySelectorRow</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43925.html#abf0">Update_Berk_State_TrySelectorRow</a> while tries remain.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="abff"></span>ABFF</td>
+<td class="instruction">LD A,($72B0)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the dialogue line index (<a href="29360.html">DialogueLineIndex</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac02"></span>AC02</td>
+<td class="instruction">CP $04</td>
+<td class="comment-1" rowspan="2">Is the dialogue line index less than 04? If so, jump to <a href="43925.html#ac29">Update_Berk_State_ActionAndMaybeRestart</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac04"></span>AC04</td>
+<td class="instruction">JP C,<a href="43925.html#ac29">Update_Berk_State_ActionAndMaybeRestart</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac07"></span>AC07</td>
+<td class="instruction">LD A,($72A9)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the Learner Berk mode flag (<a href="29353.html">Flag_LearnerBerkMode</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac0a"></span>AC0A</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the Learner Berk mode flag zero? If not, jump to <a href="43925.html#ac29">Update_Berk_State_ActionAndMaybeRestart</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac0b"></span>AC0B</td>
+<td class="instruction">JR NZ,<a href="43925.html#ac29">Update_Berk_State_ActionAndMaybeRestart</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac0d"></span>AC0D</td>
+<td class="instruction">CALL <a href="43894.html">Initialise_Entity_Defaults</a></td>
+<td class="comment-1" rowspan="1">Call <a href="43894.html">Initialise_Entity_Defaults</a> to initialise entity defaults.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac10"></span>AC10</td>
+<td class="instruction">LD A,$05</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 05.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac12"></span>AC12</td>
+<td class="instruction">JR <a href="43925.html#ac17">Update_Berk_State_SetTaskIndexAndAnnounce</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43925.html#ac17">Update_Berk_State_SetTaskIndexAndAnnounce</a> to store task index 05.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_TakeSelectorByte</td>
+<td class="address-2"><span id="ac14"></span>AC14</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the selected byte through <span class="register">HL</span> into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_MarkActionTimerBit7</td>
+<td class="address-2"><span id="ac15"></span>AC15</td>
+<td class="instruction">SET 7,(HL)</td>
+<td class="comment-1" rowspan="1">Set bit 07 of <a href="29385.html">BerkActionTimer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_SetTaskIndexAndAnnounce</td>
+<td class="address-2"><span id="ac17"></span>AC17</td>
+<td class="instruction">LD ($72AE),A</td>
+<td class="comment-1" rowspan="1">Set the current task index (<a href="29358.html">CurrentTaskIndex</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac1a"></span>AC1A</td>
+<td class="instruction">CALL <a href="56913.html">Print_MessageByIndex</a></td>
+<td class="comment-1" rowspan="1">Call <a href="56913.html">Print_MessageByIndex</a> to print a message by index.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac1d"></span>AC1D</td>
+<td class="instruction">CALL <a href="44359.html">Reset_Text_Position</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44359.html">Reset_Text_Position</a> to reset the text position.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac20"></span>AC20</td>
+<td class="instruction">LD A,$A0</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with A0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac22"></span>AC22</td>
+<td class="instruction">LD ($72DB),A</td>
+<td class="comment-1" rowspan="1">Set the held-entity pointer (<a href="29403.html">Pointer_BerkHeldEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac25"></span>AC25</td>
+<td class="instruction">CALL <a href="44801.html">Initialise_Room_Display</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44801.html">Initialise_Room_Display</a> to initialise the room display.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac28"></span>AC28</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_ActionAndMaybeRestart</td>
+<td class="address-2"><span id="ac29"></span>AC29</td>
+<td class="instruction">CALL <a href="44748.html">Handle_Berk_Action</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44748.html">Handle_Berk_Action</a> to handle Berk's action.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac2c"></span>AC2C</td>
+<td class="instruction">CALL <a href="44440.html">Clear_Messaging_Attributes</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44440.html">Clear_Messaging_Attributes</a> to clear messaging attributes.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac2f"></span>AC2F</td>
+<td class="instruction">LD A,($72B4)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the task status flags (<a href="29364.html">TaskStatusFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac32"></span>AC32</td>
+<td class="instruction">BIT 5,A</td>
+<td class="comment-1" rowspan="2">Is bit 05 of the task status flags set? If not, jump to <a href="43925.html#ac41">Update_Berk_State_PrintStatusAndRestart</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac34"></span>AC34</td>
+<td class="instruction">JR Z,<a href="43925.html#ac41">Update_Berk_State_PrintStatusAndRestart</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac36"></span>AC36</td>
+<td class="instruction">LD A,$C8</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with C8.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac38"></span>AC38</td>
+<td class="instruction">LD ($72DB),A</td>
+<td class="comment-1" rowspan="1">Set the held-entity pointer (<a href="29403.html">Pointer_BerkHeldEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac3b"></span>AC3B</td>
+<td class="instruction">CALL <a href="44801.html">Initialise_Room_Display</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44801.html">Initialise_Room_Display</a> to initialise the room display.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac3e"></span>AC3E</td>
+<td class="instruction">CALL <a href="44748.html">Handle_Berk_Action</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44748.html">Handle_Berk_Action</a> to handle Berk's action.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_PrintStatusAndRestart</td>
+<td class="address-2"><span id="ac41"></span>AC41</td>
+<td class="instruction">CALL <a href="56857.html">Print_StatusMessages</a></td>
+<td class="comment-1" rowspan="1">Call <a href="56857.html">Print_StatusMessages</a> to print status messages.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac44"></span>AC44</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac45"></span>AC45</td>
+<td class="instruction">JP <a href="43691.html">GameRestart</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43691.html">GameRestart</a> to restart the game.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_ActiveTaskFrameTick</td>
+<td class="address-2"><span id="ac48"></span>AC48</td>
+<td class="instruction">LD A,($72CE)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the timed event latch (<a href="29390.html">TimedEventLatch</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac4b"></span>AC4B</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the timed event latch zero? If not, return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac4c"></span>AC4C</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac4d"></span>AC4D</td>
+<td class="instruction">LD A,($72C6)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the frame counter (<a href="29382.html">FrameCounter</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac50"></span>AC50</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="2">Step the frame counter back by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac51"></span>AC51</td>
+<td class="instruction">LD ($72C6),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac54"></span>AC54</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1">Return unless the frame counter is now zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac55"></span>AC55</td>
+<td class="instruction">LD A,($72A9)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the Learner Berk mode flag (<a href="29353.html">Flag_LearnerBerkMode</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac58"></span>AC58</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the Learner Berk mode flag zero? If so, jump to <a href="43925.html#ac5d">Update_Berk_State_ReloadFrameCounter</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac59"></span>AC59</td>
+<td class="instruction">JR Z,<a href="43925.html#ac5d">Update_Berk_State_ReloadFrameCounter</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac5b"></span>AC5B</td>
+<td class="instruction">LD A,$05</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 05.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_ReloadFrameCounter</td>
+<td class="address-2"><span id="ac5d"></span>AC5D</td>
+<td class="instruction">ADD A,$0F</td>
+<td class="comment-1" rowspan="1">Add 0F to <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac5f"></span>AC5F</td>
+<td class="instruction">LD ($72C6),A</td>
+<td class="comment-1" rowspan="1">Set the frame counter (<a href="29382.html">FrameCounter</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac62"></span>AC62</td>
+<td class="instruction">LD A,($72F0)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the random seed (<a href="29424.html">RandomSeed</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac65"></span>AC65</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="2">Advance the random seed by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac66"></span>AC66</td>
+<td class="instruction">LD ($72F0),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac69"></span>AC69</td>
+<td class="instruction">CP $A0</td>
+<td class="comment-1" rowspan="2">Is the random seed less than A0? If so, jump to <a href="43925.html#aca2">Update_Berk_State_AttrStripFromSeed</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac6b"></span>AC6B</td>
+<td class="instruction">JR C,<a href="43925.html#aca2">Update_Berk_State_AttrStripFromSeed</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac6d"></span>AC6D</td>
+<td class="instruction">LD A,$0B</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with sound index 0B.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac6f"></span>AC6F</td>
+<td class="instruction">CALL <a href="63737.html">Queue_Sound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="63737.html">Queue_Sound</a> to queue a sound.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac72"></span>AC72</td>
+<td class="instruction">CALL <a href="63919.html">Play_QueuedSound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="63919.html">Play_QueuedSound</a> to play the queued sound.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac75"></span>AC75</td>
+<td class="instruction">LD A,($72AE)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current task index (<a href="29358.html">CurrentTaskIndex</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac78"></span>AC78</td>
+<td class="instruction">CP $05</td>
+<td class="comment-1" rowspan="2">Is the current task index equal to 05? If so, jump to <a href="43925.html#ac41">Update_Berk_State_PrintStatusAndRestart</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac7a"></span>AC7A</td>
+<td class="instruction">JP Z,<a href="43925.html#ac41">Update_Berk_State_PrintStatusAndRestart</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac7d"></span>AC7D</td>
+<td class="instruction">LD A,($72A9)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the Learner Berk mode flag (<a href="29353.html">Flag_LearnerBerkMode</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac80"></span>AC80</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the Learner Berk mode flag zero? If so, jump to <a href="43925.html#ac41">Update_Berk_State_PrintStatusAndRestart</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac81"></span>AC81</td>
+<td class="instruction">JP Z,<a href="43925.html#ac41">Update_Berk_State_PrintStatusAndRestart</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac84"></span>AC84</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac85"></span>AC85</td>
+<td class="instruction">LD ($72AE),A</td>
+<td class="comment-1" rowspan="1">Set the current task index (<a href="29358.html">CurrentTaskIndex</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac88"></span>AC88</td>
+<td class="instruction">LD A,($72AF)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the current task phase (<a href="29359.html">CurrentTaskPhase</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac8b"></span>AC8B</td>
+<td class="instruction">CP $01</td>
+<td class="comment-1" rowspan="2">Is the current task phase equal to 01? If not, jump to <a href="43925.html#ac93">Update_Berk_State_TooLateFeedback</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac8d"></span>AC8D</td>
+<td class="instruction">JR NZ,<a href="43925.html#ac93">Update_Berk_State_TooLateFeedback</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac8f"></span>AC8F</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="2">Step the current task phase back by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac90"></span>AC90</td>
+<td class="instruction">LD ($72AF),A</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_TooLateFeedback</td>
+<td class="address-2"><span id="ac93"></span>AC93</td>
+<td class="instruction">CALL <a href="56739.html">Print_TooLateTaskFeedback</a></td>
+<td class="comment-1" rowspan="1">Call <a href="56739.html">Print_TooLateTaskFeedback</a> to print too-late task feedback.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac96"></span>AC96</td>
+<td class="instruction">CALL <a href="44359.html">Reset_Text_Position</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44359.html">Reset_Text_Position</a> to reset the text position.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac99"></span>AC99</td>
+<td class="instruction">CALL <a href="44748.html">Handle_Berk_Action</a></td>
+<td class="comment-1" rowspan="1">Call <a href="44748.html">Handle_Berk_Action</a> to handle Berk's action.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac9c"></span>AC9C</td>
+<td class="instruction">LD A,$46</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 46 as the game tick reload value.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="ac9e"></span>AC9E</td>
+<td class="instruction">LD ($72F2),A</td>
+<td class="comment-1" rowspan="1">Set the game tick counter (<a href="29426.html">GameTickCounter</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aca1"></span>ACA1</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_AttrStripFromSeed</td>
+<td class="address-2"><span id="aca2"></span>ACA2</td>
+<td class="instruction">LD A,($72F0)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the random seed (<a href="29424.html">RandomSeed</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aca5"></span>ACA5</td>
+<td class="instruction">CP $9C</td>
+<td class="comment-1" rowspan="2">Is the random seed less than 9C? If so, jump to <a href="43925.html#acad">Update_Berk_State_DivModSetup</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aca7"></span>ACA7</td>
+<td class="instruction">JR C,<a href="43925.html#acad">Update_Berk_State_DivModSetup</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="aca9"></span>ACA9</td>
+<td class="instruction">LD A,$C7</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with C7.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="acab"></span>ACAB</td>
+<td class="instruction">JR <a href="43925.html#acb7">Update_Berk_State_Hit</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43925.html#acb7">Update_Berk_State_Hit</a> to paint the attribute strip.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_DivModSetup</td>
+<td class="address-2"><span id="acad"></span>ACAD</td>
+<td class="instruction">LD BC,$0017</td>
+<td class="comment-1" rowspan="1">Load <span class="register">BC</span> with 0017.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_DivModLoop</td>
+<td class="address-2"><span id="acb0"></span>ACB0</td>
+<td class="instruction">INC B</td>
+<td class="comment-1" rowspan="1">Increment the quotient counter in <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="acb1"></span>ACB1</td>
+<td class="instruction">SUB C</td>
+<td class="comment-1" rowspan="1">Subtract <span class="register">C</span> from <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="acb2"></span>ACB2</td>
+<td class="instruction">JR NC,<a href="43925.html#acb0">Update_Berk_State_DivModLoop</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43925.html#acb0">Update_Berk_State_DivModLoop</a> while <span class="register">A</span> remains at least <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="acb4"></span>ACB4</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-1" rowspan="1">Copy the quotient from <span class="register">B</span> into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="acb5"></span>ACB5</td>
+<td class="instruction">ADD A,$40</td>
+<td class="comment-1" rowspan="1">Add 40 to <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_Hit</td>
+<td class="address-2"><span id="acb7"></span>ACB7</td>
+<td class="instruction">LD HL,$5AA4</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at attribute-file address 5AA4.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="acba"></span>ACBA</td>
+<td class="instruction">LD B,$14</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 14 as a loop counter.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_Exit</td>
+<td class="address-2"><span id="acbc"></span>ACBC</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1">Store <span class="register">A</span> at the address in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="acbd"></span>ACBD</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance <span class="register">HL</span> by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="acbe"></span>ACBE</td>
+<td class="instruction">DJNZ <a href="43925.html#acbc">Update_Berk_State_Exit</a></td>
+<td class="comment-1" rowspan="1">Decrease the loop counter in <span class="register">B</span> and jump to <a href="43925.html#acbc">Update_Berk_State_Exit</a> while bytes remain.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="acc0"></span>ACC0</td>
+<td class="instruction">LD HL,$51A4</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at screen address 51A4.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="acc3"></span>ACC3</td>
+<td class="instruction">LD B,$13</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 13 as a loop counter.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_PartA</td>
+<td class="address-2"><span id="acc5"></span>ACC5</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1">Fetch the next byte through <span class="register">HL</span> into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="acc6"></span>ACC6</td>
+<td class="instruction">CP $FF</td>
+<td class="comment-1" rowspan="2">Is the fetched byte equal to FF? If not, jump to <a href="43925.html#accd">Update_Berk_State_PartB</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="acc8"></span>ACC8</td>
+<td class="instruction">JR NZ,<a href="43925.html#accd">Update_Berk_State_PartB</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="acca"></span>ACCA</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Advance <span class="register">HL</span> by one byte.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="accb"></span>ACCB</td>
+<td class="instruction">DJNZ <a href="43925.html#acc5">Update_Berk_State_PartA</a></td>
+<td class="comment-1" rowspan="1">Decrease the loop counter in <span class="register">B</span> and jump to <a href="43925.html#acc5">Update_Berk_State_PartA</a> while bytes remain.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_PartB</td>
+<td class="address-2"><span id="accd"></span>ACCD</td>
+<td class="instruction">LD B,$06</td>
+<td class="comment-1" rowspan="1">Load <span class="register">B</span> with 06 as a loop counter.</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Berk_State_PartC</td>
+<td class="address-2"><span id="accf"></span>ACCF</td>
+<td class="instruction">SCF</td>
+<td class="comment-1" rowspan="1">Signal success.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="acd0"></span>ACD0</td>
+<td class="instruction">RR (HL)</td>
+<td class="comment-1" rowspan="1">Rotate right the byte at <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="acd2"></span>ACD2</td>
+<td class="instruction">INC H</td>
+<td class="comment-1" rowspan="1">Advance the high byte of the pointer in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="acd3"></span>ACD3</td>
+<td class="instruction">DJNZ <a href="43925.html#accf">Update_Berk_State_PartC</a></td>
+<td class="comment-1" rowspan="1">Decrease the loop counter in <span class="register">B</span> and jump to <a href="43925.html#accf">Update_Berk_State_PartC</a> while rows remain.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="acd5"></span>ACD5</td>
+<td class="instruction">LD HL,($72DB)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">HL</span> with the held-entity pointer (<a href="29403.html">Pointer_BerkHeldEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="acd8"></span>ACD8</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-1" rowspan="1">Copy the high byte of the pointer into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="acd9"></span>ACD9</td>
+<td class="instruction">OR L</td>
+<td class="comment-1" rowspan="1">Merge the low byte of the pointer into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="acda"></span>ACDA</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">Return if the held-entity pointer is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="acdb"></span>ACDB</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-1" rowspan="1">Step the held-entity pointer back by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="acdc"></span>ACDC</td>
+<td class="instruction">LD ($72DB),HL</td>
+<td class="comment-1" rowspan="1">Store <span class="register">HL</span> in the held-entity pointer (<a href="29403.html">Pointer_BerkHeldEntity</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="acdf"></span>ACDF</td>
+<td class="instruction">JP <a href="44801.html#af1e">Initialise_Room_Display_HeldEntity</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="44801.html#af1e">Initialise_Room_Display_HeldEntity</a> to continue room display setup.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="43894.html">AB76</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#ab95">Map</a></td>
+<td class="next">
+Next: <a href="44258.html">ACE2</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../dec/asm/276773.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

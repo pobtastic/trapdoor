@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 45020</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 45020. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 45020" />
+<meta property="og:description" content="The Trap Door: Routine at 45020. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/45020.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/45020.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 45020",
+"name": "The Trap Door: Routine at 45020",
+"description": "The Trap Door: Routine at 45020. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/45020.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 45020"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/45020.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="45019.html">45019</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#45020">Map</a></td>
+<td class="next">
+Next: <a href="45085.html">45085</a>
+</td>
+</tr>
+</table>
+<div class="description">45020: Script Routine: (27) Animate trap door / update Berk interaction</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Animate the trap door for Drutt's current action and refresh Berk's interaction with it.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_AnimateTrapDoorBerk</td>
+<td class="address-2"><span id="45020"></span>45020</td>
+<td class="instruction">LD A,(29371)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with Drutt's animation counter (<a href="29371.html">DruttAnimationCounter</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45023"></span>45023</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is Drutt's animation counter (<a href="29371.html">DruttAnimationCounter</a>) zero? If not, jump to <a href="60462.html">AdvanceScriptInstruction</a> to run the next script instruction.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45024"></span>45024</td>
+<td class="instruction">JP NZ,<a href="60462.html">AdvanceScriptInstruction</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="45027"></span>
+<div class="comments">
+<div class="paragraph">
+<audio controls="" src="../../audio/timed-event.wav">
+<p>Your browser doesn't support HTML5 audio. Here is a <a href="../../audio/timed-event.wav">link to the audio</a> instead.</p>
+</audio>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45027"></span>45027</td>
+<td class="instruction">LD A,12</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with sound index 12.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45029"></span>45029</td>
+<td class="instruction">CALL <a href="63737.html">Queue_Sound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="63737.html">Queue_Sound</a> to queue a sound effect.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45032"></span>45032</td>
+<td class="instruction">LD IY,37005</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IY</span> at complex entity state <a href="36595.html#37005">StateData_Complex_30</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45036"></span>45036</td>
+<td class="instruction">DEC (IY+5)</td>
+<td class="comment-1" rowspan="2">Move the referenced entity one character up.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45039"></span>45039</td>
+<td class="instruction">DEC (IY+6)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45042"></span>45042</td>
+<td class="instruction">LD A,(IY+6)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's y-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45045"></span>45045</td>
+<td class="instruction">CP 22</td>
+<td class="comment-1" rowspan="2">Is the y-extent still below the trap door open threshold 22? If not, jump to <a href="45020.html#45058">AnimateTrapDoor_ToggleFrame</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45047"></span>45047</td>
+<td class="instruction">JR NZ,<a href="45020.html#45058">AnimateTrapDoor_ToggleFrame</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45049"></span>45049</td>
+<td class="instruction">CALL <a href="45086.html">Reset_Trap_Door_Animation_State</a></td>
+<td class="comment-1" rowspan="1">Call <a href="45086.html">Reset_Trap_Door_Animation_State</a> to reset trap door animation state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45052"></span>45052</td>
+<td class="instruction">XOR A</td>
+<td class="comment-1" rowspan="1">Clear the trap door flags.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45053"></span>45053</td>
+<td class="instruction">LD (29370),A</td>
+<td class="comment-1" rowspan="1">Set the trap door flags (<a href="29370.html">TrapDoorFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45056"></span>45056</td>
+<td class="instruction">JR <a href="45020.html#45075">AnimateTrapDoor_SetLayoutB</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="45020.html#45075">AnimateTrapDoor_SetLayoutB</a> to handle the trap door.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="45058"></span>
+<div class="comments">
+<div class="paragraph">
+Toggle the lever animation phase and choose open facing left (<a href="43032.html">GraphicLayout_LeverOpenLeft</a>) or closed facing left (<a href="43047.html">GraphicLayout_LeverClosedLeft</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">AnimateTrapDoor_ToggleFrame</td>
+<td class="address-2"><span id="45058"></span>45058</td>
+<td class="instruction">LD A,(29370)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the trap door flags (<a href="29370.html">TrapDoorFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45061"></span>45061</td>
+<td class="instruction">XOR %00000001</td>
+<td class="comment-1" rowspan="1">Toggle the trap door animation phase bit in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45063"></span>45063</td>
+<td class="instruction">LD (29370),A</td>
+<td class="comment-1" rowspan="1">Set the trap door flags (<a href="29370.html">TrapDoorFlags</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45066"></span>45066</td>
+<td class="instruction">SRL A</td>
+<td class="comment-1" rowspan="1">Shift the trap door animation phase bit into the success marker.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45068"></span>45068</td>
+<td class="instruction">JR NC,<a href="45020.html#45075">AnimateTrapDoor_SetLayoutB</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="45020.html#45075">AnimateTrapDoor_SetLayoutB</a> to handle the trap door if the result did not underflow.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45070"></span>45070</td>
+<td class="instruction">LD BC,43032</td>
+<td class="comment-1" rowspan="1">Point <span class="register">BC</span> at the lever open, facing left (<a href="43032.html">GraphicLayout_LeverOpenLeft</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45073"></span>45073</td>
+<td class="instruction">JR <a href="45020.html#45078">AnimateTrapDoor_WriteLayout</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="45020.html#45078">AnimateTrapDoor_WriteLayout</a> to handle the trap door.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="45075"></span>
+<div class="comments">
+<div class="paragraph">
+Use the lever closed, facing left at <a href="43047.html">GraphicLayout_LeverClosedLeft</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">AnimateTrapDoor_SetLayoutB</td>
+<td class="address-2"><span id="45075"></span>45075</td>
+<td class="instruction">LD BC,43047</td>
+<td class="comment-1" rowspan="1">Point <span class="register">BC</span> at the lever closed, facing left (<a href="43047.html">GraphicLayout_LeverClosedLeft</a>).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="45078"></span>
+<div class="comments">
+<div class="paragraph">
+Install the chosen lever layout into <a href="37047.html#37295">Pointer_AnimatingSceneryLayout</a> and continue the script.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">AnimateTrapDoor_WriteLayout</td>
+<td class="address-2"><span id="45078"></span>45078</td>
+<td class="instruction">LD (37295),BC</td>
+<td class="comment-1" rowspan="1">Store <span class="register">BC</span> in the animating scenery layout pointer (<a href="37047.html#37295">Pointer_AnimatingSceneryLayout</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="45082"></span>45082</td>
+<td class="instruction">JP <a href="60462.html">AdvanceScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html">AdvanceScriptInstruction</a> to run the next script instruction.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="45019.html">45019</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#45020">Map</a></td>
+<td class="next">
+Next: <a href="45085.html">45085</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/AFDC.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 53266</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 53266. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 53266" />
+<meta property="og:description" content="The Trap Door: Routine at 53266. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/53266.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/53266.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 53266",
+"name": "The Trap Door: Routine at 53266",
+"description": "The Trap Door: Routine at 53266. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/53266.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 53266"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/53266.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="53060.html">53060</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#53266">Map</a></td>
+<td class="next">
+Next: <a href="53302.html">53302</a>
+</td>
+</tr>
+</table>
+<div class="description">53266: Update Vat</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="53047.html">Update_Miscellaneous_Entities</a>.
+</div>
+<div class="paragraph">
+Animate the vat entity for the current room: bubble state, contained objects and whether Berk can interact.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Vat</td>
+<td class="address-2"><span id="53266"></span>53266</td>
+<td class="instruction">LD HL,(29395)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">HL</span> with the Drutt script-position pointer (<a href="29395.html">Pointer_DruttScriptPosition</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53269"></span>53269</td>
+<td class="instruction">LD (29391),HL</td>
+<td class="comment-1" rowspan="1">Store <span class="register">HL</span> in the active script cursor (<a href="29391.html">Pointer_ActiveScriptCursor</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53272"></span>53272</td>
+<td class="instruction">LD IX,36809</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the crusher entity (<a href="36595.html#36809">StateData_Complex_16</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53276"></span>53276</td>
+<td class="instruction">LD A,(IX+0)</td>
+<td class="comment-1" rowspan="1">Fetch the current entity's type for the type test.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53279"></span>53279</td>
+<td class="instruction">CP 12</td>
+<td class="comment-1" rowspan="2">Is the current entity's entity type equal to 12? If not, jump to <a href="53312.html">Update_Vat_TestEventAndDirBit0</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53281"></span>53281</td>
+<td class="instruction">JR NZ,<a href="53312.html">Update_Vat_TestEventAndDirBit0</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53283"></span>53283</td>
+<td class="instruction">BIT 7,(IX+1)</td>
+<td class="comment-1" rowspan="2">Is bit 7 of the current entity's flags byte 1 set? If so, jump to <a href="53266.html#53296">Update_Drutt_RunScript</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53287"></span>53287</td>
+<td class="instruction">JR NZ,<a href="53266.html#53296">Update_Drutt_RunScript</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53289"></span>53289</td>
+<td class="instruction">BIT 0,(IX+2)</td>
+<td class="comment-1" rowspan="2">Is bit 0 of the current entity's flags byte 2 set? If not, jump to <a href="60462.html">AdvanceScriptInstruction</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53293"></span>53293</td>
+<td class="instruction">JP Z,<a href="60462.html">AdvanceScriptInstruction</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="53296"></span>
+<div class="comments">
+<div class="paragraph">
+Run the Drutt script at <a href="53060.html">Data_DruttScripts</a> for an active type-12 entity.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Update_Drutt_RunScript</td>
+<td class="address-2"><span id="53296"></span>53296</td>
+<td class="instruction">LD HL,53060</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at the Drutt script (<a href="53060.html">Data_DruttScripts</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="53299"></span>53299</td>
+<td class="instruction">JP <a href="60462.html#60464">ScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html#60464">ScriptInstruction</a> to execute the script instruction at <span class="register">HL</span>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="53060.html">53060</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#53266">Map</a></td>
+<td class="next">
+Next: <a href="53302.html">53302</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/D012.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

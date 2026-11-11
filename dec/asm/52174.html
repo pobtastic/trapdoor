@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Trap Door: Routine at 52174</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="The Trap Door: Routine at 52174. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:title" content="The Trap Door: Routine at 52174" />
+<meta property="og:description" content="The Trap Door: Routine at 52174. Complete ZX Spectrum RAM disassembly." />
+<meta property="og:site_name" content="ArcadeGeek" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/52174.html" />
+<meta property="og:url" content="https://skoolkit.arcadegeek.co.uk/trapdoor/asm/52174.html" />
+<meta property="og:image" content="https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"@id": "https://skoolkit.arcadegeek.co.uk/#website",
+"name": "ArcadeGeek",
+"url": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "TechArticle",
+"headline": "The Trap Door: Routine at 52174",
+"name": "The Trap Door: Routine at 52174",
+"description": "The Trap Door: Routine at 52174. Complete ZX Spectrum RAM disassembly.",
+"inLanguage": "en",
+"isPartOf": {"@id": "https://skoolkit.arcadegeek.co.uk/#website"},
+"author": {
+"@type": "Organization",
+"name": "ArcadeGeek",
+"url": "https://www.arcadegeek.co.uk/"
+},
+"about": {
+"@type": "VideoGame",
+"name": "The Trap Door",
+"gamePlatform": "ZX Spectrum"
+}
+,"url": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/52174.html"
+,"image": "https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png"
+},
+{
+"@type": "BreadcrumbList",
+"itemListElement": [
+{
+"@type": "ListItem",
+"position": 1,
+"name": "ArcadeGeek",
+"item": "https://skoolkit.arcadegeek.co.uk/"
+},
+{
+"@type": "ListItem",
+"position": 2,
+"name": "The Trap Door"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/"
+}
+,{
+"@type": "ListItem",
+"position": 3,
+"name": "Routine at 52174"
+,"item": "https://skoolkit.arcadegeek.co.uk/trapdoor/asm/52174.html"
+}
+]
+}
+]
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<link rel="stylesheet" type="text/css" href="../trapdoor.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52163.html">52163</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52174">Map</a></td>
+<td class="next">
+Next: <a href="52307.html">52307</a>
+</td>
+</tr>
+</table>
+<div class="description">52174: Script Routine: (77) Task-four entity action</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Tick the task-four offer-item timer that gates its dialogue.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Address of complex state data for an entity</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_TaskFourTickOfferItem</td>
+<td class="address-2"><span id="52174"></span>52174</td>
+<td class="instruction">LD A,(29378)</td>
+<td class="comment-1" rowspan="1">Load the shared tick (<a href="29378.html">SharedTick</a>) into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52177"></span>52177</td>
+<td class="instruction">OR A</td>
+<td class="comment-1" rowspan="2">Is the shared tick (<a href="29378.html">SharedTick</a>) zero? If not, jump to <a href="52174.html#52187">ScriptRoutine_TaskFourTickOfferItem_TickAndOfferItem</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52178"></span>52178</td>
+<td class="instruction">JR NZ,<a href="52174.html#52187">ScriptRoutine_TaskFourTickOfferItem_TickAndOfferItem</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52180"></span>52180</td>
+<td class="instruction">RES 2,(IX+13)</td>
+<td class="comment-1" rowspan="1">Reset bit 2 of the current entity's extra state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52184"></span>52184</td>
+<td class="instruction">JP <a href="60462.html">AdvanceScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html">AdvanceScriptInstruction</a> to run the next script instruction.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52187"></span>
+<div class="comments">
+<div class="paragraph">
+Tick <a href="29378.html">SharedTick</a>, flash layout <a href="41318.html">GraphicLayout_Vat_Pouring</a> on the creature, and test whether the offered item is hit.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_TaskFourTickOfferItem_TickAndOfferItem</td>
+<td class="address-2"><span id="52187"></span>52187</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1">Step the shared tick back by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52188"></span>52188</td>
+<td class="instruction">LD (29378),A</td>
+<td class="comment-1" rowspan="1">Store the shared tick (<a href="29378.html">SharedTick</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52191"></span>52191</td>
+<td class="instruction">LD IY,36977</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IY</span> at the vat entity at <a href="36595.html#36977">StateData_Complex_28</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52195"></span>52195</td>
+<td class="instruction">LD BC,41318</td>
+<td class="comment-1" rowspan="1">Point <span class="register">BC</span> at graphic layout <a href="41318.html">GraphicLayout_Vat_Pouring</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52198"></span>52198</td>
+<td class="instruction">LD (36987),BC</td>
+<td class="comment-1" rowspan="1">Store <span class="register">BC</span> in the inactive complex-entity slot fields at <a href="36595.html">36987</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52202"></span>52202</td>
+<td class="instruction">SET 3,(IX+13)</td>
+<td class="comment-1" rowspan="1">Set bit 3 of the current entity's extra state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52206"></span>52206</td>
+<td class="instruction">LD A,(IY+8)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's x-extent.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52209"></span>52209</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Advance referenced entity's x-extent by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52210"></span>52210</td>
+<td class="instruction">LD C,(IY+4)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">C</span> with the referenced entity's room index.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52213"></span>52213</td>
+<td class="instruction">LD IY,36879</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IY</span> at the task-item entity (<a href="36595.html#36879">StateData_Complex_21</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52217"></span>52217</td>
+<td class="instruction">CP (IY+7)</td>
+<td class="comment-1" rowspan="2">Does this entity's x match the referenced entity's x (<span class="register">IY</span>+7)? If so, jump to <a href="52174.html#52242">ScriptRoutine_TaskFourTickOfferItem_HitItemAdvanceAnim</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52220"></span>52220</td>
+<td class="instruction">JP Z,<a href="52174.html#52242">ScriptRoutine_TaskFourTickOfferItem_HitItemAdvanceAnim</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52223"></span>
+<div class="comments">
+<div class="paragraph">
+Missed the offered item: set interaction bit 2 of <a href="29369.html">EntityInteractionFlag</a> and clear the offer latch.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_TaskFourTickOfferItem_MissItemSetFlags</td>
+<td class="address-2"><span id="52223"></span>52223</td>
+<td class="instruction">LD A,(29369)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the entity interaction flag (<a href="29369.html">EntityInteractionFlag</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52226"></span>52226</td>
+<td class="instruction">SET 2,A</td>
+<td class="comment-1" rowspan="1">Set bit 2 of <a href="29369.html">EntityInteractionFlag</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52228"></span>52228</td>
+<td class="instruction">LD (29369),A</td>
+<td class="comment-1" rowspan="1">Set the entity interaction flag (<a href="29369.html">EntityInteractionFlag</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52231"></span>52231</td>
+<td class="instruction">SET 4,(IX+13)</td>
+<td class="comment-1" rowspan="1">Set bit 4 of the current entity's extra state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52235"></span>52235</td>
+<td class="instruction">RES 2,(IX+13)</td>
+<td class="comment-1" rowspan="1">Reset bit 2 of the current entity's extra state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52239"></span>52239</td>
+<td class="instruction">JP <a href="60462.html">AdvanceScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html">AdvanceScriptInstruction</a> to run the next script instruction.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52242"></span>
+<div class="comments">
+<div class="paragraph">
+Hit the offered item: play the vat cue, clear the miss flag, and advance its layout animation.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ScriptRoutine_TaskFourTickOfferItem_HitItemAdvanceAnim</td>
+<td class="address-2"><span id="52242"></span>52242</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-1" rowspan="1">Copy the saved count/flag from <span class="register">C</span> into <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52243"></span>52243</td>
+<td class="instruction">CP (IY+4)</td>
+<td class="comment-1" rowspan="2">Does this entity share the referenced entity's room (<span class="register">IY</span>+4)? If not, jump to <a href="52174.html#52223">ScriptRoutine_TaskFourTickOfferItem_MissItemSetFlags</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52246"></span>52246</td>
+<td class="instruction">JR NZ,<a href="52174.html#52223">ScriptRoutine_TaskFourTickOfferItem_MissItemSetFlags</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="52248"></span>
+<div class="comments">
+<div class="paragraph">
+<audio controls="" src="../../audio/vat.wav">
+<p>Your browser doesn't support HTML5 audio. Here is a <a href="../../audio/vat.wav">link to the audio</a> instead.</p>
+</audio>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52248"></span>52248</td>
+<td class="instruction">LD A,145</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with 145.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52250"></span>52250</td>
+<td class="instruction">CALL <a href="63737.html">Queue_Sound</a></td>
+<td class="comment-1" rowspan="1">Call <a href="63737.html">Queue_Sound</a> to queue a sound effect.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52253"></span>52253</td>
+<td class="instruction">LD (IY+2),128</td>
+<td class="comment-1" rowspan="1">Write 128 to the referenced entity's flags byte 2.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52257"></span>52257</td>
+<td class="instruction">LD A,(29369)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the entity interaction flag (<a href="29369.html">EntityInteractionFlag</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52260"></span>52260</td>
+<td class="instruction">RES 2,A</td>
+<td class="comment-1" rowspan="1">Clear bit 2 of the flag byte in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52262"></span>52262</td>
+<td class="instruction">LD (29369),A</td>
+<td class="comment-1" rowspan="1">Set the entity interaction flag (<a href="29369.html">EntityInteractionFlag</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52265"></span>52265</td>
+<td class="instruction">LD A,(29377)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the animation frame counter (<a href="29377.html">AnimationFrameCounter</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52268"></span>52268</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Advance animation frame counter by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52269"></span>52269</td>
+<td class="instruction">LD (29377),A</td>
+<td class="comment-1" rowspan="1">Set the animation frame counter (<a href="29377.html">AnimationFrameCounter</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52272"></span>52272</td>
+<td class="instruction">LD A,(IY+9)</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the referenced entity's direction / state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52275"></span>52275</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Advance referenced entity's direction / state by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52276"></span>52276</td>
+<td class="instruction">LD (IY+9),A</td>
+<td class="comment-1" rowspan="1">Set the referenced entity's direction / state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52279"></span>52279</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">HL</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52280"></span>52280</td>
+<td class="instruction">LD HL,52299</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> at task-four script data <a href="52174.html#52299">52299</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52283"></span>52283</td>
+<td class="instruction">ADD A,A</td>
+<td class="comment-1" rowspan="1">Double <span class="register">A</span> to form a word index into the script/handler table.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52284"></span>52284</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1">Keep the index in <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52285"></span>52285</td>
+<td class="instruction">LD B,0</td>
+<td class="comment-1" rowspan="1">Clear <span class="register">B</span> so <span class="register">BC</span> is the word index into <a href="52174.html#52299">52299</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52287"></span>52287</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-1" rowspan="1">Add the length/offset in <span class="register">BC</span> to the pointer in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52288"></span>52288</td>
+<td class="instruction">LD C,(HL)</td>
+<td class="comment-1" rowspan="3">Fetch the new script address into <span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52289"></span>52289</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52290"></span>52290</td>
+<td class="instruction">LD B,(HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52291"></span>52291</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52292"></span>52292</td>
+<td class="instruction">LD (36889),BC</td>
+<td class="comment-1" rowspan="1">Store <span class="register">BC</span> in the task-item entity's layout field (<a href="36595.html">36889</a>).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52296"></span>52296</td>
+<td class="instruction">JP <a href="60462.html">AdvanceScriptInstruction</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="60462.html">AdvanceScriptInstruction</a> to run the next script instruction.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52299"></span>52299</td>
+<td class="instruction">LD D,C</td>
+<td class="comment-1" rowspan="1">Copy referenced entity's direction / state into <span class="register">D</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52300"></span>52300</td>
+<td class="instruction">AND B</td>
+<td class="comment-1" rowspan="1">Mask referenced entity's direction / state with <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52301"></span>52301</td>
+<td class="instruction">LD C,E</td>
+<td class="comment-1" rowspan="1">Copy the low byte from <span class="register">E</span> into <span class="register">C</span> (build a count/address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52302"></span>52302</td>
+<td class="instruction">AND B</td>
+<td class="comment-1" rowspan="1">Mask referenced entity's direction / state with <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52303"></span>52303</td>
+<td class="instruction">LD B,L</td>
+<td class="comment-1" rowspan="1">Copy the low byte from <span class="register">L</span> into <span class="register">B</span> (build a count/address).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52304"></span>52304</td>
+<td class="instruction">AND B</td>
+<td class="comment-1" rowspan="1">Mask referenced entity's direction / state with <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52305"></span>52305</td>
+<td class="instruction">CCF</td>
+<td class="comment-1" rowspan="1">Invert the success marker.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="52306"></span>52306</td>
+<td class="instruction">AND B</td>
+<td class="comment-1" rowspan="1">Mask referenced entity's direction / state with <span class="register">B</span>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="52163.html">52163</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#52174">Map</a></td>
+<td class="next">
+Next: <a href="52307.html">52307</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
+<div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
+<div><a href="../../asm/CBCE.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>
