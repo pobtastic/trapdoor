@@ -74,7 +74,8 @@
 <link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
 <link rel="stylesheet" type="text/css" href="../trapdoor.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script async="async"
+src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -109,7 +110,7 @@ Next: <a href="B16E.html">B16E</a>
 Used by the routine at <a href="AAB3.html">GameStart</a>.
 </div>
 <div class="paragraph">
-Advance Drutt's trap door animation and collection logic using the weight-chain slot at <a href="8EF3.html#908d">StateData_Complex_30</a> and Drutt's state at <a href="8EF3.html#8ef7">StateData_Drutt</a>.
+Advance Drutt's trap door animation and collection logic using the weight-chain slot at <a href="8EF7.html#908d">StateData_Complex_30</a> and Drutt's state at <a href="8EF7.html">StateData_Drutt</a>.
 </div>
 </div>
 </td>
@@ -128,7 +129,7 @@ Finish a pending weight-chain layout swap, then either tick the animation counte
 <td class="asm-label">Update_Drutt</td>
 <td class="address-2"><span id="b034"></span>B034</td>
 <td class="instruction">LD IX,$908D</td>
-<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the weight-chain entity (<a href="8EF3.html#908d">StateData_Complex_30</a>).</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the weight-chain entity (<a href="8EF7.html#908d">StateData_Complex_30</a>).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -163,7 +164,7 @@ Finish a pending weight-chain layout swap, then either tick the animation counte
 <td class="asm-label"></td>
 <td class="address-1"><span id="b044"></span>B044</td>
 <td class="instruction">LD ($9097),BC</td>
-<td class="comment-1" rowspan="1">Write that layout into the creature's layout field (<a href="8EF3.html">9097</a>).</td>
+<td class="comment-1" rowspan="1">Write that layout into the creature's layout field (<a href="8EE9.html#8ef3">9097</a>).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -391,7 +392,7 @@ Install the chosen post-catch layout into the weight-chain slot.
 <td class="asm-label">Update_Drutt_InstallLayout</td>
 <td class="address-2"><span id="b08b"></span>B08B</td>
 <td class="instruction">LD ($9097),HL</td>
-<td class="comment-1" rowspan="1">Write the chosen layout into the weight-chain layout field (<a href="8EF3.html">9097</a>).</td>
+<td class="comment-1" rowspan="1">Write the chosen layout into the weight-chain layout field (<a href="8EE9.html#8ef3">9097</a>).</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -782,7 +783,7 @@ Lift the caught entity with the creature, retype it as a collected eye, and mark
 <td class="asm-label"></td>
 <td class="address-1"><span id="b113"></span>B113</td>
 <td class="instruction">LD ($9089),DE</td>
-<td class="comment-1" rowspan="1">Write that layout into entity state at <a href="8EF3.html">9089</a>.</td>
+<td class="comment-1" rowspan="1">Write that layout into entity state at <a href="8EE9.html#8ef3">9089</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -822,7 +823,7 @@ Install the type-1C collect layout and mark that collection on the task status f
 <td class="asm-label"></td>
 <td class="address-1"><span id="b121"></span>B121</td>
 <td class="instruction">LD ($9089),DE</td>
-<td class="comment-1" rowspan="1">Write that layout into entity state at <a href="8EF3.html">9089</a>.</td>
+<td class="comment-1" rowspan="1">Write that layout into entity state at <a href="8EE9.html#8ef3">9089</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -1094,8 +1095,8 @@ Next: <a href="B16E.html">B16E</a>
 </tr>
 </table>
 <footer>
-<div class="release"></div>
-<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="release">The complete Trap Door RAM disassembly 20261111</div>
+<div class="copyright">&#169; 1986 Piranha, CMTB Animation<br />&#169; 2026 ArcadeGeek LTD.</div>
 <div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
 <div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
 <div><a href="../dec/asm/45108.html">Switch to decimal</a>.</div>

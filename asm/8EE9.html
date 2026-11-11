@@ -74,7 +74,8 @@
 <link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
 <link rel="stylesheet" type="text/css" href="../trapdoor.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script async="async"
+src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -96,54 +97,27 @@ Prev: <a href="8B69.html">8B69</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#8ee9">Map</a></td>
 <td class="next">
-Next: <a href="8EF3.html">8EF3</a>
+Next: <a href="8EF7.html">8EF7</a>
 </td>
 </tr>
 </table>
-<div class="description">8EE9: State Data: Complex Entities</div>
+<div class="description">8EE9: State Data: Boney</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Table of complex entity state records (000E bytes each). Backed up to <a href="FA0E.html">Buffer_EntityStateBackup</a> by <a href="AFA9.html">Backup_Entity_And_Game_State</a>. Field layout: 00 type; 01–03 flags; 04 room 05/06 y and y-extent; 07/08 x and x-extent 09 direction/state; 0A/0B graphic layout pointer 0C/0D extra state. Flags byte 3 at offset 03 (<span class="register">IX</span>+03) for Berk and most movers: <table class="default">
-<tr>
-<th colspan="1" rowspan="1">Bit</th>
-<th colspan="1" rowspan="1">Meaning</th>
+Boney's entity state record (000E bytes). This is the first slot of the complex entity table walked from <a href="8EE9.html">StateData_Boney</a> and backed up to <a href="FA0E.html">Buffer_EntityStateBackup</a> by <a href="AFA9.html">Backup_Entity_And_Game_State</a>. Field names match <a href="8B69.html">StateData_SimpleEntities</a>: flags byte 1 at <a href="F2C7.html#f2ea">F2EA</a> (<span class="register">IX</span>+01), flags byte 2 at <a href="B1A9.html#b1be">B1BE</a> (<span class="register">IX</span>+02), flags byte 3 at <a href="B440.html">Update_Berk_ReadControls</a> (<span class="register">IX</span>+03), room and position at <a href="E6DB.html#e6e4">PopulateDisplayBuffer_VisibleEntitiesContinue</a>, <a href="E71D.html">Process_GraphicLayoutData_Entity</a>, <a href="F2C7.html#f2fa">F2FA</a>, <a href="F2C7.html#f301">F301</a> and <a href="F2C7.html#f30f">F30F</a>, direction and state at <a href="B2AA.html#b344">B344</a> and <a href="B440.html#b617">Update_Berk_Movement_And_Script_PartA</a>, layout at <span class="register">IX</span>+0A (see <a href="D7D3.html#d82f">D82F</a> and <a href="D971.html#da04">DA04</a> which restore <a href="9C9E.html">GraphicLayout_Boney</a>), and extra state at <a href="B2AA.html#b3a9">B3A9</a>, <a href="CB1E.html">ScriptRoutine_TaskFourRandomiseExtra</a> and <a href="CB44.html">ScriptRoutine_TaskFourStepToward</a>. Flags byte 3 at <span class="register">IX</span>+03 for Berk and most movers holds: bit 00 is script locked (ignore input, also set while facing or moving up), bit 01 is facing left when set and facing right when reset, bit 02 is the mid interaction or push latch, bit 03 is set at <a href="B440.html#b609">B609</a>, <a href="B440.html#b760">B760</a>, <a href="B7F3.html#b872">B872</a> and <a href="B87C.html#b922">B922</a> and reset at <a href="B440.html#b47e">Berk_ReadControls_Idle</a>, <a href="F014.html#f052">F052</a> and <a href="F069.html#f0a7">F0A7</a>, bit 04 is the carrying flag (set at <a href="F0E3.html#f0f2">Script_PutDown_SetCarryingFlag</a>, reset at <a href="F13E.html">ScriptRoutine_PickUpHeld</a>, tested by the Jump If Carrying script command at <a href="EF77.html#ef79">EF79</a>), bit 05 is set at random at <a href="D48E.html#d522">D522</a>, tested at <a href="D48E.html#d4af">Collect_Entity_TypeZeroBit5</a> and reset at <a href="D48E.html#d4bd">D4BD</a>, bit 06 is the can fall or gravity latch, and bit 07 is the rising or special vertical state latch. Direction and state at <span class="register">IX</span>+09 uses 01 to face left, 02 to face right, 04 to face down, and 08 to face up (see <a href="EF5B.html">ScriptRoutine_FaceRight</a> through <a href="EF70.html">ScriptRoutine_FaceDown</a>).
+</div>
+</div>
+</td>
 </tr>
 <tr>
-<td class="centre" colspan="1" rowspan="1">00</td>
-<td class="centre" colspan="1" rowspan="1">Script-locked (ignore input; also set while facing / moving up)</td>
-</tr>
-<tr>
-<td class="centre" colspan="1" rowspan="1">01</td>
-<td class="centre" colspan="1" rowspan="1">Facing left (reset = facing right)</td>
-</tr>
-<tr>
-<td class="centre" colspan="1" rowspan="1">02</td>
-<td class="centre" colspan="1" rowspan="1">Mid-interaction / push latch</td>
-</tr>
-<tr>
-<td class="centre" colspan="1" rowspan="1">03</td>
-<td class="centre" colspan="1" rowspan="1">Bit 03 of flags byte 3</td>
-</tr>
-<tr>
-<td class="centre" colspan="1" rowspan="1">04</td>
-<td class="centre" colspan="1" rowspan="1">Bit 04 of flags byte 3 (see <a href="F0E3.html#f0f2">Script_PutDown_SetCarryingFlag</a> / <a href="F13E.html">ScriptRoutine_PickUpHeld</a>)</td>
-</tr>
-<tr>
-<td class="centre" colspan="1" rowspan="1">05</td>
-<td class="centre" colspan="1" rowspan="1">Bit 05 of flags byte 3</td>
-</tr>
-<tr>
-<td class="centre" colspan="1" rowspan="1">06</td>
-<td class="centre" colspan="1" rowspan="1">Can-fall / gravity latch</td>
-</tr>
-<tr>
-<td class="centre" colspan="1" rowspan="1">07</td>
-<td class="centre" colspan="1" rowspan="1">Rising / special vertical-state latch</td>
-</tr>
-</table> Direction / state at offset 09: 01 face left, 02 face right, 04 face down, 08 face up (see script routines <a href="EF5B.html">ScriptRoutine_FaceRight</a>–<a href="EF70.html">ScriptRoutine_FaceDown</a>).
+<td class="routine-comment" colspan="5">
+<span id="8ee9"></span>
+<div class="comments">
+<div class="paragraph">
+Boney (type 01, room 01, layout <a href="9C9E.html">GraphicLayout_Boney</a>).
 </div>
 </div>
 </td>
@@ -151,13 +125,74 @@ Table of complex entity state records (000E bytes each). Backed up to <a href="F
 <tr>
 <td class="asm-label">StateData_Boney</td>
 <td class="address-1"><span id="8ee9"></span>8EE9</td>
-<td class="instruction">DEFB $01,$1F,$00,$00,$01,$1A,$1D,$64</td>
-<td class="comment-1" rowspan="2">Boney (type 01, room 01, layout <a href="9C9E.html">GraphicLayout_Boney</a>). First 0A state bytes.</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Type: 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8eea"></span>8EEA</td>
+<td class="instruction">DEFB $1F</td>
+<td class="comment-1" rowspan="1">Flags byte 1: 1F.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8eeb"></span>8EEB</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 2: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8eec"></span>8EEC</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 3: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8eed"></span>8EED</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Room: 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8eee"></span>8EEE</td>
+<td class="instruction">DEFB $1A</td>
+<td class="comment-1" rowspan="1">Y coordinate: 1A.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8eef"></span>8EEF</td>
+<td class="instruction">DEFB $1D</td>
+<td class="comment-1" rowspan="1">Y extent: 1D.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8ef0"></span>8EF0</td>
+<td class="instruction">DEFB $64</td>
+<td class="comment-1" rowspan="1">X coordinate: 64.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="8ef1"></span>8EF1</td>
-<td class="instruction">DEFB $65,$00</td>
+<td class="instruction">DEFB $65</td>
+<td class="comment-1" rowspan="1">X extent: 65.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8ef2"></span>8EF2</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Direction / state: 00.</td>
+</tr>
+<tr>
+<td class="asm-label">Pointer_BoneyGraphicLayout</td>
+<td class="address-1"><span id="8ef3"></span>8EF3</td>
+<td class="instruction">DEFW <a href="9C9E.html">GraphicLayout_Boney</a></td>
+<td class="comment-1" rowspan="1">Layout: <a href="9C9E.html">GraphicLayout_Boney</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8ef5"></span>8EF5</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Extra state.</td>
 </tr>
 </table>
 <table class="asm-navigation">
@@ -167,13 +202,13 @@ Prev: <a href="8B69.html">8B69</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#8ee9">Map</a></td>
 <td class="next">
-Next: <a href="8EF3.html">8EF3</a>
+Next: <a href="8EF7.html">8EF7</a>
 </td>
 </tr>
 </table>
 <footer>
-<div class="release"></div>
-<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="release">The complete Trap Door RAM disassembly 20261111</div>
+<div class="copyright">&#169; 1986 Piranha, CMTB Animation<br />&#169; 2026 ArcadeGeek LTD.</div>
 <div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
 <div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
 <div><a href="../dec/asm/36585.html">Switch to decimal</a>.</div>

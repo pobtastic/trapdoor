@@ -74,7 +74,8 @@
 <link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
 <link rel="stylesheet" type="text/css" href="../trapdoor.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script async="async"
+src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -92,7 +93,7 @@ gtag('config', 'G-75RERFCHBG');
 <table class="asm-navigation">
 <tr>
 <td class="prev">
-Prev: <a href="8EF3.html">8EF3</a>
+Prev: <a href="8EF7.html">8EF7</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#90b7">Map</a></td>
 <td class="next">
@@ -106,7 +107,17 @@ Next: <a href="9208.html">9208</a>
 <td class="routine-comment" colspan="5">
 <div class="details">
 <div class="paragraph">
-Additional entity state records for room scenery and fixtures (000E bytes each, terminated by FF at <a href="90B7.html#9207">9207</a>). These are not included in the <a href="AFA9.html">Backup_Entity_And_Game_State</a> backup. Each record's layout pointer references graphic layout data in <a href="9208.html">GraphicLayout_Berk</a>–<a href="A827.html">GraphicLayout_LeverClosedLeft</a>.
+Room scenery and fixture state records (000E bytes each, terminated by FF at <a href="90B7.html#9207">9207</a>). These are not included in the <a href="AFA9.html">Backup_Entity_And_Game_State</a> backup. Field names match <a href="8B69.html">StateData_SimpleEntities</a>: flags byte 1 at <a href="F2C7.html#f2ea">F2EA</a>, flags byte 2 at <a href="B1A9.html#b1be">B1BE</a>, flags byte 3 at <a href="B440.html">Update_Berk_ReadControls</a>, room and position at <a href="E6DB.html#e6e4">PopulateDisplayBuffer_VisibleEntitiesContinue</a>, <a href="E71D.html">Process_GraphicLayoutData_Entity</a>, <a href="F2C7.html#f2fa">F2FA</a>, <a href="F2C7.html#f301">F301</a> and <a href="F2C7.html#f30f">F30F</a>, direction and state at <a href="B2AA.html#b344">B344</a> and <a href="B440.html#b617">Update_Berk_Movement_And_Script_PartA</a>, and layout at <span class="register">IX</span>+0A. <a href="EDDB.html">Close_TrapDoor</a> and <a href="EDF8.html">Open_TrapDoor</a> write the lever layout word at <a href="90B7.html#9177">Pointer_TrapDoorLayout</a> when the trap door closes and opens, and <a href="AFDC.html">ScriptRoutine_AnimateTrapDoorBerk</a> and <a href="B01E.html">Reset_Trap_Door_Animation_State</a> write the lever layout word at <a href="90B7.html#91af">Pointer_AnimatingSceneryLayout</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="90b7"></span>
+<div class="comments">
+<div class="paragraph">
+Door frame variant (type 32, room 01, layout <a href="A5E9.html">GraphicLayout_DoorFrameVariant</a>).
 </div>
 </div>
 </td>
@@ -115,300 +126,1959 @@ Additional entity state records for room scenery and fixtures (000E bytes each, 
 <td class="asm-label">StateData_SceneryEntities</td>
 <td class="address-1"><span id="90b7"></span>90B7</td>
 <td class="instruction">DEFB $32</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Type: 32.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="90b8"></span>90B8</td>
-<td class="instruction">DEFB $07,$00,$00,$01,$14,$1B,$5E,$5F</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $07</td>
+<td class="comment-1" rowspan="1">Flags byte 1: 07.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90b9"></span>90B9</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 2: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90ba"></span>90BA</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 3: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90bb"></span>90BB</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Room: 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90bc"></span>90BC</td>
+<td class="instruction">DEFB $14</td>
+<td class="comment-1" rowspan="1">Y coordinate: 14.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90bd"></span>90BD</td>
+<td class="instruction">DEFB $1B</td>
+<td class="comment-1" rowspan="1">Y extent: 1B.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90be"></span>90BE</td>
+<td class="instruction">DEFB $5E</td>
+<td class="comment-1" rowspan="1">X coordinate: 5E.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90bf"></span>90BF</td>
+<td class="instruction">DEFB $5F</td>
+<td class="comment-1" rowspan="1">X extent: 5F.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="90c0"></span>90C0</td>
-<td class="instruction">DEFB $00,$E9,$A5,$00,$00,$35,$01,$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Direction / state: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90c1"></span>90C1</td>
+<td class="instruction">DEFW <a href="A5E9.html">GraphicLayout_DoorFrameVariant</a></td>
+<td class="comment-1" rowspan="1">Layout: <a href="A5E9.html">GraphicLayout_DoorFrameVariant</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90c3"></span>90C3</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Extra state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="90c5"></span>
+<div class="comments">
+<div class="paragraph">
+Door frame (type 35, room 01, layout <a href="A5B6.html">GraphicLayout_DoorFrame</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90c5"></span>90C5</td>
+<td class="instruction">DEFB $35</td>
+<td class="comment-1" rowspan="1">Type: 35.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90c6"></span>90C6</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Flags byte 1: 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90c7"></span>90C7</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 2: 00.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="90c8"></span>90C8</td>
-<td class="instruction">DEFB $00,$01,$13,$1B,$56,$57,$00,$B6</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 3: 00.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
-<td class="address-1"><span id="90d0"></span>90D0</td>
-<td class="instruction">DEFB $A5,$00,$00,$35,$01,$00,$00,$01</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="address-1"><span id="90c9"></span>90C9</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Room: 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90ca"></span>90CA</td>
+<td class="instruction">DEFB $13</td>
+<td class="comment-1" rowspan="1">Y coordinate: 13.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90cb"></span>90CB</td>
+<td class="instruction">DEFB $1B</td>
+<td class="comment-1" rowspan="1">Y extent: 1B.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90cc"></span>90CC</td>
+<td class="instruction">DEFB $56</td>
+<td class="comment-1" rowspan="1">X coordinate: 56.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90cd"></span>90CD</td>
+<td class="instruction">DEFB $57</td>
+<td class="comment-1" rowspan="1">X extent: 57.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90ce"></span>90CE</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Direction / state: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90cf"></span>90CF</td>
+<td class="instruction">DEFW <a href="A5B6.html">GraphicLayout_DoorFrame</a></td>
+<td class="comment-1" rowspan="1">Layout: <a href="A5B6.html">GraphicLayout_DoorFrame</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90d1"></span>90D1</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Extra state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="90d3"></span>
+<div class="comments">
+<div class="paragraph">
+Door frame (type 35, room 01, layout <a href="A5B6.html">GraphicLayout_DoorFrame</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90d3"></span>90D3</td>
+<td class="instruction">DEFB $35</td>
+<td class="comment-1" rowspan="1">Type: 35.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90d4"></span>90D4</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Flags byte 1: 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90d5"></span>90D5</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 2: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90d6"></span>90D6</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 3: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90d7"></span>90D7</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Room: 01.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="90d8"></span>90D8</td>
-<td class="instruction">DEFB $11,$1B,$7A,$7B,$00,$B6,$A5,$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $11</td>
+<td class="comment-1" rowspan="1">Y coordinate: 11.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
-<td class="address-1"><span id="90e0"></span>90E0</td>
-<td class="instruction">DEFB $00,$35,$01,$00,$00,$01,$11,$1B</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="address-1"><span id="90d9"></span>90D9</td>
+<td class="instruction">DEFB $1B</td>
+<td class="comment-1" rowspan="1">Y extent: 1B.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90da"></span>90DA</td>
+<td class="instruction">DEFB $7A</td>
+<td class="comment-1" rowspan="1">X coordinate: 7A.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90db"></span>90DB</td>
+<td class="instruction">DEFB $7B</td>
+<td class="comment-1" rowspan="1">X extent: 7B.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90dc"></span>90DC</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Direction / state: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90dd"></span>90DD</td>
+<td class="instruction">DEFW <a href="A5B6.html">GraphicLayout_DoorFrame</a></td>
+<td class="comment-1" rowspan="1">Layout: <a href="A5B6.html">GraphicLayout_DoorFrame</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90df"></span>90DF</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Extra state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="90e1"></span>
+<div class="comments">
+<div class="paragraph">
+Shared tile (type 35, room 01, layout <a href="A272.html">GraphicLayout_SharedScenery</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90e1"></span>90E1</td>
+<td class="instruction">DEFB $35</td>
+<td class="comment-1" rowspan="1">Type: 35.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90e2"></span>90E2</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Flags byte 1: 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90e3"></span>90E3</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 2: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90e4"></span>90E4</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 3: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90e5"></span>90E5</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Room: 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90e6"></span>90E6</td>
+<td class="instruction">DEFB $11</td>
+<td class="comment-1" rowspan="1">Y coordinate: 11.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90e7"></span>90E7</td>
+<td class="instruction">DEFB $1B</td>
+<td class="comment-1" rowspan="1">Y extent: 1B.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="90e8"></span>90E8</td>
-<td class="instruction">DEFB $3E,$41,$00,$72,$A2,$00,$00,$3E</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $3E</td>
+<td class="comment-1" rowspan="1">X coordinate: 3E.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90e9"></span>90E9</td>
+<td class="instruction">DEFB $41</td>
+<td class="comment-1" rowspan="1">X extent: 41.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90ea"></span>90EA</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Direction / state: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90eb"></span>90EB</td>
+<td class="instruction">DEFW <a href="A272.html">GraphicLayout_SharedScenery</a></td>
+<td class="comment-1" rowspan="1">Layout: <a href="A272.html">GraphicLayout_SharedScenery</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90ed"></span>90ED</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Extra state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="90ef"></span>
+<div class="comments">
+<div class="paragraph">
+Long platform (type 3E, room 01, layout <a href="A6BB.html">GraphicLayout_LongPlatform</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90ef"></span>90EF</td>
+<td class="instruction">DEFB $3E</td>
+<td class="comment-1" rowspan="1">Type: 3E.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="90f0"></span>90F0</td>
-<td class="instruction">DEFB $01,$00,$00,$01,$19,$1B,$69,$7F</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Flags byte 1: 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90f1"></span>90F1</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 2: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90f2"></span>90F2</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 3: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90f3"></span>90F3</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Room: 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90f4"></span>90F4</td>
+<td class="instruction">DEFB $19</td>
+<td class="comment-1" rowspan="1">Y coordinate: 19.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90f5"></span>90F5</td>
+<td class="instruction">DEFB $1B</td>
+<td class="comment-1" rowspan="1">Y extent: 1B.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90f6"></span>90F6</td>
+<td class="instruction">DEFB $69</td>
+<td class="comment-1" rowspan="1">X coordinate: 69.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90f7"></span>90F7</td>
+<td class="instruction">DEFB $7F</td>
+<td class="comment-1" rowspan="1">X extent: 7F.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="90f8"></span>90F8</td>
-<td class="instruction">DEFB $00,$BB,$A6,$00,$00,$35,$01,$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Direction / state: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90f9"></span>90F9</td>
+<td class="instruction">DEFW <a href="A6BB.html">GraphicLayout_LongPlatform</a></td>
+<td class="comment-1" rowspan="1">Layout: <a href="A6BB.html">GraphicLayout_LongPlatform</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90fb"></span>90FB</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Extra state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="90fd"></span>
+<div class="comments">
+<div class="paragraph">
+Door frame variant (type 35, room 01, layout <a href="A5E9.html">GraphicLayout_DoorFrameVariant</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90fd"></span>90FD</td>
+<td class="instruction">DEFB $35</td>
+<td class="comment-1" rowspan="1">Type: 35.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90fe"></span>90FE</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Flags byte 1: 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="90ff"></span>90FF</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 2: 00.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="9100"></span>9100</td>
-<td class="instruction">DEFB $00,$01,$11,$1B,$88,$89,$00,$E9</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 3: 00.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
-<td class="address-1"><span id="9108"></span>9108</td>
-<td class="instruction">DEFB $A5,$00,$00,$3E,$01,$00,$00,$01</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="address-1"><span id="9101"></span>9101</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Room: 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9102"></span>9102</td>
+<td class="instruction">DEFB $11</td>
+<td class="comment-1" rowspan="1">Y coordinate: 11.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9103"></span>9103</td>
+<td class="instruction">DEFB $1B</td>
+<td class="comment-1" rowspan="1">Y extent: 1B.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9104"></span>9104</td>
+<td class="instruction">DEFB $88</td>
+<td class="comment-1" rowspan="1">X coordinate: 88.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9105"></span>9105</td>
+<td class="instruction">DEFB $89</td>
+<td class="comment-1" rowspan="1">X extent: 89.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9106"></span>9106</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Direction / state: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9107"></span>9107</td>
+<td class="instruction">DEFW <a href="A5E9.html">GraphicLayout_DoorFrameVariant</a></td>
+<td class="comment-1" rowspan="1">Layout: <a href="A5E9.html">GraphicLayout_DoorFrameVariant</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9109"></span>9109</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Extra state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="910b"></span>
+<div class="comments">
+<div class="paragraph">
+Long platform (type 3E, room 01, layout <a href="A6BB.html">GraphicLayout_LongPlatform</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="910b"></span>910B</td>
+<td class="instruction">DEFB $3E</td>
+<td class="comment-1" rowspan="1">Type: 3E.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="910c"></span>910C</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Flags byte 1: 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="910d"></span>910D</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 2: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="910e"></span>910E</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 3: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="910f"></span>910F</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Room: 01.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="9110"></span>9110</td>
-<td class="instruction">DEFB $19,$1B,$80,$8A,$00,$BB,$A6,$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $19</td>
+<td class="comment-1" rowspan="1">Y coordinate: 19.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
-<td class="address-1"><span id="9118"></span>9118</td>
-<td class="instruction">DEFB $00,$32,$00,$00,$00,$01,$1A,$1D</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="address-1"><span id="9111"></span>9111</td>
+<td class="instruction">DEFB $1B</td>
+<td class="comment-1" rowspan="1">Y extent: 1B.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9112"></span>9112</td>
+<td class="instruction">DEFB $80</td>
+<td class="comment-1" rowspan="1">X coordinate: 80.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9113"></span>9113</td>
+<td class="instruction">DEFB $8A</td>
+<td class="comment-1" rowspan="1">X extent: 8A.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9114"></span>9114</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Direction / state: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9115"></span>9115</td>
+<td class="instruction">DEFW <a href="A6BB.html">GraphicLayout_LongPlatform</a></td>
+<td class="comment-1" rowspan="1">Layout: <a href="A6BB.html">GraphicLayout_LongPlatform</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9117"></span>9117</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Extra state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="9119"></span>
+<div class="comments">
+<div class="paragraph">
+Green arch top (type 32, room 01, layout <a href="A46C.html">GraphicLayout_GreenArchTop</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9119"></span>9119</td>
+<td class="instruction">DEFB $32</td>
+<td class="comment-1" rowspan="1">Type: 32.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="911a"></span>911A</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 1: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="911b"></span>911B</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 2: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="911c"></span>911C</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 3: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="911d"></span>911D</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Room: 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="911e"></span>911E</td>
+<td class="instruction">DEFB $1A</td>
+<td class="comment-1" rowspan="1">Y coordinate: 1A.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="911f"></span>911F</td>
+<td class="instruction">DEFB $1D</td>
+<td class="comment-1" rowspan="1">Y extent: 1D.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="9120"></span>9120</td>
-<td class="instruction">DEFB $8E,$8F,$00,$6C,$A4,$00,$00,$3E</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $8E</td>
+<td class="comment-1" rowspan="1">X coordinate: 8E.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9121"></span>9121</td>
+<td class="instruction">DEFB $8F</td>
+<td class="comment-1" rowspan="1">X extent: 8F.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9122"></span>9122</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Direction / state: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9123"></span>9123</td>
+<td class="instruction">DEFW <a href="A46C.html">GraphicLayout_GreenArchTop</a></td>
+<td class="comment-1" rowspan="1">Layout: <a href="A46C.html">GraphicLayout_GreenArchTop</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9125"></span>9125</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Extra state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="9127"></span>
+<div class="comments">
+<div class="paragraph">
+Long platform (type 3E, room 01, layout <a href="A6BB.html">GraphicLayout_LongPlatform</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9127"></span>9127</td>
+<td class="instruction">DEFB $3E</td>
+<td class="comment-1" rowspan="1">Type: 3E.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="9128"></span>9128</td>
-<td class="instruction">DEFB $01,$00,$00,$01,$19,$1B,$A7,$BF</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Flags byte 1: 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9129"></span>9129</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 2: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="912a"></span>912A</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 3: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="912b"></span>912B</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Room: 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="912c"></span>912C</td>
+<td class="instruction">DEFB $19</td>
+<td class="comment-1" rowspan="1">Y coordinate: 19.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="912d"></span>912D</td>
+<td class="instruction">DEFB $1B</td>
+<td class="comment-1" rowspan="1">Y extent: 1B.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="912e"></span>912E</td>
+<td class="instruction">DEFB $A7</td>
+<td class="comment-1" rowspan="1">X coordinate: A7.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="912f"></span>912F</td>
+<td class="instruction">DEFB $BF</td>
+<td class="comment-1" rowspan="1">X extent: BF.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="9130"></span>9130</td>
-<td class="instruction">DEFB $00,$BB,$A6,$00,$00,$32,$00,$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Direction / state: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9131"></span>9131</td>
+<td class="instruction">DEFW <a href="A6BB.html">GraphicLayout_LongPlatform</a></td>
+<td class="comment-1" rowspan="1">Layout: <a href="A6BB.html">GraphicLayout_LongPlatform</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9133"></span>9133</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Extra state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="9135"></span>
+<div class="comments">
+<div class="paragraph">
+Green arch top (type 32, room 01, layout <a href="A46C.html">GraphicLayout_GreenArchTop</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9135"></span>9135</td>
+<td class="instruction">DEFB $32</td>
+<td class="comment-1" rowspan="1">Type: 32.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9136"></span>9136</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 1: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9137"></span>9137</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 2: 00.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="9138"></span>9138</td>
-<td class="instruction">DEFB $00,$01,$1A,$1D,$AC,$AC,$00,$6C</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 3: 00.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
-<td class="address-1"><span id="9140"></span>9140</td>
-<td class="instruction">DEFB $A4,$00,$00,$33,$04,$00,$00,$05</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="address-1"><span id="9139"></span>9139</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Room: 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="913a"></span>913A</td>
+<td class="instruction">DEFB $1A</td>
+<td class="comment-1" rowspan="1">Y coordinate: 1A.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="913b"></span>913B</td>
+<td class="instruction">DEFB $1D</td>
+<td class="comment-1" rowspan="1">Y extent: 1D.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="913c"></span>913C</td>
+<td class="instruction">DEFB $AC</td>
+<td class="comment-1" rowspan="1">X coordinate: AC.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="913d"></span>913D</td>
+<td class="instruction">DEFB $AC</td>
+<td class="comment-1" rowspan="1">X extent: AC.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="913e"></span>913E</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Direction / state: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="913f"></span>913F</td>
+<td class="instruction">DEFW <a href="A46C.html">GraphicLayout_GreenArchTop</a></td>
+<td class="comment-1" rowspan="1">Layout: <a href="A46C.html">GraphicLayout_GreenArchTop</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9141"></span>9141</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Extra state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="9143"></span>
+<div class="comments">
+<div class="paragraph">
+Vertical column (type 33, room 05, layout <a href="A61C.html">GraphicLayout_VerticalColumn</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9143"></span>9143</td>
+<td class="instruction">DEFB $33</td>
+<td class="comment-1" rowspan="1">Type: 33.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9144"></span>9144</td>
+<td class="instruction">DEFB $04</td>
+<td class="comment-1" rowspan="1">Flags byte 1: 04.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9145"></span>9145</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 2: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9146"></span>9146</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 3: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9147"></span>9147</td>
+<td class="instruction">DEFB $05</td>
+<td class="comment-1" rowspan="1">Room: 05.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="9148"></span>9148</td>
-<td class="instruction">DEFB $1E,$27,$20,$21,$00,$1C,$A6,$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $1E</td>
+<td class="comment-1" rowspan="1">Y coordinate: 1E.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
-<td class="address-1"><span id="9150"></span>9150</td>
-<td class="instruction">DEFB $00,$33,$04,$00,$00,$05,$1E,$27</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="address-1"><span id="9149"></span>9149</td>
+<td class="instruction">DEFB $27</td>
+<td class="comment-1" rowspan="1">Y extent: 27.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="914a"></span>914A</td>
+<td class="instruction">DEFB $20</td>
+<td class="comment-1" rowspan="1">X coordinate: 20.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="914b"></span>914B</td>
+<td class="instruction">DEFB $21</td>
+<td class="comment-1" rowspan="1">X extent: 21.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="914c"></span>914C</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Direction / state: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="914d"></span>914D</td>
+<td class="instruction">DEFW <a href="A61C.html">GraphicLayout_VerticalColumn</a></td>
+<td class="comment-1" rowspan="1">Layout: <a href="A61C.html">GraphicLayout_VerticalColumn</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="914f"></span>914F</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Extra state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="9151"></span>
+<div class="comments">
+<div class="paragraph">
+Vertical column (type 33, room 05, layout <a href="A61C.html">GraphicLayout_VerticalColumn</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9151"></span>9151</td>
+<td class="instruction">DEFB $33</td>
+<td class="comment-1" rowspan="1">Type: 33.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9152"></span>9152</td>
+<td class="instruction">DEFB $04</td>
+<td class="comment-1" rowspan="1">Flags byte 1: 04.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9153"></span>9153</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 2: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9154"></span>9154</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 3: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9155"></span>9155</td>
+<td class="instruction">DEFB $05</td>
+<td class="comment-1" rowspan="1">Room: 05.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9156"></span>9156</td>
+<td class="instruction">DEFB $1E</td>
+<td class="comment-1" rowspan="1">Y coordinate: 1E.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9157"></span>9157</td>
+<td class="instruction">DEFB $27</td>
+<td class="comment-1" rowspan="1">Y extent: 27.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="9158"></span>9158</td>
-<td class="instruction">DEFB $3E,$3F,$00,$1C,$A6,$00,$00,$32</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $3E</td>
+<td class="comment-1" rowspan="1">X coordinate: 3E.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9159"></span>9159</td>
+<td class="instruction">DEFB $3F</td>
+<td class="comment-1" rowspan="1">X extent: 3F.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="915a"></span>915A</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Direction / state: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="915b"></span>915B</td>
+<td class="instruction">DEFW <a href="A61C.html">GraphicLayout_VerticalColumn</a></td>
+<td class="comment-1" rowspan="1">Layout: <a href="A61C.html">GraphicLayout_VerticalColumn</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="915d"></span>915D</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Extra state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="915f"></span>
+<div class="comments">
+<div class="paragraph">
+Vertical column (type 32, room 05, layout <a href="A61C.html">GraphicLayout_VerticalColumn</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="915f"></span>915F</td>
+<td class="instruction">DEFB $32</td>
+<td class="comment-1" rowspan="1">Type: 32.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="9160"></span>9160</td>
-<td class="instruction">DEFB $04,$00,$00,$05,$1E,$27,$5F,$60</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $04</td>
+<td class="comment-1" rowspan="1">Flags byte 1: 04.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9161"></span>9161</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 2: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9162"></span>9162</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 3: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9163"></span>9163</td>
+<td class="instruction">DEFB $05</td>
+<td class="comment-1" rowspan="1">Room: 05.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9164"></span>9164</td>
+<td class="instruction">DEFB $1E</td>
+<td class="comment-1" rowspan="1">Y coordinate: 1E.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9165"></span>9165</td>
+<td class="instruction">DEFB $27</td>
+<td class="comment-1" rowspan="1">Y extent: 27.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9166"></span>9166</td>
+<td class="instruction">DEFB $5F</td>
+<td class="comment-1" rowspan="1">X coordinate: 5F.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9167"></span>9167</td>
+<td class="instruction">DEFB $60</td>
+<td class="comment-1" rowspan="1">X extent: 60.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="9168"></span>9168</td>
-<td class="instruction">DEFB $00,$1C,$A6,$00,$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Direction / state: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9169"></span>9169</td>
+<td class="instruction">DEFW <a href="A61C.html">GraphicLayout_VerticalColumn</a></td>
+<td class="comment-1" rowspan="1">Layout: <a href="A61C.html">GraphicLayout_VerticalColumn</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="916b"></span>916B</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Extra state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="916d"></span>
+<div class="comments">
+<div class="paragraph">
+Trap door lever closed facing right (type 39, room 05, layout <a href="A809.html">GraphicLayout_LeverClosedRight</a>).
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="asm-label">StateData_TrapDoorScenery</td>
 <td class="address-1"><span id="916d"></span>916D</td>
-<td class="instruction">DEFB $39,$04,$00,$00,$05,$21,$23,$60</td>
-<td class="comment-1" rowspan="2">Trap door scenery entity.</td>
+<td class="instruction">DEFB $39</td>
+<td class="comment-1" rowspan="1">Type: 39.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="916e"></span>916E</td>
+<td class="instruction">DEFB $04</td>
+<td class="comment-1" rowspan="1">Flags byte 1: 04.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="916f"></span>916F</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 2: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9170"></span>9170</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 3: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9171"></span>9171</td>
+<td class="instruction">DEFB $05</td>
+<td class="comment-1" rowspan="1">Room: 05.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9172"></span>9172</td>
+<td class="instruction">DEFB $21</td>
+<td class="comment-1" rowspan="1">Y coordinate: 21.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9173"></span>9173</td>
+<td class="instruction">DEFB $23</td>
+<td class="comment-1" rowspan="1">Y extent: 23.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9174"></span>9174</td>
+<td class="instruction">DEFB $60</td>
+<td class="comment-1" rowspan="1">X coordinate: 60.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="9175"></span>9175</td>
-<td class="instruction">DEFB $61,$00</td>
+<td class="instruction">DEFB $61</td>
+<td class="comment-1" rowspan="1">X extent: 61.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9176"></span>9176</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Direction / state: 00.</td>
 </tr>
 <tr>
 <td class="asm-label">Pointer_TrapDoorLayout</td>
 <td class="address-1"><span id="9177"></span>9177</td>
 <td class="instruction">DEFW <a href="A809.html">GraphicLayout_LeverClosedRight</a></td>
-<td class="comment-1" rowspan="1">Current open/closed graphic layout pointer for the trap door.</td>
+<td class="comment-1" rowspan="1">Layout: <a href="A809.html">GraphicLayout_LeverClosedRight</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="9179"></span>9179</td>
-<td class="instruction">DEFB $00,$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Extra state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="917b"></span>
+<div class="comments">
+<div class="paragraph">
+White arch (type 65, room 05, layout <a href="A508.html">GraphicLayout_WhiteArch</a>).
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="asm-label">StateData_ScenerySecondary</td>
 <td class="address-1"><span id="917b"></span>917B</td>
 <td class="instruction">DEFB $65</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Type: 65.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="917c"></span>917C</td>
-<td class="instruction">DEFB $01,$00,$00,$05,$1D,$27,$A0,$A9</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Flags byte 1: 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="917d"></span>917D</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 2: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="917e"></span>917E</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 3: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="917f"></span>917F</td>
+<td class="instruction">DEFB $05</td>
+<td class="comment-1" rowspan="1">Room: 05.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9180"></span>9180</td>
+<td class="instruction">DEFB $1D</td>
+<td class="comment-1" rowspan="1">Y coordinate: 1D.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9181"></span>9181</td>
+<td class="instruction">DEFB $27</td>
+<td class="comment-1" rowspan="1">Y extent: 27.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9182"></span>9182</td>
+<td class="instruction">DEFB $A0</td>
+<td class="comment-1" rowspan="1">X coordinate: A0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9183"></span>9183</td>
+<td class="instruction">DEFB $A9</td>
+<td class="comment-1" rowspan="1">X extent: A9.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="9184"></span>9184</td>
-<td class="instruction">DEFB $00,$08,$A5,$00,$00,$33,$07,$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Direction / state: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9185"></span>9185</td>
+<td class="instruction">DEFW <a href="A508.html">GraphicLayout_WhiteArch</a></td>
+<td class="comment-1" rowspan="1">Layout: <a href="A508.html">GraphicLayout_WhiteArch</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9187"></span>9187</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Extra state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="9189"></span>
+<div class="comments">
+<div class="paragraph">
+Vertical column (type 33, room 05, layout <a href="A61C.html">GraphicLayout_VerticalColumn</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9189"></span>9189</td>
+<td class="instruction">DEFB $33</td>
+<td class="comment-1" rowspan="1">Type: 33.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="918a"></span>918A</td>
+<td class="instruction">DEFB $07</td>
+<td class="comment-1" rowspan="1">Flags byte 1: 07.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="918b"></span>918B</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 2: 00.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="918c"></span>918C</td>
-<td class="instruction">DEFB $00,$05,$1E,$27,$40,$41,$00,$1C</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 3: 00.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
-<td class="address-1"><span id="9194"></span>9194</td>
-<td class="instruction">DEFB $A6,$00,$00,$33,$07,$00,$00,$05</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="address-1"><span id="918d"></span>918D</td>
+<td class="instruction">DEFB $05</td>
+<td class="comment-1" rowspan="1">Room: 05.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="918e"></span>918E</td>
+<td class="instruction">DEFB $1E</td>
+<td class="comment-1" rowspan="1">Y coordinate: 1E.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="918f"></span>918F</td>
+<td class="instruction">DEFB $27</td>
+<td class="comment-1" rowspan="1">Y extent: 27.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9190"></span>9190</td>
+<td class="instruction">DEFB $40</td>
+<td class="comment-1" rowspan="1">X coordinate: 40.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9191"></span>9191</td>
+<td class="instruction">DEFB $41</td>
+<td class="comment-1" rowspan="1">X extent: 41.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9192"></span>9192</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Direction / state: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9193"></span>9193</td>
+<td class="instruction">DEFW <a href="A61C.html">GraphicLayout_VerticalColumn</a></td>
+<td class="comment-1" rowspan="1">Layout: <a href="A61C.html">GraphicLayout_VerticalColumn</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9195"></span>9195</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Extra state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="9197"></span>
+<div class="comments">
+<div class="paragraph">
+Vertical column (type 33, room 05, layout <a href="A61C.html">GraphicLayout_VerticalColumn</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9197"></span>9197</td>
+<td class="instruction">DEFB $33</td>
+<td class="comment-1" rowspan="1">Type: 33.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9198"></span>9198</td>
+<td class="instruction">DEFB $07</td>
+<td class="comment-1" rowspan="1">Flags byte 1: 07.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9199"></span>9199</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 2: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="919a"></span>919A</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 3: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="919b"></span>919B</td>
+<td class="instruction">DEFB $05</td>
+<td class="comment-1" rowspan="1">Room: 05.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="919c"></span>919C</td>
-<td class="instruction">DEFB $1E,$27,$BE,$BF,$00,$1C,$A6,$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $1E</td>
+<td class="comment-1" rowspan="1">Y coordinate: 1E.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
-<td class="address-1"><span id="91a4"></span>91A4</td>
+<td class="address-1"><span id="919d"></span>919D</td>
+<td class="instruction">DEFB $27</td>
+<td class="comment-1" rowspan="1">Y extent: 27.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="919e"></span>919E</td>
+<td class="instruction">DEFB $BE</td>
+<td class="comment-1" rowspan="1">X coordinate: BE.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="919f"></span>919F</td>
+<td class="instruction">DEFB $BF</td>
+<td class="comment-1" rowspan="1">X extent: BF.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91a0"></span>91A0</td>
 <td class="instruction">DEFB $00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Direction / state: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91a1"></span>91A1</td>
+<td class="instruction">DEFW <a href="A61C.html">GraphicLayout_VerticalColumn</a></td>
+<td class="comment-1" rowspan="1">Layout: <a href="A61C.html">GraphicLayout_VerticalColumn</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91a3"></span>91A3</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Extra state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="91a5"></span>
+<div class="comments">
+<div class="paragraph">
+Trap door lever closed facing left (type 3B, room 05, layout <a href="A827.html">GraphicLayout_LeverClosedLeft</a>).
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="asm-label">StateData_AnimatingScenery</td>
 <td class="address-1"><span id="91a5"></span>91A5</td>
 <td class="instruction">DEFB $3B</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Type: 3B.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="91a6"></span>91A6</td>
-<td class="instruction">DEFB $04,$00,$00,$05,$21,$23,$BD,$BE</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $04</td>
+<td class="comment-1" rowspan="1">Flags byte 1: 04.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91a7"></span>91A7</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 2: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91a8"></span>91A8</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 3: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91a9"></span>91A9</td>
+<td class="instruction">DEFB $05</td>
+<td class="comment-1" rowspan="1">Room: 05.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91aa"></span>91AA</td>
+<td class="instruction">DEFB $21</td>
+<td class="comment-1" rowspan="1">Y coordinate: 21.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91ab"></span>91AB</td>
+<td class="instruction">DEFB $23</td>
+<td class="comment-1" rowspan="1">Y extent: 23.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91ac"></span>91AC</td>
+<td class="instruction">DEFB $BD</td>
+<td class="comment-1" rowspan="1">X coordinate: BD.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91ad"></span>91AD</td>
+<td class="instruction">DEFB $BE</td>
+<td class="comment-1" rowspan="1">X extent: BE.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="91ae"></span>91AE</td>
 <td class="instruction">DEFB $00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="comment-1" rowspan="1">Direction / state: 00.</td>
 </tr>
 <tr>
 <td class="asm-label">Pointer_AnimatingSceneryLayout</td>
 <td class="address-1"><span id="91af"></span>91AF</td>
 <td class="instruction">DEFW <a href="A827.html">GraphicLayout_LeverClosedLeft</a></td>
-<td class="comment-1" rowspan="1">Graphic layout pointer for the scenery entity at <a href="90B7.html#91a5">StateData_AnimatingScenery</a>; written by <a href="AFDC.html">ScriptRoutine_AnimateTrapDoorBerk</a> / <a href="B01E.html">Reset_Trap_Door_Animation_State</a> while animating the trap door.</td>
+<td class="comment-1" rowspan="1">Layout: <a href="A827.html">GraphicLayout_LeverClosedLeft</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="91b1"></span>91B1</td>
-<td class="instruction">DEFB $00,$00,$32,$00,$00,$00,$01,$23</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Extra state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="91b3"></span>
+<div class="comments">
+<div class="paragraph">
+Green scenery strip (type 32, room 01, layout <a href="AA28.html">GraphicLayout_GreenSceneryStrip</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91b3"></span>91B3</td>
+<td class="instruction">DEFB $32</td>
+<td class="comment-1" rowspan="1">Type: 32.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91b4"></span>91B4</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 1: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91b5"></span>91B5</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 2: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91b6"></span>91B6</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 3: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91b7"></span>91B7</td>
+<td class="instruction">DEFB $01</td>
+<td class="comment-1" rowspan="1">Room: 01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91b8"></span>91B8</td>
+<td class="instruction">DEFB $23</td>
+<td class="comment-1" rowspan="1">Y coordinate: 23.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="91b9"></span>91B9</td>
-<td class="instruction">DEFB $23,$E0,$FF,$00,$28,$AA,$00,$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $23</td>
+<td class="comment-1" rowspan="1">Y extent: 23.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91ba"></span>91BA</td>
+<td class="instruction">DEFB $E0</td>
+<td class="comment-1" rowspan="1">X coordinate: E0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91bb"></span>91BB</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">X extent: FF.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91bc"></span>91BC</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Direction / state: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91bd"></span>91BD</td>
+<td class="instruction">DEFW <a href="AA28.html">GraphicLayout_GreenSceneryStrip</a></td>
+<td class="comment-1" rowspan="1">Layout: <a href="AA28.html">GraphicLayout_GreenSceneryStrip</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91bf"></span>91BF</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Extra state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="91c1"></span>
+<div class="comments">
+<div class="paragraph">
+Green scenery strip (type 32, room 02, layout <a href="AA28.html">GraphicLayout_GreenSceneryStrip</a>).
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="91c1"></span>91C1</td>
-<td class="instruction">DEFB $32,$00,$00,$00,$02,$24,$24,$E0</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $32</td>
+<td class="comment-1" rowspan="1">Type: 32.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91c2"></span>91C2</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 1: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91c3"></span>91C3</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 2: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91c4"></span>91C4</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 3: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91c5"></span>91C5</td>
+<td class="instruction">DEFB $02</td>
+<td class="comment-1" rowspan="1">Room: 02.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91c6"></span>91C6</td>
+<td class="instruction">DEFB $24</td>
+<td class="comment-1" rowspan="1">Y coordinate: 24.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91c7"></span>91C7</td>
+<td class="instruction">DEFB $24</td>
+<td class="comment-1" rowspan="1">Y extent: 24.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91c8"></span>91C8</td>
+<td class="instruction">DEFB $E0</td>
+<td class="comment-1" rowspan="1">X coordinate: E0.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="91c9"></span>91C9</td>
-<td class="instruction">DEFB $FF,$00,$28,$AA,$00,$00,$32,$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">X extent: FF.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91ca"></span>91CA</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Direction / state: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91cb"></span>91CB</td>
+<td class="instruction">DEFW <a href="AA28.html">GraphicLayout_GreenSceneryStrip</a></td>
+<td class="comment-1" rowspan="1">Layout: <a href="AA28.html">GraphicLayout_GreenSceneryStrip</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91cd"></span>91CD</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Extra state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="91cf"></span>
+<div class="comments">
+<div class="paragraph">
+Green scenery strip (type 32, room 03, layout <a href="AA28.html">GraphicLayout_GreenSceneryStrip</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91cf"></span>91CF</td>
+<td class="instruction">DEFB $32</td>
+<td class="comment-1" rowspan="1">Type: 32.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91d0"></span>91D0</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 1: 00.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="91d1"></span>91D1</td>
-<td class="instruction">DEFB $00,$00,$03,$25,$25,$E0,$FF,$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 2: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91d2"></span>91D2</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 3: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91d3"></span>91D3</td>
+<td class="instruction">DEFB $03</td>
+<td class="comment-1" rowspan="1">Room: 03.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91d4"></span>91D4</td>
+<td class="instruction">DEFB $25</td>
+<td class="comment-1" rowspan="1">Y coordinate: 25.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91d5"></span>91D5</td>
+<td class="instruction">DEFB $25</td>
+<td class="comment-1" rowspan="1">Y extent: 25.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91d6"></span>91D6</td>
+<td class="instruction">DEFB $E0</td>
+<td class="comment-1" rowspan="1">X coordinate: E0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91d7"></span>91D7</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">X extent: FF.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91d8"></span>91D8</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Direction / state: 00.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="91d9"></span>91D9</td>
-<td class="instruction">DEFB $28,$AA,$00,$00,$32,$00,$00,$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFW <a href="AA28.html">GraphicLayout_GreenSceneryStrip</a></td>
+<td class="comment-1" rowspan="1">Layout: <a href="AA28.html">GraphicLayout_GreenSceneryStrip</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91db"></span>91DB</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Extra state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="91dd"></span>
+<div class="comments">
+<div class="paragraph">
+Green scenery strip (type 32, room 04, layout <a href="AA28.html">GraphicLayout_GreenSceneryStrip</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91dd"></span>91DD</td>
+<td class="instruction">DEFB $32</td>
+<td class="comment-1" rowspan="1">Type: 32.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91de"></span>91DE</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 1: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91df"></span>91DF</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 2: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91e0"></span>91E0</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 3: 00.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="91e1"></span>91E1</td>
-<td class="instruction">DEFB $04,$26,$26,$E0,$FF,$00,$28,$AA</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $04</td>
+<td class="comment-1" rowspan="1">Room: 04.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91e2"></span>91E2</td>
+<td class="instruction">DEFB $26</td>
+<td class="comment-1" rowspan="1">Y coordinate: 26.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91e3"></span>91E3</td>
+<td class="instruction">DEFB $26</td>
+<td class="comment-1" rowspan="1">Y extent: 26.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91e4"></span>91E4</td>
+<td class="instruction">DEFB $E0</td>
+<td class="comment-1" rowspan="1">X coordinate: E0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91e5"></span>91E5</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">X extent: FF.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91e6"></span>91E6</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Direction / state: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91e7"></span>91E7</td>
+<td class="instruction">DEFW <a href="AA28.html">GraphicLayout_GreenSceneryStrip</a></td>
+<td class="comment-1" rowspan="1">Layout: <a href="AA28.html">GraphicLayout_GreenSceneryStrip</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="91e9"></span>91E9</td>
-<td class="instruction">DEFB $00,$00,$32,$00,$00,$00,$05,$27</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Extra state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="91eb"></span>
+<div class="comments">
+<div class="paragraph">
+Green scenery strip (type 32, room 05, layout <a href="AA28.html">GraphicLayout_GreenSceneryStrip</a>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91eb"></span>91EB</td>
+<td class="instruction">DEFB $32</td>
+<td class="comment-1" rowspan="1">Type: 32.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91ec"></span>91EC</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 1: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91ed"></span>91ED</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 2: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91ee"></span>91EE</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 3: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91ef"></span>91EF</td>
+<td class="instruction">DEFB $05</td>
+<td class="comment-1" rowspan="1">Room: 05.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91f0"></span>91F0</td>
+<td class="instruction">DEFB $27</td>
+<td class="comment-1" rowspan="1">Y coordinate: 27.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="91f1"></span>91F1</td>
-<td class="instruction">DEFB $27,$E0,$FF,$00,$28,$AA,$00,$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $27</td>
+<td class="comment-1" rowspan="1">Y extent: 27.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91f2"></span>91F2</td>
+<td class="instruction">DEFB $E0</td>
+<td class="comment-1" rowspan="1">X coordinate: E0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91f3"></span>91F3</td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">X extent: FF.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91f4"></span>91F4</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Direction / state: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91f5"></span>91F5</td>
+<td class="instruction">DEFW <a href="AA28.html">GraphicLayout_GreenSceneryStrip</a></td>
+<td class="comment-1" rowspan="1">Layout: <a href="AA28.html">GraphicLayout_GreenSceneryStrip</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91f7"></span>91F7</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Extra state.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="91f9"></span>
+<div class="comments">
+<div class="paragraph">
+Scenery strip (type 32, room 05, layout <a href="A8F6.html#a921">A921</a>).
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="91f9"></span>91F9</td>
-<td class="instruction">DEFB $32,$00,$00,$00,$05,$27,$27,$E0</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $32</td>
+<td class="comment-1" rowspan="1">Type: 32.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91fa"></span>91FA</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 1: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91fb"></span>91FB</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 2: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91fc"></span>91FC</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Flags byte 3: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91fd"></span>91FD</td>
+<td class="instruction">DEFB $05</td>
+<td class="comment-1" rowspan="1">Room: 05.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91fe"></span>91FE</td>
+<td class="instruction">DEFB $27</td>
+<td class="comment-1" rowspan="1">Y coordinate: 27.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="91ff"></span>91FF</td>
+<td class="instruction">DEFB $27</td>
+<td class="comment-1" rowspan="1">Y extent: 27.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9200"></span>9200</td>
+<td class="instruction">DEFB $E0</td>
+<td class="comment-1" rowspan="1">X coordinate: E0.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="9201"></span>9201</td>
-<td class="instruction">DEFB $FF,$00,$21,$A9,$00,$00</td>
-<td class="comment-1" rowspan="1"></td>
+<td class="instruction">DEFB $FF</td>
+<td class="comment-1" rowspan="1">X extent: FF.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9202"></span>9202</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">Direction / state: 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9203"></span>9203</td>
+<td class="instruction">DEFW <a href="A8F6.html#a921">$A921</a></td>
+<td class="comment-1" rowspan="1">Layout: <a href="A8F6.html#a921">A921</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9205"></span>9205</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Extra state.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -420,7 +2090,7 @@ Additional entity state records for room scenery and fixtures (000E bytes each, 
 <table class="asm-navigation">
 <tr>
 <td class="prev">
-Prev: <a href="8EF3.html">8EF3</a>
+Prev: <a href="8EF7.html">8EF7</a>
 </td>
 <td class="up">Up: <a href="../maps/all.html#90b7">Map</a></td>
 <td class="next">
@@ -429,8 +2099,8 @@ Next: <a href="9208.html">9208</a>
 </tr>
 </table>
 <footer>
-<div class="release"></div>
-<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="release">The complete Trap Door RAM disassembly 20261111</div>
+<div class="copyright">&#169; 1986 Piranha, CMTB Animation<br />&#169; 2026 ArcadeGeek LTD.</div>
 <div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
 <div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
 <div><a href="../dec/asm/37047.html">Switch to decimal</a>.</div>

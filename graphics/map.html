@@ -74,7 +74,8 @@
 <link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
 <link rel="stylesheet" type="text/css" href="../trapdoor.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script async="async"
+src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -100,27 +101,27 @@ at <a href="../asm/8B69.html">StateData_SimpleEntities</a>), then blit at <a hre
 <p>
 Placement follows the
 <a href="https://www.c64-wiki.com/wiki/The_Trap_Door">C64-Wiki map</a>
-for the Spectrum layout: kitchen on the left, stairs on the right, and
-the swamp under the weight room. The camera code at <a href="../asm/F1F3.html">Update_CameraFollow</a> steps
-<a href="../asm/72FB.html">Pointer_CameraRoomOrigin</a> by 20 between 20 and A0 (five upper rooms). The
-weight-to-stairs wrap is at <a href="../asm/F1F3.html#f226">Update_CameraFollow_WrapLeft</a>, and the stairs-to-weight wrap is
-at <a href="../asm/F1F3.html#f240">Update_CameraFollow_WrapRight</a>. Kitchen and stairs are a normal step apart. The swamp
-camera at E0-FF is entered from the weight room via the white
-arch entity at <a href="../asm/90B7.html#917b">StateData_ScenerySecondary</a> (<a href="../asm/B440.html#b771">Berk_ReadControls_DownInteract</a>-<a href="../asm/B440.html#b785">B785</a>).
+for the Spectrum layout: Storage Cupboard on the left, Patio on the
+right, and the Swamp under the Weight room. The camera code at <a href="../asm/F1F3.html">Update_CameraFollow</a>
+steps <a href="../asm/72FB.html">Pointer_CameraRoomOrigin</a> by 20 between 20 and A0 (five upper rooms). The
+Weight to Patio wrap is at <a href="../asm/F1F3.html#f226">Update_CameraFollow_WrapLeft</a>, and the Patio to Weight wrap is at
+<a href="../asm/F1F3.html#f240">Update_CameraFollow_WrapRight</a>. Storage Cupboard and Patio are a normal step apart. The Swamp
+camera at E0 to FF is entered from the Weight room via the white
+arch entity at <a href="../asm/90B7.html#917b">StateData_ScenerySecondary</a> (<a href="../asm/B440.html#b771">Berk_ReadControls_DownInteract</a> to <a href="../asm/B440.html#b785">B785</a>).
 </p>
 <ul class="">
-<li><a href="rooms.html##n$01">Room 01</a> Kitchen 40-60 <a href="../asm/A237.html">GraphicLayout_Room1SceneryBlock</a></li>
+<li><a href="rooms.html##n$01">Room 01</a> Storage Cupboard 40-60 <a href="../asm/A2A8.html">GraphicLayout_RoomSceneryBlockB</a></li>
 <li><a href="rooms.html##n$03">Room 03</a> Trap Door 60-80 <a href="../asm/A3F3.html">GraphicLayout_TrapDoorClosed</a></li>
-<li><a href="rooms.html##n$04">Room 04</a> Stove 80-A0 <a href="../asm/9FDC.html">GraphicLayout_StoveLit</a></li>
+<li><a href="rooms.html##n$04">Room 04</a> Kitchen 80-A0 <a href="../asm/9FDC.html">GraphicLayout_StoveLit</a></li>
 <li><a href="rooms.html##n$05">Room 05</a> Weight A0-C0 <a href="../asm/A61C.html">GraphicLayout_VerticalColumn</a></li>
-<li><a href="rooms.html##n$00">Room 00</a> Stairs 20-40 <a href="../asm/A839.html">GraphicLayout_BlueStaircase</a></li>
+<li><a href="rooms.html##n$00">Room 00</a> Patio 20-40 <a href="../asm/A839.html">GraphicLayout_BlueStaircase</a></li>
 <li><a href="rooms.html#swamp">Swamp</a> E0-FF <a href="../asm/A929.html">GraphicLayout_SwampDrippingWater</a></li>
 </ul>
 <div class="castle-map-viewer" id="castle-map-viewer"></div>
 <p class="castle-map-hint">Drag to move. Scroll or pinch to zoom.</p>
 <footer>
-<div class="release"></div>
-<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="release">The complete Trap Door RAM disassembly 20261111</div>
+<div class="copyright">&#169; 1986 Piranha, CMTB Animation<br />&#169; 2026 ArcadeGeek LTD.</div>
 <div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
 <div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
 <div><a href="../dec/graphics/map.html">Switch to decimal</a>.</div>

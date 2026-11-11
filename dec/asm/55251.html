@@ -74,7 +74,8 @@
 <link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
 <link rel="stylesheet" type="text/css" href="../trapdoor.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script async="async"
+src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -383,7 +384,7 @@ Reset the dialogue tick, restore layout <a href="40094.html">GraphicLayout_Boney
 <td class="asm-label"></td>
 <td class="address-1"><span id="55346"></span>55346</td>
 <td class="instruction">LD (36595),HL</td>
-<td class="comment-1" rowspan="1">Write that layout pointer to Boney's graphic-layout field (<a href="36595.html">Pointer_BoneyGraphicLayout</a>).</td>
+<td class="comment-1" rowspan="1">Write that layout pointer to Boney's graphic-layout field (<a href="36585.html#36595">Pointer_BoneyGraphicLayout</a>).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -514,7 +515,7 @@ At dialogue state 6, clear the strip and pick task-1..4 (or menu) gate logic.
 <span id="55395"></span>
 <div class="comments">
 <div class="paragraph">
-Task 1 gates: empty slot <a href="36595.html#36865">StateData_Complex_20</a>, collision count <a href="29373.html">CollisionScratchByte</a>, and door X choose the line index.
+Task 1 gates: empty slot <a href="36599.html#36865">StateData_Complex_20</a>, collision count <a href="29373.html">CollisionScratchByte</a>, and door X choose the line index.
 </div>
 </div>
 </td>
@@ -529,13 +530,13 @@ Task 1 gates: empty slot <a href="36595.html#36865">StateData_Complex_20</a>, co
 <td class="asm-label"></td>
 <td class="address-1"><span id="55397"></span>55397</td>
 <td class="instruction">LD A,(36865)</td>
-<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the type of complex entity slot 32 (<a href="36595.html#36865">StateData_Complex_20</a>).</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the type of complex entity slot 32 (<a href="36599.html#36865">StateData_Complex_20</a>).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="55400"></span>55400</td>
 <td class="instruction">OR A</td>
-<td class="comment-1" rowspan="2">Is the type at <a href="36595.html#36865">StateData_Complex_20</a> non-zero? If so, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+<td class="comment-1" rowspan="2">Is the type at <a href="36599.html#36865">StateData_Complex_20</a> non-zero? If so, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -569,7 +570,7 @@ Task 1 gates: empty slot <a href="36595.html#36865">StateData_Complex_20</a>, co
 <td class="asm-label"></td>
 <td class="address-1"><span id="55411"></span>55411</td>
 <td class="instruction">LD IX,36907</td>
-<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the worm-can entity (<a href="36595.html#36907">StateData_Complex_23</a>).</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the worm-can entity (<a href="36599.html#36907">StateData_Complex_23</a>).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -720,13 +721,13 @@ Task-2 pan X checks before looking at the spawn timer.
 <td class="asm-label"></td>
 <td class="address-1"><span id="55459"></span>55459</td>
 <td class="instruction">LD A,(36949)</td>
-<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the pan entity's type (<a href="36595.html#36949">StateData_Complex_26</a>).</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with the pan entity's type (<a href="36599.html#36949">StateData_Complex_26</a>).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="55462"></span>55462</td>
 <td class="instruction">OR A</td>
-<td class="comment-1" rowspan="2">Is the type at <a href="36595.html#36949">StateData_Complex_26</a> zero? If so, jump to <a href="55251.html#55473">Update_Bad_Tempered_Thing_Dialogue_Task2SpawnZero</a>.</td>
+<td class="comment-1" rowspan="2">Is the type at <a href="36599.html#36949">StateData_Complex_26</a> zero? If so, jump to <a href="55251.html#55473">Update_Bad_Tempered_Thing_Dialogue_Task2SpawnZero</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -737,13 +738,13 @@ Task-2 pan X checks before looking at the spawn timer.
 <td class="asm-label"></td>
 <td class="address-1"><span id="55465"></span>55465</td>
 <td class="instruction">LD A,(36956)</td>
-<td class="comment-1" rowspan="1">Load <span class="register">A</span> from <a href="36595.html">36956</a>.</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> from <a href="36585.html#36595">36956</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="55468"></span>55468</td>
 <td class="instruction">CP 94</td>
-<td class="comment-1" rowspan="2">Is the byte at <a href="36595.html">36956</a> less than 94? If so, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
+<td class="comment-1" rowspan="2">Is the byte at <a href="36585.html#36595">36956</a> less than 94? If so, jump to <a href="55665.html">Continue_Bad_Tempered_Thing_Dialogue</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -972,7 +973,7 @@ Task-3 creature X and Slimies / SlimyLoose / StoveReady flags choose the line in
 <td class="asm-label"></td>
 <td class="address-1"><span id="55537"></span>55537</td>
 <td class="instruction">LD IX,36963</td>
-<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the cauldron entity (<a href="36595.html#36963">StateData_Complex_27</a>).</td>
+<td class="comment-1" rowspan="1">Point <span class="register">IX</span> at the cauldron entity (<a href="36599.html#36963">StateData_Complex_27</a>).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -1304,8 +1305,8 @@ Next: <a href="55653.html">55653</a>
 </tr>
 </table>
 <footer>
-<div class="release"></div>
-<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="release">The complete Trap Door RAM disassembly 20261111</div>
+<div class="copyright">&#169; 1986 Piranha, CMTB Animation<br />&#169; 2026 ArcadeGeek LTD.</div>
 <div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
 <div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
 <div><a href="../../asm/D7D3.html">Switch to hexadecimal</a>.</div>

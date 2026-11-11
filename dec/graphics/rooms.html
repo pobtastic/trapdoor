@@ -74,7 +74,8 @@
 <link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
 <link rel="stylesheet" type="text/css" href="../trapdoor.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script async="async"
+src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -103,7 +104,7 @@ gtag('config', 'G-75RERFCHBG');
 <div class="box-title">0</div>
 <div class="paragraph">
 <table>
-<tr><th>Room 0 — <a href="../asm/43065.html">GraphicLayout_BlueStaircase</a></th></tr>
+<tr><th>Room 0 Patio at <a href="../asm/43065.html">GraphicLayout_BlueStaircase</a></th></tr>
 <tr>
 <td>
 
@@ -121,7 +122,13 @@ gtag('config', 'G-75RERFCHBG');
 <div class="box-title">1</div>
 <div class="paragraph">
 <table>
-<tr><th>Room 1 — <a href="../asm/41527.html">GraphicLayout_Room1SceneryBlock</a></th></tr>
+<tr><th>Room 1 Storage Cupboard at <a href="../asm/41640.html">GraphicLayout_RoomSceneryBlockB</a></th></tr>
+<tr>
+<td>
+Scenery layout for room 1 in <a href="../asm/35689.html">StateData_SimpleEntities</a>. Floor strips continue at
+<a href="../asm/41713.html">GraphicLayout_FloorStrip</a>. Shelves use <a href="../asm/42683.html">GraphicLayout_LongPlatform</a>.
+</td>
+</tr>
 <tr>
 <td>
 
@@ -139,7 +146,16 @@ gtag('config', 'G-75RERFCHBG');
 <div class="box-title">2</div>
 <div class="paragraph">
 <table>
-<tr><th>Room 2 — <a href="../asm/40924.html">GraphicLayout_StoveLit</a></th></tr>
+<tr><th>Room 2 Mid camera stove band at <a href="../asm/40924.html">GraphicLayout_StoveLit</a></th></tr>
+<tr>
+<td>
+Room 2 is not a separate room. It is the room number on the
+stove, hatch and trap floor entries, which are drawn in an
+in-between camera window from 108 to 140 spanning Trap Door and
+Kitchen. Lit stove layout <a href="../asm/40924.html">GraphicLayout_StoveLit</a>. Closed hatch <a href="../asm/41971.html">GraphicLayout_TrapDoorClosed</a> and trap
+floor <a href="../asm/42067.html">GraphicLayout_TrapDoorFloor</a> share this band.
+</td>
+</tr>
 <tr>
 <td>
 
@@ -157,7 +173,12 @@ gtag('config', 'G-75RERFCHBG');
 <div class="box-title">3</div>
 <div class="paragraph">
 <table>
-<tr><th>Room 3 — <a href="../asm/41090.html">GraphicLayout_PlantPot</a></th></tr>
+<tr><th>Room 3 Trap Door at <a href="../asm/41971.html">GraphicLayout_TrapDoorClosed</a></th></tr>
+<tr>
+<td>
+Closed hatch layout. Wall scenery in this window is <a href="../asm/41527.html">GraphicLayout_Room1SceneryBlock</a>.
+</td>
+</tr>
 <tr>
 <td>
 
@@ -175,7 +196,13 @@ gtag('config', 'G-75RERFCHBG');
 <div class="box-title">4</div>
 <div class="paragraph">
 <table>
-<tr><th>Room 4 — <a href="../asm/42022.html">GraphicLayout_TrapDoorOpen</a></th></tr>
+<tr><th>Room 4 Kitchen at <a href="../asm/40924.html">GraphicLayout_StoveLit</a></th></tr>
+<tr>
+<td>
+Lit stove in this camera. Also the dumb waiter <a href="../asm/42970.html">GraphicLayout_DumbWaiter</a> and lever
+scenery <a href="../asm/43047.html">GraphicLayout_LeverClosedLeft</a>.
+</td>
+</tr>
 <tr>
 <td>
 
@@ -193,7 +220,13 @@ gtag('config', 'G-75RERFCHBG');
 <div class="box-title">5</div>
 <div class="paragraph">
 <table>
-<tr><th>Room 5 — <a href="../asm/42524.html">GraphicLayout_VerticalColumn</a></th></tr>
+<tr><th>Room 5 Weight at <a href="../asm/42524.html">GraphicLayout_VerticalColumn</a></th></tr>
+<tr>
+<td>
+Vertical columns under <a href="../asm/37047.html">StateData_SceneryEntities</a> (room 5). White arch into the
+Swamp is <a href="../asm/42248.html">GraphicLayout_WhiteArch</a> at <a href="../asm/37047.html#37243">StateData_ScenerySecondary</a>.
+</td>
+</tr>
 <tr>
 <td>
 
@@ -211,7 +244,13 @@ gtag('config', 'G-75RERFCHBG');
 <div class="box-title">Swamp</div>
 <div class="paragraph">
 <table>
-<tr><th>Swamp (camera 224-255) — <a href="../asm/43305.html">GraphicLayout_SwampDrippingWater</a></th></tr>
+<tr><th>Swamp (camera 224 to 255) at <a href="../asm/43305.html">GraphicLayout_SwampDrippingWater</a></th></tr>
+<tr>
+<td>
+Dripping water wrap scenery (room 0 high X in <a href="../asm/35689.html">StateData_SimpleEntities</a>).
+Waterline strips also use <a href="../asm/43560.html">GraphicLayout_GreenSceneryStrip</a>.
+</td>
+</tr>
 <tr>
 <td>
 
@@ -225,8 +264,8 @@ gtag('config', 'G-75RERFCHBG');
 </div>
 </div>
 <footer>
-<div class="release"></div>
-<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="release">The complete Trap Door RAM disassembly 20261111</div>
+<div class="copyright">&#169; 1986 Piranha, CMTB Animation<br />&#169; 2026 ArcadeGeek LTD.</div>
 <div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
 <div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
 <div><a href="../../graphics/rooms.html">Switch to hexadecimal</a>.</div>

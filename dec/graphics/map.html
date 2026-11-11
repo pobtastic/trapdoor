@@ -74,7 +74,8 @@
 <link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
 <link rel="stylesheet" type="text/css" href="../trapdoor.css" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script async="async"
+src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -100,27 +101,27 @@ at <a href="../asm/35689.html">StateData_SimpleEntities</a>), then blit at <a hr
 <p>
 Placement follows the
 <a href="https://www.c64-wiki.com/wiki/The_Trap_Door">C64-Wiki map</a>
-for the Spectrum layout: kitchen on the left, stairs on the right, and
-the swamp under the weight room. The camera code at <a href="../asm/61939.html">Update_CameraFollow</a> steps
-<a href="../asm/29435.html">Pointer_CameraRoomOrigin</a> by 32 between 32 and 160 (five upper rooms). The
-weight-to-stairs wrap is at <a href="../asm/61939.html#61990">Update_CameraFollow_WrapLeft</a>, and the stairs-to-weight wrap is
-at <a href="../asm/61939.html#62016">Update_CameraFollow_WrapRight</a>. Kitchen and stairs are a normal step apart. The swamp
-camera at 224-255 is entered from the weight room via the white
-arch entity at <a href="../asm/37047.html#37243">StateData_ScenerySecondary</a> (<a href="../asm/46144.html#46961">Berk_ReadControls_DownInteract</a>-<a href="../asm/46144.html#46981">46981</a>).
+for the Spectrum layout: Storage Cupboard on the left, Patio on the
+right, and the Swamp under the Weight room. The camera code at <a href="../asm/61939.html">Update_CameraFollow</a>
+steps <a href="../asm/29435.html">Pointer_CameraRoomOrigin</a> by 32 between 32 and 160 (five upper rooms). The
+Weight to Patio wrap is at <a href="../asm/61939.html#61990">Update_CameraFollow_WrapLeft</a>, and the Patio to Weight wrap is at
+<a href="../asm/61939.html#62016">Update_CameraFollow_WrapRight</a>. Storage Cupboard and Patio are a normal step apart. The Swamp
+camera at 224 to 255 is entered from the Weight room via the white
+arch entity at <a href="../asm/37047.html#37243">StateData_ScenerySecondary</a> (<a href="../asm/46144.html#46961">Berk_ReadControls_DownInteract</a> to <a href="../asm/46144.html#46981">46981</a>).
 </p>
 <ul class="">
-<li><a href="rooms.html##n$01">Room 1</a> Kitchen 64-96 <a href="../asm/41527.html">GraphicLayout_Room1SceneryBlock</a></li>
+<li><a href="rooms.html##n$01">Room 1</a> Storage Cupboard 64-96 <a href="../asm/41640.html">GraphicLayout_RoomSceneryBlockB</a></li>
 <li><a href="rooms.html##n$03">Room 3</a> Trap Door 96-128 <a href="../asm/41971.html">GraphicLayout_TrapDoorClosed</a></li>
-<li><a href="rooms.html##n$04">Room 4</a> Stove 128-160 <a href="../asm/40924.html">GraphicLayout_StoveLit</a></li>
+<li><a href="rooms.html##n$04">Room 4</a> Kitchen 128-160 <a href="../asm/40924.html">GraphicLayout_StoveLit</a></li>
 <li><a href="rooms.html##n$05">Room 5</a> Weight 160-192 <a href="../asm/42524.html">GraphicLayout_VerticalColumn</a></li>
-<li><a href="rooms.html##n$00">Room 0</a> Stairs 32-64 <a href="../asm/43065.html">GraphicLayout_BlueStaircase</a></li>
+<li><a href="rooms.html##n$00">Room 0</a> Patio 32-64 <a href="../asm/43065.html">GraphicLayout_BlueStaircase</a></li>
 <li><a href="rooms.html#swamp">Swamp</a> 224-255 <a href="../asm/43305.html">GraphicLayout_SwampDrippingWater</a></li>
 </ul>
 <div class="castle-map-viewer" id="castle-map-viewer"></div>
 <p class="castle-map-hint">Drag to move. Scroll or pinch to zoom.</p>
 <footer>
-<div class="release"></div>
-<div class="copyright">&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.</div>
+<div class="release">The complete Trap Door RAM disassembly 20261111</div>
+<div class="copyright">&#169; 1986 Piranha, CMTB Animation<br />&#169; 2026 ArcadeGeek LTD.</div>
 <div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 10.2.</div>
 <div class="repository">Link to <a rel="noopener nofollow" href="https://github.com/pobtastic/trapdoor/">Source code</a>.</div>
 <div><a href="../../graphics/map.html">Switch to hexadecimal</a>.</div>
