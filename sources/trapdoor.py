@@ -396,3 +396,22 @@ class TrapDoorHtmlWriter(HtmlWriter):
             fname = text[end + 1:close]
             end = close + 1
         return end, addr, fname
+
+    @staticmethod
+    def _xml10_safe(text):
+        # XML 1.0 forbids most C0/C1 controls; #STR bytes can emit them.
+        # Replace so check-links (minidom) can parse published HTML.
+        out = []
+        for ch in text:
+            o = ord(ch)
+            ok = (
+                o in (0x9, 0xA, 0xD)
+                or 0x20 <= o <= 0xD7FF
+                or 0xE000 <= o <= 0xFFFD
+                or 0x10000 <= o <= 0x10FFFF
+            )
+            out.append(ch if ok else '?')
+        return ''.join(out)
+
+    def write_file(self, fname, contents):
+        super().write_file(fname, self._xml10_safe(contents))

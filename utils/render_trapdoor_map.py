@@ -4,16 +4,16 @@
 
 Each room camera window is drawn with the game's own frame path used by
 #ROOM in sources/trapdoor.ref: clear both display buffers at $EA3C,
-populate them at $E6DB (room passes $00-$05 over $8B69-$9207, so
+populate them at $E6DB (room passes $00 to $05 over $8B69 to $9207, so
 brickwork, arches, ladders and furniture all land), then blit at $E991.
 Camera edges are written to $72FB and $72FC.
 
 The camera code at $F1F3 steps $72FB by $20 between $20 and $A0, so
 there are five upper cameras. Placement follows the C64-Wiki Spectrum
-map: kitchen left, stairs right, swamp under the weight room. The
-weight-to-stairs wrap is at $F226, and the stairs-to-weight wrap is at
-$F240. The swamp camera at $E0-$FF is entered from the weight room via
-the white arch entity at $917B ($B771-$B785).
+map: Storage Cupboard left, Patio right, Swamp under the Weight room.
+The Weight to Patio wrap is at $F226, and the Patio to Weight wrap is
+at $F240. The Swamp camera at $E0 to $FF is entered from the Weight
+room via the white arch entity at $917B ($B771 to $B785).
 
 Writes castle-map.dzi plus PNG tiles into each images directory.
 """
@@ -39,43 +39,43 @@ CELL_W = PLAY_W + GAP
 CELL_H = PLAY_H + GAP
 TITLE_H = 18
 
-# Camera windows from sources/rooms.ref / #ROOM (five upper + swamp).
+# Camera windows from sources/rooms.ref / #ROOM (five upper + Swamp).
 ROOMS = (
     # id, cam_lo, cam_hi, short title
-    (0x00, 0x20, 0x40, 'Stairs'),
-    (0x01, 0x40, 0x60, 'Kitchen'),
+    (0x00, 0x20, 0x40, 'Patio'),
+    (0x01, 0x40, 0x60, 'Storage Cupboard'),
     (0x03, 0x60, 0x80, 'Trap Door'),
-    (0x04, 0x80, 0xA0, 'Stove'),
+    (0x04, 0x80, 0xA0, 'Kitchen'),
     (0x05, 0xA0, 0xC0, 'Weight'),
     (0x06, 0xE0, 0xFF, 'Swamp'),
 )
 
-# Wiki-style placement: kitchen left, stairs right, swamp under weight.
+# Wiki-style placement: Storage Cupboard left, Patio right, Swamp under Weight.
 GRID = {
-    0x01: (0, 0),  # Kitchen
+    0x01: (0, 0),  # Storage Cupboard
     0x03: (1, 0),  # Trap Door
-    0x04: (2, 0),  # Stove
+    0x04: (2, 0),  # Kitchen
     0x05: (3, 0),  # Weight
-    0x00: (4, 0),  # Stairs
+    0x00: (4, 0),  # Patio
     0x06: (3, 1),  # Swamp under Weight
 }
 
-# Rising camera X neighbours. Weight wraps to stairs at $F226 / $F240.
+# Rising camera X neighbours. Weight wraps to Patio at $F226 / $F240.
 CAMERA_LINKS = (
-    (0x00, 0x01),  # Stairs / Kitchen (normal $20 step)
-    (0x01, 0x03),  # Kitchen / Trap Door
-    (0x03, 0x04),  # Trap Door / Stove
-    (0x04, 0x05),  # Stove / Weight
-    (0x05, 0x00),  # Weight / Stairs (wrap)
+    (0x00, 0x01),  # Patio / Storage Cupboard (normal $20 step)
+    (0x01, 0x03),  # Storage Cupboard / Trap Door
+    (0x03, 0x04),  # Trap Door / Kitchen
+    (0x04, 0x05),  # Kitchen / Weight
+    (0x05, 0x00),  # Weight / Patio (wrap)
 )
 
-# Wiki edges among the five upper rooms, plus swamp under weight.
+# Wiki edges among the five upper rooms, plus Swamp under Weight.
 WIKI_LINKS = (
-    (0x01, 0x03),  # Kitchen / Trap Door
-    (0x03, 0x04),  # Trap Door / Stove
-    (0x04, 0x05),  # Stove / Weight
-    (0x05, 0x00),  # Weight / Stairs (wrap)
-    (0x00, 0x01),  # Stairs / Kitchen
+    (0x01, 0x03),  # Storage Cupboard / Trap Door
+    (0x03, 0x04),  # Trap Door / Kitchen
+    (0x04, 0x05),  # Kitchen / Weight
+    (0x05, 0x00),  # Weight / Patio (wrap)
+    (0x00, 0x01),  # Patio / Storage Cupboard
     (0x05, 0x06),  # Weight / Swamp (white arch at $917B)
 )
 
@@ -264,12 +264,12 @@ def report_connections():
     print('connections:', flush=True)
     print('  camera X links:',
           ', '.join('%02X-%02X' % edge for edge in CAMERA_LINKS),
-          '(05-00: weight-to-stairs $F226, stairs-to-weight $F240)',
+          '(05-00: Weight to Patio $F226, Patio to Weight $F240)',
           flush=True)
     print('  wiki links:',
           ', '.join('%02X-%02X' % edge for edge in WIKI_LINKS), flush=True)
     print('  note: five upper cameras at $20,$40,$60,$80,$A0.',
-          'Swamp at $E0-$FF via white arch $917B.', flush=True)
+          'Swamp at $E0 to $FF via white arch $917B.', flush=True)
 
 
 def main(argv):

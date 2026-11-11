@@ -6,7 +6,7 @@
 > $4000 @org=$4000
 > $4000 @start
 > $4000 @expand=#IF({asm})(#DEF(#FLUNKY(addr)(link=Flunky)$link))
-> $4000 @expand=#IF({asm}==0)(#DEF1(#FLUNKY(addr)#HTML(<a href="/flunky/#IF({{mode[base]}}==16)(,dec/)asm/#IF({{mode[base]}}==16)(#EVAL({addr},16,4),#EVAL({addr})).html">Flunky</a>)))
+> $4000 @expand=#IF({asm}==0)(#DEF1(#FLUNKY(addr)#HTML(<a href="https://skoolkit.arcadegeek.co.uk/flunky/#IF({{mode[base]}}==16)(,dec/)asm/#IF({{mode[base]}}==16)(#EVAL({addr},16,4),#EVAL({addr})).html">Flunky</a>)))
 > $4000 @expand=#DEF1(#SKOOLKID(addr,anchor=0)(name)#HTML(<a rel="noopener nofollow" href="https://skoolkit.ca/disassemblies/rom/#IF({{mode[base]}}==16)(hex/)asm/#IF({{mode[base]}}==16)(#EVAL({addr},16,4),#EVAL({addr})).html#IF({anchor})(#CHR(35)#IF({{mode[base]}}==16)(#EVAL({anchor},16,4),#EVAL({anchor})))">){name}#HTML(</a>))
 b $4000 Loading Screen
 @ $4000 label=Loading
@@ -580,10 +580,12 @@ W $7317,$02 Graphics set #N$06: extra tiles; see #R$8989.
 
 b $7319 Bitmap Mirror Image Lookup Table
 @ $7319 label=BitmapMirrorLookup
-D $7319 Lookup table used by #R$EA23 to reverse the bits in a bitmap byte when
-. horizontally mirroring a graphic tile (attribute bit #N$07 set in the
-. display-buffer entry).
-  $7319,$0100,$08
+D $7319 Entry n holds n with its eight bits in reverse order, so bit #N$07
+. swaps with bit #N($00), bit #N$06 with bit #N($01), and so on. #R$EA23
+. passes each of a tile's eight bitmap bytes through it when the tile's
+. attribute bit #N$07 is set, which draws the tile mirrored left to right, so
+. one copy of the graphics serves both facing directions.
+  $7319,$0100,b8
 
 b $7419 Graphics: Set #N$03
 @ $7419 label=Graphics_Set03
@@ -727,38 +729,47 @@ W $8B73,$02 Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
 W $8B75,$02 Extra state.
 L $8B69,$0E,$40,$02
 
-b $8EE9 State Data: Complex Entities
-@ $8EE9 label=StateData_ComplexEntities
-D $8EE9 Table of complex entity state records (#N($000E,$04,$04) bytes each).
-. Backed up to #R$FA0E by #R$AFA9.
-. Field layout: #N$00 type; #N$01–#N$03 flags; #N$04 room
-. #N$05/#N$06 y and y-extent; #N$07/#N$08 x and x-extent
-. #N$09 direction/state; #N$0A/#N$0B graphic layout pointer
-. #N$0C/#N$0D extra state.
-. Flags byte 3 at offset #N$03 (#REGix+#N$03) for Berk and most movers:
-. #TABLE(default,centre,centre)
-. { =h Bit | =h Meaning }
-. { #N$00 | Script-locked (ignore input; also set while facing / moving up) }
-. { #N$01 | Facing left (reset = facing right) }
-. { #N$02 | Mid-interaction / push latch }
-. { #N$03 | Bit #N$03 of flags byte 3 }
-. { #N$04 | Bit #N$04 of flags byte 3 (see #R$F0F2 / #R$F13E) }
-. { #N$05 | Bit #N$05 of flags byte 3 }
-. { #N$06 | Can-fall / gravity latch }
-. { #N$07 | Rising / special vertical-state latch }
-. TABLE#
-. Direction / state at offset #N$09: #N$01 face left, #N$02 face right,
-. #N$04 face down, #N$08 face up (see script routines #R$EF5B–#R$EF70).
+b $8EE9 State Data: Boney
 @ $8EE9 label=StateData_Boney
-  $8EE9,$0A Boney (type #N($01), room #N($01), layout #R$9C9E). First #N$0A
-. state bytes.
-g $8EF3 Pointer: Boney Graphic Layout
+D $8EE9 Boney's entity state record (#N($000E,$04,$04) bytes). This is the
+. first slot of the complex entity table walked from #R$8EE9 and backed up to
+. #R$FA0E by #R$AFA9. Field names match #R$8B69: flags byte 1 at #R$F2EA
+. (#REGix+#N($01)), flags byte 2 at #R$B1BE (#REGix+#N($02)), flags byte 3
+. at #R$B440 (#REGix+#N($03)), room and position at #R$E6E4, #R$E71D,
+. #R$F2FA, #R$F301 and #R$F30F, direction and state at #R$B344 and #R$B617,
+. layout at #REGix+#N$0A (see #R$D82F and #R$DA04 which restore #R$9C9E),
+. and extra state at #R$B3A9, #R$CB1E and #R$CB44. Flags byte 3 at
+. #REGix+#N$03 for Berk and most movers holds: bit #N$00 is script locked
+. (ignore input, also set while facing or moving up), bit #N$01 is facing
+. left when set and facing right when reset, bit #N$02 is the mid
+. interaction or push latch, bit #N$03 is set at #R$B609, #R$B760, #R$B872
+. and #R$B922 and reset at #R$B47E, #R$F052 and #R$F0A7, bit #N$04 is the
+. carrying flag (set at #R$F0F2, reset at #R$F13E, tested by the Jump If
+. Carrying script command at #R$EF79), bit #N$05 is set at random at
+. #R$D522, tested at #R$D4AF and reset at #R$D4BD, bit #N$06 is the can
+. fall or gravity latch, and bit #N$07 is the rising or special vertical
+. state latch. Direction and state at #REGix+#N$09 uses #N$01 to face left,
+. #N$02 to face right, #N$04 to face down, and #N$08 to face up (see
+. #R$EF5B through #R$EF70).
+N $8EE9 Boney (type #N($01), room #N($01), layout #R$9C9E).
+  $8EE9,$01 Type: #N(#PEEK(#PC)).
+  $8EEA,$01 Flags byte 1: #N(#PEEK(#PC)).
+  $8EEB,$01 Flags byte 2: #N(#PEEK(#PC)).
+  $8EEC,$01 Flags byte 3: #N(#PEEK(#PC)).
+  $8EED,$01 Room: #N(#PEEK(#PC)).
+  $8EEE,$01 Y coordinate: #N(#PEEK(#PC)).
+  $8EEF,$01 Y extent: #N(#PEEK(#PC)).
+  $8EF0,$01 X coordinate: #N(#PEEK(#PC)).
+  $8EF1,$01 X extent: #N(#PEEK(#PC)).
+  $8EF2,$01 Direction / state: #N(#PEEK(#PC)).
 @ $8EF3 label=Pointer_BoneyGraphicLayout
-D $8EF3 Current graphic layout pointer for Boney (entity field #REGix+#N$0A).
-. The snapshot holds #R$9C9E (Boney's skull). #R$D82F / #R$DA04 restore
-. #R$9C9E after Bad Tempered Thing dialogue.
-W $8EF3,$02
-B $8EF5,$02 Remaining Boney entity state bytes after the layout pointer.
+W $8EF3,$02 Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+W $8EF5,$02 Extra state.
+
+b $8EF7 State Data: Complex Entities
+D $8EF7 Complex entity state records after Boney (#N($000E,$04,$04) bytes
+. each). The table begins at #R$8EE9 and is backed up to #R$FA0E by #R$AFA9.
+. Field names match #R$8B69 and #R$8EE9.
 @ $8EF7 label=StateData_Drutt
   $8EF7,$0E Drutt (type #N($87), room #N($05), layout #R$9E37 (the bullet)).
 . Drutt's script and animation data is at #R$D234.
@@ -831,27 +842,58 @@ B $8EF5,$02 Remaining Boney entity state bytes after the layout pointer.
 
 b $90B7 State Data: Scenery Entities
 @ $90B7 label=StateData_SceneryEntities
-  $90B7,$01
-  $90B8,$B5
-D $90B7 Additional entity state records for room scenery and fixtures
-. (#N($000E,$04,$04) bytes each, terminated by #N$FF at #R$9207). These
-. are not included in the #R$AFA9 backup. Each record's layout pointer
-. references graphic layout data in #R$9208–#R$A827.
+D $90B7 Room scenery and fixture state records (#N($000E,$04,$04) bytes each,
+. terminated by #N$FF at #R$9207). These are not included in the #R$AFA9
+. backup. Field names match #R$8B69: flags byte 1 at #R$F2EA, flags byte 2 at
+. #R$B1BE, flags byte 3 at #R$B440, room and position at #R$E6E4, #R$E71D,
+. #R$F2FA, #R$F301 and #R$F30F, direction and state at #R$B344 and #R$B617,
+. and layout at #REGix+#N($0A). #R$EDDB and #R$EDF8 write the lever layout
+. word at #R$9177 when the trap door closes and opens, and #R$AFDC and
+. #R$B01E write the lever layout word at #R$91AF.
+N $90B7 Door frame variant (type #N($32), room #N($01), layout #R$A5E9).
+N $90C5 Door frame (type #N($35), room #N($01), layout #R$A5B6).
+N $90D3 Door frame (type #N($35), room #N($01), layout #R$A5B6).
+N $90E1 Shared tile (type #N($35), room #N($01), layout #R$A272).
+N $90EF Long platform (type #N($3E), room #N($01), layout #R$A6BB).
+N $90FD Door frame variant (type #N($35), room #N($01), layout #R$A5E9).
+N $910B Long platform (type #N($3E), room #N($01), layout #R$A6BB).
+N $9119 Green arch top (type #N($32), room #N($01), layout #R$A46C).
+N $9127 Long platform (type #N($3E), room #N($01), layout #R$A6BB).
+N $9135 Green arch top (type #N($32), room #N($01), layout #R$A46C).
+N $9143 Vertical column (type #N($33), room #N($05), layout #R$A61C).
+N $9151 Vertical column (type #N($33), room #N($05), layout #R$A61C).
+N $915F Vertical column (type #N($32), room #N($05), layout #R$A61C).
+N $916D Trap door lever closed facing right (type #N($39), room #N($05),
+. layout #R$A809).
 @ $916D label=StateData_TrapDoorScenery
-  $916D,$0A Trap door scenery entity.
-@ $9177 label=Pointer_TrapDoorLayout
-W $9177,$02 Current open/closed graphic layout pointer for the trap door.
-  $9179,$02
+N $917B White arch (type #N($65), room #N($05), layout #R$A508).
 @ $917B label=StateData_ScenerySecondary
-  $917B,$01
-  $917C,$29
+N $9189 Vertical column (type #N($33), room #N($05), layout #R$A61C).
+N $9197 Vertical column (type #N($33), room #N($05), layout #R$A61C).
+N $91A5 Trap door lever closed facing left (type #N($3B), room #N($05),
+. layout #R$A827).
 @ $91A5 label=StateData_AnimatingScenery
-  $91A5,$01
-  $91A6,$09
+N $91B3 Green scenery strip (type #N($32), room #N($01), layout #R$AA28).
+N $91C1 Green scenery strip (type #N($32), room #N($02), layout #R$AA28).
+N $91CF Green scenery strip (type #N($32), room #N($03), layout #R$AA28).
+N $91DD Green scenery strip (type #N($32), room #N($04), layout #R$AA28).
+N $91EB Green scenery strip (type #N($32), room #N($05), layout #R$AA28).
+N $91F9 Scenery strip (type #N($32), room #N($05), layout #R$A921).
+@ $9177 label=Pointer_TrapDoorLayout
 @ $91AF label=Pointer_AnimatingSceneryLayout
-W $91AF,$02 Graphic layout pointer for the scenery entity at #R$91A5; written by
-. #R$AFDC / #R$B01E while animating the trap door.
-  $91B1,$56
+  $90B7,$01 Type: #N(#PEEK(#PC)).
+  $90B8,$01 Flags byte 1: #N(#PEEK(#PC)).
+  $90B9,$01 Flags byte 2: #N(#PEEK(#PC)).
+  $90BA,$01 Flags byte 3: #N(#PEEK(#PC)).
+  $90BB,$01 Room: #N(#PEEK(#PC)).
+  $90BC,$01 Y coordinate: #N(#PEEK(#PC)).
+  $90BD,$01 Y extent: #N(#PEEK(#PC)).
+  $90BE,$01 X coordinate: #N(#PEEK(#PC)).
+  $90BF,$01 X extent: #N(#PEEK(#PC)).
+  $90C0,$01 Direction / state: #N(#PEEK(#PC)).
+W $90C1,$02 Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+W $90C3,$02 Extra state.
+L $90B7,$0E,$18,$02
   $9207,$01 Terminator.
 
 b $9208 Graphic Layout: Berk

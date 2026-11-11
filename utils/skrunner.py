@@ -1,10 +1,12 @@
 # Copyright 2026 Paul Maddern (paul@arcadegeek.co.uk)
 import art
-import sys
 import os
+import subprocess
+import sys
 
 TRAPDOOR_HOME = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TRAPDOOR_SKOOL = '{}/sources/trapdoor.skool'.format(TRAPDOOR_HOME)
+COMPRESS_PNGS = '{}/utils/compress_pngs.py'.format(TRAPDOOR_HOME)
 
 SKOOLKIT_HOME = os.environ.get('SKOOLKIT_HOME')
 SKOOLKIT_TOOLS = "{}/tools".format(SKOOLKIT_HOME)
@@ -33,3 +35,6 @@ def run_skool2html():
     dec = '-D --ini ListRefs=2 -c Config/GameDir=trapdoor/dec --var pub=4'
     skool2html.main(options.split() + hex.split() + sys.argv[1:] + [TRAPDOOR_SKOOL])
     skool2html.main(options.split() + dec.split() + sys.argv[1:] + [TRAPDOOR_SKOOL])
+    # After hex/dec HTML: compress PNGs (skips castle-map_files Deep Zoom tiles).
+    subprocess.check_call([sys.executable, COMPRESS_PNGS,
+                           '{}/build/html/trapdoor'.format(TRAPDOOR_HOME)])

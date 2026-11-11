@@ -1,9 +1,12 @@
 ; Copyright 2026 Paul Maddern (paul@arcadegeek.co.uk)
 
+; Header #R targets are layout statement starts that build each camera
+; window. $E6DB walks from #R$8B69 through #R$9207 by room pass and camera.
+
 [Room:#N$00]
 #HTML(
 <table>
-  <tr><th>Room #N$00 — #R$A839</th></tr>
+  <tr><th>Room #N$00 Patio at #R$A839</th></tr>
   <tr>
     <td>#ROOM$00,$20,$40</td>
   </tr>
@@ -13,7 +16,13 @@
 [Room:#N$01]
 #HTML(
 <table>
-  <tr><th>Room #N$01 — #R$A237</th></tr>
+  <tr><th>Room #N$01 Storage Cupboard at #R$A2A8</th></tr>
+  <tr>
+    <td>
+      Scenery layout for room #N$01 in #R$8B69. Floor strips continue at
+      #R$A2F1. Shelves use #R$A6BB.
+    </td>
+  </tr>
   <tr>
     <td>#ROOM$01,$40,$60</td>
   </tr>
@@ -23,7 +32,16 @@
 [Room:#N$02]
 #HTML(
 <table>
-  <tr><th>Room #N$02 — #R$9FDC</th></tr>
+  <tr><th>Room #N$02 Mid camera stove band at #R$9FDC</th></tr>
+  <tr>
+    <td>
+      Room #N$02 is not a separate room. It is the room number on the
+      stove, hatch and trap floor entries, which are drawn in an
+      in-between camera window from #N$6C to #N$8C spanning Trap Door and
+      Kitchen. Lit stove layout #R$9FDC. Closed hatch #R$A3F3 and trap
+      floor #R$A453 share this band.
+    </td>
+  </tr>
   <tr>
     <td>#ROOM$02,$6C,$8C</td>
   </tr>
@@ -33,7 +51,12 @@
 [Room:#N$03]
 #HTML(
 <table>
-  <tr><th>Room #N$03 — #R$A082</th></tr>
+  <tr><th>Room #N$03 Trap Door at #R$A3F3</th></tr>
+  <tr>
+    <td>
+      Closed hatch layout. Wall scenery in this window is #R$A237.
+    </td>
+  </tr>
   <tr>
     <td>#ROOM$03,$60,$80</td>
   </tr>
@@ -43,7 +66,13 @@
 [Room:#N$04]
 #HTML(
 <table>
-  <tr><th>Room #N$04 — #R$A426</th></tr>
+  <tr><th>Room #N$04 Kitchen at #R$9FDC</th></tr>
+  <tr>
+    <td>
+      Lit stove in this camera. Also the dumb waiter #R$A7DA and lever
+      scenery #R$A827.
+    </td>
+  </tr>
   <tr>
     <td>#ROOM$04,$80,$A0</td>
   </tr>
@@ -53,7 +82,13 @@
 [Room:#N$05]
 #HTML(
 <table>
-  <tr><th>Room #N$05 — #R$A61C</th></tr>
+  <tr><th>Room #N$05 Weight at #R$A61C</th></tr>
+  <tr>
+    <td>
+      Vertical columns under #R$90B7 (room #N$05). White arch into the
+      Swamp is #R$A508 at #R$917B.
+    </td>
+  </tr>
   <tr>
     <td>#ROOM$05,$A0,$C0</td>
   </tr>
@@ -63,7 +98,13 @@
 [Room:Swamp]
 #HTML(
 <table>
-  <tr><th>Swamp (camera #N$E0-#N$FF) — #R$A929</th></tr>
+  <tr><th>Swamp (camera #N$E0 to #N$FF) at #R$A929</th></tr>
+  <tr>
+    <td>
+      Dripping water wrap scenery (room #N$00 high X in #R$8B69).
+      Waterline strips also use #R$AA28.
+    </td>
+  </tr>
   <tr>
     <td>#ROOM$06,$E0,$FF</td>
   </tr>

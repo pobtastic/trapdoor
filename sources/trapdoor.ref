@@ -17,7 +17,8 @@ HtmlWriterClass=:trapdoor.TrapDoorHtmlWriter
 [Game]
 Game=The Trap Door
 Logo=#LOGO0,0(logo)
-Copyright=&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.
+Copyright=&#169; 1986 Piranha, CMTB Animation<br />&#169; 2026 ArcadeGeek LTD.
+Release=The complete Trap Door RAM disassembly 20261111
 Repository=https://github.com/pobtastic/trapdoor/
 Canonical=https://skoolkit.arcadegeek.co.uk/trapdoor/
 GameIndexUrl=https://skoolkit.arcadegeek.co.uk/trapdoor/
@@ -78,20 +79,20 @@ at #R$8B69), then blit at #R$E991. Camera edges come from #R$72FB.
 <p>
 Placement follows the
 <a href="https://www.c64-wiki.com/wiki/The_Trap_Door">C64-Wiki map</a>
-for the Spectrum layout: kitchen on the left, stairs on the right, and
-the swamp under the weight room. The camera code at #R$F1F3 steps
-#R$72FB by #N$20 between #N$20 and #N$A0 (five upper rooms). The
-weight-to-stairs wrap is at #R$F226, and the stairs-to-weight wrap is
-at #R$F240. Kitchen and stairs are a normal step apart. The swamp
-camera at #N$E0-#N$FF is entered from the weight room via the white
-arch entity at #R$917B (#R$B771-#R$B785).
+for the Spectrum layout: Storage Cupboard on the left, Patio on the
+right, and the Swamp under the Weight room. The camera code at #R$F1F3
+steps #R$72FB by #N$20 between #N$20 and #N$A0 (five upper rooms). The
+Weight to Patio wrap is at #R$F226, and the Patio to Weight wrap is at
+#R$F240. Storage Cupboard and Patio are a normal step apart. The Swamp
+camera at #N$E0 to #N$FF is entered from the Weight room via the white
+arch entity at #R$917B (#R$B771 to #R$B785).
 </p>
 #LIST
-{ <a href="rooms.html##n$01">Room #N$01</a> Kitchen #N$40-#N$60 #R$A237 }
+{ <a href="rooms.html##n$01">Room #N$01</a> Storage Cupboard #N$40-#N$60 #R$A2A8 }
 { <a href="rooms.html##n$03">Room #N$03</a> Trap Door #N$60-#N$80 #R$A3F3 }
-{ <a href="rooms.html##n$04">Room #N$04</a> Stove #N$80-#N$A0 #R$9FDC }
+{ <a href="rooms.html##n$04">Room #N$04</a> Kitchen #N$80-#N$A0 #R$9FDC }
 { <a href="rooms.html##n$05">Room #N$05</a> Weight #N$A0-#N$C0 #R$A61C }
-{ <a href="rooms.html##n$00">Room #N$00</a> Stairs #N$20-#N$40 #R$A839 }
+{ <a href="rooms.html##n$00">Room #N$00</a> Patio #N$20-#N$40 #R$A839 }
 { <a href="rooms.html#swamp">Swamp</a> #N$E0-#N$FF #R$A929 }
 LIST#
 #HTML(<div class="castle-map-viewer" id="castle-map-viewer"></div>)

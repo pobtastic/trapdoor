@@ -1,7 +1,7 @@
 @org=$4000
 @start
 @expand=#IF({asm})(#DEF(#FLUNKY(addr)(link=Flunky)$link))
-@expand=#IF({asm}==0)(#DEF1(#FLUNKY(addr)#HTML(<a href="/flunky/#IF({{mode[base]}}==16)(,dec/)asm/#IF({{mode[base]}}==16)(#EVAL({addr},16,4),#EVAL({addr})).html">Flunky</a>)))
+@expand=#IF({asm}==0)(#DEF1(#FLUNKY(addr)#HTML(<a href="https://skoolkit.arcadegeek.co.uk/flunky/#IF({{mode[base]}}==16)(,dec/)asm/#IF({{mode[base]}}==16)(#EVAL({addr},16,4),#EVAL({addr})).html">Flunky</a>)))
 @expand=#DEF1(#SKOOLKID(addr,anchor=0)(name)#HTML(<a rel="noopener nofollow" href="https://skoolkit.ca/disassemblies/rom/#IF({{mode[base]}}==16)(hex/)asm/#IF({{mode[base]}}==16)(#EVAL({addr},16,4),#EVAL({addr})).html#IF({anchor})(#CHR(35)#IF({{mode[base]}}==16)(#EVAL({anchor},16,4),#EVAL({anchor})))">){name}#HTML(</a>))
 
 ; Loading Screen
@@ -1367,42 +1367,44 @@ w$730B DEFW $0000    ; Graphics set #N$00: placeholder (never selected by #N$F4;
 
 ; Bitmap Mirror Image Lookup Table
 ;
-; Lookup table used by #R$EA23 to reverse the bits in a bitmap byte when
-; horizontally mirroring a graphic tile (attribute bit #N$07 set in the
-; display-buffer entry).
+; Entry n holds n with its eight bits in reverse order, so bit #N$07
+; swaps with bit #N($00), bit #N$06 with bit #N($01), and so on. #R$EA23
+; passes each of a tile's eight bitmap bytes through it when the tile's
+; attribute bit #N$07 is set, which draws the tile mirrored left to right, so
+; one copy of the graphics serves both facing directions.
 @label=BitmapMirrorLookup
-b$7319 DEFB $00,$80,$40,$C0,$20,$A0,$60,$E0
- $7321 DEFB $10,$90,$50,$D0,$30,$B0,$70,$F0
- $7329 DEFB $08,$88,$48,$C8,$28,$A8,$68,$E8
- $7331 DEFB $18,$98,$58,$D8,$38,$B8,$78,$F8
- $7339 DEFB $04,$84,$44,$C4,$24,$A4,$64,$E4
- $7341 DEFB $14,$94,$54,$D4,$34,$B4,$74,$F4
- $7349 DEFB $0C,$8C,$4C,$CC,$2C,$AC,$6C,$EC
- $7351 DEFB $1C,$9C,$5C,$DC,$3C,$BC,$7C,$FC
- $7359 DEFB $02,$82,$42,$C2,$22,$A2,$62,$E2
- $7361 DEFB $12,$92,$52,$D2,$32,$B2,$72,$F2
- $7369 DEFB $0A,$8A,$4A,$CA,$2A,$AA,$6A,$EA
- $7371 DEFB $1A,$9A,$5A,$DA,$3A,$BA,$7A,$FA
- $7379 DEFB $06,$86,$46,$C6,$26,$A6,$66,$E6
- $7381 DEFB $16,$96,$56,$D6,$36,$B6,$76,$F6
- $7389 DEFB $0E,$8E,$4E,$CE,$2E,$AE,$6E,$EE
- $7391 DEFB $1E,$9E,$5E,$DE,$3E,$BE,$7E,$FE
- $7399 DEFB $01,$81,$41,$C1,$21,$A1,$61,$E1
- $73A1 DEFB $11,$91,$51,$D1,$31,$B1,$71,$F1
- $73A9 DEFB $09,$89,$49,$C9,$29,$A9,$69,$E9
- $73B1 DEFB $19,$99,$59,$D9,$39,$B9,$79,$F9
- $73B9 DEFB $05,$85,$45,$C5,$25,$A5,$65,$E5
- $73C1 DEFB $15,$95,$55,$D5,$35,$B5,$75,$F5
- $73C9 DEFB $0D,$8D,$4D,$CD,$2D,$AD,$6D,$ED
- $73D1 DEFB $1D,$9D,$5D,$DD,$3D,$BD,$7D,$FD
- $73D9 DEFB $03,$83,$43,$C3,$23,$A3,$63,$E3
- $73E1 DEFB $13,$93,$53,$D3,$33,$B3,$73,$F3
- $73E9 DEFB $0B,$8B,$4B,$CB,$2B,$AB,$6B,$EB
- $73F1 DEFB $1B,$9B,$5B,$DB,$3B,$BB,$7B,$FB
- $73F9 DEFB $07,$87,$47,$C7,$27,$A7,$67,$E7
- $7401 DEFB $17,$97,$57,$D7,$37,$B7,$77,$F7
- $7409 DEFB $0F,$8F,$4F,$CF,$2F,$AF,$6F,$EF
- $7411 DEFB $1F,$9F,$5F,$DF,$3F,$BF,$7F,$FF
+b$7319 DEFB %00000000,%10000000,%01000000,%11000000,%00100000,%10100000,%01100000,%11100000
+ $7321 DEFB %00010000,%10010000,%01010000,%11010000,%00110000,%10110000,%01110000,%11110000
+ $7329 DEFB %00001000,%10001000,%01001000,%11001000,%00101000,%10101000,%01101000,%11101000
+ $7331 DEFB %00011000,%10011000,%01011000,%11011000,%00111000,%10111000,%01111000,%11111000
+ $7339 DEFB %00000100,%10000100,%01000100,%11000100,%00100100,%10100100,%01100100,%11100100
+ $7341 DEFB %00010100,%10010100,%01010100,%11010100,%00110100,%10110100,%01110100,%11110100
+ $7349 DEFB %00001100,%10001100,%01001100,%11001100,%00101100,%10101100,%01101100,%11101100
+ $7351 DEFB %00011100,%10011100,%01011100,%11011100,%00111100,%10111100,%01111100,%11111100
+ $7359 DEFB %00000010,%10000010,%01000010,%11000010,%00100010,%10100010,%01100010,%11100010
+ $7361 DEFB %00010010,%10010010,%01010010,%11010010,%00110010,%10110010,%01110010,%11110010
+ $7369 DEFB %00001010,%10001010,%01001010,%11001010,%00101010,%10101010,%01101010,%11101010
+ $7371 DEFB %00011010,%10011010,%01011010,%11011010,%00111010,%10111010,%01111010,%11111010
+ $7379 DEFB %00000110,%10000110,%01000110,%11000110,%00100110,%10100110,%01100110,%11100110
+ $7381 DEFB %00010110,%10010110,%01010110,%11010110,%00110110,%10110110,%01110110,%11110110
+ $7389 DEFB %00001110,%10001110,%01001110,%11001110,%00101110,%10101110,%01101110,%11101110
+ $7391 DEFB %00011110,%10011110,%01011110,%11011110,%00111110,%10111110,%01111110,%11111110
+ $7399 DEFB %00000001,%10000001,%01000001,%11000001,%00100001,%10100001,%01100001,%11100001
+ $73A1 DEFB %00010001,%10010001,%01010001,%11010001,%00110001,%10110001,%01110001,%11110001
+ $73A9 DEFB %00001001,%10001001,%01001001,%11001001,%00101001,%10101001,%01101001,%11101001
+ $73B1 DEFB %00011001,%10011001,%01011001,%11011001,%00111001,%10111001,%01111001,%11111001
+ $73B9 DEFB %00000101,%10000101,%01000101,%11000101,%00100101,%10100101,%01100101,%11100101
+ $73C1 DEFB %00010101,%10010101,%01010101,%11010101,%00110101,%10110101,%01110101,%11110101
+ $73C9 DEFB %00001101,%10001101,%01001101,%11001101,%00101101,%10101101,%01101101,%11101101
+ $73D1 DEFB %00011101,%10011101,%01011101,%11011101,%00111101,%10111101,%01111101,%11111101
+ $73D9 DEFB %00000011,%10000011,%01000011,%11000011,%00100011,%10100011,%01100011,%11100011
+ $73E1 DEFB %00010011,%10010011,%01010011,%11010011,%00110011,%10110011,%01110011,%11110011
+ $73E9 DEFB %00001011,%10001011,%01001011,%11001011,%00101011,%10101011,%01101011,%11101011
+ $73F1 DEFB %00011011,%10011011,%01011011,%11011011,%00111011,%10111011,%01111011,%11111011
+ $73F9 DEFB %00000111,%10000111,%01000111,%11000111,%00100111,%10100111,%01100111,%11100111
+ $7401 DEFB %00010111,%10010111,%01010111,%11010111,%00110111,%10110111,%01110111,%11110111
+ $7409 DEFB %00001111,%10001111,%01001111,%11001111,%00101111,%10101111,%01101111,%11101111
+ $7411 DEFB %00011111,%10011111,%01011111,%11011111,%00111111,%10111111,%01111111,%11111111
 
 ; Graphics: Set #N$03
 ;
@@ -4358,44 +4360,54 @@ b$8B69 DEFB $32      ; Type: #N(#PEEK(#PC)).
  $8EE5 DEFW $A3D8    ; Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
  $8EE7 DEFW $0000    ; Extra state.
 
+; State Data: Boney
+;
+; Boney's entity state record (#N($000E,$04,$04) bytes). This is the
+; first slot of the complex entity table walked from #R$8EE9 and backed up to
+; #R$FA0E by #R$AFA9. Field names match #R$8B69: flags byte 1 at #R$F2EA
+; (#REGix+#N($01)), flags byte 2 at #R$B1BE (#REGix+#N($02)), flags byte 3
+; at #R$B440 (#REGix+#N($03)), room and position at #R$E6E4, #R$E71D,
+; #R$F2FA, #R$F301 and #R$F30F, direction and state at #R$B344 and #R$B617,
+; layout at #REGix+#N$0A (see #R$D82F and #R$DA04 which restore #R$9C9E),
+; and extra state at #R$B3A9, #R$CB1E and #R$CB44. Flags byte 3 at
+; #REGix+#N$03 for Berk and most movers holds: bit #N$00 is script locked
+; (ignore input, also set while facing or moving up), bit #N$01 is facing
+; left when set and facing right when reset, bit #N$02 is the mid
+; interaction or push latch, bit #N$03 is set at #R$B609, #R$B760, #R$B872
+; and #R$B922 and reset at #R$B47E, #R$F052 and #R$F0A7, bit #N$04 is the
+; carrying flag (set at #R$F0F2, reset at #R$F13E, tested by the Jump If
+; Carrying script command at #R$EF79), bit #N$05 is set at random at
+; #R$D522, tested at #R$D4AF and reset at #R$D4BD, bit #N$06 is the can
+; fall or gravity latch, and bit #N$07 is the rising or special vertical
+; state latch. Direction and state at #REGix+#N$09 uses #N$01 to face left,
+; #N$02 to face right, #N$04 to face down, and #N$08 to face up (see
+; #R$EF5B through #R$EF70).
+;
+; .
+;
+; Boney (type #N($01), room #N($01), layout #R$9C9E).
+@label=StateData_Boney
+b$8EE9 DEFB $01      ; Type: #N(#PEEK(#PC)).
+ $8EEA DEFB $1F      ; Flags byte 1: #N(#PEEK(#PC)).
+ $8EEB DEFB $00      ; Flags byte 2: #N(#PEEK(#PC)).
+ $8EEC DEFB $00      ; Flags byte 3: #N(#PEEK(#PC)).
+ $8EED DEFB $01      ; Room: #N(#PEEK(#PC)).
+ $8EEE DEFB $1A      ; Y coordinate: #N(#PEEK(#PC)).
+ $8EEF DEFB $1D      ; Y extent: #N(#PEEK(#PC)).
+ $8EF0 DEFB $64      ; X coordinate: #N(#PEEK(#PC)).
+ $8EF1 DEFB $65      ; X extent: #N(#PEEK(#PC)).
+ $8EF2 DEFB $00      ; Direction / state: #N(#PEEK(#PC)).
+@label=Pointer_BoneyGraphicLayout
+ $8EF3 DEFW $9C9E    ; Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+ $8EF5 DEFW $0000    ; Extra state.
+
 ; State Data: Complex Entities
 ;
-; Table of complex entity state records (#N($000E,$04,$04) bytes each).
-; Backed up to #R$FA0E by #R$AFA9.
-; Field layout: #N$00 type; #N$01–#N$03 flags; #N$04 room
-; #N$05/#N$06 y and y-extent; #N$07/#N$08 x and x-extent
-; #N$09 direction/state; #N$0A/#N$0B graphic layout pointer
-; #N$0C/#N$0D extra state.
-; Flags byte 3 at offset #N$03 (#REGix+#N$03) for Berk and most movers:
-; #TABLE(default,centre,centre)
-; { =h Bit | =h Meaning }
-; { #N$00 | Script-locked (ignore input; also set while facing / moving up) }
-; { #N$01 | Facing left (reset = facing right) }
-; { #N$02 | Mid-interaction / push latch }
-; { #N$03 | Bit #N$03 of flags byte 3 }
-; { #N$04 | Bit #N$04 of flags byte 3 (see #R$F0F2 / #R$F13E) }
-; { #N$05 | Bit #N$05 of flags byte 3 }
-; { #N$06 | Can-fall / gravity latch }
-; { #N$07 | Rising / special vertical-state latch }
-; TABLE#
-; Direction / state at offset #N$09: #N$01 face left, #N$02 face right,
-; #N$04 face down, #N$08 face up (see script routines #R$EF5B–#R$EF70).
-@label=StateData_ComplexEntities
-@label=StateData_Boney
-b$8EE9 DEFB $01,$1F,$00,$00,$01,$1A,$1D,$64 ; {Boney (type #N($01), room #N($01), layout #R$9C9E). First #N$0A
- $8EF1 DEFB $65,$00                         ; state bytes.}
-
-; Pointer: Boney Graphic Layout
-;
-; Current graphic layout pointer for Boney (entity field #REGix+#N$0A).
-; The snapshot holds #R$9C9E (Boney's skull). #R$D82F / #R$DA04 restore
-; #R$9C9E after Bad Tempered Thing dialogue.
-@label=Pointer_BoneyGraphicLayout
-g$8EF3 DEFW $9C9E
- $8EF5 DEFB $00,$00                         ; Remaining Boney entity state
-                                            ; bytes after the layout pointer.
+; Complex entity state records after Boney (#N($000E,$04,$04) bytes
+; each). The table begins at #R$8EE9 and is backed up to #R$FA0E by #R$AFA9.
+; Field names match #R$8B69 and #R$8EE9.
 @label=StateData_Drutt
- $8EF7 DEFB $87,$1F,$00,$00,$05,$26,$27,$45 ; {Drutt (type #N($87), room #N($05), layout #R$9E37 (the bullet)).
+b$8EF7 DEFB $87,$1F,$00,$00,$05,$26,$27,$45 ; {Drutt (type #N($87), room #N($05), layout #R$9E37 (the bullet)).
  $8EFF DEFB $45,$00,$37,$9E,$47,$90         ; Drutt's script and animation data is at #R$D234.
                                             ; }
 @label=StateData_Complex_02
@@ -4498,69 +4510,338 @@ g$8EF3 DEFW $9C9E
 
 ; State Data: Scenery Entities
 ;
-; Additional entity state records for room scenery and fixtures
-; (#N($000E,$04,$04) bytes each, terminated by #N$FF at #R$9207). These
-; are not included in the #R$AFA9 backup. Each record's layout pointer
-; references graphic layout data in #R$9208–#R$A827.
+; Room scenery and fixture state records (#N($000E,$04,$04) bytes each,
+; terminated by #N$FF at #R$9207). These are not included in the #R$AFA9
+; backup. Field names match #R$8B69: flags byte 1 at #R$F2EA, flags byte 2 at
+; #R$B1BE, flags byte 3 at #R$B440, room and position at #R$E6E4, #R$E71D,
+; #R$F2FA, #R$F301 and #R$F30F, direction and state at #R$B344 and #R$B617,
+; and layout at #REGix+#N($0A). #R$EDDB and #R$EDF8 write the lever layout
+; word at #R$9177 when the trap door closes and opens, and #R$AFDC and
+; #R$B01E write the lever layout word at #R$91AF.
+;
+; .
+;
+; Door frame variant (type #N($32), room #N($01), layout #R$A5E9).
 @label=StateData_SceneryEntities
-b$90B7 DEFB $32
- $90B8 DEFB $07,$00,$00,$01,$14,$1B,$5E,$5F
- $90C0 DEFB $00,$E9,$A5,$00,$00,$35,$01,$00
- $90C8 DEFB $00,$01,$13,$1B,$56,$57,$00,$B6
- $90D0 DEFB $A5,$00,$00,$35,$01,$00,$00,$01
- $90D8 DEFB $11,$1B,$7A,$7B,$00,$B6,$A5,$00
- $90E0 DEFB $00,$35,$01,$00,$00,$01,$11,$1B
- $90E8 DEFB $3E,$41,$00,$72,$A2,$00,$00,$3E
- $90F0 DEFB $01,$00,$00,$01,$19,$1B,$69,$7F
- $90F8 DEFB $00,$BB,$A6,$00,$00,$35,$01,$00
- $9100 DEFB $00,$01,$11,$1B,$88,$89,$00,$E9
- $9108 DEFB $A5,$00,$00,$3E,$01,$00,$00,$01
- $9110 DEFB $19,$1B,$80,$8A,$00,$BB,$A6,$00
- $9118 DEFB $00,$32,$00,$00,$00,$01,$1A,$1D
- $9120 DEFB $8E,$8F,$00,$6C,$A4,$00,$00,$3E
- $9128 DEFB $01,$00,$00,$01,$19,$1B,$A7,$BF
- $9130 DEFB $00,$BB,$A6,$00,$00,$32,$00,$00
- $9138 DEFB $00,$01,$1A,$1D,$AC,$AC,$00,$6C
- $9140 DEFB $A4,$00,$00,$33,$04,$00,$00,$05
- $9148 DEFB $1E,$27,$20,$21,$00,$1C,$A6,$00
- $9150 DEFB $00,$33,$04,$00,$00,$05,$1E,$27
- $9158 DEFB $3E,$3F,$00,$1C,$A6,$00,$00,$32
- $9160 DEFB $04,$00,$00,$05,$1E,$27,$5F,$60
- $9168 DEFB $00,$1C,$A6,$00,$00
+b$90B7 DEFB $32      ; Type: #N(#PEEK(#PC)).
+ $90B8 DEFB $07      ; Flags byte 1: #N(#PEEK(#PC)).
+ $90B9 DEFB $00      ; Flags byte 2: #N(#PEEK(#PC)).
+ $90BA DEFB $00      ; Flags byte 3: #N(#PEEK(#PC)).
+ $90BB DEFB $01      ; Room: #N(#PEEK(#PC)).
+ $90BC DEFB $14      ; Y coordinate: #N(#PEEK(#PC)).
+ $90BD DEFB $1B      ; Y extent: #N(#PEEK(#PC)).
+ $90BE DEFB $5E      ; X coordinate: #N(#PEEK(#PC)).
+ $90BF DEFB $5F      ; X extent: #N(#PEEK(#PC)).
+ $90C0 DEFB $00      ; Direction / state: #N(#PEEK(#PC)).
+ $90C1 DEFW $A5E9    ; Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+ $90C3 DEFW $0000    ; Extra state.
+; Door frame (type #N($35), room #N($01), layout #R$A5B6).
+ $90C5 DEFB $35      ; Type: #N(#PEEK(#PC)).
+ $90C6 DEFB $01      ; Flags byte 1: #N(#PEEK(#PC)).
+ $90C7 DEFB $00      ; Flags byte 2: #N(#PEEK(#PC)).
+ $90C8 DEFB $00      ; Flags byte 3: #N(#PEEK(#PC)).
+ $90C9 DEFB $01      ; Room: #N(#PEEK(#PC)).
+ $90CA DEFB $13      ; Y coordinate: #N(#PEEK(#PC)).
+ $90CB DEFB $1B      ; Y extent: #N(#PEEK(#PC)).
+ $90CC DEFB $56      ; X coordinate: #N(#PEEK(#PC)).
+ $90CD DEFB $57      ; X extent: #N(#PEEK(#PC)).
+ $90CE DEFB $00      ; Direction / state: #N(#PEEK(#PC)).
+ $90CF DEFW $A5B6    ; Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+ $90D1 DEFW $0000    ; Extra state.
+; Door frame (type #N($35), room #N($01), layout #R$A5B6).
+ $90D3 DEFB $35      ; Type: #N(#PEEK(#PC)).
+ $90D4 DEFB $01      ; Flags byte 1: #N(#PEEK(#PC)).
+ $90D5 DEFB $00      ; Flags byte 2: #N(#PEEK(#PC)).
+ $90D6 DEFB $00      ; Flags byte 3: #N(#PEEK(#PC)).
+ $90D7 DEFB $01      ; Room: #N(#PEEK(#PC)).
+ $90D8 DEFB $11      ; Y coordinate: #N(#PEEK(#PC)).
+ $90D9 DEFB $1B      ; Y extent: #N(#PEEK(#PC)).
+ $90DA DEFB $7A      ; X coordinate: #N(#PEEK(#PC)).
+ $90DB DEFB $7B      ; X extent: #N(#PEEK(#PC)).
+ $90DC DEFB $00      ; Direction / state: #N(#PEEK(#PC)).
+ $90DD DEFW $A5B6    ; Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+ $90DF DEFW $0000    ; Extra state.
+; Shared tile (type #N($35), room #N($01), layout #R$A272).
+ $90E1 DEFB $35      ; Type: #N(#PEEK(#PC)).
+ $90E2 DEFB $01      ; Flags byte 1: #N(#PEEK(#PC)).
+ $90E3 DEFB $00      ; Flags byte 2: #N(#PEEK(#PC)).
+ $90E4 DEFB $00      ; Flags byte 3: #N(#PEEK(#PC)).
+ $90E5 DEFB $01      ; Room: #N(#PEEK(#PC)).
+ $90E6 DEFB $11      ; Y coordinate: #N(#PEEK(#PC)).
+ $90E7 DEFB $1B      ; Y extent: #N(#PEEK(#PC)).
+ $90E8 DEFB $3E      ; X coordinate: #N(#PEEK(#PC)).
+ $90E9 DEFB $41      ; X extent: #N(#PEEK(#PC)).
+ $90EA DEFB $00      ; Direction / state: #N(#PEEK(#PC)).
+ $90EB DEFW $A272    ; Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+ $90ED DEFW $0000    ; Extra state.
+; Long platform (type #N($3E), room #N($01), layout #R$A6BB).
+ $90EF DEFB $3E      ; Type: #N(#PEEK(#PC)).
+ $90F0 DEFB $01      ; Flags byte 1: #N(#PEEK(#PC)).
+ $90F1 DEFB $00      ; Flags byte 2: #N(#PEEK(#PC)).
+ $90F2 DEFB $00      ; Flags byte 3: #N(#PEEK(#PC)).
+ $90F3 DEFB $01      ; Room: #N(#PEEK(#PC)).
+ $90F4 DEFB $19      ; Y coordinate: #N(#PEEK(#PC)).
+ $90F5 DEFB $1B      ; Y extent: #N(#PEEK(#PC)).
+ $90F6 DEFB $69      ; X coordinate: #N(#PEEK(#PC)).
+ $90F7 DEFB $7F      ; X extent: #N(#PEEK(#PC)).
+ $90F8 DEFB $00      ; Direction / state: #N(#PEEK(#PC)).
+ $90F9 DEFW $A6BB    ; Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+ $90FB DEFW $0000    ; Extra state.
+; Door frame variant (type #N($35), room #N($01), layout #R$A5E9).
+ $90FD DEFB $35      ; Type: #N(#PEEK(#PC)).
+ $90FE DEFB $01      ; Flags byte 1: #N(#PEEK(#PC)).
+ $90FF DEFB $00      ; Flags byte 2: #N(#PEEK(#PC)).
+ $9100 DEFB $00      ; Flags byte 3: #N(#PEEK(#PC)).
+ $9101 DEFB $01      ; Room: #N(#PEEK(#PC)).
+ $9102 DEFB $11      ; Y coordinate: #N(#PEEK(#PC)).
+ $9103 DEFB $1B      ; Y extent: #N(#PEEK(#PC)).
+ $9104 DEFB $88      ; X coordinate: #N(#PEEK(#PC)).
+ $9105 DEFB $89      ; X extent: #N(#PEEK(#PC)).
+ $9106 DEFB $00      ; Direction / state: #N(#PEEK(#PC)).
+ $9107 DEFW $A5E9    ; Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+ $9109 DEFW $0000    ; Extra state.
+; Long platform (type #N($3E), room #N($01), layout #R$A6BB).
+ $910B DEFB $3E      ; Type: #N(#PEEK(#PC)).
+ $910C DEFB $01      ; Flags byte 1: #N(#PEEK(#PC)).
+ $910D DEFB $00      ; Flags byte 2: #N(#PEEK(#PC)).
+ $910E DEFB $00      ; Flags byte 3: #N(#PEEK(#PC)).
+ $910F DEFB $01      ; Room: #N(#PEEK(#PC)).
+ $9110 DEFB $19      ; Y coordinate: #N(#PEEK(#PC)).
+ $9111 DEFB $1B      ; Y extent: #N(#PEEK(#PC)).
+ $9112 DEFB $80      ; X coordinate: #N(#PEEK(#PC)).
+ $9113 DEFB $8A      ; X extent: #N(#PEEK(#PC)).
+ $9114 DEFB $00      ; Direction / state: #N(#PEEK(#PC)).
+ $9115 DEFW $A6BB    ; Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+ $9117 DEFW $0000    ; Extra state.
+; Green arch top (type #N($32), room #N($01), layout #R$A46C).
+ $9119 DEFB $32      ; Type: #N(#PEEK(#PC)).
+ $911A DEFB $00      ; Flags byte 1: #N(#PEEK(#PC)).
+ $911B DEFB $00      ; Flags byte 2: #N(#PEEK(#PC)).
+ $911C DEFB $00      ; Flags byte 3: #N(#PEEK(#PC)).
+ $911D DEFB $01      ; Room: #N(#PEEK(#PC)).
+ $911E DEFB $1A      ; Y coordinate: #N(#PEEK(#PC)).
+ $911F DEFB $1D      ; Y extent: #N(#PEEK(#PC)).
+ $9120 DEFB $8E      ; X coordinate: #N(#PEEK(#PC)).
+ $9121 DEFB $8F      ; X extent: #N(#PEEK(#PC)).
+ $9122 DEFB $00      ; Direction / state: #N(#PEEK(#PC)).
+ $9123 DEFW $A46C    ; Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+ $9125 DEFW $0000    ; Extra state.
+; Long platform (type #N($3E), room #N($01), layout #R$A6BB).
+ $9127 DEFB $3E      ; Type: #N(#PEEK(#PC)).
+ $9128 DEFB $01      ; Flags byte 1: #N(#PEEK(#PC)).
+ $9129 DEFB $00      ; Flags byte 2: #N(#PEEK(#PC)).
+ $912A DEFB $00      ; Flags byte 3: #N(#PEEK(#PC)).
+ $912B DEFB $01      ; Room: #N(#PEEK(#PC)).
+ $912C DEFB $19      ; Y coordinate: #N(#PEEK(#PC)).
+ $912D DEFB $1B      ; Y extent: #N(#PEEK(#PC)).
+ $912E DEFB $A7      ; X coordinate: #N(#PEEK(#PC)).
+ $912F DEFB $BF      ; X extent: #N(#PEEK(#PC)).
+ $9130 DEFB $00      ; Direction / state: #N(#PEEK(#PC)).
+ $9131 DEFW $A6BB    ; Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+ $9133 DEFW $0000    ; Extra state.
+; Green arch top (type #N($32), room #N($01), layout #R$A46C).
+ $9135 DEFB $32      ; Type: #N(#PEEK(#PC)).
+ $9136 DEFB $00      ; Flags byte 1: #N(#PEEK(#PC)).
+ $9137 DEFB $00      ; Flags byte 2: #N(#PEEK(#PC)).
+ $9138 DEFB $00      ; Flags byte 3: #N(#PEEK(#PC)).
+ $9139 DEFB $01      ; Room: #N(#PEEK(#PC)).
+ $913A DEFB $1A      ; Y coordinate: #N(#PEEK(#PC)).
+ $913B DEFB $1D      ; Y extent: #N(#PEEK(#PC)).
+ $913C DEFB $AC      ; X coordinate: #N(#PEEK(#PC)).
+ $913D DEFB $AC      ; X extent: #N(#PEEK(#PC)).
+ $913E DEFB $00      ; Direction / state: #N(#PEEK(#PC)).
+ $913F DEFW $A46C    ; Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+ $9141 DEFW $0000    ; Extra state.
+; Vertical column (type #N($33), room #N($05), layout #R$A61C).
+ $9143 DEFB $33      ; Type: #N(#PEEK(#PC)).
+ $9144 DEFB $04      ; Flags byte 1: #N(#PEEK(#PC)).
+ $9145 DEFB $00      ; Flags byte 2: #N(#PEEK(#PC)).
+ $9146 DEFB $00      ; Flags byte 3: #N(#PEEK(#PC)).
+ $9147 DEFB $05      ; Room: #N(#PEEK(#PC)).
+ $9148 DEFB $1E      ; Y coordinate: #N(#PEEK(#PC)).
+ $9149 DEFB $27      ; Y extent: #N(#PEEK(#PC)).
+ $914A DEFB $20      ; X coordinate: #N(#PEEK(#PC)).
+ $914B DEFB $21      ; X extent: #N(#PEEK(#PC)).
+ $914C DEFB $00      ; Direction / state: #N(#PEEK(#PC)).
+ $914D DEFW $A61C    ; Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+ $914F DEFW $0000    ; Extra state.
+; Vertical column (type #N($33), room #N($05), layout #R$A61C).
+ $9151 DEFB $33      ; Type: #N(#PEEK(#PC)).
+ $9152 DEFB $04      ; Flags byte 1: #N(#PEEK(#PC)).
+ $9153 DEFB $00      ; Flags byte 2: #N(#PEEK(#PC)).
+ $9154 DEFB $00      ; Flags byte 3: #N(#PEEK(#PC)).
+ $9155 DEFB $05      ; Room: #N(#PEEK(#PC)).
+ $9156 DEFB $1E      ; Y coordinate: #N(#PEEK(#PC)).
+ $9157 DEFB $27      ; Y extent: #N(#PEEK(#PC)).
+ $9158 DEFB $3E      ; X coordinate: #N(#PEEK(#PC)).
+ $9159 DEFB $3F      ; X extent: #N(#PEEK(#PC)).
+ $915A DEFB $00      ; Direction / state: #N(#PEEK(#PC)).
+ $915B DEFW $A61C    ; Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+ $915D DEFW $0000    ; Extra state.
+; Vertical column (type #N($32), room #N($05), layout #R$A61C).
+ $915F DEFB $32      ; Type: #N(#PEEK(#PC)).
+ $9160 DEFB $04      ; Flags byte 1: #N(#PEEK(#PC)).
+ $9161 DEFB $00      ; Flags byte 2: #N(#PEEK(#PC)).
+ $9162 DEFB $00      ; Flags byte 3: #N(#PEEK(#PC)).
+ $9163 DEFB $05      ; Room: #N(#PEEK(#PC)).
+ $9164 DEFB $1E      ; Y coordinate: #N(#PEEK(#PC)).
+ $9165 DEFB $27      ; Y extent: #N(#PEEK(#PC)).
+ $9166 DEFB $5F      ; X coordinate: #N(#PEEK(#PC)).
+ $9167 DEFB $60      ; X extent: #N(#PEEK(#PC)).
+ $9168 DEFB $00      ; Direction / state: #N(#PEEK(#PC)).
+ $9169 DEFW $A61C    ; Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+ $916B DEFW $0000    ; Extra state.
+; Trap door lever closed facing right (type #N($39), room #N($05),
+; layout #R$A809).
 @label=StateData_TrapDoorScenery
- $916D DEFB $39,$04,$00,$00,$05,$21,$23,$60 ; {Trap door scenery entity.
- $9175 DEFB $61,$00                         ; }
+ $916D DEFB $39      ; Type: #N(#PEEK(#PC)).
+ $916E DEFB $04      ; Flags byte 1: #N(#PEEK(#PC)).
+ $916F DEFB $00      ; Flags byte 2: #N(#PEEK(#PC)).
+ $9170 DEFB $00      ; Flags byte 3: #N(#PEEK(#PC)).
+ $9171 DEFB $05      ; Room: #N(#PEEK(#PC)).
+ $9172 DEFB $21      ; Y coordinate: #N(#PEEK(#PC)).
+ $9173 DEFB $23      ; Y extent: #N(#PEEK(#PC)).
+ $9174 DEFB $60      ; X coordinate: #N(#PEEK(#PC)).
+ $9175 DEFB $61      ; X extent: #N(#PEEK(#PC)).
+ $9176 DEFB $00      ; Direction / state: #N(#PEEK(#PC)).
 @label=Pointer_TrapDoorLayout
- $9177 DEFW $A809                           ; Current open/closed graphic
-                                            ; layout pointer for the trap door.
- $9179 DEFB $00,$00
+ $9177 DEFW $A809    ; Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+ $9179 DEFW $0000    ; Extra state.
+; White arch (type #N($65), room #N($05), layout #R$A508).
 @label=StateData_ScenerySecondary
- $917B DEFB $65
- $917C DEFB $01,$00,$00,$05,$1D,$27,$A0,$A9
- $9184 DEFB $00,$08,$A5,$00,$00,$33,$07,$00
- $918C DEFB $00,$05,$1E,$27,$40,$41,$00,$1C
- $9194 DEFB $A6,$00,$00,$33,$07,$00,$00,$05
- $919C DEFB $1E,$27,$BE,$BF,$00,$1C,$A6,$00
- $91A4 DEFB $00
+ $917B DEFB $65      ; Type: #N(#PEEK(#PC)).
+ $917C DEFB $01      ; Flags byte 1: #N(#PEEK(#PC)).
+ $917D DEFB $00      ; Flags byte 2: #N(#PEEK(#PC)).
+ $917E DEFB $00      ; Flags byte 3: #N(#PEEK(#PC)).
+ $917F DEFB $05      ; Room: #N(#PEEK(#PC)).
+ $9180 DEFB $1D      ; Y coordinate: #N(#PEEK(#PC)).
+ $9181 DEFB $27      ; Y extent: #N(#PEEK(#PC)).
+ $9182 DEFB $A0      ; X coordinate: #N(#PEEK(#PC)).
+ $9183 DEFB $A9      ; X extent: #N(#PEEK(#PC)).
+ $9184 DEFB $00      ; Direction / state: #N(#PEEK(#PC)).
+ $9185 DEFW $A508    ; Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+ $9187 DEFW $0000    ; Extra state.
+; Vertical column (type #N($33), room #N($05), layout #R$A61C).
+ $9189 DEFB $33      ; Type: #N(#PEEK(#PC)).
+ $918A DEFB $07      ; Flags byte 1: #N(#PEEK(#PC)).
+ $918B DEFB $00      ; Flags byte 2: #N(#PEEK(#PC)).
+ $918C DEFB $00      ; Flags byte 3: #N(#PEEK(#PC)).
+ $918D DEFB $05      ; Room: #N(#PEEK(#PC)).
+ $918E DEFB $1E      ; Y coordinate: #N(#PEEK(#PC)).
+ $918F DEFB $27      ; Y extent: #N(#PEEK(#PC)).
+ $9190 DEFB $40      ; X coordinate: #N(#PEEK(#PC)).
+ $9191 DEFB $41      ; X extent: #N(#PEEK(#PC)).
+ $9192 DEFB $00      ; Direction / state: #N(#PEEK(#PC)).
+ $9193 DEFW $A61C    ; Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+ $9195 DEFW $0000    ; Extra state.
+; Vertical column (type #N($33), room #N($05), layout #R$A61C).
+ $9197 DEFB $33      ; Type: #N(#PEEK(#PC)).
+ $9198 DEFB $07      ; Flags byte 1: #N(#PEEK(#PC)).
+ $9199 DEFB $00      ; Flags byte 2: #N(#PEEK(#PC)).
+ $919A DEFB $00      ; Flags byte 3: #N(#PEEK(#PC)).
+ $919B DEFB $05      ; Room: #N(#PEEK(#PC)).
+ $919C DEFB $1E      ; Y coordinate: #N(#PEEK(#PC)).
+ $919D DEFB $27      ; Y extent: #N(#PEEK(#PC)).
+ $919E DEFB $BE      ; X coordinate: #N(#PEEK(#PC)).
+ $919F DEFB $BF      ; X extent: #N(#PEEK(#PC)).
+ $91A0 DEFB $00      ; Direction / state: #N(#PEEK(#PC)).
+ $91A1 DEFW $A61C    ; Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+ $91A3 DEFW $0000    ; Extra state.
+; Trap door lever closed facing left (type #N($3B), room #N($05),
+; layout #R$A827).
 @label=StateData_AnimatingScenery
- $91A5 DEFB $3B
- $91A6 DEFB $04,$00,$00,$05,$21,$23,$BD,$BE
- $91AE DEFB $00
+ $91A5 DEFB $3B      ; Type: #N(#PEEK(#PC)).
+ $91A6 DEFB $04      ; Flags byte 1: #N(#PEEK(#PC)).
+ $91A7 DEFB $00      ; Flags byte 2: #N(#PEEK(#PC)).
+ $91A8 DEFB $00      ; Flags byte 3: #N(#PEEK(#PC)).
+ $91A9 DEFB $05      ; Room: #N(#PEEK(#PC)).
+ $91AA DEFB $21      ; Y coordinate: #N(#PEEK(#PC)).
+ $91AB DEFB $23      ; Y extent: #N(#PEEK(#PC)).
+ $91AC DEFB $BD      ; X coordinate: #N(#PEEK(#PC)).
+ $91AD DEFB $BE      ; X extent: #N(#PEEK(#PC)).
+ $91AE DEFB $00      ; Direction / state: #N(#PEEK(#PC)).
 @label=Pointer_AnimatingSceneryLayout
- $91AF DEFW $A827                           ; Graphic layout pointer for the scenery entity at #R$91A5; written by
-                                            ; #R$AFDC / #R$B01E while animating the trap door.
- $91B1 DEFB $00,$00,$32,$00,$00,$00,$01,$23
- $91B9 DEFB $23,$E0,$FF,$00,$28,$AA,$00,$00
- $91C1 DEFB $32,$00,$00,$00,$02,$24,$24,$E0
- $91C9 DEFB $FF,$00,$28,$AA,$00,$00,$32,$00
- $91D1 DEFB $00,$00,$03,$25,$25,$E0,$FF,$00
- $91D9 DEFB $28,$AA,$00,$00,$32,$00,$00,$00
- $91E1 DEFB $04,$26,$26,$E0,$FF,$00,$28,$AA
- $91E9 DEFB $00,$00,$32,$00,$00,$00,$05,$27
- $91F1 DEFB $27,$E0,$FF,$00,$28,$AA,$00,$00
- $91F9 DEFB $32,$00,$00,$00,$05,$27,$27,$E0
- $9201 DEFB $FF,$00,$21,$A9,$00,$00
- $9207 DEFB $FF                             ; Terminator.
+ $91AF DEFW $A827    ; Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+ $91B1 DEFW $0000    ; Extra state.
+; Green scenery strip (type #N($32), room #N($01), layout #R$AA28).
+ $91B3 DEFB $32      ; Type: #N(#PEEK(#PC)).
+ $91B4 DEFB $00      ; Flags byte 1: #N(#PEEK(#PC)).
+ $91B5 DEFB $00      ; Flags byte 2: #N(#PEEK(#PC)).
+ $91B6 DEFB $00      ; Flags byte 3: #N(#PEEK(#PC)).
+ $91B7 DEFB $01      ; Room: #N(#PEEK(#PC)).
+ $91B8 DEFB $23      ; Y coordinate: #N(#PEEK(#PC)).
+ $91B9 DEFB $23      ; Y extent: #N(#PEEK(#PC)).
+ $91BA DEFB $E0      ; X coordinate: #N(#PEEK(#PC)).
+ $91BB DEFB $FF      ; X extent: #N(#PEEK(#PC)).
+ $91BC DEFB $00      ; Direction / state: #N(#PEEK(#PC)).
+ $91BD DEFW $AA28    ; Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+ $91BF DEFW $0000    ; Extra state.
+; Green scenery strip (type #N($32), room #N($02), layout #R$AA28).
+ $91C1 DEFB $32      ; Type: #N(#PEEK(#PC)).
+ $91C2 DEFB $00      ; Flags byte 1: #N(#PEEK(#PC)).
+ $91C3 DEFB $00      ; Flags byte 2: #N(#PEEK(#PC)).
+ $91C4 DEFB $00      ; Flags byte 3: #N(#PEEK(#PC)).
+ $91C5 DEFB $02      ; Room: #N(#PEEK(#PC)).
+ $91C6 DEFB $24      ; Y coordinate: #N(#PEEK(#PC)).
+ $91C7 DEFB $24      ; Y extent: #N(#PEEK(#PC)).
+ $91C8 DEFB $E0      ; X coordinate: #N(#PEEK(#PC)).
+ $91C9 DEFB $FF      ; X extent: #N(#PEEK(#PC)).
+ $91CA DEFB $00      ; Direction / state: #N(#PEEK(#PC)).
+ $91CB DEFW $AA28    ; Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+ $91CD DEFW $0000    ; Extra state.
+; Green scenery strip (type #N($32), room #N($03), layout #R$AA28).
+ $91CF DEFB $32      ; Type: #N(#PEEK(#PC)).
+ $91D0 DEFB $00      ; Flags byte 1: #N(#PEEK(#PC)).
+ $91D1 DEFB $00      ; Flags byte 2: #N(#PEEK(#PC)).
+ $91D2 DEFB $00      ; Flags byte 3: #N(#PEEK(#PC)).
+ $91D3 DEFB $03      ; Room: #N(#PEEK(#PC)).
+ $91D4 DEFB $25      ; Y coordinate: #N(#PEEK(#PC)).
+ $91D5 DEFB $25      ; Y extent: #N(#PEEK(#PC)).
+ $91D6 DEFB $E0      ; X coordinate: #N(#PEEK(#PC)).
+ $91D7 DEFB $FF      ; X extent: #N(#PEEK(#PC)).
+ $91D8 DEFB $00      ; Direction / state: #N(#PEEK(#PC)).
+ $91D9 DEFW $AA28    ; Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+ $91DB DEFW $0000    ; Extra state.
+; Green scenery strip (type #N($32), room #N($04), layout #R$AA28).
+ $91DD DEFB $32      ; Type: #N(#PEEK(#PC)).
+ $91DE DEFB $00      ; Flags byte 1: #N(#PEEK(#PC)).
+ $91DF DEFB $00      ; Flags byte 2: #N(#PEEK(#PC)).
+ $91E0 DEFB $00      ; Flags byte 3: #N(#PEEK(#PC)).
+ $91E1 DEFB $04      ; Room: #N(#PEEK(#PC)).
+ $91E2 DEFB $26      ; Y coordinate: #N(#PEEK(#PC)).
+ $91E3 DEFB $26      ; Y extent: #N(#PEEK(#PC)).
+ $91E4 DEFB $E0      ; X coordinate: #N(#PEEK(#PC)).
+ $91E5 DEFB $FF      ; X extent: #N(#PEEK(#PC)).
+ $91E6 DEFB $00      ; Direction / state: #N(#PEEK(#PC)).
+ $91E7 DEFW $AA28    ; Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+ $91E9 DEFW $0000    ; Extra state.
+; Green scenery strip (type #N($32), room #N($05), layout #R$AA28).
+ $91EB DEFB $32      ; Type: #N(#PEEK(#PC)).
+ $91EC DEFB $00      ; Flags byte 1: #N(#PEEK(#PC)).
+ $91ED DEFB $00      ; Flags byte 2: #N(#PEEK(#PC)).
+ $91EE DEFB $00      ; Flags byte 3: #N(#PEEK(#PC)).
+ $91EF DEFB $05      ; Room: #N(#PEEK(#PC)).
+ $91F0 DEFB $27      ; Y coordinate: #N(#PEEK(#PC)).
+ $91F1 DEFB $27      ; Y extent: #N(#PEEK(#PC)).
+ $91F2 DEFB $E0      ; X coordinate: #N(#PEEK(#PC)).
+ $91F3 DEFB $FF      ; X extent: #N(#PEEK(#PC)).
+ $91F4 DEFB $00      ; Direction / state: #N(#PEEK(#PC)).
+ $91F5 DEFW $AA28    ; Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+ $91F7 DEFW $0000    ; Extra state.
+; Scenery strip (type #N($32), room #N($05), layout #R$A921).
+ $91F9 DEFB $32      ; Type: #N(#PEEK(#PC)).
+ $91FA DEFB $00      ; Flags byte 1: #N(#PEEK(#PC)).
+ $91FB DEFB $00      ; Flags byte 2: #N(#PEEK(#PC)).
+ $91FC DEFB $00      ; Flags byte 3: #N(#PEEK(#PC)).
+ $91FD DEFB $05      ; Room: #N(#PEEK(#PC)).
+ $91FE DEFB $27      ; Y coordinate: #N(#PEEK(#PC)).
+ $91FF DEFB $27      ; Y extent: #N(#PEEK(#PC)).
+ $9200 DEFB $E0      ; X coordinate: #N(#PEEK(#PC)).
+ $9201 DEFB $FF      ; X extent: #N(#PEEK(#PC)).
+ $9202 DEFB $00      ; Direction / state: #N(#PEEK(#PC)).
+ $9203 DEFW $A921    ; Layout: #R(#PEEK(#PC)+#PEEK(#PC+$01)*$0100).
+ $9205 DEFW $0000    ; Extra state.
+ $9207 DEFB $FF      ; Terminator.
 
 ; Graphic Layout: Berk
 ;
