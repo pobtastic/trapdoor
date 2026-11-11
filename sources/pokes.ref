@@ -1,0 +1,261 @@
+; Copyright 2026 Paul Maddern (paul@arcadegeek.co.uk)
+
+[Poke:noTickDelay:No Game Tick Delay]
+<code>
+  <div>POKE #R$ABC5,#N$18</div>
+</code>
+
+Berk's per-frame update at #R$ABC0 returns early while #R$72F2 is non-zero.
+This changes the <code>JR Z</code> into an absolute <code>JR</code>, so the delay
+gate is skipped and Berk always continues into the rest of the update.
+
+<table>
+  <tbody>
+    <tr>
+      <td class="address-1">#R$ABC0(#N$ABC0)</td>
+      <td class="instruction">LD #REGhl,#R$72F2(#N$72F2)</td>
+      <td class="comment-2" rowspan="5">If the tick counter is non-zero, decrease it and
+      return; otherwise continue.</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$ABC3</td>
+      <td class="instruction">LD #REGa,(#REGhl)</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$ABC4</td>
+      <td class="instruction">OR #REGa</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$ABC5</td>
+      <td class="instruction">JR Z,#R$ABC9(#N$ABC9)</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$ABC7</td>
+      <td class="instruction">DEC (#REGhl)</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td class="address-1">#R$ABC5</td>
+      <td class="instruction">JR #R$ABC9(#N$ABC9)</td>
+    </tr>
+  </tbody>
+</table>
+
+[Poke:neverFired:Never Fired On Task Timeout]
+<code>
+  <div>POKE #R$AC81(#N$AC81),#N$00</div>
+  <div>POKE #R$AC81(#N$AC82),#N$00</div>
+  <div>POKE #R$AC81(#N$AC83),#N$00</div>
+</code>
+
+When the task frame counter runs out in Super Berk mode, #R$AC7D jumps to
+#R$AC41, which prints the ratings (including "YOU'RE FIRED") and restarts.
+These POKEs remove that jump, so a timed-out Super Berk game continues
+instead of ending.
+
+<table>
+  <tbody>
+    <tr>
+      <td class="address-1">#R$AC7D</td>
+      <td class="instruction">LD #REGa,(#R$72A9)</td>
+      <td class="comment-2" rowspan="3">If Learner Berk mode is clear (Super Berk), jump to
+      the fired / ratings restart at #R$AC41.</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$AC80</td>
+      <td class="instruction">OR #REGa</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$AC81</td>
+      <td class="instruction">JP Z,#R$AC41</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td class="address-1">#R$AC81(#N$AC81)</td>
+      <td class="instruction">NOP</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$AC81(#N$AC82)</td>
+      <td class="instruction">NOP</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$AC81(#N$AC83)</td>
+      <td class="instruction">NOP</td>
+    </tr>
+  </tbody>
+</table>
+
+[Poke:freezeTaskThree:Freeze Task Three Timer]
+<code>
+  <div>POKE #R$C389,#N$00</div>
+</code>
+
+While the task-three timer at #R$72C3 is non-zero, #R$C378 counts it down with
+<code>DEC #REGa</code> at #R$C389. This NOPs that decrease, so the timer value
+stops falling and the countdown side-effects no longer advance.
+
+<table>
+  <tbody>
+    <tr>
+      <td class="address-1">#R$C37B</td>
+      <td class="instruction">LD #REGa,(#R$72C3)</td>
+      <td class="comment-2" rowspan="4">Load the task-three timer and, when it is
+      non-zero, decrease it.</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$C37E</td>
+      <td class="instruction">OR #REGa</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$C37F</td>
+      <td class="instruction">JR Z,#R$C39C</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$C389</td>
+      <td class="instruction">DEC #REGa</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td class="address-1">#R$C389</td>
+      <td class="instruction">NOP</td>
+    </tr>
+  </tbody>
+</table>
+
+[Poke:learnerSuper:Learner Or Super Berk]
+<code>
+  <div>POKE #R$72A9,#N$00</div>
+  <div>POKE #R$72A9,#N$01</div>
+</code>
+
+#R$72A9 is the Learner Berk mode flag written by the main menu at #R$F43D.
+#N$00 selects Super Berk; #N$01 selects Learner Berk. Apply after the menu
+choice (or it will be overwritten). Learner mode softens timing and skips the
+Super-only timeout jump at #R$AC81.
+
+[Poke:startTask:Start On Task]
+<code>
+  <div>POKE #R$72AE,<em>nn</em></div>
+</code>
+
+#R$72AE is the current task index. After a game has started, set it to one of:
+
+#LIST
+{ #N$01 Can of worms }
+{ #N$02 Fried eggs }
+{ #N$03 Boiled slimies }
+{ #N$04 Eyeball crush }
+{ #N$05 Tidy up }
+LIST#
+
+The briefing printer at #R$DE51 reads this index through the table at #R$DE63.
+You will usually also want #R$72AF non-zero so the task phase is treated as
+active (see #R$AB95).
+
+[Poke:infiniteTime:Infinite Time]
+<code>
+  <div>POKE #R$AC6B,#N$18</div>
+</code>
+
+When the task frame counter at #R$72C6 hits zero, #R$AC69 compares the task
+timer at #R$72F0 with #N$A0. The original <code>JR C</code> at #R$AC6B only
+skips ahead to the attribute-strip path at #R$ACA2 when the timer is below that
+threshold; otherwise control falls into the fanfare / timeout path at #R$AC6D
+(and can reach the "YOU'RE FIRED" restart at #R$AC41). This changes that
+instruction into an absolute <code>JR</code>, so the timeout path is always
+skipped.
+
+<table>
+  <tbody>
+    <tr>
+      <td class="address-1">#R$AC62</td>
+      <td class="instruction">LD #REGa,(#R$72F0)</td>
+      <td class="comment-2" rowspan="5">Advance the task timer and, if it is less than
+      #N($A0), jump to the attribute-strip path.</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$AC65</td>
+      <td class="instruction">INC #REGa</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$AC66</td>
+      <td class="instruction">LD (#R$72F0),#REGa</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$AC69</td>
+      <td class="instruction">CP #N$A0</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$AC6B</td>
+      <td class="instruction">JR C,#R$ACA2</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td class="address-1">#R$AC6B</td>
+      <td class="instruction">JR #R$ACA2</td>
+    </tr>
+  </tbody>
+</table>
+
+[Poke:maximumBonus:Maximum Bonus]
+<code>
+  <div>POKE #R$ACDB,#N$00</div>
+</code>
+
+On the quiet frame-tick path, #R$ACB7 paints the status strip and #R$ACCF
+rotates the timer glyph. #R$ACD5 then counts #R$72DB down with
+<code>DEC #REGhl</code> at #R$ACDB before reprinting it via #R$AF1E. That word
+is the bonus. This NOPs the decrease, so the bonus no longer drains on each
+tick.
+
+<table>
+  <tbody>
+    <tr>
+      <td class="address-1">#R$ACD5</td>
+      <td class="instruction">LD #REGhl,(#R$72DB)</td>
+      <td class="comment-2" rowspan="5">If the bonus is non-zero, decrease it and
+      reprint it via #R$AF1E.</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$ACD8</td>
+      <td class="instruction">LD #REGa,#REGh</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$ACD9</td>
+      <td class="instruction">OR #REGl</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$ACDA</td>
+      <td class="instruction">RET Z</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$ACDB</td>
+      <td class="instruction">DEC #REGhl</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td class="address-1">#R$ACDB</td>
+      <td class="instruction">NOP</td>
+    </tr>
+  </tbody>
+</table>

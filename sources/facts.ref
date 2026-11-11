@@ -1,0 +1,30 @@
+; Copyright 2026 Paul Maddern (paul@arcadegeek.co.uk)
+
+[Fact:musicEn:Leftover "@Music.en"]
+The nine bytes at #R$728E to #N$7296 are the leftover filename
+<code>@Music.en</code> at the end of the menu-music source block
+(#R$6F04). #R$AAB3 copies those bytes to #N$FFF6 with the rest of the block.
+Nothing in the game prints or otherwise uses the string.
+
+[Fact:trapdoorHeader:Tape header remnant]
+#R$5F65 to #N$5F6E hold the ten-character tape header name
+<code>TRAPDOOR</code> (padded with spaces) left by the loader. The bytes sit
+in otherwise unused memory between the system variables and the display
+buffers.
+
+[Fact:yourre:YOUR'RE]
+The Bad Tempered Thing aside at #R$DD09 stores
+<code>YOUR'RE ON YOUR OWN</code>. That is presumably meant to read
+<code>YOU'RE ON YOUR OWN</code>. The typo is in the original game, so the
+bytes are left exactly as they are.
+
+[Fact:imUpstairs:'IM]
+The aside at #R$DD42 stores <code>'IM UPSTAIRS WAITS</code>. That is
+presumably meant to read <code>I'M UPSTAIRS WAITS</code>. The typo is in the
+original game, so the bytes are left exactly as they are.
+
+[Fact:learnerSuper:Learner Berk / Super Berk]
+#R$72A9 is the Learner Berk mode flag. The main-menu chooser at #R$F43D
+writes #N$00 for Super Berk (#CHR$53) or #N$01 for Learner Berk (#CHR$4C).
+Readers include #R$AC07, #R$AC55, #R$AC7D, #R$AEB2, #R$AF5E, #R$BC12 and
+#R$DE19.

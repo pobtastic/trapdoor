@@ -1,0 +1,193 @@
+; Copyright 2026 Paul Maddern (paul@arcadegeek.co.uk)
+
+;
+; SkoolKit ref file for The Trap Door
+;
+; To build the HTML disassembly, run these commands:
+;   tap2sna.py @trapdoor.t2s
+;   sna2skool.py -H --ini ListRefs=2 -c sources/trapdoor.ctl TrapDoor.z80 > sources/trapdoor.skool
+;   skool2html.py -H sources/trapdoor.skool -T dark -T wide -toOa
+
+[Config]
+Expand=#INCLUDE(Expand)
+RefFiles=bases.ref;analytics.ref;changelog.ref;credits.ref;data.ref;facts.ref;pokes.ref;rooms.ref;sound.ref
+GameDir=trapdoor
+HtmlWriterClass=:trapdoor.TrapDoorHtmlWriter
+
+[Game]
+Game=The Trap Door
+Logo=#LOGO0,0(logo)
+Copyright=&copy; 1986 Piranha, CMTB Animation<br />&copy; 2026 ArcadeGeek LTD.
+Repository=https://github.com/pobtastic/trapdoor/
+Canonical=https://skoolkit.arcadegeek.co.uk/trapdoor/
+GameIndexUrl=https://skoolkit.arcadegeek.co.uk/trapdoor/
+OgImage=https://skoolkit.arcadegeek.co.uk/trapdoor/images/logo.png
+LinkInternalOperands=1
+AddressAnchor={address#IF({base}==16)(:04x)}
+StyleSheet=skoolkit.css;trapdoor.css
+
+[Titles]
+GameStatusBuffer=Game Status Buffer
+UnusedMap=Unused Addresses
+
+[PageHeaders]
+GameIndex=The complete<>RAM disassembly (work in progress)
+
+[Links]
+Rooms=[Rooms]
+Map=[Map]
+Sound=[Sound]
+
+[Paths]
+Rooms=graphics/rooms.html
+Map=graphics/map.html
+Sound=sound/sounds.html
+
+[Page:Rooms]
+SectionPrefix=Room
+
+[Page:Map]
+JavaScript=openseadragon.min.js;castle-map.js
+PageContent=#INCLUDE(CastleMap)
+
+[Page:Sound]
+SectionPrefix=Audio
+
+[Index:DataTables:Data Tables And Buffers]
+GameStatusBuffer
+
+[Index:Graphics:Graphics And Sounds]
+Rooms
+Map
+Sound
+
+[Index:MemoryMaps:Memory Maps]
+MemoryMap
+RoutinesMap
+DataMap
+MessagesMap
+UnusedMap
+
+[CastleMap]
+<p>
+The castle rooms are drawn with the same path as
+<a href="rooms.html">Rooms</a>. Clear both display buffers at #R$EA3C,
+populate them at #R$E6DB (room passes #N$00-#N$05 over the scenery table
+at #R$8B69), then blit at #R$E991. Camera edges come from #R$72FB.
+</p>
+<p>
+Placement follows the
+<a href="https://www.c64-wiki.com/wiki/The_Trap_Door">C64-Wiki map</a>
+for the Spectrum layout: kitchen on the left, stairs on the right, and
+the swamp under the weight room. The camera code at #R$F1F3 steps
+#R$72FB by #N$20 between #N$20 and #N$A0 (five upper rooms). The
+weight-to-stairs wrap is at #R$F226, and the stairs-to-weight wrap is
+at #R$F240. Kitchen and stairs are a normal step apart. The swamp
+camera at #N$E0-#N$FF is entered from the weight room via the white
+arch entity at #R$917B (#R$B771-#R$B785).
+</p>
+#LIST
+{ <a href="rooms.html##n$01">Room #N$01</a> Kitchen #N$40-#N$60 #R$A237 }
+{ <a href="rooms.html##n$03">Room #N$03</a> Trap Door #N$60-#N$80 #R$A3F3 }
+{ <a href="rooms.html##n$04">Room #N$04</a> Stove #N$80-#N$A0 #R$9FDC }
+{ <a href="rooms.html##n$05">Room #N$05</a> Weight #N$A0-#N$C0 #R$A61C }
+{ <a href="rooms.html##n$00">Room #N$00</a> Stairs #N$20-#N$40 #R$A839 }
+{ <a href="rooms.html#swamp">Swamp</a> #N$E0-#N$FF #R$A929 }
+LIST#
+#HTML(<div class="castle-map-viewer" id="castle-map-viewer"></div>)
+<p class="castle-map-hint">Drag to move. Scroll or pinch to zoom.</p>
+
+[Expand]
+
+; Header logo. publish.ref calls #LOGO1,1(logo-hex) / #LOGO0,1(logo-dec).
+#DEF(#LOGO(dark,trans)(fname)
+  #PUSHS
+  #POKES$4000,$00,$1B00
+  #SIM(start=$F6D6,stop=$F73F)
+  #SCR$02,$00,$00,$20,$18{$00,$00,$90,$60}({ImagePath}/$fname)
+  #POPS
+)
+
+; Layout attribute decoder for F2 comments. Bit 7 is the mirror flag
+; (#R$EA14 / #R$EA23), not FLASH; #R$E9EF forces bright on every tile, so
+; bit 6 is unused here. Keep this definition local to Trap Door.
+#DEF(#COLOUR(id)
+  #LET(ink=$id&$07)INK: #MAP({ink})(
+      BLACK,
+      0:BLACK,
+      1:BLUE,
+      2:RED,
+      3:MAGENTA,
+      4:GREEN,
+      5:CYAN,
+      6:YELLOW,
+      7:WHITE),
+  #LET(paper=$id>>$03&$07)PAPER: #MAP({paper})(
+      BLACK,
+      0:BLACK,
+      1:BLUE,
+      2:RED,
+      3:MAGENTA,
+      4:GREEN,
+      5:CYAN,
+      6:YELLOW,
+      7:WHITE)#IF($id&$80)(#CHR$2C MIRRORED))
+
+; Link a graphic-set index to its base via #R$730B (set x #N$02).
+; Matches #R$E9EF / #R$E841: entry 0 is set #N$00; live F4 sets are #N$01-#N$06.
+#DEF(#GRAPHICSET(n)
+  #R(#PEEK($730B+$n*$02)+#PEEK($730B+$n*$02+$01)*$0100)(#N($n)))
+
+; Tile step byte after a layout tile (see #R$E7A0 and #R$E78C):
+; bits 0-6 encode the horizontal delta as (step-#N$20); values
+; <= #N$20 also add one row down. When the tile paper is black,
+; bit 7 set keeps black paper; bit 7 clear takes colour from the
+; cell underneath (#R$E792). If that cell's bit 6 is set, #R$E797
+; shifts its ink into the paper field; otherwise the cell's paper
+; bits are used (#R$E79A).
+#DEF2(#TILESTEP(d,a)
+  #LET(s=$d&$7F)
+  #LET(paper=$a>>$03&$07)
+  #LET(keep$=#IF({paper}==$00)(#IF($d&$80)(#CHR$2C keeping black paper,#CHR$2C keeping the background paper)))
+  #IF({s}<$20)(left by #N($20-{s}) and down by #N$01#FORMAT0({keep$}))
+  #IF({s}==$20)(down by #N$01#FORMAT0({keep$}))
+  #IF({s}>$20)(right by #N({s}-$20)#FORMAT0({keep$}))
+)
+
+; #ROOM renders one camera window of a fresh in-game frame.
+; It clears both display buffers at #R$EA3C, populates them at #R$E6DB
+; with room passes #N$00 through #N$05 over #R$8B69 to #R$9207, then
+; blits at #R$E991. Camera edges are written to #R$72FB and #R$72FC.
+; That matches the per-frame draw path with no single-room filter.
+; The snapshot already holds the closed-trap types from #R$EDC9 and lever
+; #R$A809 (as written by #R$EDDB), so room #N$03 shows the closed green
+; mat. No open/close pokes are applied here.
+;
+; The swamp is not a seventh #R$E716 room pass. It is the wrap-around camera
+; window at #N$E0-#N$FF on the same #R$E6DB path. Room-#N$00 high-X scenery
+; such as #R$8BCB / #R$A929 (dripping water) fills that window. Falling
+; through the trap still writes room #N$03 at #R$B207 / #R$B94E.
+#DEF(#ROOM(id,cam=$20,camr=$40)
+  #PUSHS
+  #POKES$4000,$00,$1B00;$72F5,$A0;$72F6,$63;$72EA,$00;$72FB,$cam;$72FC,$camr;$5BFC,$00;$5BFD,$00
+  #SIM(start=$EA3C,stop=$00,sp=$5BFC)
+  #SIM(start=$E6DB,stop=$00,sp=$5BFC)
+  #SIM(start=$E991,stop=$00,sp=$5BFC)
+  #SCR$02(room-#EVAL($id,$0A,$02))
+  #POPS)
+
+; #LAYOUT renders one graphic-layout address through the game's own draw
+; path: clear both display buffers at #R$EA3C, process the layout for a
+; scratch entity via #R$E71D (into the buffer at #R$72F5), then blit at
+; #R$E991. The scratch entity sits at #R$8B69 with Y/X chosen so the
+; draw origin lands on-camera. Optional attr/set seed $7308/$7306; optional
+; y/x/ye/xe override entity Y, X, Y-extent and X-extent (e.g. #R$9E4D
+; moves 17 rows down, so needs a taller ye and a lower y).
+#DEF(#LAYOUT(lo,hi,attr=$00,set=$03,y=$1C,x=$08,ye=$08,xe=$10)(name)
+  #PUSHS
+  #POKES$4000,$00,$1B00;$72F5,$A0;$72F6,$63;$72EA,$00;$72FB,$00;$72FC,$20;$5BFC,$00;$5BFD,$00;$8B69,$01;$8B6A,$00;$8B6B,$00;$8B6C,$00;$8B6D,$04;$8B6E,$y;$8B6F,$ye;$8B70,$x;$8B71,$xe;$8B72,$00;$8B73,$lo;$8B74,$hi;$7306,$set;$7308,$attr
+  #SIM(start=$EA3C,stop=$00,sp=$5BFC)
+  #SIM(start=$E71D,stop=$00,sp=$5BFC,ix=$8B69)
+  #SIM(start=$E991,stop=$00,sp=$5BFC)
+  #SCR$02($name)
+  #POPS)
